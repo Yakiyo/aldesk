@@ -1,5 +1,6 @@
 import 'package:aldesk/routes/home_page.dart';
 import 'package:aldesk/routes/login_page.dart';
+import 'package:aldesk/routes/splash_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -9,7 +10,7 @@ final _isLoggedIn = _db.containsKey("token");
 // otherwise redirect to the /login page
 
 final router = GoRouter(
-  initialLocation: "/",
+  initialLocation: "/splash",
   routes: [
     GoRoute(
       name: "home",
@@ -21,8 +22,17 @@ final router = GoRouter(
       path: "/login",
       builder: (context, state) => const LoginPage(),
     ),
+    GoRoute(
+      name: "splash",
+      path: "/splash",
+      builder: (context, state) => const SplashPage(),
+    )
   ],
   redirect: (context, state) {
+    if (state.matchedLocation == '/splash') {
+      return null;
+    }
+
     // if user not logged in, move to login screen
     if (!_isLoggedIn) {
       return "/login";
