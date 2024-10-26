@@ -1,0 +1,10 @@
+query GetUser($id: Int, $search: String) {
+  User(id:$id, search: $search) {
+    id
+    name
+    avatar {
+      large
+      medium
+    }
+  }
+}

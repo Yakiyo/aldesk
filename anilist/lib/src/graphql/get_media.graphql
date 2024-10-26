@@ -3,12 +3,5 @@ query GetMedia($id: Int) {
     title {
       romaji
     }
-    countryOfOrigin
-    source
-    trailer {
-      id
-      site
-      thumbnail
-    }
   }
 }
