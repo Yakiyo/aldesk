@@ -10,4 +10,3 @@ enum MediaType {
   @JsonValue("MANGA")
   manga
 }
-

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// TODO: set this in compile time
 const _clientId = "20687";
 final Uri _url = Uri.parse(
     "https://anilist.co/api/v2/oauth/authorize?client_id=$_clientId&response_type=token");

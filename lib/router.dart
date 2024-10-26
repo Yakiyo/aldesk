@@ -1,3 +1,4 @@
+import 'package:aldesk/routes/404_page.dart';
 import 'package:aldesk/routes/home_page.dart';
 import 'package:aldesk/routes/login_page.dart';
 import 'package:aldesk/routes/splash_page.dart';
@@ -45,4 +46,5 @@ final router = GoRouter(
     // otherwise no redirection needed
     return null;
   },
+  errorBuilder: (context, state) => const Page404(),
 );
