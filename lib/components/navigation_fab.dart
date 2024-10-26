@@ -28,6 +28,7 @@ class _NavigationFABState extends State<NavigationFAB> {
           child: FloatingActionButton(
             backgroundColor: colorPrimary,
             onPressed: () => _changeView(),
+            heroTag: null,
             child: const Icon(
               Icons.menu,
               color: Colors.cyan,
@@ -42,6 +43,7 @@ class _NavigationFABState extends State<NavigationFAB> {
             child: FloatingActionButton(
               backgroundColor: colorPrimary,
               onPressed: () => _changeView(),
+              heroTag: null,
               child: QuickMenu(
                 onPressed: _changeView,
               ),
