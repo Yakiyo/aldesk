@@ -10,7 +10,7 @@ Media _$MediaFromJson(Map<String, dynamic> json) => Media()
   ..id = (json['id'] as num).toInt()
   ..title = Map<String, String>.from(json['title'] as Map)
   ..type = $enumDecode(_$MediaTypeEnumMap, json['type'])
-  ..format = json['format'] as String
+  ..format = $enumDecode(_$MediaFormatEnumMap, json['format'])
   ..status = json['status'] as String
   ..description = json['description'] as String
   ..startDate = Map<String, int>.from(json['startDate'] as Map)
@@ -25,7 +25,7 @@ Map<String, dynamic> _$MediaToJson(Media instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'type': _$MediaTypeEnumMap[instance.type]!,
-      'format': instance.format,
+      'format': _$MediaFormatEnumMap[instance.format]!,
       'status': instance.status,
       'description': instance.description,
       'startDate': instance.startDate,
@@ -40,4 +40,17 @@ Map<String, dynamic> _$MediaToJson(Media instance) => <String, dynamic>{
 const _$MediaTypeEnumMap = {
   MediaType.anime: 'ANIME',
   MediaType.manga: 'MANGA',
+};
+
+const _$MediaFormatEnumMap = {
+  MediaFormat.tv: 'TV',
+  MediaFormat.tvShort: 'TV_SHORT',
+  MediaFormat.movie: 'MOVIE',
+  MediaFormat.special: 'SPECIAL',
+  MediaFormat.ova: 'OVA',
+  MediaFormat.ona: 'ONA',
+  MediaFormat.music: 'MUSIC',
+  MediaFormat.manga: 'MANGA',
+  MediaFormat.novel: 'NOVEL',
+  MediaFormat.oneShot: 'ONE_SHOT',
 };

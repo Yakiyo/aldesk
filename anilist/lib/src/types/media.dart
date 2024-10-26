@@ -1,4 +1,4 @@
-import '../types.dart';
+import 'enums.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'media.g.dart';
@@ -8,7 +8,7 @@ class Media {
   late int id;
   late Map<String, String> title;
   late MediaType type;
-  late String format;
+  late MediaFormat format;
   late String status;
   late String description;
 
