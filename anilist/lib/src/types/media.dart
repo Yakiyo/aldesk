@@ -19,8 +19,30 @@ class Media {
   late int? chapters;
   late int? volumes;
 
+  late String countryOfOrigin;
+  late bool isLicensed;
+  // TODO: make this an enum
+  late String source;
+  late String hashtag;
+  late Map<String, String> trailer;
+  late int updatedAt;
+
   late Map<String, String> coverImage;
   late String bannerImage;
+
+  late List<String> genres;
+  late List<String> synonyms;
+
+  late int averageScore;
+  late int meanScore;
+  late int popularity;
+
+  late bool isLocked;
+  late int trending;
+  late int favourites;
+
+  // TODO: media tag
+  late List<dynamic> tags;
 
   Media();
 
