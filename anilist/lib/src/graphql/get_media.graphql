@@ -1,0 +1,14 @@
+query GetMedia($id: Int) {
+  Media(id: $id) {
+    title {
+      romaji
+    }
+    countryOfOrigin
+    source
+    trailer {
+      id
+      site
+      thumbnail
+    }
+  }
+}
