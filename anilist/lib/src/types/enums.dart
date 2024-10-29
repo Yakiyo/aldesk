@@ -2,10 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 /// Type of media
 @JsonEnum(fieldRename: FieldRename.screamingSnake)
-enum MediaType {
-  anime,
-  manga
-}
+enum MediaType { anime, manga }
 
 /// Format of media
 @JsonEnum(fieldRename: FieldRename.screamingSnake)

@@ -1,0 +1,97 @@
+fragment MediaMinimalFrag on Media {
+  id
+  title {
+    romaji
+    english
+    native
+    userPreferred
+  }
+  coverImage {
+    large
+    medium
+  }
+}
+
+fragment MediaCategory on Media {
+  type
+  format
+}
+
+fragment MediaExtraInfo on Media {
+  season
+  seasonYear
+  averageScore
+  meanScore
+  popularity
+}
+
+query MediaMinimal($id: Int, $search: String) {
+  Media(id: $id, search: $search) {
+    ...MediaMinimalFrag
+  }
+}
+
+query Media($id: Int, $search: String) {
+  Media(id: $id, search: $search) {
+    ...MediaMinimalFrag
+    ...MediaCategory
+    ...MediaExtraInfo
+    status
+    description(asHtml: false)
+    bannerImage
+
+    startDate {
+      year
+      month
+      day
+    }
+    endDate {
+      year
+      month
+      day
+    }
+    
+    episodes
+    chapters
+    volumes
+    
+    isLicensed
+    source
+    
+    genres
+    synonyms
+    tags {
+      id
+      name
+      description
+    }
+    isAdult
+    
+    nextAiringEpisode {
+      id
+      airingAt
+      timeUntilAiring
+      episode
+    }
+    
+    mediaListEntry {
+      id
+      status
+      score(format: POINT_10)
+      progress
+      progressVolumes
+      repeat
+      notes
+      startedAt {
+        year
+        month
+        day
+      }
+      completedAt {
+        year
+        month
+        day
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import 'package:anilist/src/client.dart';
-import 'package:anilist/src/graphql/__generated__/get_user.req.gql.dart';
+import 'package:anilist/src/graphql/__generated__/user.req.gql.dart';
 import 'package:test/test.dart';
 
 void main() {

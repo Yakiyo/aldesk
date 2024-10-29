@@ -1,30 +1,15 @@
-import 'package:http/http.dart' as http;
-
-// A singleton class, so that it can only be instantiated once.
-// Idea from: https://medium.com/@alvaro.armijoss/singleton-in-flutter-c8d187820364
+import 'package:anilist/src/client.dart';
+import 'package:ferry/ferry.dart';
 
 /// The main class to interact with the Anilist API
 class AnilistClient {
   /// User authentication token
-  // ignore: unused_field
-  String? _token;
+  final String token;
 
   // ignore: unused_field
-  final _httpClient = http.Client();
+  late final Client _client;
 
-  AnilistClient._();
-  static final _instance = AnilistClient._();
-
-  factory AnilistClient() {
-    return _instance;
-  }
-
-  /// Add user authentication token
-  void withToken(String token) {
-    if (token.isEmpty) {
-      throw "Argument token cannot be an empty string";
-    }
-
-    _token = token;
+  AnilistClient({required this.token}) {
+    _client = createClient(token: token);
   }
 }
