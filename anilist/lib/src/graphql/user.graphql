@@ -1,10 +1,92 @@
-query GetUser($id: Int, $search: String) {
-  User(id:$id, search: $search) {
-    id
-    name
-    avatar {
-      large
-      medium
+fragment UserMinimalFrag on User {
+  id
+  name
+  avatar {
+    large
+    medium
+  }
+}
+
+fragment UserSocialsFrag on User {
+  isFollowing
+  isFollower
+  isBlocked
+}
+
+fragment UserSettingsFrag on User {
+  options {
+    titleLanguage
+    displayAdultContent
+    airingNotifications
+    profileColor
+    timezone
+    activityMergeTime
+    staffNameLanguage
+    restrictMessagesToFollowing
+  }
+  mediaListOptions {
+    scoreFormat
+    rowOrder
+    animeList {
+      sectionOrder
+      splitCompletedSectionByFormat
+      customLists
+      advancedScoring
+      advancedScoringEnabled
+    }
+    mangaList {
+      sectionOrder
+      splitCompletedSectionByFormat
+      customLists
+      advancedScoring
+      advancedScoringEnabled
+    }
+  }
+}
+
+fragment UserStatisticsMinFrag on UserStatistics {
+  count
+  meanScore
+  standardDeviation
+  minutesWatched
+  episodesWatched
+  chaptersRead
+  volumesRead
+  genres {
+    count
+    genre
+    meanScore
+    minutesWatched
+    chaptersRead
+  }
+}
+
+query User($id: Int, $search: String) {
+  User(id: $id, search: $search) {
+    ...UserMinimalFrag
+    ...UserSocialsFrag
+    ...UserSettingsFrag
+    about(asHtml: false)
+    bannerImage
+    siteUrl
+  }
+}
+
+query Viewer {
+  Viewer {
+    ...UserMinimalFrag
+  }
+}
+
+query UserStatisticsMin($id: Int, $search: String) {
+  User(id: $id, search: $search) {
+    statistics {
+      anime {
+        ...UserStatisticsMinFrag
+      }
+      manga {
+        ...UserStatisticsMinFrag
+      }
     }
   }
 }
