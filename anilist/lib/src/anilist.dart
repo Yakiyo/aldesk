@@ -62,7 +62,7 @@ class AnilistClient {
     );
   }
 
-  Future<Result<List<GHomePageListData_Page_mediaList?>, ApiError>>
+  Future<Result<List<GHomePageListData_Page_mediaList>, ApiError>>
       currentAnimes() async {
     final userR = await currentUser();
     if (userR.isErr()) {
@@ -103,10 +103,10 @@ class AnilistClient {
         return aup > bup ? -1 : 1;
       });
       return f;
-    });
+    }).map((d) => d.map((x) => x!).toList());
   }
 
-  Future<Result<List<GHomePageListData_Page_mediaList?>, ApiError>>
+  Future<Result<List<GHomePageListData_Page_mediaList>, ApiError>>
       currentMangas() async {
     final userR = await currentUser();
     if (userR.isErr()) {
@@ -122,7 +122,7 @@ class AnilistClient {
     final res = await request(query, _client);
     // no sorting required since api returns it based on updated time
     return res.map(
-      (d) => [...d!.Page!.mediaList!],
+      (d) => [...d!.Page!.mediaList!].map((x) => x!).toList(),
     );
   }
 }

@@ -2,3 +2,4 @@
 library anilist;
 
 export 'src/anilist.dart';
+export 'package:anilist/src/graphql/__generated__/media.data.gql.dart';

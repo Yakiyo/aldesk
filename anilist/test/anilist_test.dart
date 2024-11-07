@@ -39,7 +39,7 @@ void main() {
     assert(res.isOk(), "response returned err ${res.unwrapErr()}");
     final currents = res.unwrap();
     print(currents
-        .map((x) => "${x!.media!.title!.romaji} : ${x.media!.status}")
+        .map((x) => "${x.media!.title!.romaji} : ${x.media!.status}")
         .join("\n"));
   });
 
@@ -49,7 +49,7 @@ void main() {
     assert(res.isOk(), "response returned err ${res.unwrapErr()}");
     final currents = res.unwrap();
     print(currents
-        .map((x) => "${x!.media!.title!.romaji} : ${x.media!.status}")
+        .map((x) => "${x.media!.title!.romaji} : ${x.media!.status}")
         .join("\n"));
   });
 }
