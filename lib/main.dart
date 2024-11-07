@@ -1,9 +1,17 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:minlog/minlog.dart';
 import 'router.dart';
 
 void main() async {
   await Hive.initFlutter();
+  if (kDebugMode) {
+    updateDefaultLogger(level: Level.debug, writer: StdOutWriter());
+  } else {
+    // TODO: need to log errors to a file during prod
+    updateDefaultLogger(level: Level.warn);
+  }
 
   await Hive.openBox<String>("db");
 

@@ -524,6 +524,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  minlog:
+    dependency: "direct main"
+    description:
+      name: minlog
+      sha256: "8eb5da87f73d52de3bb7b02215404d3967a9bc60d338caee24ce819fe901f02a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   node_preamble:
     dependency: transitive
     description:

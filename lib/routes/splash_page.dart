@@ -3,6 +3,7 @@ import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:minlog/minlog.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -21,6 +22,7 @@ class _SplashPageState extends State<SplashPage> {
   void initialize() {
     Future.delayed(const Duration(seconds: 2), () {
       final isloggedin = _isLoggedIn();
+      debug("$isloggedin");
       if (!mounted) return;
       context.go(isloggedin ? "/" : "/login");
     });
@@ -32,14 +34,17 @@ class _SplashPageState extends State<SplashPage> {
 
     // if we dont have a token entry or an empty entry (shouldnt happen), must login
     if (tokenStr == null || tokenStr.isEmpty) {
+      debug("No token found $tokenStr");
       return false;
     }
 
     late final JWT jwt;
 
     try {
-      jwt = JWT.decode(tokenStr).payload;
+      jwt = JWT.decode(tokenStr);
     } catch (e) {
+      warn("Token is invalid, must login again");
+      warn("$e");
       return false;
     }
 
@@ -54,6 +59,7 @@ class _SplashPageState extends State<SplashPage> {
     // iat < now < exp - this should be the proper serial
 
     if (now.difference(iat).isNegative) {
+      debug("iat is in the future");
       return false;
     }
 
@@ -63,6 +69,7 @@ class _SplashPageState extends State<SplashPage> {
     // if the exp date has passed or will pass within the duration of
     // a day, we reject this
     if (diff.isNegative || diff.compareTo(minDiff) < 0) {
+      debug("Token expired or will expire soon");
       return false;
     }
 
@@ -79,7 +86,7 @@ class _SplashPageState extends State<SplashPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              "images/anilist.png",
+              "images/aldesk.png",
               height: 150,
             )
           ],

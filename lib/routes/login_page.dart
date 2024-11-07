@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:minlog/minlog.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // TODO: set this in compile time
@@ -34,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
     }
     final db = Hive.box<String>("db");
     db.put("token", token);
+    debug("Token saved $token");
     context.go("/");
   }
 

@@ -42,6 +42,7 @@ dependencies:
   anilist:
     path: anilist/
   dart_jsonwebtoken: ^2.14.1
+  minlog: ^0.1.0
 
 dev_dependencies:
   flutter_test:
