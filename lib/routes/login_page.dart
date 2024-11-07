@@ -1,6 +1,8 @@
 import 'package:aldesk/util/token.dart';
+import 'package:anilist/anilist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:minlog/minlog.dart';
@@ -43,6 +45,9 @@ class _LoginPageState extends State<LoginPage> {
     }
     final db = Hive.box<String>("db");
     db.put("token", token);
+
+    GetIt.I.registerSingleton(AnilistClient(token: token));
+
     debug("Token saved $token");
     context.go("/");
   }

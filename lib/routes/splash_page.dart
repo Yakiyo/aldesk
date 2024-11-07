@@ -1,7 +1,9 @@
+import 'package:anilist/anilist.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:minlog/minlog.dart';
+import 'package:get_it/get_it.dart';
 import '../util/token.dart';
 import '../util/colors.dart';
 
@@ -23,6 +25,11 @@ class _SplashPageState extends State<SplashPage> {
     Future.delayed(const Duration(seconds: 2), () {
       final isloggedin = _isLoggedIn();
       debug("is logged in: $isloggedin");
+      // if user is logged in and we don't have an AnilistClient, register one
+      if (isloggedin && !GetIt.I.isRegistered<AnilistClient>()) {
+        GetIt.I.registerSingleton(
+            AnilistClient(token: Hive.box<String>("db").get("token")));
+      }
       if (!mounted) return;
       context.go(isloggedin ? "/" : "/login");
     });
