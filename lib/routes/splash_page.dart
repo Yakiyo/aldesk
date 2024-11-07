@@ -1,9 +1,9 @@
-import 'package:aldesk/util/colors.dart';
-import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:minlog/minlog.dart';
+import '../util/token.dart';
+import '../util/colors.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -38,42 +38,7 @@ class _SplashPageState extends State<SplashPage> {
       return false;
     }
 
-    late final JWT jwt;
-
-    try {
-      jwt = JWT.decode(tokenStr);
-    } catch (e) {
-      warn("Token is invalid, must login again");
-      warn("$e");
-      return false;
-    }
-
-    final now = DateTime.now();
-
-    /// issued at time
-    final iat = DateTime.fromMillisecondsSinceEpoch(jwt.payload["iat"] * 1000);
-
-    /// expire date
-    final exp = DateTime.fromMillisecondsSinceEpoch(jwt.payload["exp"] * 1000);
-
-    // iat < now < exp - this should be the proper serial
-
-    if (now.difference(iat).isNegative) {
-      debug("iat is in the future");
-      return false;
-    }
-
-    final diff = exp.difference(now);
-    const minDiff = Duration(days: 1);
-
-    // if the exp date has passed or will pass within the duration of
-    // a day, we reject this
-    if (diff.isNegative || diff.compareTo(minDiff) < 0) {
-      debug("Token expired or will expire soon");
-      return false;
-    }
-
-    return true;
+    return isValidToken(tokenStr);
   }
 
   @override

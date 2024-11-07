@@ -1,3 +1,4 @@
+import 'package:aldesk/util/token.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -28,6 +29,13 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         _errorText = "Token cannot be empty";
       });
+      return;
+    } else if (!isValidToken(token)) {
+      setState(() {
+        _errorText =
+            "Invalid token. Token maybe expired or has an issue date in the future";
+      });
+      return;
     } else if (_errorText != null) {
       setState(() {
         _errorText = null;
