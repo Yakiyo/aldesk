@@ -22,7 +22,7 @@ class _SplashPageState extends State<SplashPage> {
   void initialize() {
     Future.delayed(const Duration(seconds: 2), () {
       final isloggedin = _isLoggedIn();
-      debug("$isloggedin");
+      debug("is logged in: $isloggedin");
       if (!mounted) return;
       context.go(isloggedin ? "/" : "/login");
     });
