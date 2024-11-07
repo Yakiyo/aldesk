@@ -32,4 +32,24 @@ void main() {
     assert(viewer.name == "Yakiyo");
     print(viewer);
   });
+
+  test("current anime list test", () async {
+    final res = await client.currentAnimes();
+
+    assert(res.isOk(), "response returned err ${res.unwrapErr()}");
+    final currents = res.unwrap();
+    print(currents
+        .map((x) => "${x!.media!.title!.romaji} : ${x.media!.status}")
+        .join("\n"));
+  });
+
+  test("current manga list test", () async {
+    final res = await client.currentMangas();
+
+    assert(res.isOk(), "response returned err ${res.unwrapErr()}");
+    final currents = res.unwrap();
+    print(currents
+        .map((x) => "${x!.media!.title!.romaji} : ${x.media!.status}")
+        .join("\n"));
+  });
 }

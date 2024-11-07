@@ -2,8 +2,6 @@ fragment MediaMinimalFrag on Media {
   id
   title {
     romaji
-    english
-    native
     userPreferred
   }
   coverImage {
@@ -91,6 +89,45 @@ query Media($id: Int, $search: String) {
         year
         month
         day
+      }
+    }
+  }
+}
+
+
+query UserList($userId: Int, $status: MediaListStatus, $mediaType: MediaType) {
+  MediaListCollection(userId: $userId, status: $status, type: $mediaType, sort: UPDATED_TIME_DESC) {
+    lists {
+      name
+      status
+      entries {
+        id
+        progress
+        media {
+          ...MediaMinimalFrag
+          type
+          episodes
+          chapters
+        }
+      }
+    }
+  }
+}
+
+query HomePageList($userId: Int, $mediaType: MediaType) {
+  Page(perPage: 40, page: 1) {
+    mediaList(userId: $userId, type: $mediaType, status: CURRENT, sort: [STATUS, UPDATED_TIME_DESC]) {
+      progress
+      updatedAt
+      media {
+        ...MediaMinimalFrag
+        episodes
+        chapters
+        status
+        nextAiringEpisode {
+          timeUntilAiring
+          episode
+        }
       }
     }
   }

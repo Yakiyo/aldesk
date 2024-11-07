@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
         color: colorBg,
         padding: const EdgeInsets.only(top: 40, left: 50, right: 50),
         child: ListView.builder(
-          itemCount: 3,
+          itemCount: 1,
           itemBuilder: (context, index) => const AiringBar(),
         ),
       ),
