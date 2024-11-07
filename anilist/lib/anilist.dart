@@ -2,4 +2,5 @@
 library anilist;
 
 export 'src/anilist.dart';
+export 'src/request.dart' show ApiError;
 export 'package:anilist/src/graphql/__generated__/media.data.gql.dart';
