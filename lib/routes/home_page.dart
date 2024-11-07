@@ -1,9 +1,44 @@
 import 'package:aldesk/components/navigation_fab.dart';
 import 'package:aldesk/util/colors.dart';
+import 'package:anilist/anilist.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:minlog/minlog.dart';
+import 'package:option_result/option_result.dart';
 
-class HomePage extends StatelessWidget {
+import '../components/series_bar.dart';
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late final Future<
+      List<
+          Result<List<GHomePageListData_Page_mediaList>,
+              List<Map<String, String>>>>> _data;
+
+  @override
+  void initState() {
+    super.initState();
+    final anilist = GetIt.I.get<AnilistClient>();
+    _data = Future.wait([anilist.currentAnimes(), anilist.currentMangas()]);
+  }
+
+  List<List<GHomePageListData_Page_mediaList>> _resolveAnimes(
+      List<GHomePageListData_Page_mediaList> animes) {
+    final airingLen = animes
+            .lastIndexWhere((a) => a.media!.status!.name == "RELEASING") +
+        1;
+    // split lists if theres more than 6 airing animes, otherwise dont need
+    if (airingLen < 7) {
+      return [animes];
+    }
+    return [animes.sublist(0, airingLen), animes.sublist(airingLen)];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,23 +48,42 @@ class HomePage extends StatelessWidget {
         // alignment: Alignment.topLeft,
         color: colorBg,
         padding: const EdgeInsets.only(top: 40, left: 50, right: 50),
-        child: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (context, index) => const AiringBar(),
+        child: FutureBuilder(
+          future: _data,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const SizedBox.shrink();
+            }
+            if (snapshot.hasError) {
+              error("error when fetching data from anilist",
+                  vars: {"error": "${snapshot.error}"});
+              return const SizedBox.shrink();
+            }
+            final animesR = snapshot.data![0];
+            final mangasR = snapshot.data![1];
+
+            if (animesR.isErr()) {
+              error("error when fetching animes",
+                  vars: {"error": "${animesR.unwrapErr()}"});
+            }
+            if (mangasR.isErr()) {
+              error("error when fetching mangas",
+                  vars: {"error": "${mangasR.unwrapErr()}"});
+            }
+
+            return ListView(
+              children: [
+                if (animesR.isOk())
+                  for (final animes in _resolveAnimes(animesR.unwrap()))
+                    SeriesBar(
+                      title: "Airing Animes",
+                      series: animes,
+                    ),
+              ],
+            );
+          },
         ),
       ),
     );
-  }
-}
-
-class AiringBar extends StatelessWidget {
-  const AiringBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // ignore: unused_local_variable
-    const img =
-        "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98977-CpZkd98fWj32.jpg";
-    return const Placeholder();
   }
 }
