@@ -28,60 +28,76 @@ class _HomePageState extends State<HomePage> {
     _data = Future.wait([anilist.currentAnimes(), anilist.currentMangas()]);
   }
 
-  List<List<GHomePageListData_Page_mediaList>> _resolveAnimes(
+  List<List<dynamic>> _resolveAnimes(
       List<GHomePageListData_Page_mediaList> animes) {
-    final airingLen = animes
-            .lastIndexWhere((a) => a.media!.status!.name == "RELEASING") +
-        1;
+    final airingLen =
+        animes.lastIndexWhere((a) => a.media!.status!.name == "RELEASING") + 1;
     // split lists if theres more than 6 airing animes, otherwise dont need
     if (airingLen < 7) {
-      return [animes];
+      return [
+        ["Anime in Progress", animes]
+      ];
     }
-    return [animes.sublist(0, airingLen), animes.sublist(airingLen)];
+    return [
+      ["Airing Animes", animes.sublist(0, airingLen)],
+      ["Anime in Progress", animes.sublist(airingLen)]
+    ];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: const NavigationFAB(),
-      body: Container(
-        // alignment: Alignment.topLeft,
-        color: colorBg,
-        padding: const EdgeInsets.only(top: 40, left: 50, right: 50),
-        child: FutureBuilder(
-          future: _data,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const SizedBox.shrink();
-            }
-            if (snapshot.hasError) {
-              error("error when fetching data from anilist",
-                  vars: {"error": "${snapshot.error}"});
-              return const SizedBox.shrink();
-            }
-            final animesR = snapshot.data![0];
-            final mangasR = snapshot.data![1];
+      backgroundColor: colorBg,
+      body: Center(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.75,
+          child: FutureBuilder(
+            future: _data,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const SizedBox.shrink();
+              }
+              if (snapshot.hasError) {
+                error("error when fetching data from anilist",
+                    vars: {"error": "${snapshot.error}"});
+                return const SizedBox.shrink();
+              }
+              final animesR = snapshot.data![0];
+              final mangasR = snapshot.data![1];
 
-            if (animesR.isErr()) {
-              error("error when fetching animes",
-                  vars: {"error": "${animesR.unwrapErr()}"});
-            }
-            if (mangasR.isErr()) {
-              error("error when fetching mangas",
-                  vars: {"error": "${mangasR.unwrapErr()}"});
-            }
+              if (animesR.isErr()) {
+                error("error when fetching animes",
+                    vars: {"error": "${animesR.unwrapErr()}"});
+              }
+              if (mangasR.isErr()) {
+                error("error when fetching mangas",
+                    vars: {"error": "${mangasR.unwrapErr()}"});
+              }
 
-            return ListView(
-              children: [
-                if (animesR.isOk())
-                  for (final animes in _resolveAnimes(animesR.unwrap()))
+              return ListView(
+                children: [
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  if (animesR.isOk())
+                    for (final animes in _resolveAnimes(animesR.unwrap()))
+                      SeriesBar(
+                        title: animes[0],
+                        serieslist: animes[1],
+                      ),
+                  if (mangasR.isOk())
                     SeriesBar(
-                      title: "Airing Animes",
-                      series: animes,
+                      title: "Manga in Progress",
+                      serieslist: mangasR.unwrap(),
                     ),
-              ],
-            );
-          },
+                  const SizedBox(
+                    height: 40,
+                  ),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
