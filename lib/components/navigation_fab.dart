@@ -38,8 +38,8 @@ class _NavigationFABState extends State<NavigationFAB> {
         secondChild: Padding(
           padding: const EdgeInsets.all(2.0),
           child: SizedBox(
-            width: 175,
-            height: 175,
+            width: 200,
+            height: 200,
             child: FloatingActionButton(
               backgroundColor: colorPrimary,
               onPressed: () => _changeView(),
@@ -68,12 +68,31 @@ class QuickMenu extends StatelessWidget {
       crossAxisCount: 3,
       children: [
         for (final path in paths)
-          IconButton(
-            hoverColor: Colors.grey.withOpacity(0.1),
-            icon: Icon(path[2], color: Colors.grey),
-            tooltip: path[0],
-            onPressed: () => context.go(path[1]),
-          )
+          Column(
+            children: [
+              IconButton(
+                hoverColor: Colors.grey.withOpacity(0.1),
+                icon: Icon(path[2], color: Colors.grey),
+                onPressed: () => context.go(path[1]),
+              ),
+              Text(
+                path[0],
+                style: const TextStyle(color: Colors.grey, fontSize: 10),
+              )
+            ],
+          ),
+        Column(
+          children: [
+            IconButton(
+              hoverColor: Colors.grey.withOpacity(0.1),
+              icon: const Icon(Icons.close, color: Colors.grey),
+              onPressed: onPressed,
+            ),
+            const SizedBox(
+              height: 8,
+            )
+          ],
+        ),
       ],
     );
   }
