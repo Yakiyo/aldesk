@@ -28,19 +28,20 @@ class _HomePageState extends State<HomePage> {
     _data = Future.wait([anilist.currentAnimes(), anilist.currentMangas()]);
   }
 
-  List<List<dynamic>> _resolveAnimes(
+  List<(String, List<GHomePageListData_Page_mediaList>)> _resolveAnimes(
       List<GHomePageListData_Page_mediaList> animes) {
     final airingLen =
         animes.lastIndexWhere((a) => a.media!.status!.name == "RELEASING") + 1;
     // split lists if theres more than 6 airing animes, otherwise dont need
     if (airingLen < 7) {
       return [
-        ["Anime in Progress", animes]
+        ("Anime in Progress", animes)
       ];
     }
+    
     return [
-      ["Airing Animes", animes.sublist(0, airingLen)],
-      ["Anime in Progress", animes.sublist(airingLen)]
+      ("Airing Animes", animes.sublist(0, airingLen)),
+      ("Anime in Progress", animes.sublist(airingLen))
     ];
   }
 
@@ -83,8 +84,8 @@ class _HomePageState extends State<HomePage> {
                   if (animesR.isOk())
                     for (final animes in _resolveAnimes(animesR.unwrap()))
                       SeriesBar(
-                        title: animes[0],
-                        serieslist: animes[1],
+                        title: animes.$1,
+                        serieslist: animes.$2,
                       ),
                   if (mangasR.isOk())
                     SeriesBar(
