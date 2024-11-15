@@ -1,5 +1,6 @@
 fragment MediaMinimalFrag on Media {
   id
+  type
   title {
     romaji
     userPreferred
