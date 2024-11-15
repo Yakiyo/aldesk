@@ -51,6 +51,81 @@ class SeriesBarTile extends StatefulWidget {
 
 class _SeriesBarTileState extends State<SeriesBarTile> {
   bool _hovering = false;
+  OverlayEntry? _overlayEntry;
+
+  bool _isAiring() {
+    final entry = widget.entry;
+    final nextEp = entry.media?.nextAiringEpisode?.episode;
+    return entry.media?.status?.name == "RELEASING" &&
+        entry.media?.type?.name == "ANIME" &&
+        nextEp != null;
+  }
+
+  int _behindInfo() {
+    final entry = widget.entry;
+    final nextEp = entry.media?.nextAiringEpisode?.episode;
+    final progress = entry.progress ?? 0;
+    if (!_isAiring()) return 0;
+    final behind = (nextEp! - 1) - progress;
+
+    return behind;
+  }
+
+  void _createOverlay() {
+    final entry = widget.entry;
+    final renderBox = context.findRenderObject() as RenderBox;
+    final size = renderBox.size;
+    final offset = renderBox.localToGlobal(Offset.zero);
+
+    final total = entry.media?.episodes;
+    final progress = entry.progress ?? 0;
+    final behind = _behindInfo();
+    _overlayEntry = OverlayEntry(
+      builder: (context) {
+        return Positioned(
+          left: offset.dx + size.width,
+          // drop the card down by 10 bcz of card padding
+          top: offset.dy + 10,
+          child: Material(
+            color: Colors.transparent,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: colorBg,
+              ),
+              padding: const EdgeInsets.all(10),
+              width: size.width * 2,
+              // reduce height by 20 to match with the card's padding
+              height: size.height - 20,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (_isAiring() && behind > 0)
+                    Text("$behind episode${behind > 1 ? "s" : ""} behind",
+                        style: const TextStyle(color: Colors.lightBlue)),
+                  Text(
+                    entry.media!.title!.userPreferred!.trim(),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  const Expanded(child: SizedBox()),
+                  Text(
+                    "Progress: $progress${total != null ? "/$total" : ""}",
+                    style: const TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+    Overlay.of(context).insert(_overlayEntry!);
+  }
+
+  void _removeOverlay() {
+    _overlayEntry?.remove();
+    _overlayEntry = null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +133,14 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
     return Container(
       padding: const EdgeInsets.all(10),
       child: MouseRegion(
-        onEnter: (_) => setState(() => _hovering = true),
-        onExit: (_) => setState(() => _hovering = false),
+        onEnter: (_) {
+          setState(() => _hovering = true);
+          _createOverlay();
+        },
+        onExit: (_) {
+          setState(() => _hovering = false);
+          _removeOverlay();
+        },
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
@@ -87,6 +168,9 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
                   ),
                 ),
               ),
+
+            // for releasing series, show a red line at the bottom and
+            // next episode number and probable duration until its release
             if (!_hovering &&
                 entry.media?.type?.name == "ANIME" &&
                 entry.media!.status!.name == "RELEASING") ...[
@@ -106,36 +190,16 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
                   ),
                 ),
               ),
-              SizedBox(
-                width: 95,
-                height: 5,
-                child: Container(
-                  color: const Color.fromRGBO(232, 93, 117, 1),
-                ),
-              )
+              if (_behindInfo() > 0)
+                SizedBox(
+                  width: 95,
+                  height: 5,
+                  child: Container(
+                    color: const Color.fromRGBO(232, 93, 117, 1),
+                  ),
+                )
             ]
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class AiringAnimeTile extends StatelessWidget {
-  final GHomePageListData_Page_mediaList entry;
-  const AiringAnimeTile({super.key, required this.entry});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(5),
-        child: Image.network(
-          entry.media!.coverImage!.large!,
-          height: 140,
-          width: 95,
-          fit: BoxFit.cover,
         ),
       ),
     );
