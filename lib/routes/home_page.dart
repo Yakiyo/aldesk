@@ -34,11 +34,9 @@ class _HomePageState extends State<HomePage> {
         animes.lastIndexWhere((a) => a.media!.status!.name == "RELEASING") + 1;
     // split lists if theres more than 6 airing animes, otherwise dont need
     if (airingLen < 7) {
-      return [
-        ("Anime in Progress", animes)
-      ];
+      return [("Anime in Progress", animes)];
     }
-    
+
     return [
       ("Airing Animes", animes.sublist(0, airingLen)),
       ("Anime in Progress", animes.sublist(airingLen))

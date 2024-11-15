@@ -30,6 +30,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF18212C)),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white),
+          bodySmall: TextStyle(color: Colors.white),
+        ).apply(
+          bodyColor: Colors.white,
+          displayColor: Colors.white,
+          decoration: TextDecoration.none,
+        ),
         useMaterial3: true,
       ),
     );

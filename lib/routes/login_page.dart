@@ -79,10 +79,12 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               width: 450,
               child: TextField(
+                style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                    labelText: "Paste the token received from anilist",
-                    errorText: _errorText,
-                    border: const OutlineInputBorder()),
+                  labelText: "Paste the token received from anilist",
+                  errorText: _errorText,
+                  border: const OutlineInputBorder(),
+                ),
                 controller: _tokenController,
               ),
             ),
