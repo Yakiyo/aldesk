@@ -1,0 +1,88 @@
+# queries related to activites, like the activites of followed users and global activities
+# for the home page, and user's own activities for the profile page
+# 
+# currently only List Activities are supported, text activites need to be parsed from their
+# markdown format to display them properly
+
+fragment TextActivityFrag on TextActivity {
+  id
+  type
+  user {
+    id
+    name
+    avatar {
+      large
+    }
+  }
+  createdAt
+  likeCount
+  replyCount
+  isLiked
+  text(asHtml: false)
+}
+
+fragment ListActivityFrag on ListActivity {
+  id
+  type
+  user {
+    id
+    name
+    avatar {
+      large
+    }
+  }
+  status
+  createdAt
+  progress
+  likeCount
+  replyCount
+  isLiked
+  media {
+    id
+    coverImage {
+      large
+    }
+    title {
+      userPreferred
+    }
+  }
+}
+
+query FollowingActivities {
+  Page(page: 1, perPage: 50) {
+    activities(isFollowing: true, sort: ID_DESC, type_in: [ANIME_LIST, MANGA_LIST]) {
+    #   ... on TextActivity {
+    #     ...TextActivityFrag
+    #   }
+      ... on ListActivity {
+        ...ListActivityFrag
+      }
+    }
+  }
+}
+
+query GlobalActivities {
+  Page(page: 1, perPage: 50) {
+    activities(sort: ID_DESC, type_in: [ANIME_LIST, MANGA_LIST], hasReplies: true) {
+    #   ... on TextActivity {
+    #     ...TextActivityFrag
+    #   }
+      ... on ListActivity {
+        ...ListActivityFrag
+      }
+    }
+  }
+}
+
+query UserActivities($userId: Int) {
+  Page(page: 1, perPage: 100) {
+    activities(userId: $userId, type_in: [ANIME_LIST, MANGA_LIST], sort: ID_DESC) {
+    #   ...on TextActivity {
+    #     ...TextActivityFrag
+    #   }
+      ...on ListActivity {
+        ...ListActivityFrag
+      }
+    }
+  }
+}
