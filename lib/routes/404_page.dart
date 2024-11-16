@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 import 'package:aldesk/components/navigation_fab.dart';
-import 'package:aldesk/util/colors.dart';
 import 'package:flutter/material.dart';
 
 class Page404 extends StatelessWidget {
@@ -9,7 +8,7 @@ class Page404 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorBg,
+      backgroundColor: const Color(0xFF0B1622),
       floatingActionButton: const NavigationFAB(),
       body: Center(
         child: Image.asset("images/404.jpg"),
