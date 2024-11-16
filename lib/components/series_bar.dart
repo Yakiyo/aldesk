@@ -1,6 +1,7 @@
 import 'package:aldesk/util/misc.dart';
 import 'package:flutter/material.dart';
 import 'package:anilist/anilist.dart';
+import 'package:go_router/go_router.dart';
 
 class SeriesBar extends StatelessWidget {
   final String title;
@@ -125,24 +126,33 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
     _overlayEntry = null;
   }
 
+  void _onPressed() {
+    final entry = widget.entry;
+    final media = entry.media;
+    if (media != null) {
+      context.go("/media/${media.id}");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final entry = widget.entry;
     return Container(
       padding: const EdgeInsets.all(10),
-      child: MouseRegion(
-        onEnter: (_) {
-          setState(() => _hovering = true);
-          _createOverlay();
-        },
-        onExit: (_) {
-          setState(() => _hovering = false);
-          _removeOverlay();
-        },
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            ClipRRect(
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          InkWell(
+            onHover: (value) {
+              setState(() => _hovering = value);
+              if (value) {
+                _createOverlay();
+              } else {
+                _removeOverlay();
+              }
+            },
+            onTap: _onPressed,
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(5),
               child: Image.network(
                 entry.media!.coverImage!.large!,
@@ -151,54 +161,54 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
                 fit: BoxFit.cover,
               ),
             ),
-            if (_hovering)
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.5),
-                ),
-                // height: 140,
-                width: 95,
-                child: Center(
-                  child: Text(
-                    "${entry.progress ?? 0}+",
-                    style: const TextStyle(color: Colors.white),
-                  ),
+          ),
+          if (_hovering)
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+              ),
+              // height: 140,
+              width: 95,
+              child: Center(
+                child: Text(
+                  "${entry.progress ?? 0}+",
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
+            ),
 
-            // for releasing series, show a red line at the bottom and
-            // next episode number and probable duration until its release
-            if (!_hovering &&
-                entry.media?.type?.name == "ANIME" &&
-                entry.media!.status!.name == "RELEASING") ...[
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.5),
-                ),
-                // height: 140,
-                width: 95,
-                child: Center(
-                  child: Text(
-                    "Ep ${entry.media?.nextAiringEpisode?.episode}\n"
-                    "${secondsToTime(entry.media!.nextAiringEpisode!.timeUntilAiring)}",
-                    style: const TextStyle(color: Colors.white, fontSize: 12),
-                    textAlign: TextAlign.center,
-                  ),
+          // for releasing series, show a red line at the bottom and
+          // next episode number and probable duration until its release
+          if (!_hovering &&
+              entry.media?.type?.name == "ANIME" &&
+              entry.media!.status!.name == "RELEASING") ...[
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+              ),
+              // height: 140,
+              width: 95,
+              child: Center(
+                child: Text(
+                  "Ep ${entry.media?.nextAiringEpisode?.episode}\n"
+                  "${secondsToTime(entry.media!.nextAiringEpisode!.timeUntilAiring)}",
+                  style: const TextStyle(color: Colors.white, fontSize: 12),
+                  textAlign: TextAlign.center,
                 ),
               ),
-              if (_behindInfo() > 0)
-                SizedBox(
-                  width: 95,
-                  height: 5,
-                  child: Container(
-                    color: const Color.fromRGBO(232, 93, 117, 1),
-                  ),
-                )
-            ]
-          ],
-        ),
+            ),
+            if (_behindInfo() > 0)
+              SizedBox(
+                width: 95,
+                height: 5,
+                child: Container(
+                  color: const Color.fromRGBO(232, 93, 117, 1),
+                ),
+              )
+          ]
+        ],
       ),
     );
   }
