@@ -1,5 +1,4 @@
 import 'package:aldesk/components/navigation_fab.dart';
-import 'package:aldesk/util/colors.dart';
 import 'package:anilist/anilist.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -47,7 +46,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: const NavigationFAB(),
-      backgroundColor: colorBg,
+      // backgroundColor: colorBg,
       body: Center(
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.75,
