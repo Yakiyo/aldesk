@@ -7,7 +7,6 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:minlog/minlog.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../util/colors.dart';
 import '../components/navigation_fab.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -74,10 +73,10 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: const NavigationFAB(),
-      backgroundColor: colorBg,
+      // backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Center(
         child: Container(
-          color: colorPrimary,
+          color: Theme.of(context).colorScheme.primary,
           width: MediaQuery.of(context).size.width * 0.8,
           // height: MediaQuery.of(context).size.height * 0.8,
           padding: const EdgeInsets.all(20),

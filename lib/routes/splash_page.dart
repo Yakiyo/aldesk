@@ -5,7 +5,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:minlog/minlog.dart';
 import 'package:get_it/get_it.dart';
 import '../util/token.dart';
-import '../util/colors.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -51,7 +50,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorBg,
+      backgroundColor: const Color(0xFF0B1622),
       body: Container(
         alignment: Alignment.center,
         child: Column(

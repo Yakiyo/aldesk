@@ -1,4 +1,3 @@
-import 'package:aldesk/util/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,7 +25,7 @@ class _NavigationFABState extends State<NavigationFAB> {
         firstChild: Padding(
           padding: const EdgeInsets.all(2.0),
           child: FloatingActionButton(
-            backgroundColor: colorPrimary,
+            backgroundColor: const Color(0xFF152232),
             onPressed: () => _changeView(),
             heroTag: null,
             child: const Icon(
@@ -41,7 +40,7 @@ class _NavigationFABState extends State<NavigationFAB> {
             width: 200,
             height: 200,
             child: FloatingActionButton(
-              backgroundColor: colorPrimary,
+              backgroundColor: const Color(0xFF152232),
               onPressed: () => _changeView(),
               heroTag: null,
               child: QuickMenu(

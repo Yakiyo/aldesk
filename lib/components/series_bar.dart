@@ -1,4 +1,3 @@
-import 'package:aldesk/util/colors.dart';
 import 'package:aldesk/util/misc.dart';
 import 'package:flutter/material.dart';
 import 'package:anilist/anilist.dart';
@@ -27,7 +26,8 @@ class SeriesBar extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: colorPrimary, borderRadius: BorderRadius.circular(5)),
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(5)),
             child: Wrap(children: [
               for (final series in serieslist)
                 SeriesBarTile(
@@ -91,7 +91,7 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
-                color: colorBg,
+                color: Theme.of(context).scaffoldBackgroundColor,
               ),
               padding: const EdgeInsets.all(10),
               width: size.width * 2,
@@ -105,12 +105,10 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
                         style: const TextStyle(color: Colors.lightBlue)),
                   Text(
                     entry.media!.title!.userPreferred!.trim(),
-                    style: const TextStyle(color: Colors.white),
                   ),
                   const Expanded(child: SizedBox()),
                   Text(
                     "Progress: $progress${total != null ? "/$total" : ""}",
-                    style: const TextStyle(color: Colors.white),
                   )
                 ],
               ),
