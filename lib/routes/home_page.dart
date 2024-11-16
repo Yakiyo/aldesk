@@ -1,3 +1,4 @@
+import 'package:aldesk/components/home_activity_list.dart';
 import 'package:aldesk/components/navigation_fab.dart';
 import 'package:anilist/anilist.dart';
 import 'package:flutter/material.dart';
@@ -15,16 +16,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late final Future<
-      List<
-          Result<List<GHomePageListData_Page_mediaList>,
-              List<Map<String, String>>>>> _data;
+  late final Future<List<Result<dynamic, List<Map<String, String>>>>> _data;
 
   @override
   void initState() {
     super.initState();
     final anilist = GetIt.I.get<AnilistClient>();
-    _data = Future.wait([anilist.currentAnimes(), anilist.currentMangas()]);
+    _data = Future.wait([
+      anilist.currentAnimes(),
+      anilist.currentMangas(),
+      anilist.followingActivities()
+    ]);
   }
 
   List<(String, List<GHomePageListData_Page_mediaList>)> _resolveAnimes(
@@ -72,6 +74,13 @@ class _HomePageState extends State<HomePage> {
                 error("error when fetching mangas",
                     vars: {"error": "${mangasR.unwrapErr()}"});
               }
+              List<GListActivityFrag> activities = [];
+              if (snapshot.data![2].isOk()) {
+                activities = snapshot.data![2].unwrap();
+              } else {
+                error("error when fetching activities",
+                    vars: {"error": "${snapshot.data![2].unwrapErr()}"});
+              }
 
               return ScrollConfiguration(
                 // remove the scroll bar that shows up on right
@@ -84,7 +93,8 @@ class _HomePageState extends State<HomePage> {
                       height: 40,
                     ),
                     if (animesR.isOk())
-                      for (final animes in _resolveAnimes(animesR.unwrap()))
+                      for (final animes in _resolveAnimes(animesR.unwrap()
+                          as List<GHomePageListData_Page_mediaList>))
                         SeriesBar(
                           title: animes.$1,
                           serieslist: animes.$2,
@@ -92,11 +102,13 @@ class _HomePageState extends State<HomePage> {
                     if (mangasR.isOk())
                       SeriesBar(
                         title: "Manga in Progress",
-                        serieslist: mangasR.unwrap(),
+                        serieslist: mangasR.unwrap()
+                            as List<GHomePageListData_Page_mediaList>,
                       ),
                     const SizedBox(
                       height: 40,
                     ),
+                    HomeActivityList(activities: activities),
                   ],
                 ),
               );
