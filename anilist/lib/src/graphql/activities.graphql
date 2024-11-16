@@ -4,22 +4,22 @@
 # currently only List Activities are supported, text activites need to be parsed from their
 # markdown format to display them properly
 
-fragment TextActivityFrag on TextActivity {
-  id
-  type
-  user {
-    id
-    name
-    avatar {
-      large
-    }
-  }
-  createdAt
-  likeCount
-  replyCount
-  isLiked
-  text(asHtml: false)
-}
+# fragment TextActivityFrag on TextActivity {
+#   id
+#   type
+#   user {
+#     id
+#     name
+#     avatar {
+#       large
+#     }
+#   }
+#   createdAt
+#   likeCount
+#   replyCount
+#   isLiked
+#   text(asHtml: false)
+# }
 
 fragment ListActivityFrag on ListActivity {
   id

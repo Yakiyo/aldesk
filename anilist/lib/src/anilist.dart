@@ -1,3 +1,5 @@
+import 'package:anilist/src/graphql/__generated__/activities.data.gql.dart';
+import 'package:anilist/src/graphql/__generated__/activities.req.gql.dart';
 import 'package:anilist/src/graphql/__generated__/media.data.gql.dart';
 import 'package:anilist/src/graphql/__generated__/media.req.gql.dart';
 import 'package:anilist/src/graphql/__generated__/user.data.gql.dart';
@@ -7,6 +9,8 @@ import 'package:option_result/option_result.dart';
 import 'package:anilist/src/request.dart';
 import 'package:anilist/src/client.dart';
 import 'package:ferry/ferry.dart';
+
+typedef ReturnType<T> = Future<Result<T, ApiError>>;
 
 /// The main class to interact with the Anilist API
 class AnilistClient {
@@ -26,7 +30,7 @@ class AnilistClient {
   /// Gets the current authenticated user
   ///
   /// This caches the current user, so it will only make one request to the API
-  Future<Result<GViewerData_Viewer, ApiError>> currentUser() async {
+  ReturnType<GViewerData_Viewer> currentUser() async {
     if (_currentUser == null) {
       if (token == null || token!.isEmpty) {
         return Err([
@@ -49,7 +53,7 @@ class AnilistClient {
     return Ok(_currentUser!);
   }
 
-  Future<Result<GMediaMinimalData_Media, ApiError>> mediaMinimal(
+  ReturnType<GMediaMinimalData_Media> mediaMinimal(
       {int? id, String? search}) async {
     final query = GMediaMinimalReq(
       (b) => b
@@ -62,8 +66,7 @@ class AnilistClient {
     );
   }
 
-  Future<Result<List<GHomePageListData_Page_mediaList>, ApiError>>
-      currentAnimes() async {
+  ReturnType<List<GHomePageListData_Page_mediaList>> currentAnimes() async {
     final userR = await currentUser();
     if (userR.isErr()) {
       return userR.map((d) => []);
@@ -106,8 +109,7 @@ class AnilistClient {
     }).map((d) => d.map((x) => x!).toList());
   }
 
-  Future<Result<List<GHomePageListData_Page_mediaList>, ApiError>>
-      currentMangas() async {
+  ReturnType<List<GHomePageListData_Page_mediaList>> currentMangas() async {
     final userR = await currentUser();
     if (userR.isErr()) {
       return userR.map((d) => []);
@@ -124,5 +126,18 @@ class AnilistClient {
     return res.map(
       (d) => [...d!.Page!.mediaList!].map((x) => x!).toList(),
     );
+  }
+
+  ReturnType<List<GListActivityFrag>> followingActivities() async {
+    final res = await request(GFollowingActivitiesReq(), _client);
+    return res.map((d) =>
+        d!.Page!.activities!.map((x) => x! as GListActivityFrag).toList());
+  }
+
+  ReturnType<List<GUserActivitiesData_Page_activities>> userActivities(
+      int userId) async {
+    final res = await request(
+        GUserActivitiesReq((d) => d..vars.userId = userId), _client);
+    return res.map((d) => d!.Page!.activities!.map((x) => x!).toList());
   }
 }

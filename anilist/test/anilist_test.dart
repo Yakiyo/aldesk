@@ -52,4 +52,20 @@ void main() {
         .map((x) => "${x.media!.title!.romaji} : ${x.media!.status}")
         .join("\n"));
   });
+
+  test("following activities", () async {
+    final res = await client.followingActivities();
+
+    assert(res.isOk(), "response returned err ${res.unwrapErr()}");
+    final activities = res.unwrap();
+    activities.forEach(print);
+  });
+
+  test("user activites", () async {
+    final res = await client.userActivities(763771);
+
+    assert(res.isOk(), "response returned err ${res.unwrapErr()}");
+    final activities = res.unwrap();
+    activities.forEach(print);
+  });
 }
