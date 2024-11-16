@@ -1,4 +1,5 @@
 import 'package:aldesk/util/misc.dart';
+import 'package:aldesk/util/themes/data.dart';
 import 'package:flutter/material.dart';
 import 'package:anilist/anilist.dart';
 import 'package:go_router/go_router.dart';
@@ -162,21 +163,25 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
               ),
             ),
           ),
-          if (_hovering)
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
-              ),
-              // height: 140,
-              width: 95,
-              child: Center(
-                child: Text(
-                  "${entry.progress ?? 0}+",
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
+          // remove progress on hover text, bcz not gonna implement a feature to
+          // increment entry from there (yet?), and it messes with the inkwell's
+          // detector
+
+          // if (_hovering)
+          //   Container(
+          //     padding: const EdgeInsets.symmetric(vertical: 10),
+          //     decoration: BoxDecoration(
+          //       color: Colors.black.withOpacity(0.5),
+          //     ),
+          //     // height: 140,
+          //     width: 95,
+          //     child: Center(
+          //       child: Text(
+          //         "${entry.progress ?? 0}+",
+          //         style: const TextStyle(color: Colors.white),
+          //       ),
+          //     ),
+          //   ),
 
           // for releasing series, show a red line at the bottom and
           // next episode number and probable duration until its release
@@ -204,7 +209,7 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
                 width: 95,
                 height: 5,
                 child: Container(
-                  color: const Color.fromRGBO(232, 93, 117, 1),
+                  color: highlightColor,
                 ),
               )
           ]
