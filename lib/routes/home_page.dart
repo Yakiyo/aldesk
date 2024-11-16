@@ -73,26 +73,32 @@ class _HomePageState extends State<HomePage> {
                     vars: {"error": "${mangasR.unwrapErr()}"});
               }
 
-              return ListView(
-                children: [
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  if (animesR.isOk())
-                    for (final animes in _resolveAnimes(animesR.unwrap()))
-                      SeriesBar(
-                        title: animes.$1,
-                        serieslist: animes.$2,
-                      ),
-                  if (mangasR.isOk())
-                    SeriesBar(
-                      title: "Manga in Progress",
-                      serieslist: mangasR.unwrap(),
+              return ScrollConfiguration(
+                // remove the scroll bar that shows up on right
+                behavior: ScrollConfiguration.of(context).copyWith(
+                  scrollbars: false,
+                ),
+                child: ListView(
+                  children: [
+                    const SizedBox(
+                      height: 40,
                     ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                ],
+                    if (animesR.isOk())
+                      for (final animes in _resolveAnimes(animesR.unwrap()))
+                        SeriesBar(
+                          title: animes.$1,
+                          serieslist: animes.$2,
+                        ),
+                    if (mangasR.isOk())
+                      SeriesBar(
+                        title: "Manga in Progress",
+                        serieslist: mangasR.unwrap(),
+                      ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                  ],
+                ),
               );
             },
           ),
