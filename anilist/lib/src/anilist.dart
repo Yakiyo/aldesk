@@ -133,7 +133,8 @@ class AnilistClient {
     final res = await request(
         GFollowingActivitiesReq((b) => b
           ..vars.page = page
-          ..vars.perPage = perPage),
+          ..vars.perPage = perPage
+          ..fetchPolicy = FetchPolicy.NetworkOnly),
         _client);
     return res.map((d) =>
         d!.Page!.activities!.map((x) => x! as GListActivityFrag).toList());

@@ -12,7 +12,10 @@ Client createClient({String? token}) {
 
   final cache = Cache(possibleTypes: possibleTypesMap);
 
-  final client = Client(link: link, cache: cache);
+  final client = Client(link: link, cache: cache, defaultFetchPolicies: {
+    OperationType.query: FetchPolicy.NetworkOnly,
+    OperationType.mutation: FetchPolicy.NetworkOnly,
+  });
 
   return client;
 }
