@@ -65,6 +65,7 @@ class _HomeActivityListState extends State<HomeActivityList> {
           ),
         ),
         for (final activity in _activities) ActivityTile(activity: activity),
+        // button for adding more activities
         InkWell(
           onTap: _addActivities,
           child: Container(
@@ -98,6 +99,7 @@ class ActivityTile extends StatefulWidget {
 }
 
 class _ActivityTileState extends State<ActivityTile> {
+  late GListActivityFrag activity;
   bool _isHovering = false;
 
   String _createdAgo() {
@@ -119,6 +121,35 @@ class _ActivityTileState extends State<ActivityTile> {
 
   void _toMediaPage(BuildContext context) {
     context.go("/media/${widget.activity.media!.id}");
+  }
+
+  void _toggleLike() async {    print("before req ${activity.isLiked}");
+    final anilist = GetIt.I.get<AnilistClient>();
+    final toggleRes =
+        await anilist.toggleLike(activity.id, GLikeableType.ACTIVITY);
+    if (toggleRes.isErr()) {
+      error("error when toggling like", vars: {
+        "error": "${toggleRes.unwrapErr()}",
+        "activityId": "${activity.id}",
+      });
+      return;
+    }
+    final id = (toggleRes.unwrap()
+            as GToggleActivityLikeData_ToggleLikeV2__asListActivity)
+        .id;
+    final res = await anilist.singleListActivity(id);
+    if (res.isErr()) {
+      error("error when refetching activity");
+    }
+    setState(() {
+      activity = res.unwrap();
+    });
+  }
+
+  @override
+  void initState() {
+    activity = widget.activity;
+    super.initState();
   }
 
   @override
@@ -150,7 +181,7 @@ class _ActivityTileState extends State<ActivityTile> {
                 child: ClipRRect(
                   clipBehavior: Clip.hardEdge,
                   child: Image.network(
-                    widget.activity.media!.coverImage!.large!,
+                    activity.media!.coverImage!.large!,
                     // height: tileHeigth,
                     // width: 80,
                     fit: BoxFit.cover,
@@ -166,7 +197,7 @@ class _ActivityTileState extends State<ActivityTile> {
                   children: [
                     // User name
                     Text(
-                      widget.activity.user!.name,
+                      activity.user!.name,
                       style: const TextStyle(color: Colors.lightBlue),
                     ),
                     const SizedBox(
@@ -175,8 +206,9 @@ class _ActivityTileState extends State<ActivityTile> {
 
                     // Status text
                     StatusText(
-                        title: widget.activity.media!.title!.userPreferred!,
-                        status: widget.activity.status!,
+                        title: activity.media!.title!.userPreferred!,
+                        status: activity.status!,
+                        progress: activity.progress,
                         toMediaPage: _toMediaPage),
 
                     const Expanded(child: SizedBox.shrink()),
@@ -189,7 +221,7 @@ class _ActivityTileState extends State<ActivityTile> {
                           borderRadius: BorderRadius.circular(5),
                           clipBehavior: Clip.hardEdge,
                           child: Image.network(
-                            widget.activity.user!.avatar!.large!,
+                            activity.user!.avatar!.large!,
                             height: 36,
                             width: 36,
                             fit: BoxFit.cover,
@@ -233,8 +265,8 @@ class _ActivityTileState extends State<ActivityTile> {
                   // Likes and Comments
                   Row(
                     children: [
-                      if (widget.activity.replyCount > 0)
-                        Text("${widget.activity.replyCount}"),
+                      if (activity.replyCount > 0)
+                        Text("${activity.replyCount}"),
                       const SizedBox(
                         width: 5,
                       ),
@@ -246,19 +278,20 @@ class _ActivityTileState extends State<ActivityTile> {
                       const SizedBox(
                         width: 15,
                       ),
-                      if (widget.activity.likeCount > 0)
-                        Text("${widget.activity.likeCount}"),
+                      if (activity.likeCount > 0) Text("${activity.likeCount}"),
                       const SizedBox(
                         width: 5,
                       ),
                       // TODO: make this an icon button
-                      Icon(
-                        Icons.favorite_rounded,
-                        size: 15,
-                        color: widget.activity.isLiked!
-                            ? highlightColor
-                            : Colors.grey[400],
-                      ),
+                      IconButton(
+                          onPressed: _toggleLike,
+                          icon: Icon(
+                            Icons.favorite_rounded,
+                            size: 15,
+                            color: activity.isLiked!
+                                ? highlightColor
+                                : Colors.grey[400],
+                          )),
                     ],
                   )
                 ],
@@ -274,13 +307,13 @@ class _ActivityTileState extends State<ActivityTile> {
 class StatusText extends StatelessWidget {
   final String title;
   final String status;
-  final int? progress;
+  final String? progress;
   final void Function(BuildContext) toMediaPage;
   const StatusText(
       {super.key,
       required this.title,
       required this.status,
-      this.progress,
+      required this.progress,
       required this.toMediaPage});
 
   @override

@@ -161,4 +161,15 @@ class AnilistClient {
         _client);
     return res.map((d) => d!.ToggleLikeV2!);
   }
+
+  ReturnType<GListActivityFrag> singleListActivity(int activityId) async {
+    final res = await request(
+        GSingleActivityReq((d) => d
+          ..vars.id = activityId
+          // need to always re-request to get updated like value
+          ..fetchPolicy = FetchPolicy.NetworkOnly),
+        _client);
+
+    return res.map((d) => d!.Activity as GListActivityFrag);
+  }
 }

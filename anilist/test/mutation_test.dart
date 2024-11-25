@@ -9,7 +9,12 @@ void main() {
   test("toggle like test", () async {
     final r = await client.toggleLike(820891087, GLikeableType.ACTIVITY);
     assert(r.isOk(), "${r.unwrapErr()}");
-    final activity = r.unwrap() as GListActivityFrag;
-    print(activity);
+    final toggled =
+        r.unwrap() as GToggleActivityLikeData_ToggleLikeV2__asListActivity;
+    print(toggled.id);
+    final res = await client.singleListActivity(toggled.id);
+    assert(res.isOk(), "${res.unwrapErr()}");
+
+    print(res.unwrap());
   });
 }
