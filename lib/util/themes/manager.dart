@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-// TODO: store theme mode in hive 
+// TODO: store theme mode in hive
 class ThemeManager with ChangeNotifier {
   late ThemeMode _mode;
   ThemeManager() {

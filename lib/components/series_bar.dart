@@ -171,7 +171,7 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
             // remove progress on hover text, bcz not gonna implement a feature to
             // increment entry from there (yet?), and it messes with the inkwell's
             // detector
-        
+
             // if (_hovering)
             //   Container(
             //     padding: const EdgeInsets.symmetric(vertical: 10),
@@ -187,7 +187,7 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
             //       ),
             //     ),
             //   ),
-        
+
             // for releasing series, show a red line at the bottom and
             // next episode number and probable duration until its release
             if (!_hovering &&
