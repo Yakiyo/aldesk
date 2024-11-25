@@ -31,60 +31,102 @@ class _HomeActivityListState extends State<HomeActivityList> {
     setState(() {});
   }
 
-  void _addActivities() {
+  void _reload() async {
+    setState(() {
+      _activities = [];
+    });
+    final anilist = GetIt.I.get<AnilistClient>();
+
+    final res = await anilist.followingActivities(page: 1);
+    if (res.isErr()) {
+      error("error when reloading activities",
+          vars: {"error": "${res.unwrapErr()}"});
+      return;
+    }
+    setState(() {
+      _activities = res.unwrap();
+      _currentPage = 1;
+    });
+  }
+
+  void _addActivities() async {
     setState(() {
       _loading = true;
     });
     _currentPage++;
     final anilist = GetIt.I.get<AnilistClient>();
-    anilist.followingActivities(page: _currentPage).then((res) {
-      if (res.isErr()) {
-        error("error when loading activities", vars: {
-          "error": "${res.unwrapErr()}",
-          "page": "$_currentPage",
-        });
-        return;
-      }
+    final res = await anilist.followingActivities(page: _currentPage);
+    if (res.isErr()) {
+      error("error when loading activities", vars: {
+        "error": "${res.unwrapErr()}",
+        "page": "$_currentPage",
+      });
       setState(() {
-        _activities.addAll(res.unwrap());
         _loading = false;
       });
+      return;
+    }
+    setState(() {
+      _activities.addAll(res.unwrap());
+      _loading = false;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 15),
-          child: Text(
-            "Activities",
-            style: TextStyle(fontWeight: FontWeight.bold),
+    return SizedBox(
+      width: _tileWidth + 10,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Activities",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                IconButton(
+                    onPressed: _reload,
+                    icon: const Icon(
+                      Icons.replay_rounded,
+                      size: 18,
+                    ))
+              ],
+            ),
           ),
-        ),
-        for (final activity in _activities) ActivityTile(activity: activity),
-        // button for adding more activities
-        InkWell(
-          onTap: _addActivities,
-          child: Container(
-              width: _tileWidth,
-              padding: const EdgeInsets.all(10),
-              margin: const EdgeInsets.only(left: 10),
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
-                borderRadius: BorderRadius.circular(5),
-              ),
+          if (_activities.isEmpty)
+            const Padding(
+              padding: EdgeInsets.all(20.0),
               child: Center(
-                child: !_loading
-                    ? const Text("Load More")
-                    : const CircularProgressIndicator(
-                        color: Colors.lightBlue,
-                      ),
+                  child: CircularProgressIndicator(
+                color: Colors.lightBlue,
               )),
-        )
-      ],
+            ),
+          for (final activity in _activities) ActivityTile(activity: activity),
+          // button for adding more activities
+          InkWell(
+            onTap: _addActivities,
+            child: Container(
+                width: _tileWidth,
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.only(left: 10),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Center(
+                  child: !_loading
+                      ? const Text("Load More")
+                      : const CircularProgressIndicator(
+                          color: Colors.lightBlue,
+                        ),
+                )),
+          )
+        ],
+      ),
     );
   }
 }
@@ -123,7 +165,8 @@ class _ActivityTileState extends State<ActivityTile> {
     context.go("/media/${widget.activity.media!.id}");
   }
 
-  void _toggleLike() async {    print("before req ${activity.isLiked}");
+  void _toggleLike() async {
+    print("before req ${activity.isLiked}");
     final anilist = GetIt.I.get<AnilistClient>();
     final toggleRes =
         await anilist.toggleLike(activity.id, GLikeableType.ACTIVITY);
@@ -319,24 +362,23 @@ class StatusText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
         text: TextSpan(children: [
-      TextSpan(
-        style: const TextStyle(color: Colors.grey),
-        text:
-            "${status[0].toUpperCase()}${status.substring(1)} ${progress != null ? "$progress " : ""}",
-      ),
-      TextSpan(
-          text: _shorten(title),
-          style: const TextStyle(color: Colors.lightBlue),
-          recognizer: TapGestureRecognizer()
-            ..onTap = () => toMediaPage(context))
-    ]));
+          TextSpan(
+            style: const TextStyle(
+              color: Colors.grey,
+            ),
+            text:
+                "${_capitalize(status)} ${progress != null ? "$progress " : ""}",
+          ),
+          TextSpan(
+              text: title,
+              style: const TextStyle(color: Colors.lightBlue),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () => toMediaPage(context))
+        ]));
   }
 }
 
-String _shorten(String title) {
-  if (title.length > 80) {
-    return "${title.substring(1, 78)}..";
-  }
-  return title;
-}
+String _capitalize(String s) => s[0].toUpperCase() + s.substring(1);
