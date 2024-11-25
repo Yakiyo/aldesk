@@ -151,4 +151,14 @@ class AnilistClient {
         _client);
     return res.map((d) => d!.Page!.activities!.map((x) => x!).toList());
   }
+
+  ReturnType<GToggleActivityLikeData_ToggleLikeV2> toggleLike(
+      int elementId, GLikeableType type) async {
+    final res = await request(
+        GToggleActivityLikeReq((b) => b
+          ..vars.id = elementId
+          ..vars.type = type),
+        _client);
+    return res.map((d) => d!.ToggleLikeV2!);
+  }
 }
