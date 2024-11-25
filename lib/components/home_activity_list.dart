@@ -63,6 +63,8 @@ class _ActivityTileState extends State<ActivityTile> {
 
   @override
   Widget build(BuildContext context) {
+    const tileHeigth = 120.0;
+    const tileWidth = 560.0;
     return Container(
       clipBehavior: Clip.hardEdge,
       margin: const EdgeInsets.all(15),
@@ -71,28 +73,33 @@ class _ActivityTileState extends State<ActivityTile> {
         color: Theme.of(context).colorScheme.primary,
       ),
       constraints:
-          const BoxConstraints(minWidth: 550, maxWidth: 550, minHeight: 150),
-      width: 550,
-      height: 150,
-      child: InkWell(
-        onHover: (value) => setState(() {
-          _isHovering = value;
-        }),
-        onTap: () {},
+          const BoxConstraints(minWidth: tileWidth, maxWidth: tileWidth, minHeight: tileHeigth, maxHeight: tileHeigth + 100),
+      width: tileWidth,
+      height: tileHeigth,
+      child: MouseRegion(
+        onEnter: (event) => setState(() => _isHovering = true),
+        onExit: (event) => setState(() => _isHovering = false),
         child: Row(
           children: [
-            InkWell(
-              onTap: () => _toMediaPage(context),
-              child: Image.network(
-                widget.activity.media!.coverImage!.large!,
-                height: 150,
-                width: 100,
-                fit: BoxFit.fitHeight,
+            SizedBox(
+              width: 80,
+              height: tileHeigth,
+              child: InkWell(
+                onTap: () => _toMediaPage(context),
+                child: ClipRRect(
+                  clipBehavior: Clip.hardEdge,
+                  child: Image.network(
+                    widget.activity.media!.coverImage!.large!,
+                    // height: tileHeigth,
+                    // width: 80,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
+                padding: const EdgeInsets.only(left: 20, top: 5, bottom: 5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -126,18 +133,19 @@ class _ActivityTileState extends State<ActivityTile> {
                             width: 36,
                             fit: BoxFit.cover,
                           )),
-                    )
+                    ),
+                    const Expanded(child: SizedBox.shrink()),
                   ],
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(5),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
