@@ -2,13 +2,55 @@ import 'package:aldesk/util/themes/data.dart';
 import 'package:anilist/anilist.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+import 'package:minlog/minlog.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomeActivityList extends StatelessWidget {
+const _tileHeigth = 120.0;
+const _tileWidth = 560.0;
+
+class HomeActivityList extends StatefulWidget {
   final List<GListActivityFrag> activities;
 
   const HomeActivityList({super.key, required this.activities});
+
+  @override
+  State<HomeActivityList> createState() => _HomeActivityListState();
+}
+
+class _HomeActivityListState extends State<HomeActivityList> {
+  List<GListActivityFrag> _activities = [];
+  int _currentPage = 1;
+  bool _loading = false;
+
+  @override
+  void initState() {
+    _activities = widget.activities;
+    super.initState();
+    setState(() {});
+  }
+
+  void _addActivities() {
+    setState(() {
+      _loading = true;
+    });
+    _currentPage++;
+    final anilist = GetIt.I.get<AnilistClient>();
+    anilist.followingActivities(page: _currentPage).then((res) {
+      if (res.isErr()) {
+        error("error when loading activities", vars: {
+          "error": "${res.unwrapErr()}",
+          "page": "$_currentPage",
+        });
+        return;
+      }
+      setState(() {
+        _activities.addAll(res.unwrap());
+        _loading = false;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +64,25 @@ class HomeActivityList extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
-        for (final activity in activities) ActivityTile(activity: activity),
+        for (final activity in _activities) ActivityTile(activity: activity),
+        InkWell(
+          onTap: _addActivities,
+          child: Container(
+              width: _tileWidth,
+              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.only(left: 10),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Center(
+                child: !_loading
+                    ? const Text("Load More")
+                    : const CircularProgressIndicator(
+                        color: Colors.lightBlue,
+                      ),
+              )),
+        )
       ],
     );
   }
@@ -63,19 +123,20 @@ class _ActivityTileState extends State<ActivityTile> {
 
   @override
   Widget build(BuildContext context) {
-    const tileHeigth = 120.0;
-    const tileWidth = 560.0;
     return Container(
       clipBehavior: Clip.hardEdge,
-      margin: const EdgeInsets.all(15),
+      margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: Theme.of(context).colorScheme.primary,
       ),
-      constraints:
-          const BoxConstraints(minWidth: tileWidth, maxWidth: tileWidth, minHeight: tileHeigth, maxHeight: tileHeigth + 100),
-      width: tileWidth,
-      height: tileHeigth,
+      constraints: const BoxConstraints(
+          minWidth: _tileWidth,
+          maxWidth: _tileWidth,
+          minHeight: _tileHeigth,
+          maxHeight: _tileHeigth + 100),
+      width: _tileWidth,
+      height: _tileHeigth,
       child: MouseRegion(
         onEnter: (event) => setState(() => _isHovering = true),
         onExit: (event) => setState(() => _isHovering = false),
@@ -83,7 +144,7 @@ class _ActivityTileState extends State<ActivityTile> {
           children: [
             SizedBox(
               width: 80,
-              height: tileHeigth,
+              height: _tileHeigth,
               child: InkWell(
                 onTap: () => _toMediaPage(context),
                 child: ClipRRect(

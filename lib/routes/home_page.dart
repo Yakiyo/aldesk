@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     _data = [
       anilist.currentAnimes(),
       anilist.currentMangas(),
-      anilist.followingActivities()
+      anilist.followingActivities(page: 1, perPage: 25)
     ];
   }
 
@@ -92,6 +92,8 @@ class _HomePageState extends State<HomePage> {
                       if (data == null) return const SizedBox.shrink();
                       return HomeActivityList(activities: data);
                     }),
+
+                const SizedBox(height: 30,)
               ],
             ),
           ),
