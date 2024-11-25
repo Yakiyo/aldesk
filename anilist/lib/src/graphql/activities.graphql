@@ -48,8 +48,8 @@ fragment ListActivityFrag on ListActivity {
   }
 }
 
-query FollowingActivities {
-  Page(page: 1, perPage: 50) {
+query FollowingActivities($page: Int, $perPage: Int) {
+  Page(page: $page, perPage: $perPage) {
     activities(isFollowing: true, sort: ID_DESC, type_in: [ANIME_LIST, MANGA_LIST]) {
     #   ... on TextActivity {
     #     ...TextActivityFrag
@@ -61,8 +61,8 @@ query FollowingActivities {
   }
 }
 
-query GlobalActivities {
-  Page(page: 1, perPage: 50) {
+query GlobalActivities($page: Int, $perPage: Int) {
+  Page(page: $page, perPage: $perPage) {
     activities(sort: ID_DESC, type_in: [ANIME_LIST, MANGA_LIST], hasReplies: true) {
     #   ... on TextActivity {
     #     ...TextActivityFrag
@@ -74,8 +74,8 @@ query GlobalActivities {
   }
 }
 
-query UserActivities($userId: Int) {
-  Page(page: 1, perPage: 100) {
+query UserActivities($userId: Int, $page: Int, $perPage: Int) {
+  Page(page: $page, perPage: $perPage) {
     activities(userId: $userId, type_in: [ANIME_LIST, MANGA_LIST], sort: ID_DESC) {
     #   ...on TextActivity {
     #     ...TextActivityFrag

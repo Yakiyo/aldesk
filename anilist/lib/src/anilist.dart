@@ -128,16 +128,27 @@ class AnilistClient {
     );
   }
 
-  ReturnType<List<GListActivityFrag>> followingActivities() async {
-    final res = await request(GFollowingActivitiesReq(), _client);
+  ReturnType<List<GListActivityFrag>> followingActivities(
+      {int page = 1, int perPage = 25}) async {
+    final res = await request(
+        GFollowingActivitiesReq((b) => b
+          ..vars.page = page
+          ..vars.perPage = perPage),
+        _client);
     return res.map((d) =>
         d!.Page!.activities!.map((x) => x! as GListActivityFrag).toList());
   }
 
   ReturnType<List<GUserActivitiesData_Page_activities>> userActivities(
-      int userId) async {
+      int userId,
+      {int page = 1,
+      int perPage = 25}) async {
     final res = await request(
-        GUserActivitiesReq((d) => d..vars.userId = userId), _client);
+        GUserActivitiesReq((d) => d
+          ..vars.userId = userId
+          ..vars.page = page
+          ..vars.perPage = perPage),
+        _client);
     return res.map((d) => d!.Page!.activities!.map((x) => x!).toList());
   }
 }
