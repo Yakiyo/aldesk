@@ -15,8 +15,9 @@ void main() async {
     // TODO: need to log errors to a file during prod
     updateDefaultLogger(level: Level.warn);
   }
-  GetIt.I.registerSingleton<ThemeManager>(ThemeManager());
   await Hive.openBox<String>("db");
+
+  GetIt.I.registerSingleton<ThemeManager>(ThemeManager());
 
   runApp(const MyApp());
 }
