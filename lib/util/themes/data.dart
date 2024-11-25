@@ -17,6 +17,7 @@ final ThemeData darkTheme = ThemeData(
   scaffoldBackgroundColor: const Color(0xFF0B1622),
   colorScheme: ColorScheme.fromSeed(
       seedColor: const Color(0xFF152232),
+      primary: const Color(0xFF152232),
       secondary: const Color.fromARGB(255, 170, 164, 164),
       brightness: Brightness.dark),
 );

@@ -25,7 +25,7 @@ class _NavigationFABState extends State<NavigationFAB> {
         firstChild: Padding(
           padding: const EdgeInsets.all(2.0),
           child: FloatingActionButton(
-            backgroundColor: const Color(0xFF152232),
+            backgroundColor: Theme.of(context).colorScheme.primary,
             onPressed: () => _changeView(),
             heroTag: null,
             child: const Icon(

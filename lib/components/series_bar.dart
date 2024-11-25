@@ -28,7 +28,7 @@ class SeriesBar extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(5)),
             child: Wrap(children: [
               for (final series in serieslist)

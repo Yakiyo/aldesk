@@ -1,3 +1,4 @@
+import 'package:aldesk/util/themes/manager.dart';
 import 'package:anilist/anilist.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter/gestures.dart';
@@ -96,17 +97,23 @@ class _SettingsPageState extends State<SettingsPage> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   clipBehavior: Clip.hardEdge,
-                  child: Image.network(
-                    _avatar,
-                    height: 100,
-                  ),
+                  child: _avatar.isNotEmpty
+                      ? Image.network(
+                          _avatar,
+                          height: 100,
+                        )
+                      : const SizedBox(
+                          height: 100,
+                        ),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 RichText(
                   text: TextSpan(children: [
-                    const TextSpan(text: "Logged in as "),
+                    TextSpan(
+                        text: "Logged in as ",
+                        style: Theme.of(context).textTheme.bodyLarge),
                     TextSpan(
                         text: _username,
                         style: const TextStyle(color: Colors.lightBlue),
@@ -120,7 +127,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 RichText(
                   text: TextSpan(children: [
-                    const TextSpan(text: "Your tokin will expire on "),
+                    TextSpan(
+                        text: "Your tokin will expire on ",
+                        style: Theme.of(context).textTheme.bodyLarge),
                     TextSpan(
                         text: _exp, style: TextStyle(color: Colors.orange[400]))
                   ]),
@@ -130,10 +139,29 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 ElevatedButton(
                   style: const ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Colors.lightBlue),
-                      foregroundColor: WidgetStatePropertyAll(Colors.white)),
+                      backgroundColor:
+                          WidgetStatePropertyAll(Colors.lightBlue)),
+                  onPressed: () {
+                    final themeManager = GetIt.I.get<ThemeManager>();
+                    themeManager.toggleTheme(themeManager.isLight);
+                  },
+                  child: const Text(
+                    "Toggle Theme",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                ElevatedButton(
+                  style: const ButtonStyle(
+                      backgroundColor:
+                          WidgetStatePropertyAll(Colors.lightBlue)),
                   onPressed: _logout,
-                  child: const Text("Logout"),
+                  child: const Text(
+                    "Logout",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 )
               ],
             ),
