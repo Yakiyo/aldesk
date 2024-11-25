@@ -135,85 +135,91 @@ class _SeriesBarTileState extends State<SeriesBarTile> {
     }
   }
 
+  // In here, i had to use MouseRegion for detecting hover instead of using the
+  // inkwell , because for some reason, inkwell doesn't work when wrapped over a
+  // a `Stack`, so i had to wrap it on the image only, and use MouseRegion for
+  // the hover effect to show/hide overlay
   @override
   Widget build(BuildContext context) {
     final entry = widget.entry;
     return Container(
       padding: const EdgeInsets.all(10),
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          InkWell(
-            onHover: (value) {
-              setState(() => _hovering = value);
-              if (value) {
-                _createOverlay();
-              } else {
-                _removeOverlay();
-              }
-            },
-            onTap: _onPressed,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-              child: Image.network(
-                entry.media!.coverImage!.large!,
-                height: 140,
-                width: 95,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          // remove progress on hover text, bcz not gonna implement a feature to
-          // increment entry from there (yet?), and it messes with the inkwell's
-          // detector
-
-          // if (_hovering)
-          //   Container(
-          //     padding: const EdgeInsets.symmetric(vertical: 10),
-          //     decoration: BoxDecoration(
-          //       color: Colors.black.withOpacity(0.5),
-          //     ),
-          //     // height: 140,
-          //     width: 95,
-          //     child: Center(
-          //       child: Text(
-          //         "${entry.progress ?? 0}+",
-          //         style: const TextStyle(color: Colors.white),
-          //       ),
-          //     ),
-          //   ),
-
-          // for releasing series, show a red line at the bottom and
-          // next episode number and probable duration until its release
-          if (!_hovering &&
-              entry.media?.type?.name == "ANIME" &&
-              entry.media!.status!.name == "RELEASING") ...[
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
-              ),
-              // height: 140,
-              width: 95,
-              child: Center(
-                child: Text(
-                  "Ep ${entry.media?.nextAiringEpisode?.episode}\n"
-                  "${secondsToTime(entry.media!.nextAiringEpisode!.timeUntilAiring)}",
-                  style: const TextStyle(color: Colors.white, fontSize: 12),
-                  textAlign: TextAlign.center,
+      child: MouseRegion(
+        onEnter: (event) => setState(() {
+          _hovering = true;
+          _createOverlay();
+        }),
+        onExit: (event) => setState(() {
+          _hovering = false;
+          _removeOverlay();
+        }),
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            InkWell(
+              onTap: _onPressed,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: Image.network(
+                  entry.media!.coverImage!.large!,
+                  height: 140,
+                  width: 95,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
-            if (_behindInfo() > 0)
-              SizedBox(
-                width: 95,
-                height: 5,
-                child: Container(
-                  color: highlightColor,
+            // remove progress on hover text, bcz not gonna implement a feature to
+            // increment entry from there (yet?), and it messes with the inkwell's
+            // detector
+        
+            // if (_hovering)
+            //   Container(
+            //     padding: const EdgeInsets.symmetric(vertical: 10),
+            //     decoration: BoxDecoration(
+            //       color: Colors.black.withOpacity(0.5),
+            //     ),
+            //     // height: 140,
+            //     width: 95,
+            //     child: Center(
+            //       child: Text(
+            //         "${entry.progress ?? 0}+",
+            //         style: const TextStyle(color: Colors.white),
+            //       ),
+            //     ),
+            //   ),
+        
+            // for releasing series, show a red line at the bottom and
+            // next episode number and probable duration until its release
+            if (!_hovering &&
+                entry.media?.type?.name == "ANIME" &&
+                entry.media!.status!.name == "RELEASING") ...[
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
                 ),
-              )
-          ]
-        ],
+                // height: 140,
+                width: 95,
+                child: Center(
+                  child: Text(
+                    "Ep ${entry.media?.nextAiringEpisode?.episode}\n"
+                    "${secondsToTime(entry.media!.nextAiringEpisode!.timeUntilAiring)}",
+                    style: const TextStyle(color: Colors.white, fontSize: 12),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+              if (_behindInfo() > 0)
+                SizedBox(
+                  width: 95,
+                  height: 5,
+                  child: Container(
+                    color: highlightColor,
+                  ),
+                )
+            ]
+          ],
+        ),
       ),
     );
   }
