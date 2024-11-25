@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
     return [
       ("Airing Animes", animes.sublist(0, airingLen)),
       ("Anime in Progress", animes.sublist(airingLen))
-    ];
+    ].where((e) => e.$2.isNotEmpty).toList();
   }
 
   @override
@@ -49,70 +49,73 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       floatingActionButton: const NavigationFAB(),
       // backgroundColor: colorBg,
-      body: Center(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.75,
-          child: FutureBuilder(
-            future: _data,
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const SizedBox.shrink();
-              }
-              if (snapshot.hasError) {
-                error("error when fetching data from anilist",
-                    vars: {"error": "${snapshot.error}"});
-                return const SizedBox.shrink();
-              }
-              final animesR = snapshot.data![0];
-              final mangasR = snapshot.data![1];
-
-              if (animesR.isErr()) {
-                error("error when fetching animes",
-                    vars: {"error": "${animesR.unwrapErr()}"});
-              }
-              if (mangasR.isErr()) {
-                error("error when fetching mangas",
-                    vars: {"error": "${mangasR.unwrapErr()}"});
-              }
-              List<GListActivityFrag> activities = [];
-              if (snapshot.data![2].isOk()) {
-                activities = snapshot.data![2].unwrap();
-              } else {
-                error("error when fetching activities",
-                    vars: {"error": "${snapshot.data![2].unwrapErr()}"});
-              }
-
-              return ScrollConfiguration(
-                // remove the scroll bar that shows up on right
-                behavior: ScrollConfiguration.of(context).copyWith(
-                  scrollbars: false,
-                ),
-                child: ListView(
-                  children: [
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    if (animesR.isOk())
-                      for (final animes in _resolveAnimes(animesR.unwrap()
-                          as List<GHomePageListData_Page_mediaList>))
-                        SeriesBar(
-                          title: animes.$1,
-                          serieslist: animes.$2,
-                        ),
-                    if (mangasR.isOk())
-                      SeriesBar(
-                        title: "Manga in Progress",
-                        serieslist: mangasR.unwrap()
-                            as List<GHomePageListData_Page_mediaList>,
+      body: SingleChildScrollView(
+        child: Center(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.75,
+            child: FutureBuilder(
+              future: _data,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const SizedBox.shrink();
+                }
+                if (snapshot.hasError) {
+                  error("error when fetching data from anilist",
+                      vars: {"error": "${snapshot.error}"});
+                  return const SizedBox.shrink();
+                }
+                final animesR = snapshot.data![0];
+                final mangasR = snapshot.data![1];
+        
+                if (animesR.isErr()) {
+                  error("error when fetching animes",
+                      vars: {"error": "${animesR.unwrapErr()}"});
+                }
+                if (mangasR.isErr()) {
+                  error("error when fetching mangas",
+                      vars: {"error": "${mangasR.unwrapErr()}"});
+                }
+                List<GListActivityFrag> activities = [];
+                if (snapshot.data![2].isOk()) {
+                  activities = snapshot.data![2].unwrap();
+                } else {
+                  error("error when fetching activities",
+                      vars: {"error": "${snapshot.data![2].unwrapErr()}"});
+                }
+        
+                return ScrollConfiguration(
+                  // remove the scroll bar that shows up on right
+                  behavior: ScrollConfiguration.of(context).copyWith(
+                    scrollbars: false,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 40,
                       ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    HomeActivityList(activities: activities),
-                  ],
-                ),
-              );
-            },
+                      if (animesR.isOk())
+                        for (final animes in _resolveAnimes(animesR.unwrap()
+                            as List<GHomePageListData_Page_mediaList>))
+                          SeriesBar(
+                            title: animes.$1,
+                            serieslist: animes.$2,
+                          ),
+                      if (mangasR.isOkAnd((activities) => activities.isNotEmpty))
+                        SeriesBar(
+                          title: "Manga in Progress",
+                          serieslist: mangasR.unwrap()
+                              as List<GHomePageListData_Page_mediaList>,
+                        ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      HomeActivityList(activities: activities),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ),
