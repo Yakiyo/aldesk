@@ -1,12 +1,11 @@
 import 'package:aldesk/components/home_activity_list.dart';
 import 'package:aldesk/components/navigation_fab.dart';
+import 'package:aldesk/components/series_bar.dart';
 import 'package:anilist/anilist.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:minlog/minlog.dart';
 import 'package:option_result/option_result.dart';
-
-import '../components/series_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,17 +15,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late final Future<List<Result<dynamic, List<Map<String, String>>>>> _data;
+  late final List<Future<Result<dynamic, List<Map<String, String>>>>> _data;
 
   @override
   void initState() {
     super.initState();
     final anilist = GetIt.I.get<AnilistClient>();
-    _data = Future.wait([
+    _data = [
       anilist.currentAnimes(),
       anilist.currentMangas(),
       anilist.followingActivities()
-    ]);
+    ];
   }
 
   List<(String, List<GHomePageListData_Page_mediaList>)> _resolveAnimes(
@@ -53,72 +52,78 @@ class _HomePageState extends State<HomePage> {
         child: Center(
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.75,
-            child: FutureBuilder(
-              future: _data,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const SizedBox.shrink();
-                }
-                if (snapshot.hasError) {
-                  error("error when fetching data from anilist",
-                      vars: {"error": "${snapshot.error}"});
-                  return const SizedBox.shrink();
-                }
-                final animesR = snapshot.data![0];
-                final mangasR = snapshot.data![1];
-        
-                if (animesR.isErr()) {
-                  error("error when fetching animes",
-                      vars: {"error": "${animesR.unwrapErr()}"});
-                }
-                if (mangasR.isErr()) {
-                  error("error when fetching mangas",
-                      vars: {"error": "${mangasR.unwrapErr()}"});
-                }
-                List<GListActivityFrag> activities = [];
-                if (snapshot.data![2].isOk()) {
-                  activities = snapshot.data![2].unwrap();
-                } else {
-                  error("error when fetching activities",
-                      vars: {"error": "${snapshot.data![2].unwrapErr()}"});
-                }
-        
-                return ScrollConfiguration(
-                  // remove the scroll bar that shows up on right
-                  behavior: ScrollConfiguration.of(context).copyWith(
-                    scrollbars: false,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      if (animesR.isOk())
-                        for (final animes in _resolveAnimes(animesR.unwrap()
-                            as List<GHomePageListData_Page_mediaList>))
-                          SeriesBar(
-                            title: animes.$1,
-                            serieslist: animes.$2,
-                          ),
-                      if (mangasR.isOkAnd((activities) => activities.isNotEmpty))
-                        SeriesBar(
-                          title: "Manga in Progress",
-                          serieslist: mangasR.unwrap()
-                              as List<GHomePageListData_Page_mediaList>,
-                        ),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      HomeActivityList(activities: activities),
-                    ],
-                  ),
-                );
-              },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 40,
+                ),
+                // Anime section
+                FutureBuilder(
+                    future: _data[0],
+                    builder: (context, snapshot) {
+                      final data =
+                          builderResolver<GHomePageListData_Page_mediaList>(
+                              context, snapshot);
+                      if (data == null) return const SizedBox.shrink();
+                      final widgets = _resolveAnimes(data)
+                          .map((e) => SeriesBar(title: e.$1, serieslist: e.$2))
+                          .toList();
+                      // return SeriesBar(title: "Airing Anime", serieslist: data);
+                      return Column(children: widgets);
+                    }),
+                // Manga section
+                FutureBuilder(
+                    future: _data[1],
+                    builder: (context, snapshot) {
+                      final data =
+                          builderResolver<GHomePageListData_Page_mediaList>(
+                              context, snapshot);
+                      if (data == null) return const SizedBox.shrink();
+                      return SeriesBar(
+                          title: "Manga In Progress", serieslist: data);
+                    }),
+                // Activity List
+                FutureBuilder(
+                    future: _data[2],
+                    builder: (context, snapshot) {
+                      final data =
+                          builderResolver<GListActivityFrag>(context, snapshot);
+                      if (data == null) return const SizedBox.shrink();
+                      return HomeActivityList(activities: data);
+                    }),
+              ],
             ),
           ),
         ),
       ),
     );
   }
+}
+
+List<T>? builderResolver<T>(BuildContext context,
+    AsyncSnapshot<Result<dynamic, List<Map<String, String>>>> snapshot) {
+  switch (snapshot.connectionState) {
+    case ConnectionState.waiting:
+      return null;
+    case ConnectionState.none:
+      return null;
+    default:
+      break;
+  }
+
+  if (snapshot.hasError) {
+    error("Future execution error", vars: {"error": snapshot.error.toString()});
+    return null;
+  }
+
+  final data = snapshot.data!;
+
+  if (data.isErr()) {
+    error("Error fetching data", vars: {"error": "${data.unwrapErr()}"});
+    return null;
+  }
+  final content = data.unwrap() as List<T>;
+  if (content.isEmpty) return null;
+  return content;
 }
