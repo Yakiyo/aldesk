@@ -6454,4 +6454,3 @@ type YearStats {
   amount: Int
   meanScore: Int
 }
-

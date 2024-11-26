@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   anilist:
-    path: ../packages/anilist_old
+    path: ../packages/anilist
 
 dev_dependencies:
   flutter_test:
