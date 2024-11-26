@@ -41,9 +41,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-# env files
-.env
-
-# melos generated file
-pubspec_overrides.yaml

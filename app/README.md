@@ -1,0 +1,3 @@
+# aldesk
+
+Anilist dekstop app

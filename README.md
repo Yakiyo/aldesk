@@ -1,3 +1,3 @@
 # aldesk
 
-(Prototype) Anilist dekstop app built with flutter
+Anilist app for dekstop
