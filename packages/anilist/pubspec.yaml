@@ -9,6 +9,7 @@ environment:
 # Add regular dependencies here.
 dependencies:
   gql: ^1.0.0+1
+  http: ^1.2.2
   json_annotation: ^4.9.0
   option_result: ^3.2.1
 

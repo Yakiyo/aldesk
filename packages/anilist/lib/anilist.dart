@@ -1,8 +1,10 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
+/// Library for interacting with the Anilist Graphql API
 library;
 
-export 'src/anilist.dart';
+export 'src/request.dart';
 
-// TODO: Export any libraries intended for clients of this package.
+// generated files
+export 'src/generated/activities.graphql.dart';
+export 'src/generated/media.graphql.dart';
+export 'src/generated/schema.graphql.dart';
+export 'src/generated/user.graphql.dart';
