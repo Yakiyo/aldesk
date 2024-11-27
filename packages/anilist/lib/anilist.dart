@@ -2,3 +2,4 @@
 library;
 
 export 'src/anilist.dart';
+export 'package:gql/language.dart' show printNode;
