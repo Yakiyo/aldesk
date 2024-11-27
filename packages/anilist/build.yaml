@@ -5,5 +5,5 @@ targets:
     builders:
       graphql_codegen:
         options:
-          outputDirectory: ../generated
+          outputDirectory: ../models
           namingSeparator: ""
