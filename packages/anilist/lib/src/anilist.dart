@@ -26,10 +26,12 @@ Future<Result<Map<String, dynamic>, List<ApiError>>> request({
 }) async {
   client ??= baseClient;
 
-  final response = await client.post(baseUrl, headers: headers, body: jsonEncode({
-    'query': query,
-    'variables': variables,
-  }));
+  final response = await client.post(baseUrl,
+      headers: headers,
+      body: jsonEncode({
+        'query': query,
+        'variables': variables,
+      }));
   final body = jsonDecode(response.body);
 
   final errorR = body['errors'] as List<dynamic>?;
