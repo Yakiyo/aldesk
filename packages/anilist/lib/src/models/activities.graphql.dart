@@ -1,51 +1,62 @@
+import 'fragments.graphql.dart';
 import 'package:gql/ast.dart';
 import 'schema.graphql.dart';
 
-class FragmentListActivityFrag {
-  FragmentListActivityFrag({
+class FragmentListActivity {
+  FragmentListActivity({
     required this.id,
     this.type,
-    this.user,
     this.status,
-    required this.createdAt,
     this.progress,
-    required this.likeCount,
+    this.isLocked,
+    this.isSubscribed,
     required this.replyCount,
+    required this.likeCount,
     this.isLiked,
+    this.isPinned,
+    this.siteUrl,
+    required this.createdAt,
+    this.user,
     this.media,
     this.$__typename = 'ListActivity',
   });
 
-  factory FragmentListActivityFrag.fromJson(Map<String, dynamic> json) {
+  factory FragmentListActivity.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$type = json['type'];
-    final l$user = json['user'];
     final l$status = json['status'];
-    final l$createdAt = json['createdAt'];
     final l$progress = json['progress'];
-    final l$likeCount = json['likeCount'];
+    final l$isLocked = json['isLocked'];
+    final l$isSubscribed = json['isSubscribed'];
     final l$replyCount = json['replyCount'];
+    final l$likeCount = json['likeCount'];
     final l$isLiked = json['isLiked'];
+    final l$isPinned = json['isPinned'];
+    final l$siteUrl = json['siteUrl'];
+    final l$createdAt = json['createdAt'];
+    final l$user = json['user'];
     final l$media = json['media'];
     final l$$__typename = json['__typename'];
-    return FragmentListActivityFrag(
+    return FragmentListActivity(
       id: (l$id as int),
       type:
           l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
+      status: (l$status as String?),
+      progress: (l$progress as String?),
+      isLocked: (l$isLocked as bool?),
+      isSubscribed: (l$isSubscribed as bool?),
+      replyCount: (l$replyCount as int),
+      likeCount: (l$likeCount as int),
+      isLiked: (l$isLiked as bool?),
+      isPinned: (l$isPinned as bool?),
+      siteUrl: (l$siteUrl as String?),
+      createdAt: (l$createdAt as int),
       user: l$user == null
           ? null
-          : FragmentListActivityFraguser.fromJson(
-              (l$user as Map<String, dynamic>)),
-      status: (l$status as String?),
-      createdAt: (l$createdAt as int),
-      progress: (l$progress as String?),
-      likeCount: (l$likeCount as int),
-      replyCount: (l$replyCount as int),
-      isLiked: (l$isLiked as bool?),
+          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
       media: l$media == null
           ? null
-          : FragmentListActivityFragmedia.fromJson(
-              (l$media as Map<String, dynamic>)),
+          : FragmentMediaMinF.fromJson((l$media as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -54,21 +65,29 @@ class FragmentListActivityFrag {
 
   final EnumActivityType? type;
 
-  final FragmentListActivityFraguser? user;
-
   final String? status;
-
-  final int createdAt;
 
   final String? progress;
 
-  final int likeCount;
+  final bool? isLocked;
+
+  final bool? isSubscribed;
 
   final int replyCount;
 
+  final int likeCount;
+
   final bool? isLiked;
 
-  final FragmentListActivityFragmedia? media;
+  final bool? isPinned;
+
+  final String? siteUrl;
+
+  final int createdAt;
+
+  final FragmentUserMinF? user;
+
+  final FragmentMediaMinF? media;
 
   final String $__typename;
 
@@ -79,20 +98,28 @@ class FragmentListActivityFrag {
     final l$type = type;
     _resultData['type'] =
         l$type == null ? null : toJsonEnumActivityType(l$type);
-    final l$user = user;
-    _resultData['user'] = l$user?.toJson();
     final l$status = status;
     _resultData['status'] = l$status;
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
     final l$progress = progress;
     _resultData['progress'] = l$progress;
-    final l$likeCount = likeCount;
-    _resultData['likeCount'] = l$likeCount;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
     final l$replyCount = replyCount;
     _resultData['replyCount'] = l$replyCount;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
     final l$isLiked = isLiked;
     _resultData['isLiked'] = l$isLiked;
+    final l$isPinned = isPinned;
+    _resultData['isPinned'] = l$isPinned;
+    final l$siteUrl = siteUrl;
+    _resultData['siteUrl'] = l$siteUrl;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$user = user;
+    _resultData['user'] = l$user?.toJson();
     final l$media = media;
     _resultData['media'] = l$media?.toJson();
     final l$$__typename = $__typename;
@@ -104,25 +131,33 @@ class FragmentListActivityFrag {
   int get hashCode {
     final l$id = id;
     final l$type = type;
-    final l$user = user;
     final l$status = status;
-    final l$createdAt = createdAt;
     final l$progress = progress;
-    final l$likeCount = likeCount;
+    final l$isLocked = isLocked;
+    final l$isSubscribed = isSubscribed;
     final l$replyCount = replyCount;
+    final l$likeCount = likeCount;
     final l$isLiked = isLiked;
+    final l$isPinned = isPinned;
+    final l$siteUrl = siteUrl;
+    final l$createdAt = createdAt;
+    final l$user = user;
     final l$media = media;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$type,
-      l$user,
       l$status,
-      l$createdAt,
       l$progress,
-      l$likeCount,
+      l$isLocked,
+      l$isSubscribed,
       l$replyCount,
+      l$likeCount,
       l$isLiked,
+      l$isPinned,
+      l$siteUrl,
+      l$createdAt,
+      l$user,
       l$media,
       l$$__typename,
     ]);
@@ -133,8 +168,7 @@ class FragmentListActivityFrag {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentListActivityFrag) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is FragmentListActivity) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -147,19 +181,9 @@ class FragmentListActivityFrag {
     if (l$type != lOther$type) {
       return false;
     }
-    final l$user = user;
-    final lOther$user = other.user;
-    if (l$user != lOther$user) {
-      return false;
-    }
     final l$status = status;
     final lOther$status = other.status;
     if (l$status != lOther$status) {
-      return false;
-    }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
       return false;
     }
     final l$progress = progress;
@@ -167,9 +191,14 @@ class FragmentListActivityFrag {
     if (l$progress != lOther$progress) {
       return false;
     }
-    final l$likeCount = likeCount;
-    final lOther$likeCount = other.likeCount;
-    if (l$likeCount != lOther$likeCount) {
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
       return false;
     }
     final l$replyCount = replyCount;
@@ -177,9 +206,34 @@ class FragmentListActivityFrag {
     if (l$replyCount != lOther$replyCount) {
       return false;
     }
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
     final l$isLiked = isLiked;
     final lOther$isLiked = other.isLiked;
     if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$isPinned = isPinned;
+    final lOther$isPinned = other.isPinned;
+    if (l$isPinned != lOther$isPinned) {
+      return false;
+    }
+    final l$siteUrl = siteUrl;
+    final lOther$siteUrl = other.siteUrl;
+    if (l$siteUrl != lOther$siteUrl) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
       return false;
     }
     final l$media = media;
@@ -196,140 +250,157 @@ class FragmentListActivityFrag {
   }
 }
 
-extension UtilityExtensionFragmentListActivityFrag on FragmentListActivityFrag {
-  CopyWithFragmentListActivityFrag<FragmentListActivityFrag> get copyWith =>
-      CopyWithFragmentListActivityFrag(
+extension UtilityExtensionFragmentListActivity on FragmentListActivity {
+  CopyWithFragmentListActivity<FragmentListActivity> get copyWith =>
+      CopyWithFragmentListActivity(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithFragmentListActivityFrag<TRes> {
-  factory CopyWithFragmentListActivityFrag(
-    FragmentListActivityFrag instance,
-    TRes Function(FragmentListActivityFrag) then,
-  ) = _CopyWithImplFragmentListActivityFrag;
+abstract class CopyWithFragmentListActivity<TRes> {
+  factory CopyWithFragmentListActivity(
+    FragmentListActivity instance,
+    TRes Function(FragmentListActivity) then,
+  ) = _CopyWithImplFragmentListActivity;
 
-  factory CopyWithFragmentListActivityFrag.stub(TRes res) =
-      _CopyWithStubImplFragmentListActivityFrag;
+  factory CopyWithFragmentListActivity.stub(TRes res) =
+      _CopyWithStubImplFragmentListActivity;
 
   TRes call({
     int? id,
     EnumActivityType? type,
-    FragmentListActivityFraguser? user,
     String? status,
-    int? createdAt,
     String? progress,
-    int? likeCount,
+    bool? isLocked,
+    bool? isSubscribed,
     int? replyCount,
+    int? likeCount,
     bool? isLiked,
-    FragmentListActivityFragmedia? media,
+    bool? isPinned,
+    String? siteUrl,
+    int? createdAt,
+    FragmentUserMinF? user,
+    FragmentMediaMinF? media,
     String? $__typename,
   });
-  CopyWithFragmentListActivityFraguser<TRes> get user;
-  CopyWithFragmentListActivityFragmedia<TRes> get media;
+  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentMediaMinF<TRes> get media;
 }
 
-class _CopyWithImplFragmentListActivityFrag<TRes>
-    implements CopyWithFragmentListActivityFrag<TRes> {
-  _CopyWithImplFragmentListActivityFrag(
+class _CopyWithImplFragmentListActivity<TRes>
+    implements CopyWithFragmentListActivity<TRes> {
+  _CopyWithImplFragmentListActivity(
     this._instance,
     this._then,
   );
 
-  final FragmentListActivityFrag _instance;
+  final FragmentListActivity _instance;
 
-  final TRes Function(FragmentListActivityFrag) _then;
+  final TRes Function(FragmentListActivity) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
     Object? type = _undefined,
-    Object? user = _undefined,
     Object? status = _undefined,
-    Object? createdAt = _undefined,
     Object? progress = _undefined,
-    Object? likeCount = _undefined,
+    Object? isLocked = _undefined,
+    Object? isSubscribed = _undefined,
     Object? replyCount = _undefined,
+    Object? likeCount = _undefined,
     Object? isLiked = _undefined,
+    Object? isPinned = _undefined,
+    Object? siteUrl = _undefined,
+    Object? createdAt = _undefined,
+    Object? user = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentListActivityFrag(
+      _then(FragmentListActivity(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         type: type == _undefined ? _instance.type : (type as EnumActivityType?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as FragmentListActivityFraguser?),
         status: status == _undefined ? _instance.status : (status as String?),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
         progress:
             progress == _undefined ? _instance.progress : (progress as String?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
         replyCount: replyCount == _undefined || replyCount == null
             ? _instance.replyCount
             : (replyCount as int),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
         isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        isPinned:
+            isPinned == _undefined ? _instance.isPinned : (isPinned as bool?),
+        siteUrl:
+            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
         media: media == _undefined
             ? _instance.media
-            : (media as FragmentListActivityFragmedia?),
+            : (media as FragmentMediaMinF?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentListActivityFraguser<TRes> get user {
+  CopyWithFragmentUserMinF<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentListActivityFraguser.stub(_then(_instance))
-        : CopyWithFragmentListActivityFraguser(
-            local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMinF.stub(_then(_instance))
+        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
   }
 
-  CopyWithFragmentListActivityFragmedia<TRes> get media {
+  CopyWithFragmentMediaMinF<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
-        ? CopyWithFragmentListActivityFragmedia.stub(_then(_instance))
-        : CopyWithFragmentListActivityFragmedia(
-            local$media, (e) => call(media: e));
+        ? CopyWithFragmentMediaMinF.stub(_then(_instance))
+        : CopyWithFragmentMediaMinF(local$media, (e) => call(media: e));
   }
 }
 
-class _CopyWithStubImplFragmentListActivityFrag<TRes>
-    implements CopyWithFragmentListActivityFrag<TRes> {
-  _CopyWithStubImplFragmentListActivityFrag(this._res);
+class _CopyWithStubImplFragmentListActivity<TRes>
+    implements CopyWithFragmentListActivity<TRes> {
+  _CopyWithStubImplFragmentListActivity(this._res);
 
   TRes _res;
 
   call({
     int? id,
     EnumActivityType? type,
-    FragmentListActivityFraguser? user,
     String? status,
-    int? createdAt,
     String? progress,
-    int? likeCount,
+    bool? isLocked,
+    bool? isSubscribed,
     int? replyCount,
+    int? likeCount,
     bool? isLiked,
-    FragmentListActivityFragmedia? media,
+    bool? isPinned,
+    String? siteUrl,
+    int? createdAt,
+    FragmentUserMinF? user,
+    FragmentMediaMinF? media,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentListActivityFraguser<TRes> get user =>
-      CopyWithFragmentListActivityFraguser.stub(_res);
+  CopyWithFragmentUserMinF<TRes> get user =>
+      CopyWithFragmentUserMinF.stub(_res);
 
-  CopyWithFragmentListActivityFragmedia<TRes> get media =>
-      CopyWithFragmentListActivityFragmedia.stub(_res);
+  CopyWithFragmentMediaMinF<TRes> get media =>
+      CopyWithFragmentMediaMinF.stub(_res);
 }
 
-const fragmentDefinitionListActivityFrag = FragmentDefinitionNode(
-  name: NameNode(value: 'ListActivityFrag'),
+const fragmentDefinitionListActivity = FragmentDefinitionNode(
+  name: NameNode(value: 'ListActivity'),
   typeCondition: TypeConditionNode(
       on: NamedTypeNode(
     name: NameNode(value: 'ListActivity'),
@@ -352,65 +423,7 @@ const fragmentDefinitionListActivityFrag = FragmentDefinitionNode(
       selectionSet: null,
     ),
     FieldNode(
-      name: NameNode(value: 'user'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'name'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'avatar'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FieldNode(
-              name: NameNode(value: 'large'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: '__typename'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-          ]),
-        ),
-        FieldNode(
-          name: NameNode(value: '__typename'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-      ]),
-    ),
-    FieldNode(
       name: NameNode(value: 'status'),
-      alias: null,
-      arguments: [],
-      directives: [],
-      selectionSet: null,
-    ),
-    FieldNode(
-      name: NameNode(value: 'createdAt'),
       alias: null,
       arguments: [],
       directives: [],
@@ -424,7 +437,14 @@ const fragmentDefinitionListActivityFrag = FragmentDefinitionNode(
       selectionSet: null,
     ),
     FieldNode(
-      name: NameNode(value: 'likeCount'),
+      name: NameNode(value: 'isLocked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isSubscribed'),
       alias: null,
       arguments: [],
       directives: [],
@@ -438,6 +458,13 @@ const fragmentDefinitionListActivityFrag = FragmentDefinitionNode(
       selectionSet: null,
     ),
     FieldNode(
+      name: NameNode(value: 'likeCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
       name: NameNode(value: 'isLiked'),
       alias: null,
       arguments: [],
@@ -445,61 +472,54 @@ const fragmentDefinitionListActivityFrag = FragmentDefinitionNode(
       selectionSet: null,
     ),
     FieldNode(
-      name: NameNode(value: 'media'),
+      name: NameNode(value: 'isPinned'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'siteUrl'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'createdAt'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'user'),
       alias: null,
       arguments: [],
       directives: [],
       selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'UserMinF'),
+          directives: [],
+        ),
         FieldNode(
-          name: NameNode(value: 'id'),
+          name: NameNode(value: '__typename'),
           alias: null,
           arguments: [],
           directives: [],
           selectionSet: null,
         ),
-        FieldNode(
-          name: NameNode(value: 'coverImage'),
-          alias: null,
-          arguments: [],
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: 'media'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'MediaMinF'),
           directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FieldNode(
-              name: NameNode(value: 'large'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: '__typename'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-          ]),
-        ),
-        FieldNode(
-          name: NameNode(value: 'title'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: SelectionSetNode(selections: [
-            FieldNode(
-              name: NameNode(value: 'userPreferred'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-            FieldNode(
-              name: NameNode(value: '__typename'),
-              alias: null,
-              arguments: [],
-              directives: [],
-              selectionSet: null,
-            ),
-          ]),
         ),
         FieldNode(
           name: NameNode(value: '__typename'),
@@ -519,39 +539,81 @@ const fragmentDefinitionListActivityFrag = FragmentDefinitionNode(
     ),
   ]),
 );
-const documentNodeFragmentListActivityFrag = DocumentNode(definitions: [
-  fragmentDefinitionListActivityFrag,
+const documentNodeFragmentListActivity = DocumentNode(definitions: [
+  fragmentDefinitionListActivity,
+  fragmentDefinitionUserMinF,
+  fragmentDefinitionMediaMinF,
 ]);
 
-class FragmentListActivityFraguser {
-  FragmentListActivityFraguser({
+class FragmentTextActivity {
+  FragmentTextActivity({
     required this.id,
-    required this.name,
-    this.avatar,
-    this.$__typename = 'User',
+    this.type,
+    required this.replyCount,
+    this.text,
+    this.siteUrl,
+    this.isLocked,
+    this.isSubscribed,
+    required this.likeCount,
+    this.isLiked,
+    required this.createdAt,
+    this.user,
+    this.$__typename = 'TextActivity',
   });
 
-  factory FragmentListActivityFraguser.fromJson(Map<String, dynamic> json) {
+  factory FragmentTextActivity.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
-    final l$name = json['name'];
-    final l$avatar = json['avatar'];
+    final l$type = json['type'];
+    final l$replyCount = json['replyCount'];
+    final l$text = json['text'];
+    final l$siteUrl = json['siteUrl'];
+    final l$isLocked = json['isLocked'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$likeCount = json['likeCount'];
+    final l$isLiked = json['isLiked'];
+    final l$createdAt = json['createdAt'];
+    final l$user = json['user'];
     final l$$__typename = json['__typename'];
-    return FragmentListActivityFraguser(
+    return FragmentTextActivity(
       id: (l$id as int),
-      name: (l$name as String),
-      avatar: l$avatar == null
+      type:
+          l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
+      replyCount: (l$replyCount as int),
+      text: (l$text as String?),
+      siteUrl: (l$siteUrl as String?),
+      isLocked: (l$isLocked as bool?),
+      isSubscribed: (l$isSubscribed as bool?),
+      likeCount: (l$likeCount as int),
+      isLiked: (l$isLiked as bool?),
+      createdAt: (l$createdAt as int),
+      user: l$user == null
           ? null
-          : FragmentListActivityFraguseravatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
+          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
   final int id;
 
-  final String name;
+  final EnumActivityType? type;
 
-  final FragmentListActivityFraguseravatar? avatar;
+  final int replyCount;
+
+  final String? text;
+
+  final String? siteUrl;
+
+  final bool? isLocked;
+
+  final bool? isSubscribed;
+
+  final int likeCount;
+
+  final bool? isLiked;
+
+  final int createdAt;
+
+  final FragmentUserMinF? user;
 
   final String $__typename;
 
@@ -559,10 +621,27 @@ class FragmentListActivityFraguser {
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$avatar = avatar;
-    _resultData['avatar'] = l$avatar?.toJson();
+    final l$type = type;
+    _resultData['type'] =
+        l$type == null ? null : toJsonEnumActivityType(l$type);
+    final l$replyCount = replyCount;
+    _resultData['replyCount'] = l$replyCount;
+    final l$text = text;
+    _resultData['text'] = l$text;
+    final l$siteUrl = siteUrl;
+    _resultData['siteUrl'] = l$siteUrl;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
+    final l$isLiked = isLiked;
+    _resultData['isLiked'] = l$isLiked;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$user = user;
+    _resultData['user'] = l$user?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -571,13 +650,29 @@ class FragmentListActivityFraguser {
   @override
   int get hashCode {
     final l$id = id;
-    final l$name = name;
-    final l$avatar = avatar;
+    final l$type = type;
+    final l$replyCount = replyCount;
+    final l$text = text;
+    final l$siteUrl = siteUrl;
+    final l$isLocked = isLocked;
+    final l$isSubscribed = isSubscribed;
+    final l$likeCount = likeCount;
+    final l$isLiked = isLiked;
+    final l$createdAt = createdAt;
+    final l$user = user;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
-      l$name,
-      l$avatar,
+      l$type,
+      l$replyCount,
+      l$text,
+      l$siteUrl,
+      l$isLocked,
+      l$isSubscribed,
+      l$likeCount,
+      l$isLiked,
+      l$createdAt,
+      l$user,
       l$$__typename,
     ]);
   }
@@ -587,7 +682,468 @@ class FragmentListActivityFraguser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentListActivityFraguser) ||
+    if (!(other is FragmentTextActivity) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$replyCount = replyCount;
+    final lOther$replyCount = other.replyCount;
+    if (l$replyCount != lOther$replyCount) {
+      return false;
+    }
+    final l$text = text;
+    final lOther$text = other.text;
+    if (l$text != lOther$text) {
+      return false;
+    }
+    final l$siteUrl = siteUrl;
+    final lOther$siteUrl = other.siteUrl;
+    if (l$siteUrl != lOther$siteUrl) {
+      return false;
+    }
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
+    final l$isLiked = isLiked;
+    final lOther$isLiked = other.isLiked;
+    if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentTextActivity on FragmentTextActivity {
+  CopyWithFragmentTextActivity<FragmentTextActivity> get copyWith =>
+      CopyWithFragmentTextActivity(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithFragmentTextActivity<TRes> {
+  factory CopyWithFragmentTextActivity(
+    FragmentTextActivity instance,
+    TRes Function(FragmentTextActivity) then,
+  ) = _CopyWithImplFragmentTextActivity;
+
+  factory CopyWithFragmentTextActivity.stub(TRes res) =
+      _CopyWithStubImplFragmentTextActivity;
+
+  TRes call({
+    int? id,
+    EnumActivityType? type,
+    int? replyCount,
+    String? text,
+    String? siteUrl,
+    bool? isLocked,
+    bool? isSubscribed,
+    int? likeCount,
+    bool? isLiked,
+    int? createdAt,
+    FragmentUserMinF? user,
+    String? $__typename,
+  });
+  CopyWithFragmentUserMinF<TRes> get user;
+}
+
+class _CopyWithImplFragmentTextActivity<TRes>
+    implements CopyWithFragmentTextActivity<TRes> {
+  _CopyWithImplFragmentTextActivity(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentTextActivity _instance;
+
+  final TRes Function(FragmentTextActivity) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? type = _undefined,
+    Object? replyCount = _undefined,
+    Object? text = _undefined,
+    Object? siteUrl = _undefined,
+    Object? isLocked = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? likeCount = _undefined,
+    Object? isLiked = _undefined,
+    Object? createdAt = _undefined,
+    Object? user = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentTextActivity(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        type: type == _undefined ? _instance.type : (type as EnumActivityType?),
+        replyCount: replyCount == _undefined || replyCount == null
+            ? _instance.replyCount
+            : (replyCount as int),
+        text: text == _undefined ? _instance.text : (text as String?),
+        siteUrl:
+            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
+        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithFragmentUserMinF<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWithFragmentUserMinF.stub(_then(_instance))
+        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+  }
+}
+
+class _CopyWithStubImplFragmentTextActivity<TRes>
+    implements CopyWithFragmentTextActivity<TRes> {
+  _CopyWithStubImplFragmentTextActivity(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    EnumActivityType? type,
+    int? replyCount,
+    String? text,
+    String? siteUrl,
+    bool? isLocked,
+    bool? isSubscribed,
+    int? likeCount,
+    bool? isLiked,
+    int? createdAt,
+    FragmentUserMinF? user,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithFragmentUserMinF<TRes> get user =>
+      CopyWithFragmentUserMinF.stub(_res);
+}
+
+const fragmentDefinitionTextActivity = FragmentDefinitionNode(
+  name: NameNode(value: 'TextActivity'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'TextActivity'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'id'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'type'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'replyCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'text'),
+      alias: null,
+      arguments: [
+        ArgumentNode(
+          name: NameNode(value: 'asHtml'),
+          value: BooleanValueNode(value: false),
+        )
+      ],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'siteUrl'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLocked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isSubscribed'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'likeCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLiked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'createdAt'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'user'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'UserMinF'),
+          directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentTextActivity = DocumentNode(definitions: [
+  fragmentDefinitionTextActivity,
+  fragmentDefinitionUserMinF,
+]);
+
+class FragmentMessageActivity {
+  FragmentMessageActivity({
+    required this.id,
+    this.recipientId,
+    this.type,
+    required this.replyCount,
+    this.message,
+    this.isLocked,
+    this.isSubscribed,
+    required this.likeCount,
+    this.isLiked,
+    this.isPrivate,
+    this.siteUrl,
+    required this.createdAt,
+    this.messenger,
+    this.$__typename = 'MessageActivity',
+  });
+
+  factory FragmentMessageActivity.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$recipientId = json['recipientId'];
+    final l$type = json['type'];
+    final l$replyCount = json['replyCount'];
+    final l$message = json['message'];
+    final l$isLocked = json['isLocked'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$likeCount = json['likeCount'];
+    final l$isLiked = json['isLiked'];
+    final l$isPrivate = json['isPrivate'];
+    final l$siteUrl = json['siteUrl'];
+    final l$createdAt = json['createdAt'];
+    final l$messenger = json['messenger'];
+    final l$$__typename = json['__typename'];
+    return FragmentMessageActivity(
+      id: (l$id as int),
+      recipientId: (l$recipientId as int?),
+      type:
+          l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
+      replyCount: (l$replyCount as int),
+      message: (l$message as String?),
+      isLocked: (l$isLocked as bool?),
+      isSubscribed: (l$isSubscribed as bool?),
+      likeCount: (l$likeCount as int),
+      isLiked: (l$isLiked as bool?),
+      isPrivate: (l$isPrivate as bool?),
+      siteUrl: (l$siteUrl as String?),
+      createdAt: (l$createdAt as int),
+      messenger: l$messenger == null
+          ? null
+          : FragmentUserMinF.fromJson((l$messenger as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final int? recipientId;
+
+  final EnumActivityType? type;
+
+  final int replyCount;
+
+  final String? message;
+
+  final bool? isLocked;
+
+  final bool? isSubscribed;
+
+  final int likeCount;
+
+  final bool? isLiked;
+
+  final bool? isPrivate;
+
+  final String? siteUrl;
+
+  final int createdAt;
+
+  final FragmentUserMinF? messenger;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$recipientId = recipientId;
+    _resultData['recipientId'] = l$recipientId;
+    final l$type = type;
+    _resultData['type'] =
+        l$type == null ? null : toJsonEnumActivityType(l$type);
+    final l$replyCount = replyCount;
+    _resultData['replyCount'] = l$replyCount;
+    final l$message = message;
+    _resultData['message'] = l$message;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
+    final l$isLiked = isLiked;
+    _resultData['isLiked'] = l$isLiked;
+    final l$isPrivate = isPrivate;
+    _resultData['isPrivate'] = l$isPrivate;
+    final l$siteUrl = siteUrl;
+    _resultData['siteUrl'] = l$siteUrl;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$messenger = messenger;
+    _resultData['messenger'] = l$messenger?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$recipientId = recipientId;
+    final l$type = type;
+    final l$replyCount = replyCount;
+    final l$message = message;
+    final l$isLocked = isLocked;
+    final l$isSubscribed = isSubscribed;
+    final l$likeCount = likeCount;
+    final l$isLiked = isLiked;
+    final l$isPrivate = isPrivate;
+    final l$siteUrl = siteUrl;
+    final l$createdAt = createdAt;
+    final l$messenger = messenger;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$recipientId,
+      l$type,
+      l$replyCount,
+      l$message,
+      l$isLocked,
+      l$isSubscribed,
+      l$likeCount,
+      l$isLiked,
+      l$isPrivate,
+      l$siteUrl,
+      l$createdAt,
+      l$messenger,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is FragmentMessageActivity) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -596,14 +1152,64 @@ class FragmentListActivityFraguser {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
+    final l$recipientId = recipientId;
+    final lOther$recipientId = other.recipientId;
+    if (l$recipientId != lOther$recipientId) {
       return false;
     }
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) {
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$replyCount = replyCount;
+    final lOther$replyCount = other.replyCount;
+    if (l$replyCount != lOther$replyCount) {
+      return false;
+    }
+    final l$message = message;
+    final lOther$message = other.message;
+    if (l$message != lOther$message) {
+      return false;
+    }
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
+    final l$isLiked = isLiked;
+    final lOther$isLiked = other.isLiked;
+    if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$isPrivate = isPrivate;
+    final lOther$isPrivate = other.isPrivate;
+    if (l$isPrivate != lOther$isPrivate) {
+      return false;
+    }
+    final l$siteUrl = siteUrl;
+    final lOther$siteUrl = other.siteUrl;
+    if (l$siteUrl != lOther$siteUrl) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$messenger = messenger;
+    final lOther$messenger = other.messenger;
+    if (l$messenger != lOther$messenger) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -615,248 +1221,317 @@ class FragmentListActivityFraguser {
   }
 }
 
-extension UtilityExtensionFragmentListActivityFraguser
-    on FragmentListActivityFraguser {
-  CopyWithFragmentListActivityFraguser<FragmentListActivityFraguser>
-      get copyWith => CopyWithFragmentListActivityFraguser(
-            this,
-            (i) => i,
-          );
+extension UtilityExtensionFragmentMessageActivity on FragmentMessageActivity {
+  CopyWithFragmentMessageActivity<FragmentMessageActivity> get copyWith =>
+      CopyWithFragmentMessageActivity(
+        this,
+        (i) => i,
+      );
 }
 
-abstract class CopyWithFragmentListActivityFraguser<TRes> {
-  factory CopyWithFragmentListActivityFraguser(
-    FragmentListActivityFraguser instance,
-    TRes Function(FragmentListActivityFraguser) then,
-  ) = _CopyWithImplFragmentListActivityFraguser;
+abstract class CopyWithFragmentMessageActivity<TRes> {
+  factory CopyWithFragmentMessageActivity(
+    FragmentMessageActivity instance,
+    TRes Function(FragmentMessageActivity) then,
+  ) = _CopyWithImplFragmentMessageActivity;
 
-  factory CopyWithFragmentListActivityFraguser.stub(TRes res) =
-      _CopyWithStubImplFragmentListActivityFraguser;
+  factory CopyWithFragmentMessageActivity.stub(TRes res) =
+      _CopyWithStubImplFragmentMessageActivity;
 
   TRes call({
     int? id,
-    String? name,
-    FragmentListActivityFraguseravatar? avatar,
+    int? recipientId,
+    EnumActivityType? type,
+    int? replyCount,
+    String? message,
+    bool? isLocked,
+    bool? isSubscribed,
+    int? likeCount,
+    bool? isLiked,
+    bool? isPrivate,
+    String? siteUrl,
+    int? createdAt,
+    FragmentUserMinF? messenger,
     String? $__typename,
   });
-  CopyWithFragmentListActivityFraguseravatar<TRes> get avatar;
+  CopyWithFragmentUserMinF<TRes> get messenger;
 }
 
-class _CopyWithImplFragmentListActivityFraguser<TRes>
-    implements CopyWithFragmentListActivityFraguser<TRes> {
-  _CopyWithImplFragmentListActivityFraguser(
+class _CopyWithImplFragmentMessageActivity<TRes>
+    implements CopyWithFragmentMessageActivity<TRes> {
+  _CopyWithImplFragmentMessageActivity(
     this._instance,
     this._then,
   );
 
-  final FragmentListActivityFraguser _instance;
+  final FragmentMessageActivity _instance;
 
-  final TRes Function(FragmentListActivityFraguser) _then;
+  final TRes Function(FragmentMessageActivity) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
-    Object? name = _undefined,
-    Object? avatar = _undefined,
+    Object? recipientId = _undefined,
+    Object? type = _undefined,
+    Object? replyCount = _undefined,
+    Object? message = _undefined,
+    Object? isLocked = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? likeCount = _undefined,
+    Object? isLiked = _undefined,
+    Object? isPrivate = _undefined,
+    Object? siteUrl = _undefined,
+    Object? createdAt = _undefined,
+    Object? messenger = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentListActivityFraguser(
+      _then(FragmentMessageActivity(
         id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar as FragmentListActivityFraguseravatar?),
+        recipientId: recipientId == _undefined
+            ? _instance.recipientId
+            : (recipientId as int?),
+        type: type == _undefined ? _instance.type : (type as EnumActivityType?),
+        replyCount: replyCount == _undefined || replyCount == null
+            ? _instance.replyCount
+            : (replyCount as int),
+        message:
+            message == _undefined ? _instance.message : (message as String?),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
+        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        isPrivate: isPrivate == _undefined
+            ? _instance.isPrivate
+            : (isPrivate as bool?),
+        siteUrl:
+            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        messenger: messenger == _undefined
+            ? _instance.messenger
+            : (messenger as FragmentUserMinF?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentListActivityFraguseravatar<TRes> get avatar {
-    final local$avatar = _instance.avatar;
-    return local$avatar == null
-        ? CopyWithFragmentListActivityFraguseravatar.stub(_then(_instance))
-        : CopyWithFragmentListActivityFraguseravatar(
-            local$avatar, (e) => call(avatar: e));
+  CopyWithFragmentUserMinF<TRes> get messenger {
+    final local$messenger = _instance.messenger;
+    return local$messenger == null
+        ? CopyWithFragmentUserMinF.stub(_then(_instance))
+        : CopyWithFragmentUserMinF(local$messenger, (e) => call(messenger: e));
   }
 }
 
-class _CopyWithStubImplFragmentListActivityFraguser<TRes>
-    implements CopyWithFragmentListActivityFraguser<TRes> {
-  _CopyWithStubImplFragmentListActivityFraguser(this._res);
+class _CopyWithStubImplFragmentMessageActivity<TRes>
+    implements CopyWithFragmentMessageActivity<TRes> {
+  _CopyWithStubImplFragmentMessageActivity(this._res);
 
   TRes _res;
 
   call({
     int? id,
-    String? name,
-    FragmentListActivityFraguseravatar? avatar,
+    int? recipientId,
+    EnumActivityType? type,
+    int? replyCount,
+    String? message,
+    bool? isLocked,
+    bool? isSubscribed,
+    int? likeCount,
+    bool? isLiked,
+    bool? isPrivate,
+    String? siteUrl,
+    int? createdAt,
+    FragmentUserMinF? messenger,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentListActivityFraguseravatar<TRes> get avatar =>
-      CopyWithFragmentListActivityFraguseravatar.stub(_res);
+  CopyWithFragmentUserMinF<TRes> get messenger =>
+      CopyWithFragmentUserMinF.stub(_res);
 }
 
-class FragmentListActivityFraguseravatar {
-  FragmentListActivityFraguseravatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
+const fragmentDefinitionMessageActivity = FragmentDefinitionNode(
+  name: NameNode(value: 'MessageActivity'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'MessageActivity'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'id'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'recipientId'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'type'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'replyCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'message'),
+      alias: null,
+      arguments: [
+        ArgumentNode(
+          name: NameNode(value: 'asHtml'),
+          value: BooleanValueNode(value: false),
+        )
+      ],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLocked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isSubscribed'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'likeCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLiked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isPrivate'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'siteUrl'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'createdAt'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'messenger'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'UserMinF'),
+          directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentMessageActivity = DocumentNode(definitions: [
+  fragmentDefinitionMessageActivity,
+  fragmentDefinitionUserMinF,
+]);
 
-  factory FragmentListActivityFraguseravatar.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return FragmentListActivityFraguseravatar(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is FragmentListActivityFraguseravatar) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionFragmentListActivityFraguseravatar
-    on FragmentListActivityFraguseravatar {
-  CopyWithFragmentListActivityFraguseravatar<FragmentListActivityFraguseravatar>
-      get copyWith => CopyWithFragmentListActivityFraguseravatar(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithFragmentListActivityFraguseravatar<TRes> {
-  factory CopyWithFragmentListActivityFraguseravatar(
-    FragmentListActivityFraguseravatar instance,
-    TRes Function(FragmentListActivityFraguseravatar) then,
-  ) = _CopyWithImplFragmentListActivityFraguseravatar;
-
-  factory CopyWithFragmentListActivityFraguseravatar.stub(TRes res) =
-      _CopyWithStubImplFragmentListActivityFraguseravatar;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplFragmentListActivityFraguseravatar<TRes>
-    implements CopyWithFragmentListActivityFraguseravatar<TRes> {
-  _CopyWithImplFragmentListActivityFraguseravatar(
-    this._instance,
-    this._then,
-  );
-
-  final FragmentListActivityFraguseravatar _instance;
-
-  final TRes Function(FragmentListActivityFraguseravatar) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(FragmentListActivityFraguseravatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplFragmentListActivityFraguseravatar<TRes>
-    implements CopyWithFragmentListActivityFraguseravatar<TRes> {
-  _CopyWithStubImplFragmentListActivityFraguseravatar(this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class FragmentListActivityFragmedia {
-  FragmentListActivityFragmedia({
+class FragmentActivityReply {
+  FragmentActivityReply({
     required this.id,
-    this.coverImage,
-    this.title,
-    this.$__typename = 'Media',
+    this.text,
+    required this.likeCount,
+    this.isLiked,
+    required this.createdAt,
+    this.user,
+    this.$__typename = 'ActivityReply',
   });
 
-  factory FragmentListActivityFragmedia.fromJson(Map<String, dynamic> json) {
+  factory FragmentActivityReply.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
-    final l$coverImage = json['coverImage'];
-    final l$title = json['title'];
+    final l$text = json['text'];
+    final l$likeCount = json['likeCount'];
+    final l$isLiked = json['isLiked'];
+    final l$createdAt = json['createdAt'];
+    final l$user = json['user'];
     final l$$__typename = json['__typename'];
-    return FragmentListActivityFragmedia(
+    return FragmentActivityReply(
       id: (l$id as int),
-      coverImage: l$coverImage == null
+      text: (l$text as String?),
+      likeCount: (l$likeCount as int),
+      isLiked: (l$isLiked as bool?),
+      createdAt: (l$createdAt as int),
+      user: l$user == null
           ? null
-          : FragmentListActivityFragmediacoverImage.fromJson(
-              (l$coverImage as Map<String, dynamic>)),
-      title: l$title == null
-          ? null
-          : FragmentListActivityFragmediatitle.fromJson(
-              (l$title as Map<String, dynamic>)),
+          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
   final int id;
 
-  final FragmentListActivityFragmediacoverImage? coverImage;
+  final String? text;
 
-  final FragmentListActivityFragmediatitle? title;
+  final int likeCount;
+
+  final bool? isLiked;
+
+  final int createdAt;
+
+  final FragmentUserMinF? user;
 
   final String $__typename;
 
@@ -864,10 +1539,16 @@ class FragmentListActivityFragmedia {
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
-    final l$coverImage = coverImage;
-    _resultData['coverImage'] = l$coverImage?.toJson();
-    final l$title = title;
-    _resultData['title'] = l$title?.toJson();
+    final l$text = text;
+    _resultData['text'] = l$text;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
+    final l$isLiked = isLiked;
+    _resultData['isLiked'] = l$isLiked;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$user = user;
+    _resultData['user'] = l$user?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -876,13 +1557,19 @@ class FragmentListActivityFragmedia {
   @override
   int get hashCode {
     final l$id = id;
-    final l$coverImage = coverImage;
-    final l$title = title;
+    final l$text = text;
+    final l$likeCount = likeCount;
+    final l$isLiked = isLiked;
+    final l$createdAt = createdAt;
+    final l$user = user;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
-      l$coverImage,
-      l$title,
+      l$text,
+      l$likeCount,
+      l$isLiked,
+      l$createdAt,
+      l$user,
       l$$__typename,
     ]);
   }
@@ -892,8 +1579,7 @@ class FragmentListActivityFragmedia {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentListActivityFragmedia) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is FragmentActivityReply) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -901,14 +1587,29 @@ class FragmentListActivityFragmedia {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$coverImage = coverImage;
-    final lOther$coverImage = other.coverImage;
-    if (l$coverImage != lOther$coverImage) {
+    final l$text = text;
+    final lOther$text = other.text;
+    if (l$text != lOther$text) {
       return false;
     }
-    final l$title = title;
-    final lOther$title = other.title;
-    if (l$title != lOther$title) {
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
+    final l$isLiked = isLiked;
+    final lOther$isLiked = other.isLiked;
+    if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -920,369 +1621,204 @@ class FragmentListActivityFragmedia {
   }
 }
 
-extension UtilityExtensionFragmentListActivityFragmedia
-    on FragmentListActivityFragmedia {
-  CopyWithFragmentListActivityFragmedia<FragmentListActivityFragmedia>
-      get copyWith => CopyWithFragmentListActivityFragmedia(
-            this,
-            (i) => i,
-          );
+extension UtilityExtensionFragmentActivityReply on FragmentActivityReply {
+  CopyWithFragmentActivityReply<FragmentActivityReply> get copyWith =>
+      CopyWithFragmentActivityReply(
+        this,
+        (i) => i,
+      );
 }
 
-abstract class CopyWithFragmentListActivityFragmedia<TRes> {
-  factory CopyWithFragmentListActivityFragmedia(
-    FragmentListActivityFragmedia instance,
-    TRes Function(FragmentListActivityFragmedia) then,
-  ) = _CopyWithImplFragmentListActivityFragmedia;
+abstract class CopyWithFragmentActivityReply<TRes> {
+  factory CopyWithFragmentActivityReply(
+    FragmentActivityReply instance,
+    TRes Function(FragmentActivityReply) then,
+  ) = _CopyWithImplFragmentActivityReply;
 
-  factory CopyWithFragmentListActivityFragmedia.stub(TRes res) =
-      _CopyWithStubImplFragmentListActivityFragmedia;
+  factory CopyWithFragmentActivityReply.stub(TRes res) =
+      _CopyWithStubImplFragmentActivityReply;
 
   TRes call({
     int? id,
-    FragmentListActivityFragmediacoverImage? coverImage,
-    FragmentListActivityFragmediatitle? title,
+    String? text,
+    int? likeCount,
+    bool? isLiked,
+    int? createdAt,
+    FragmentUserMinF? user,
     String? $__typename,
   });
-  CopyWithFragmentListActivityFragmediacoverImage<TRes> get coverImage;
-  CopyWithFragmentListActivityFragmediatitle<TRes> get title;
+  CopyWithFragmentUserMinF<TRes> get user;
 }
 
-class _CopyWithImplFragmentListActivityFragmedia<TRes>
-    implements CopyWithFragmentListActivityFragmedia<TRes> {
-  _CopyWithImplFragmentListActivityFragmedia(
+class _CopyWithImplFragmentActivityReply<TRes>
+    implements CopyWithFragmentActivityReply<TRes> {
+  _CopyWithImplFragmentActivityReply(
     this._instance,
     this._then,
   );
 
-  final FragmentListActivityFragmedia _instance;
+  final FragmentActivityReply _instance;
 
-  final TRes Function(FragmentListActivityFragmedia) _then;
+  final TRes Function(FragmentActivityReply) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
-    Object? coverImage = _undefined,
-    Object? title = _undefined,
+    Object? text = _undefined,
+    Object? likeCount = _undefined,
+    Object? isLiked = _undefined,
+    Object? createdAt = _undefined,
+    Object? user = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentListActivityFragmedia(
+      _then(FragmentActivityReply(
         id: id == _undefined || id == null ? _instance.id : (id as int),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage as FragmentListActivityFragmediacoverImage?),
-        title: title == _undefined
-            ? _instance.title
-            : (title as FragmentListActivityFragmediatitle?),
+        text: text == _undefined ? _instance.text : (text as String?),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
+        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentListActivityFragmediacoverImage<TRes> get coverImage {
-    final local$coverImage = _instance.coverImage;
-    return local$coverImage == null
-        ? CopyWithFragmentListActivityFragmediacoverImage.stub(_then(_instance))
-        : CopyWithFragmentListActivityFragmediacoverImage(
-            local$coverImage, (e) => call(coverImage: e));
-  }
-
-  CopyWithFragmentListActivityFragmediatitle<TRes> get title {
-    final local$title = _instance.title;
-    return local$title == null
-        ? CopyWithFragmentListActivityFragmediatitle.stub(_then(_instance))
-        : CopyWithFragmentListActivityFragmediatitle(
-            local$title, (e) => call(title: e));
+  CopyWithFragmentUserMinF<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWithFragmentUserMinF.stub(_then(_instance))
+        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
   }
 }
 
-class _CopyWithStubImplFragmentListActivityFragmedia<TRes>
-    implements CopyWithFragmentListActivityFragmedia<TRes> {
-  _CopyWithStubImplFragmentListActivityFragmedia(this._res);
+class _CopyWithStubImplFragmentActivityReply<TRes>
+    implements CopyWithFragmentActivityReply<TRes> {
+  _CopyWithStubImplFragmentActivityReply(this._res);
 
   TRes _res;
 
   call({
     int? id,
-    FragmentListActivityFragmediacoverImage? coverImage,
-    FragmentListActivityFragmediatitle? title,
+    String? text,
+    int? likeCount,
+    bool? isLiked,
+    int? createdAt,
+    FragmentUserMinF? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentListActivityFragmediacoverImage<TRes> get coverImage =>
-      CopyWithFragmentListActivityFragmediacoverImage.stub(_res);
-
-  CopyWithFragmentListActivityFragmediatitle<TRes> get title =>
-      CopyWithFragmentListActivityFragmediatitle.stub(_res);
+  CopyWithFragmentUserMinF<TRes> get user =>
+      CopyWithFragmentUserMinF.stub(_res);
 }
 
-class FragmentListActivityFragmediacoverImage {
-  FragmentListActivityFragmediacoverImage({
-    this.large,
-    this.$__typename = 'MediaCoverImage',
-  });
+const fragmentDefinitionActivityReply = FragmentDefinitionNode(
+  name: NameNode(value: 'ActivityReply'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'ActivityReply'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'id'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'text'),
+      alias: null,
+      arguments: [
+        ArgumentNode(
+          name: NameNode(value: 'asHtml'),
+          value: BooleanValueNode(value: false),
+        )
+      ],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'likeCount'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'isLiked'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'createdAt'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'user'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'UserMinF'),
+          directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentActivityReply = DocumentNode(definitions: [
+  fragmentDefinitionActivityReply,
+  fragmentDefinitionUserMinF,
+]);
 
-  factory FragmentListActivityFragmediacoverImage.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return FragmentListActivityFragmediacoverImage(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is FragmentListActivityFragmediacoverImage) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionFragmentListActivityFragmediacoverImage
-    on FragmentListActivityFragmediacoverImage {
-  CopyWithFragmentListActivityFragmediacoverImage<
-          FragmentListActivityFragmediacoverImage>
-      get copyWith => CopyWithFragmentListActivityFragmediacoverImage(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithFragmentListActivityFragmediacoverImage<TRes> {
-  factory CopyWithFragmentListActivityFragmediacoverImage(
-    FragmentListActivityFragmediacoverImage instance,
-    TRes Function(FragmentListActivityFragmediacoverImage) then,
-  ) = _CopyWithImplFragmentListActivityFragmediacoverImage;
-
-  factory CopyWithFragmentListActivityFragmediacoverImage.stub(TRes res) =
-      _CopyWithStubImplFragmentListActivityFragmediacoverImage;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplFragmentListActivityFragmediacoverImage<TRes>
-    implements CopyWithFragmentListActivityFragmediacoverImage<TRes> {
-  _CopyWithImplFragmentListActivityFragmediacoverImage(
-    this._instance,
-    this._then,
-  );
-
-  final FragmentListActivityFragmediacoverImage _instance;
-
-  final TRes Function(FragmentListActivityFragmediacoverImage) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(FragmentListActivityFragmediacoverImage(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplFragmentListActivityFragmediacoverImage<TRes>
-    implements CopyWithFragmentListActivityFragmediacoverImage<TRes> {
-  _CopyWithStubImplFragmentListActivityFragmediacoverImage(this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class FragmentListActivityFragmediatitle {
-  FragmentListActivityFragmediatitle({
-    this.userPreferred,
-    this.$__typename = 'MediaTitle',
-  });
-
-  factory FragmentListActivityFragmediatitle.fromJson(
-      Map<String, dynamic> json) {
-    final l$userPreferred = json['userPreferred'];
-    final l$$__typename = json['__typename'];
-    return FragmentListActivityFragmediatitle(
-      userPreferred: (l$userPreferred as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? userPreferred;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$userPreferred = userPreferred;
-    _resultData['userPreferred'] = l$userPreferred;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$userPreferred = userPreferred;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is FragmentListActivityFragmediatitle) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$userPreferred = userPreferred;
-    final lOther$userPreferred = other.userPreferred;
-    if (l$userPreferred != lOther$userPreferred) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionFragmentListActivityFragmediatitle
-    on FragmentListActivityFragmediatitle {
-  CopyWithFragmentListActivityFragmediatitle<FragmentListActivityFragmediatitle>
-      get copyWith => CopyWithFragmentListActivityFragmediatitle(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithFragmentListActivityFragmediatitle<TRes> {
-  factory CopyWithFragmentListActivityFragmediatitle(
-    FragmentListActivityFragmediatitle instance,
-    TRes Function(FragmentListActivityFragmediatitle) then,
-  ) = _CopyWithImplFragmentListActivityFragmediatitle;
-
-  factory CopyWithFragmentListActivityFragmediatitle.stub(TRes res) =
-      _CopyWithStubImplFragmentListActivityFragmediatitle;
-
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplFragmentListActivityFragmediatitle<TRes>
-    implements CopyWithFragmentListActivityFragmediatitle<TRes> {
-  _CopyWithImplFragmentListActivityFragmediatitle(
-    this._instance,
-    this._then,
-  );
-
-  final FragmentListActivityFragmediatitle _instance;
-
-  final TRes Function(FragmentListActivityFragmediatitle) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? userPreferred = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(FragmentListActivityFragmediatitle(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplFragmentListActivityFragmediatitle<TRes>
-    implements CopyWithFragmentListActivityFragmediatitle<TRes> {
-  _CopyWithStubImplFragmentListActivityFragmediatitle(this._res);
-
-  TRes _res;
-
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class VariablesQueryFollowingActivities {
-  factory VariablesQueryFollowingActivities({
+class VariablesQueryPage {
+  factory VariablesQueryPage({
     int? page,
     int? perPage,
+    bool? isFollowing,
+    List<EnumActivityType?>? typeIn,
+    bool? hasRepliesOrTypeText,
   }) =>
-      VariablesQueryFollowingActivities._({
+      VariablesQueryPage._({
         if (page != null) r'page': page,
         if (perPage != null) r'perPage': perPage,
+        if (isFollowing != null) r'isFollowing': isFollowing,
+        if (typeIn != null) r'typeIn': typeIn,
+        if (hasRepliesOrTypeText != null)
+          r'hasRepliesOrTypeText': hasRepliesOrTypeText,
       });
 
-  VariablesQueryFollowingActivities._(this._$data);
+  VariablesQueryPage._(this._$data);
 
-  factory VariablesQueryFollowingActivities.fromJson(
-      Map<String, dynamic> data) {
+  factory VariablesQueryPage.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('page')) {
       final l$page = data['page'];
@@ -1292,7 +1828,22 @@ class VariablesQueryFollowingActivities {
       final l$perPage = data['perPage'];
       result$data['perPage'] = (l$perPage as int?);
     }
-    return VariablesQueryFollowingActivities._(result$data);
+    if (data.containsKey('isFollowing')) {
+      final l$isFollowing = data['isFollowing'];
+      result$data['isFollowing'] = (l$isFollowing as bool?);
+    }
+    if (data.containsKey('typeIn')) {
+      final l$typeIn = data['typeIn'];
+      result$data['typeIn'] = (l$typeIn as List<dynamic>?)
+          ?.map(
+              (e) => e == null ? null : fromJsonEnumActivityType((e as String)))
+          .toList();
+    }
+    if (data.containsKey('hasRepliesOrTypeText')) {
+      final l$hasRepliesOrTypeText = data['hasRepliesOrTypeText'];
+      result$data['hasRepliesOrTypeText'] = (l$hasRepliesOrTypeText as bool?);
+    }
+    return VariablesQueryPage._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -1300,6 +1851,13 @@ class VariablesQueryFollowingActivities {
   int? get page => (_$data['page'] as int?);
 
   int? get perPage => (_$data['perPage'] as int?);
+
+  bool? get isFollowing => (_$data['isFollowing'] as bool?);
+
+  List<EnumActivityType?>? get typeIn =>
+      (_$data['typeIn'] as List<EnumActivityType?>?);
+
+  bool? get hasRepliesOrTypeText => (_$data['hasRepliesOrTypeText'] as bool?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -1311,22 +1869,35 @@ class VariablesQueryFollowingActivities {
       final l$perPage = perPage;
       result$data['perPage'] = l$perPage;
     }
+    if (_$data.containsKey('isFollowing')) {
+      final l$isFollowing = isFollowing;
+      result$data['isFollowing'] = l$isFollowing;
+    }
+    if (_$data.containsKey('typeIn')) {
+      final l$typeIn = typeIn;
+      result$data['typeIn'] = l$typeIn
+          ?.map((e) => e == null ? null : toJsonEnumActivityType(e))
+          .toList();
+    }
+    if (_$data.containsKey('hasRepliesOrTypeText')) {
+      final l$hasRepliesOrTypeText = hasRepliesOrTypeText;
+      result$data['hasRepliesOrTypeText'] = l$hasRepliesOrTypeText;
+    }
     return result$data;
   }
 
-  CopyWithVariablesQueryFollowingActivities<VariablesQueryFollowingActivities>
-      get copyWith => CopyWithVariablesQueryFollowingActivities(
-            this,
-            (i) => i,
-          );
+  CopyWithVariablesQueryPage<VariablesQueryPage> get copyWith =>
+      CopyWithVariablesQueryPage(
+        this,
+        (i) => i,
+      );
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryFollowingActivities) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is VariablesQueryPage) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$page = page;
@@ -1345,6 +1916,43 @@ class VariablesQueryFollowingActivities {
     if (l$perPage != lOther$perPage) {
       return false;
     }
+    final l$isFollowing = isFollowing;
+    final lOther$isFollowing = other.isFollowing;
+    if (_$data.containsKey('isFollowing') !=
+        other._$data.containsKey('isFollowing')) {
+      return false;
+    }
+    if (l$isFollowing != lOther$isFollowing) {
+      return false;
+    }
+    final l$typeIn = typeIn;
+    final lOther$typeIn = other.typeIn;
+    if (_$data.containsKey('typeIn') != other._$data.containsKey('typeIn')) {
+      return false;
+    }
+    if (l$typeIn != null && lOther$typeIn != null) {
+      if (l$typeIn.length != lOther$typeIn.length) {
+        return false;
+      }
+      for (int i = 0; i < l$typeIn.length; i++) {
+        final l$typeIn$entry = l$typeIn[i];
+        final lOther$typeIn$entry = lOther$typeIn[i];
+        if (l$typeIn$entry != lOther$typeIn$entry) {
+          return false;
+        }
+      }
+    } else if (l$typeIn != lOther$typeIn) {
+      return false;
+    }
+    final l$hasRepliesOrTypeText = hasRepliesOrTypeText;
+    final lOther$hasRepliesOrTypeText = other.hasRepliesOrTypeText;
+    if (_$data.containsKey('hasRepliesOrTypeText') !=
+        other._$data.containsKey('hasRepliesOrTypeText')) {
+      return false;
+    }
+    if (l$hasRepliesOrTypeText != lOther$hasRepliesOrTypeText) {
+      return false;
+    }
     return true;
   }
 
@@ -1352,84 +1960,109 @@ class VariablesQueryFollowingActivities {
   int get hashCode {
     final l$page = page;
     final l$perPage = perPage;
+    final l$isFollowing = isFollowing;
+    final l$typeIn = typeIn;
+    final l$hasRepliesOrTypeText = hasRepliesOrTypeText;
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
       _$data.containsKey('perPage') ? l$perPage : const {},
+      _$data.containsKey('isFollowing') ? l$isFollowing : const {},
+      _$data.containsKey('typeIn')
+          ? l$typeIn == null
+              ? null
+              : Object.hashAll(l$typeIn.map((v) => v))
+          : const {},
+      _$data.containsKey('hasRepliesOrTypeText')
+          ? l$hasRepliesOrTypeText
+          : const {},
     ]);
   }
 }
 
-abstract class CopyWithVariablesQueryFollowingActivities<TRes> {
-  factory CopyWithVariablesQueryFollowingActivities(
-    VariablesQueryFollowingActivities instance,
-    TRes Function(VariablesQueryFollowingActivities) then,
-  ) = _CopyWithImplVariablesQueryFollowingActivities;
+abstract class CopyWithVariablesQueryPage<TRes> {
+  factory CopyWithVariablesQueryPage(
+    VariablesQueryPage instance,
+    TRes Function(VariablesQueryPage) then,
+  ) = _CopyWithImplVariablesQueryPage;
 
-  factory CopyWithVariablesQueryFollowingActivities.stub(TRes res) =
-      _CopyWithStubImplVariablesQueryFollowingActivities;
+  factory CopyWithVariablesQueryPage.stub(TRes res) =
+      _CopyWithStubImplVariablesQueryPage;
 
   TRes call({
     int? page,
     int? perPage,
+    bool? isFollowing,
+    List<EnumActivityType?>? typeIn,
+    bool? hasRepliesOrTypeText,
   });
 }
 
-class _CopyWithImplVariablesQueryFollowingActivities<TRes>
-    implements CopyWithVariablesQueryFollowingActivities<TRes> {
-  _CopyWithImplVariablesQueryFollowingActivities(
+class _CopyWithImplVariablesQueryPage<TRes>
+    implements CopyWithVariablesQueryPage<TRes> {
+  _CopyWithImplVariablesQueryPage(
     this._instance,
     this._then,
   );
 
-  final VariablesQueryFollowingActivities _instance;
+  final VariablesQueryPage _instance;
 
-  final TRes Function(VariablesQueryFollowingActivities) _then;
+  final TRes Function(VariablesQueryPage) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? page = _undefined,
     Object? perPage = _undefined,
+    Object? isFollowing = _undefined,
+    Object? typeIn = _undefined,
+    Object? hasRepliesOrTypeText = _undefined,
   }) =>
-      _then(VariablesQueryFollowingActivities._({
+      _then(VariablesQueryPage._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
         if (perPage != _undefined) 'perPage': (perPage as int?),
+        if (isFollowing != _undefined) 'isFollowing': (isFollowing as bool?),
+        if (typeIn != _undefined)
+          'typeIn': (typeIn as List<EnumActivityType?>?),
+        if (hasRepliesOrTypeText != _undefined)
+          'hasRepliesOrTypeText': (hasRepliesOrTypeText as bool?),
       }));
 }
 
-class _CopyWithStubImplVariablesQueryFollowingActivities<TRes>
-    implements CopyWithVariablesQueryFollowingActivities<TRes> {
-  _CopyWithStubImplVariablesQueryFollowingActivities(this._res);
+class _CopyWithStubImplVariablesQueryPage<TRes>
+    implements CopyWithVariablesQueryPage<TRes> {
+  _CopyWithStubImplVariablesQueryPage(this._res);
 
   TRes _res;
 
   call({
     int? page,
     int? perPage,
+    bool? isFollowing,
+    List<EnumActivityType?>? typeIn,
+    bool? hasRepliesOrTypeText,
   }) =>
       _res;
 }
 
-class QueryFollowingActivities {
-  QueryFollowingActivities({
+class QueryPage {
+  QueryPage({
     this.Page,
     this.$__typename = 'Query',
   });
 
-  factory QueryFollowingActivities.fromJson(Map<String, dynamic> json) {
+  factory QueryPage.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
     final l$$__typename = json['__typename'];
-    return QueryFollowingActivities(
+    return QueryPage(
       Page: l$Page == null
           ? null
-          : QueryFollowingActivitiesPage.fromJson(
-              (l$Page as Map<String, dynamic>)),
+          : QueryPagePage.fromJson((l$Page as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final QueryFollowingActivitiesPage? Page;
+  final QueryPagePage? Page;
 
   final String $__typename;
 
@@ -1457,8 +2090,7 @@ class QueryFollowingActivities {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryFollowingActivities) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is QueryPage) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -1475,40 +2107,37 @@ class QueryFollowingActivities {
   }
 }
 
-extension UtilityExtensionQueryFollowingActivities on QueryFollowingActivities {
-  CopyWithQueryFollowingActivities<QueryFollowingActivities> get copyWith =>
-      CopyWithQueryFollowingActivities(
+extension UtilityExtensionQueryPage on QueryPage {
+  CopyWithQueryPage<QueryPage> get copyWith => CopyWithQueryPage(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithQueryFollowingActivities<TRes> {
-  factory CopyWithQueryFollowingActivities(
-    QueryFollowingActivities instance,
-    TRes Function(QueryFollowingActivities) then,
-  ) = _CopyWithImplQueryFollowingActivities;
+abstract class CopyWithQueryPage<TRes> {
+  factory CopyWithQueryPage(
+    QueryPage instance,
+    TRes Function(QueryPage) then,
+  ) = _CopyWithImplQueryPage;
 
-  factory CopyWithQueryFollowingActivities.stub(TRes res) =
-      _CopyWithStubImplQueryFollowingActivities;
+  factory CopyWithQueryPage.stub(TRes res) = _CopyWithStubImplQueryPage;
 
   TRes call({
-    QueryFollowingActivitiesPage? Page,
+    QueryPagePage? Page,
     String? $__typename,
   });
-  CopyWithQueryFollowingActivitiesPage<TRes> get Page;
+  CopyWithQueryPagePage<TRes> get Page;
 }
 
-class _CopyWithImplQueryFollowingActivities<TRes>
-    implements CopyWithQueryFollowingActivities<TRes> {
-  _CopyWithImplQueryFollowingActivities(
+class _CopyWithImplQueryPage<TRes> implements CopyWithQueryPage<TRes> {
+  _CopyWithImplQueryPage(
     this._instance,
     this._then,
   );
 
-  final QueryFollowingActivities _instance;
+  final QueryPage _instance;
 
-  final TRes Function(QueryFollowingActivities) _then;
+  final TRes Function(QueryPage) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1516,44 +2145,39 @@ class _CopyWithImplQueryFollowingActivities<TRes>
     Object? Page = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryFollowingActivities(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as QueryFollowingActivitiesPage?),
+      _then(QueryPage(
+        Page: Page == _undefined ? _instance.Page : (Page as QueryPagePage?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithQueryFollowingActivitiesPage<TRes> get Page {
+  CopyWithQueryPagePage<TRes> get Page {
     final local$Page = _instance.Page;
     return local$Page == null
-        ? CopyWithQueryFollowingActivitiesPage.stub(_then(_instance))
-        : CopyWithQueryFollowingActivitiesPage(
-            local$Page, (e) => call(Page: e));
+        ? CopyWithQueryPagePage.stub(_then(_instance))
+        : CopyWithQueryPagePage(local$Page, (e) => call(Page: e));
   }
 }
 
-class _CopyWithStubImplQueryFollowingActivities<TRes>
-    implements CopyWithQueryFollowingActivities<TRes> {
-  _CopyWithStubImplQueryFollowingActivities(this._res);
+class _CopyWithStubImplQueryPage<TRes> implements CopyWithQueryPage<TRes> {
+  _CopyWithStubImplQueryPage(this._res);
 
   TRes _res;
 
   call({
-    QueryFollowingActivitiesPage? Page,
+    QueryPagePage? Page,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithQueryFollowingActivitiesPage<TRes> get Page =>
-      CopyWithQueryFollowingActivitiesPage.stub(_res);
+  CopyWithQueryPagePage<TRes> get Page => CopyWithQueryPagePage.stub(_res);
 }
 
-const documentNodeQueryFollowingActivities = DocumentNode(definitions: [
+const documentNodeQueryPage = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'FollowingActivities'),
+    name: NameNode(value: 'Page'),
     variableDefinitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'page')),
@@ -1568,6 +2192,41 @@ const documentNodeQueryFollowingActivities = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'perPage')),
         type: NamedTypeNode(
           name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'isFollowing')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Boolean'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'typeIn')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'ActivityType'),
+            isNonNull: false,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(
+            value: ListValueNode(values: [
+          EnumValueNode(name: NameNode(value: 'ANIME_LIST')),
+          EnumValueNode(name: NameNode(value: 'MANGA_LIST')),
+          EnumValueNode(name: NameNode(value: 'TEXT')),
+        ])),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'hasRepliesOrTypeText')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Boolean'),
           isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -1592,47 +2251,90 @@ const documentNodeQueryFollowingActivities = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FieldNode(
+            name: NameNode(value: 'pageInfo'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'total'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'perPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'currentPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'lastPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'hasNextPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: 'activities'),
             alias: null,
             arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'sort'),
+                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+              ),
               ArgumentNode(
                 name: NameNode(value: 'isFollowing'),
-                value: BooleanValueNode(value: true),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
+                value: VariableNode(name: NameNode(value: 'isFollowing')),
               ),
               ArgumentNode(
                 name: NameNode(value: 'type_in'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'ANIME_LIST')),
-                  EnumValueNode(name: NameNode(value: 'MANGA_LIST')),
-                ]),
+                value: VariableNode(name: NameNode(value: 'typeIn')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'hasRepliesOrTypeText'),
+                value:
+                    VariableNode(name: NameNode(value: 'hasRepliesOrTypeText')),
               ),
             ],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ListActivity'),
-                  isNonNull: false,
-                )),
+              FragmentSpreadNode(
+                name: NameNode(value: 'TextActivity'),
                 directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'ListActivityFrag'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
+              ),
+              FragmentSpreadNode(
+                name: NameNode(value: 'ListActivity'),
+                directives: [],
+              ),
+              FragmentSpreadNode(
+                name: NameNode(value: 'MessageActivity'),
+                directives: [],
               ),
               FieldNode(
                 name: NameNode(value: '__typename'),
@@ -1661,35 +2363,48 @@ const documentNodeQueryFollowingActivities = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionListActivityFrag,
+  fragmentDefinitionTextActivity,
+  fragmentDefinitionListActivity,
+  fragmentDefinitionMessageActivity,
+  fragmentDefinitionUserMinF,
+  fragmentDefinitionMediaMinF,
 ]);
 
-class QueryFollowingActivitiesPage {
-  QueryFollowingActivitiesPage({
+class QueryPagePage {
+  QueryPagePage({
+    this.pageInfo,
     this.activities,
     this.$__typename = 'Page',
   });
 
-  factory QueryFollowingActivitiesPage.fromJson(Map<String, dynamic> json) {
+  factory QueryPagePage.fromJson(Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
     final l$activities = json['activities'];
     final l$$__typename = json['__typename'];
-    return QueryFollowingActivitiesPage(
+    return QueryPagePage(
+      pageInfo: l$pageInfo == null
+          ? null
+          : QueryPagePagepageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
       activities: (l$activities as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : QueryFollowingActivitiesPageactivities.fromJson(
-                  (e as Map<String, dynamic>)))
+              : QueryPagePageactivities.fromJson((e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<QueryFollowingActivitiesPageactivities?>? activities;
+  final QueryPagePagepageInfo? pageInfo;
+
+  final List<QueryPagePageactivities?>? activities;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$activities = activities;
     _resultData['activities'] = l$activities?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
@@ -1699,9 +2414,11 @@ class QueryFollowingActivitiesPage {
 
   @override
   int get hashCode {
+    final l$pageInfo = pageInfo;
     final l$activities = activities;
     final l$$__typename = $__typename;
     return Object.hashAll([
+      l$pageInfo,
       l$activities == null ? null : Object.hashAll(l$activities.map((v) => v)),
       l$$__typename,
     ]);
@@ -1712,8 +2429,12 @@ class QueryFollowingActivitiesPage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryFollowingActivitiesPage) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is QueryPagePage) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
       return false;
     }
     final l$activities = activities;
@@ -1741,364 +2462,156 @@ class QueryFollowingActivitiesPage {
   }
 }
 
-extension UtilityExtensionQueryFollowingActivitiesPage
-    on QueryFollowingActivitiesPage {
-  CopyWithQueryFollowingActivitiesPage<QueryFollowingActivitiesPage>
-      get copyWith => CopyWithQueryFollowingActivitiesPage(
-            this,
-            (i) => i,
-          );
+extension UtilityExtensionQueryPagePage on QueryPagePage {
+  CopyWithQueryPagePage<QueryPagePage> get copyWith => CopyWithQueryPagePage(
+        this,
+        (i) => i,
+      );
 }
 
-abstract class CopyWithQueryFollowingActivitiesPage<TRes> {
-  factory CopyWithQueryFollowingActivitiesPage(
-    QueryFollowingActivitiesPage instance,
-    TRes Function(QueryFollowingActivitiesPage) then,
-  ) = _CopyWithImplQueryFollowingActivitiesPage;
+abstract class CopyWithQueryPagePage<TRes> {
+  factory CopyWithQueryPagePage(
+    QueryPagePage instance,
+    TRes Function(QueryPagePage) then,
+  ) = _CopyWithImplQueryPagePage;
 
-  factory CopyWithQueryFollowingActivitiesPage.stub(TRes res) =
-      _CopyWithStubImplQueryFollowingActivitiesPage;
+  factory CopyWithQueryPagePage.stub(TRes res) = _CopyWithStubImplQueryPagePage;
 
   TRes call({
-    List<QueryFollowingActivitiesPageactivities?>? activities,
+    QueryPagePagepageInfo? pageInfo,
+    List<QueryPagePageactivities?>? activities,
     String? $__typename,
   });
+  CopyWithQueryPagePagepageInfo<TRes> get pageInfo;
   TRes activities(
-      Iterable<QueryFollowingActivitiesPageactivities?>? Function(
+      Iterable<QueryPagePageactivities?>? Function(
               Iterable<
-                  CopyWithQueryFollowingActivitiesPageactivities<
-                      QueryFollowingActivitiesPageactivities>?>?)
+                  CopyWithQueryPagePageactivities<QueryPagePageactivities>?>?)
           _fn);
 }
 
-class _CopyWithImplQueryFollowingActivitiesPage<TRes>
-    implements CopyWithQueryFollowingActivitiesPage<TRes> {
-  _CopyWithImplQueryFollowingActivitiesPage(
+class _CopyWithImplQueryPagePage<TRes> implements CopyWithQueryPagePage<TRes> {
+  _CopyWithImplQueryPagePage(
     this._instance,
     this._then,
   );
 
-  final QueryFollowingActivitiesPage _instance;
+  final QueryPagePage _instance;
 
-  final TRes Function(QueryFollowingActivitiesPage) _then;
+  final TRes Function(QueryPagePage) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? pageInfo = _undefined,
     Object? activities = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryFollowingActivitiesPage(
+      _then(QueryPagePage(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo as QueryPagePagepageInfo?),
         activities: activities == _undefined
             ? _instance.activities
-            : (activities as List<QueryFollowingActivitiesPageactivities?>?),
+            : (activities as List<QueryPagePageactivities?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
+  CopyWithQueryPagePagepageInfo<TRes> get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWithQueryPagePagepageInfo.stub(_then(_instance))
+        : CopyWithQueryPagePagepageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+
   TRes activities(
-          Iterable<QueryFollowingActivitiesPageactivities?>? Function(
+          Iterable<QueryPagePageactivities?>? Function(
                   Iterable<
-                      CopyWithQueryFollowingActivitiesPageactivities<
-                          QueryFollowingActivitiesPageactivities>?>?)
+                      CopyWithQueryPagePageactivities<
+                          QueryPagePageactivities>?>?)
               _fn) =>
       call(
           activities: _fn(_instance.activities?.map((e) => e == null
               ? null
-              : CopyWithQueryFollowingActivitiesPageactivities(
+              : CopyWithQueryPagePageactivities(
                   e,
                   (i) => i,
                 )))?.toList());
 }
 
-class _CopyWithStubImplQueryFollowingActivitiesPage<TRes>
-    implements CopyWithQueryFollowingActivitiesPage<TRes> {
-  _CopyWithStubImplQueryFollowingActivitiesPage(this._res);
+class _CopyWithStubImplQueryPagePage<TRes>
+    implements CopyWithQueryPagePage<TRes> {
+  _CopyWithStubImplQueryPagePage(this._res);
 
   TRes _res;
 
   call({
-    List<QueryFollowingActivitiesPageactivities?>? activities,
+    QueryPagePagepageInfo? pageInfo,
+    List<QueryPagePageactivities?>? activities,
     String? $__typename,
   }) =>
       _res;
+
+  CopyWithQueryPagePagepageInfo<TRes> get pageInfo =>
+      CopyWithQueryPagePagepageInfo.stub(_res);
 
   activities(_fn) => _res;
 }
 
-class QueryFollowingActivitiesPageactivities {
-  QueryFollowingActivitiesPageactivities({required this.$__typename});
-
-  factory QueryFollowingActivitiesPageactivities.fromJson(
-      Map<String, dynamic> json) {
-    switch (json["__typename"] as String) {
-      case "ListActivity":
-        return QueryFollowingActivitiesPageactivitiesListActivity.fromJson(
-            json);
-
-      case "TextActivity":
-        return QueryFollowingActivitiesPageactivitiesTextActivity.fromJson(
-            json);
-
-      case "MessageActivity":
-        return QueryFollowingActivitiesPageactivitiesMessageActivity.fromJson(
-            json);
-
-      default:
-        final l$$__typename = json['__typename'];
-        return QueryFollowingActivitiesPageactivities(
-            $__typename: (l$$__typename as String));
-    }
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryFollowingActivitiesPageactivities) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryFollowingActivitiesPageactivities
-    on QueryFollowingActivitiesPageactivities {
-  CopyWithQueryFollowingActivitiesPageactivities<
-          QueryFollowingActivitiesPageactivities>
-      get copyWith => CopyWithQueryFollowingActivitiesPageactivities(
-            this,
-            (i) => i,
-          );
-  _T when<_T>({
-    required _T Function(QueryFollowingActivitiesPageactivitiesListActivity)
-        listActivity,
-    required _T Function(QueryFollowingActivitiesPageactivitiesTextActivity)
-        textActivity,
-    required _T Function(QueryFollowingActivitiesPageactivitiesMessageActivity)
-        messageActivity,
-    required _T Function() orElse,
-  }) {
-    switch ($__typename) {
-      case "ListActivity":
-        return listActivity(
-            this as QueryFollowingActivitiesPageactivitiesListActivity);
-
-      case "TextActivity":
-        return textActivity(
-            this as QueryFollowingActivitiesPageactivitiesTextActivity);
-
-      case "MessageActivity":
-        return messageActivity(
-            this as QueryFollowingActivitiesPageactivitiesMessageActivity);
-
-      default:
-        return orElse();
-    }
-  }
-
-  _T maybeWhen<_T>({
-    _T Function(QueryFollowingActivitiesPageactivitiesListActivity)?
-        listActivity,
-    _T Function(QueryFollowingActivitiesPageactivitiesTextActivity)?
-        textActivity,
-    _T Function(QueryFollowingActivitiesPageactivitiesMessageActivity)?
-        messageActivity,
-    required _T Function() orElse,
-  }) {
-    switch ($__typename) {
-      case "ListActivity":
-        if (listActivity != null) {
-          return listActivity(
-              this as QueryFollowingActivitiesPageactivitiesListActivity);
-        } else {
-          return orElse();
-        }
-
-      case "TextActivity":
-        if (textActivity != null) {
-          return textActivity(
-              this as QueryFollowingActivitiesPageactivitiesTextActivity);
-        } else {
-          return orElse();
-        }
-
-      case "MessageActivity":
-        if (messageActivity != null) {
-          return messageActivity(
-              this as QueryFollowingActivitiesPageactivitiesMessageActivity);
-        } else {
-          return orElse();
-        }
-
-      default:
-        return orElse();
-    }
-  }
-}
-
-abstract class CopyWithQueryFollowingActivitiesPageactivities<TRes> {
-  factory CopyWithQueryFollowingActivitiesPageactivities(
-    QueryFollowingActivitiesPageactivities instance,
-    TRes Function(QueryFollowingActivitiesPageactivities) then,
-  ) = _CopyWithImplQueryFollowingActivitiesPageactivities;
-
-  factory CopyWithQueryFollowingActivitiesPageactivities.stub(TRes res) =
-      _CopyWithStubImplQueryFollowingActivitiesPageactivities;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplQueryFollowingActivitiesPageactivities<TRes>
-    implements CopyWithQueryFollowingActivitiesPageactivities<TRes> {
-  _CopyWithImplQueryFollowingActivitiesPageactivities(
-    this._instance,
-    this._then,
-  );
-
-  final QueryFollowingActivitiesPageactivities _instance;
-
-  final TRes Function(QueryFollowingActivitiesPageactivities) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(QueryFollowingActivitiesPageactivities(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplQueryFollowingActivitiesPageactivities<TRes>
-    implements CopyWithQueryFollowingActivitiesPageactivities<TRes> {
-  _CopyWithStubImplQueryFollowingActivitiesPageactivities(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class QueryFollowingActivitiesPageactivitiesListActivity
-    implements
-        FragmentListActivityFrag,
-        QueryFollowingActivitiesPageactivities {
-  QueryFollowingActivitiesPageactivitiesListActivity({
-    required this.id,
-    this.type,
-    this.user,
-    this.status,
-    required this.createdAt,
-    this.progress,
-    required this.likeCount,
-    required this.replyCount,
-    this.isLiked,
-    this.media,
-    this.$__typename = 'ListActivity',
+class QueryPagePagepageInfo {
+  QueryPagePagepageInfo({
+    this.total,
+    this.perPage,
+    this.currentPage,
+    this.lastPage,
+    this.hasNextPage,
+    this.$__typename = 'PageInfo',
   });
 
-  factory QueryFollowingActivitiesPageactivitiesListActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$type = json['type'];
-    final l$user = json['user'];
-    final l$status = json['status'];
-    final l$createdAt = json['createdAt'];
-    final l$progress = json['progress'];
-    final l$likeCount = json['likeCount'];
-    final l$replyCount = json['replyCount'];
-    final l$isLiked = json['isLiked'];
-    final l$media = json['media'];
+  factory QueryPagePagepageInfo.fromJson(Map<String, dynamic> json) {
+    final l$total = json['total'];
+    final l$perPage = json['perPage'];
+    final l$currentPage = json['currentPage'];
+    final l$lastPage = json['lastPage'];
+    final l$hasNextPage = json['hasNextPage'];
     final l$$__typename = json['__typename'];
-    return QueryFollowingActivitiesPageactivitiesListActivity(
-      id: (l$id as int),
-      type:
-          l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
-      user: l$user == null
-          ? null
-          : QueryFollowingActivitiesPageactivitiesListActivityuser.fromJson(
-              (l$user as Map<String, dynamic>)),
-      status: (l$status as String?),
-      createdAt: (l$createdAt as int),
-      progress: (l$progress as String?),
-      likeCount: (l$likeCount as int),
-      replyCount: (l$replyCount as int),
-      isLiked: (l$isLiked as bool?),
-      media: l$media == null
-          ? null
-          : QueryFollowingActivitiesPageactivitiesListActivitymedia.fromJson(
-              (l$media as Map<String, dynamic>)),
+    return QueryPagePagepageInfo(
+      total: (l$total as int?),
+      perPage: (l$perPage as int?),
+      currentPage: (l$currentPage as int?),
+      lastPage: (l$lastPage as int?),
+      hasNextPage: (l$hasNextPage as bool?),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final int id;
+  final int? total;
 
-  final EnumActivityType? type;
+  final int? perPage;
 
-  final QueryFollowingActivitiesPageactivitiesListActivityuser? user;
+  final int? currentPage;
 
-  final String? status;
+  final int? lastPage;
 
-  final int createdAt;
-
-  final String? progress;
-
-  final int likeCount;
-
-  final int replyCount;
-
-  final bool? isLiked;
-
-  final QueryFollowingActivitiesPageactivitiesListActivitymedia? media;
+  final bool? hasNextPage;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJsonEnumActivityType(l$type);
-    final l$user = user;
-    _resultData['user'] = l$user?.toJson();
-    final l$status = status;
-    _resultData['status'] = l$status;
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
-    final l$progress = progress;
-    _resultData['progress'] = l$progress;
-    final l$likeCount = likeCount;
-    _resultData['likeCount'] = l$likeCount;
-    final l$replyCount = replyCount;
-    _resultData['replyCount'] = l$replyCount;
-    final l$isLiked = isLiked;
-    _resultData['isLiked'] = l$isLiked;
-    final l$media = media;
-    _resultData['media'] = l$media?.toJson();
+    final l$total = total;
+    _resultData['total'] = l$total;
+    final l$perPage = perPage;
+    _resultData['perPage'] = l$perPage;
+    final l$currentPage = currentPage;
+    _resultData['currentPage'] = l$currentPage;
+    final l$lastPage = lastPage;
+    _resultData['lastPage'] = l$lastPage;
+    final l$hasNextPage = hasNextPage;
+    _resultData['hasNextPage'] = l$hasNextPage;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -2106,28 +2619,18 @@ class QueryFollowingActivitiesPageactivitiesListActivity
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$type = type;
-    final l$user = user;
-    final l$status = status;
-    final l$createdAt = createdAt;
-    final l$progress = progress;
-    final l$likeCount = likeCount;
-    final l$replyCount = replyCount;
-    final l$isLiked = isLiked;
-    final l$media = media;
+    final l$total = total;
+    final l$perPage = perPage;
+    final l$currentPage = currentPage;
+    final l$lastPage = lastPage;
+    final l$hasNextPage = hasNextPage;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$id,
-      l$type,
-      l$user,
-      l$status,
-      l$createdAt,
-      l$progress,
-      l$likeCount,
-      l$replyCount,
-      l$isLiked,
-      l$media,
+      l$total,
+      l$perPage,
+      l$currentPage,
+      l$lastPage,
+      l$hasNextPage,
       l$$__typename,
     ]);
   }
@@ -2137,1836 +2640,142 @@ class QueryFollowingActivitiesPageactivitiesListActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryFollowingActivitiesPageactivitiesListActivity) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is QueryPagePagepageInfo) || runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$type = type;
-    final lOther$type = other.type;
-    if (l$type != lOther$type) {
-      return false;
-    }
-    final l$user = user;
-    final lOther$user = other.user;
-    if (l$user != lOther$user) {
-      return false;
-    }
-    final l$status = status;
-    final lOther$status = other.status;
-    if (l$status != lOther$status) {
-      return false;
-    }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
-      return false;
-    }
-    final l$progress = progress;
-    final lOther$progress = other.progress;
-    if (l$progress != lOther$progress) {
-      return false;
-    }
-    final l$likeCount = likeCount;
-    final lOther$likeCount = other.likeCount;
-    if (l$likeCount != lOther$likeCount) {
-      return false;
-    }
-    final l$replyCount = replyCount;
-    final lOther$replyCount = other.replyCount;
-    if (l$replyCount != lOther$replyCount) {
-      return false;
-    }
-    final l$isLiked = isLiked;
-    final lOther$isLiked = other.isLiked;
-    if (l$isLiked != lOther$isLiked) {
-      return false;
-    }
-    final l$media = media;
-    final lOther$media = other.media;
-    if (l$media != lOther$media) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryFollowingActivitiesPageactivitiesListActivity
-    on QueryFollowingActivitiesPageactivitiesListActivity {
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivity<
-          QueryFollowingActivitiesPageactivitiesListActivity>
-      get copyWith =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryFollowingActivitiesPageactivitiesListActivity<
-    TRes> {
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivity(
-    QueryFollowingActivitiesPageactivitiesListActivity instance,
-    TRes Function(QueryFollowingActivitiesPageactivitiesListActivity) then,
-  ) = _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivity;
-
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivity.stub(
-          TRes res) =
-      _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivity;
-
-  TRes call({
-    int? id,
-    EnumActivityType? type,
-    QueryFollowingActivitiesPageactivitiesListActivityuser? user,
-    String? status,
-    int? createdAt,
-    String? progress,
-    int? likeCount,
-    int? replyCount,
-    bool? isLiked,
-    QueryFollowingActivitiesPageactivitiesListActivitymedia? media,
-    String? $__typename,
-  });
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser<TRes> get user;
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia<TRes>
-      get media;
-}
-
-class _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivity<TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivity<TRes> {
-  _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivity(
-    this._instance,
-    this._then,
-  );
-
-  final QueryFollowingActivitiesPageactivitiesListActivity _instance;
-
-  final TRes Function(QueryFollowingActivitiesPageactivitiesListActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? type = _undefined,
-    Object? user = _undefined,
-    Object? status = _undefined,
-    Object? createdAt = _undefined,
-    Object? progress = _undefined,
-    Object? likeCount = _undefined,
-    Object? replyCount = _undefined,
-    Object? isLiked = _undefined,
-    Object? media = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryFollowingActivitiesPageactivitiesListActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined ? _instance.type : (type as EnumActivityType?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as QueryFollowingActivitiesPageactivitiesListActivityuser?),
-        status: status == _undefined ? _instance.status : (status as String?),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        progress:
-            progress == _undefined ? _instance.progress : (progress as String?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        media: media == _undefined
-            ? _instance.media
-            : (media
-                as QueryFollowingActivitiesPageactivitiesListActivitymedia?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser<TRes>
-      get user {
-    final local$user = _instance.user;
-    return local$user == null
-        ? CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser.stub(
-            _then(_instance))
-        : CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser(
-            local$user, (e) => call(user: e));
-  }
-
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia<TRes>
-      get media {
-    final local$media = _instance.media;
-    return local$media == null
-        ? CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia.stub(
-            _then(_instance))
-        : CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia(
-            local$media, (e) => call(media: e));
-  }
-}
-
-class _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivity<TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivity<TRes> {
-  _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivity(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    EnumActivityType? type,
-    QueryFollowingActivitiesPageactivitiesListActivityuser? user,
-    String? status,
-    int? createdAt,
-    String? progress,
-    int? likeCount,
-    int? replyCount,
-    bool? isLiked,
-    QueryFollowingActivitiesPageactivitiesListActivitymedia? media,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser<TRes>
-      get user =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser.stub(
-              _res);
-
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia<TRes>
-      get media =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia.stub(
-              _res);
-}
-
-class QueryFollowingActivitiesPageactivitiesListActivityuser
-    implements FragmentListActivityFraguser {
-  QueryFollowingActivitiesPageactivitiesListActivityuser({
-    required this.id,
-    required this.name,
-    this.avatar,
-    this.$__typename = 'User',
-  });
-
-  factory QueryFollowingActivitiesPageactivitiesListActivityuser.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$avatar = json['avatar'];
-    final l$$__typename = json['__typename'];
-    return QueryFollowingActivitiesPageactivitiesListActivityuser(
-      id: (l$id as int),
-      name: (l$name as String),
-      avatar: l$avatar == null
-          ? null
-          : QueryFollowingActivitiesPageactivitiesListActivityuseravatar
-              .fromJson((l$avatar as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final QueryFollowingActivitiesPageactivitiesListActivityuseravatar? avatar;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$avatar = avatar;
-    _resultData['avatar'] = l$avatar?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$avatar = avatar;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$avatar,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryFollowingActivitiesPageactivitiesListActivityuser) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryFollowingActivitiesPageactivitiesListActivityuser
-    on QueryFollowingActivitiesPageactivitiesListActivityuser {
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser<
-          QueryFollowingActivitiesPageactivitiesListActivityuser>
-      get copyWith =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser<
-    TRes> {
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser(
-    QueryFollowingActivitiesPageactivitiesListActivityuser instance,
-    TRes Function(QueryFollowingActivitiesPageactivitiesListActivityuser) then,
-  ) = _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivityuser;
-
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser.stub(
-          TRes res) =
-      _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivityuser;
-
-  TRes call({
-    int? id,
-    String? name,
-    QueryFollowingActivitiesPageactivitiesListActivityuseravatar? avatar,
-    String? $__typename,
-  });
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar<TRes>
-      get avatar;
-}
-
-class _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivityuser<TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser<TRes> {
-  _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivityuser(
-    this._instance,
-    this._then,
-  );
-
-  final QueryFollowingActivitiesPageactivitiesListActivityuser _instance;
-
-  final TRes Function(QueryFollowingActivitiesPageactivitiesListActivityuser)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? avatar = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryFollowingActivitiesPageactivitiesListActivityuser(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar
-                as QueryFollowingActivitiesPageactivitiesListActivityuseravatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar<TRes>
-      get avatar {
-    final local$avatar = _instance.avatar;
-    return local$avatar == null
-        ? CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar
-            .stub(_then(_instance))
-        : CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar(
-            local$avatar, (e) => call(avatar: e));
-  }
-}
-
-class _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivityuser<
-        TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivityuser<TRes> {
-  _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivityuser(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
-    QueryFollowingActivitiesPageactivitiesListActivityuseravatar? avatar,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar<TRes>
-      get avatar =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar
-              .stub(_res);
-}
-
-class QueryFollowingActivitiesPageactivitiesListActivityuseravatar
-    implements FragmentListActivityFraguseravatar {
-  QueryFollowingActivitiesPageactivitiesListActivityuseravatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
-
-  factory QueryFollowingActivitiesPageactivitiesListActivityuseravatar.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return QueryFollowingActivitiesPageactivitiesListActivityuseravatar(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is QueryFollowingActivitiesPageactivitiesListActivityuseravatar) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryFollowingActivitiesPageactivitiesListActivityuseravatar
-    on QueryFollowingActivitiesPageactivitiesListActivityuseravatar {
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar<
-          QueryFollowingActivitiesPageactivitiesListActivityuseravatar>
-      get copyWith =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar<
-    TRes> {
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar(
-    QueryFollowingActivitiesPageactivitiesListActivityuseravatar instance,
-    TRes Function(QueryFollowingActivitiesPageactivitiesListActivityuseravatar)
-        then,
-  ) = _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivityuseravatar;
-
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar.stub(
-          TRes res) =
-      _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivityuseravatar;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivityuseravatar<
-        TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar<
-            TRes> {
-  _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivityuseravatar(
-    this._instance,
-    this._then,
-  );
-
-  final QueryFollowingActivitiesPageactivitiesListActivityuseravatar _instance;
-
-  final TRes Function(
-      QueryFollowingActivitiesPageactivitiesListActivityuseravatar) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryFollowingActivitiesPageactivitiesListActivityuseravatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivityuseravatar<
-        TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivityuseravatar<
-            TRes> {
-  _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivityuseravatar(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QueryFollowingActivitiesPageactivitiesListActivitymedia
-    implements FragmentListActivityFragmedia {
-  QueryFollowingActivitiesPageactivitiesListActivitymedia({
-    required this.id,
-    this.coverImage,
-    this.title,
-    this.$__typename = 'Media',
-  });
-
-  factory QueryFollowingActivitiesPageactivitiesListActivitymedia.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$coverImage = json['coverImage'];
-    final l$title = json['title'];
-    final l$$__typename = json['__typename'];
-    return QueryFollowingActivitiesPageactivitiesListActivitymedia(
-      id: (l$id as int),
-      coverImage: l$coverImage == null
-          ? null
-          : QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage
-              .fromJson((l$coverImage as Map<String, dynamic>)),
-      title: l$title == null
-          ? null
-          : QueryFollowingActivitiesPageactivitiesListActivitymediatitle
-              .fromJson((l$title as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage?
-      coverImage;
-
-  final QueryFollowingActivitiesPageactivitiesListActivitymediatitle? title;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$coverImage = coverImage;
-    _resultData['coverImage'] = l$coverImage?.toJson();
-    final l$title = title;
-    _resultData['title'] = l$title?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$coverImage = coverImage;
-    final l$title = title;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$coverImage,
-      l$title,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryFollowingActivitiesPageactivitiesListActivitymedia) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$coverImage = coverImage;
-    final lOther$coverImage = other.coverImage;
-    if (l$coverImage != lOther$coverImage) {
-      return false;
-    }
-    final l$title = title;
-    final lOther$title = other.title;
-    if (l$title != lOther$title) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryFollowingActivitiesPageactivitiesListActivitymedia
-    on QueryFollowingActivitiesPageactivitiesListActivitymedia {
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia<
-          QueryFollowingActivitiesPageactivitiesListActivitymedia>
-      get copyWith =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia<
-    TRes> {
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia(
-    QueryFollowingActivitiesPageactivitiesListActivitymedia instance,
-    TRes Function(QueryFollowingActivitiesPageactivitiesListActivitymedia) then,
-  ) = _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivitymedia;
-
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia.stub(
-          TRes res) =
-      _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivitymedia;
-
-  TRes call({
-    int? id,
-    QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage?
-        coverImage,
-    QueryFollowingActivitiesPageactivitiesListActivitymediatitle? title,
-    String? $__typename,
-  });
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage<
-      TRes> get coverImage;
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle<TRes>
-      get title;
-}
-
-class _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivitymedia<TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia<TRes> {
-  _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivitymedia(
-    this._instance,
-    this._then,
-  );
-
-  final QueryFollowingActivitiesPageactivitiesListActivitymedia _instance;
-
-  final TRes Function(QueryFollowingActivitiesPageactivitiesListActivitymedia)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? coverImage = _undefined,
-    Object? title = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryFollowingActivitiesPageactivitiesListActivitymedia(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage
-                as QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage?),
-        title: title == _undefined
-            ? _instance.title
-            : (title
-                as QueryFollowingActivitiesPageactivitiesListActivitymediatitle?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage<
-      TRes> get coverImage {
-    final local$coverImage = _instance.coverImage;
-    return local$coverImage == null
-        ? CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage
-            .stub(_then(_instance))
-        : CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage(
-            local$coverImage, (e) => call(coverImage: e));
-  }
-
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle<TRes>
-      get title {
-    final local$title = _instance.title;
-    return local$title == null
-        ? CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle
-            .stub(_then(_instance))
-        : CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle(
-            local$title, (e) => call(title: e));
-  }
-}
-
-class _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivitymedia<
-        TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivitymedia<TRes> {
-  _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivitymedia(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage?
-        coverImage,
-    QueryFollowingActivitiesPageactivitiesListActivitymediatitle? title,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage<
-          TRes>
-      get coverImage =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage
-              .stub(_res);
-
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle<TRes>
-      get title =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle
-              .stub(_res);
-}
-
-class QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage
-    implements FragmentListActivityFragmediacoverImage {
-  QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage({
-    this.large,
-    this.$__typename = 'MediaCoverImage',
-  });
-
-  factory QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage
-    on QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage {
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage<
-          QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage>
-      get copyWith =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage<
-    TRes> {
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage(
-    QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage instance,
-    TRes Function(
-            QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage)
-        then,
-  ) = _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage;
-
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage.stub(
-          TRes res) =
-      _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage<
-        TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage<
-            TRes> {
-  _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage(
-    this._instance,
-    this._then,
-  );
-
-  final QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage
-      _instance;
-
-  final TRes Function(
-      QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryFollowingActivitiesPageactivitiesListActivitymediacoverImage(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage<
-        TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage<
-            TRes> {
-  _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivitymediacoverImage(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QueryFollowingActivitiesPageactivitiesListActivitymediatitle
-    implements FragmentListActivityFragmediatitle {
-  QueryFollowingActivitiesPageactivitiesListActivitymediatitle({
-    this.userPreferred,
-    this.$__typename = 'MediaTitle',
-  });
-
-  factory QueryFollowingActivitiesPageactivitiesListActivitymediatitle.fromJson(
-      Map<String, dynamic> json) {
-    final l$userPreferred = json['userPreferred'];
-    final l$$__typename = json['__typename'];
-    return QueryFollowingActivitiesPageactivitiesListActivitymediatitle(
-      userPreferred: (l$userPreferred as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? userPreferred;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$userPreferred = userPreferred;
-    _resultData['userPreferred'] = l$userPreferred;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$userPreferred = userPreferred;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is QueryFollowingActivitiesPageactivitiesListActivitymediatitle) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$userPreferred = userPreferred;
-    final lOther$userPreferred = other.userPreferred;
-    if (l$userPreferred != lOther$userPreferred) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryFollowingActivitiesPageactivitiesListActivitymediatitle
-    on QueryFollowingActivitiesPageactivitiesListActivitymediatitle {
-  CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle<
-          QueryFollowingActivitiesPageactivitiesListActivitymediatitle>
-      get copyWith =>
-          CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle<
-    TRes> {
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle(
-    QueryFollowingActivitiesPageactivitiesListActivitymediatitle instance,
-    TRes Function(QueryFollowingActivitiesPageactivitiesListActivitymediatitle)
-        then,
-  ) = _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivitymediatitle;
-
-  factory CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle.stub(
-          TRes res) =
-      _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivitymediatitle;
-
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivitymediatitle<
-        TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle<
-            TRes> {
-  _CopyWithImplQueryFollowingActivitiesPageactivitiesListActivitymediatitle(
-    this._instance,
-    this._then,
-  );
-
-  final QueryFollowingActivitiesPageactivitiesListActivitymediatitle _instance;
-
-  final TRes Function(
-      QueryFollowingActivitiesPageactivitiesListActivitymediatitle) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? userPreferred = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryFollowingActivitiesPageactivitiesListActivitymediatitle(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivitymediatitle<
-        TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesListActivitymediatitle<
-            TRes> {
-  _CopyWithStubImplQueryFollowingActivitiesPageactivitiesListActivitymediatitle(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QueryFollowingActivitiesPageactivitiesTextActivity
-    implements QueryFollowingActivitiesPageactivities {
-  QueryFollowingActivitiesPageactivitiesTextActivity(
-      {this.$__typename = 'TextActivity'});
-
-  factory QueryFollowingActivitiesPageactivitiesTextActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return QueryFollowingActivitiesPageactivitiesTextActivity(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryFollowingActivitiesPageactivitiesTextActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryFollowingActivitiesPageactivitiesTextActivity
-    on QueryFollowingActivitiesPageactivitiesTextActivity {
-  CopyWithQueryFollowingActivitiesPageactivitiesTextActivity<
-          QueryFollowingActivitiesPageactivitiesTextActivity>
-      get copyWith =>
-          CopyWithQueryFollowingActivitiesPageactivitiesTextActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryFollowingActivitiesPageactivitiesTextActivity<
-    TRes> {
-  factory CopyWithQueryFollowingActivitiesPageactivitiesTextActivity(
-    QueryFollowingActivitiesPageactivitiesTextActivity instance,
-    TRes Function(QueryFollowingActivitiesPageactivitiesTextActivity) then,
-  ) = _CopyWithImplQueryFollowingActivitiesPageactivitiesTextActivity;
-
-  factory CopyWithQueryFollowingActivitiesPageactivitiesTextActivity.stub(
-          TRes res) =
-      _CopyWithStubImplQueryFollowingActivitiesPageactivitiesTextActivity;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplQueryFollowingActivitiesPageactivitiesTextActivity<TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesTextActivity<TRes> {
-  _CopyWithImplQueryFollowingActivitiesPageactivitiesTextActivity(
-    this._instance,
-    this._then,
-  );
-
-  final QueryFollowingActivitiesPageactivitiesTextActivity _instance;
-
-  final TRes Function(QueryFollowingActivitiesPageactivitiesTextActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(QueryFollowingActivitiesPageactivitiesTextActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplQueryFollowingActivitiesPageactivitiesTextActivity<TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesTextActivity<TRes> {
-  _CopyWithStubImplQueryFollowingActivitiesPageactivitiesTextActivity(
-      this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class QueryFollowingActivitiesPageactivitiesMessageActivity
-    implements QueryFollowingActivitiesPageactivities {
-  QueryFollowingActivitiesPageactivitiesMessageActivity(
-      {this.$__typename = 'MessageActivity'});
-
-  factory QueryFollowingActivitiesPageactivitiesMessageActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return QueryFollowingActivitiesPageactivitiesMessageActivity(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryFollowingActivitiesPageactivitiesMessageActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryFollowingActivitiesPageactivitiesMessageActivity
-    on QueryFollowingActivitiesPageactivitiesMessageActivity {
-  CopyWithQueryFollowingActivitiesPageactivitiesMessageActivity<
-          QueryFollowingActivitiesPageactivitiesMessageActivity>
-      get copyWith =>
-          CopyWithQueryFollowingActivitiesPageactivitiesMessageActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryFollowingActivitiesPageactivitiesMessageActivity<
-    TRes> {
-  factory CopyWithQueryFollowingActivitiesPageactivitiesMessageActivity(
-    QueryFollowingActivitiesPageactivitiesMessageActivity instance,
-    TRes Function(QueryFollowingActivitiesPageactivitiesMessageActivity) then,
-  ) = _CopyWithImplQueryFollowingActivitiesPageactivitiesMessageActivity;
-
-  factory CopyWithQueryFollowingActivitiesPageactivitiesMessageActivity.stub(
-          TRes res) =
-      _CopyWithStubImplQueryFollowingActivitiesPageactivitiesMessageActivity;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplQueryFollowingActivitiesPageactivitiesMessageActivity<TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesMessageActivity<TRes> {
-  _CopyWithImplQueryFollowingActivitiesPageactivitiesMessageActivity(
-    this._instance,
-    this._then,
-  );
-
-  final QueryFollowingActivitiesPageactivitiesMessageActivity _instance;
-
-  final TRes Function(QueryFollowingActivitiesPageactivitiesMessageActivity)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(QueryFollowingActivitiesPageactivitiesMessageActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplQueryFollowingActivitiesPageactivitiesMessageActivity<
-        TRes>
-    implements
-        CopyWithQueryFollowingActivitiesPageactivitiesMessageActivity<TRes> {
-  _CopyWithStubImplQueryFollowingActivitiesPageactivitiesMessageActivity(
-      this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class VariablesQueryGlobalActivities {
-  factory VariablesQueryGlobalActivities({
-    int? page,
-    int? perPage,
-  }) =>
-      VariablesQueryGlobalActivities._({
-        if (page != null) r'page': page,
-        if (perPage != null) r'perPage': perPage,
-      });
-
-  VariablesQueryGlobalActivities._(this._$data);
-
-  factory VariablesQueryGlobalActivities.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('page')) {
-      final l$page = data['page'];
-      result$data['page'] = (l$page as int?);
-    }
-    if (data.containsKey('perPage')) {
-      final l$perPage = data['perPage'];
-      result$data['perPage'] = (l$perPage as int?);
-    }
-    return VariablesQueryGlobalActivities._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  int? get page => (_$data['page'] as int?);
-
-  int? get perPage => (_$data['perPage'] as int?);
-
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('page')) {
-      final l$page = page;
-      result$data['page'] = l$page;
-    }
-    if (_$data.containsKey('perPage')) {
-      final l$perPage = perPage;
-      result$data['perPage'] = l$perPage;
-    }
-    return result$data;
-  }
-
-  CopyWithVariablesQueryGlobalActivities<VariablesQueryGlobalActivities>
-      get copyWith => CopyWithVariablesQueryGlobalActivities(
-            this,
-            (i) => i,
-          );
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is VariablesQueryGlobalActivities) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$page = page;
-    final lOther$page = other.page;
-    if (_$data.containsKey('page') != other._$data.containsKey('page')) {
-      return false;
-    }
-    if (l$page != lOther$page) {
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
       return false;
     }
     final l$perPage = perPage;
     final lOther$perPage = other.perPage;
-    if (_$data.containsKey('perPage') != other._$data.containsKey('perPage')) {
-      return false;
-    }
     if (l$perPage != lOther$perPage) {
       return false;
     }
+    final l$currentPage = currentPage;
+    final lOther$currentPage = other.currentPage;
+    if (l$currentPage != lOther$currentPage) {
+      return false;
+    }
+    final l$lastPage = lastPage;
+    final lOther$lastPage = other.lastPage;
+    if (l$lastPage != lOther$lastPage) {
+      return false;
+    }
+    final l$hasNextPage = hasNextPage;
+    final lOther$hasNextPage = other.hasNextPage;
+    if (l$hasNextPage != lOther$hasNextPage) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
     return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$page = page;
-    final l$perPage = perPage;
-    return Object.hashAll([
-      _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('perPage') ? l$perPage : const {},
-    ]);
   }
 }
 
-abstract class CopyWithVariablesQueryGlobalActivities<TRes> {
-  factory CopyWithVariablesQueryGlobalActivities(
-    VariablesQueryGlobalActivities instance,
-    TRes Function(VariablesQueryGlobalActivities) then,
-  ) = _CopyWithImplVariablesQueryGlobalActivities;
+extension UtilityExtensionQueryPagePagepageInfo on QueryPagePagepageInfo {
+  CopyWithQueryPagePagepageInfo<QueryPagePagepageInfo> get copyWith =>
+      CopyWithQueryPagePagepageInfo(
+        this,
+        (i) => i,
+      );
+}
 
-  factory CopyWithVariablesQueryGlobalActivities.stub(TRes res) =
-      _CopyWithStubImplVariablesQueryGlobalActivities;
+abstract class CopyWithQueryPagePagepageInfo<TRes> {
+  factory CopyWithQueryPagePagepageInfo(
+    QueryPagePagepageInfo instance,
+    TRes Function(QueryPagePagepageInfo) then,
+  ) = _CopyWithImplQueryPagePagepageInfo;
+
+  factory CopyWithQueryPagePagepageInfo.stub(TRes res) =
+      _CopyWithStubImplQueryPagePagepageInfo;
 
   TRes call({
-    int? page,
+    int? total,
     int? perPage,
+    int? currentPage,
+    int? lastPage,
+    bool? hasNextPage,
+    String? $__typename,
   });
 }
 
-class _CopyWithImplVariablesQueryGlobalActivities<TRes>
-    implements CopyWithVariablesQueryGlobalActivities<TRes> {
-  _CopyWithImplVariablesQueryGlobalActivities(
+class _CopyWithImplQueryPagePagepageInfo<TRes>
+    implements CopyWithQueryPagePagepageInfo<TRes> {
+  _CopyWithImplQueryPagePagepageInfo(
     this._instance,
     this._then,
   );
 
-  final VariablesQueryGlobalActivities _instance;
+  final QueryPagePagepageInfo _instance;
 
-  final TRes Function(VariablesQueryGlobalActivities) _then;
+  final TRes Function(QueryPagePagepageInfo) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? page = _undefined,
+    Object? total = _undefined,
     Object? perPage = _undefined,
+    Object? currentPage = _undefined,
+    Object? lastPage = _undefined,
+    Object? hasNextPage = _undefined,
+    Object? $__typename = _undefined,
   }) =>
-      _then(VariablesQueryGlobalActivities._({
-        ..._instance._$data,
-        if (page != _undefined) 'page': (page as int?),
-        if (perPage != _undefined) 'perPage': (perPage as int?),
-      }));
+      _then(QueryPagePagepageInfo(
+        total: total == _undefined ? _instance.total : (total as int?),
+        perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
+        currentPage: currentPage == _undefined
+            ? _instance.currentPage
+            : (currentPage as int?),
+        lastPage:
+            lastPage == _undefined ? _instance.lastPage : (lastPage as int?),
+        hasNextPage: hasNextPage == _undefined
+            ? _instance.hasNextPage
+            : (hasNextPage as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
-class _CopyWithStubImplVariablesQueryGlobalActivities<TRes>
-    implements CopyWithVariablesQueryGlobalActivities<TRes> {
-  _CopyWithStubImplVariablesQueryGlobalActivities(this._res);
+class _CopyWithStubImplQueryPagePagepageInfo<TRes>
+    implements CopyWithQueryPagePagepageInfo<TRes> {
+  _CopyWithStubImplQueryPagePagepageInfo(this._res);
 
   TRes _res;
 
   call({
-    int? page,
+    int? total,
     int? perPage,
-  }) =>
-      _res;
-}
-
-class QueryGlobalActivities {
-  QueryGlobalActivities({
-    this.Page,
-    this.$__typename = 'Query',
-  });
-
-  factory QueryGlobalActivities.fromJson(Map<String, dynamic> json) {
-    final l$Page = json['Page'];
-    final l$$__typename = json['__typename'];
-    return QueryGlobalActivities(
-      Page: l$Page == null
-          ? null
-          : QueryGlobalActivitiesPage.fromJson(
-              (l$Page as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final QueryGlobalActivitiesPage? Page;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$Page = Page;
-    _resultData['Page'] = l$Page?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$Page = Page;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryGlobalActivities) || runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$Page = Page;
-    final lOther$Page = other.Page;
-    if (l$Page != lOther$Page) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryGlobalActivities on QueryGlobalActivities {
-  CopyWithQueryGlobalActivities<QueryGlobalActivities> get copyWith =>
-      CopyWithQueryGlobalActivities(
-        this,
-        (i) => i,
-      );
-}
-
-abstract class CopyWithQueryGlobalActivities<TRes> {
-  factory CopyWithQueryGlobalActivities(
-    QueryGlobalActivities instance,
-    TRes Function(QueryGlobalActivities) then,
-  ) = _CopyWithImplQueryGlobalActivities;
-
-  factory CopyWithQueryGlobalActivities.stub(TRes res) =
-      _CopyWithStubImplQueryGlobalActivities;
-
-  TRes call({
-    QueryGlobalActivitiesPage? Page,
-    String? $__typename,
-  });
-  CopyWithQueryGlobalActivitiesPage<TRes> get Page;
-}
-
-class _CopyWithImplQueryGlobalActivities<TRes>
-    implements CopyWithQueryGlobalActivities<TRes> {
-  _CopyWithImplQueryGlobalActivities(
-    this._instance,
-    this._then,
-  );
-
-  final QueryGlobalActivities _instance;
-
-  final TRes Function(QueryGlobalActivities) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryGlobalActivities(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as QueryGlobalActivitiesPage?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryGlobalActivitiesPage<TRes> get Page {
-    final local$Page = _instance.Page;
-    return local$Page == null
-        ? CopyWithQueryGlobalActivitiesPage.stub(_then(_instance))
-        : CopyWithQueryGlobalActivitiesPage(local$Page, (e) => call(Page: e));
-  }
-}
-
-class _CopyWithStubImplQueryGlobalActivities<TRes>
-    implements CopyWithQueryGlobalActivities<TRes> {
-  _CopyWithStubImplQueryGlobalActivities(this._res);
-
-  TRes _res;
-
-  call({
-    QueryGlobalActivitiesPage? Page,
+    int? currentPage,
+    int? lastPage,
+    bool? hasNextPage,
     String? $__typename,
   }) =>
       _res;
-
-  CopyWithQueryGlobalActivitiesPage<TRes> get Page =>
-      CopyWithQueryGlobalActivitiesPage.stub(_res);
 }
 
-const documentNodeQueryGlobalActivities = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'GlobalActivities'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'perPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: VariableNode(name: NameNode(value: 'perPage')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'activities'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'type_in'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'ANIME_LIST')),
-                  EnumValueNode(name: NameNode(value: 'MANGA_LIST')),
-                ]),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'hasReplies'),
-                value: BooleanValueNode(value: true),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ListActivity'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'ListActivityFrag'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionListActivityFrag,
-]);
+class QueryPagePageactivities {
+  QueryPagePageactivities({required this.$__typename});
 
-class QueryGlobalActivitiesPage {
-  QueryGlobalActivitiesPage({
-    this.activities,
-    this.$__typename = 'Page',
-  });
-
-  factory QueryGlobalActivitiesPage.fromJson(Map<String, dynamic> json) {
-    final l$activities = json['activities'];
-    final l$$__typename = json['__typename'];
-    return QueryGlobalActivitiesPage(
-      activities: (l$activities as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : QueryGlobalActivitiesPageactivities.fromJson(
-                  (e as Map<String, dynamic>)))
-          .toList(),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final List<QueryGlobalActivitiesPageactivities?>? activities;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$activities = activities;
-    _resultData['activities'] = l$activities?.map((e) => e?.toJson()).toList();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$activities = activities;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$activities == null ? null : Object.hashAll(l$activities.map((v) => v)),
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryGlobalActivitiesPage) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$activities = activities;
-    final lOther$activities = other.activities;
-    if (l$activities != null && lOther$activities != null) {
-      if (l$activities.length != lOther$activities.length) {
-        return false;
-      }
-      for (int i = 0; i < l$activities.length; i++) {
-        final l$activities$entry = l$activities[i];
-        final lOther$activities$entry = lOther$activities[i];
-        if (l$activities$entry != lOther$activities$entry) {
-          return false;
-        }
-      }
-    } else if (l$activities != lOther$activities) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryGlobalActivitiesPage
-    on QueryGlobalActivitiesPage {
-  CopyWithQueryGlobalActivitiesPage<QueryGlobalActivitiesPage> get copyWith =>
-      CopyWithQueryGlobalActivitiesPage(
-        this,
-        (i) => i,
-      );
-}
-
-abstract class CopyWithQueryGlobalActivitiesPage<TRes> {
-  factory CopyWithQueryGlobalActivitiesPage(
-    QueryGlobalActivitiesPage instance,
-    TRes Function(QueryGlobalActivitiesPage) then,
-  ) = _CopyWithImplQueryGlobalActivitiesPage;
-
-  factory CopyWithQueryGlobalActivitiesPage.stub(TRes res) =
-      _CopyWithStubImplQueryGlobalActivitiesPage;
-
-  TRes call({
-    List<QueryGlobalActivitiesPageactivities?>? activities,
-    String? $__typename,
-  });
-  TRes activities(
-      Iterable<QueryGlobalActivitiesPageactivities?>? Function(
-              Iterable<
-                  CopyWithQueryGlobalActivitiesPageactivities<
-                      QueryGlobalActivitiesPageactivities>?>?)
-          _fn);
-}
-
-class _CopyWithImplQueryGlobalActivitiesPage<TRes>
-    implements CopyWithQueryGlobalActivitiesPage<TRes> {
-  _CopyWithImplQueryGlobalActivitiesPage(
-    this._instance,
-    this._then,
-  );
-
-  final QueryGlobalActivitiesPage _instance;
-
-  final TRes Function(QueryGlobalActivitiesPage) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? activities = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryGlobalActivitiesPage(
-        activities: activities == _undefined
-            ? _instance.activities
-            : (activities as List<QueryGlobalActivitiesPageactivities?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  TRes activities(
-          Iterable<QueryGlobalActivitiesPageactivities?>? Function(
-                  Iterable<
-                      CopyWithQueryGlobalActivitiesPageactivities<
-                          QueryGlobalActivitiesPageactivities>?>?)
-              _fn) =>
-      call(
-          activities: _fn(_instance.activities?.map((e) => e == null
-              ? null
-              : CopyWithQueryGlobalActivitiesPageactivities(
-                  e,
-                  (i) => i,
-                )))?.toList());
-}
-
-class _CopyWithStubImplQueryGlobalActivitiesPage<TRes>
-    implements CopyWithQueryGlobalActivitiesPage<TRes> {
-  _CopyWithStubImplQueryGlobalActivitiesPage(this._res);
-
-  TRes _res;
-
-  call({
-    List<QueryGlobalActivitiesPageactivities?>? activities,
-    String? $__typename,
-  }) =>
-      _res;
-
-  activities(_fn) => _res;
-}
-
-class QueryGlobalActivitiesPageactivities {
-  QueryGlobalActivitiesPageactivities({required this.$__typename});
-
-  factory QueryGlobalActivitiesPageactivities.fromJson(
-      Map<String, dynamic> json) {
+  factory QueryPagePageactivities.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
-      case "ListActivity":
-        return QueryGlobalActivitiesPageactivitiesListActivity.fromJson(json);
-
       case "TextActivity":
-        return QueryGlobalActivitiesPageactivitiesTextActivity.fromJson(json);
+        return QueryPagePageactivitiesTextActivity.fromJson(json);
+
+      case "ListActivity":
+        return QueryPagePageactivitiesListActivity.fromJson(json);
 
       case "MessageActivity":
-        return QueryGlobalActivitiesPageactivitiesMessageActivity.fromJson(
-            json);
+        return QueryPagePageactivitiesMessageActivity.fromJson(json);
 
       default:
         final l$$__typename = json['__typename'];
-        return QueryGlobalActivitiesPageactivities(
-            $__typename: (l$$__typename as String));
+        return QueryPagePageactivities($__typename: (l$$__typename as String));
     }
   }
 
@@ -3990,7 +2799,7 @@ class QueryGlobalActivitiesPageactivities {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryGlobalActivitiesPageactivities) ||
+    if (!(other is QueryPagePageactivities) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4003,35 +2812,28 @@ class QueryGlobalActivitiesPageactivities {
   }
 }
 
-extension UtilityExtensionQueryGlobalActivitiesPageactivities
-    on QueryGlobalActivitiesPageactivities {
-  CopyWithQueryGlobalActivitiesPageactivities<
-          QueryGlobalActivitiesPageactivities>
-      get copyWith => CopyWithQueryGlobalActivitiesPageactivities(
-            this,
-            (i) => i,
-          );
+extension UtilityExtensionQueryPagePageactivities on QueryPagePageactivities {
+  CopyWithQueryPagePageactivities<QueryPagePageactivities> get copyWith =>
+      CopyWithQueryPagePageactivities(
+        this,
+        (i) => i,
+      );
   _T when<_T>({
-    required _T Function(QueryGlobalActivitiesPageactivitiesListActivity)
-        listActivity,
-    required _T Function(QueryGlobalActivitiesPageactivitiesTextActivity)
-        textActivity,
-    required _T Function(QueryGlobalActivitiesPageactivitiesMessageActivity)
+    required _T Function(QueryPagePageactivitiesTextActivity) textActivity,
+    required _T Function(QueryPagePageactivitiesListActivity) listActivity,
+    required _T Function(QueryPagePageactivitiesMessageActivity)
         messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
-      case "ListActivity":
-        return listActivity(
-            this as QueryGlobalActivitiesPageactivitiesListActivity);
-
       case "TextActivity":
-        return textActivity(
-            this as QueryGlobalActivitiesPageactivitiesTextActivity);
+        return textActivity(this as QueryPagePageactivitiesTextActivity);
+
+      case "ListActivity":
+        return listActivity(this as QueryPagePageactivitiesListActivity);
 
       case "MessageActivity":
-        return messageActivity(
-            this as QueryGlobalActivitiesPageactivitiesMessageActivity);
+        return messageActivity(this as QueryPagePageactivitiesMessageActivity);
 
       default:
         return orElse();
@@ -4039,25 +2841,22 @@ extension UtilityExtensionQueryGlobalActivitiesPageactivities
   }
 
   _T maybeWhen<_T>({
-    _T Function(QueryGlobalActivitiesPageactivitiesListActivity)? listActivity,
-    _T Function(QueryGlobalActivitiesPageactivitiesTextActivity)? textActivity,
-    _T Function(QueryGlobalActivitiesPageactivitiesMessageActivity)?
-        messageActivity,
+    _T Function(QueryPagePageactivitiesTextActivity)? textActivity,
+    _T Function(QueryPagePageactivitiesListActivity)? listActivity,
+    _T Function(QueryPagePageactivitiesMessageActivity)? messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
-      case "ListActivity":
-        if (listActivity != null) {
-          return listActivity(
-              this as QueryGlobalActivitiesPageactivitiesListActivity);
+      case "TextActivity":
+        if (textActivity != null) {
+          return textActivity(this as QueryPagePageactivitiesTextActivity);
         } else {
           return orElse();
         }
 
-      case "TextActivity":
-        if (textActivity != null) {
-          return textActivity(
-              this as QueryGlobalActivitiesPageactivitiesTextActivity);
+      case "ListActivity":
+        if (listActivity != null) {
+          return listActivity(this as QueryPagePageactivitiesListActivity);
         } else {
           return orElse();
         }
@@ -4065,7 +2864,7 @@ extension UtilityExtensionQueryGlobalActivitiesPageactivities
       case "MessageActivity":
         if (messageActivity != null) {
           return messageActivity(
-              this as QueryGlobalActivitiesPageactivitiesMessageActivity);
+              this as QueryPagePageactivitiesMessageActivity);
         } else {
           return orElse();
         }
@@ -4076,94 +2875,93 @@ extension UtilityExtensionQueryGlobalActivitiesPageactivities
   }
 }
 
-abstract class CopyWithQueryGlobalActivitiesPageactivities<TRes> {
-  factory CopyWithQueryGlobalActivitiesPageactivities(
-    QueryGlobalActivitiesPageactivities instance,
-    TRes Function(QueryGlobalActivitiesPageactivities) then,
-  ) = _CopyWithImplQueryGlobalActivitiesPageactivities;
+abstract class CopyWithQueryPagePageactivities<TRes> {
+  factory CopyWithQueryPagePageactivities(
+    QueryPagePageactivities instance,
+    TRes Function(QueryPagePageactivities) then,
+  ) = _CopyWithImplQueryPagePageactivities;
 
-  factory CopyWithQueryGlobalActivitiesPageactivities.stub(TRes res) =
-      _CopyWithStubImplQueryGlobalActivitiesPageactivities;
+  factory CopyWithQueryPagePageactivities.stub(TRes res) =
+      _CopyWithStubImplQueryPagePageactivities;
 
   TRes call({String? $__typename});
 }
 
-class _CopyWithImplQueryGlobalActivitiesPageactivities<TRes>
-    implements CopyWithQueryGlobalActivitiesPageactivities<TRes> {
-  _CopyWithImplQueryGlobalActivitiesPageactivities(
+class _CopyWithImplQueryPagePageactivities<TRes>
+    implements CopyWithQueryPagePageactivities<TRes> {
+  _CopyWithImplQueryPagePageactivities(
     this._instance,
     this._then,
   );
 
-  final QueryGlobalActivitiesPageactivities _instance;
+  final QueryPagePageactivities _instance;
 
-  final TRes Function(QueryGlobalActivitiesPageactivities) _then;
+  final TRes Function(QueryPagePageactivities) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
-      _then(QueryGlobalActivitiesPageactivities(
+      _then(QueryPagePageactivities(
           $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
 }
 
-class _CopyWithStubImplQueryGlobalActivitiesPageactivities<TRes>
-    implements CopyWithQueryGlobalActivitiesPageactivities<TRes> {
-  _CopyWithStubImplQueryGlobalActivitiesPageactivities(this._res);
+class _CopyWithStubImplQueryPagePageactivities<TRes>
+    implements CopyWithQueryPagePageactivities<TRes> {
+  _CopyWithStubImplQueryPagePageactivities(this._res);
 
   TRes _res;
 
   call({String? $__typename}) => _res;
 }
 
-class QueryGlobalActivitiesPageactivitiesListActivity
-    implements FragmentListActivityFrag, QueryGlobalActivitiesPageactivities {
-  QueryGlobalActivitiesPageactivitiesListActivity({
+class QueryPagePageactivitiesTextActivity
+    implements FragmentTextActivity, QueryPagePageactivities {
+  QueryPagePageactivitiesTextActivity({
     required this.id,
     this.type,
-    this.user,
-    this.status,
-    required this.createdAt,
-    this.progress,
-    required this.likeCount,
     required this.replyCount,
+    this.text,
+    this.siteUrl,
+    this.isLocked,
+    this.isSubscribed,
+    required this.likeCount,
     this.isLiked,
-    this.media,
-    this.$__typename = 'ListActivity',
+    required this.createdAt,
+    this.user,
+    this.$__typename = 'TextActivity',
   });
 
-  factory QueryGlobalActivitiesPageactivitiesListActivity.fromJson(
+  factory QueryPagePageactivitiesTextActivity.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$type = json['type'];
-    final l$user = json['user'];
-    final l$status = json['status'];
-    final l$createdAt = json['createdAt'];
-    final l$progress = json['progress'];
-    final l$likeCount = json['likeCount'];
     final l$replyCount = json['replyCount'];
+    final l$text = json['text'];
+    final l$siteUrl = json['siteUrl'];
+    final l$isLocked = json['isLocked'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$likeCount = json['likeCount'];
     final l$isLiked = json['isLiked'];
-    final l$media = json['media'];
+    final l$createdAt = json['createdAt'];
+    final l$user = json['user'];
     final l$$__typename = json['__typename'];
-    return QueryGlobalActivitiesPageactivitiesListActivity(
+    return QueryPagePageactivitiesTextActivity(
       id: (l$id as int),
       type:
           l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
+      replyCount: (l$replyCount as int),
+      text: (l$text as String?),
+      siteUrl: (l$siteUrl as String?),
+      isLocked: (l$isLocked as bool?),
+      isSubscribed: (l$isSubscribed as bool?),
+      likeCount: (l$likeCount as int),
+      isLiked: (l$isLiked as bool?),
+      createdAt: (l$createdAt as int),
       user: l$user == null
           ? null
-          : QueryGlobalActivitiesPageactivitiesListActivityuser.fromJson(
-              (l$user as Map<String, dynamic>)),
-      status: (l$status as String?),
-      createdAt: (l$createdAt as int),
-      progress: (l$progress as String?),
-      likeCount: (l$likeCount as int),
-      replyCount: (l$replyCount as int),
-      isLiked: (l$isLiked as bool?),
-      media: l$media == null
-          ? null
-          : QueryGlobalActivitiesPageactivitiesListActivitymedia.fromJson(
-              (l$media as Map<String, dynamic>)),
+          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -4172,21 +2970,23 @@ class QueryGlobalActivitiesPageactivitiesListActivity
 
   final EnumActivityType? type;
 
-  final QueryGlobalActivitiesPageactivitiesListActivityuser? user;
+  final int replyCount;
 
-  final String? status;
+  final String? text;
 
-  final int createdAt;
+  final String? siteUrl;
 
-  final String? progress;
+  final bool? isLocked;
+
+  final bool? isSubscribed;
 
   final int likeCount;
 
-  final int replyCount;
-
   final bool? isLiked;
 
-  final QueryGlobalActivitiesPageactivitiesListActivitymedia? media;
+  final int createdAt;
+
+  final FragmentUserMinF? user;
 
   final String $__typename;
 
@@ -4197,22 +2997,24 @@ class QueryGlobalActivitiesPageactivitiesListActivity
     final l$type = type;
     _resultData['type'] =
         l$type == null ? null : toJsonEnumActivityType(l$type);
-    final l$user = user;
-    _resultData['user'] = l$user?.toJson();
-    final l$status = status;
-    _resultData['status'] = l$status;
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
-    final l$progress = progress;
-    _resultData['progress'] = l$progress;
-    final l$likeCount = likeCount;
-    _resultData['likeCount'] = l$likeCount;
     final l$replyCount = replyCount;
     _resultData['replyCount'] = l$replyCount;
+    final l$text = text;
+    _resultData['text'] = l$text;
+    final l$siteUrl = siteUrl;
+    _resultData['siteUrl'] = l$siteUrl;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
     final l$isLiked = isLiked;
     _resultData['isLiked'] = l$isLiked;
-    final l$media = media;
-    _resultData['media'] = l$media?.toJson();
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$user = user;
+    _resultData['user'] = l$user?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -4222,26 +3024,28 @@ class QueryGlobalActivitiesPageactivitiesListActivity
   int get hashCode {
     final l$id = id;
     final l$type = type;
-    final l$user = user;
-    final l$status = status;
-    final l$createdAt = createdAt;
-    final l$progress = progress;
-    final l$likeCount = likeCount;
     final l$replyCount = replyCount;
+    final l$text = text;
+    final l$siteUrl = siteUrl;
+    final l$isLocked = isLocked;
+    final l$isSubscribed = isSubscribed;
+    final l$likeCount = likeCount;
     final l$isLiked = isLiked;
-    final l$media = media;
+    final l$createdAt = createdAt;
+    final l$user = user;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$type,
-      l$user,
-      l$status,
-      l$createdAt,
-      l$progress,
-      l$likeCount,
       l$replyCount,
+      l$text,
+      l$siteUrl,
+      l$isLocked,
+      l$isSubscribed,
+      l$likeCount,
       l$isLiked,
-      l$media,
+      l$createdAt,
+      l$user,
       l$$__typename,
     ]);
   }
@@ -4251,7 +3055,7 @@ class QueryGlobalActivitiesPageactivitiesListActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryGlobalActivitiesPageactivitiesListActivity) ||
+    if (!(other is QueryPagePageactivitiesTextActivity) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4265,24 +3069,29 @@ class QueryGlobalActivitiesPageactivitiesListActivity
     if (l$type != lOther$type) {
       return false;
     }
-    final l$user = user;
-    final lOther$user = other.user;
-    if (l$user != lOther$user) {
+    final l$replyCount = replyCount;
+    final lOther$replyCount = other.replyCount;
+    if (l$replyCount != lOther$replyCount) {
       return false;
     }
-    final l$status = status;
-    final lOther$status = other.status;
-    if (l$status != lOther$status) {
+    final l$text = text;
+    final lOther$text = other.text;
+    if (l$text != lOther$text) {
       return false;
     }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
+    final l$siteUrl = siteUrl;
+    final lOther$siteUrl = other.siteUrl;
+    if (l$siteUrl != lOther$siteUrl) {
       return false;
     }
-    final l$progress = progress;
-    final lOther$progress = other.progress;
-    if (l$progress != lOther$progress) {
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
       return false;
     }
     final l$likeCount = likeCount;
@@ -4290,14 +3099,389 @@ class QueryGlobalActivitiesPageactivitiesListActivity
     if (l$likeCount != lOther$likeCount) {
       return false;
     }
+    final l$isLiked = isLiked;
+    final lOther$isLiked = other.isLiked;
+    if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryPagePageactivitiesTextActivity
+    on QueryPagePageactivitiesTextActivity {
+  CopyWithQueryPagePageactivitiesTextActivity<
+          QueryPagePageactivitiesTextActivity>
+      get copyWith => CopyWithQueryPagePageactivitiesTextActivity(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryPagePageactivitiesTextActivity<TRes> {
+  factory CopyWithQueryPagePageactivitiesTextActivity(
+    QueryPagePageactivitiesTextActivity instance,
+    TRes Function(QueryPagePageactivitiesTextActivity) then,
+  ) = _CopyWithImplQueryPagePageactivitiesTextActivity;
+
+  factory CopyWithQueryPagePageactivitiesTextActivity.stub(TRes res) =
+      _CopyWithStubImplQueryPagePageactivitiesTextActivity;
+
+  TRes call({
+    int? id,
+    EnumActivityType? type,
+    int? replyCount,
+    String? text,
+    String? siteUrl,
+    bool? isLocked,
+    bool? isSubscribed,
+    int? likeCount,
+    bool? isLiked,
+    int? createdAt,
+    FragmentUserMinF? user,
+    String? $__typename,
+  });
+  CopyWithFragmentUserMinF<TRes> get user;
+}
+
+class _CopyWithImplQueryPagePageactivitiesTextActivity<TRes>
+    implements CopyWithQueryPagePageactivitiesTextActivity<TRes> {
+  _CopyWithImplQueryPagePageactivitiesTextActivity(
+    this._instance,
+    this._then,
+  );
+
+  final QueryPagePageactivitiesTextActivity _instance;
+
+  final TRes Function(QueryPagePageactivitiesTextActivity) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? type = _undefined,
+    Object? replyCount = _undefined,
+    Object? text = _undefined,
+    Object? siteUrl = _undefined,
+    Object? isLocked = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? likeCount = _undefined,
+    Object? isLiked = _undefined,
+    Object? createdAt = _undefined,
+    Object? user = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryPagePageactivitiesTextActivity(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        type: type == _undefined ? _instance.type : (type as EnumActivityType?),
+        replyCount: replyCount == _undefined || replyCount == null
+            ? _instance.replyCount
+            : (replyCount as int),
+        text: text == _undefined ? _instance.text : (text as String?),
+        siteUrl:
+            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
+        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithFragmentUserMinF<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWithFragmentUserMinF.stub(_then(_instance))
+        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+  }
+}
+
+class _CopyWithStubImplQueryPagePageactivitiesTextActivity<TRes>
+    implements CopyWithQueryPagePageactivitiesTextActivity<TRes> {
+  _CopyWithStubImplQueryPagePageactivitiesTextActivity(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    EnumActivityType? type,
+    int? replyCount,
+    String? text,
+    String? siteUrl,
+    bool? isLocked,
+    bool? isSubscribed,
+    int? likeCount,
+    bool? isLiked,
+    int? createdAt,
+    FragmentUserMinF? user,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithFragmentUserMinF<TRes> get user =>
+      CopyWithFragmentUserMinF.stub(_res);
+}
+
+class QueryPagePageactivitiesListActivity
+    implements FragmentListActivity, QueryPagePageactivities {
+  QueryPagePageactivitiesListActivity({
+    required this.id,
+    this.type,
+    this.status,
+    this.progress,
+    this.isLocked,
+    this.isSubscribed,
+    required this.replyCount,
+    required this.likeCount,
+    this.isLiked,
+    this.isPinned,
+    this.siteUrl,
+    required this.createdAt,
+    this.user,
+    this.media,
+    this.$__typename = 'ListActivity',
+  });
+
+  factory QueryPagePageactivitiesListActivity.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$type = json['type'];
+    final l$status = json['status'];
+    final l$progress = json['progress'];
+    final l$isLocked = json['isLocked'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$replyCount = json['replyCount'];
+    final l$likeCount = json['likeCount'];
+    final l$isLiked = json['isLiked'];
+    final l$isPinned = json['isPinned'];
+    final l$siteUrl = json['siteUrl'];
+    final l$createdAt = json['createdAt'];
+    final l$user = json['user'];
+    final l$media = json['media'];
+    final l$$__typename = json['__typename'];
+    return QueryPagePageactivitiesListActivity(
+      id: (l$id as int),
+      type:
+          l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
+      status: (l$status as String?),
+      progress: (l$progress as String?),
+      isLocked: (l$isLocked as bool?),
+      isSubscribed: (l$isSubscribed as bool?),
+      replyCount: (l$replyCount as int),
+      likeCount: (l$likeCount as int),
+      isLiked: (l$isLiked as bool?),
+      isPinned: (l$isPinned as bool?),
+      siteUrl: (l$siteUrl as String?),
+      createdAt: (l$createdAt as int),
+      user: l$user == null
+          ? null
+          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+      media: l$media == null
+          ? null
+          : FragmentMediaMinF.fromJson((l$media as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final EnumActivityType? type;
+
+  final String? status;
+
+  final String? progress;
+
+  final bool? isLocked;
+
+  final bool? isSubscribed;
+
+  final int replyCount;
+
+  final int likeCount;
+
+  final bool? isLiked;
+
+  final bool? isPinned;
+
+  final String? siteUrl;
+
+  final int createdAt;
+
+  final FragmentUserMinF? user;
+
+  final FragmentMediaMinF? media;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$type = type;
+    _resultData['type'] =
+        l$type == null ? null : toJsonEnumActivityType(l$type);
+    final l$status = status;
+    _resultData['status'] = l$status;
+    final l$progress = progress;
+    _resultData['progress'] = l$progress;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$replyCount = replyCount;
+    _resultData['replyCount'] = l$replyCount;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
+    final l$isLiked = isLiked;
+    _resultData['isLiked'] = l$isLiked;
+    final l$isPinned = isPinned;
+    _resultData['isPinned'] = l$isPinned;
+    final l$siteUrl = siteUrl;
+    _resultData['siteUrl'] = l$siteUrl;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$user = user;
+    _resultData['user'] = l$user?.toJson();
+    final l$media = media;
+    _resultData['media'] = l$media?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$type = type;
+    final l$status = status;
+    final l$progress = progress;
+    final l$isLocked = isLocked;
+    final l$isSubscribed = isSubscribed;
+    final l$replyCount = replyCount;
+    final l$likeCount = likeCount;
+    final l$isLiked = isLiked;
+    final l$isPinned = isPinned;
+    final l$siteUrl = siteUrl;
+    final l$createdAt = createdAt;
+    final l$user = user;
+    final l$media = media;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$type,
+      l$status,
+      l$progress,
+      l$isLocked,
+      l$isSubscribed,
+      l$replyCount,
+      l$likeCount,
+      l$isLiked,
+      l$isPinned,
+      l$siteUrl,
+      l$createdAt,
+      l$user,
+      l$media,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryPagePageactivitiesListActivity) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$progress = progress;
+    final lOther$progress = other.progress;
+    if (l$progress != lOther$progress) {
+      return false;
+    }
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
     final l$replyCount = replyCount;
     final lOther$replyCount = other.replyCount;
     if (l$replyCount != lOther$replyCount) {
       return false;
     }
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
     final l$isLiked = isLiked;
     final lOther$isLiked = other.isLiked;
     if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$isPinned = isPinned;
+    final lOther$isPinned = other.isPinned;
+    if (l$isPinned != lOther$isPinned) {
+      return false;
+    }
+    final l$siteUrl = siteUrl;
+    final lOther$siteUrl = other.siteUrl;
+    if (l$siteUrl != lOther$siteUrl) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
       return false;
     }
     final l$media = media;
@@ -4314,2000 +3498,238 @@ class QueryGlobalActivitiesPageactivitiesListActivity
   }
 }
 
-extension UtilityExtensionQueryGlobalActivitiesPageactivitiesListActivity
-    on QueryGlobalActivitiesPageactivitiesListActivity {
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivity<
-          QueryGlobalActivitiesPageactivitiesListActivity>
-      get copyWith => CopyWithQueryGlobalActivitiesPageactivitiesListActivity(
+extension UtilityExtensionQueryPagePageactivitiesListActivity
+    on QueryPagePageactivitiesListActivity {
+  CopyWithQueryPagePageactivitiesListActivity<
+          QueryPagePageactivitiesListActivity>
+      get copyWith => CopyWithQueryPagePageactivitiesListActivity(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithQueryGlobalActivitiesPageactivitiesListActivity<TRes> {
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivity(
-    QueryGlobalActivitiesPageactivitiesListActivity instance,
-    TRes Function(QueryGlobalActivitiesPageactivitiesListActivity) then,
-  ) = _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivity;
+abstract class CopyWithQueryPagePageactivitiesListActivity<TRes> {
+  factory CopyWithQueryPagePageactivitiesListActivity(
+    QueryPagePageactivitiesListActivity instance,
+    TRes Function(QueryPagePageactivitiesListActivity) then,
+  ) = _CopyWithImplQueryPagePageactivitiesListActivity;
 
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivity.stub(
-          TRes res) =
-      _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivity;
+  factory CopyWithQueryPagePageactivitiesListActivity.stub(TRes res) =
+      _CopyWithStubImplQueryPagePageactivitiesListActivity;
 
   TRes call({
     int? id,
     EnumActivityType? type,
-    QueryGlobalActivitiesPageactivitiesListActivityuser? user,
     String? status,
-    int? createdAt,
     String? progress,
-    int? likeCount,
+    bool? isLocked,
+    bool? isSubscribed,
     int? replyCount,
+    int? likeCount,
     bool? isLiked,
-    QueryGlobalActivitiesPageactivitiesListActivitymedia? media,
+    bool? isPinned,
+    String? siteUrl,
+    int? createdAt,
+    FragmentUserMinF? user,
+    FragmentMediaMinF? media,
     String? $__typename,
   });
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser<TRes> get user;
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia<TRes> get media;
+  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentMediaMinF<TRes> get media;
 }
 
-class _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivity<TRes>
-    implements CopyWithQueryGlobalActivitiesPageactivitiesListActivity<TRes> {
-  _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivity(
+class _CopyWithImplQueryPagePageactivitiesListActivity<TRes>
+    implements CopyWithQueryPagePageactivitiesListActivity<TRes> {
+  _CopyWithImplQueryPagePageactivitiesListActivity(
     this._instance,
     this._then,
   );
 
-  final QueryGlobalActivitiesPageactivitiesListActivity _instance;
+  final QueryPagePageactivitiesListActivity _instance;
 
-  final TRes Function(QueryGlobalActivitiesPageactivitiesListActivity) _then;
+  final TRes Function(QueryPagePageactivitiesListActivity) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
     Object? type = _undefined,
-    Object? user = _undefined,
     Object? status = _undefined,
-    Object? createdAt = _undefined,
     Object? progress = _undefined,
-    Object? likeCount = _undefined,
+    Object? isLocked = _undefined,
+    Object? isSubscribed = _undefined,
     Object? replyCount = _undefined,
+    Object? likeCount = _undefined,
     Object? isLiked = _undefined,
+    Object? isPinned = _undefined,
+    Object? siteUrl = _undefined,
+    Object? createdAt = _undefined,
+    Object? user = _undefined,
     Object? media = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryGlobalActivitiesPageactivitiesListActivity(
+      _then(QueryPagePageactivitiesListActivity(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         type: type == _undefined ? _instance.type : (type as EnumActivityType?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as QueryGlobalActivitiesPageactivitiesListActivityuser?),
         status: status == _undefined ? _instance.status : (status as String?),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
         progress:
             progress == _undefined ? _instance.progress : (progress as String?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
         replyCount: replyCount == _undefined || replyCount == null
             ? _instance.replyCount
             : (replyCount as int),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
         isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        isPinned:
+            isPinned == _undefined ? _instance.isPinned : (isPinned as bool?),
+        siteUrl:
+            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
         media: media == _undefined
             ? _instance.media
-            : (media as QueryGlobalActivitiesPageactivitiesListActivitymedia?),
+            : (media as FragmentMediaMinF?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser<TRes> get user {
+  CopyWithFragmentUserMinF<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser.stub(
-            _then(_instance))
-        : CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser(
-            local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMinF.stub(_then(_instance))
+        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
   }
 
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia<TRes> get media {
+  CopyWithFragmentMediaMinF<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
-        ? CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia.stub(
-            _then(_instance))
-        : CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia(
-            local$media, (e) => call(media: e));
+        ? CopyWithFragmentMediaMinF.stub(_then(_instance))
+        : CopyWithFragmentMediaMinF(local$media, (e) => call(media: e));
   }
 }
 
-class _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivity<TRes>
-    implements CopyWithQueryGlobalActivitiesPageactivitiesListActivity<TRes> {
-  _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivity(this._res);
+class _CopyWithStubImplQueryPagePageactivitiesListActivity<TRes>
+    implements CopyWithQueryPagePageactivitiesListActivity<TRes> {
+  _CopyWithStubImplQueryPagePageactivitiesListActivity(this._res);
 
   TRes _res;
 
   call({
     int? id,
     EnumActivityType? type,
-    QueryGlobalActivitiesPageactivitiesListActivityuser? user,
     String? status,
-    int? createdAt,
     String? progress,
-    int? likeCount,
+    bool? isLocked,
+    bool? isSubscribed,
     int? replyCount,
+    int? likeCount,
     bool? isLiked,
-    QueryGlobalActivitiesPageactivitiesListActivitymedia? media,
+    bool? isPinned,
+    String? siteUrl,
+    int? createdAt,
+    FragmentUserMinF? user,
+    FragmentMediaMinF? media,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser<TRes> get user =>
-      CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser.stub(_res);
+  CopyWithFragmentUserMinF<TRes> get user =>
+      CopyWithFragmentUserMinF.stub(_res);
 
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia<TRes>
-      get media =>
-          CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia.stub(
-              _res);
+  CopyWithFragmentMediaMinF<TRes> get media =>
+      CopyWithFragmentMediaMinF.stub(_res);
 }
 
-class QueryGlobalActivitiesPageactivitiesListActivityuser
-    implements FragmentListActivityFraguser {
-  QueryGlobalActivitiesPageactivitiesListActivityuser({
+class QueryPagePageactivitiesMessageActivity
+    implements FragmentMessageActivity, QueryPagePageactivities {
+  QueryPagePageactivitiesMessageActivity({
     required this.id,
-    required this.name,
-    this.avatar,
-    this.$__typename = 'User',
-  });
-
-  factory QueryGlobalActivitiesPageactivitiesListActivityuser.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$avatar = json['avatar'];
-    final l$$__typename = json['__typename'];
-    return QueryGlobalActivitiesPageactivitiesListActivityuser(
-      id: (l$id as int),
-      name: (l$name as String),
-      avatar: l$avatar == null
-          ? null
-          : QueryGlobalActivitiesPageactivitiesListActivityuseravatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final QueryGlobalActivitiesPageactivitiesListActivityuseravatar? avatar;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$avatar = avatar;
-    _resultData['avatar'] = l$avatar?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$avatar = avatar;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$avatar,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryGlobalActivitiesPageactivitiesListActivityuser) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryGlobalActivitiesPageactivitiesListActivityuser
-    on QueryGlobalActivitiesPageactivitiesListActivityuser {
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser<
-          QueryGlobalActivitiesPageactivitiesListActivityuser>
-      get copyWith =>
-          CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser<
-    TRes> {
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser(
-    QueryGlobalActivitiesPageactivitiesListActivityuser instance,
-    TRes Function(QueryGlobalActivitiesPageactivitiesListActivityuser) then,
-  ) = _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivityuser;
-
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser.stub(
-          TRes res) =
-      _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivityuser;
-
-  TRes call({
-    int? id,
-    String? name,
-    QueryGlobalActivitiesPageactivitiesListActivityuseravatar? avatar,
-    String? $__typename,
-  });
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar<TRes>
-      get avatar;
-}
-
-class _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivityuser<TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser<TRes> {
-  _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivityuser(
-    this._instance,
-    this._then,
-  );
-
-  final QueryGlobalActivitiesPageactivitiesListActivityuser _instance;
-
-  final TRes Function(QueryGlobalActivitiesPageactivitiesListActivityuser)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? avatar = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryGlobalActivitiesPageactivitiesListActivityuser(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar
-                as QueryGlobalActivitiesPageactivitiesListActivityuseravatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar<TRes>
-      get avatar {
-    final local$avatar = _instance.avatar;
-    return local$avatar == null
-        ? CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar
-            .stub(_then(_instance))
-        : CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar(
-            local$avatar, (e) => call(avatar: e));
-  }
-}
-
-class _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivityuser<TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesListActivityuser<TRes> {
-  _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivityuser(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
-    QueryGlobalActivitiesPageactivitiesListActivityuseravatar? avatar,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar<TRes>
-      get avatar =>
-          CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar
-              .stub(_res);
-}
-
-class QueryGlobalActivitiesPageactivitiesListActivityuseravatar
-    implements FragmentListActivityFraguseravatar {
-  QueryGlobalActivitiesPageactivitiesListActivityuseravatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
-
-  factory QueryGlobalActivitiesPageactivitiesListActivityuseravatar.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return QueryGlobalActivitiesPageactivitiesListActivityuseravatar(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryGlobalActivitiesPageactivitiesListActivityuseravatar) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryGlobalActivitiesPageactivitiesListActivityuseravatar
-    on QueryGlobalActivitiesPageactivitiesListActivityuseravatar {
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar<
-          QueryGlobalActivitiesPageactivitiesListActivityuseravatar>
-      get copyWith =>
-          CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar<
-    TRes> {
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar(
-    QueryGlobalActivitiesPageactivitiesListActivityuseravatar instance,
-    TRes Function(QueryGlobalActivitiesPageactivitiesListActivityuseravatar)
-        then,
-  ) = _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivityuseravatar;
-
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar.stub(
-          TRes res) =
-      _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivityuseravatar;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivityuseravatar<
-        TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar<
-            TRes> {
-  _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivityuseravatar(
-    this._instance,
-    this._then,
-  );
-
-  final QueryGlobalActivitiesPageactivitiesListActivityuseravatar _instance;
-
-  final TRes Function(QueryGlobalActivitiesPageactivitiesListActivityuseravatar)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryGlobalActivitiesPageactivitiesListActivityuseravatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivityuseravatar<
-        TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesListActivityuseravatar<
-            TRes> {
-  _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivityuseravatar(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QueryGlobalActivitiesPageactivitiesListActivitymedia
-    implements FragmentListActivityFragmedia {
-  QueryGlobalActivitiesPageactivitiesListActivitymedia({
-    required this.id,
-    this.coverImage,
-    this.title,
-    this.$__typename = 'Media',
-  });
-
-  factory QueryGlobalActivitiesPageactivitiesListActivitymedia.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$coverImage = json['coverImage'];
-    final l$title = json['title'];
-    final l$$__typename = json['__typename'];
-    return QueryGlobalActivitiesPageactivitiesListActivitymedia(
-      id: (l$id as int),
-      coverImage: l$coverImage == null
-          ? null
-          : QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage
-              .fromJson((l$coverImage as Map<String, dynamic>)),
-      title: l$title == null
-          ? null
-          : QueryGlobalActivitiesPageactivitiesListActivitymediatitle.fromJson(
-              (l$title as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage?
-      coverImage;
-
-  final QueryGlobalActivitiesPageactivitiesListActivitymediatitle? title;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$coverImage = coverImage;
-    _resultData['coverImage'] = l$coverImage?.toJson();
-    final l$title = title;
-    _resultData['title'] = l$title?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$coverImage = coverImage;
-    final l$title = title;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$coverImage,
-      l$title,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryGlobalActivitiesPageactivitiesListActivitymedia) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$coverImage = coverImage;
-    final lOther$coverImage = other.coverImage;
-    if (l$coverImage != lOther$coverImage) {
-      return false;
-    }
-    final l$title = title;
-    final lOther$title = other.title;
-    if (l$title != lOther$title) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryGlobalActivitiesPageactivitiesListActivitymedia
-    on QueryGlobalActivitiesPageactivitiesListActivitymedia {
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia<
-          QueryGlobalActivitiesPageactivitiesListActivitymedia>
-      get copyWith =>
-          CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia<
-    TRes> {
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia(
-    QueryGlobalActivitiesPageactivitiesListActivitymedia instance,
-    TRes Function(QueryGlobalActivitiesPageactivitiesListActivitymedia) then,
-  ) = _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivitymedia;
-
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia.stub(
-          TRes res) =
-      _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivitymedia;
-
-  TRes call({
-    int? id,
-    QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage? coverImage,
-    QueryGlobalActivitiesPageactivitiesListActivitymediatitle? title,
-    String? $__typename,
-  });
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage<TRes>
-      get coverImage;
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle<TRes>
-      get title;
-}
-
-class _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivitymedia<TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia<TRes> {
-  _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivitymedia(
-    this._instance,
-    this._then,
-  );
-
-  final QueryGlobalActivitiesPageactivitiesListActivitymedia _instance;
-
-  final TRes Function(QueryGlobalActivitiesPageactivitiesListActivitymedia)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? coverImage = _undefined,
-    Object? title = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryGlobalActivitiesPageactivitiesListActivitymedia(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage
-                as QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage?),
-        title: title == _undefined
-            ? _instance.title
-            : (title
-                as QueryGlobalActivitiesPageactivitiesListActivitymediatitle?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage<TRes>
-      get coverImage {
-    final local$coverImage = _instance.coverImage;
-    return local$coverImage == null
-        ? CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage
-            .stub(_then(_instance))
-        : CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage(
-            local$coverImage, (e) => call(coverImage: e));
-  }
-
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle<TRes>
-      get title {
-    final local$title = _instance.title;
-    return local$title == null
-        ? CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle
-            .stub(_then(_instance))
-        : CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle(
-            local$title, (e) => call(title: e));
-  }
-}
-
-class _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivitymedia<
-        TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesListActivitymedia<TRes> {
-  _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivitymedia(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage? coverImage,
-    QueryGlobalActivitiesPageactivitiesListActivitymediatitle? title,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage<TRes>
-      get coverImage =>
-          CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage
-              .stub(_res);
-
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle<TRes>
-      get title =>
-          CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle
-              .stub(_res);
-}
-
-class QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage
-    implements FragmentListActivityFragmediacoverImage {
-  QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage({
-    this.large,
-    this.$__typename = 'MediaCoverImage',
-  });
-
-  factory QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage
-    on QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage {
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage<
-          QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage>
-      get copyWith =>
-          CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage<
-    TRes> {
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage(
-    QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage instance,
-    TRes Function(
-            QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage)
-        then,
-  ) = _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage;
-
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage.stub(
-          TRes res) =
-      _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage<
-        TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage<
-            TRes> {
-  _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage(
-    this._instance,
-    this._then,
-  );
-
-  final QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage
-      _instance;
-
-  final TRes Function(
-      QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryGlobalActivitiesPageactivitiesListActivitymediacoverImage(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage<
-        TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage<
-            TRes> {
-  _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivitymediacoverImage(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QueryGlobalActivitiesPageactivitiesListActivitymediatitle
-    implements FragmentListActivityFragmediatitle {
-  QueryGlobalActivitiesPageactivitiesListActivitymediatitle({
-    this.userPreferred,
-    this.$__typename = 'MediaTitle',
-  });
-
-  factory QueryGlobalActivitiesPageactivitiesListActivitymediatitle.fromJson(
-      Map<String, dynamic> json) {
-    final l$userPreferred = json['userPreferred'];
-    final l$$__typename = json['__typename'];
-    return QueryGlobalActivitiesPageactivitiesListActivitymediatitle(
-      userPreferred: (l$userPreferred as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? userPreferred;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$userPreferred = userPreferred;
-    _resultData['userPreferred'] = l$userPreferred;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$userPreferred = userPreferred;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryGlobalActivitiesPageactivitiesListActivitymediatitle) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$userPreferred = userPreferred;
-    final lOther$userPreferred = other.userPreferred;
-    if (l$userPreferred != lOther$userPreferred) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryGlobalActivitiesPageactivitiesListActivitymediatitle
-    on QueryGlobalActivitiesPageactivitiesListActivitymediatitle {
-  CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle<
-          QueryGlobalActivitiesPageactivitiesListActivitymediatitle>
-      get copyWith =>
-          CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle<
-    TRes> {
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle(
-    QueryGlobalActivitiesPageactivitiesListActivitymediatitle instance,
-    TRes Function(QueryGlobalActivitiesPageactivitiesListActivitymediatitle)
-        then,
-  ) = _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivitymediatitle;
-
-  factory CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle.stub(
-          TRes res) =
-      _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivitymediatitle;
-
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivitymediatitle<
-        TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle<
-            TRes> {
-  _CopyWithImplQueryGlobalActivitiesPageactivitiesListActivitymediatitle(
-    this._instance,
-    this._then,
-  );
-
-  final QueryGlobalActivitiesPageactivitiesListActivitymediatitle _instance;
-
-  final TRes Function(QueryGlobalActivitiesPageactivitiesListActivitymediatitle)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? userPreferred = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryGlobalActivitiesPageactivitiesListActivitymediatitle(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivitymediatitle<
-        TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesListActivitymediatitle<
-            TRes> {
-  _CopyWithStubImplQueryGlobalActivitiesPageactivitiesListActivitymediatitle(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QueryGlobalActivitiesPageactivitiesTextActivity
-    implements QueryGlobalActivitiesPageactivities {
-  QueryGlobalActivitiesPageactivitiesTextActivity(
-      {this.$__typename = 'TextActivity'});
-
-  factory QueryGlobalActivitiesPageactivitiesTextActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return QueryGlobalActivitiesPageactivitiesTextActivity(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryGlobalActivitiesPageactivitiesTextActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryGlobalActivitiesPageactivitiesTextActivity
-    on QueryGlobalActivitiesPageactivitiesTextActivity {
-  CopyWithQueryGlobalActivitiesPageactivitiesTextActivity<
-          QueryGlobalActivitiesPageactivitiesTextActivity>
-      get copyWith => CopyWithQueryGlobalActivitiesPageactivitiesTextActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryGlobalActivitiesPageactivitiesTextActivity<TRes> {
-  factory CopyWithQueryGlobalActivitiesPageactivitiesTextActivity(
-    QueryGlobalActivitiesPageactivitiesTextActivity instance,
-    TRes Function(QueryGlobalActivitiesPageactivitiesTextActivity) then,
-  ) = _CopyWithImplQueryGlobalActivitiesPageactivitiesTextActivity;
-
-  factory CopyWithQueryGlobalActivitiesPageactivitiesTextActivity.stub(
-          TRes res) =
-      _CopyWithStubImplQueryGlobalActivitiesPageactivitiesTextActivity;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplQueryGlobalActivitiesPageactivitiesTextActivity<TRes>
-    implements CopyWithQueryGlobalActivitiesPageactivitiesTextActivity<TRes> {
-  _CopyWithImplQueryGlobalActivitiesPageactivitiesTextActivity(
-    this._instance,
-    this._then,
-  );
-
-  final QueryGlobalActivitiesPageactivitiesTextActivity _instance;
-
-  final TRes Function(QueryGlobalActivitiesPageactivitiesTextActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(QueryGlobalActivitiesPageactivitiesTextActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplQueryGlobalActivitiesPageactivitiesTextActivity<TRes>
-    implements CopyWithQueryGlobalActivitiesPageactivitiesTextActivity<TRes> {
-  _CopyWithStubImplQueryGlobalActivitiesPageactivitiesTextActivity(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class QueryGlobalActivitiesPageactivitiesMessageActivity
-    implements QueryGlobalActivitiesPageactivities {
-  QueryGlobalActivitiesPageactivitiesMessageActivity(
-      {this.$__typename = 'MessageActivity'});
-
-  factory QueryGlobalActivitiesPageactivitiesMessageActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return QueryGlobalActivitiesPageactivitiesMessageActivity(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryGlobalActivitiesPageactivitiesMessageActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryGlobalActivitiesPageactivitiesMessageActivity
-    on QueryGlobalActivitiesPageactivitiesMessageActivity {
-  CopyWithQueryGlobalActivitiesPageactivitiesMessageActivity<
-          QueryGlobalActivitiesPageactivitiesMessageActivity>
-      get copyWith =>
-          CopyWithQueryGlobalActivitiesPageactivitiesMessageActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryGlobalActivitiesPageactivitiesMessageActivity<
-    TRes> {
-  factory CopyWithQueryGlobalActivitiesPageactivitiesMessageActivity(
-    QueryGlobalActivitiesPageactivitiesMessageActivity instance,
-    TRes Function(QueryGlobalActivitiesPageactivitiesMessageActivity) then,
-  ) = _CopyWithImplQueryGlobalActivitiesPageactivitiesMessageActivity;
-
-  factory CopyWithQueryGlobalActivitiesPageactivitiesMessageActivity.stub(
-          TRes res) =
-      _CopyWithStubImplQueryGlobalActivitiesPageactivitiesMessageActivity;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplQueryGlobalActivitiesPageactivitiesMessageActivity<TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesMessageActivity<TRes> {
-  _CopyWithImplQueryGlobalActivitiesPageactivitiesMessageActivity(
-    this._instance,
-    this._then,
-  );
-
-  final QueryGlobalActivitiesPageactivitiesMessageActivity _instance;
-
-  final TRes Function(QueryGlobalActivitiesPageactivitiesMessageActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(QueryGlobalActivitiesPageactivitiesMessageActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplQueryGlobalActivitiesPageactivitiesMessageActivity<TRes>
-    implements
-        CopyWithQueryGlobalActivitiesPageactivitiesMessageActivity<TRes> {
-  _CopyWithStubImplQueryGlobalActivitiesPageactivitiesMessageActivity(
-      this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class VariablesQueryUserActivities {
-  factory VariablesQueryUserActivities({
-    int? userId,
-    int? page,
-    int? perPage,
-  }) =>
-      VariablesQueryUserActivities._({
-        if (userId != null) r'userId': userId,
-        if (page != null) r'page': page,
-        if (perPage != null) r'perPage': perPage,
-      });
-
-  VariablesQueryUserActivities._(this._$data);
-
-  factory VariablesQueryUserActivities.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('userId')) {
-      final l$userId = data['userId'];
-      result$data['userId'] = (l$userId as int?);
-    }
-    if (data.containsKey('page')) {
-      final l$page = data['page'];
-      result$data['page'] = (l$page as int?);
-    }
-    if (data.containsKey('perPage')) {
-      final l$perPage = data['perPage'];
-      result$data['perPage'] = (l$perPage as int?);
-    }
-    return VariablesQueryUserActivities._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  int? get userId => (_$data['userId'] as int?);
-
-  int? get page => (_$data['page'] as int?);
-
-  int? get perPage => (_$data['perPage'] as int?);
-
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('userId')) {
-      final l$userId = userId;
-      result$data['userId'] = l$userId;
-    }
-    if (_$data.containsKey('page')) {
-      final l$page = page;
-      result$data['page'] = l$page;
-    }
-    if (_$data.containsKey('perPage')) {
-      final l$perPage = perPage;
-      result$data['perPage'] = l$perPage;
-    }
-    return result$data;
-  }
-
-  CopyWithVariablesQueryUserActivities<VariablesQueryUserActivities>
-      get copyWith => CopyWithVariablesQueryUserActivities(
-            this,
-            (i) => i,
-          );
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is VariablesQueryUserActivities) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$userId = userId;
-    final lOther$userId = other.userId;
-    if (_$data.containsKey('userId') != other._$data.containsKey('userId')) {
-      return false;
-    }
-    if (l$userId != lOther$userId) {
-      return false;
-    }
-    final l$page = page;
-    final lOther$page = other.page;
-    if (_$data.containsKey('page') != other._$data.containsKey('page')) {
-      return false;
-    }
-    if (l$page != lOther$page) {
-      return false;
-    }
-    final l$perPage = perPage;
-    final lOther$perPage = other.perPage;
-    if (_$data.containsKey('perPage') != other._$data.containsKey('perPage')) {
-      return false;
-    }
-    if (l$perPage != lOther$perPage) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$userId = userId;
-    final l$page = page;
-    final l$perPage = perPage;
-    return Object.hashAll([
-      _$data.containsKey('userId') ? l$userId : const {},
-      _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('perPage') ? l$perPage : const {},
-    ]);
-  }
-}
-
-abstract class CopyWithVariablesQueryUserActivities<TRes> {
-  factory CopyWithVariablesQueryUserActivities(
-    VariablesQueryUserActivities instance,
-    TRes Function(VariablesQueryUserActivities) then,
-  ) = _CopyWithImplVariablesQueryUserActivities;
-
-  factory CopyWithVariablesQueryUserActivities.stub(TRes res) =
-      _CopyWithStubImplVariablesQueryUserActivities;
-
-  TRes call({
-    int? userId,
-    int? page,
-    int? perPage,
-  });
-}
-
-class _CopyWithImplVariablesQueryUserActivities<TRes>
-    implements CopyWithVariablesQueryUserActivities<TRes> {
-  _CopyWithImplVariablesQueryUserActivities(
-    this._instance,
-    this._then,
-  );
-
-  final VariablesQueryUserActivities _instance;
-
-  final TRes Function(VariablesQueryUserActivities) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? userId = _undefined,
-    Object? page = _undefined,
-    Object? perPage = _undefined,
-  }) =>
-      _then(VariablesQueryUserActivities._({
-        ..._instance._$data,
-        if (userId != _undefined) 'userId': (userId as int?),
-        if (page != _undefined) 'page': (page as int?),
-        if (perPage != _undefined) 'perPage': (perPage as int?),
-      }));
-}
-
-class _CopyWithStubImplVariablesQueryUserActivities<TRes>
-    implements CopyWithVariablesQueryUserActivities<TRes> {
-  _CopyWithStubImplVariablesQueryUserActivities(this._res);
-
-  TRes _res;
-
-  call({
-    int? userId,
-    int? page,
-    int? perPage,
-  }) =>
-      _res;
-}
-
-class QueryUserActivities {
-  QueryUserActivities({
-    this.Page,
-    this.$__typename = 'Query',
-  });
-
-  factory QueryUserActivities.fromJson(Map<String, dynamic> json) {
-    final l$Page = json['Page'];
-    final l$$__typename = json['__typename'];
-    return QueryUserActivities(
-      Page: l$Page == null
-          ? null
-          : QueryUserActivitiesPage.fromJson((l$Page as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final QueryUserActivitiesPage? Page;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$Page = Page;
-    _resultData['Page'] = l$Page?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$Page = Page;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Page,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryUserActivities) || runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$Page = Page;
-    final lOther$Page = other.Page;
-    if (l$Page != lOther$Page) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryUserActivities on QueryUserActivities {
-  CopyWithQueryUserActivities<QueryUserActivities> get copyWith =>
-      CopyWithQueryUserActivities(
-        this,
-        (i) => i,
-      );
-}
-
-abstract class CopyWithQueryUserActivities<TRes> {
-  factory CopyWithQueryUserActivities(
-    QueryUserActivities instance,
-    TRes Function(QueryUserActivities) then,
-  ) = _CopyWithImplQueryUserActivities;
-
-  factory CopyWithQueryUserActivities.stub(TRes res) =
-      _CopyWithStubImplQueryUserActivities;
-
-  TRes call({
-    QueryUserActivitiesPage? Page,
-    String? $__typename,
-  });
-  CopyWithQueryUserActivitiesPage<TRes> get Page;
-}
-
-class _CopyWithImplQueryUserActivities<TRes>
-    implements CopyWithQueryUserActivities<TRes> {
-  _CopyWithImplQueryUserActivities(
-    this._instance,
-    this._then,
-  );
-
-  final QueryUserActivities _instance;
-
-  final TRes Function(QueryUserActivities) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? Page = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryUserActivities(
-        Page: Page == _undefined
-            ? _instance.Page
-            : (Page as QueryUserActivitiesPage?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryUserActivitiesPage<TRes> get Page {
-    final local$Page = _instance.Page;
-    return local$Page == null
-        ? CopyWithQueryUserActivitiesPage.stub(_then(_instance))
-        : CopyWithQueryUserActivitiesPage(local$Page, (e) => call(Page: e));
-  }
-}
-
-class _CopyWithStubImplQueryUserActivities<TRes>
-    implements CopyWithQueryUserActivities<TRes> {
-  _CopyWithStubImplQueryUserActivities(this._res);
-
-  TRes _res;
-
-  call({
-    QueryUserActivitiesPage? Page,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryUserActivitiesPage<TRes> get Page =>
-      CopyWithQueryUserActivitiesPage.stub(_res);
-}
-
-const documentNodeQueryUserActivities = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'UserActivities'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'perPage')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Page'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'perPage'),
-            value: VariableNode(name: NameNode(value: 'perPage')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'activities'),
-            alias: null,
-            arguments: [
-              ArgumentNode(
-                name: NameNode(value: 'userId'),
-                value: VariableNode(name: NameNode(value: 'userId')),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'type_in'),
-                value: ListValueNode(values: [
-                  EnumValueNode(name: NameNode(value: 'ANIME_LIST')),
-                  EnumValueNode(name: NameNode(value: 'MANGA_LIST')),
-                ]),
-              ),
-              ArgumentNode(
-                name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
-              ),
-            ],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              InlineFragmentNode(
-                typeCondition: TypeConditionNode(
-                    on: NamedTypeNode(
-                  name: NameNode(value: 'ListActivity'),
-                  isNonNull: false,
-                )),
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FragmentSpreadNode(
-                    name: NameNode(value: 'ListActivityFrag'),
-                    directives: [],
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-  fragmentDefinitionListActivityFrag,
-]);
-
-class QueryUserActivitiesPage {
-  QueryUserActivitiesPage({
-    this.activities,
-    this.$__typename = 'Page',
-  });
-
-  factory QueryUserActivitiesPage.fromJson(Map<String, dynamic> json) {
-    final l$activities = json['activities'];
-    final l$$__typename = json['__typename'];
-    return QueryUserActivitiesPage(
-      activities: (l$activities as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : QueryUserActivitiesPageactivities.fromJson(
-                  (e as Map<String, dynamic>)))
-          .toList(),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final List<QueryUserActivitiesPageactivities?>? activities;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$activities = activities;
-    _resultData['activities'] = l$activities?.map((e) => e?.toJson()).toList();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$activities = activities;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$activities == null ? null : Object.hashAll(l$activities.map((v) => v)),
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryUserActivitiesPage) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$activities = activities;
-    final lOther$activities = other.activities;
-    if (l$activities != null && lOther$activities != null) {
-      if (l$activities.length != lOther$activities.length) {
-        return false;
-      }
-      for (int i = 0; i < l$activities.length; i++) {
-        final l$activities$entry = l$activities[i];
-        final lOther$activities$entry = lOther$activities[i];
-        if (l$activities$entry != lOther$activities$entry) {
-          return false;
-        }
-      }
-    } else if (l$activities != lOther$activities) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryUserActivitiesPage on QueryUserActivitiesPage {
-  CopyWithQueryUserActivitiesPage<QueryUserActivitiesPage> get copyWith =>
-      CopyWithQueryUserActivitiesPage(
-        this,
-        (i) => i,
-      );
-}
-
-abstract class CopyWithQueryUserActivitiesPage<TRes> {
-  factory CopyWithQueryUserActivitiesPage(
-    QueryUserActivitiesPage instance,
-    TRes Function(QueryUserActivitiesPage) then,
-  ) = _CopyWithImplQueryUserActivitiesPage;
-
-  factory CopyWithQueryUserActivitiesPage.stub(TRes res) =
-      _CopyWithStubImplQueryUserActivitiesPage;
-
-  TRes call({
-    List<QueryUserActivitiesPageactivities?>? activities,
-    String? $__typename,
-  });
-  TRes activities(
-      Iterable<QueryUserActivitiesPageactivities?>? Function(
-              Iterable<
-                  CopyWithQueryUserActivitiesPageactivities<
-                      QueryUserActivitiesPageactivities>?>?)
-          _fn);
-}
-
-class _CopyWithImplQueryUserActivitiesPage<TRes>
-    implements CopyWithQueryUserActivitiesPage<TRes> {
-  _CopyWithImplQueryUserActivitiesPage(
-    this._instance,
-    this._then,
-  );
-
-  final QueryUserActivitiesPage _instance;
-
-  final TRes Function(QueryUserActivitiesPage) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? activities = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryUserActivitiesPage(
-        activities: activities == _undefined
-            ? _instance.activities
-            : (activities as List<QueryUserActivitiesPageactivities?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  TRes activities(
-          Iterable<QueryUserActivitiesPageactivities?>? Function(
-                  Iterable<
-                      CopyWithQueryUserActivitiesPageactivities<
-                          QueryUserActivitiesPageactivities>?>?)
-              _fn) =>
-      call(
-          activities: _fn(_instance.activities?.map((e) => e == null
-              ? null
-              : CopyWithQueryUserActivitiesPageactivities(
-                  e,
-                  (i) => i,
-                )))?.toList());
-}
-
-class _CopyWithStubImplQueryUserActivitiesPage<TRes>
-    implements CopyWithQueryUserActivitiesPage<TRes> {
-  _CopyWithStubImplQueryUserActivitiesPage(this._res);
-
-  TRes _res;
-
-  call({
-    List<QueryUserActivitiesPageactivities?>? activities,
-    String? $__typename,
-  }) =>
-      _res;
-
-  activities(_fn) => _res;
-}
-
-class QueryUserActivitiesPageactivities {
-  QueryUserActivitiesPageactivities({required this.$__typename});
-
-  factory QueryUserActivitiesPageactivities.fromJson(
-      Map<String, dynamic> json) {
-    switch (json["__typename"] as String) {
-      case "ListActivity":
-        return QueryUserActivitiesPageactivitiesListActivity.fromJson(json);
-
-      case "TextActivity":
-        return QueryUserActivitiesPageactivitiesTextActivity.fromJson(json);
-
-      case "MessageActivity":
-        return QueryUserActivitiesPageactivitiesMessageActivity.fromJson(json);
-
-      default:
-        final l$$__typename = json['__typename'];
-        return QueryUserActivitiesPageactivities(
-            $__typename: (l$$__typename as String));
-    }
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryUserActivitiesPageactivities) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryUserActivitiesPageactivities
-    on QueryUserActivitiesPageactivities {
-  CopyWithQueryUserActivitiesPageactivities<QueryUserActivitiesPageactivities>
-      get copyWith => CopyWithQueryUserActivitiesPageactivities(
-            this,
-            (i) => i,
-          );
-  _T when<_T>({
-    required _T Function(QueryUserActivitiesPageactivitiesListActivity)
-        listActivity,
-    required _T Function(QueryUserActivitiesPageactivitiesTextActivity)
-        textActivity,
-    required _T Function(QueryUserActivitiesPageactivitiesMessageActivity)
-        messageActivity,
-    required _T Function() orElse,
-  }) {
-    switch ($__typename) {
-      case "ListActivity":
-        return listActivity(
-            this as QueryUserActivitiesPageactivitiesListActivity);
-
-      case "TextActivity":
-        return textActivity(
-            this as QueryUserActivitiesPageactivitiesTextActivity);
-
-      case "MessageActivity":
-        return messageActivity(
-            this as QueryUserActivitiesPageactivitiesMessageActivity);
-
-      default:
-        return orElse();
-    }
-  }
-
-  _T maybeWhen<_T>({
-    _T Function(QueryUserActivitiesPageactivitiesListActivity)? listActivity,
-    _T Function(QueryUserActivitiesPageactivitiesTextActivity)? textActivity,
-    _T Function(QueryUserActivitiesPageactivitiesMessageActivity)?
-        messageActivity,
-    required _T Function() orElse,
-  }) {
-    switch ($__typename) {
-      case "ListActivity":
-        if (listActivity != null) {
-          return listActivity(
-              this as QueryUserActivitiesPageactivitiesListActivity);
-        } else {
-          return orElse();
-        }
-
-      case "TextActivity":
-        if (textActivity != null) {
-          return textActivity(
-              this as QueryUserActivitiesPageactivitiesTextActivity);
-        } else {
-          return orElse();
-        }
-
-      case "MessageActivity":
-        if (messageActivity != null) {
-          return messageActivity(
-              this as QueryUserActivitiesPageactivitiesMessageActivity);
-        } else {
-          return orElse();
-        }
-
-      default:
-        return orElse();
-    }
-  }
-}
-
-abstract class CopyWithQueryUserActivitiesPageactivities<TRes> {
-  factory CopyWithQueryUserActivitiesPageactivities(
-    QueryUserActivitiesPageactivities instance,
-    TRes Function(QueryUserActivitiesPageactivities) then,
-  ) = _CopyWithImplQueryUserActivitiesPageactivities;
-
-  factory CopyWithQueryUserActivitiesPageactivities.stub(TRes res) =
-      _CopyWithStubImplQueryUserActivitiesPageactivities;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplQueryUserActivitiesPageactivities<TRes>
-    implements CopyWithQueryUserActivitiesPageactivities<TRes> {
-  _CopyWithImplQueryUserActivitiesPageactivities(
-    this._instance,
-    this._then,
-  );
-
-  final QueryUserActivitiesPageactivities _instance;
-
-  final TRes Function(QueryUserActivitiesPageactivities) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(QueryUserActivitiesPageactivities(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplQueryUserActivitiesPageactivities<TRes>
-    implements CopyWithQueryUserActivitiesPageactivities<TRes> {
-  _CopyWithStubImplQueryUserActivitiesPageactivities(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class QueryUserActivitiesPageactivitiesListActivity
-    implements FragmentListActivityFrag, QueryUserActivitiesPageactivities {
-  QueryUserActivitiesPageactivitiesListActivity({
-    required this.id,
+    this.recipientId,
     this.type,
-    this.user,
-    this.status,
-    required this.createdAt,
-    this.progress,
-    required this.likeCount,
     required this.replyCount,
+    this.message,
+    this.isLocked,
+    this.isSubscribed,
+    required this.likeCount,
     this.isLiked,
-    this.media,
-    this.$__typename = 'ListActivity',
+    this.isPrivate,
+    this.siteUrl,
+    required this.createdAt,
+    this.messenger,
+    this.$__typename = 'MessageActivity',
   });
 
-  factory QueryUserActivitiesPageactivitiesListActivity.fromJson(
+  factory QueryPagePageactivitiesMessageActivity.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
+    final l$recipientId = json['recipientId'];
     final l$type = json['type'];
-    final l$user = json['user'];
-    final l$status = json['status'];
-    final l$createdAt = json['createdAt'];
-    final l$progress = json['progress'];
-    final l$likeCount = json['likeCount'];
     final l$replyCount = json['replyCount'];
+    final l$message = json['message'];
+    final l$isLocked = json['isLocked'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$likeCount = json['likeCount'];
     final l$isLiked = json['isLiked'];
-    final l$media = json['media'];
+    final l$isPrivate = json['isPrivate'];
+    final l$siteUrl = json['siteUrl'];
+    final l$createdAt = json['createdAt'];
+    final l$messenger = json['messenger'];
     final l$$__typename = json['__typename'];
-    return QueryUserActivitiesPageactivitiesListActivity(
+    return QueryPagePageactivitiesMessageActivity(
       id: (l$id as int),
+      recipientId: (l$recipientId as int?),
       type:
           l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
-      user: l$user == null
-          ? null
-          : QueryUserActivitiesPageactivitiesListActivityuser.fromJson(
-              (l$user as Map<String, dynamic>)),
-      status: (l$status as String?),
-      createdAt: (l$createdAt as int),
-      progress: (l$progress as String?),
-      likeCount: (l$likeCount as int),
       replyCount: (l$replyCount as int),
+      message: (l$message as String?),
+      isLocked: (l$isLocked as bool?),
+      isSubscribed: (l$isSubscribed as bool?),
+      likeCount: (l$likeCount as int),
       isLiked: (l$isLiked as bool?),
-      media: l$media == null
+      isPrivate: (l$isPrivate as bool?),
+      siteUrl: (l$siteUrl as String?),
+      createdAt: (l$createdAt as int),
+      messenger: l$messenger == null
           ? null
-          : QueryUserActivitiesPageactivitiesListActivitymedia.fromJson(
-              (l$media as Map<String, dynamic>)),
+          : FragmentUserMinF.fromJson((l$messenger as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
   final int id;
+
+  final int? recipientId;
 
   final EnumActivityType? type;
 
-  final QueryUserActivitiesPageactivitiesListActivityuser? user;
+  final int replyCount;
 
-  final String? status;
+  final String? message;
 
-  final int createdAt;
+  final bool? isLocked;
 
-  final String? progress;
+  final bool? isSubscribed;
 
   final int likeCount;
 
-  final int replyCount;
-
   final bool? isLiked;
 
-  final QueryUserActivitiesPageactivitiesListActivitymedia? media;
+  final bool? isPrivate;
+
+  final String? siteUrl;
+
+  final int createdAt;
+
+  final FragmentUserMinF? messenger;
 
   final String $__typename;
 
@@ -6315,25 +3737,31 @@ class QueryUserActivitiesPageactivitiesListActivity
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
+    final l$recipientId = recipientId;
+    _resultData['recipientId'] = l$recipientId;
     final l$type = type;
     _resultData['type'] =
         l$type == null ? null : toJsonEnumActivityType(l$type);
-    final l$user = user;
-    _resultData['user'] = l$user?.toJson();
-    final l$status = status;
-    _resultData['status'] = l$status;
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
-    final l$progress = progress;
-    _resultData['progress'] = l$progress;
-    final l$likeCount = likeCount;
-    _resultData['likeCount'] = l$likeCount;
     final l$replyCount = replyCount;
     _resultData['replyCount'] = l$replyCount;
+    final l$message = message;
+    _resultData['message'] = l$message;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
     final l$isLiked = isLiked;
     _resultData['isLiked'] = l$isLiked;
-    final l$media = media;
-    _resultData['media'] = l$media?.toJson();
+    final l$isPrivate = isPrivate;
+    _resultData['isPrivate'] = l$isPrivate;
+    final l$siteUrl = siteUrl;
+    _resultData['siteUrl'] = l$siteUrl;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$messenger = messenger;
+    _resultData['messenger'] = l$messenger?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -6342,27 +3770,33 @@ class QueryUserActivitiesPageactivitiesListActivity
   @override
   int get hashCode {
     final l$id = id;
+    final l$recipientId = recipientId;
     final l$type = type;
-    final l$user = user;
-    final l$status = status;
-    final l$createdAt = createdAt;
-    final l$progress = progress;
-    final l$likeCount = likeCount;
     final l$replyCount = replyCount;
+    final l$message = message;
+    final l$isLocked = isLocked;
+    final l$isSubscribed = isSubscribed;
+    final l$likeCount = likeCount;
     final l$isLiked = isLiked;
-    final l$media = media;
+    final l$isPrivate = isPrivate;
+    final l$siteUrl = siteUrl;
+    final l$createdAt = createdAt;
+    final l$messenger = messenger;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
+      l$recipientId,
       l$type,
-      l$user,
-      l$status,
-      l$createdAt,
-      l$progress,
-      l$likeCount,
       l$replyCount,
+      l$message,
+      l$isLocked,
+      l$isSubscribed,
+      l$likeCount,
       l$isLiked,
-      l$media,
+      l$isPrivate,
+      l$siteUrl,
+      l$createdAt,
+      l$messenger,
       l$$__typename,
     ]);
   }
@@ -6372,43 +3806,23 @@ class QueryUserActivitiesPageactivitiesListActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserActivitiesPageactivitiesListActivity) ||
+    if (!(other is QueryPagePageactivitiesMessageActivity) ||
         runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
     final lOther$id = other.id;
     if (l$id != lOther$id) {
+      return false;
+    }
+    final l$recipientId = recipientId;
+    final lOther$recipientId = other.recipientId;
+    if (l$recipientId != lOther$recipientId) {
       return false;
     }
     final l$type = type;
     final lOther$type = other.type;
     if (l$type != lOther$type) {
-      return false;
-    }
-    final l$user = user;
-    final lOther$user = other.user;
-    if (l$user != lOther$user) {
-      return false;
-    }
-    final l$status = status;
-    final lOther$status = other.status;
-    if (l$status != lOther$status) {
-      return false;
-    }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
-      return false;
-    }
-    final l$progress = progress;
-    final lOther$progress = other.progress;
-    if (l$progress != lOther$progress) {
-      return false;
-    }
-    final l$likeCount = likeCount;
-    final lOther$likeCount = other.likeCount;
-    if (l$likeCount != lOther$likeCount) {
       return false;
     }
     final l$replyCount = replyCount;
@@ -6416,14 +3830,49 @@ class QueryUserActivitiesPageactivitiesListActivity
     if (l$replyCount != lOther$replyCount) {
       return false;
     }
+    final l$message = message;
+    final lOther$message = other.message;
+    if (l$message != lOther$message) {
+      return false;
+    }
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
     final l$isLiked = isLiked;
     final lOther$isLiked = other.isLiked;
     if (l$isLiked != lOther$isLiked) {
       return false;
     }
-    final l$media = media;
-    final lOther$media = other.media;
-    if (l$media != lOther$media) {
+    final l$isPrivate = isPrivate;
+    final lOther$isPrivate = other.isPrivate;
+    if (l$isPrivate != lOther$isPrivate) {
+      return false;
+    }
+    final l$siteUrl = siteUrl;
+    final lOther$siteUrl = other.siteUrl;
+    if (l$siteUrl != lOther$siteUrl) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$messenger = messenger;
+    final lOther$messenger = other.messenger;
+    if (l$messenger != lOther$messenger) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -6435,1197 +3884,173 @@ class QueryUserActivitiesPageactivitiesListActivity
   }
 }
 
-extension UtilityExtensionQueryUserActivitiesPageactivitiesListActivity
-    on QueryUserActivitiesPageactivitiesListActivity {
-  CopyWithQueryUserActivitiesPageactivitiesListActivity<
-          QueryUserActivitiesPageactivitiesListActivity>
-      get copyWith => CopyWithQueryUserActivitiesPageactivitiesListActivity(
+extension UtilityExtensionQueryPagePageactivitiesMessageActivity
+    on QueryPagePageactivitiesMessageActivity {
+  CopyWithQueryPagePageactivitiesMessageActivity<
+          QueryPagePageactivitiesMessageActivity>
+      get copyWith => CopyWithQueryPagePageactivitiesMessageActivity(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithQueryUserActivitiesPageactivitiesListActivity<TRes> {
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivity(
-    QueryUserActivitiesPageactivitiesListActivity instance,
-    TRes Function(QueryUserActivitiesPageactivitiesListActivity) then,
-  ) = _CopyWithImplQueryUserActivitiesPageactivitiesListActivity;
+abstract class CopyWithQueryPagePageactivitiesMessageActivity<TRes> {
+  factory CopyWithQueryPagePageactivitiesMessageActivity(
+    QueryPagePageactivitiesMessageActivity instance,
+    TRes Function(QueryPagePageactivitiesMessageActivity) then,
+  ) = _CopyWithImplQueryPagePageactivitiesMessageActivity;
 
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivity.stub(TRes res) =
-      _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivity;
+  factory CopyWithQueryPagePageactivitiesMessageActivity.stub(TRes res) =
+      _CopyWithStubImplQueryPagePageactivitiesMessageActivity;
 
   TRes call({
     int? id,
+    int? recipientId,
     EnumActivityType? type,
-    QueryUserActivitiesPageactivitiesListActivityuser? user,
-    String? status,
-    int? createdAt,
-    String? progress,
-    int? likeCount,
     int? replyCount,
+    String? message,
+    bool? isLocked,
+    bool? isSubscribed,
+    int? likeCount,
     bool? isLiked,
-    QueryUserActivitiesPageactivitiesListActivitymedia? media,
+    bool? isPrivate,
+    String? siteUrl,
+    int? createdAt,
+    FragmentUserMinF? messenger,
     String? $__typename,
   });
-  CopyWithQueryUserActivitiesPageactivitiesListActivityuser<TRes> get user;
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymedia<TRes> get media;
+  CopyWithFragmentUserMinF<TRes> get messenger;
 }
 
-class _CopyWithImplQueryUserActivitiesPageactivitiesListActivity<TRes>
-    implements CopyWithQueryUserActivitiesPageactivitiesListActivity<TRes> {
-  _CopyWithImplQueryUserActivitiesPageactivitiesListActivity(
+class _CopyWithImplQueryPagePageactivitiesMessageActivity<TRes>
+    implements CopyWithQueryPagePageactivitiesMessageActivity<TRes> {
+  _CopyWithImplQueryPagePageactivitiesMessageActivity(
     this._instance,
     this._then,
   );
 
-  final QueryUserActivitiesPageactivitiesListActivity _instance;
+  final QueryPagePageactivitiesMessageActivity _instance;
 
-  final TRes Function(QueryUserActivitiesPageactivitiesListActivity) _then;
+  final TRes Function(QueryPagePageactivitiesMessageActivity) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
+    Object? recipientId = _undefined,
     Object? type = _undefined,
-    Object? user = _undefined,
-    Object? status = _undefined,
-    Object? createdAt = _undefined,
-    Object? progress = _undefined,
-    Object? likeCount = _undefined,
     Object? replyCount = _undefined,
+    Object? message = _undefined,
+    Object? isLocked = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? likeCount = _undefined,
     Object? isLiked = _undefined,
-    Object? media = _undefined,
+    Object? isPrivate = _undefined,
+    Object? siteUrl = _undefined,
+    Object? createdAt = _undefined,
+    Object? messenger = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryUserActivitiesPageactivitiesListActivity(
+      _then(QueryPagePageactivitiesMessageActivity(
         id: id == _undefined || id == null ? _instance.id : (id as int),
+        recipientId: recipientId == _undefined
+            ? _instance.recipientId
+            : (recipientId as int?),
         type: type == _undefined ? _instance.type : (type as EnumActivityType?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as QueryUserActivitiesPageactivitiesListActivityuser?),
-        status: status == _undefined ? _instance.status : (status as String?),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        progress:
-            progress == _undefined ? _instance.progress : (progress as String?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
         replyCount: replyCount == _undefined || replyCount == null
             ? _instance.replyCount
             : (replyCount as int),
+        message:
+            message == _undefined ? _instance.message : (message as String?),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
         isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as QueryUserActivitiesPageactivitiesListActivitymedia?),
+        isPrivate: isPrivate == _undefined
+            ? _instance.isPrivate
+            : (isPrivate as bool?),
+        siteUrl:
+            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        messenger: messenger == _undefined
+            ? _instance.messenger
+            : (messenger as FragmentUserMinF?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithQueryUserActivitiesPageactivitiesListActivityuser<TRes> get user {
-    final local$user = _instance.user;
-    return local$user == null
-        ? CopyWithQueryUserActivitiesPageactivitiesListActivityuser.stub(
-            _then(_instance))
-        : CopyWithQueryUserActivitiesPageactivitiesListActivityuser(
-            local$user, (e) => call(user: e));
-  }
-
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymedia<TRes> get media {
-    final local$media = _instance.media;
-    return local$media == null
-        ? CopyWithQueryUserActivitiesPageactivitiesListActivitymedia.stub(
-            _then(_instance))
-        : CopyWithQueryUserActivitiesPageactivitiesListActivitymedia(
-            local$media, (e) => call(media: e));
+  CopyWithFragmentUserMinF<TRes> get messenger {
+    final local$messenger = _instance.messenger;
+    return local$messenger == null
+        ? CopyWithFragmentUserMinF.stub(_then(_instance))
+        : CopyWithFragmentUserMinF(local$messenger, (e) => call(messenger: e));
   }
 }
 
-class _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivity<TRes>
-    implements CopyWithQueryUserActivitiesPageactivitiesListActivity<TRes> {
-  _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivity(this._res);
+class _CopyWithStubImplQueryPagePageactivitiesMessageActivity<TRes>
+    implements CopyWithQueryPagePageactivitiesMessageActivity<TRes> {
+  _CopyWithStubImplQueryPagePageactivitiesMessageActivity(this._res);
 
   TRes _res;
 
   call({
     int? id,
+    int? recipientId,
     EnumActivityType? type,
-    QueryUserActivitiesPageactivitiesListActivityuser? user,
-    String? status,
-    int? createdAt,
-    String? progress,
-    int? likeCount,
     int? replyCount,
+    String? message,
+    bool? isLocked,
+    bool? isSubscribed,
+    int? likeCount,
     bool? isLiked,
-    QueryUserActivitiesPageactivitiesListActivitymedia? media,
+    bool? isPrivate,
+    String? siteUrl,
+    int? createdAt,
+    FragmentUserMinF? messenger,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithQueryUserActivitiesPageactivitiesListActivityuser<TRes> get user =>
-      CopyWithQueryUserActivitiesPageactivitiesListActivityuser.stub(_res);
-
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymedia<TRes> get media =>
-      CopyWithQueryUserActivitiesPageactivitiesListActivitymedia.stub(_res);
+  CopyWithFragmentUserMinF<TRes> get messenger =>
+      CopyWithFragmentUserMinF.stub(_res);
 }
 
-class QueryUserActivitiesPageactivitiesListActivityuser
-    implements FragmentListActivityFraguser {
-  QueryUserActivitiesPageactivitiesListActivityuser({
-    required this.id,
-    required this.name,
-    this.avatar,
-    this.$__typename = 'User',
-  });
-
-  factory QueryUserActivitiesPageactivitiesListActivityuser.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$avatar = json['avatar'];
-    final l$$__typename = json['__typename'];
-    return QueryUserActivitiesPageactivitiesListActivityuser(
-      id: (l$id as int),
-      name: (l$name as String),
-      avatar: l$avatar == null
-          ? null
-          : QueryUserActivitiesPageactivitiesListActivityuseravatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final QueryUserActivitiesPageactivitiesListActivityuseravatar? avatar;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$avatar = avatar;
-    _resultData['avatar'] = l$avatar?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$avatar = avatar;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$avatar,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryUserActivitiesPageactivitiesListActivityuser) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryUserActivitiesPageactivitiesListActivityuser
-    on QueryUserActivitiesPageactivitiesListActivityuser {
-  CopyWithQueryUserActivitiesPageactivitiesListActivityuser<
-          QueryUserActivitiesPageactivitiesListActivityuser>
-      get copyWith => CopyWithQueryUserActivitiesPageactivitiesListActivityuser(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryUserActivitiesPageactivitiesListActivityuser<TRes> {
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivityuser(
-    QueryUserActivitiesPageactivitiesListActivityuser instance,
-    TRes Function(QueryUserActivitiesPageactivitiesListActivityuser) then,
-  ) = _CopyWithImplQueryUserActivitiesPageactivitiesListActivityuser;
-
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivityuser.stub(
-          TRes res) =
-      _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivityuser;
-
-  TRes call({
-    int? id,
-    String? name,
-    QueryUserActivitiesPageactivitiesListActivityuseravatar? avatar,
-    String? $__typename,
-  });
-  CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar<TRes>
-      get avatar;
-}
-
-class _CopyWithImplQueryUserActivitiesPageactivitiesListActivityuser<TRes>
-    implements CopyWithQueryUserActivitiesPageactivitiesListActivityuser<TRes> {
-  _CopyWithImplQueryUserActivitiesPageactivitiesListActivityuser(
-    this._instance,
-    this._then,
-  );
-
-  final QueryUserActivitiesPageactivitiesListActivityuser _instance;
-
-  final TRes Function(QueryUserActivitiesPageactivitiesListActivityuser) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? avatar = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryUserActivitiesPageactivitiesListActivityuser(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar
-                as QueryUserActivitiesPageactivitiesListActivityuseravatar?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar<TRes>
-      get avatar {
-    final local$avatar = _instance.avatar;
-    return local$avatar == null
-        ? CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar.stub(
-            _then(_instance))
-        : CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar(
-            local$avatar, (e) => call(avatar: e));
-  }
-}
-
-class _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivityuser<TRes>
-    implements CopyWithQueryUserActivitiesPageactivitiesListActivityuser<TRes> {
-  _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivityuser(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
-    QueryUserActivitiesPageactivitiesListActivityuseravatar? avatar,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar<TRes>
-      get avatar =>
-          CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar.stub(
-              _res);
-}
-
-class QueryUserActivitiesPageactivitiesListActivityuseravatar
-    implements FragmentListActivityFraguseravatar {
-  QueryUserActivitiesPageactivitiesListActivityuseravatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
-
-  factory QueryUserActivitiesPageactivitiesListActivityuseravatar.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return QueryUserActivitiesPageactivitiesListActivityuseravatar(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryUserActivitiesPageactivitiesListActivityuseravatar) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryUserActivitiesPageactivitiesListActivityuseravatar
-    on QueryUserActivitiesPageactivitiesListActivityuseravatar {
-  CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar<
-          QueryUserActivitiesPageactivitiesListActivityuseravatar>
-      get copyWith =>
-          CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar<
-    TRes> {
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar(
-    QueryUserActivitiesPageactivitiesListActivityuseravatar instance,
-    TRes Function(QueryUserActivitiesPageactivitiesListActivityuseravatar) then,
-  ) = _CopyWithImplQueryUserActivitiesPageactivitiesListActivityuseravatar;
-
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar.stub(
-          TRes res) =
-      _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivityuseravatar;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryUserActivitiesPageactivitiesListActivityuseravatar<TRes>
-    implements
-        CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar<TRes> {
-  _CopyWithImplQueryUserActivitiesPageactivitiesListActivityuseravatar(
-    this._instance,
-    this._then,
-  );
-
-  final QueryUserActivitiesPageactivitiesListActivityuseravatar _instance;
-
-  final TRes Function(QueryUserActivitiesPageactivitiesListActivityuseravatar)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryUserActivitiesPageactivitiesListActivityuseravatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivityuseravatar<
-        TRes>
-    implements
-        CopyWithQueryUserActivitiesPageactivitiesListActivityuseravatar<TRes> {
-  _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivityuseravatar(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QueryUserActivitiesPageactivitiesListActivitymedia
-    implements FragmentListActivityFragmedia {
-  QueryUserActivitiesPageactivitiesListActivitymedia({
-    required this.id,
-    this.coverImage,
-    this.title,
-    this.$__typename = 'Media',
-  });
-
-  factory QueryUserActivitiesPageactivitiesListActivitymedia.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$coverImage = json['coverImage'];
-    final l$title = json['title'];
-    final l$$__typename = json['__typename'];
-    return QueryUserActivitiesPageactivitiesListActivitymedia(
-      id: (l$id as int),
-      coverImage: l$coverImage == null
-          ? null
-          : QueryUserActivitiesPageactivitiesListActivitymediacoverImage
-              .fromJson((l$coverImage as Map<String, dynamic>)),
-      title: l$title == null
-          ? null
-          : QueryUserActivitiesPageactivitiesListActivitymediatitle.fromJson(
-              (l$title as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final QueryUserActivitiesPageactivitiesListActivitymediacoverImage?
-      coverImage;
-
-  final QueryUserActivitiesPageactivitiesListActivitymediatitle? title;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$coverImage = coverImage;
-    _resultData['coverImage'] = l$coverImage?.toJson();
-    final l$title = title;
-    _resultData['title'] = l$title?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$coverImage = coverImage;
-    final l$title = title;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$coverImage,
-      l$title,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryUserActivitiesPageactivitiesListActivitymedia) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$coverImage = coverImage;
-    final lOther$coverImage = other.coverImage;
-    if (l$coverImage != lOther$coverImage) {
-      return false;
-    }
-    final l$title = title;
-    final lOther$title = other.title;
-    if (l$title != lOther$title) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryUserActivitiesPageactivitiesListActivitymedia
-    on QueryUserActivitiesPageactivitiesListActivitymedia {
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymedia<
-          QueryUserActivitiesPageactivitiesListActivitymedia>
-      get copyWith =>
-          CopyWithQueryUserActivitiesPageactivitiesListActivitymedia(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryUserActivitiesPageactivitiesListActivitymedia<
-    TRes> {
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivitymedia(
-    QueryUserActivitiesPageactivitiesListActivitymedia instance,
-    TRes Function(QueryUserActivitiesPageactivitiesListActivitymedia) then,
-  ) = _CopyWithImplQueryUserActivitiesPageactivitiesListActivitymedia;
-
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivitymedia.stub(
-          TRes res) =
-      _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivitymedia;
-
-  TRes call({
-    int? id,
-    QueryUserActivitiesPageactivitiesListActivitymediacoverImage? coverImage,
-    QueryUserActivitiesPageactivitiesListActivitymediatitle? title,
-    String? $__typename,
-  });
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage<TRes>
-      get coverImage;
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle<TRes>
-      get title;
-}
-
-class _CopyWithImplQueryUserActivitiesPageactivitiesListActivitymedia<TRes>
-    implements
-        CopyWithQueryUserActivitiesPageactivitiesListActivitymedia<TRes> {
-  _CopyWithImplQueryUserActivitiesPageactivitiesListActivitymedia(
-    this._instance,
-    this._then,
-  );
-
-  final QueryUserActivitiesPageactivitiesListActivitymedia _instance;
-
-  final TRes Function(QueryUserActivitiesPageactivitiesListActivitymedia) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? coverImage = _undefined,
-    Object? title = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryUserActivitiesPageactivitiesListActivitymedia(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage
-                as QueryUserActivitiesPageactivitiesListActivitymediacoverImage?),
-        title: title == _undefined
-            ? _instance.title
-            : (title
-                as QueryUserActivitiesPageactivitiesListActivitymediatitle?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage<TRes>
-      get coverImage {
-    final local$coverImage = _instance.coverImage;
-    return local$coverImage == null
-        ? CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage
-            .stub(_then(_instance))
-        : CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage(
-            local$coverImage, (e) => call(coverImage: e));
-  }
-
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle<TRes>
-      get title {
-    final local$title = _instance.title;
-    return local$title == null
-        ? CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle.stub(
-            _then(_instance))
-        : CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle(
-            local$title, (e) => call(title: e));
-  }
-}
-
-class _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivitymedia<TRes>
-    implements
-        CopyWithQueryUserActivitiesPageactivitiesListActivitymedia<TRes> {
-  _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivitymedia(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    QueryUserActivitiesPageactivitiesListActivitymediacoverImage? coverImage,
-    QueryUserActivitiesPageactivitiesListActivitymediatitle? title,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage<TRes>
-      get coverImage =>
-          CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage
-              .stub(_res);
-
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle<TRes>
-      get title =>
-          CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle.stub(
-              _res);
-}
-
-class QueryUserActivitiesPageactivitiesListActivitymediacoverImage
-    implements FragmentListActivityFragmediacoverImage {
-  QueryUserActivitiesPageactivitiesListActivitymediacoverImage({
-    this.large,
-    this.$__typename = 'MediaCoverImage',
-  });
-
-  factory QueryUserActivitiesPageactivitiesListActivitymediacoverImage.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return QueryUserActivitiesPageactivitiesListActivitymediacoverImage(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is QueryUserActivitiesPageactivitiesListActivitymediacoverImage) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryUserActivitiesPageactivitiesListActivitymediacoverImage
-    on QueryUserActivitiesPageactivitiesListActivitymediacoverImage {
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage<
-          QueryUserActivitiesPageactivitiesListActivitymediacoverImage>
-      get copyWith =>
-          CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage<
-    TRes> {
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage(
-    QueryUserActivitiesPageactivitiesListActivitymediacoverImage instance,
-    TRes Function(QueryUserActivitiesPageactivitiesListActivitymediacoverImage)
-        then,
-  ) = _CopyWithImplQueryUserActivitiesPageactivitiesListActivitymediacoverImage;
-
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage.stub(
-          TRes res) =
-      _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivitymediacoverImage;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryUserActivitiesPageactivitiesListActivitymediacoverImage<
-        TRes>
-    implements
-        CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage<
-            TRes> {
-  _CopyWithImplQueryUserActivitiesPageactivitiesListActivitymediacoverImage(
-    this._instance,
-    this._then,
-  );
-
-  final QueryUserActivitiesPageactivitiesListActivitymediacoverImage _instance;
-
-  final TRes Function(
-      QueryUserActivitiesPageactivitiesListActivitymediacoverImage) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryUserActivitiesPageactivitiesListActivitymediacoverImage(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivitymediacoverImage<
-        TRes>
-    implements
-        CopyWithQueryUserActivitiesPageactivitiesListActivitymediacoverImage<
-            TRes> {
-  _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivitymediacoverImage(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QueryUserActivitiesPageactivitiesListActivitymediatitle
-    implements FragmentListActivityFragmediatitle {
-  QueryUserActivitiesPageactivitiesListActivitymediatitle({
-    this.userPreferred,
-    this.$__typename = 'MediaTitle',
-  });
-
-  factory QueryUserActivitiesPageactivitiesListActivitymediatitle.fromJson(
-      Map<String, dynamic> json) {
-    final l$userPreferred = json['userPreferred'];
-    final l$$__typename = json['__typename'];
-    return QueryUserActivitiesPageactivitiesListActivitymediatitle(
-      userPreferred: (l$userPreferred as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? userPreferred;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$userPreferred = userPreferred;
-    _resultData['userPreferred'] = l$userPreferred;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$userPreferred = userPreferred;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryUserActivitiesPageactivitiesListActivitymediatitle) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$userPreferred = userPreferred;
-    final lOther$userPreferred = other.userPreferred;
-    if (l$userPreferred != lOther$userPreferred) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryUserActivitiesPageactivitiesListActivitymediatitle
-    on QueryUserActivitiesPageactivitiesListActivitymediatitle {
-  CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle<
-          QueryUserActivitiesPageactivitiesListActivitymediatitle>
-      get copyWith =>
-          CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle<
-    TRes> {
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle(
-    QueryUserActivitiesPageactivitiesListActivitymediatitle instance,
-    TRes Function(QueryUserActivitiesPageactivitiesListActivitymediatitle) then,
-  ) = _CopyWithImplQueryUserActivitiesPageactivitiesListActivitymediatitle;
-
-  factory CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle.stub(
-          TRes res) =
-      _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivitymediatitle;
-
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryUserActivitiesPageactivitiesListActivitymediatitle<TRes>
-    implements
-        CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle<TRes> {
-  _CopyWithImplQueryUserActivitiesPageactivitiesListActivitymediatitle(
-    this._instance,
-    this._then,
-  );
-
-  final QueryUserActivitiesPageactivitiesListActivitymediatitle _instance;
-
-  final TRes Function(QueryUserActivitiesPageactivitiesListActivitymediatitle)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? userPreferred = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryUserActivitiesPageactivitiesListActivitymediatitle(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivitymediatitle<
-        TRes>
-    implements
-        CopyWithQueryUserActivitiesPageactivitiesListActivitymediatitle<TRes> {
-  _CopyWithStubImplQueryUserActivitiesPageactivitiesListActivitymediatitle(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QueryUserActivitiesPageactivitiesTextActivity
-    implements QueryUserActivitiesPageactivities {
-  QueryUserActivitiesPageactivitiesTextActivity(
-      {this.$__typename = 'TextActivity'});
-
-  factory QueryUserActivitiesPageactivitiesTextActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return QueryUserActivitiesPageactivitiesTextActivity(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryUserActivitiesPageactivitiesTextActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryUserActivitiesPageactivitiesTextActivity
-    on QueryUserActivitiesPageactivitiesTextActivity {
-  CopyWithQueryUserActivitiesPageactivitiesTextActivity<
-          QueryUserActivitiesPageactivitiesTextActivity>
-      get copyWith => CopyWithQueryUserActivitiesPageactivitiesTextActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryUserActivitiesPageactivitiesTextActivity<TRes> {
-  factory CopyWithQueryUserActivitiesPageactivitiesTextActivity(
-    QueryUserActivitiesPageactivitiesTextActivity instance,
-    TRes Function(QueryUserActivitiesPageactivitiesTextActivity) then,
-  ) = _CopyWithImplQueryUserActivitiesPageactivitiesTextActivity;
-
-  factory CopyWithQueryUserActivitiesPageactivitiesTextActivity.stub(TRes res) =
-      _CopyWithStubImplQueryUserActivitiesPageactivitiesTextActivity;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplQueryUserActivitiesPageactivitiesTextActivity<TRes>
-    implements CopyWithQueryUserActivitiesPageactivitiesTextActivity<TRes> {
-  _CopyWithImplQueryUserActivitiesPageactivitiesTextActivity(
-    this._instance,
-    this._then,
-  );
-
-  final QueryUserActivitiesPageactivitiesTextActivity _instance;
-
-  final TRes Function(QueryUserActivitiesPageactivitiesTextActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(QueryUserActivitiesPageactivitiesTextActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplQueryUserActivitiesPageactivitiesTextActivity<TRes>
-    implements CopyWithQueryUserActivitiesPageactivitiesTextActivity<TRes> {
-  _CopyWithStubImplQueryUserActivitiesPageactivitiesTextActivity(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class QueryUserActivitiesPageactivitiesMessageActivity
-    implements QueryUserActivitiesPageactivities {
-  QueryUserActivitiesPageactivitiesMessageActivity(
-      {this.$__typename = 'MessageActivity'});
-
-  factory QueryUserActivitiesPageactivitiesMessageActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return QueryUserActivitiesPageactivitiesMessageActivity(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryUserActivitiesPageactivitiesMessageActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryUserActivitiesPageactivitiesMessageActivity
-    on QueryUserActivitiesPageactivitiesMessageActivity {
-  CopyWithQueryUserActivitiesPageactivitiesMessageActivity<
-          QueryUserActivitiesPageactivitiesMessageActivity>
-      get copyWith => CopyWithQueryUserActivitiesPageactivitiesMessageActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryUserActivitiesPageactivitiesMessageActivity<TRes> {
-  factory CopyWithQueryUserActivitiesPageactivitiesMessageActivity(
-    QueryUserActivitiesPageactivitiesMessageActivity instance,
-    TRes Function(QueryUserActivitiesPageactivitiesMessageActivity) then,
-  ) = _CopyWithImplQueryUserActivitiesPageactivitiesMessageActivity;
-
-  factory CopyWithQueryUserActivitiesPageactivitiesMessageActivity.stub(
-          TRes res) =
-      _CopyWithStubImplQueryUserActivitiesPageactivitiesMessageActivity;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplQueryUserActivitiesPageactivitiesMessageActivity<TRes>
-    implements CopyWithQueryUserActivitiesPageactivitiesMessageActivity<TRes> {
-  _CopyWithImplQueryUserActivitiesPageactivitiesMessageActivity(
-    this._instance,
-    this._then,
-  );
-
-  final QueryUserActivitiesPageactivitiesMessageActivity _instance;
-
-  final TRes Function(QueryUserActivitiesPageactivitiesMessageActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(QueryUserActivitiesPageactivitiesMessageActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplQueryUserActivitiesPageactivitiesMessageActivity<TRes>
-    implements CopyWithQueryUserActivitiesPageactivitiesMessageActivity<TRes> {
-  _CopyWithStubImplQueryUserActivitiesPageactivitiesMessageActivity(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class VariablesMutationToggleActivityLike {
-  factory VariablesMutationToggleActivityLike({
-    int? id,
-    EnumLikeableType? type,
-  }) =>
-      VariablesMutationToggleActivityLike._({
-        if (id != null) r'id': id,
-        if (type != null) r'type': type,
+class VariablesQueryActivityReplies {
+  factory VariablesQueryActivityReplies({required int activityId}) =>
+      VariablesQueryActivityReplies._({
+        r'activityId': activityId,
       });
 
-  VariablesMutationToggleActivityLike._(this._$data);
+  VariablesQueryActivityReplies._(this._$data);
 
-  factory VariablesMutationToggleActivityLike.fromJson(
-      Map<String, dynamic> data) {
+  factory VariablesQueryActivityReplies.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    if (data.containsKey('id')) {
-      final l$id = data['id'];
-      result$data['id'] = (l$id as int?);
-    }
-    if (data.containsKey('type')) {
-      final l$type = data['type'];
-      result$data['type'] =
-          l$type == null ? null : fromJsonEnumLikeableType((l$type as String));
-    }
-    return VariablesMutationToggleActivityLike._(result$data);
+    final l$activityId = data['activityId'];
+    result$data['activityId'] = (l$activityId as int);
+    return VariablesQueryActivityReplies._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  int? get id => (_$data['id'] as int?);
-
-  EnumLikeableType? get type => (_$data['type'] as EnumLikeableType?);
+  int get activityId => (_$data['activityId'] as int);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if (_$data.containsKey('id')) {
-      final l$id = id;
-      result$data['id'] = l$id;
-    }
-    if (_$data.containsKey('type')) {
-      final l$type = type;
-      result$data['type'] =
-          l$type == null ? null : toJsonEnumLikeableType(l$type);
-    }
+    final l$activityId = activityId;
+    result$data['activityId'] = l$activityId;
     return result$data;
   }
 
-  CopyWithVariablesMutationToggleActivityLike<
-          VariablesMutationToggleActivityLike>
-      get copyWith => CopyWithVariablesMutationToggleActivityLike(
+  CopyWithVariablesQueryActivityReplies<VariablesQueryActivityReplies>
+      get copyWith => CopyWithVariablesQueryActivityReplies(
             this,
             (i) => i,
           );
@@ -7635,24 +4060,13 @@ class VariablesMutationToggleActivityLike {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesMutationToggleActivityLike) ||
+    if (!(other is VariablesQueryActivityReplies) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
-      return false;
-    }
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$type = type;
-    final lOther$type = other.type;
-    if (_$data.containsKey('type') != other._$data.containsKey('type')) {
-      return false;
-    }
-    if (l$type != lOther$type) {
+    final l$activityId = activityId;
+    final lOther$activityId = other.activityId;
+    if (l$activityId != lOther$activityId) {
       return false;
     }
     return true;
@@ -7660,1282 +4074,72 @@ class VariablesMutationToggleActivityLike {
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$type = type;
-    return Object.hashAll([
-      _$data.containsKey('id') ? l$id : const {},
-      _$data.containsKey('type') ? l$type : const {},
-    ]);
+    final l$activityId = activityId;
+    return Object.hashAll([l$activityId]);
   }
 }
 
-abstract class CopyWithVariablesMutationToggleActivityLike<TRes> {
-  factory CopyWithVariablesMutationToggleActivityLike(
-    VariablesMutationToggleActivityLike instance,
-    TRes Function(VariablesMutationToggleActivityLike) then,
-  ) = _CopyWithImplVariablesMutationToggleActivityLike;
+abstract class CopyWithVariablesQueryActivityReplies<TRes> {
+  factory CopyWithVariablesQueryActivityReplies(
+    VariablesQueryActivityReplies instance,
+    TRes Function(VariablesQueryActivityReplies) then,
+  ) = _CopyWithImplVariablesQueryActivityReplies;
 
-  factory CopyWithVariablesMutationToggleActivityLike.stub(TRes res) =
-      _CopyWithStubImplVariablesMutationToggleActivityLike;
+  factory CopyWithVariablesQueryActivityReplies.stub(TRes res) =
+      _CopyWithStubImplVariablesQueryActivityReplies;
 
-  TRes call({
-    int? id,
-    EnumLikeableType? type,
-  });
+  TRes call({int? activityId});
 }
 
-class _CopyWithImplVariablesMutationToggleActivityLike<TRes>
-    implements CopyWithVariablesMutationToggleActivityLike<TRes> {
-  _CopyWithImplVariablesMutationToggleActivityLike(
+class _CopyWithImplVariablesQueryActivityReplies<TRes>
+    implements CopyWithVariablesQueryActivityReplies<TRes> {
+  _CopyWithImplVariablesQueryActivityReplies(
     this._instance,
     this._then,
   );
 
-  final VariablesMutationToggleActivityLike _instance;
+  final VariablesQueryActivityReplies _instance;
 
-  final TRes Function(VariablesMutationToggleActivityLike) _then;
+  final TRes Function(VariablesQueryActivityReplies) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({
-    Object? id = _undefined,
-    Object? type = _undefined,
-  }) =>
-      _then(VariablesMutationToggleActivityLike._({
+  TRes call({Object? activityId = _undefined}) =>
+      _then(VariablesQueryActivityReplies._({
         ..._instance._$data,
-        if (id != _undefined) 'id': (id as int?),
-        if (type != _undefined) 'type': (type as EnumLikeableType?),
+        if (activityId != _undefined && activityId != null)
+          'activityId': (activityId as int),
       }));
 }
 
-class _CopyWithStubImplVariablesMutationToggleActivityLike<TRes>
-    implements CopyWithVariablesMutationToggleActivityLike<TRes> {
-  _CopyWithStubImplVariablesMutationToggleActivityLike(this._res);
+class _CopyWithStubImplVariablesQueryActivityReplies<TRes>
+    implements CopyWithVariablesQueryActivityReplies<TRes> {
+  _CopyWithStubImplVariablesQueryActivityReplies(this._res);
 
   TRes _res;
 
-  call({
-    int? id,
-    EnumLikeableType? type,
-  }) =>
-      _res;
+  call({int? activityId}) => _res;
 }
 
-class MutationToggleActivityLike {
-  MutationToggleActivityLike({
-    this.ToggleLikeV2,
-    this.$__typename = 'Mutation',
-  });
-
-  factory MutationToggleActivityLike.fromJson(Map<String, dynamic> json) {
-    final l$ToggleLikeV2 = json['ToggleLikeV2'];
-    final l$$__typename = json['__typename'];
-    return MutationToggleActivityLike(
-      ToggleLikeV2: l$ToggleLikeV2 == null
-          ? null
-          : MutationToggleActivityLikeToggleLikeV2.fromJson(
-              (l$ToggleLikeV2 as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final MutationToggleActivityLikeToggleLikeV2? ToggleLikeV2;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$ToggleLikeV2 = ToggleLikeV2;
-    _resultData['ToggleLikeV2'] = l$ToggleLikeV2?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$ToggleLikeV2 = ToggleLikeV2;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$ToggleLikeV2,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is MutationToggleActivityLike) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$ToggleLikeV2 = ToggleLikeV2;
-    final lOther$ToggleLikeV2 = other.ToggleLikeV2;
-    if (l$ToggleLikeV2 != lOther$ToggleLikeV2) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionMutationToggleActivityLike
-    on MutationToggleActivityLike {
-  CopyWithMutationToggleActivityLike<MutationToggleActivityLike> get copyWith =>
-      CopyWithMutationToggleActivityLike(
-        this,
-        (i) => i,
-      );
-}
-
-abstract class CopyWithMutationToggleActivityLike<TRes> {
-  factory CopyWithMutationToggleActivityLike(
-    MutationToggleActivityLike instance,
-    TRes Function(MutationToggleActivityLike) then,
-  ) = _CopyWithImplMutationToggleActivityLike;
-
-  factory CopyWithMutationToggleActivityLike.stub(TRes res) =
-      _CopyWithStubImplMutationToggleActivityLike;
-
-  TRes call({
-    MutationToggleActivityLikeToggleLikeV2? ToggleLikeV2,
-    String? $__typename,
-  });
-  CopyWithMutationToggleActivityLikeToggleLikeV2<TRes> get ToggleLikeV2;
-}
-
-class _CopyWithImplMutationToggleActivityLike<TRes>
-    implements CopyWithMutationToggleActivityLike<TRes> {
-  _CopyWithImplMutationToggleActivityLike(
-    this._instance,
-    this._then,
-  );
-
-  final MutationToggleActivityLike _instance;
-
-  final TRes Function(MutationToggleActivityLike) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? ToggleLikeV2 = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(MutationToggleActivityLike(
-        ToggleLikeV2: ToggleLikeV2 == _undefined
-            ? _instance.ToggleLikeV2
-            : (ToggleLikeV2 as MutationToggleActivityLikeToggleLikeV2?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithMutationToggleActivityLikeToggleLikeV2<TRes> get ToggleLikeV2 {
-    final local$ToggleLikeV2 = _instance.ToggleLikeV2;
-    return local$ToggleLikeV2 == null
-        ? CopyWithMutationToggleActivityLikeToggleLikeV2.stub(_then(_instance))
-        : CopyWithMutationToggleActivityLikeToggleLikeV2(
-            local$ToggleLikeV2, (e) => call(ToggleLikeV2: e));
-  }
-}
-
-class _CopyWithStubImplMutationToggleActivityLike<TRes>
-    implements CopyWithMutationToggleActivityLike<TRes> {
-  _CopyWithStubImplMutationToggleActivityLike(this._res);
-
-  TRes _res;
-
-  call({
-    MutationToggleActivityLikeToggleLikeV2? ToggleLikeV2,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithMutationToggleActivityLikeToggleLikeV2<TRes> get ToggleLikeV2 =>
-      CopyWithMutationToggleActivityLikeToggleLikeV2.stub(_res);
-}
-
-const documentNodeMutationToggleActivityLike = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'ToggleActivityLike'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'type')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'LikeableType'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'ToggleLikeV2'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'type'),
-            value: VariableNode(name: NameNode(value: 'type')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'ListActivity'),
-              isNonNull: false,
-            )),
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
-
-class MutationToggleActivityLikeToggleLikeV2 {
-  MutationToggleActivityLikeToggleLikeV2({required this.$__typename});
-
-  factory MutationToggleActivityLikeToggleLikeV2.fromJson(
-      Map<String, dynamic> json) {
-    switch (json["__typename"] as String) {
-      case "ListActivity":
-        return MutationToggleActivityLikeToggleLikeV2ListActivity.fromJson(
-            json);
-
-      case "TextActivity":
-        return MutationToggleActivityLikeToggleLikeV2TextActivity.fromJson(
-            json);
-
-      case "MessageActivity":
-        return MutationToggleActivityLikeToggleLikeV2MessageActivity.fromJson(
-            json);
-
-      case "ActivityReply":
-        return MutationToggleActivityLikeToggleLikeV2ActivityReply.fromJson(
-            json);
-
-      case "Thread":
-        return MutationToggleActivityLikeToggleLikeV2Thread.fromJson(json);
-
-      case "ThreadComment":
-        return MutationToggleActivityLikeToggleLikeV2ThreadComment.fromJson(
-            json);
-
-      default:
-        final l$$__typename = json['__typename'];
-        return MutationToggleActivityLikeToggleLikeV2(
-            $__typename: (l$$__typename as String));
-    }
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is MutationToggleActivityLikeToggleLikeV2) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionMutationToggleActivityLikeToggleLikeV2
-    on MutationToggleActivityLikeToggleLikeV2 {
-  CopyWithMutationToggleActivityLikeToggleLikeV2<
-          MutationToggleActivityLikeToggleLikeV2>
-      get copyWith => CopyWithMutationToggleActivityLikeToggleLikeV2(
-            this,
-            (i) => i,
-          );
-  _T when<_T>({
-    required _T Function(MutationToggleActivityLikeToggleLikeV2ListActivity)
-        listActivity,
-    required _T Function(MutationToggleActivityLikeToggleLikeV2TextActivity)
-        textActivity,
-    required _T Function(MutationToggleActivityLikeToggleLikeV2MessageActivity)
-        messageActivity,
-    required _T Function(MutationToggleActivityLikeToggleLikeV2ActivityReply)
-        activityReply,
-    required _T Function(MutationToggleActivityLikeToggleLikeV2Thread) thread,
-    required _T Function(MutationToggleActivityLikeToggleLikeV2ThreadComment)
-        threadComment,
-    required _T Function() orElse,
-  }) {
-    switch ($__typename) {
-      case "ListActivity":
-        return listActivity(
-            this as MutationToggleActivityLikeToggleLikeV2ListActivity);
-
-      case "TextActivity":
-        return textActivity(
-            this as MutationToggleActivityLikeToggleLikeV2TextActivity);
-
-      case "MessageActivity":
-        return messageActivity(
-            this as MutationToggleActivityLikeToggleLikeV2MessageActivity);
-
-      case "ActivityReply":
-        return activityReply(
-            this as MutationToggleActivityLikeToggleLikeV2ActivityReply);
-
-      case "Thread":
-        return thread(this as MutationToggleActivityLikeToggleLikeV2Thread);
-
-      case "ThreadComment":
-        return threadComment(
-            this as MutationToggleActivityLikeToggleLikeV2ThreadComment);
-
-      default:
-        return orElse();
-    }
-  }
-
-  _T maybeWhen<_T>({
-    _T Function(MutationToggleActivityLikeToggleLikeV2ListActivity)?
-        listActivity,
-    _T Function(MutationToggleActivityLikeToggleLikeV2TextActivity)?
-        textActivity,
-    _T Function(MutationToggleActivityLikeToggleLikeV2MessageActivity)?
-        messageActivity,
-    _T Function(MutationToggleActivityLikeToggleLikeV2ActivityReply)?
-        activityReply,
-    _T Function(MutationToggleActivityLikeToggleLikeV2Thread)? thread,
-    _T Function(MutationToggleActivityLikeToggleLikeV2ThreadComment)?
-        threadComment,
-    required _T Function() orElse,
-  }) {
-    switch ($__typename) {
-      case "ListActivity":
-        if (listActivity != null) {
-          return listActivity(
-              this as MutationToggleActivityLikeToggleLikeV2ListActivity);
-        } else {
-          return orElse();
-        }
-
-      case "TextActivity":
-        if (textActivity != null) {
-          return textActivity(
-              this as MutationToggleActivityLikeToggleLikeV2TextActivity);
-        } else {
-          return orElse();
-        }
-
-      case "MessageActivity":
-        if (messageActivity != null) {
-          return messageActivity(
-              this as MutationToggleActivityLikeToggleLikeV2MessageActivity);
-        } else {
-          return orElse();
-        }
-
-      case "ActivityReply":
-        if (activityReply != null) {
-          return activityReply(
-              this as MutationToggleActivityLikeToggleLikeV2ActivityReply);
-        } else {
-          return orElse();
-        }
-
-      case "Thread":
-        if (thread != null) {
-          return thread(this as MutationToggleActivityLikeToggleLikeV2Thread);
-        } else {
-          return orElse();
-        }
-
-      case "ThreadComment":
-        if (threadComment != null) {
-          return threadComment(
-              this as MutationToggleActivityLikeToggleLikeV2ThreadComment);
-        } else {
-          return orElse();
-        }
-
-      default:
-        return orElse();
-    }
-  }
-}
-
-abstract class CopyWithMutationToggleActivityLikeToggleLikeV2<TRes> {
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2(
-    MutationToggleActivityLikeToggleLikeV2 instance,
-    TRes Function(MutationToggleActivityLikeToggleLikeV2) then,
-  ) = _CopyWithImplMutationToggleActivityLikeToggleLikeV2;
-
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2.stub(TRes res) =
-      _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplMutationToggleActivityLikeToggleLikeV2<TRes>
-    implements CopyWithMutationToggleActivityLikeToggleLikeV2<TRes> {
-  _CopyWithImplMutationToggleActivityLikeToggleLikeV2(
-    this._instance,
-    this._then,
-  );
-
-  final MutationToggleActivityLikeToggleLikeV2 _instance;
-
-  final TRes Function(MutationToggleActivityLikeToggleLikeV2) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(MutationToggleActivityLikeToggleLikeV2(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2<TRes>
-    implements CopyWithMutationToggleActivityLikeToggleLikeV2<TRes> {
-  _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class MutationToggleActivityLikeToggleLikeV2ListActivity
-    implements MutationToggleActivityLikeToggleLikeV2 {
-  MutationToggleActivityLikeToggleLikeV2ListActivity({
-    required this.id,
-    this.$__typename = 'ListActivity',
-  });
-
-  factory MutationToggleActivityLikeToggleLikeV2ListActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$$__typename = json['__typename'];
-    return MutationToggleActivityLikeToggleLikeV2ListActivity(
-      id: (l$id as int),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is MutationToggleActivityLikeToggleLikeV2ListActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionMutationToggleActivityLikeToggleLikeV2ListActivity
-    on MutationToggleActivityLikeToggleLikeV2ListActivity {
-  CopyWithMutationToggleActivityLikeToggleLikeV2ListActivity<
-          MutationToggleActivityLikeToggleLikeV2ListActivity>
-      get copyWith =>
-          CopyWithMutationToggleActivityLikeToggleLikeV2ListActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithMutationToggleActivityLikeToggleLikeV2ListActivity<
-    TRes> {
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2ListActivity(
-    MutationToggleActivityLikeToggleLikeV2ListActivity instance,
-    TRes Function(MutationToggleActivityLikeToggleLikeV2ListActivity) then,
-  ) = _CopyWithImplMutationToggleActivityLikeToggleLikeV2ListActivity;
-
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2ListActivity.stub(
-          TRes res) =
-      _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2ListActivity;
-
-  TRes call({
-    int? id,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplMutationToggleActivityLikeToggleLikeV2ListActivity<TRes>
-    implements
-        CopyWithMutationToggleActivityLikeToggleLikeV2ListActivity<TRes> {
-  _CopyWithImplMutationToggleActivityLikeToggleLikeV2ListActivity(
-    this._instance,
-    this._then,
-  );
-
-  final MutationToggleActivityLikeToggleLikeV2ListActivity _instance;
-
-  final TRes Function(MutationToggleActivityLikeToggleLikeV2ListActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(MutationToggleActivityLikeToggleLikeV2ListActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2ListActivity<TRes>
-    implements
-        CopyWithMutationToggleActivityLikeToggleLikeV2ListActivity<TRes> {
-  _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2ListActivity(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class MutationToggleActivityLikeToggleLikeV2TextActivity
-    implements MutationToggleActivityLikeToggleLikeV2 {
-  MutationToggleActivityLikeToggleLikeV2TextActivity(
-      {this.$__typename = 'TextActivity'});
-
-  factory MutationToggleActivityLikeToggleLikeV2TextActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return MutationToggleActivityLikeToggleLikeV2TextActivity(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is MutationToggleActivityLikeToggleLikeV2TextActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionMutationToggleActivityLikeToggleLikeV2TextActivity
-    on MutationToggleActivityLikeToggleLikeV2TextActivity {
-  CopyWithMutationToggleActivityLikeToggleLikeV2TextActivity<
-          MutationToggleActivityLikeToggleLikeV2TextActivity>
-      get copyWith =>
-          CopyWithMutationToggleActivityLikeToggleLikeV2TextActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithMutationToggleActivityLikeToggleLikeV2TextActivity<
-    TRes> {
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2TextActivity(
-    MutationToggleActivityLikeToggleLikeV2TextActivity instance,
-    TRes Function(MutationToggleActivityLikeToggleLikeV2TextActivity) then,
-  ) = _CopyWithImplMutationToggleActivityLikeToggleLikeV2TextActivity;
-
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2TextActivity.stub(
-          TRes res) =
-      _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2TextActivity;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplMutationToggleActivityLikeToggleLikeV2TextActivity<TRes>
-    implements
-        CopyWithMutationToggleActivityLikeToggleLikeV2TextActivity<TRes> {
-  _CopyWithImplMutationToggleActivityLikeToggleLikeV2TextActivity(
-    this._instance,
-    this._then,
-  );
-
-  final MutationToggleActivityLikeToggleLikeV2TextActivity _instance;
-
-  final TRes Function(MutationToggleActivityLikeToggleLikeV2TextActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(MutationToggleActivityLikeToggleLikeV2TextActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2TextActivity<TRes>
-    implements
-        CopyWithMutationToggleActivityLikeToggleLikeV2TextActivity<TRes> {
-  _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2TextActivity(
-      this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class MutationToggleActivityLikeToggleLikeV2MessageActivity
-    implements MutationToggleActivityLikeToggleLikeV2 {
-  MutationToggleActivityLikeToggleLikeV2MessageActivity(
-      {this.$__typename = 'MessageActivity'});
-
-  factory MutationToggleActivityLikeToggleLikeV2MessageActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return MutationToggleActivityLikeToggleLikeV2MessageActivity(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is MutationToggleActivityLikeToggleLikeV2MessageActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionMutationToggleActivityLikeToggleLikeV2MessageActivity
-    on MutationToggleActivityLikeToggleLikeV2MessageActivity {
-  CopyWithMutationToggleActivityLikeToggleLikeV2MessageActivity<
-          MutationToggleActivityLikeToggleLikeV2MessageActivity>
-      get copyWith =>
-          CopyWithMutationToggleActivityLikeToggleLikeV2MessageActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithMutationToggleActivityLikeToggleLikeV2MessageActivity<
-    TRes> {
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2MessageActivity(
-    MutationToggleActivityLikeToggleLikeV2MessageActivity instance,
-    TRes Function(MutationToggleActivityLikeToggleLikeV2MessageActivity) then,
-  ) = _CopyWithImplMutationToggleActivityLikeToggleLikeV2MessageActivity;
-
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2MessageActivity.stub(
-          TRes res) =
-      _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2MessageActivity;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplMutationToggleActivityLikeToggleLikeV2MessageActivity<TRes>
-    implements
-        CopyWithMutationToggleActivityLikeToggleLikeV2MessageActivity<TRes> {
-  _CopyWithImplMutationToggleActivityLikeToggleLikeV2MessageActivity(
-    this._instance,
-    this._then,
-  );
-
-  final MutationToggleActivityLikeToggleLikeV2MessageActivity _instance;
-
-  final TRes Function(MutationToggleActivityLikeToggleLikeV2MessageActivity)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(MutationToggleActivityLikeToggleLikeV2MessageActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2MessageActivity<
-        TRes>
-    implements
-        CopyWithMutationToggleActivityLikeToggleLikeV2MessageActivity<TRes> {
-  _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2MessageActivity(
-      this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class MutationToggleActivityLikeToggleLikeV2ActivityReply
-    implements MutationToggleActivityLikeToggleLikeV2 {
-  MutationToggleActivityLikeToggleLikeV2ActivityReply(
-      {this.$__typename = 'ActivityReply'});
-
-  factory MutationToggleActivityLikeToggleLikeV2ActivityReply.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return MutationToggleActivityLikeToggleLikeV2ActivityReply(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is MutationToggleActivityLikeToggleLikeV2ActivityReply) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionMutationToggleActivityLikeToggleLikeV2ActivityReply
-    on MutationToggleActivityLikeToggleLikeV2ActivityReply {
-  CopyWithMutationToggleActivityLikeToggleLikeV2ActivityReply<
-          MutationToggleActivityLikeToggleLikeV2ActivityReply>
-      get copyWith =>
-          CopyWithMutationToggleActivityLikeToggleLikeV2ActivityReply(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithMutationToggleActivityLikeToggleLikeV2ActivityReply<
-    TRes> {
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2ActivityReply(
-    MutationToggleActivityLikeToggleLikeV2ActivityReply instance,
-    TRes Function(MutationToggleActivityLikeToggleLikeV2ActivityReply) then,
-  ) = _CopyWithImplMutationToggleActivityLikeToggleLikeV2ActivityReply;
-
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2ActivityReply.stub(
-          TRes res) =
-      _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2ActivityReply;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplMutationToggleActivityLikeToggleLikeV2ActivityReply<TRes>
-    implements
-        CopyWithMutationToggleActivityLikeToggleLikeV2ActivityReply<TRes> {
-  _CopyWithImplMutationToggleActivityLikeToggleLikeV2ActivityReply(
-    this._instance,
-    this._then,
-  );
-
-  final MutationToggleActivityLikeToggleLikeV2ActivityReply _instance;
-
-  final TRes Function(MutationToggleActivityLikeToggleLikeV2ActivityReply)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(MutationToggleActivityLikeToggleLikeV2ActivityReply(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2ActivityReply<TRes>
-    implements
-        CopyWithMutationToggleActivityLikeToggleLikeV2ActivityReply<TRes> {
-  _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2ActivityReply(
-      this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class MutationToggleActivityLikeToggleLikeV2Thread
-    implements MutationToggleActivityLikeToggleLikeV2 {
-  MutationToggleActivityLikeToggleLikeV2Thread({this.$__typename = 'Thread'});
-
-  factory MutationToggleActivityLikeToggleLikeV2Thread.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return MutationToggleActivityLikeToggleLikeV2Thread(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is MutationToggleActivityLikeToggleLikeV2Thread) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionMutationToggleActivityLikeToggleLikeV2Thread
-    on MutationToggleActivityLikeToggleLikeV2Thread {
-  CopyWithMutationToggleActivityLikeToggleLikeV2Thread<
-          MutationToggleActivityLikeToggleLikeV2Thread>
-      get copyWith => CopyWithMutationToggleActivityLikeToggleLikeV2Thread(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithMutationToggleActivityLikeToggleLikeV2Thread<TRes> {
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2Thread(
-    MutationToggleActivityLikeToggleLikeV2Thread instance,
-    TRes Function(MutationToggleActivityLikeToggleLikeV2Thread) then,
-  ) = _CopyWithImplMutationToggleActivityLikeToggleLikeV2Thread;
-
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2Thread.stub(TRes res) =
-      _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2Thread;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplMutationToggleActivityLikeToggleLikeV2Thread<TRes>
-    implements CopyWithMutationToggleActivityLikeToggleLikeV2Thread<TRes> {
-  _CopyWithImplMutationToggleActivityLikeToggleLikeV2Thread(
-    this._instance,
-    this._then,
-  );
-
-  final MutationToggleActivityLikeToggleLikeV2Thread _instance;
-
-  final TRes Function(MutationToggleActivityLikeToggleLikeV2Thread) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(MutationToggleActivityLikeToggleLikeV2Thread(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2Thread<TRes>
-    implements CopyWithMutationToggleActivityLikeToggleLikeV2Thread<TRes> {
-  _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2Thread(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class MutationToggleActivityLikeToggleLikeV2ThreadComment
-    implements MutationToggleActivityLikeToggleLikeV2 {
-  MutationToggleActivityLikeToggleLikeV2ThreadComment(
-      {this.$__typename = 'ThreadComment'});
-
-  factory MutationToggleActivityLikeToggleLikeV2ThreadComment.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return MutationToggleActivityLikeToggleLikeV2ThreadComment(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is MutationToggleActivityLikeToggleLikeV2ThreadComment) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionMutationToggleActivityLikeToggleLikeV2ThreadComment
-    on MutationToggleActivityLikeToggleLikeV2ThreadComment {
-  CopyWithMutationToggleActivityLikeToggleLikeV2ThreadComment<
-          MutationToggleActivityLikeToggleLikeV2ThreadComment>
-      get copyWith =>
-          CopyWithMutationToggleActivityLikeToggleLikeV2ThreadComment(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithMutationToggleActivityLikeToggleLikeV2ThreadComment<
-    TRes> {
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2ThreadComment(
-    MutationToggleActivityLikeToggleLikeV2ThreadComment instance,
-    TRes Function(MutationToggleActivityLikeToggleLikeV2ThreadComment) then,
-  ) = _CopyWithImplMutationToggleActivityLikeToggleLikeV2ThreadComment;
-
-  factory CopyWithMutationToggleActivityLikeToggleLikeV2ThreadComment.stub(
-          TRes res) =
-      _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2ThreadComment;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplMutationToggleActivityLikeToggleLikeV2ThreadComment<TRes>
-    implements
-        CopyWithMutationToggleActivityLikeToggleLikeV2ThreadComment<TRes> {
-  _CopyWithImplMutationToggleActivityLikeToggleLikeV2ThreadComment(
-    this._instance,
-    this._then,
-  );
-
-  final MutationToggleActivityLikeToggleLikeV2ThreadComment _instance;
-
-  final TRes Function(MutationToggleActivityLikeToggleLikeV2ThreadComment)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(MutationToggleActivityLikeToggleLikeV2ThreadComment(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2ThreadComment<TRes>
-    implements
-        CopyWithMutationToggleActivityLikeToggleLikeV2ThreadComment<TRes> {
-  _CopyWithStubImplMutationToggleActivityLikeToggleLikeV2ThreadComment(
-      this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class VariablesQuerySingleActivity {
-  factory VariablesQuerySingleActivity({int? id}) =>
-      VariablesQuerySingleActivity._({
-        if (id != null) r'id': id,
-      });
-
-  VariablesQuerySingleActivity._(this._$data);
-
-  factory VariablesQuerySingleActivity.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('id')) {
-      final l$id = data['id'];
-      result$data['id'] = (l$id as int?);
-    }
-    return VariablesQuerySingleActivity._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  int? get id => (_$data['id'] as int?);
-
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('id')) {
-      final l$id = id;
-      result$data['id'] = l$id;
-    }
-    return result$data;
-  }
-
-  CopyWithVariablesQuerySingleActivity<VariablesQuerySingleActivity>
-      get copyWith => CopyWithVariablesQuerySingleActivity(
-            this,
-            (i) => i,
-          );
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is VariablesQuerySingleActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
-      return false;
-    }
-    if (l$id != lOther$id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    return Object.hashAll([_$data.containsKey('id') ? l$id : const {}]);
-  }
-}
-
-abstract class CopyWithVariablesQuerySingleActivity<TRes> {
-  factory CopyWithVariablesQuerySingleActivity(
-    VariablesQuerySingleActivity instance,
-    TRes Function(VariablesQuerySingleActivity) then,
-  ) = _CopyWithImplVariablesQuerySingleActivity;
-
-  factory CopyWithVariablesQuerySingleActivity.stub(TRes res) =
-      _CopyWithStubImplVariablesQuerySingleActivity;
-
-  TRes call({int? id});
-}
-
-class _CopyWithImplVariablesQuerySingleActivity<TRes>
-    implements CopyWithVariablesQuerySingleActivity<TRes> {
-  _CopyWithImplVariablesQuerySingleActivity(
-    this._instance,
-    this._then,
-  );
-
-  final VariablesQuerySingleActivity _instance;
-
-  final TRes Function(VariablesQuerySingleActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? id = _undefined}) => _then(VariablesQuerySingleActivity._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as int?),
-      }));
-}
-
-class _CopyWithStubImplVariablesQuerySingleActivity<TRes>
-    implements CopyWithVariablesQuerySingleActivity<TRes> {
-  _CopyWithStubImplVariablesQuerySingleActivity(this._res);
-
-  TRes _res;
-
-  call({int? id}) => _res;
-}
-
-class QuerySingleActivity {
-  QuerySingleActivity({
+class QueryActivityReplies {
+  QueryActivityReplies({
     this.Activity,
     this.$__typename = 'Query',
   });
 
-  factory QuerySingleActivity.fromJson(Map<String, dynamic> json) {
+  factory QueryActivityReplies.fromJson(Map<String, dynamic> json) {
     final l$Activity = json['Activity'];
     final l$$__typename = json['__typename'];
-    return QuerySingleActivity(
+    return QueryActivityReplies(
       Activity: l$Activity == null
           ? null
-          : QuerySingleActivityActivity.fromJson(
+          : QueryActivityRepliesActivity.fromJson(
               (l$Activity as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final QuerySingleActivityActivity? Activity;
+  final QueryActivityRepliesActivity? Activity;
 
   final String $__typename;
 
@@ -8963,7 +4167,7 @@ class QuerySingleActivity {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QuerySingleActivity) || runtimeType != other.runtimeType) {
+    if (!(other is QueryActivityReplies) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Activity = Activity;
@@ -8980,40 +4184,40 @@ class QuerySingleActivity {
   }
 }
 
-extension UtilityExtensionQuerySingleActivity on QuerySingleActivity {
-  CopyWithQuerySingleActivity<QuerySingleActivity> get copyWith =>
-      CopyWithQuerySingleActivity(
+extension UtilityExtensionQueryActivityReplies on QueryActivityReplies {
+  CopyWithQueryActivityReplies<QueryActivityReplies> get copyWith =>
+      CopyWithQueryActivityReplies(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithQuerySingleActivity<TRes> {
-  factory CopyWithQuerySingleActivity(
-    QuerySingleActivity instance,
-    TRes Function(QuerySingleActivity) then,
-  ) = _CopyWithImplQuerySingleActivity;
+abstract class CopyWithQueryActivityReplies<TRes> {
+  factory CopyWithQueryActivityReplies(
+    QueryActivityReplies instance,
+    TRes Function(QueryActivityReplies) then,
+  ) = _CopyWithImplQueryActivityReplies;
 
-  factory CopyWithQuerySingleActivity.stub(TRes res) =
-      _CopyWithStubImplQuerySingleActivity;
+  factory CopyWithQueryActivityReplies.stub(TRes res) =
+      _CopyWithStubImplQueryActivityReplies;
 
   TRes call({
-    QuerySingleActivityActivity? Activity,
+    QueryActivityRepliesActivity? Activity,
     String? $__typename,
   });
-  CopyWithQuerySingleActivityActivity<TRes> get Activity;
+  CopyWithQueryActivityRepliesActivity<TRes> get Activity;
 }
 
-class _CopyWithImplQuerySingleActivity<TRes>
-    implements CopyWithQuerySingleActivity<TRes> {
-  _CopyWithImplQuerySingleActivity(
+class _CopyWithImplQueryActivityReplies<TRes>
+    implements CopyWithQueryActivityReplies<TRes> {
+  _CopyWithImplQueryActivityReplies(
     this._instance,
     this._then,
   );
 
-  final QuerySingleActivity _instance;
+  final QueryActivityReplies _instance;
 
-  final TRes Function(QuerySingleActivity) _then;
+  final TRes Function(QueryActivityReplies) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -9021,50 +4225,50 @@ class _CopyWithImplQuerySingleActivity<TRes>
     Object? Activity = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QuerySingleActivity(
+      _then(QueryActivityReplies(
         Activity: Activity == _undefined
             ? _instance.Activity
-            : (Activity as QuerySingleActivityActivity?),
+            : (Activity as QueryActivityRepliesActivity?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithQuerySingleActivityActivity<TRes> get Activity {
+  CopyWithQueryActivityRepliesActivity<TRes> get Activity {
     final local$Activity = _instance.Activity;
     return local$Activity == null
-        ? CopyWithQuerySingleActivityActivity.stub(_then(_instance))
-        : CopyWithQuerySingleActivityActivity(
+        ? CopyWithQueryActivityRepliesActivity.stub(_then(_instance))
+        : CopyWithQueryActivityRepliesActivity(
             local$Activity, (e) => call(Activity: e));
   }
 }
 
-class _CopyWithStubImplQuerySingleActivity<TRes>
-    implements CopyWithQuerySingleActivity<TRes> {
-  _CopyWithStubImplQuerySingleActivity(this._res);
+class _CopyWithStubImplQueryActivityReplies<TRes>
+    implements CopyWithQueryActivityReplies<TRes> {
+  _CopyWithStubImplQueryActivityReplies(this._res);
 
   TRes _res;
 
   call({
-    QuerySingleActivityActivity? Activity,
+    QueryActivityRepliesActivity? Activity,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithQuerySingleActivityActivity<TRes> get Activity =>
-      CopyWithQuerySingleActivityActivity.stub(_res);
+  CopyWithQueryActivityRepliesActivity<TRes> get Activity =>
+      CopyWithQueryActivityRepliesActivity.stub(_res);
 }
 
-const documentNodeQuerySingleActivity = DocumentNode(definitions: [
+const documentNodeQueryActivityReplies = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'SingleActivity'),
+    name: NameNode(value: 'ActivityReplies'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'id')),
+        variable: VariableNode(name: NameNode(value: 'activityId')),
         type: NamedTypeNode(
           name: NameNode(value: 'Int'),
-          isNonNull: false,
+          isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
@@ -9078,11 +4282,47 @@ const documentNodeQuerySingleActivity = DocumentNode(definitions: [
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'id'),
-            value: VariableNode(name: NameNode(value: 'id')),
+            value: VariableNode(name: NameNode(value: 'activityId')),
           )
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
+          InlineFragmentNode(
+            typeCondition: TypeConditionNode(
+                on: NamedTypeNode(
+              name: NameNode(value: 'TextActivity'),
+              isNonNull: false,
+            )),
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'replies'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'ActivityReply'),
+                    directives: [],
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
           InlineFragmentNode(
             typeCondition: TypeConditionNode(
                 on: NamedTypeNode(
@@ -9091,9 +4331,60 @@ const documentNodeQuerySingleActivity = DocumentNode(definitions: [
             )),
             directives: [],
             selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ListActivityFrag'),
+              FieldNode(
+                name: NameNode(value: 'replies'),
+                alias: null,
+                arguments: [],
                 directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'ActivityReply'),
+                    directives: [],
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          InlineFragmentNode(
+            typeCondition: TypeConditionNode(
+                on: NamedTypeNode(
+              name: NameNode(value: 'MessageActivity'),
+              isNonNull: false,
+            )),
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'replies'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'ActivityReply'),
+                    directives: [],
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
               ),
               FieldNode(
                 name: NameNode(value: '__typename'),
@@ -9122,26 +4413,27 @@ const documentNodeQuerySingleActivity = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionListActivityFrag,
+  fragmentDefinitionActivityReply,
+  fragmentDefinitionUserMinF,
 ]);
 
-class QuerySingleActivityActivity {
-  QuerySingleActivityActivity({required this.$__typename});
+class QueryActivityRepliesActivity {
+  QueryActivityRepliesActivity({required this.$__typename});
 
-  factory QuerySingleActivityActivity.fromJson(Map<String, dynamic> json) {
+  factory QueryActivityRepliesActivity.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
-      case "ListActivity":
-        return QuerySingleActivityActivityListActivity.fromJson(json);
-
       case "TextActivity":
-        return QuerySingleActivityActivityTextActivity.fromJson(json);
+        return QueryActivityRepliesActivityTextActivity.fromJson(json);
+
+      case "ListActivity":
+        return QueryActivityRepliesActivityListActivity.fromJson(json);
 
       case "MessageActivity":
-        return QuerySingleActivityActivityMessageActivity.fromJson(json);
+        return QueryActivityRepliesActivityMessageActivity.fromJson(json);
 
       default:
         final l$$__typename = json['__typename'];
-        return QuerySingleActivityActivity(
+        return QueryActivityRepliesActivity(
             $__typename: (l$$__typename as String));
     }
   }
@@ -9166,7 +4458,7 @@ class QuerySingleActivityActivity {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QuerySingleActivityActivity) ||
+    if (!(other is QueryActivityRepliesActivity) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -9179,30 +4471,30 @@ class QuerySingleActivityActivity {
   }
 }
 
-extension UtilityExtensionQuerySingleActivityActivity
-    on QuerySingleActivityActivity {
-  CopyWithQuerySingleActivityActivity<QuerySingleActivityActivity>
-      get copyWith => CopyWithQuerySingleActivityActivity(
+extension UtilityExtensionQueryActivityRepliesActivity
+    on QueryActivityRepliesActivity {
+  CopyWithQueryActivityRepliesActivity<QueryActivityRepliesActivity>
+      get copyWith => CopyWithQueryActivityRepliesActivity(
             this,
             (i) => i,
           );
   _T when<_T>({
-    required _T Function(QuerySingleActivityActivityListActivity) listActivity,
-    required _T Function(QuerySingleActivityActivityTextActivity) textActivity,
-    required _T Function(QuerySingleActivityActivityMessageActivity)
+    required _T Function(QueryActivityRepliesActivityTextActivity) textActivity,
+    required _T Function(QueryActivityRepliesActivityListActivity) listActivity,
+    required _T Function(QueryActivityRepliesActivityMessageActivity)
         messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
-      case "ListActivity":
-        return listActivity(this as QuerySingleActivityActivityListActivity);
-
       case "TextActivity":
-        return textActivity(this as QuerySingleActivityActivityTextActivity);
+        return textActivity(this as QueryActivityRepliesActivityTextActivity);
+
+      case "ListActivity":
+        return listActivity(this as QueryActivityRepliesActivityListActivity);
 
       case "MessageActivity":
         return messageActivity(
-            this as QuerySingleActivityActivityMessageActivity);
+            this as QueryActivityRepliesActivityMessageActivity);
 
       default:
         return orElse();
@@ -9210,22 +4502,22 @@ extension UtilityExtensionQuerySingleActivityActivity
   }
 
   _T maybeWhen<_T>({
-    _T Function(QuerySingleActivityActivityListActivity)? listActivity,
-    _T Function(QuerySingleActivityActivityTextActivity)? textActivity,
-    _T Function(QuerySingleActivityActivityMessageActivity)? messageActivity,
+    _T Function(QueryActivityRepliesActivityTextActivity)? textActivity,
+    _T Function(QueryActivityRepliesActivityListActivity)? listActivity,
+    _T Function(QueryActivityRepliesActivityMessageActivity)? messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
-      case "ListActivity":
-        if (listActivity != null) {
-          return listActivity(this as QuerySingleActivityActivityListActivity);
+      case "TextActivity":
+        if (textActivity != null) {
+          return textActivity(this as QueryActivityRepliesActivityTextActivity);
         } else {
           return orElse();
         }
 
-      case "TextActivity":
-        if (textActivity != null) {
-          return textActivity(this as QuerySingleActivityActivityTextActivity);
+      case "ListActivity":
+        if (listActivity != null) {
+          return listActivity(this as QueryActivityRepliesActivityListActivity);
         } else {
           return orElse();
         }
@@ -9233,7 +4525,7 @@ extension UtilityExtensionQuerySingleActivityActivity
       case "MessageActivity":
         if (messageActivity != null) {
           return messageActivity(
-              this as QuerySingleActivityActivityMessageActivity);
+              this as QueryActivityRepliesActivityMessageActivity);
         } else {
           return orElse();
         }
@@ -9244,143 +4536,238 @@ extension UtilityExtensionQuerySingleActivityActivity
   }
 }
 
-abstract class CopyWithQuerySingleActivityActivity<TRes> {
-  factory CopyWithQuerySingleActivityActivity(
-    QuerySingleActivityActivity instance,
-    TRes Function(QuerySingleActivityActivity) then,
-  ) = _CopyWithImplQuerySingleActivityActivity;
+abstract class CopyWithQueryActivityRepliesActivity<TRes> {
+  factory CopyWithQueryActivityRepliesActivity(
+    QueryActivityRepliesActivity instance,
+    TRes Function(QueryActivityRepliesActivity) then,
+  ) = _CopyWithImplQueryActivityRepliesActivity;
 
-  factory CopyWithQuerySingleActivityActivity.stub(TRes res) =
-      _CopyWithStubImplQuerySingleActivityActivity;
+  factory CopyWithQueryActivityRepliesActivity.stub(TRes res) =
+      _CopyWithStubImplQueryActivityRepliesActivity;
 
   TRes call({String? $__typename});
 }
 
-class _CopyWithImplQuerySingleActivityActivity<TRes>
-    implements CopyWithQuerySingleActivityActivity<TRes> {
-  _CopyWithImplQuerySingleActivityActivity(
+class _CopyWithImplQueryActivityRepliesActivity<TRes>
+    implements CopyWithQueryActivityRepliesActivity<TRes> {
+  _CopyWithImplQueryActivityRepliesActivity(
     this._instance,
     this._then,
   );
 
-  final QuerySingleActivityActivity _instance;
+  final QueryActivityRepliesActivity _instance;
 
-  final TRes Function(QuerySingleActivityActivity) _then;
+  final TRes Function(QueryActivityRepliesActivity) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
-      _then(QuerySingleActivityActivity(
+      _then(QueryActivityRepliesActivity(
           $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
 }
 
-class _CopyWithStubImplQuerySingleActivityActivity<TRes>
-    implements CopyWithQuerySingleActivityActivity<TRes> {
-  _CopyWithStubImplQuerySingleActivityActivity(this._res);
+class _CopyWithStubImplQueryActivityRepliesActivity<TRes>
+    implements CopyWithQueryActivityRepliesActivity<TRes> {
+  _CopyWithStubImplQueryActivityRepliesActivity(this._res);
 
   TRes _res;
 
   call({String? $__typename}) => _res;
 }
 
-class QuerySingleActivityActivityListActivity
-    implements FragmentListActivityFrag, QuerySingleActivityActivity {
-  QuerySingleActivityActivityListActivity({
-    required this.id,
-    this.type,
-    this.user,
-    this.status,
-    required this.createdAt,
-    this.progress,
-    required this.likeCount,
-    required this.replyCount,
-    this.isLiked,
-    this.media,
+class QueryActivityRepliesActivityTextActivity
+    implements QueryActivityRepliesActivity {
+  QueryActivityRepliesActivityTextActivity({
+    this.replies,
+    this.$__typename = 'TextActivity',
+  });
+
+  factory QueryActivityRepliesActivityTextActivity.fromJson(
+      Map<String, dynamic> json) {
+    final l$replies = json['replies'];
+    final l$$__typename = json['__typename'];
+    return QueryActivityRepliesActivityTextActivity(
+      replies: (l$replies as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : FragmentActivityReply.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<FragmentActivityReply?>? replies;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$replies = replies;
+    _resultData['replies'] = l$replies?.map((e) => e?.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$replies = replies;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$replies == null ? null : Object.hashAll(l$replies.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryActivityRepliesActivityTextActivity) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$replies = replies;
+    final lOther$replies = other.replies;
+    if (l$replies != null && lOther$replies != null) {
+      if (l$replies.length != lOther$replies.length) {
+        return false;
+      }
+      for (int i = 0; i < l$replies.length; i++) {
+        final l$replies$entry = l$replies[i];
+        final lOther$replies$entry = lOther$replies[i];
+        if (l$replies$entry != lOther$replies$entry) {
+          return false;
+        }
+      }
+    } else if (l$replies != lOther$replies) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryActivityRepliesActivityTextActivity
+    on QueryActivityRepliesActivityTextActivity {
+  CopyWithQueryActivityRepliesActivityTextActivity<
+          QueryActivityRepliesActivityTextActivity>
+      get copyWith => CopyWithQueryActivityRepliesActivityTextActivity(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryActivityRepliesActivityTextActivity<TRes> {
+  factory CopyWithQueryActivityRepliesActivityTextActivity(
+    QueryActivityRepliesActivityTextActivity instance,
+    TRes Function(QueryActivityRepliesActivityTextActivity) then,
+  ) = _CopyWithImplQueryActivityRepliesActivityTextActivity;
+
+  factory CopyWithQueryActivityRepliesActivityTextActivity.stub(TRes res) =
+      _CopyWithStubImplQueryActivityRepliesActivityTextActivity;
+
+  TRes call({
+    List<FragmentActivityReply?>? replies,
+    String? $__typename,
+  });
+  TRes replies(
+      Iterable<FragmentActivityReply?>? Function(
+              Iterable<CopyWithFragmentActivityReply<FragmentActivityReply>?>?)
+          _fn);
+}
+
+class _CopyWithImplQueryActivityRepliesActivityTextActivity<TRes>
+    implements CopyWithQueryActivityRepliesActivityTextActivity<TRes> {
+  _CopyWithImplQueryActivityRepliesActivityTextActivity(
+    this._instance,
+    this._then,
+  );
+
+  final QueryActivityRepliesActivityTextActivity _instance;
+
+  final TRes Function(QueryActivityRepliesActivityTextActivity) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? replies = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryActivityRepliesActivityTextActivity(
+        replies: replies == _undefined
+            ? _instance.replies
+            : (replies as List<FragmentActivityReply?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  TRes replies(
+          Iterable<FragmentActivityReply?>? Function(
+                  Iterable<
+                      CopyWithFragmentActivityReply<FragmentActivityReply>?>?)
+              _fn) =>
+      call(
+          replies: _fn(_instance.replies?.map((e) => e == null
+              ? null
+              : CopyWithFragmentActivityReply(
+                  e,
+                  (i) => i,
+                )))?.toList());
+}
+
+class _CopyWithStubImplQueryActivityRepliesActivityTextActivity<TRes>
+    implements CopyWithQueryActivityRepliesActivityTextActivity<TRes> {
+  _CopyWithStubImplQueryActivityRepliesActivityTextActivity(this._res);
+
+  TRes _res;
+
+  call({
+    List<FragmentActivityReply?>? replies,
+    String? $__typename,
+  }) =>
+      _res;
+
+  replies(_fn) => _res;
+}
+
+class QueryActivityRepliesActivityListActivity
+    implements QueryActivityRepliesActivity {
+  QueryActivityRepliesActivityListActivity({
+    this.replies,
     this.$__typename = 'ListActivity',
   });
 
-  factory QuerySingleActivityActivityListActivity.fromJson(
+  factory QueryActivityRepliesActivityListActivity.fromJson(
       Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$type = json['type'];
-    final l$user = json['user'];
-    final l$status = json['status'];
-    final l$createdAt = json['createdAt'];
-    final l$progress = json['progress'];
-    final l$likeCount = json['likeCount'];
-    final l$replyCount = json['replyCount'];
-    final l$isLiked = json['isLiked'];
-    final l$media = json['media'];
+    final l$replies = json['replies'];
     final l$$__typename = json['__typename'];
-    return QuerySingleActivityActivityListActivity(
-      id: (l$id as int),
-      type:
-          l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
-      user: l$user == null
-          ? null
-          : QuerySingleActivityActivityListActivityuser.fromJson(
-              (l$user as Map<String, dynamic>)),
-      status: (l$status as String?),
-      createdAt: (l$createdAt as int),
-      progress: (l$progress as String?),
-      likeCount: (l$likeCount as int),
-      replyCount: (l$replyCount as int),
-      isLiked: (l$isLiked as bool?),
-      media: l$media == null
-          ? null
-          : QuerySingleActivityActivityListActivitymedia.fromJson(
-              (l$media as Map<String, dynamic>)),
+    return QueryActivityRepliesActivityListActivity(
+      replies: (l$replies as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : FragmentActivityReply.fromJson((e as Map<String, dynamic>)))
+          .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final int id;
-
-  final EnumActivityType? type;
-
-  final QuerySingleActivityActivityListActivityuser? user;
-
-  final String? status;
-
-  final int createdAt;
-
-  final String? progress;
-
-  final int likeCount;
-
-  final int replyCount;
-
-  final bool? isLiked;
-
-  final QuerySingleActivityActivityListActivitymedia? media;
+  final List<FragmentActivityReply?>? replies;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJsonEnumActivityType(l$type);
-    final l$user = user;
-    _resultData['user'] = l$user?.toJson();
-    final l$status = status;
-    _resultData['status'] = l$status;
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
-    final l$progress = progress;
-    _resultData['progress'] = l$progress;
-    final l$likeCount = likeCount;
-    _resultData['likeCount'] = l$likeCount;
-    final l$replyCount = replyCount;
-    _resultData['replyCount'] = l$replyCount;
-    final l$isLiked = isLiked;
-    _resultData['isLiked'] = l$isLiked;
-    final l$media = media;
-    _resultData['media'] = l$media?.toJson();
+    final l$replies = replies;
+    _resultData['replies'] = l$replies?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -9388,28 +4775,10 @@ class QuerySingleActivityActivityListActivity
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$type = type;
-    final l$user = user;
-    final l$status = status;
-    final l$createdAt = createdAt;
-    final l$progress = progress;
-    final l$likeCount = likeCount;
-    final l$replyCount = replyCount;
-    final l$isLiked = isLiked;
-    final l$media = media;
+    final l$replies = replies;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$id,
-      l$type,
-      l$user,
-      l$status,
-      l$createdAt,
-      l$progress,
-      l$likeCount,
-      l$replyCount,
-      l$isLiked,
-      l$media,
+      l$replies == null ? null : Object.hashAll(l$replies.map((v) => v)),
       l$$__typename,
     ]);
   }
@@ -9419,58 +4788,24 @@ class QuerySingleActivityActivityListActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QuerySingleActivityActivityListActivity) ||
+    if (!(other is QueryActivityRepliesActivityListActivity) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$type = type;
-    final lOther$type = other.type;
-    if (l$type != lOther$type) {
-      return false;
-    }
-    final l$user = user;
-    final lOther$user = other.user;
-    if (l$user != lOther$user) {
-      return false;
-    }
-    final l$status = status;
-    final lOther$status = other.status;
-    if (l$status != lOther$status) {
-      return false;
-    }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
-      return false;
-    }
-    final l$progress = progress;
-    final lOther$progress = other.progress;
-    if (l$progress != lOther$progress) {
-      return false;
-    }
-    final l$likeCount = likeCount;
-    final lOther$likeCount = other.likeCount;
-    if (l$likeCount != lOther$likeCount) {
-      return false;
-    }
-    final l$replyCount = replyCount;
-    final lOther$replyCount = other.replyCount;
-    if (l$replyCount != lOther$replyCount) {
-      return false;
-    }
-    final l$isLiked = isLiked;
-    final lOther$isLiked = other.isLiked;
-    if (l$isLiked != lOther$isLiked) {
-      return false;
-    }
-    final l$media = media;
-    final lOther$media = other.media;
-    if (l$media != lOther$media) {
+    final l$replies = replies;
+    final lOther$replies = other.replies;
+    if (l$replies != null && lOther$replies != null) {
+      if (l$replies.length != lOther$replies.length) {
+        return false;
+      }
+      for (int i = 0; i < l$replies.length; i++) {
+        final l$replies$entry = l$replies[i];
+        final lOther$replies$entry = lOther$replies[i];
+        if (l$replies$entry != lOther$replies$entry) {
+          return false;
+        }
+      }
+    } else if (l$replies != lOther$replies) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -9482,184 +4817,119 @@ class QuerySingleActivityActivityListActivity
   }
 }
 
-extension UtilityExtensionQuerySingleActivityActivityListActivity
-    on QuerySingleActivityActivityListActivity {
-  CopyWithQuerySingleActivityActivityListActivity<
-          QuerySingleActivityActivityListActivity>
-      get copyWith => CopyWithQuerySingleActivityActivityListActivity(
+extension UtilityExtensionQueryActivityRepliesActivityListActivity
+    on QueryActivityRepliesActivityListActivity {
+  CopyWithQueryActivityRepliesActivityListActivity<
+          QueryActivityRepliesActivityListActivity>
+      get copyWith => CopyWithQueryActivityRepliesActivityListActivity(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithQuerySingleActivityActivityListActivity<TRes> {
-  factory CopyWithQuerySingleActivityActivityListActivity(
-    QuerySingleActivityActivityListActivity instance,
-    TRes Function(QuerySingleActivityActivityListActivity) then,
-  ) = _CopyWithImplQuerySingleActivityActivityListActivity;
+abstract class CopyWithQueryActivityRepliesActivityListActivity<TRes> {
+  factory CopyWithQueryActivityRepliesActivityListActivity(
+    QueryActivityRepliesActivityListActivity instance,
+    TRes Function(QueryActivityRepliesActivityListActivity) then,
+  ) = _CopyWithImplQueryActivityRepliesActivityListActivity;
 
-  factory CopyWithQuerySingleActivityActivityListActivity.stub(TRes res) =
-      _CopyWithStubImplQuerySingleActivityActivityListActivity;
+  factory CopyWithQueryActivityRepliesActivityListActivity.stub(TRes res) =
+      _CopyWithStubImplQueryActivityRepliesActivityListActivity;
 
   TRes call({
-    int? id,
-    EnumActivityType? type,
-    QuerySingleActivityActivityListActivityuser? user,
-    String? status,
-    int? createdAt,
-    String? progress,
-    int? likeCount,
-    int? replyCount,
-    bool? isLiked,
-    QuerySingleActivityActivityListActivitymedia? media,
+    List<FragmentActivityReply?>? replies,
     String? $__typename,
   });
-  CopyWithQuerySingleActivityActivityListActivityuser<TRes> get user;
-  CopyWithQuerySingleActivityActivityListActivitymedia<TRes> get media;
+  TRes replies(
+      Iterable<FragmentActivityReply?>? Function(
+              Iterable<CopyWithFragmentActivityReply<FragmentActivityReply>?>?)
+          _fn);
 }
 
-class _CopyWithImplQuerySingleActivityActivityListActivity<TRes>
-    implements CopyWithQuerySingleActivityActivityListActivity<TRes> {
-  _CopyWithImplQuerySingleActivityActivityListActivity(
+class _CopyWithImplQueryActivityRepliesActivityListActivity<TRes>
+    implements CopyWithQueryActivityRepliesActivityListActivity<TRes> {
+  _CopyWithImplQueryActivityRepliesActivityListActivity(
     this._instance,
     this._then,
   );
 
-  final QuerySingleActivityActivityListActivity _instance;
+  final QueryActivityRepliesActivityListActivity _instance;
 
-  final TRes Function(QuerySingleActivityActivityListActivity) _then;
+  final TRes Function(QueryActivityRepliesActivityListActivity) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? id = _undefined,
-    Object? type = _undefined,
-    Object? user = _undefined,
-    Object? status = _undefined,
-    Object? createdAt = _undefined,
-    Object? progress = _undefined,
-    Object? likeCount = _undefined,
-    Object? replyCount = _undefined,
-    Object? isLiked = _undefined,
-    Object? media = _undefined,
+    Object? replies = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QuerySingleActivityActivityListActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined ? _instance.type : (type as EnumActivityType?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as QuerySingleActivityActivityListActivityuser?),
-        status: status == _undefined ? _instance.status : (status as String?),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        progress:
-            progress == _undefined ? _instance.progress : (progress as String?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        media: media == _undefined
-            ? _instance.media
-            : (media as QuerySingleActivityActivityListActivitymedia?),
+      _then(QueryActivityRepliesActivityListActivity(
+        replies: replies == _undefined
+            ? _instance.replies
+            : (replies as List<FragmentActivityReply?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithQuerySingleActivityActivityListActivityuser<TRes> get user {
-    final local$user = _instance.user;
-    return local$user == null
-        ? CopyWithQuerySingleActivityActivityListActivityuser.stub(
-            _then(_instance))
-        : CopyWithQuerySingleActivityActivityListActivityuser(
-            local$user, (e) => call(user: e));
-  }
-
-  CopyWithQuerySingleActivityActivityListActivitymedia<TRes> get media {
-    final local$media = _instance.media;
-    return local$media == null
-        ? CopyWithQuerySingleActivityActivityListActivitymedia.stub(
-            _then(_instance))
-        : CopyWithQuerySingleActivityActivityListActivitymedia(
-            local$media, (e) => call(media: e));
-  }
+  TRes replies(
+          Iterable<FragmentActivityReply?>? Function(
+                  Iterable<
+                      CopyWithFragmentActivityReply<FragmentActivityReply>?>?)
+              _fn) =>
+      call(
+          replies: _fn(_instance.replies?.map((e) => e == null
+              ? null
+              : CopyWithFragmentActivityReply(
+                  e,
+                  (i) => i,
+                )))?.toList());
 }
 
-class _CopyWithStubImplQuerySingleActivityActivityListActivity<TRes>
-    implements CopyWithQuerySingleActivityActivityListActivity<TRes> {
-  _CopyWithStubImplQuerySingleActivityActivityListActivity(this._res);
+class _CopyWithStubImplQueryActivityRepliesActivityListActivity<TRes>
+    implements CopyWithQueryActivityRepliesActivityListActivity<TRes> {
+  _CopyWithStubImplQueryActivityRepliesActivityListActivity(this._res);
 
   TRes _res;
 
   call({
-    int? id,
-    EnumActivityType? type,
-    QuerySingleActivityActivityListActivityuser? user,
-    String? status,
-    int? createdAt,
-    String? progress,
-    int? likeCount,
-    int? replyCount,
-    bool? isLiked,
-    QuerySingleActivityActivityListActivitymedia? media,
+    List<FragmentActivityReply?>? replies,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithQuerySingleActivityActivityListActivityuser<TRes> get user =>
-      CopyWithQuerySingleActivityActivityListActivityuser.stub(_res);
-
-  CopyWithQuerySingleActivityActivityListActivitymedia<TRes> get media =>
-      CopyWithQuerySingleActivityActivityListActivitymedia.stub(_res);
+  replies(_fn) => _res;
 }
 
-class QuerySingleActivityActivityListActivityuser
-    implements FragmentListActivityFraguser {
-  QuerySingleActivityActivityListActivityuser({
-    required this.id,
-    required this.name,
-    this.avatar,
-    this.$__typename = 'User',
+class QueryActivityRepliesActivityMessageActivity
+    implements QueryActivityRepliesActivity {
+  QueryActivityRepliesActivityMessageActivity({
+    this.replies,
+    this.$__typename = 'MessageActivity',
   });
 
-  factory QuerySingleActivityActivityListActivityuser.fromJson(
+  factory QueryActivityRepliesActivityMessageActivity.fromJson(
       Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$avatar = json['avatar'];
+    final l$replies = json['replies'];
     final l$$__typename = json['__typename'];
-    return QuerySingleActivityActivityListActivityuser(
-      id: (l$id as int),
-      name: (l$name as String),
-      avatar: l$avatar == null
-          ? null
-          : QuerySingleActivityActivityListActivityuseravatar.fromJson(
-              (l$avatar as Map<String, dynamic>)),
+    return QueryActivityRepliesActivityMessageActivity(
+      replies: (l$replies as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : FragmentActivityReply.fromJson((e as Map<String, dynamic>)))
+          .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final int id;
-
-  final String name;
-
-  final QuerySingleActivityActivityListActivityuseravatar? avatar;
+  final List<FragmentActivityReply?>? replies;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$avatar = avatar;
-    _resultData['avatar'] = l$avatar?.toJson();
+    final l$replies = replies;
+    _resultData['replies'] = l$replies?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -9667,14 +4937,10 @@ class QuerySingleActivityActivityListActivityuser
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$avatar = avatar;
+    final l$replies = replies;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$id,
-      l$name,
-      l$avatar,
+      l$replies == null ? null : Object.hashAll(l$replies.map((v) => v)),
       l$$__typename,
     ]);
   }
@@ -9684,23 +4950,24 @@ class QuerySingleActivityActivityListActivityuser
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QuerySingleActivityActivityListActivityuser) ||
+    if (!(other is QueryActivityRepliesActivityMessageActivity) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) {
+    final l$replies = replies;
+    final lOther$replies = other.replies;
+    if (l$replies != null && lOther$replies != null) {
+      if (l$replies.length != lOther$replies.length) {
+        return false;
+      }
+      for (int i = 0; i < l$replies.length; i++) {
+        final l$replies$entry = l$replies[i];
+        final lOther$replies$entry = lOther$replies[i];
+        if (l$replies$entry != lOther$replies$entry) {
+          return false;
+        }
+      }
+    } else if (l$replies != lOther$replies) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -9712,874 +4979,86 @@ class QuerySingleActivityActivityListActivityuser
   }
 }
 
-extension UtilityExtensionQuerySingleActivityActivityListActivityuser
-    on QuerySingleActivityActivityListActivityuser {
-  CopyWithQuerySingleActivityActivityListActivityuser<
-          QuerySingleActivityActivityListActivityuser>
-      get copyWith => CopyWithQuerySingleActivityActivityListActivityuser(
+extension UtilityExtensionQueryActivityRepliesActivityMessageActivity
+    on QueryActivityRepliesActivityMessageActivity {
+  CopyWithQueryActivityRepliesActivityMessageActivity<
+          QueryActivityRepliesActivityMessageActivity>
+      get copyWith => CopyWithQueryActivityRepliesActivityMessageActivity(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithQuerySingleActivityActivityListActivityuser<TRes> {
-  factory CopyWithQuerySingleActivityActivityListActivityuser(
-    QuerySingleActivityActivityListActivityuser instance,
-    TRes Function(QuerySingleActivityActivityListActivityuser) then,
-  ) = _CopyWithImplQuerySingleActivityActivityListActivityuser;
+abstract class CopyWithQueryActivityRepliesActivityMessageActivity<TRes> {
+  factory CopyWithQueryActivityRepliesActivityMessageActivity(
+    QueryActivityRepliesActivityMessageActivity instance,
+    TRes Function(QueryActivityRepliesActivityMessageActivity) then,
+  ) = _CopyWithImplQueryActivityRepliesActivityMessageActivity;
 
-  factory CopyWithQuerySingleActivityActivityListActivityuser.stub(TRes res) =
-      _CopyWithStubImplQuerySingleActivityActivityListActivityuser;
+  factory CopyWithQueryActivityRepliesActivityMessageActivity.stub(TRes res) =
+      _CopyWithStubImplQueryActivityRepliesActivityMessageActivity;
 
   TRes call({
-    int? id,
-    String? name,
-    QuerySingleActivityActivityListActivityuseravatar? avatar,
+    List<FragmentActivityReply?>? replies,
     String? $__typename,
   });
-  CopyWithQuerySingleActivityActivityListActivityuseravatar<TRes> get avatar;
+  TRes replies(
+      Iterable<FragmentActivityReply?>? Function(
+              Iterable<CopyWithFragmentActivityReply<FragmentActivityReply>?>?)
+          _fn);
 }
 
-class _CopyWithImplQuerySingleActivityActivityListActivityuser<TRes>
-    implements CopyWithQuerySingleActivityActivityListActivityuser<TRes> {
-  _CopyWithImplQuerySingleActivityActivityListActivityuser(
+class _CopyWithImplQueryActivityRepliesActivityMessageActivity<TRes>
+    implements CopyWithQueryActivityRepliesActivityMessageActivity<TRes> {
+  _CopyWithImplQueryActivityRepliesActivityMessageActivity(
     this._instance,
     this._then,
   );
 
-  final QuerySingleActivityActivityListActivityuser _instance;
+  final QueryActivityRepliesActivityMessageActivity _instance;
 
-  final TRes Function(QuerySingleActivityActivityListActivityuser) _then;
+  final TRes Function(QueryActivityRepliesActivityMessageActivity) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? avatar = _undefined,
+    Object? replies = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QuerySingleActivityActivityListActivityuser(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        avatar: avatar == _undefined
-            ? _instance.avatar
-            : (avatar as QuerySingleActivityActivityListActivityuseravatar?),
+      _then(QueryActivityRepliesActivityMessageActivity(
+        replies: replies == _undefined
+            ? _instance.replies
+            : (replies as List<FragmentActivityReply?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithQuerySingleActivityActivityListActivityuseravatar<TRes> get avatar {
-    final local$avatar = _instance.avatar;
-    return local$avatar == null
-        ? CopyWithQuerySingleActivityActivityListActivityuseravatar.stub(
-            _then(_instance))
-        : CopyWithQuerySingleActivityActivityListActivityuseravatar(
-            local$avatar, (e) => call(avatar: e));
-  }
+  TRes replies(
+          Iterable<FragmentActivityReply?>? Function(
+                  Iterable<
+                      CopyWithFragmentActivityReply<FragmentActivityReply>?>?)
+              _fn) =>
+      call(
+          replies: _fn(_instance.replies?.map((e) => e == null
+              ? null
+              : CopyWithFragmentActivityReply(
+                  e,
+                  (i) => i,
+                )))?.toList());
 }
 
-class _CopyWithStubImplQuerySingleActivityActivityListActivityuser<TRes>
-    implements CopyWithQuerySingleActivityActivityListActivityuser<TRes> {
-  _CopyWithStubImplQuerySingleActivityActivityListActivityuser(this._res);
+class _CopyWithStubImplQueryActivityRepliesActivityMessageActivity<TRes>
+    implements CopyWithQueryActivityRepliesActivityMessageActivity<TRes> {
+  _CopyWithStubImplQueryActivityRepliesActivityMessageActivity(this._res);
 
   TRes _res;
 
   call({
-    int? id,
-    String? name,
-    QuerySingleActivityActivityListActivityuseravatar? avatar,
+    List<FragmentActivityReply?>? replies,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithQuerySingleActivityActivityListActivityuseravatar<TRes> get avatar =>
-      CopyWithQuerySingleActivityActivityListActivityuseravatar.stub(_res);
-}
-
-class QuerySingleActivityActivityListActivityuseravatar
-    implements FragmentListActivityFraguseravatar {
-  QuerySingleActivityActivityListActivityuseravatar({
-    this.large,
-    this.$__typename = 'UserAvatar',
-  });
-
-  factory QuerySingleActivityActivityListActivityuseravatar.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return QuerySingleActivityActivityListActivityuseravatar(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QuerySingleActivityActivityListActivityuseravatar) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQuerySingleActivityActivityListActivityuseravatar
-    on QuerySingleActivityActivityListActivityuseravatar {
-  CopyWithQuerySingleActivityActivityListActivityuseravatar<
-          QuerySingleActivityActivityListActivityuseravatar>
-      get copyWith => CopyWithQuerySingleActivityActivityListActivityuseravatar(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQuerySingleActivityActivityListActivityuseravatar<TRes> {
-  factory CopyWithQuerySingleActivityActivityListActivityuseravatar(
-    QuerySingleActivityActivityListActivityuseravatar instance,
-    TRes Function(QuerySingleActivityActivityListActivityuseravatar) then,
-  ) = _CopyWithImplQuerySingleActivityActivityListActivityuseravatar;
-
-  factory CopyWithQuerySingleActivityActivityListActivityuseravatar.stub(
-          TRes res) =
-      _CopyWithStubImplQuerySingleActivityActivityListActivityuseravatar;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQuerySingleActivityActivityListActivityuseravatar<TRes>
-    implements CopyWithQuerySingleActivityActivityListActivityuseravatar<TRes> {
-  _CopyWithImplQuerySingleActivityActivityListActivityuseravatar(
-    this._instance,
-    this._then,
-  );
-
-  final QuerySingleActivityActivityListActivityuseravatar _instance;
-
-  final TRes Function(QuerySingleActivityActivityListActivityuseravatar) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QuerySingleActivityActivityListActivityuseravatar(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQuerySingleActivityActivityListActivityuseravatar<TRes>
-    implements CopyWithQuerySingleActivityActivityListActivityuseravatar<TRes> {
-  _CopyWithStubImplQuerySingleActivityActivityListActivityuseravatar(this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QuerySingleActivityActivityListActivitymedia
-    implements FragmentListActivityFragmedia {
-  QuerySingleActivityActivityListActivitymedia({
-    required this.id,
-    this.coverImage,
-    this.title,
-    this.$__typename = 'Media',
-  });
-
-  factory QuerySingleActivityActivityListActivitymedia.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$coverImage = json['coverImage'];
-    final l$title = json['title'];
-    final l$$__typename = json['__typename'];
-    return QuerySingleActivityActivityListActivitymedia(
-      id: (l$id as int),
-      coverImage: l$coverImage == null
-          ? null
-          : QuerySingleActivityActivityListActivitymediacoverImage.fromJson(
-              (l$coverImage as Map<String, dynamic>)),
-      title: l$title == null
-          ? null
-          : QuerySingleActivityActivityListActivitymediatitle.fromJson(
-              (l$title as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final QuerySingleActivityActivityListActivitymediacoverImage? coverImage;
-
-  final QuerySingleActivityActivityListActivitymediatitle? title;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$coverImage = coverImage;
-    _resultData['coverImage'] = l$coverImage?.toJson();
-    final l$title = title;
-    _resultData['title'] = l$title?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$coverImage = coverImage;
-    final l$title = title;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$coverImage,
-      l$title,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QuerySingleActivityActivityListActivitymedia) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$coverImage = coverImage;
-    final lOther$coverImage = other.coverImage;
-    if (l$coverImage != lOther$coverImage) {
-      return false;
-    }
-    final l$title = title;
-    final lOther$title = other.title;
-    if (l$title != lOther$title) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQuerySingleActivityActivityListActivitymedia
-    on QuerySingleActivityActivityListActivitymedia {
-  CopyWithQuerySingleActivityActivityListActivitymedia<
-          QuerySingleActivityActivityListActivitymedia>
-      get copyWith => CopyWithQuerySingleActivityActivityListActivitymedia(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQuerySingleActivityActivityListActivitymedia<TRes> {
-  factory CopyWithQuerySingleActivityActivityListActivitymedia(
-    QuerySingleActivityActivityListActivitymedia instance,
-    TRes Function(QuerySingleActivityActivityListActivitymedia) then,
-  ) = _CopyWithImplQuerySingleActivityActivityListActivitymedia;
-
-  factory CopyWithQuerySingleActivityActivityListActivitymedia.stub(TRes res) =
-      _CopyWithStubImplQuerySingleActivityActivityListActivitymedia;
-
-  TRes call({
-    int? id,
-    QuerySingleActivityActivityListActivitymediacoverImage? coverImage,
-    QuerySingleActivityActivityListActivitymediatitle? title,
-    String? $__typename,
-  });
-  CopyWithQuerySingleActivityActivityListActivitymediacoverImage<TRes>
-      get coverImage;
-  CopyWithQuerySingleActivityActivityListActivitymediatitle<TRes> get title;
-}
-
-class _CopyWithImplQuerySingleActivityActivityListActivitymedia<TRes>
-    implements CopyWithQuerySingleActivityActivityListActivitymedia<TRes> {
-  _CopyWithImplQuerySingleActivityActivityListActivitymedia(
-    this._instance,
-    this._then,
-  );
-
-  final QuerySingleActivityActivityListActivitymedia _instance;
-
-  final TRes Function(QuerySingleActivityActivityListActivitymedia) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? coverImage = _undefined,
-    Object? title = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QuerySingleActivityActivityListActivitymedia(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        coverImage: coverImage == _undefined
-            ? _instance.coverImage
-            : (coverImage
-                as QuerySingleActivityActivityListActivitymediacoverImage?),
-        title: title == _undefined
-            ? _instance.title
-            : (title as QuerySingleActivityActivityListActivitymediatitle?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQuerySingleActivityActivityListActivitymediacoverImage<TRes>
-      get coverImage {
-    final local$coverImage = _instance.coverImage;
-    return local$coverImage == null
-        ? CopyWithQuerySingleActivityActivityListActivitymediacoverImage.stub(
-            _then(_instance))
-        : CopyWithQuerySingleActivityActivityListActivitymediacoverImage(
-            local$coverImage, (e) => call(coverImage: e));
-  }
-
-  CopyWithQuerySingleActivityActivityListActivitymediatitle<TRes> get title {
-    final local$title = _instance.title;
-    return local$title == null
-        ? CopyWithQuerySingleActivityActivityListActivitymediatitle.stub(
-            _then(_instance))
-        : CopyWithQuerySingleActivityActivityListActivitymediatitle(
-            local$title, (e) => call(title: e));
-  }
-}
-
-class _CopyWithStubImplQuerySingleActivityActivityListActivitymedia<TRes>
-    implements CopyWithQuerySingleActivityActivityListActivitymedia<TRes> {
-  _CopyWithStubImplQuerySingleActivityActivityListActivitymedia(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    QuerySingleActivityActivityListActivitymediacoverImage? coverImage,
-    QuerySingleActivityActivityListActivitymediatitle? title,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQuerySingleActivityActivityListActivitymediacoverImage<TRes>
-      get coverImage =>
-          CopyWithQuerySingleActivityActivityListActivitymediacoverImage.stub(
-              _res);
-
-  CopyWithQuerySingleActivityActivityListActivitymediatitle<TRes> get title =>
-      CopyWithQuerySingleActivityActivityListActivitymediatitle.stub(_res);
-}
-
-class QuerySingleActivityActivityListActivitymediacoverImage
-    implements FragmentListActivityFragmediacoverImage {
-  QuerySingleActivityActivityListActivitymediacoverImage({
-    this.large,
-    this.$__typename = 'MediaCoverImage',
-  });
-
-  factory QuerySingleActivityActivityListActivitymediacoverImage.fromJson(
-      Map<String, dynamic> json) {
-    final l$large = json['large'];
-    final l$$__typename = json['__typename'];
-    return QuerySingleActivityActivityListActivitymediacoverImage(
-      large: (l$large as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? large;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$large = large;
-    _resultData['large'] = l$large;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$large = large;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$large,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QuerySingleActivityActivityListActivitymediacoverImage) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$large = large;
-    final lOther$large = other.large;
-    if (l$large != lOther$large) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQuerySingleActivityActivityListActivitymediacoverImage
-    on QuerySingleActivityActivityListActivitymediacoverImage {
-  CopyWithQuerySingleActivityActivityListActivitymediacoverImage<
-          QuerySingleActivityActivityListActivitymediacoverImage>
-      get copyWith =>
-          CopyWithQuerySingleActivityActivityListActivitymediacoverImage(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQuerySingleActivityActivityListActivitymediacoverImage<
-    TRes> {
-  factory CopyWithQuerySingleActivityActivityListActivitymediacoverImage(
-    QuerySingleActivityActivityListActivitymediacoverImage instance,
-    TRes Function(QuerySingleActivityActivityListActivitymediacoverImage) then,
-  ) = _CopyWithImplQuerySingleActivityActivityListActivitymediacoverImage;
-
-  factory CopyWithQuerySingleActivityActivityListActivitymediacoverImage.stub(
-          TRes res) =
-      _CopyWithStubImplQuerySingleActivityActivityListActivitymediacoverImage;
-
-  TRes call({
-    String? large,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQuerySingleActivityActivityListActivitymediacoverImage<TRes>
-    implements
-        CopyWithQuerySingleActivityActivityListActivitymediacoverImage<TRes> {
-  _CopyWithImplQuerySingleActivityActivityListActivitymediacoverImage(
-    this._instance,
-    this._then,
-  );
-
-  final QuerySingleActivityActivityListActivitymediacoverImage _instance;
-
-  final TRes Function(QuerySingleActivityActivityListActivitymediacoverImage)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? large = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QuerySingleActivityActivityListActivitymediacoverImage(
-        large: large == _undefined ? _instance.large : (large as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQuerySingleActivityActivityListActivitymediacoverImage<
-        TRes>
-    implements
-        CopyWithQuerySingleActivityActivityListActivitymediacoverImage<TRes> {
-  _CopyWithStubImplQuerySingleActivityActivityListActivitymediacoverImage(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? large,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QuerySingleActivityActivityListActivitymediatitle
-    implements FragmentListActivityFragmediatitle {
-  QuerySingleActivityActivityListActivitymediatitle({
-    this.userPreferred,
-    this.$__typename = 'MediaTitle',
-  });
-
-  factory QuerySingleActivityActivityListActivitymediatitle.fromJson(
-      Map<String, dynamic> json) {
-    final l$userPreferred = json['userPreferred'];
-    final l$$__typename = json['__typename'];
-    return QuerySingleActivityActivityListActivitymediatitle(
-      userPreferred: (l$userPreferred as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? userPreferred;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$userPreferred = userPreferred;
-    _resultData['userPreferred'] = l$userPreferred;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$userPreferred = userPreferred;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$userPreferred,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QuerySingleActivityActivityListActivitymediatitle) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$userPreferred = userPreferred;
-    final lOther$userPreferred = other.userPreferred;
-    if (l$userPreferred != lOther$userPreferred) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQuerySingleActivityActivityListActivitymediatitle
-    on QuerySingleActivityActivityListActivitymediatitle {
-  CopyWithQuerySingleActivityActivityListActivitymediatitle<
-          QuerySingleActivityActivityListActivitymediatitle>
-      get copyWith => CopyWithQuerySingleActivityActivityListActivitymediatitle(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQuerySingleActivityActivityListActivitymediatitle<TRes> {
-  factory CopyWithQuerySingleActivityActivityListActivitymediatitle(
-    QuerySingleActivityActivityListActivitymediatitle instance,
-    TRes Function(QuerySingleActivityActivityListActivitymediatitle) then,
-  ) = _CopyWithImplQuerySingleActivityActivityListActivitymediatitle;
-
-  factory CopyWithQuerySingleActivityActivityListActivitymediatitle.stub(
-          TRes res) =
-      _CopyWithStubImplQuerySingleActivityActivityListActivitymediatitle;
-
-  TRes call({
-    String? userPreferred,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQuerySingleActivityActivityListActivitymediatitle<TRes>
-    implements CopyWithQuerySingleActivityActivityListActivitymediatitle<TRes> {
-  _CopyWithImplQuerySingleActivityActivityListActivitymediatitle(
-    this._instance,
-    this._then,
-  );
-
-  final QuerySingleActivityActivityListActivitymediatitle _instance;
-
-  final TRes Function(QuerySingleActivityActivityListActivitymediatitle) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? userPreferred = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QuerySingleActivityActivityListActivitymediatitle(
-        userPreferred: userPreferred == _undefined
-            ? _instance.userPreferred
-            : (userPreferred as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQuerySingleActivityActivityListActivitymediatitle<TRes>
-    implements CopyWithQuerySingleActivityActivityListActivitymediatitle<TRes> {
-  _CopyWithStubImplQuerySingleActivityActivityListActivitymediatitle(this._res);
-
-  TRes _res;
-
-  call({
-    String? userPreferred,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QuerySingleActivityActivityTextActivity
-    implements QuerySingleActivityActivity {
-  QuerySingleActivityActivityTextActivity({this.$__typename = 'TextActivity'});
-
-  factory QuerySingleActivityActivityTextActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return QuerySingleActivityActivityTextActivity(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QuerySingleActivityActivityTextActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQuerySingleActivityActivityTextActivity
-    on QuerySingleActivityActivityTextActivity {
-  CopyWithQuerySingleActivityActivityTextActivity<
-          QuerySingleActivityActivityTextActivity>
-      get copyWith => CopyWithQuerySingleActivityActivityTextActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQuerySingleActivityActivityTextActivity<TRes> {
-  factory CopyWithQuerySingleActivityActivityTextActivity(
-    QuerySingleActivityActivityTextActivity instance,
-    TRes Function(QuerySingleActivityActivityTextActivity) then,
-  ) = _CopyWithImplQuerySingleActivityActivityTextActivity;
-
-  factory CopyWithQuerySingleActivityActivityTextActivity.stub(TRes res) =
-      _CopyWithStubImplQuerySingleActivityActivityTextActivity;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplQuerySingleActivityActivityTextActivity<TRes>
-    implements CopyWithQuerySingleActivityActivityTextActivity<TRes> {
-  _CopyWithImplQuerySingleActivityActivityTextActivity(
-    this._instance,
-    this._then,
-  );
-
-  final QuerySingleActivityActivityTextActivity _instance;
-
-  final TRes Function(QuerySingleActivityActivityTextActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(QuerySingleActivityActivityTextActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplQuerySingleActivityActivityTextActivity<TRes>
-    implements CopyWithQuerySingleActivityActivityTextActivity<TRes> {
-  _CopyWithStubImplQuerySingleActivityActivityTextActivity(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
-}
-
-class QuerySingleActivityActivityMessageActivity
-    implements QuerySingleActivityActivity {
-  QuerySingleActivityActivityMessageActivity(
-      {this.$__typename = 'MessageActivity'});
-
-  factory QuerySingleActivityActivityMessageActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$$__typename = json['__typename'];
-    return QuerySingleActivityActivityMessageActivity(
-        $__typename: (l$$__typename as String));
-  }
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$$__typename = $__typename;
-    return Object.hashAll([l$$__typename]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QuerySingleActivityActivityMessageActivity) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQuerySingleActivityActivityMessageActivity
-    on QuerySingleActivityActivityMessageActivity {
-  CopyWithQuerySingleActivityActivityMessageActivity<
-          QuerySingleActivityActivityMessageActivity>
-      get copyWith => CopyWithQuerySingleActivityActivityMessageActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQuerySingleActivityActivityMessageActivity<TRes> {
-  factory CopyWithQuerySingleActivityActivityMessageActivity(
-    QuerySingleActivityActivityMessageActivity instance,
-    TRes Function(QuerySingleActivityActivityMessageActivity) then,
-  ) = _CopyWithImplQuerySingleActivityActivityMessageActivity;
-
-  factory CopyWithQuerySingleActivityActivityMessageActivity.stub(TRes res) =
-      _CopyWithStubImplQuerySingleActivityActivityMessageActivity;
-
-  TRes call({String? $__typename});
-}
-
-class _CopyWithImplQuerySingleActivityActivityMessageActivity<TRes>
-    implements CopyWithQuerySingleActivityActivityMessageActivity<TRes> {
-  _CopyWithImplQuerySingleActivityActivityMessageActivity(
-    this._instance,
-    this._then,
-  );
-
-  final QuerySingleActivityActivityMessageActivity _instance;
-
-  final TRes Function(QuerySingleActivityActivityMessageActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? $__typename = _undefined}) =>
-      _then(QuerySingleActivityActivityMessageActivity(
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImplQuerySingleActivityActivityMessageActivity<TRes>
-    implements CopyWithQuerySingleActivityActivityMessageActivity<TRes> {
-  _CopyWithStubImplQuerySingleActivityActivityMessageActivity(this._res);
-
-  TRes _res;
-
-  call({String? $__typename}) => _res;
+  replies(_fn) => _res;
 }
