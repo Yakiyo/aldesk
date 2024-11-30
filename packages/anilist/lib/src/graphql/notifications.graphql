@@ -2,7 +2,7 @@
 # The query itself is not fully implemented, since there are
 # a lot of subtypes. Most of them have their id property and can
 # can be individually retrieved using it.
-query Page(
+query Notifications(
   $page: Int
   $perPage: Int
   $resetNotificationCount: Boolean = true

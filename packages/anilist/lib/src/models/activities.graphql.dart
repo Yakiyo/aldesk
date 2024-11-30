@@ -1799,15 +1799,15 @@ const documentNodeFragmentActivityReply = DocumentNode(definitions: [
   fragmentDefinitionUserMinF,
 ]);
 
-class VariablesQueryPage {
-  factory VariablesQueryPage({
+class VariablesQueryActivities {
+  factory VariablesQueryActivities({
     int? page,
     int? perPage,
     bool? isFollowing,
     List<EnumActivityType?>? typeIn,
     bool? hasRepliesOrTypeText,
   }) =>
-      VariablesQueryPage._({
+      VariablesQueryActivities._({
         if (page != null) r'page': page,
         if (perPage != null) r'perPage': perPage,
         if (isFollowing != null) r'isFollowing': isFollowing,
@@ -1816,9 +1816,9 @@ class VariablesQueryPage {
           r'hasRepliesOrTypeText': hasRepliesOrTypeText,
       });
 
-  VariablesQueryPage._(this._$data);
+  VariablesQueryActivities._(this._$data);
 
-  factory VariablesQueryPage.fromJson(Map<String, dynamic> data) {
+  factory VariablesQueryActivities.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('page')) {
       final l$page = data['page'];
@@ -1843,7 +1843,7 @@ class VariablesQueryPage {
       final l$hasRepliesOrTypeText = data['hasRepliesOrTypeText'];
       result$data['hasRepliesOrTypeText'] = (l$hasRepliesOrTypeText as bool?);
     }
-    return VariablesQueryPage._(result$data);
+    return VariablesQueryActivities._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -1886,8 +1886,8 @@ class VariablesQueryPage {
     return result$data;
   }
 
-  CopyWithVariablesQueryPage<VariablesQueryPage> get copyWith =>
-      CopyWithVariablesQueryPage(
+  CopyWithVariablesQueryActivities<VariablesQueryActivities> get copyWith =>
+      CopyWithVariablesQueryActivities(
         this,
         (i) => i,
       );
@@ -1897,7 +1897,8 @@ class VariablesQueryPage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryPage) || runtimeType != other.runtimeType) {
+    if (!(other is VariablesQueryActivities) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$page = page;
@@ -1979,14 +1980,14 @@ class VariablesQueryPage {
   }
 }
 
-abstract class CopyWithVariablesQueryPage<TRes> {
-  factory CopyWithVariablesQueryPage(
-    VariablesQueryPage instance,
-    TRes Function(VariablesQueryPage) then,
-  ) = _CopyWithImplVariablesQueryPage;
+abstract class CopyWithVariablesQueryActivities<TRes> {
+  factory CopyWithVariablesQueryActivities(
+    VariablesQueryActivities instance,
+    TRes Function(VariablesQueryActivities) then,
+  ) = _CopyWithImplVariablesQueryActivities;
 
-  factory CopyWithVariablesQueryPage.stub(TRes res) =
-      _CopyWithStubImplVariablesQueryPage;
+  factory CopyWithVariablesQueryActivities.stub(TRes res) =
+      _CopyWithStubImplVariablesQueryActivities;
 
   TRes call({
     int? page,
@@ -1997,16 +1998,16 @@ abstract class CopyWithVariablesQueryPage<TRes> {
   });
 }
 
-class _CopyWithImplVariablesQueryPage<TRes>
-    implements CopyWithVariablesQueryPage<TRes> {
-  _CopyWithImplVariablesQueryPage(
+class _CopyWithImplVariablesQueryActivities<TRes>
+    implements CopyWithVariablesQueryActivities<TRes> {
+  _CopyWithImplVariablesQueryActivities(
     this._instance,
     this._then,
   );
 
-  final VariablesQueryPage _instance;
+  final VariablesQueryActivities _instance;
 
-  final TRes Function(VariablesQueryPage) _then;
+  final TRes Function(VariablesQueryActivities) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2017,7 +2018,7 @@ class _CopyWithImplVariablesQueryPage<TRes>
     Object? typeIn = _undefined,
     Object? hasRepliesOrTypeText = _undefined,
   }) =>
-      _then(VariablesQueryPage._({
+      _then(VariablesQueryActivities._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
         if (perPage != _undefined) 'perPage': (perPage as int?),
@@ -2029,9 +2030,9 @@ class _CopyWithImplVariablesQueryPage<TRes>
       }));
 }
 
-class _CopyWithStubImplVariablesQueryPage<TRes>
-    implements CopyWithVariablesQueryPage<TRes> {
-  _CopyWithStubImplVariablesQueryPage(this._res);
+class _CopyWithStubImplVariablesQueryActivities<TRes>
+    implements CopyWithVariablesQueryActivities<TRes> {
+  _CopyWithStubImplVariablesQueryActivities(this._res);
 
   TRes _res;
 
@@ -2045,24 +2046,24 @@ class _CopyWithStubImplVariablesQueryPage<TRes>
       _res;
 }
 
-class QueryPage {
-  QueryPage({
+class QueryActivities {
+  QueryActivities({
     this.Page,
     this.$__typename = 'Query',
   });
 
-  factory QueryPage.fromJson(Map<String, dynamic> json) {
+  factory QueryActivities.fromJson(Map<String, dynamic> json) {
     final l$Page = json['Page'];
     final l$$__typename = json['__typename'];
-    return QueryPage(
+    return QueryActivities(
       Page: l$Page == null
           ? null
-          : QueryPagePage.fromJson((l$Page as Map<String, dynamic>)),
+          : QueryActivitiesPage.fromJson((l$Page as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final QueryPagePage? Page;
+  final QueryActivitiesPage? Page;
 
   final String $__typename;
 
@@ -2090,7 +2091,7 @@ class QueryPage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPage) || runtimeType != other.runtimeType) {
+    if (!(other is QueryActivities) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -2107,37 +2108,40 @@ class QueryPage {
   }
 }
 
-extension UtilityExtensionQueryPage on QueryPage {
-  CopyWithQueryPage<QueryPage> get copyWith => CopyWithQueryPage(
+extension UtilityExtensionQueryActivities on QueryActivities {
+  CopyWithQueryActivities<QueryActivities> get copyWith =>
+      CopyWithQueryActivities(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithQueryPage<TRes> {
-  factory CopyWithQueryPage(
-    QueryPage instance,
-    TRes Function(QueryPage) then,
-  ) = _CopyWithImplQueryPage;
+abstract class CopyWithQueryActivities<TRes> {
+  factory CopyWithQueryActivities(
+    QueryActivities instance,
+    TRes Function(QueryActivities) then,
+  ) = _CopyWithImplQueryActivities;
 
-  factory CopyWithQueryPage.stub(TRes res) = _CopyWithStubImplQueryPage;
+  factory CopyWithQueryActivities.stub(TRes res) =
+      _CopyWithStubImplQueryActivities;
 
   TRes call({
-    QueryPagePage? Page,
+    QueryActivitiesPage? Page,
     String? $__typename,
   });
-  CopyWithQueryPagePage<TRes> get Page;
+  CopyWithQueryActivitiesPage<TRes> get Page;
 }
 
-class _CopyWithImplQueryPage<TRes> implements CopyWithQueryPage<TRes> {
-  _CopyWithImplQueryPage(
+class _CopyWithImplQueryActivities<TRes>
+    implements CopyWithQueryActivities<TRes> {
+  _CopyWithImplQueryActivities(
     this._instance,
     this._then,
   );
 
-  final QueryPage _instance;
+  final QueryActivities _instance;
 
-  final TRes Function(QueryPage) _then;
+  final TRes Function(QueryActivities) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2145,39 +2149,43 @@ class _CopyWithImplQueryPage<TRes> implements CopyWithQueryPage<TRes> {
     Object? Page = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryPage(
-        Page: Page == _undefined ? _instance.Page : (Page as QueryPagePage?),
+      _then(QueryActivities(
+        Page: Page == _undefined
+            ? _instance.Page
+            : (Page as QueryActivitiesPage?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithQueryPagePage<TRes> get Page {
+  CopyWithQueryActivitiesPage<TRes> get Page {
     final local$Page = _instance.Page;
     return local$Page == null
-        ? CopyWithQueryPagePage.stub(_then(_instance))
-        : CopyWithQueryPagePage(local$Page, (e) => call(Page: e));
+        ? CopyWithQueryActivitiesPage.stub(_then(_instance))
+        : CopyWithQueryActivitiesPage(local$Page, (e) => call(Page: e));
   }
 }
 
-class _CopyWithStubImplQueryPage<TRes> implements CopyWithQueryPage<TRes> {
-  _CopyWithStubImplQueryPage(this._res);
+class _CopyWithStubImplQueryActivities<TRes>
+    implements CopyWithQueryActivities<TRes> {
+  _CopyWithStubImplQueryActivities(this._res);
 
   TRes _res;
 
   call({
-    QueryPagePage? Page,
+    QueryActivitiesPage? Page,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithQueryPagePage<TRes> get Page => CopyWithQueryPagePage.stub(_res);
+  CopyWithQueryActivitiesPage<TRes> get Page =>
+      CopyWithQueryActivitiesPage.stub(_res);
 }
 
-const documentNodeQueryPage = DocumentNode(definitions: [
+const documentNodeQueryActivities = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'Page'),
+    name: NameNode(value: 'Activities'),
     variableDefinitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'page')),
@@ -2370,34 +2378,35 @@ const documentNodeQueryPage = DocumentNode(definitions: [
   fragmentDefinitionMediaMinF,
 ]);
 
-class QueryPagePage {
-  QueryPagePage({
+class QueryActivitiesPage {
+  QueryActivitiesPage({
     this.pageInfo,
     this.activities,
     this.$__typename = 'Page',
   });
 
-  factory QueryPagePage.fromJson(Map<String, dynamic> json) {
+  factory QueryActivitiesPage.fromJson(Map<String, dynamic> json) {
     final l$pageInfo = json['pageInfo'];
     final l$activities = json['activities'];
     final l$$__typename = json['__typename'];
-    return QueryPagePage(
+    return QueryActivitiesPage(
       pageInfo: l$pageInfo == null
           ? null
-          : QueryPagePagepageInfo.fromJson(
+          : QueryActivitiesPagepageInfo.fromJson(
               (l$pageInfo as Map<String, dynamic>)),
       activities: (l$activities as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : QueryPagePageactivities.fromJson((e as Map<String, dynamic>)))
+              : QueryActivitiesPageactivities.fromJson(
+                  (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final QueryPagePagepageInfo? pageInfo;
+  final QueryActivitiesPagepageInfo? pageInfo;
 
-  final List<QueryPagePageactivities?>? activities;
+  final List<QueryActivitiesPageactivities?>? activities;
 
   final String $__typename;
 
@@ -2429,7 +2438,7 @@ class QueryPagePage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPagePage) || runtimeType != other.runtimeType) {
+    if (!(other is QueryActivitiesPage) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$pageInfo = pageInfo;
@@ -2462,43 +2471,47 @@ class QueryPagePage {
   }
 }
 
-extension UtilityExtensionQueryPagePage on QueryPagePage {
-  CopyWithQueryPagePage<QueryPagePage> get copyWith => CopyWithQueryPagePage(
+extension UtilityExtensionQueryActivitiesPage on QueryActivitiesPage {
+  CopyWithQueryActivitiesPage<QueryActivitiesPage> get copyWith =>
+      CopyWithQueryActivitiesPage(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithQueryPagePage<TRes> {
-  factory CopyWithQueryPagePage(
-    QueryPagePage instance,
-    TRes Function(QueryPagePage) then,
-  ) = _CopyWithImplQueryPagePage;
+abstract class CopyWithQueryActivitiesPage<TRes> {
+  factory CopyWithQueryActivitiesPage(
+    QueryActivitiesPage instance,
+    TRes Function(QueryActivitiesPage) then,
+  ) = _CopyWithImplQueryActivitiesPage;
 
-  factory CopyWithQueryPagePage.stub(TRes res) = _CopyWithStubImplQueryPagePage;
+  factory CopyWithQueryActivitiesPage.stub(TRes res) =
+      _CopyWithStubImplQueryActivitiesPage;
 
   TRes call({
-    QueryPagePagepageInfo? pageInfo,
-    List<QueryPagePageactivities?>? activities,
+    QueryActivitiesPagepageInfo? pageInfo,
+    List<QueryActivitiesPageactivities?>? activities,
     String? $__typename,
   });
-  CopyWithQueryPagePagepageInfo<TRes> get pageInfo;
+  CopyWithQueryActivitiesPagepageInfo<TRes> get pageInfo;
   TRes activities(
-      Iterable<QueryPagePageactivities?>? Function(
+      Iterable<QueryActivitiesPageactivities?>? Function(
               Iterable<
-                  CopyWithQueryPagePageactivities<QueryPagePageactivities>?>?)
+                  CopyWithQueryActivitiesPageactivities<
+                      QueryActivitiesPageactivities>?>?)
           _fn);
 }
 
-class _CopyWithImplQueryPagePage<TRes> implements CopyWithQueryPagePage<TRes> {
-  _CopyWithImplQueryPagePage(
+class _CopyWithImplQueryActivitiesPage<TRes>
+    implements CopyWithQueryActivitiesPage<TRes> {
+  _CopyWithImplQueryActivitiesPage(
     this._instance,
     this._then,
   );
 
-  final QueryPagePage _instance;
+  final QueryActivitiesPage _instance;
 
-  final TRes Function(QueryPagePage) _then;
+  final TRes Function(QueryActivitiesPage) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2507,62 +2520,62 @@ class _CopyWithImplQueryPagePage<TRes> implements CopyWithQueryPagePage<TRes> {
     Object? activities = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryPagePage(
+      _then(QueryActivitiesPage(
         pageInfo: pageInfo == _undefined
             ? _instance.pageInfo
-            : (pageInfo as QueryPagePagepageInfo?),
+            : (pageInfo as QueryActivitiesPagepageInfo?),
         activities: activities == _undefined
             ? _instance.activities
-            : (activities as List<QueryPagePageactivities?>?),
+            : (activities as List<QueryActivitiesPageactivities?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithQueryPagePagepageInfo<TRes> get pageInfo {
+  CopyWithQueryActivitiesPagepageInfo<TRes> get pageInfo {
     final local$pageInfo = _instance.pageInfo;
     return local$pageInfo == null
-        ? CopyWithQueryPagePagepageInfo.stub(_then(_instance))
-        : CopyWithQueryPagePagepageInfo(
+        ? CopyWithQueryActivitiesPagepageInfo.stub(_then(_instance))
+        : CopyWithQueryActivitiesPagepageInfo(
             local$pageInfo, (e) => call(pageInfo: e));
   }
 
   TRes activities(
-          Iterable<QueryPagePageactivities?>? Function(
+          Iterable<QueryActivitiesPageactivities?>? Function(
                   Iterable<
-                      CopyWithQueryPagePageactivities<
-                          QueryPagePageactivities>?>?)
+                      CopyWithQueryActivitiesPageactivities<
+                          QueryActivitiesPageactivities>?>?)
               _fn) =>
       call(
           activities: _fn(_instance.activities?.map((e) => e == null
               ? null
-              : CopyWithQueryPagePageactivities(
+              : CopyWithQueryActivitiesPageactivities(
                   e,
                   (i) => i,
                 )))?.toList());
 }
 
-class _CopyWithStubImplQueryPagePage<TRes>
-    implements CopyWithQueryPagePage<TRes> {
-  _CopyWithStubImplQueryPagePage(this._res);
+class _CopyWithStubImplQueryActivitiesPage<TRes>
+    implements CopyWithQueryActivitiesPage<TRes> {
+  _CopyWithStubImplQueryActivitiesPage(this._res);
 
   TRes _res;
 
   call({
-    QueryPagePagepageInfo? pageInfo,
-    List<QueryPagePageactivities?>? activities,
+    QueryActivitiesPagepageInfo? pageInfo,
+    List<QueryActivitiesPageactivities?>? activities,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithQueryPagePagepageInfo<TRes> get pageInfo =>
-      CopyWithQueryPagePagepageInfo.stub(_res);
+  CopyWithQueryActivitiesPagepageInfo<TRes> get pageInfo =>
+      CopyWithQueryActivitiesPagepageInfo.stub(_res);
 
   activities(_fn) => _res;
 }
 
-class QueryPagePagepageInfo {
-  QueryPagePagepageInfo({
+class QueryActivitiesPagepageInfo {
+  QueryActivitiesPagepageInfo({
     this.total,
     this.perPage,
     this.currentPage,
@@ -2571,14 +2584,14 @@ class QueryPagePagepageInfo {
     this.$__typename = 'PageInfo',
   });
 
-  factory QueryPagePagepageInfo.fromJson(Map<String, dynamic> json) {
+  factory QueryActivitiesPagepageInfo.fromJson(Map<String, dynamic> json) {
     final l$total = json['total'];
     final l$perPage = json['perPage'];
     final l$currentPage = json['currentPage'];
     final l$lastPage = json['lastPage'];
     final l$hasNextPage = json['hasNextPage'];
     final l$$__typename = json['__typename'];
-    return QueryPagePagepageInfo(
+    return QueryActivitiesPagepageInfo(
       total: (l$total as int?),
       perPage: (l$perPage as int?),
       currentPage: (l$currentPage as int?),
@@ -2640,7 +2653,8 @@ class QueryPagePagepageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPagePagepageInfo) || runtimeType != other.runtimeType) {
+    if (!(other is QueryActivitiesPagepageInfo) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$total = total;
@@ -2677,22 +2691,23 @@ class QueryPagePagepageInfo {
   }
 }
 
-extension UtilityExtensionQueryPagePagepageInfo on QueryPagePagepageInfo {
-  CopyWithQueryPagePagepageInfo<QueryPagePagepageInfo> get copyWith =>
-      CopyWithQueryPagePagepageInfo(
-        this,
-        (i) => i,
-      );
+extension UtilityExtensionQueryActivitiesPagepageInfo
+    on QueryActivitiesPagepageInfo {
+  CopyWithQueryActivitiesPagepageInfo<QueryActivitiesPagepageInfo>
+      get copyWith => CopyWithQueryActivitiesPagepageInfo(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWithQueryPagePagepageInfo<TRes> {
-  factory CopyWithQueryPagePagepageInfo(
-    QueryPagePagepageInfo instance,
-    TRes Function(QueryPagePagepageInfo) then,
-  ) = _CopyWithImplQueryPagePagepageInfo;
+abstract class CopyWithQueryActivitiesPagepageInfo<TRes> {
+  factory CopyWithQueryActivitiesPagepageInfo(
+    QueryActivitiesPagepageInfo instance,
+    TRes Function(QueryActivitiesPagepageInfo) then,
+  ) = _CopyWithImplQueryActivitiesPagepageInfo;
 
-  factory CopyWithQueryPagePagepageInfo.stub(TRes res) =
-      _CopyWithStubImplQueryPagePagepageInfo;
+  factory CopyWithQueryActivitiesPagepageInfo.stub(TRes res) =
+      _CopyWithStubImplQueryActivitiesPagepageInfo;
 
   TRes call({
     int? total,
@@ -2704,16 +2719,16 @@ abstract class CopyWithQueryPagePagepageInfo<TRes> {
   });
 }
 
-class _CopyWithImplQueryPagePagepageInfo<TRes>
-    implements CopyWithQueryPagePagepageInfo<TRes> {
-  _CopyWithImplQueryPagePagepageInfo(
+class _CopyWithImplQueryActivitiesPagepageInfo<TRes>
+    implements CopyWithQueryActivitiesPagepageInfo<TRes> {
+  _CopyWithImplQueryActivitiesPagepageInfo(
     this._instance,
     this._then,
   );
 
-  final QueryPagePagepageInfo _instance;
+  final QueryActivitiesPagepageInfo _instance;
 
-  final TRes Function(QueryPagePagepageInfo) _then;
+  final TRes Function(QueryActivitiesPagepageInfo) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2725,7 +2740,7 @@ class _CopyWithImplQueryPagePagepageInfo<TRes>
     Object? hasNextPage = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryPagePagepageInfo(
+      _then(QueryActivitiesPagepageInfo(
         total: total == _undefined ? _instance.total : (total as int?),
         perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
         currentPage: currentPage == _undefined
@@ -2742,9 +2757,9 @@ class _CopyWithImplQueryPagePagepageInfo<TRes>
       ));
 }
 
-class _CopyWithStubImplQueryPagePagepageInfo<TRes>
-    implements CopyWithQueryPagePagepageInfo<TRes> {
-  _CopyWithStubImplQueryPagePagepageInfo(this._res);
+class _CopyWithStubImplQueryActivitiesPagepageInfo<TRes>
+    implements CopyWithQueryActivitiesPagepageInfo<TRes> {
+  _CopyWithStubImplQueryActivitiesPagepageInfo(this._res);
 
   TRes _res;
 
@@ -2759,23 +2774,24 @@ class _CopyWithStubImplQueryPagePagepageInfo<TRes>
       _res;
 }
 
-class QueryPagePageactivities {
-  QueryPagePageactivities({required this.$__typename});
+class QueryActivitiesPageactivities {
+  QueryActivitiesPageactivities({required this.$__typename});
 
-  factory QueryPagePageactivities.fromJson(Map<String, dynamic> json) {
+  factory QueryActivitiesPageactivities.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
       case "TextActivity":
-        return QueryPagePageactivitiesTextActivity.fromJson(json);
+        return QueryActivitiesPageactivitiesTextActivity.fromJson(json);
 
       case "ListActivity":
-        return QueryPagePageactivitiesListActivity.fromJson(json);
+        return QueryActivitiesPageactivitiesListActivity.fromJson(json);
 
       case "MessageActivity":
-        return QueryPagePageactivitiesMessageActivity.fromJson(json);
+        return QueryActivitiesPageactivitiesMessageActivity.fromJson(json);
 
       default:
         final l$$__typename = json['__typename'];
-        return QueryPagePageactivities($__typename: (l$$__typename as String));
+        return QueryActivitiesPageactivities(
+            $__typename: (l$$__typename as String));
     }
   }
 
@@ -2799,7 +2815,7 @@ class QueryPagePageactivities {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPagePageactivities) ||
+    if (!(other is QueryActivitiesPageactivities) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2812,28 +2828,32 @@ class QueryPagePageactivities {
   }
 }
 
-extension UtilityExtensionQueryPagePageactivities on QueryPagePageactivities {
-  CopyWithQueryPagePageactivities<QueryPagePageactivities> get copyWith =>
-      CopyWithQueryPagePageactivities(
-        this,
-        (i) => i,
-      );
+extension UtilityExtensionQueryActivitiesPageactivities
+    on QueryActivitiesPageactivities {
+  CopyWithQueryActivitiesPageactivities<QueryActivitiesPageactivities>
+      get copyWith => CopyWithQueryActivitiesPageactivities(
+            this,
+            (i) => i,
+          );
   _T when<_T>({
-    required _T Function(QueryPagePageactivitiesTextActivity) textActivity,
-    required _T Function(QueryPagePageactivitiesListActivity) listActivity,
-    required _T Function(QueryPagePageactivitiesMessageActivity)
+    required _T Function(QueryActivitiesPageactivitiesTextActivity)
+        textActivity,
+    required _T Function(QueryActivitiesPageactivitiesListActivity)
+        listActivity,
+    required _T Function(QueryActivitiesPageactivitiesMessageActivity)
         messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "TextActivity":
-        return textActivity(this as QueryPagePageactivitiesTextActivity);
+        return textActivity(this as QueryActivitiesPageactivitiesTextActivity);
 
       case "ListActivity":
-        return listActivity(this as QueryPagePageactivitiesListActivity);
+        return listActivity(this as QueryActivitiesPageactivitiesListActivity);
 
       case "MessageActivity":
-        return messageActivity(this as QueryPagePageactivitiesMessageActivity);
+        return messageActivity(
+            this as QueryActivitiesPageactivitiesMessageActivity);
 
       default:
         return orElse();
@@ -2841,22 +2861,24 @@ extension UtilityExtensionQueryPagePageactivities on QueryPagePageactivities {
   }
 
   _T maybeWhen<_T>({
-    _T Function(QueryPagePageactivitiesTextActivity)? textActivity,
-    _T Function(QueryPagePageactivitiesListActivity)? listActivity,
-    _T Function(QueryPagePageactivitiesMessageActivity)? messageActivity,
+    _T Function(QueryActivitiesPageactivitiesTextActivity)? textActivity,
+    _T Function(QueryActivitiesPageactivitiesListActivity)? listActivity,
+    _T Function(QueryActivitiesPageactivitiesMessageActivity)? messageActivity,
     required _T Function() orElse,
   }) {
     switch ($__typename) {
       case "TextActivity":
         if (textActivity != null) {
-          return textActivity(this as QueryPagePageactivitiesTextActivity);
+          return textActivity(
+              this as QueryActivitiesPageactivitiesTextActivity);
         } else {
           return orElse();
         }
 
       case "ListActivity":
         if (listActivity != null) {
-          return listActivity(this as QueryPagePageactivitiesListActivity);
+          return listActivity(
+              this as QueryActivitiesPageactivitiesListActivity);
         } else {
           return orElse();
         }
@@ -2864,7 +2886,7 @@ extension UtilityExtensionQueryPagePageactivities on QueryPagePageactivities {
       case "MessageActivity":
         if (messageActivity != null) {
           return messageActivity(
-              this as QueryPagePageactivitiesMessageActivity);
+              this as QueryActivitiesPageactivitiesMessageActivity);
         } else {
           return orElse();
         }
@@ -2875,50 +2897,50 @@ extension UtilityExtensionQueryPagePageactivities on QueryPagePageactivities {
   }
 }
 
-abstract class CopyWithQueryPagePageactivities<TRes> {
-  factory CopyWithQueryPagePageactivities(
-    QueryPagePageactivities instance,
-    TRes Function(QueryPagePageactivities) then,
-  ) = _CopyWithImplQueryPagePageactivities;
+abstract class CopyWithQueryActivitiesPageactivities<TRes> {
+  factory CopyWithQueryActivitiesPageactivities(
+    QueryActivitiesPageactivities instance,
+    TRes Function(QueryActivitiesPageactivities) then,
+  ) = _CopyWithImplQueryActivitiesPageactivities;
 
-  factory CopyWithQueryPagePageactivities.stub(TRes res) =
-      _CopyWithStubImplQueryPagePageactivities;
+  factory CopyWithQueryActivitiesPageactivities.stub(TRes res) =
+      _CopyWithStubImplQueryActivitiesPageactivities;
 
   TRes call({String? $__typename});
 }
 
-class _CopyWithImplQueryPagePageactivities<TRes>
-    implements CopyWithQueryPagePageactivities<TRes> {
-  _CopyWithImplQueryPagePageactivities(
+class _CopyWithImplQueryActivitiesPageactivities<TRes>
+    implements CopyWithQueryActivitiesPageactivities<TRes> {
+  _CopyWithImplQueryActivitiesPageactivities(
     this._instance,
     this._then,
   );
 
-  final QueryPagePageactivities _instance;
+  final QueryActivitiesPageactivities _instance;
 
-  final TRes Function(QueryPagePageactivities) _then;
+  final TRes Function(QueryActivitiesPageactivities) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? $__typename = _undefined}) =>
-      _then(QueryPagePageactivities(
+      _then(QueryActivitiesPageactivities(
           $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
 }
 
-class _CopyWithStubImplQueryPagePageactivities<TRes>
-    implements CopyWithQueryPagePageactivities<TRes> {
-  _CopyWithStubImplQueryPagePageactivities(this._res);
+class _CopyWithStubImplQueryActivitiesPageactivities<TRes>
+    implements CopyWithQueryActivitiesPageactivities<TRes> {
+  _CopyWithStubImplQueryActivitiesPageactivities(this._res);
 
   TRes _res;
 
   call({String? $__typename}) => _res;
 }
 
-class QueryPagePageactivitiesTextActivity
-    implements FragmentTextActivity, QueryPagePageactivities {
-  QueryPagePageactivitiesTextActivity({
+class QueryActivitiesPageactivitiesTextActivity
+    implements FragmentTextActivity, QueryActivitiesPageactivities {
+  QueryActivitiesPageactivitiesTextActivity({
     required this.id,
     this.type,
     required this.replyCount,
@@ -2933,7 +2955,7 @@ class QueryPagePageactivitiesTextActivity
     this.$__typename = 'TextActivity',
   });
 
-  factory QueryPagePageactivitiesTextActivity.fromJson(
+  factory QueryActivitiesPageactivitiesTextActivity.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$type = json['type'];
@@ -2947,7 +2969,7 @@ class QueryPagePageactivitiesTextActivity
     final l$createdAt = json['createdAt'];
     final l$user = json['user'];
     final l$$__typename = json['__typename'];
-    return QueryPagePageactivitiesTextActivity(
+    return QueryActivitiesPageactivitiesTextActivity(
       id: (l$id as int),
       type:
           l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
@@ -3055,7 +3077,7 @@ class QueryPagePageactivitiesTextActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPagePageactivitiesTextActivity) ||
+    if (!(other is QueryActivitiesPageactivitiesTextActivity) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3123,24 +3145,24 @@ class QueryPagePageactivitiesTextActivity
   }
 }
 
-extension UtilityExtensionQueryPagePageactivitiesTextActivity
-    on QueryPagePageactivitiesTextActivity {
-  CopyWithQueryPagePageactivitiesTextActivity<
-          QueryPagePageactivitiesTextActivity>
-      get copyWith => CopyWithQueryPagePageactivitiesTextActivity(
+extension UtilityExtensionQueryActivitiesPageactivitiesTextActivity
+    on QueryActivitiesPageactivitiesTextActivity {
+  CopyWithQueryActivitiesPageactivitiesTextActivity<
+          QueryActivitiesPageactivitiesTextActivity>
+      get copyWith => CopyWithQueryActivitiesPageactivitiesTextActivity(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithQueryPagePageactivitiesTextActivity<TRes> {
-  factory CopyWithQueryPagePageactivitiesTextActivity(
-    QueryPagePageactivitiesTextActivity instance,
-    TRes Function(QueryPagePageactivitiesTextActivity) then,
-  ) = _CopyWithImplQueryPagePageactivitiesTextActivity;
+abstract class CopyWithQueryActivitiesPageactivitiesTextActivity<TRes> {
+  factory CopyWithQueryActivitiesPageactivitiesTextActivity(
+    QueryActivitiesPageactivitiesTextActivity instance,
+    TRes Function(QueryActivitiesPageactivitiesTextActivity) then,
+  ) = _CopyWithImplQueryActivitiesPageactivitiesTextActivity;
 
-  factory CopyWithQueryPagePageactivitiesTextActivity.stub(TRes res) =
-      _CopyWithStubImplQueryPagePageactivitiesTextActivity;
+  factory CopyWithQueryActivitiesPageactivitiesTextActivity.stub(TRes res) =
+      _CopyWithStubImplQueryActivitiesPageactivitiesTextActivity;
 
   TRes call({
     int? id,
@@ -3159,16 +3181,16 @@ abstract class CopyWithQueryPagePageactivitiesTextActivity<TRes> {
   CopyWithFragmentUserMinF<TRes> get user;
 }
 
-class _CopyWithImplQueryPagePageactivitiesTextActivity<TRes>
-    implements CopyWithQueryPagePageactivitiesTextActivity<TRes> {
-  _CopyWithImplQueryPagePageactivitiesTextActivity(
+class _CopyWithImplQueryActivitiesPageactivitiesTextActivity<TRes>
+    implements CopyWithQueryActivitiesPageactivitiesTextActivity<TRes> {
+  _CopyWithImplQueryActivitiesPageactivitiesTextActivity(
     this._instance,
     this._then,
   );
 
-  final QueryPagePageactivitiesTextActivity _instance;
+  final QueryActivitiesPageactivitiesTextActivity _instance;
 
-  final TRes Function(QueryPagePageactivitiesTextActivity) _then;
+  final TRes Function(QueryActivitiesPageactivitiesTextActivity) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3186,7 +3208,7 @@ class _CopyWithImplQueryPagePageactivitiesTextActivity<TRes>
     Object? user = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryPagePageactivitiesTextActivity(
+      _then(QueryActivitiesPageactivitiesTextActivity(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         type: type == _undefined ? _instance.type : (type as EnumActivityType?),
         replyCount: replyCount == _undefined || replyCount == null
@@ -3221,9 +3243,9 @@ class _CopyWithImplQueryPagePageactivitiesTextActivity<TRes>
   }
 }
 
-class _CopyWithStubImplQueryPagePageactivitiesTextActivity<TRes>
-    implements CopyWithQueryPagePageactivitiesTextActivity<TRes> {
-  _CopyWithStubImplQueryPagePageactivitiesTextActivity(this._res);
+class _CopyWithStubImplQueryActivitiesPageactivitiesTextActivity<TRes>
+    implements CopyWithQueryActivitiesPageactivitiesTextActivity<TRes> {
+  _CopyWithStubImplQueryActivitiesPageactivitiesTextActivity(this._res);
 
   TRes _res;
 
@@ -3247,9 +3269,9 @@ class _CopyWithStubImplQueryPagePageactivitiesTextActivity<TRes>
       CopyWithFragmentUserMinF.stub(_res);
 }
 
-class QueryPagePageactivitiesListActivity
-    implements FragmentListActivity, QueryPagePageactivities {
-  QueryPagePageactivitiesListActivity({
+class QueryActivitiesPageactivitiesListActivity
+    implements FragmentListActivity, QueryActivitiesPageactivities {
+  QueryActivitiesPageactivitiesListActivity({
     required this.id,
     this.type,
     this.status,
@@ -3267,7 +3289,7 @@ class QueryPagePageactivitiesListActivity
     this.$__typename = 'ListActivity',
   });
 
-  factory QueryPagePageactivitiesListActivity.fromJson(
+  factory QueryActivitiesPageactivitiesListActivity.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$type = json['type'];
@@ -3284,7 +3306,7 @@ class QueryPagePageactivitiesListActivity
     final l$user = json['user'];
     final l$media = json['media'];
     final l$$__typename = json['__typename'];
-    return QueryPagePageactivitiesListActivity(
+    return QueryActivitiesPageactivitiesListActivity(
       id: (l$id as int),
       type:
           l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
@@ -3415,7 +3437,7 @@ class QueryPagePageactivitiesListActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPagePageactivitiesListActivity) ||
+    if (!(other is QueryActivitiesPageactivitiesListActivity) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3498,24 +3520,24 @@ class QueryPagePageactivitiesListActivity
   }
 }
 
-extension UtilityExtensionQueryPagePageactivitiesListActivity
-    on QueryPagePageactivitiesListActivity {
-  CopyWithQueryPagePageactivitiesListActivity<
-          QueryPagePageactivitiesListActivity>
-      get copyWith => CopyWithQueryPagePageactivitiesListActivity(
+extension UtilityExtensionQueryActivitiesPageactivitiesListActivity
+    on QueryActivitiesPageactivitiesListActivity {
+  CopyWithQueryActivitiesPageactivitiesListActivity<
+          QueryActivitiesPageactivitiesListActivity>
+      get copyWith => CopyWithQueryActivitiesPageactivitiesListActivity(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithQueryPagePageactivitiesListActivity<TRes> {
-  factory CopyWithQueryPagePageactivitiesListActivity(
-    QueryPagePageactivitiesListActivity instance,
-    TRes Function(QueryPagePageactivitiesListActivity) then,
-  ) = _CopyWithImplQueryPagePageactivitiesListActivity;
+abstract class CopyWithQueryActivitiesPageactivitiesListActivity<TRes> {
+  factory CopyWithQueryActivitiesPageactivitiesListActivity(
+    QueryActivitiesPageactivitiesListActivity instance,
+    TRes Function(QueryActivitiesPageactivitiesListActivity) then,
+  ) = _CopyWithImplQueryActivitiesPageactivitiesListActivity;
 
-  factory CopyWithQueryPagePageactivitiesListActivity.stub(TRes res) =
-      _CopyWithStubImplQueryPagePageactivitiesListActivity;
+  factory CopyWithQueryActivitiesPageactivitiesListActivity.stub(TRes res) =
+      _CopyWithStubImplQueryActivitiesPageactivitiesListActivity;
 
   TRes call({
     int? id,
@@ -3538,16 +3560,16 @@ abstract class CopyWithQueryPagePageactivitiesListActivity<TRes> {
   CopyWithFragmentMediaMinF<TRes> get media;
 }
 
-class _CopyWithImplQueryPagePageactivitiesListActivity<TRes>
-    implements CopyWithQueryPagePageactivitiesListActivity<TRes> {
-  _CopyWithImplQueryPagePageactivitiesListActivity(
+class _CopyWithImplQueryActivitiesPageactivitiesListActivity<TRes>
+    implements CopyWithQueryActivitiesPageactivitiesListActivity<TRes> {
+  _CopyWithImplQueryActivitiesPageactivitiesListActivity(
     this._instance,
     this._then,
   );
 
-  final QueryPagePageactivitiesListActivity _instance;
+  final QueryActivitiesPageactivitiesListActivity _instance;
 
-  final TRes Function(QueryPagePageactivitiesListActivity) _then;
+  final TRes Function(QueryActivitiesPageactivitiesListActivity) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3568,7 +3590,7 @@ class _CopyWithImplQueryPagePageactivitiesListActivity<TRes>
     Object? media = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryPagePageactivitiesListActivity(
+      _then(QueryActivitiesPageactivitiesListActivity(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         type: type == _undefined ? _instance.type : (type as EnumActivityType?),
         status: status == _undefined ? _instance.status : (status as String?),
@@ -3617,9 +3639,9 @@ class _CopyWithImplQueryPagePageactivitiesListActivity<TRes>
   }
 }
 
-class _CopyWithStubImplQueryPagePageactivitiesListActivity<TRes>
-    implements CopyWithQueryPagePageactivitiesListActivity<TRes> {
-  _CopyWithStubImplQueryPagePageactivitiesListActivity(this._res);
+class _CopyWithStubImplQueryActivitiesPageactivitiesListActivity<TRes>
+    implements CopyWithQueryActivitiesPageactivitiesListActivity<TRes> {
+  _CopyWithStubImplQueryActivitiesPageactivitiesListActivity(this._res);
 
   TRes _res;
 
@@ -3649,9 +3671,9 @@ class _CopyWithStubImplQueryPagePageactivitiesListActivity<TRes>
       CopyWithFragmentMediaMinF.stub(_res);
 }
 
-class QueryPagePageactivitiesMessageActivity
-    implements FragmentMessageActivity, QueryPagePageactivities {
-  QueryPagePageactivitiesMessageActivity({
+class QueryActivitiesPageactivitiesMessageActivity
+    implements FragmentMessageActivity, QueryActivitiesPageactivities {
+  QueryActivitiesPageactivitiesMessageActivity({
     required this.id,
     this.recipientId,
     this.type,
@@ -3668,7 +3690,7 @@ class QueryPagePageactivitiesMessageActivity
     this.$__typename = 'MessageActivity',
   });
 
-  factory QueryPagePageactivitiesMessageActivity.fromJson(
+  factory QueryActivitiesPageactivitiesMessageActivity.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$recipientId = json['recipientId'];
@@ -3684,7 +3706,7 @@ class QueryPagePageactivitiesMessageActivity
     final l$createdAt = json['createdAt'];
     final l$messenger = json['messenger'];
     final l$$__typename = json['__typename'];
-    return QueryPagePageactivitiesMessageActivity(
+    return QueryActivitiesPageactivitiesMessageActivity(
       id: (l$id as int),
       recipientId: (l$recipientId as int?),
       type:
@@ -3806,7 +3828,7 @@ class QueryPagePageactivitiesMessageActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPagePageactivitiesMessageActivity) ||
+    if (!(other is QueryActivitiesPageactivitiesMessageActivity) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3884,24 +3906,24 @@ class QueryPagePageactivitiesMessageActivity
   }
 }
 
-extension UtilityExtensionQueryPagePageactivitiesMessageActivity
-    on QueryPagePageactivitiesMessageActivity {
-  CopyWithQueryPagePageactivitiesMessageActivity<
-          QueryPagePageactivitiesMessageActivity>
-      get copyWith => CopyWithQueryPagePageactivitiesMessageActivity(
+extension UtilityExtensionQueryActivitiesPageactivitiesMessageActivity
+    on QueryActivitiesPageactivitiesMessageActivity {
+  CopyWithQueryActivitiesPageactivitiesMessageActivity<
+          QueryActivitiesPageactivitiesMessageActivity>
+      get copyWith => CopyWithQueryActivitiesPageactivitiesMessageActivity(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithQueryPagePageactivitiesMessageActivity<TRes> {
-  factory CopyWithQueryPagePageactivitiesMessageActivity(
-    QueryPagePageactivitiesMessageActivity instance,
-    TRes Function(QueryPagePageactivitiesMessageActivity) then,
-  ) = _CopyWithImplQueryPagePageactivitiesMessageActivity;
+abstract class CopyWithQueryActivitiesPageactivitiesMessageActivity<TRes> {
+  factory CopyWithQueryActivitiesPageactivitiesMessageActivity(
+    QueryActivitiesPageactivitiesMessageActivity instance,
+    TRes Function(QueryActivitiesPageactivitiesMessageActivity) then,
+  ) = _CopyWithImplQueryActivitiesPageactivitiesMessageActivity;
 
-  factory CopyWithQueryPagePageactivitiesMessageActivity.stub(TRes res) =
-      _CopyWithStubImplQueryPagePageactivitiesMessageActivity;
+  factory CopyWithQueryActivitiesPageactivitiesMessageActivity.stub(TRes res) =
+      _CopyWithStubImplQueryActivitiesPageactivitiesMessageActivity;
 
   TRes call({
     int? id,
@@ -3922,16 +3944,16 @@ abstract class CopyWithQueryPagePageactivitiesMessageActivity<TRes> {
   CopyWithFragmentUserMinF<TRes> get messenger;
 }
 
-class _CopyWithImplQueryPagePageactivitiesMessageActivity<TRes>
-    implements CopyWithQueryPagePageactivitiesMessageActivity<TRes> {
-  _CopyWithImplQueryPagePageactivitiesMessageActivity(
+class _CopyWithImplQueryActivitiesPageactivitiesMessageActivity<TRes>
+    implements CopyWithQueryActivitiesPageactivitiesMessageActivity<TRes> {
+  _CopyWithImplQueryActivitiesPageactivitiesMessageActivity(
     this._instance,
     this._then,
   );
 
-  final QueryPagePageactivitiesMessageActivity _instance;
+  final QueryActivitiesPageactivitiesMessageActivity _instance;
 
-  final TRes Function(QueryPagePageactivitiesMessageActivity) _then;
+  final TRes Function(QueryActivitiesPageactivitiesMessageActivity) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3951,7 +3973,7 @@ class _CopyWithImplQueryPagePageactivitiesMessageActivity<TRes>
     Object? messenger = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryPagePageactivitiesMessageActivity(
+      _then(QueryActivitiesPageactivitiesMessageActivity(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         recipientId: recipientId == _undefined
             ? _instance.recipientId
@@ -3995,9 +4017,9 @@ class _CopyWithImplQueryPagePageactivitiesMessageActivity<TRes>
   }
 }
 
-class _CopyWithStubImplQueryPagePageactivitiesMessageActivity<TRes>
-    implements CopyWithQueryPagePageactivitiesMessageActivity<TRes> {
-  _CopyWithStubImplQueryPagePageactivitiesMessageActivity(this._res);
+class _CopyWithStubImplQueryActivitiesPageactivitiesMessageActivity<TRes>
+    implements CopyWithQueryActivitiesPageactivitiesMessageActivity<TRes> {
+  _CopyWithStubImplQueryActivitiesPageactivitiesMessageActivity(this._res);
 
   TRes _res;
 

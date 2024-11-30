@@ -59,7 +59,7 @@ fragment MessageActivity on MessageActivity {
 # For global activities, hasRepliesOrTypeText should be true
 # For getting a specific user's all activities, typeIn should
 # also consist of the MESSAGE type in addition to the default ones
-query Page(
+query Activities(
   $page: Int
   $perPage: Int
   $isFollowing: Boolean
