@@ -1,6 +1,6 @@
 # Media related fragments
 
-fragment MediaMinimalF on Media {
+fragment MediaMinF on Media {
   id
   type
   format
@@ -16,5 +16,102 @@ fragment MediaMinimalF on Media {
     large
     medium
     color
+  }
+}
+
+# List related fragments
+
+fragment MediaListF on MediaList {
+  id
+  userId
+  media {
+    ...MediaMinF
+  }
+  status
+  progress
+  progressVolumes
+  score(format: POINT_10)
+  repeat
+  private
+  notes
+  hiddenFromStatusLists
+  startedAt {
+    year
+    month
+    day
+  }
+  completedAt {
+    year
+    month
+    day
+  }
+  priority
+  customLists(asArray: true)
+  updatedAt
+  createdAt
+}
+
+# user related fragments
+
+fragment UserMinF on User {
+  id
+  name
+  avatar {
+    large
+    medium
+  }
+}
+
+fragment UserSocialsF on User {
+  isFollowing
+  isFollower
+  isBlocked
+}
+
+fragment UserSettingsF on User {
+  options {
+    titleLanguage
+    displayAdultContent
+    airingNotifications
+    profileColor
+    timezone
+    activityMergeTime
+    staffNameLanguage
+    restrictMessagesToFollowing
+  }
+  mediaListOptions {
+    scoreFormat
+    rowOrder
+    animeList {
+      sectionOrder
+      splitCompletedSectionByFormat
+      customLists
+      advancedScoring
+      advancedScoringEnabled
+    }
+    mangaList {
+      sectionOrder
+      splitCompletedSectionByFormat
+      customLists
+      advancedScoring
+      advancedScoringEnabled
+    }
+  }
+}
+
+fragment UserStatisticsF on UserStatistics {
+  count
+  meanScore
+  standardDeviation
+  minutesWatched
+  episodesWatched
+  chaptersRead
+  volumesRead
+  genres {
+    count
+    genre
+    meanScore
+    minutesWatched
+    chaptersRead
   }
 }
