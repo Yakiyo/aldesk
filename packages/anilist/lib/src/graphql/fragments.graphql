@@ -115,3 +115,9 @@ fragment UserStatisticsF on UserStatistics {
     chaptersRead
   }
 }
+
+query MdToHtml($markdown: String!) {
+  Markdown(markdown: $markdown) {
+    html
+  }
+}
