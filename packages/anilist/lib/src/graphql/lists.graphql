@@ -1,37 +1,42 @@
-query UserList($userId: Int, $status: MediaListStatus, $mediaType: MediaType) {
-  MediaListCollection(userId: $userId, status: $status, type: $mediaType, sort: UPDATED_TIME_DESC) {
+# Get a user's media list. If $status is provided, it returns a specific list, 
+# otherwise it returns all the lists for that media type.
+# use notesLike to filter entries based on a some user note.
+query MediaListCollection(
+  $userId: Int!
+  $type: MediaType!
+  $status: MediaListStatus
+  $chunk: Int
+  $perChunk: Int
+  $sort: [MediaListSort] = [UPDATED_TIME_DESC]
+  $notesLike: String
+) {
+  MediaListCollection(
+    userId: $userId
+    type: $type
+    status: $status
+    chunk: $chunk
+    perChunk: $perChunk
+    sort: $sort
+    notes_like: $notesLike
+  ) {
+    hasNextChunk
+    user {
+      id
+    }
     lists {
       name
+      isCustomList
       status
       entries {
-        id
-        progress
-        media {
-          ...MediaMinimalF
-          type
-          episodes
-          chapters
-        }
+        ...MediaListF
       }
     }
   }
 }
 
-query HomePageList($userId: Int, $mediaType: MediaType) {
-  Page(perPage: 40, page: 1) {
-    mediaList(userId: $userId, type: $mediaType, status: CURRENT, sort: [STATUS, UPDATED_TIME_DESC]) {
-      progress
-      updatedAt
-      media {
-        ...MediaMinimalF
-        episodes
-        chapters
-        status
-        nextAiringEpisode {
-          timeUntilAiring
-          episode
-        }
-      }
-    }
+# Get a single entry of media list
+query MediaList($mediaListId: Int!) {
+  MediaList(id: $mediaListId) {
+    ...MediaListF
   }
 }

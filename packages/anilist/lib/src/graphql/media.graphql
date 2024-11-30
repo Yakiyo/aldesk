@@ -14,7 +14,7 @@ query MediaMin(
     isAdult: $isAdult
     search: $search
   ) {
-    ...MediaMinimalF
+    ...MediaMinF
   }
 }
 
@@ -35,7 +35,7 @@ query Media(
     search: $search
   ) {
     # main info
-    ...MediaMinimalF
+    ...MediaMinF
     description(asHtml: false)
     idMal
     # scalar fields
