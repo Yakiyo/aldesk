@@ -1,44 +1,73 @@
-fragment MediaMinimalFrag on Media {
-  id
-  type
-  title {
-    romaji
-    userPreferred
-  }
-  coverImage {
-    large
-    medium
-  }
-}
-
-fragment MediaCategory on Media {
-  type
-  format
-}
-
-fragment MediaExtraInfo on Media {
-  season
-  seasonYear
-  averageScore
-  meanScore
-  popularity
-}
-
-query MediaMinimal($id: Int, $search: String) {
-  Media(id: $id, search: $search) {
-    ...MediaMinimalFrag
+query MediaMin(
+  $id: Int
+  $type: MediaType
+  $format: MediaFormat
+  $status: MediaStatus
+  $isAdult: Boolean
+  $search: String
+) {
+  Media(
+    id: $id
+    type: $type
+    format: $format
+    status: $status
+    isAdult: $isAdult
+    search: $search
+  ) {
+    ...MediaMinimalF
   }
 }
 
-query Media($id: Int, $search: String) {
-  Media(id: $id, search: $search) {
-    ...MediaMinimalFrag
-    ...MediaCategory
-    ...MediaExtraInfo
-    status
+query Media(
+  $id: Int
+  $type: MediaType
+  $format: MediaFormat
+  $status: MediaStatus
+  $isAdult: Boolean
+  $search: String
+) {
+  Media(
+    id: $id
+    type: $type
+    format: $format
+    status: $status
+    isAdult: $isAdult
+    search: $search
+  ) {
+    # main info
+    ...MediaMinimalF
     description(asHtml: false)
+    idMal
+    # scalar fields
+    season
+    seasonYear
+    episodes
+    duration
+    chapters
+    volumes
+    countryOfOrigin
+    isLicensed
+    source
+    hashtag
+    updatedAt
     bannerImage
-
+    genres
+    synonyms
+    averageScore
+    meanScore
+    popularity
+    isLocked
+    trending
+    favourites
+    isFavourite
+    isFavouriteBlocked
+    isAdult
+    siteUrl
+    autoCreateForumThread
+    isRecommendationBlocked
+    isReviewBlocked
+    modNotes
+    # non-scalar fields
     startDate {
       year
       month
@@ -49,87 +78,132 @@ query Media($id: Int, $search: String) {
       month
       day
     }
-    
-    episodes
-    chapters
-    volumes
-    
-    isLicensed
-    source
-    
-    genres
-    synonyms
+    trailer {
+      id
+      site
+      thumbnail
+    }
     tags {
       id
       name
       description
     }
-    isAdult
-    
     nextAiringEpisode {
       id
+      episode
       airingAt
       timeUntilAiring
-      episode
     }
-    
+    externalLinks {
+      id
+      site
+      url
+      icon
+    }
+    # only take minimal info about reviews, if needed, it can be
+    # fetched using the id for full info
+    reviews {
+      nodes {
+        id
+        userId
+        summary
+      }
+    }
+    stats {
+      scoreDistribution {
+        amount
+        score
+      }
+      statusDistribution {
+        amount
+        status
+      }
+    }
+    # relation like fields
+
+    # only get basic info from edge, for info in node, it can
+    # be fetched using the id from node
+    characters {
+      edges {
+        id
+        name
+        role
+        node {
+          id
+        }
+      }
+    }
+
+    staff {
+      edges {
+        id
+        role
+        favouriteOrder
+        node {
+          id
+        }
+      }
+    }
+    # only get the id of the related media, can just fetch
+    # the data of the media if needed
+    relations {
+      edges {
+        id
+        relationType(version: 2)
+        node {
+          id
+        }
+      }
+    }
+    airingSchedule {
+      nodes {
+        id
+        airingAt
+        timeUntilAiring
+        episode
+        mediaId
+      }
+    }
+
+    recommendations(sort: ID_DESC) {
+      nodes {
+        id
+        rating
+        userRating
+        mediaRecommendation {
+          id
+        }
+        user {
+          id
+          name
+        }
+      }
+    }
+    studios {
+      edges {
+        id
+        isMain
+        node {
+          id
+          name
+        }
+      }
+    }
+
+    streamingEpisodes {
+      title
+      url
+      site
+      thumbnail
+    }
+
+    # applicable only if user is logged in
     mediaListEntry {
       id
+      userId
+      score
       status
-      score(format: POINT_10)
       progress
-      progressVolumes
-      repeat
-      notes
-      startedAt {
-        year
-        month
-        day
-      }
-      completedAt {
-        year
-        month
-        day
-      }
-    }
-  }
-}
-
-
-query UserList($userId: Int, $status: MediaListStatus, $mediaType: MediaType) {
-  MediaListCollection(userId: $userId, status: $status, type: $mediaType, sort: UPDATED_TIME_DESC) {
-    lists {
-      name
-      status
-      entries {
-        id
-        progress
-        media {
-          ...MediaMinimalFrag
-          type
-          episodes
-          chapters
-        }
-      }
-    }
-  }
-}
-
-query HomePageList($userId: Int, $mediaType: MediaType) {
-  Page(perPage: 40, page: 1) {
-    mediaList(userId: $userId, type: $mediaType, status: CURRENT, sort: [STATUS, UPDATED_TIME_DESC]) {
-      progress
-      updatedAt
-      media {
-        ...MediaMinimalFrag
-        episodes
-        chapters
-        status
-        nextAiringEpisode {
-          timeUntilAiring
-          episode
-        }
-      }
     }
   }
 }

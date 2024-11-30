@@ -1,0 +1,20 @@
+# Media related fragments
+
+fragment MediaMinimalF on Media {
+  id
+  type
+  format
+  status
+  title {
+    userPreferred
+    romaji
+    english
+    native
+  }
+  coverImage {
+    extraLarge
+    large
+    medium
+    color
+  }
+}

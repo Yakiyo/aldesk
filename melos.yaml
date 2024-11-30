@@ -19,3 +19,8 @@ scripts:
     exec: dart run build_runner build
     packageFilters:
       dependsOn: "build_runner"
+
+  test:al:
+    exec: dart test
+    packageFilters:
+      scope: "anilist"
