@@ -19,7 +19,7 @@ void registerToken([String? token]) {
 }
 
 /// Sends a request to Anilist with `query` and associated `variables`.
-Future<Result<Map<String, dynamic>, ApiErrors>> request({
+ReturnType<Map<String, dynamic>> request({
   required String query,
   Map<String, dynamic> variables = const {},
   Client? client,
@@ -40,18 +40,18 @@ Future<Result<Map<String, dynamic>, ApiErrors>> request({
     final errors = errorR
         .map((e) => ApiError.fromJson(e as Map<String, dynamic>))
         .toList();
-    return Err(errors);
+    return Err(ApiErrors(errors));
   }
   final data = body['data'] as Map<String, dynamic>?;
 
   // this should not happen but handle it regardless
   if (data == null) {
-    return Err([
+    return Err(ApiErrors([
       ApiError(
           message: "Missing body data despite not having errors",
           status: 0,
           locations: [])
-    ]);
+    ]));
   }
 
   return Ok(data);

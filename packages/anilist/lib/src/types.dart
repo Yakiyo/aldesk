@@ -1,11 +1,31 @@
 import 'dart:convert';
 import 'package:option_result/result.dart';
 
-/// List of ApiError
-typedef ApiErrors = List<ApiError>;
-
 /// Return type for functions in the library
-typedef ReturnType<T> = FutureOrResult<T, ApiErrors>;
+typedef ReturnType<T> = FutureResult<T, Error>;
+
+class ApiErrors extends Error {
+  final List<ApiError> errors;
+
+  ApiErrors(this.errors);
+
+  factory ApiErrors.fromJson(Map<String, dynamic> json) {
+    return ApiErrors(
+      (json['errors'] as List<dynamic>)
+          .map((e) => ApiError.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'errors': errors.map((e) => e.toJson()).toList(),
+    };
+  }
+
+  @override
+  String toString() => jsonEncode(toJson());
+}
 
 /// A class representing the errors returned by the Anilist API
 class ApiError extends Error {
