@@ -57,14 +57,15 @@ fragment MessageActivity on MessageActivity {
 # For getting global and following user's activities, typeIn should be as it is
 # For following user's activities, isFollowing should be true
 # For global activities, hasRepliesOrTypeText should be true
-# For getting a specific user's all activities, typeIn should
-# also consist of the MESSAGE type in addition to the default ones
+# For getting a specific user's all activities, userId must be set and
+# typeIn should also consist of the MESSAGE type in addition to the default ones
 query Activities(
   $page: Int
   $perPage: Int
   $isFollowing: Boolean
   $typeIn: [ActivityType] = [ANIME_LIST, MANGA_LIST, TEXT]
   $hasRepliesOrTypeText: Boolean
+  $userId: Int
 ) {
   Page(page: $page, perPage: $perPage) {
     pageInfo {
@@ -79,6 +80,7 @@ query Activities(
       isFollowing: $isFollowing
       type_in: $typeIn
       hasRepliesOrTypeText: $hasRepliesOrTypeText
+      userId: $userId
     ) {
       ...TextActivity
       ...ListActivity

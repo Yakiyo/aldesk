@@ -1806,6 +1806,7 @@ class VariablesQueryActivities {
     bool? isFollowing,
     List<EnumActivityType?>? typeIn,
     bool? hasRepliesOrTypeText,
+    int? userId,
   }) =>
       VariablesQueryActivities._({
         if (page != null) r'page': page,
@@ -1814,6 +1815,7 @@ class VariablesQueryActivities {
         if (typeIn != null) r'typeIn': typeIn,
         if (hasRepliesOrTypeText != null)
           r'hasRepliesOrTypeText': hasRepliesOrTypeText,
+        if (userId != null) r'userId': userId,
       });
 
   VariablesQueryActivities._(this._$data);
@@ -1843,6 +1845,10 @@ class VariablesQueryActivities {
       final l$hasRepliesOrTypeText = data['hasRepliesOrTypeText'];
       result$data['hasRepliesOrTypeText'] = (l$hasRepliesOrTypeText as bool?);
     }
+    if (data.containsKey('userId')) {
+      final l$userId = data['userId'];
+      result$data['userId'] = (l$userId as int?);
+    }
     return VariablesQueryActivities._(result$data);
   }
 
@@ -1858,6 +1864,8 @@ class VariablesQueryActivities {
       (_$data['typeIn'] as List<EnumActivityType?>?);
 
   bool? get hasRepliesOrTypeText => (_$data['hasRepliesOrTypeText'] as bool?);
+
+  int? get userId => (_$data['userId'] as int?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -1882,6 +1890,10 @@ class VariablesQueryActivities {
     if (_$data.containsKey('hasRepliesOrTypeText')) {
       final l$hasRepliesOrTypeText = hasRepliesOrTypeText;
       result$data['hasRepliesOrTypeText'] = l$hasRepliesOrTypeText;
+    }
+    if (_$data.containsKey('userId')) {
+      final l$userId = userId;
+      result$data['userId'] = l$userId;
     }
     return result$data;
   }
@@ -1954,6 +1966,14 @@ class VariablesQueryActivities {
     if (l$hasRepliesOrTypeText != lOther$hasRepliesOrTypeText) {
       return false;
     }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (_$data.containsKey('userId') != other._$data.containsKey('userId')) {
+      return false;
+    }
+    if (l$userId != lOther$userId) {
+      return false;
+    }
     return true;
   }
 
@@ -1964,6 +1984,7 @@ class VariablesQueryActivities {
     final l$isFollowing = isFollowing;
     final l$typeIn = typeIn;
     final l$hasRepliesOrTypeText = hasRepliesOrTypeText;
+    final l$userId = userId;
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
       _$data.containsKey('perPage') ? l$perPage : const {},
@@ -1976,6 +1997,7 @@ class VariablesQueryActivities {
       _$data.containsKey('hasRepliesOrTypeText')
           ? l$hasRepliesOrTypeText
           : const {},
+      _$data.containsKey('userId') ? l$userId : const {},
     ]);
   }
 }
@@ -1995,6 +2017,7 @@ abstract class CopyWithVariablesQueryActivities<TRes> {
     bool? isFollowing,
     List<EnumActivityType?>? typeIn,
     bool? hasRepliesOrTypeText,
+    int? userId,
   });
 }
 
@@ -2017,6 +2040,7 @@ class _CopyWithImplVariablesQueryActivities<TRes>
     Object? isFollowing = _undefined,
     Object? typeIn = _undefined,
     Object? hasRepliesOrTypeText = _undefined,
+    Object? userId = _undefined,
   }) =>
       _then(VariablesQueryActivities._({
         ..._instance._$data,
@@ -2027,6 +2051,7 @@ class _CopyWithImplVariablesQueryActivities<TRes>
           'typeIn': (typeIn as List<EnumActivityType?>?),
         if (hasRepliesOrTypeText != _undefined)
           'hasRepliesOrTypeText': (hasRepliesOrTypeText as bool?),
+        if (userId != _undefined) 'userId': (userId as int?),
       }));
 }
 
@@ -2042,6 +2067,7 @@ class _CopyWithStubImplVariablesQueryActivities<TRes>
     bool? isFollowing,
     List<EnumActivityType?>? typeIn,
     bool? hasRepliesOrTypeText,
+    int? userId,
   }) =>
       _res;
 }
@@ -2240,6 +2266,15 @@ const documentNodeQueryActivities = DocumentNode(definitions: [
         defaultValue: DefaultValueNode(value: null),
         directives: [],
       ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -2328,6 +2363,10 @@ const documentNodeQueryActivities = DocumentNode(definitions: [
                 name: NameNode(value: 'hasRepliesOrTypeText'),
                 value:
                     VariableNode(name: NameNode(value: 'hasRepliesOrTypeText')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'userId'),
+                value: VariableNode(name: NameNode(value: 'userId')),
               ),
             ],
             directives: [],
