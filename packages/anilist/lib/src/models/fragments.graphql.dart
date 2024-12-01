@@ -1411,7 +1411,7 @@ const fragmentDefinitionMediaListF = FragmentDefinitionNode(
       arguments: [
         ArgumentNode(
           name: NameNode(value: 'asArray'),
-          value: BooleanValueNode(value: true),
+          value: BooleanValueNode(value: false),
         )
       ],
       directives: [],

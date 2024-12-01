@@ -1219,28 +1219,70 @@ class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlists<TRes>
 }
 
 class VariablesQueryMediaList {
-  factory VariablesQueryMediaList({required int mediaListId}) =>
+  factory VariablesQueryMediaList({
+    int? mediaListId,
+    int? userId,
+    int? mediaId,
+    String? userName,
+  }) =>
       VariablesQueryMediaList._({
-        r'mediaListId': mediaListId,
+        if (mediaListId != null) r'mediaListId': mediaListId,
+        if (userId != null) r'userId': userId,
+        if (mediaId != null) r'mediaId': mediaId,
+        if (userName != null) r'userName': userName,
       });
 
   VariablesQueryMediaList._(this._$data);
 
   factory VariablesQueryMediaList.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$mediaListId = data['mediaListId'];
-    result$data['mediaListId'] = (l$mediaListId as int);
+    if (data.containsKey('mediaListId')) {
+      final l$mediaListId = data['mediaListId'];
+      result$data['mediaListId'] = (l$mediaListId as int?);
+    }
+    if (data.containsKey('userId')) {
+      final l$userId = data['userId'];
+      result$data['userId'] = (l$userId as int?);
+    }
+    if (data.containsKey('mediaId')) {
+      final l$mediaId = data['mediaId'];
+      result$data['mediaId'] = (l$mediaId as int?);
+    }
+    if (data.containsKey('userName')) {
+      final l$userName = data['userName'];
+      result$data['userName'] = (l$userName as String?);
+    }
     return VariablesQueryMediaList._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  int get mediaListId => (_$data['mediaListId'] as int);
+  int? get mediaListId => (_$data['mediaListId'] as int?);
+
+  int? get userId => (_$data['userId'] as int?);
+
+  int? get mediaId => (_$data['mediaId'] as int?);
+
+  String? get userName => (_$data['userName'] as String?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$mediaListId = mediaListId;
-    result$data['mediaListId'] = l$mediaListId;
+    if (_$data.containsKey('mediaListId')) {
+      final l$mediaListId = mediaListId;
+      result$data['mediaListId'] = l$mediaListId;
+    }
+    if (_$data.containsKey('userId')) {
+      final l$userId = userId;
+      result$data['userId'] = l$userId;
+    }
+    if (_$data.containsKey('mediaId')) {
+      final l$mediaId = mediaId;
+      result$data['mediaId'] = l$mediaId;
+    }
+    if (_$data.containsKey('userName')) {
+      final l$userName = userName;
+      result$data['userName'] = l$userName;
+    }
     return result$data;
   }
 
@@ -1261,7 +1303,36 @@ class VariablesQueryMediaList {
     }
     final l$mediaListId = mediaListId;
     final lOther$mediaListId = other.mediaListId;
+    if (_$data.containsKey('mediaListId') !=
+        other._$data.containsKey('mediaListId')) {
+      return false;
+    }
     if (l$mediaListId != lOther$mediaListId) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (_$data.containsKey('userId') != other._$data.containsKey('userId')) {
+      return false;
+    }
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    final l$mediaId = mediaId;
+    final lOther$mediaId = other.mediaId;
+    if (_$data.containsKey('mediaId') != other._$data.containsKey('mediaId')) {
+      return false;
+    }
+    if (l$mediaId != lOther$mediaId) {
+      return false;
+    }
+    final l$userName = userName;
+    final lOther$userName = other.userName;
+    if (_$data.containsKey('userName') !=
+        other._$data.containsKey('userName')) {
+      return false;
+    }
+    if (l$userName != lOther$userName) {
       return false;
     }
     return true;
@@ -1270,7 +1341,15 @@ class VariablesQueryMediaList {
   @override
   int get hashCode {
     final l$mediaListId = mediaListId;
-    return Object.hashAll([l$mediaListId]);
+    final l$userId = userId;
+    final l$mediaId = mediaId;
+    final l$userName = userName;
+    return Object.hashAll([
+      _$data.containsKey('mediaListId') ? l$mediaListId : const {},
+      _$data.containsKey('userId') ? l$userId : const {},
+      _$data.containsKey('mediaId') ? l$mediaId : const {},
+      _$data.containsKey('userName') ? l$userName : const {},
+    ]);
   }
 }
 
@@ -1283,7 +1362,12 @@ abstract class CopyWithVariablesQueryMediaList<TRes> {
   factory CopyWithVariablesQueryMediaList.stub(TRes res) =
       _CopyWithStubImplVariablesQueryMediaList;
 
-  TRes call({int? mediaListId});
+  TRes call({
+    int? mediaListId,
+    int? userId,
+    int? mediaId,
+    String? userName,
+  });
 }
 
 class _CopyWithImplVariablesQueryMediaList<TRes>
@@ -1299,11 +1383,18 @@ class _CopyWithImplVariablesQueryMediaList<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? mediaListId = _undefined}) =>
+  TRes call({
+    Object? mediaListId = _undefined,
+    Object? userId = _undefined,
+    Object? mediaId = _undefined,
+    Object? userName = _undefined,
+  }) =>
       _then(VariablesQueryMediaList._({
         ..._instance._$data,
-        if (mediaListId != _undefined && mediaListId != null)
-          'mediaListId': (mediaListId as int),
+        if (mediaListId != _undefined) 'mediaListId': (mediaListId as int?),
+        if (userId != _undefined) 'userId': (userId as int?),
+        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+        if (userName != _undefined) 'userName': (userName as String?),
       }));
 }
 
@@ -1313,7 +1404,13 @@ class _CopyWithStubImplVariablesQueryMediaList<TRes>
 
   TRes _res;
 
-  call({int? mediaListId}) => _res;
+  call({
+    int? mediaListId,
+    int? userId,
+    int? mediaId,
+    String? userName,
+  }) =>
+      _res;
 }
 
 class QueryMediaList {
@@ -1461,11 +1558,38 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'mediaListId')),
         type: NamedTypeNode(
           name: NameNode(value: 'Int'),
-          isNonNull: true,
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'mediaId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userName')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -1476,7 +1600,19 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
           ArgumentNode(
             name: NameNode(value: 'id'),
             value: VariableNode(name: NameNode(value: 'mediaListId')),
-          )
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'userId'),
+            value: VariableNode(name: NameNode(value: 'userId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'mediaId'),
+            value: VariableNode(name: NameNode(value: 'mediaId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'userName'),
+            value: VariableNode(name: NameNode(value: 'userName')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -1505,3 +1641,1035 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
   fragmentDefinitionMediaListF,
   fragmentDefinitionMediaMinF,
 ]);
+
+class VariablesQueryPaginatedMediaList {
+  factory VariablesQueryPaginatedMediaList({
+    int? page,
+    int? perPage,
+    int? userId,
+    String? userName,
+    EnumMediaType? type,
+    EnumMediaListStatus? status,
+    List<EnumMediaListSort?>? sort,
+  }) =>
+      VariablesQueryPaginatedMediaList._({
+        if (page != null) r'page': page,
+        if (perPage != null) r'perPage': perPage,
+        if (userId != null) r'userId': userId,
+        if (userName != null) r'userName': userName,
+        if (type != null) r'type': type,
+        if (status != null) r'status': status,
+        if (sort != null) r'sort': sort,
+      });
+
+  VariablesQueryPaginatedMediaList._(this._$data);
+
+  factory VariablesQueryPaginatedMediaList.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('page')) {
+      final l$page = data['page'];
+      result$data['page'] = (l$page as int?);
+    }
+    if (data.containsKey('perPage')) {
+      final l$perPage = data['perPage'];
+      result$data['perPage'] = (l$perPage as int?);
+    }
+    if (data.containsKey('userId')) {
+      final l$userId = data['userId'];
+      result$data['userId'] = (l$userId as int?);
+    }
+    if (data.containsKey('userName')) {
+      final l$userName = data['userName'];
+      result$data['userName'] = (l$userName as String?);
+    }
+    if (data.containsKey('type')) {
+      final l$type = data['type'];
+      result$data['type'] =
+          l$type == null ? null : fromJsonEnumMediaType((l$type as String));
+    }
+    if (data.containsKey('status')) {
+      final l$status = data['status'];
+      result$data['status'] = l$status == null
+          ? null
+          : fromJsonEnumMediaListStatus((l$status as String));
+    }
+    if (data.containsKey('sort')) {
+      final l$sort = data['sort'];
+      result$data['sort'] = (l$sort as List<dynamic>?)
+          ?.map((e) =>
+              e == null ? null : fromJsonEnumMediaListSort((e as String)))
+          .toList();
+    }
+    return VariablesQueryPaginatedMediaList._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get page => (_$data['page'] as int?);
+
+  int? get perPage => (_$data['perPage'] as int?);
+
+  int? get userId => (_$data['userId'] as int?);
+
+  String? get userName => (_$data['userName'] as String?);
+
+  EnumMediaType? get type => (_$data['type'] as EnumMediaType?);
+
+  EnumMediaListStatus? get status => (_$data['status'] as EnumMediaListStatus?);
+
+  List<EnumMediaListSort?>? get sort =>
+      (_$data['sort'] as List<EnumMediaListSort?>?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('page')) {
+      final l$page = page;
+      result$data['page'] = l$page;
+    }
+    if (_$data.containsKey('perPage')) {
+      final l$perPage = perPage;
+      result$data['perPage'] = l$perPage;
+    }
+    if (_$data.containsKey('userId')) {
+      final l$userId = userId;
+      result$data['userId'] = l$userId;
+    }
+    if (_$data.containsKey('userName')) {
+      final l$userName = userName;
+      result$data['userName'] = l$userName;
+    }
+    if (_$data.containsKey('type')) {
+      final l$type = type;
+      result$data['type'] = l$type == null ? null : toJsonEnumMediaType(l$type);
+    }
+    if (_$data.containsKey('status')) {
+      final l$status = status;
+      result$data['status'] =
+          l$status == null ? null : toJsonEnumMediaListStatus(l$status);
+    }
+    if (_$data.containsKey('sort')) {
+      final l$sort = sort;
+      result$data['sort'] = l$sort
+          ?.map((e) => e == null ? null : toJsonEnumMediaListSort(e))
+          .toList();
+    }
+    return result$data;
+  }
+
+  CopyWithVariablesQueryPaginatedMediaList<VariablesQueryPaginatedMediaList>
+      get copyWith => CopyWithVariablesQueryPaginatedMediaList(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is VariablesQueryPaginatedMediaList) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$page = page;
+    final lOther$page = other.page;
+    if (_$data.containsKey('page') != other._$data.containsKey('page')) {
+      return false;
+    }
+    if (l$page != lOther$page) {
+      return false;
+    }
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (_$data.containsKey('perPage') != other._$data.containsKey('perPage')) {
+      return false;
+    }
+    if (l$perPage != lOther$perPage) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (_$data.containsKey('userId') != other._$data.containsKey('userId')) {
+      return false;
+    }
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    final l$userName = userName;
+    final lOther$userName = other.userName;
+    if (_$data.containsKey('userName') !=
+        other._$data.containsKey('userName')) {
+      return false;
+    }
+    if (l$userName != lOther$userName) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (_$data.containsKey('type') != other._$data.containsKey('type')) {
+      return false;
+    }
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (_$data.containsKey('status') != other._$data.containsKey('status')) {
+      return false;
+    }
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$sort = sort;
+    final lOther$sort = other.sort;
+    if (_$data.containsKey('sort') != other._$data.containsKey('sort')) {
+      return false;
+    }
+    if (l$sort != null && lOther$sort != null) {
+      if (l$sort.length != lOther$sort.length) {
+        return false;
+      }
+      for (int i = 0; i < l$sort.length; i++) {
+        final l$sort$entry = l$sort[i];
+        final lOther$sort$entry = lOther$sort[i];
+        if (l$sort$entry != lOther$sort$entry) {
+          return false;
+        }
+      }
+    } else if (l$sort != lOther$sort) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$page = page;
+    final l$perPage = perPage;
+    final l$userId = userId;
+    final l$userName = userName;
+    final l$type = type;
+    final l$status = status;
+    final l$sort = sort;
+    return Object.hashAll([
+      _$data.containsKey('page') ? l$page : const {},
+      _$data.containsKey('perPage') ? l$perPage : const {},
+      _$data.containsKey('userId') ? l$userId : const {},
+      _$data.containsKey('userName') ? l$userName : const {},
+      _$data.containsKey('type') ? l$type : const {},
+      _$data.containsKey('status') ? l$status : const {},
+      _$data.containsKey('sort')
+          ? l$sort == null
+              ? null
+              : Object.hashAll(l$sort.map((v) => v))
+          : const {},
+    ]);
+  }
+}
+
+abstract class CopyWithVariablesQueryPaginatedMediaList<TRes> {
+  factory CopyWithVariablesQueryPaginatedMediaList(
+    VariablesQueryPaginatedMediaList instance,
+    TRes Function(VariablesQueryPaginatedMediaList) then,
+  ) = _CopyWithImplVariablesQueryPaginatedMediaList;
+
+  factory CopyWithVariablesQueryPaginatedMediaList.stub(TRes res) =
+      _CopyWithStubImplVariablesQueryPaginatedMediaList;
+
+  TRes call({
+    int? page,
+    int? perPage,
+    int? userId,
+    String? userName,
+    EnumMediaType? type,
+    EnumMediaListStatus? status,
+    List<EnumMediaListSort?>? sort,
+  });
+}
+
+class _CopyWithImplVariablesQueryPaginatedMediaList<TRes>
+    implements CopyWithVariablesQueryPaginatedMediaList<TRes> {
+  _CopyWithImplVariablesQueryPaginatedMediaList(
+    this._instance,
+    this._then,
+  );
+
+  final VariablesQueryPaginatedMediaList _instance;
+
+  final TRes Function(VariablesQueryPaginatedMediaList) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? page = _undefined,
+    Object? perPage = _undefined,
+    Object? userId = _undefined,
+    Object? userName = _undefined,
+    Object? type = _undefined,
+    Object? status = _undefined,
+    Object? sort = _undefined,
+  }) =>
+      _then(VariablesQueryPaginatedMediaList._({
+        ..._instance._$data,
+        if (page != _undefined) 'page': (page as int?),
+        if (perPage != _undefined) 'perPage': (perPage as int?),
+        if (userId != _undefined) 'userId': (userId as int?),
+        if (userName != _undefined) 'userName': (userName as String?),
+        if (type != _undefined) 'type': (type as EnumMediaType?),
+        if (status != _undefined) 'status': (status as EnumMediaListStatus?),
+        if (sort != _undefined) 'sort': (sort as List<EnumMediaListSort?>?),
+      }));
+}
+
+class _CopyWithStubImplVariablesQueryPaginatedMediaList<TRes>
+    implements CopyWithVariablesQueryPaginatedMediaList<TRes> {
+  _CopyWithStubImplVariablesQueryPaginatedMediaList(this._res);
+
+  TRes _res;
+
+  call({
+    int? page,
+    int? perPage,
+    int? userId,
+    String? userName,
+    EnumMediaType? type,
+    EnumMediaListStatus? status,
+    List<EnumMediaListSort?>? sort,
+  }) =>
+      _res;
+}
+
+class QueryPaginatedMediaList {
+  QueryPaginatedMediaList({
+    this.Page,
+    this.$__typename = 'Query',
+  });
+
+  factory QueryPaginatedMediaList.fromJson(Map<String, dynamic> json) {
+    final l$Page = json['Page'];
+    final l$$__typename = json['__typename'];
+    return QueryPaginatedMediaList(
+      Page: l$Page == null
+          ? null
+          : QueryPaginatedMediaListPage.fromJson(
+              (l$Page as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final QueryPaginatedMediaListPage? Page;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$Page = Page;
+    _resultData['Page'] = l$Page?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$Page = Page;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$Page,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryPaginatedMediaList) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$Page = Page;
+    final lOther$Page = other.Page;
+    if (l$Page != lOther$Page) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryPaginatedMediaList on QueryPaginatedMediaList {
+  CopyWithQueryPaginatedMediaList<QueryPaginatedMediaList> get copyWith =>
+      CopyWithQueryPaginatedMediaList(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithQueryPaginatedMediaList<TRes> {
+  factory CopyWithQueryPaginatedMediaList(
+    QueryPaginatedMediaList instance,
+    TRes Function(QueryPaginatedMediaList) then,
+  ) = _CopyWithImplQueryPaginatedMediaList;
+
+  factory CopyWithQueryPaginatedMediaList.stub(TRes res) =
+      _CopyWithStubImplQueryPaginatedMediaList;
+
+  TRes call({
+    QueryPaginatedMediaListPage? Page,
+    String? $__typename,
+  });
+  CopyWithQueryPaginatedMediaListPage<TRes> get Page;
+}
+
+class _CopyWithImplQueryPaginatedMediaList<TRes>
+    implements CopyWithQueryPaginatedMediaList<TRes> {
+  _CopyWithImplQueryPaginatedMediaList(
+    this._instance,
+    this._then,
+  );
+
+  final QueryPaginatedMediaList _instance;
+
+  final TRes Function(QueryPaginatedMediaList) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? Page = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryPaginatedMediaList(
+        Page: Page == _undefined
+            ? _instance.Page
+            : (Page as QueryPaginatedMediaListPage?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryPaginatedMediaListPage<TRes> get Page {
+    final local$Page = _instance.Page;
+    return local$Page == null
+        ? CopyWithQueryPaginatedMediaListPage.stub(_then(_instance))
+        : CopyWithQueryPaginatedMediaListPage(local$Page, (e) => call(Page: e));
+  }
+}
+
+class _CopyWithStubImplQueryPaginatedMediaList<TRes>
+    implements CopyWithQueryPaginatedMediaList<TRes> {
+  _CopyWithStubImplQueryPaginatedMediaList(this._res);
+
+  TRes _res;
+
+  call({
+    QueryPaginatedMediaListPage? Page,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryPaginatedMediaListPage<TRes> get Page =>
+      CopyWithQueryPaginatedMediaListPage.stub(_res);
+}
+
+const documentNodeQueryPaginatedMediaList = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'PaginatedMediaList'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'perPage')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userName')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'type')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'MediaType'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'status')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'MediaListStatus'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'sort')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaListSort'),
+            isNonNull: false,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(
+            value: EnumValueNode(name: NameNode(value: 'UPDATED_TIME_DESC'))),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'Page'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'perPage'),
+            value: VariableNode(name: NameNode(value: 'perPage')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'pageInfo'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'total'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'perPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'currentPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'lastPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'hasNextPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'mediaList'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'userId'),
+                value: VariableNode(name: NameNode(value: 'userId')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'userName'),
+                value: VariableNode(name: NameNode(value: 'userName')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'type'),
+                value: VariableNode(name: NameNode(value: 'type')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'status'),
+                value: VariableNode(name: NameNode(value: 'status')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'sort'),
+                value: VariableNode(name: NameNode(value: 'sort')),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FragmentSpreadNode(
+                name: NameNode(value: 'MediaListF'),
+                directives: [],
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionMediaListF,
+  fragmentDefinitionMediaMinF,
+]);
+
+class QueryPaginatedMediaListPage {
+  QueryPaginatedMediaListPage({
+    this.pageInfo,
+    this.mediaList,
+    this.$__typename = 'Page',
+  });
+
+  factory QueryPaginatedMediaListPage.fromJson(Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
+    final l$mediaList = json['mediaList'];
+    final l$$__typename = json['__typename'];
+    return QueryPaginatedMediaListPage(
+      pageInfo: l$pageInfo == null
+          ? null
+          : QueryPaginatedMediaListPagepageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
+      mediaList: (l$mediaList as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : FragmentMediaListF.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final QueryPaginatedMediaListPagepageInfo? pageInfo;
+
+  final List<FragmentMediaListF?>? mediaList;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
+    final l$mediaList = mediaList;
+    _resultData['mediaList'] = l$mediaList?.map((e) => e?.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$pageInfo = pageInfo;
+    final l$mediaList = mediaList;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$pageInfo,
+      l$mediaList == null ? null : Object.hashAll(l$mediaList.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryPaginatedMediaListPage) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
+      return false;
+    }
+    final l$mediaList = mediaList;
+    final lOther$mediaList = other.mediaList;
+    if (l$mediaList != null && lOther$mediaList != null) {
+      if (l$mediaList.length != lOther$mediaList.length) {
+        return false;
+      }
+      for (int i = 0; i < l$mediaList.length; i++) {
+        final l$mediaList$entry = l$mediaList[i];
+        final lOther$mediaList$entry = lOther$mediaList[i];
+        if (l$mediaList$entry != lOther$mediaList$entry) {
+          return false;
+        }
+      }
+    } else if (l$mediaList != lOther$mediaList) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryPaginatedMediaListPage
+    on QueryPaginatedMediaListPage {
+  CopyWithQueryPaginatedMediaListPage<QueryPaginatedMediaListPage>
+      get copyWith => CopyWithQueryPaginatedMediaListPage(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryPaginatedMediaListPage<TRes> {
+  factory CopyWithQueryPaginatedMediaListPage(
+    QueryPaginatedMediaListPage instance,
+    TRes Function(QueryPaginatedMediaListPage) then,
+  ) = _CopyWithImplQueryPaginatedMediaListPage;
+
+  factory CopyWithQueryPaginatedMediaListPage.stub(TRes res) =
+      _CopyWithStubImplQueryPaginatedMediaListPage;
+
+  TRes call({
+    QueryPaginatedMediaListPagepageInfo? pageInfo,
+    List<FragmentMediaListF?>? mediaList,
+    String? $__typename,
+  });
+  CopyWithQueryPaginatedMediaListPagepageInfo<TRes> get pageInfo;
+  TRes mediaList(
+      Iterable<FragmentMediaListF?>? Function(
+              Iterable<CopyWithFragmentMediaListF<FragmentMediaListF>?>?)
+          _fn);
+}
+
+class _CopyWithImplQueryPaginatedMediaListPage<TRes>
+    implements CopyWithQueryPaginatedMediaListPage<TRes> {
+  _CopyWithImplQueryPaginatedMediaListPage(
+    this._instance,
+    this._then,
+  );
+
+  final QueryPaginatedMediaListPage _instance;
+
+  final TRes Function(QueryPaginatedMediaListPage) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? pageInfo = _undefined,
+    Object? mediaList = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryPaginatedMediaListPage(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo as QueryPaginatedMediaListPagepageInfo?),
+        mediaList: mediaList == _undefined
+            ? _instance.mediaList
+            : (mediaList as List<FragmentMediaListF?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryPaginatedMediaListPagepageInfo<TRes> get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWithQueryPaginatedMediaListPagepageInfo.stub(_then(_instance))
+        : CopyWithQueryPaginatedMediaListPagepageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+
+  TRes mediaList(
+          Iterable<FragmentMediaListF?>? Function(
+                  Iterable<CopyWithFragmentMediaListF<FragmentMediaListF>?>?)
+              _fn) =>
+      call(
+          mediaList: _fn(_instance.mediaList?.map((e) => e == null
+              ? null
+              : CopyWithFragmentMediaListF(
+                  e,
+                  (i) => i,
+                )))?.toList());
+}
+
+class _CopyWithStubImplQueryPaginatedMediaListPage<TRes>
+    implements CopyWithQueryPaginatedMediaListPage<TRes> {
+  _CopyWithStubImplQueryPaginatedMediaListPage(this._res);
+
+  TRes _res;
+
+  call({
+    QueryPaginatedMediaListPagepageInfo? pageInfo,
+    List<FragmentMediaListF?>? mediaList,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryPaginatedMediaListPagepageInfo<TRes> get pageInfo =>
+      CopyWithQueryPaginatedMediaListPagepageInfo.stub(_res);
+
+  mediaList(_fn) => _res;
+}
+
+class QueryPaginatedMediaListPagepageInfo {
+  QueryPaginatedMediaListPagepageInfo({
+    this.total,
+    this.perPage,
+    this.currentPage,
+    this.lastPage,
+    this.hasNextPage,
+    this.$__typename = 'PageInfo',
+  });
+
+  factory QueryPaginatedMediaListPagepageInfo.fromJson(
+      Map<String, dynamic> json) {
+    final l$total = json['total'];
+    final l$perPage = json['perPage'];
+    final l$currentPage = json['currentPage'];
+    final l$lastPage = json['lastPage'];
+    final l$hasNextPage = json['hasNextPage'];
+    final l$$__typename = json['__typename'];
+    return QueryPaginatedMediaListPagepageInfo(
+      total: (l$total as int?),
+      perPage: (l$perPage as int?),
+      currentPage: (l$currentPage as int?),
+      lastPage: (l$lastPage as int?),
+      hasNextPage: (l$hasNextPage as bool?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? total;
+
+  final int? perPage;
+
+  final int? currentPage;
+
+  final int? lastPage;
+
+  final bool? hasNextPage;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$total = total;
+    _resultData['total'] = l$total;
+    final l$perPage = perPage;
+    _resultData['perPage'] = l$perPage;
+    final l$currentPage = currentPage;
+    _resultData['currentPage'] = l$currentPage;
+    final l$lastPage = lastPage;
+    _resultData['lastPage'] = l$lastPage;
+    final l$hasNextPage = hasNextPage;
+    _resultData['hasNextPage'] = l$hasNextPage;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$total = total;
+    final l$perPage = perPage;
+    final l$currentPage = currentPage;
+    final l$lastPage = lastPage;
+    final l$hasNextPage = hasNextPage;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$total,
+      l$perPage,
+      l$currentPage,
+      l$lastPage,
+      l$hasNextPage,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryPaginatedMediaListPagepageInfo) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
+      return false;
+    }
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (l$perPage != lOther$perPage) {
+      return false;
+    }
+    final l$currentPage = currentPage;
+    final lOther$currentPage = other.currentPage;
+    if (l$currentPage != lOther$currentPage) {
+      return false;
+    }
+    final l$lastPage = lastPage;
+    final lOther$lastPage = other.lastPage;
+    if (l$lastPage != lOther$lastPage) {
+      return false;
+    }
+    final l$hasNextPage = hasNextPage;
+    final lOther$hasNextPage = other.hasNextPage;
+    if (l$hasNextPage != lOther$hasNextPage) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryPaginatedMediaListPagepageInfo
+    on QueryPaginatedMediaListPagepageInfo {
+  CopyWithQueryPaginatedMediaListPagepageInfo<
+          QueryPaginatedMediaListPagepageInfo>
+      get copyWith => CopyWithQueryPaginatedMediaListPagepageInfo(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryPaginatedMediaListPagepageInfo<TRes> {
+  factory CopyWithQueryPaginatedMediaListPagepageInfo(
+    QueryPaginatedMediaListPagepageInfo instance,
+    TRes Function(QueryPaginatedMediaListPagepageInfo) then,
+  ) = _CopyWithImplQueryPaginatedMediaListPagepageInfo;
+
+  factory CopyWithQueryPaginatedMediaListPagepageInfo.stub(TRes res) =
+      _CopyWithStubImplQueryPaginatedMediaListPagepageInfo;
+
+  TRes call({
+    int? total,
+    int? perPage,
+    int? currentPage,
+    int? lastPage,
+    bool? hasNextPage,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryPaginatedMediaListPagepageInfo<TRes>
+    implements CopyWithQueryPaginatedMediaListPagepageInfo<TRes> {
+  _CopyWithImplQueryPaginatedMediaListPagepageInfo(
+    this._instance,
+    this._then,
+  );
+
+  final QueryPaginatedMediaListPagepageInfo _instance;
+
+  final TRes Function(QueryPaginatedMediaListPagepageInfo) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? total = _undefined,
+    Object? perPage = _undefined,
+    Object? currentPage = _undefined,
+    Object? lastPage = _undefined,
+    Object? hasNextPage = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryPaginatedMediaListPagepageInfo(
+        total: total == _undefined ? _instance.total : (total as int?),
+        perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
+        currentPage: currentPage == _undefined
+            ? _instance.currentPage
+            : (currentPage as int?),
+        lastPage:
+            lastPage == _undefined ? _instance.lastPage : (lastPage as int?),
+        hasNextPage: hasNextPage == _undefined
+            ? _instance.hasNextPage
+            : (hasNextPage as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryPaginatedMediaListPagepageInfo<TRes>
+    implements CopyWithQueryPaginatedMediaListPagepageInfo<TRes> {
+  _CopyWithStubImplQueryPaginatedMediaListPagepageInfo(this._res);
+
+  TRes _res;
+
+  call({
+    int? total,
+    int? perPage,
+    int? currentPage,
+    int? lastPage,
+    bool? hasNextPage,
+    String? $__typename,
+  }) =>
+      _res;
+}
