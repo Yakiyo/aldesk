@@ -35,8 +35,49 @@ query MediaListCollection(
 }
 
 # Get a single entry of media list
-query MediaList($mediaListId: Int!) {
-  MediaList(id: $mediaListId) {
+query MediaList(
+  $mediaListId: Int
+  $userId: Int
+  $mediaId: Int
+  $userName: String
+) {
+  MediaList(
+    id: $mediaListId
+    userId: $userId
+    mediaId: $mediaId
+    userName: $userName
+  ) {
     ...MediaListF
+  }
+}
+
+# Get a paginated list of media list entries, useful for getting a portion of the list
+# for example, getting the entries for the overview entries in the home page
+query PaginatedMediaList(
+  $page: Int
+  $perPage: Int
+  $userId: Int
+  $userName: String
+  $type: MediaType
+  $status: MediaListStatus
+  $sort: [MediaListSort] = UPDATED_TIME_DESC
+) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      perPage
+      currentPage
+      lastPage
+      hasNextPage
+    }
+    mediaList(
+      userId: $userId
+      userName: $userName
+      type: $type
+      status: $status
+      sort: $sort
+    ) {
+      ...MediaListF
+    }
   }
 }
