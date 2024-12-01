@@ -1,4 +1,4 @@
-import 'errors.dart';
+import 'types.dart';
 import 'consts.dart';
 import 'dart:convert';
 import 'package:http/http.dart';
@@ -19,7 +19,7 @@ void registerToken([String? token]) {
 }
 
 /// Sends a request to Anilist with `query` and associated `variables`.
-Future<Result<Map<String, dynamic>, List<ApiError>>> request({
+Future<Result<Map<String, dynamic>, ApiErrors>> request({
   required String query,
   Map<String, dynamic> variables = const {},
   Client? client,
