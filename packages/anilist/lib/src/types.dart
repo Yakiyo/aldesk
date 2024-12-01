@@ -27,7 +27,7 @@ class ApiErrors extends Error {
   String toString() => jsonEncode(toJson());
 }
 
-/// A class representing the errors returned by the Anilist API
+/// A class representing the error returned by the Anilist API
 class ApiError extends Error {
   /// The error message
   final String message;
@@ -65,4 +65,11 @@ class ApiError extends Error {
 
   @override
   String toString() => jsonEncode(toJson());
+}
+
+/// Error class returned when authenticated is necessary but was not provided
+class AuthError extends Error {
+  @override
+  String toString() => 'Authentication is required for this operation.'
+      'Please set token using `setToken`';
 }
