@@ -1,4 +1,11 @@
 import 'dart:convert';
+import 'package:option_result/result.dart';
+
+/// List of ApiError
+typedef ApiErrors = List<ApiError>;
+
+/// Return type for functions in the library
+typedef ReturnType<T> = FutureOrResult<T, ApiErrors>;
 
 /// A class representing the errors returned by the Anilist API
 class ApiError extends Error {
