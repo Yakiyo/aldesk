@@ -8,3 +8,5 @@ final headers = {
 };
 
 final baseUrl = Uri.parse('https://graphql.anilist.co');
+
+bool isAuthed() => headers.containsKey('Authorization');
