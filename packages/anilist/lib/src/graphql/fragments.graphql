@@ -46,7 +46,7 @@ fragment MediaListF on MediaList {
     day
   }
   priority
-  customLists(asArray: true)
+  customLists(asArray: false)
   updatedAt
   createdAt
 }
