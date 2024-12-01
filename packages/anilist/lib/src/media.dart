@@ -29,7 +29,7 @@ ReturnType<FragmentMediaMinF> mediaMin({
           future.map((data) => QueryMediaMin.fromJson(data).Media!));
 }
 
-/// Minimal info regarding a media entry. Either [id] or [search] must be provided.
+/// Full info regarding a media entry. Either [id] or [search] must be provided.
 ReturnType<QueryMediaMedia> media({
   int? id,
   EnumMediaType? type,
