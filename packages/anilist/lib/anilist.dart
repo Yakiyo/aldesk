@@ -4,4 +4,5 @@ library;
 export 'src/types.dart';
 export 'src/anilist.dart';
 export 'src/media.dart';
+export 'src/user.dart';
 export 'package:gql/language.dart' show printNode;
