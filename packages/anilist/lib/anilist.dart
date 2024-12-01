@@ -1,5 +1,7 @@
 /// Library for interacting with the Anilist Graphql API
 library;
 
+export 'src/types.dart';
 export 'src/anilist.dart';
+export 'src/media.dart';
 export 'package:gql/language.dart' show printNode;
