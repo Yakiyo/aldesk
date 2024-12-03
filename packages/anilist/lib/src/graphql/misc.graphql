@@ -4,3 +4,10 @@ mutation ToggleLike($id: Int!, $type: LikeableType!) {
     __typename
   }
 }
+
+# Convert anilist markdown to html
+query MdToHtml($markdown: String!) {
+  Markdown(markdown: $markdown) {
+    html
+  }
+}

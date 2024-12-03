@@ -34,7 +34,7 @@ query Character(
         id
         characterRole
         node {
-          ...MediaMinF
+          ...MediaMin
         }
       }
     }

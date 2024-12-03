@@ -1,8 +1,8 @@
 query User($id: Int, $search: String) {
   User(id: $id, search: $search) {
-    ...UserMinF
-    ...UserSocialsF
-    ...UserSettingsF
+    ...UserMin
+    ...UserSocials
+    ...UserSettings
     about(asHtml: false)
     bannerImage
     siteUrl
@@ -11,13 +11,13 @@ query User($id: Int, $search: String) {
 
 query UserMin($id: Int, $search: String) {
   User(id: $id, search: $search) {
-    ...UserMinF
+    ...UserMin
   }
 }
 
 query Viewer {
   Viewer {
-    ...UserMinF
+    ...UserMin
   }
 }
 
@@ -25,10 +25,10 @@ query UserStatisticsMin($id: Int, $search: String) {
   User(id: $id, search: $search) {
     statistics {
       anime {
-        ...UserStatisticsF
+        ...UserStatistics
       }
       manga {
-        ...UserStatisticsF
+        ...UserStatistics
       }
     }
   }

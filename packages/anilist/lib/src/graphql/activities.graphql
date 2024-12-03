@@ -12,10 +12,10 @@ fragment ListActivity on ListActivity {
   siteUrl
   createdAt
   user {
-    ...UserMinF
+    ...UserMin
   }
   media {
-    ...MediaMinF
+    ...MediaMin
   }
 }
 
@@ -31,7 +31,7 @@ fragment TextActivity on TextActivity {
   isLiked
   createdAt
   user {
-    ...UserMinF
+    ...UserMin
   }
 }
 
@@ -49,7 +49,7 @@ fragment MessageActivity on MessageActivity {
   siteUrl
   createdAt
   messenger {
-    ...UserMinF
+    ...UserMin
   }
 }
 
@@ -96,7 +96,7 @@ fragment ActivityReply on ActivityReply {
   isLiked
   createdAt
   user {
-    ...UserMinF
+    ...UserMin
   }
 }
 

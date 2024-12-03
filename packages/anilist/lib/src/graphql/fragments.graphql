@@ -1,6 +1,6 @@
 # Media related fragments
 
-fragment MediaMinF on Media {
+fragment MediaMin on Media {
   id
   type
   format
@@ -21,11 +21,11 @@ fragment MediaMinF on Media {
 
 # List related fragments
 
-fragment MediaListF on MediaList {
+fragment MediaList on MediaList {
   id
   userId
   media {
-    ...MediaMinF
+    ...MediaMin
   }
   status
   progress
@@ -53,7 +53,7 @@ fragment MediaListF on MediaList {
 
 # user related fragments
 
-fragment UserMinF on User {
+fragment UserMin on User {
   id
   name
   avatar {
@@ -62,13 +62,13 @@ fragment UserMinF on User {
   }
 }
 
-fragment UserSocialsF on User {
+fragment UserSocials on User {
   isFollowing
   isFollower
   isBlocked
 }
 
-fragment UserSettingsF on User {
+fragment UserSettings on User {
   options {
     titleLanguage
     displayAdultContent
@@ -99,7 +99,7 @@ fragment UserSettingsF on User {
   }
 }
 
-fragment UserStatisticsF on UserStatistics {
+fragment UserStatistics on UserStatistics {
   count
   meanScore
   standardDeviation
@@ -113,11 +113,5 @@ fragment UserStatisticsF on UserStatistics {
     meanScore
     minutesWatched
     chaptersRead
-  }
-}
-
-query MdToHtml($markdown: String!) {
-  Markdown(markdown: $markdown) {
-    html
   }
 }

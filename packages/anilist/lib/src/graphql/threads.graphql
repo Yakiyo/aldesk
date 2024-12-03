@@ -29,10 +29,10 @@ query Threads(
       repliedAt
       siteUrl
       user {
-        ...UserMinF
+        ...UserMin
       }
       replyUser {
-        ...UserMinF
+        ...UserMin
       }
       categories {
         id
@@ -67,10 +67,10 @@ query Thread($threadId: Int, $search: String, $asHtml: Boolean = false) {
     updatedAt
     siteUrl
     user {
-      ...UserMinF
+      ...UserMin
     }
     replyUser {
-      ...UserMinF
+      ...UserMin
     }
     likes {
       id

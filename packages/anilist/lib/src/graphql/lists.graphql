@@ -28,7 +28,7 @@ query MediaListCollection(
       isCustomList
       status
       entries {
-        ...MediaListF
+        ...MediaList
       }
     }
   }
@@ -47,7 +47,7 @@ query MediaList(
     mediaId: $mediaId
     userName: $userName
   ) {
-    ...MediaListF
+    ...MediaList
   }
 }
 
@@ -77,7 +77,7 @@ query PaginatedMediaList(
       status: $status
       sort: $sort
     ) {
-      ...MediaListF
+      ...MediaList
     }
   }
 }
