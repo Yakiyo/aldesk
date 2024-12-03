@@ -2,7 +2,7 @@ import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 
 /// Minimal info regarding a media entry. Either [id] or [search] must be provided.
-ReturnType<FragmentMediaMinF> mediaMin({
+ReturnType<FragmentMediaMin> mediaMin({
   int? id,
   EnumMediaType? type,
   EnumMediaFormat? format,

@@ -605,7 +605,7 @@ const documentNodeQueryMediaListCollection = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
                   FragmentSpreadNode(
-                    name: NameNode(value: 'MediaListF'),
+                    name: NameNode(value: 'MediaList'),
                     directives: [],
                   ),
                   FieldNode(
@@ -644,8 +644,8 @@ const documentNodeQueryMediaListCollection = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionMediaListF,
-  fragmentDefinitionMediaMinF,
+  fragmentDefinitionMediaList,
+  fragmentDefinitionMediaMin,
 ]);
 
 class QueryMediaListCollectionMediaListCollection {
@@ -1021,7 +1021,7 @@ class QueryMediaListCollectionMediaListCollectionlists {
       entries: (l$entries as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : FragmentMediaListF.fromJson((e as Map<String, dynamic>)))
+              : FragmentMediaList.fromJson((e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1033,7 +1033,7 @@ class QueryMediaListCollectionMediaListCollectionlists {
 
   final EnumMediaListStatus? status;
 
-  final List<FragmentMediaListF?>? entries;
+  final List<FragmentMediaList?>? entries;
 
   final String $__typename;
 
@@ -1142,12 +1142,12 @@ abstract class CopyWithQueryMediaListCollectionMediaListCollectionlists<TRes> {
     String? name,
     bool? isCustomList,
     EnumMediaListStatus? status,
-    List<FragmentMediaListF?>? entries,
+    List<FragmentMediaList?>? entries,
     String? $__typename,
   });
   TRes entries(
-      Iterable<FragmentMediaListF?>? Function(
-              Iterable<CopyWithFragmentMediaListF<FragmentMediaListF>?>?)
+      Iterable<FragmentMediaList?>? Function(
+              Iterable<CopyWithFragmentMediaList<FragmentMediaList>?>?)
           _fn);
 }
 
@@ -1181,20 +1181,20 @@ class _CopyWithImplQueryMediaListCollectionMediaListCollectionlists<TRes>
             : (status as EnumMediaListStatus?),
         entries: entries == _undefined
             ? _instance.entries
-            : (entries as List<FragmentMediaListF?>?),
+            : (entries as List<FragmentMediaList?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
   TRes entries(
-          Iterable<FragmentMediaListF?>? Function(
-                  Iterable<CopyWithFragmentMediaListF<FragmentMediaListF>?>?)
+          Iterable<FragmentMediaList?>? Function(
+                  Iterable<CopyWithFragmentMediaList<FragmentMediaList>?>?)
               _fn) =>
       call(
           entries: _fn(_instance.entries?.map((e) => e == null
               ? null
-              : CopyWithFragmentMediaListF(
+              : CopyWithFragmentMediaList(
                   e,
                   (i) => i,
                 )))?.toList());
@@ -1210,7 +1210,7 @@ class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlists<TRes>
     String? name,
     bool? isCustomList,
     EnumMediaListStatus? status,
-    List<FragmentMediaListF?>? entries,
+    List<FragmentMediaList?>? entries,
     String? $__typename,
   }) =>
       _res;
@@ -1425,12 +1425,12 @@ class QueryMediaList {
     return QueryMediaList(
       MediaList: l$MediaList == null
           ? null
-          : FragmentMediaListF.fromJson((l$MediaList as Map<String, dynamic>)),
+          : FragmentMediaList.fromJson((l$MediaList as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final FragmentMediaListF? MediaList;
+  final FragmentMediaList? MediaList;
 
   final String $__typename;
 
@@ -1492,10 +1492,10 @@ abstract class CopyWithQueryMediaList<TRes> {
       _CopyWithStubImplQueryMediaList;
 
   TRes call({
-    FragmentMediaListF? MediaList,
+    FragmentMediaList? MediaList,
     String? $__typename,
   });
-  CopyWithFragmentMediaListF<TRes> get MediaList;
+  CopyWithFragmentMediaList<TRes> get MediaList;
 }
 
 class _CopyWithImplQueryMediaList<TRes>
@@ -1518,18 +1518,17 @@ class _CopyWithImplQueryMediaList<TRes>
       _then(QueryMediaList(
         MediaList: MediaList == _undefined
             ? _instance.MediaList
-            : (MediaList as FragmentMediaListF?),
+            : (MediaList as FragmentMediaList?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentMediaListF<TRes> get MediaList {
+  CopyWithFragmentMediaList<TRes> get MediaList {
     final local$MediaList = _instance.MediaList;
     return local$MediaList == null
-        ? CopyWithFragmentMediaListF.stub(_then(_instance))
-        : CopyWithFragmentMediaListF(
-            local$MediaList, (e) => call(MediaList: e));
+        ? CopyWithFragmentMediaList.stub(_then(_instance))
+        : CopyWithFragmentMediaList(local$MediaList, (e) => call(MediaList: e));
   }
 }
 
@@ -1540,13 +1539,13 @@ class _CopyWithStubImplQueryMediaList<TRes>
   TRes _res;
 
   call({
-    FragmentMediaListF? MediaList,
+    FragmentMediaList? MediaList,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentMediaListF<TRes> get MediaList =>
-      CopyWithFragmentMediaListF.stub(_res);
+  CopyWithFragmentMediaList<TRes> get MediaList =>
+      CopyWithFragmentMediaList.stub(_res);
 }
 
 const documentNodeQueryMediaList = DocumentNode(definitions: [
@@ -1617,7 +1616,7 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'MediaListF'),
+            name: NameNode(value: 'MediaList'),
             directives: [],
           ),
           FieldNode(
@@ -1638,8 +1637,8 @@ const documentNodeQueryMediaList = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionMediaListF,
-  fragmentDefinitionMediaMinF,
+  fragmentDefinitionMediaList,
+  fragmentDefinitionMediaMin,
 ]);
 
 class VariablesQueryPaginatedMediaList {
@@ -2245,7 +2244,7 @@ const documentNodeQueryPaginatedMediaList = DocumentNode(definitions: [
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FragmentSpreadNode(
-                name: NameNode(value: 'MediaListF'),
+                name: NameNode(value: 'MediaList'),
                 directives: [],
               ),
               FieldNode(
@@ -2275,8 +2274,8 @@ const documentNodeQueryPaginatedMediaList = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionMediaListF,
-  fragmentDefinitionMediaMinF,
+  fragmentDefinitionMediaList,
+  fragmentDefinitionMediaMin,
 ]);
 
 class QueryPaginatedMediaListPage {
@@ -2298,7 +2297,7 @@ class QueryPaginatedMediaListPage {
       mediaList: (l$mediaList as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : FragmentMediaListF.fromJson((e as Map<String, dynamic>)))
+              : FragmentMediaList.fromJson((e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -2306,7 +2305,7 @@ class QueryPaginatedMediaListPage {
 
   final QueryPaginatedMediaListPagepageInfo? pageInfo;
 
-  final List<FragmentMediaListF?>? mediaList;
+  final List<FragmentMediaList?>? mediaList;
 
   final String $__typename;
 
@@ -2392,13 +2391,13 @@ abstract class CopyWithQueryPaginatedMediaListPage<TRes> {
 
   TRes call({
     QueryPaginatedMediaListPagepageInfo? pageInfo,
-    List<FragmentMediaListF?>? mediaList,
+    List<FragmentMediaList?>? mediaList,
     String? $__typename,
   });
   CopyWithQueryPaginatedMediaListPagepageInfo<TRes> get pageInfo;
   TRes mediaList(
-      Iterable<FragmentMediaListF?>? Function(
-              Iterable<CopyWithFragmentMediaListF<FragmentMediaListF>?>?)
+      Iterable<FragmentMediaList?>? Function(
+              Iterable<CopyWithFragmentMediaList<FragmentMediaList>?>?)
           _fn);
 }
 
@@ -2426,7 +2425,7 @@ class _CopyWithImplQueryPaginatedMediaListPage<TRes>
             : (pageInfo as QueryPaginatedMediaListPagepageInfo?),
         mediaList: mediaList == _undefined
             ? _instance.mediaList
-            : (mediaList as List<FragmentMediaListF?>?),
+            : (mediaList as List<FragmentMediaList?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -2441,13 +2440,13 @@ class _CopyWithImplQueryPaginatedMediaListPage<TRes>
   }
 
   TRes mediaList(
-          Iterable<FragmentMediaListF?>? Function(
-                  Iterable<CopyWithFragmentMediaListF<FragmentMediaListF>?>?)
+          Iterable<FragmentMediaList?>? Function(
+                  Iterable<CopyWithFragmentMediaList<FragmentMediaList>?>?)
               _fn) =>
       call(
           mediaList: _fn(_instance.mediaList?.map((e) => e == null
               ? null
-              : CopyWithFragmentMediaListF(
+              : CopyWithFragmentMediaList(
                   e,
                   (i) => i,
                 )))?.toList());
@@ -2461,7 +2460,7 @@ class _CopyWithStubImplQueryPaginatedMediaListPage<TRes>
 
   call({
     QueryPaginatedMediaListPagepageInfo? pageInfo,
-    List<FragmentMediaListF?>? mediaList,
+    List<FragmentMediaList?>? mediaList,
     String? $__typename,
   }) =>
       _res;

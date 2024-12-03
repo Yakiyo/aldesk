@@ -6,14 +6,14 @@ import 'package:option_result/result.dart';
 /// Get the authenticated user. If there is no token set, it will return null.
 ///
 /// Requires to be authenticated, otherwise returns a [AuthError]
-ReturnType<FragmentUserMinF> viewer() async {
+ReturnType<FragmentUserMin> viewer() async {
   if (!isAuthed()) return Err(AuthError());
   return request(query: printNode(documentNodeQueryViewer)).then(
       (future) => future.map((value) => QueryViewer.fromJson(value).Viewer!));
 }
 
 /// Minimal info regarding a user. Either [id] or [search] must be provided.
-ReturnType<FragmentUserMinF> userMin({int? id, String? search}) async {
+ReturnType<FragmentUserMin> userMin({int? id, String? search}) async {
   if (id == null && search == null) {
     throw ArgumentError("Either id or search must be provided", "id, search");
   }

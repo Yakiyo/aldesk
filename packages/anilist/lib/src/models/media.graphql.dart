@@ -266,12 +266,12 @@ class QueryMediaMin {
     return QueryMediaMin(
       Media: l$Media == null
           ? null
-          : FragmentMediaMinF.fromJson((l$Media as Map<String, dynamic>)),
+          : FragmentMediaMin.fromJson((l$Media as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final FragmentMediaMinF? Media;
+  final FragmentMediaMin? Media;
 
   final String $__typename;
 
@@ -332,10 +332,10 @@ abstract class CopyWithQueryMediaMin<TRes> {
   factory CopyWithQueryMediaMin.stub(TRes res) = _CopyWithStubImplQueryMediaMin;
 
   TRes call({
-    FragmentMediaMinF? Media,
+    FragmentMediaMin? Media,
     String? $__typename,
   });
-  CopyWithFragmentMediaMinF<TRes> get Media;
+  CopyWithFragmentMediaMin<TRes> get Media;
 }
 
 class _CopyWithImplQueryMediaMin<TRes> implements CopyWithQueryMediaMin<TRes> {
@@ -357,17 +357,17 @@ class _CopyWithImplQueryMediaMin<TRes> implements CopyWithQueryMediaMin<TRes> {
       _then(QueryMediaMin(
         Media: Media == _undefined
             ? _instance.Media
-            : (Media as FragmentMediaMinF?),
+            : (Media as FragmentMediaMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentMediaMinF<TRes> get Media {
+  CopyWithFragmentMediaMin<TRes> get Media {
     final local$Media = _instance.Media;
     return local$Media == null
-        ? CopyWithFragmentMediaMinF.stub(_then(_instance))
-        : CopyWithFragmentMediaMinF(local$Media, (e) => call(Media: e));
+        ? CopyWithFragmentMediaMin.stub(_then(_instance))
+        : CopyWithFragmentMediaMin(local$Media, (e) => call(Media: e));
   }
 }
 
@@ -378,13 +378,13 @@ class _CopyWithStubImplQueryMediaMin<TRes>
   TRes _res;
 
   call({
-    FragmentMediaMinF? Media,
+    FragmentMediaMin? Media,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentMediaMinF<TRes> get Media =>
-      CopyWithFragmentMediaMinF.stub(_res);
+  CopyWithFragmentMediaMin<TRes> get Media =>
+      CopyWithFragmentMediaMin.stub(_res);
 }
 
 const documentNodeQueryMediaMin = DocumentNode(definitions: [
@@ -481,7 +481,7 @@ const documentNodeQueryMediaMin = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'MediaMinF'),
+            name: NameNode(value: 'MediaMin'),
             directives: [],
           ),
           FieldNode(
@@ -502,7 +502,7 @@ const documentNodeQueryMediaMin = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionMediaMinF,
+  fragmentDefinitionMediaMin,
 ]);
 
 class VariablesQueryMedia {
@@ -980,7 +980,7 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'MediaMinF'),
+            name: NameNode(value: 'MediaMin'),
             directives: [],
           ),
           FieldNode(
@@ -2125,10 +2125,10 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionMediaMinF,
+  fragmentDefinitionMediaMin,
 ]);
 
-class QueryMediaMedia implements FragmentMediaMinF {
+class QueryMediaMedia implements FragmentMediaMin {
   QueryMediaMedia({
     required this.id,
     this.type,
@@ -3622,7 +3622,7 @@ class _CopyWithStubImplQueryMediaMedia<TRes>
       CopyWithQueryMediaMediamediaListEntry.stub(_res);
 }
 
-class QueryMediaMediatitle implements FragmentMediaMinFtitle {
+class QueryMediaMediatitle implements FragmentMediaMintitle {
   QueryMediaMediatitle({
     this.userPreferred,
     this.romaji,
@@ -3800,7 +3800,7 @@ class _CopyWithStubImplQueryMediaMediatitle<TRes>
       _res;
 }
 
-class QueryMediaMediacoverImage implements FragmentMediaMinFcoverImage {
+class QueryMediaMediacoverImage implements FragmentMediaMincoverImage {
   QueryMediaMediacoverImage({
     this.extraLarge,
     this.large,

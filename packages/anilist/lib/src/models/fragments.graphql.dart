@@ -1,8 +1,8 @@
 import 'package:gql/ast.dart';
 import 'schema.graphql.dart';
 
-class FragmentMediaMinF {
-  FragmentMediaMinF({
+class FragmentMediaMin {
+  FragmentMediaMin({
     required this.id,
     this.type,
     this.format,
@@ -12,7 +12,7 @@ class FragmentMediaMinF {
     this.$__typename = 'Media',
   });
 
-  factory FragmentMediaMinF.fromJson(Map<String, dynamic> json) {
+  factory FragmentMediaMin.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$type = json['type'];
     final l$format = json['format'];
@@ -20,7 +20,7 @@ class FragmentMediaMinF {
     final l$title = json['title'];
     final l$coverImage = json['coverImage'];
     final l$$__typename = json['__typename'];
-    return FragmentMediaMinF(
+    return FragmentMediaMin(
       id: (l$id as int),
       type: l$type == null ? null : fromJsonEnumMediaType((l$type as String)),
       format: l$format == null
@@ -31,10 +31,10 @@ class FragmentMediaMinF {
           : fromJsonEnumMediaStatus((l$status as String)),
       title: l$title == null
           ? null
-          : FragmentMediaMinFtitle.fromJson((l$title as Map<String, dynamic>)),
+          : FragmentMediaMintitle.fromJson((l$title as Map<String, dynamic>)),
       coverImage: l$coverImage == null
           ? null
-          : FragmentMediaMinFcoverImage.fromJson(
+          : FragmentMediaMincoverImage.fromJson(
               (l$coverImage as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
@@ -48,9 +48,9 @@ class FragmentMediaMinF {
 
   final EnumMediaStatus? status;
 
-  final FragmentMediaMinFtitle? title;
+  final FragmentMediaMintitle? title;
 
-  final FragmentMediaMinFcoverImage? coverImage;
+  final FragmentMediaMincoverImage? coverImage;
 
   final String $__typename;
 
@@ -100,7 +100,7 @@ class FragmentMediaMinF {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaMinF) || runtimeType != other.runtimeType) {
+    if (!(other is FragmentMediaMin) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -142,46 +142,46 @@ class FragmentMediaMinF {
   }
 }
 
-extension UtilityExtensionFragmentMediaMinF on FragmentMediaMinF {
-  CopyWithFragmentMediaMinF<FragmentMediaMinF> get copyWith =>
-      CopyWithFragmentMediaMinF(
+extension UtilityExtensionFragmentMediaMin on FragmentMediaMin {
+  CopyWithFragmentMediaMin<FragmentMediaMin> get copyWith =>
+      CopyWithFragmentMediaMin(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithFragmentMediaMinF<TRes> {
-  factory CopyWithFragmentMediaMinF(
-    FragmentMediaMinF instance,
-    TRes Function(FragmentMediaMinF) then,
-  ) = _CopyWithImplFragmentMediaMinF;
+abstract class CopyWithFragmentMediaMin<TRes> {
+  factory CopyWithFragmentMediaMin(
+    FragmentMediaMin instance,
+    TRes Function(FragmentMediaMin) then,
+  ) = _CopyWithImplFragmentMediaMin;
 
-  factory CopyWithFragmentMediaMinF.stub(TRes res) =
-      _CopyWithStubImplFragmentMediaMinF;
+  factory CopyWithFragmentMediaMin.stub(TRes res) =
+      _CopyWithStubImplFragmentMediaMin;
 
   TRes call({
     int? id,
     EnumMediaType? type,
     EnumMediaFormat? format,
     EnumMediaStatus? status,
-    FragmentMediaMinFtitle? title,
-    FragmentMediaMinFcoverImage? coverImage,
+    FragmentMediaMintitle? title,
+    FragmentMediaMincoverImage? coverImage,
     String? $__typename,
   });
-  CopyWithFragmentMediaMinFtitle<TRes> get title;
-  CopyWithFragmentMediaMinFcoverImage<TRes> get coverImage;
+  CopyWithFragmentMediaMintitle<TRes> get title;
+  CopyWithFragmentMediaMincoverImage<TRes> get coverImage;
 }
 
-class _CopyWithImplFragmentMediaMinF<TRes>
-    implements CopyWithFragmentMediaMinF<TRes> {
-  _CopyWithImplFragmentMediaMinF(
+class _CopyWithImplFragmentMediaMin<TRes>
+    implements CopyWithFragmentMediaMin<TRes> {
+  _CopyWithImplFragmentMediaMin(
     this._instance,
     this._then,
   );
 
-  final FragmentMediaMinF _instance;
+  final FragmentMediaMin _instance;
 
-  final TRes Function(FragmentMediaMinF) _then;
+  final TRes Function(FragmentMediaMin) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -194,7 +194,7 @@ class _CopyWithImplFragmentMediaMinF<TRes>
     Object? coverImage = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentMediaMinF(
+      _then(FragmentMediaMin(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         type: type == _undefined ? _instance.type : (type as EnumMediaType?),
         format: format == _undefined
@@ -205,34 +205,34 @@ class _CopyWithImplFragmentMediaMinF<TRes>
             : (status as EnumMediaStatus?),
         title: title == _undefined
             ? _instance.title
-            : (title as FragmentMediaMinFtitle?),
+            : (title as FragmentMediaMintitle?),
         coverImage: coverImage == _undefined
             ? _instance.coverImage
-            : (coverImage as FragmentMediaMinFcoverImage?),
+            : (coverImage as FragmentMediaMincoverImage?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentMediaMinFtitle<TRes> get title {
+  CopyWithFragmentMediaMintitle<TRes> get title {
     final local$title = _instance.title;
     return local$title == null
-        ? CopyWithFragmentMediaMinFtitle.stub(_then(_instance))
-        : CopyWithFragmentMediaMinFtitle(local$title, (e) => call(title: e));
+        ? CopyWithFragmentMediaMintitle.stub(_then(_instance))
+        : CopyWithFragmentMediaMintitle(local$title, (e) => call(title: e));
   }
 
-  CopyWithFragmentMediaMinFcoverImage<TRes> get coverImage {
+  CopyWithFragmentMediaMincoverImage<TRes> get coverImage {
     final local$coverImage = _instance.coverImage;
     return local$coverImage == null
-        ? CopyWithFragmentMediaMinFcoverImage.stub(_then(_instance))
-        : CopyWithFragmentMediaMinFcoverImage(
+        ? CopyWithFragmentMediaMincoverImage.stub(_then(_instance))
+        : CopyWithFragmentMediaMincoverImage(
             local$coverImage, (e) => call(coverImage: e));
   }
 }
 
-class _CopyWithStubImplFragmentMediaMinF<TRes>
-    implements CopyWithFragmentMediaMinF<TRes> {
-  _CopyWithStubImplFragmentMediaMinF(this._res);
+class _CopyWithStubImplFragmentMediaMin<TRes>
+    implements CopyWithFragmentMediaMin<TRes> {
+  _CopyWithStubImplFragmentMediaMin(this._res);
 
   TRes _res;
 
@@ -241,21 +241,21 @@ class _CopyWithStubImplFragmentMediaMinF<TRes>
     EnumMediaType? type,
     EnumMediaFormat? format,
     EnumMediaStatus? status,
-    FragmentMediaMinFtitle? title,
-    FragmentMediaMinFcoverImage? coverImage,
+    FragmentMediaMintitle? title,
+    FragmentMediaMincoverImage? coverImage,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentMediaMinFtitle<TRes> get title =>
-      CopyWithFragmentMediaMinFtitle.stub(_res);
+  CopyWithFragmentMediaMintitle<TRes> get title =>
+      CopyWithFragmentMediaMintitle.stub(_res);
 
-  CopyWithFragmentMediaMinFcoverImage<TRes> get coverImage =>
-      CopyWithFragmentMediaMinFcoverImage.stub(_res);
+  CopyWithFragmentMediaMincoverImage<TRes> get coverImage =>
+      CopyWithFragmentMediaMincoverImage.stub(_res);
 }
 
-const fragmentDefinitionMediaMinF = FragmentDefinitionNode(
-  name: NameNode(value: 'MediaMinF'),
+const fragmentDefinitionMediaMin = FragmentDefinitionNode(
+  name: NameNode(value: 'MediaMin'),
   typeCondition: TypeConditionNode(
       on: NamedTypeNode(
     name: NameNode(value: 'Media'),
@@ -386,12 +386,12 @@ const fragmentDefinitionMediaMinF = FragmentDefinitionNode(
     ),
   ]),
 );
-const documentNodeFragmentMediaMinF = DocumentNode(definitions: [
-  fragmentDefinitionMediaMinF,
+const documentNodeFragmentMediaMin = DocumentNode(definitions: [
+  fragmentDefinitionMediaMin,
 ]);
 
-class FragmentMediaMinFtitle {
-  FragmentMediaMinFtitle({
+class FragmentMediaMintitle {
+  FragmentMediaMintitle({
     this.userPreferred,
     this.romaji,
     this.english,
@@ -399,13 +399,13 @@ class FragmentMediaMinFtitle {
     this.$__typename = 'MediaTitle',
   });
 
-  factory FragmentMediaMinFtitle.fromJson(Map<String, dynamic> json) {
+  factory FragmentMediaMintitle.fromJson(Map<String, dynamic> json) {
     final l$userPreferred = json['userPreferred'];
     final l$romaji = json['romaji'];
     final l$english = json['english'];
     final l$native = json['native'];
     final l$$__typename = json['__typename'];
-    return FragmentMediaMinFtitle(
+    return FragmentMediaMintitle(
       userPreferred: (l$userPreferred as String?),
       romaji: (l$romaji as String?),
       english: (l$english as String?),
@@ -460,8 +460,7 @@ class FragmentMediaMinFtitle {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaMinFtitle) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is FragmentMediaMintitle) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$userPreferred = userPreferred;
@@ -493,22 +492,22 @@ class FragmentMediaMinFtitle {
   }
 }
 
-extension UtilityExtensionFragmentMediaMinFtitle on FragmentMediaMinFtitle {
-  CopyWithFragmentMediaMinFtitle<FragmentMediaMinFtitle> get copyWith =>
-      CopyWithFragmentMediaMinFtitle(
+extension UtilityExtensionFragmentMediaMintitle on FragmentMediaMintitle {
+  CopyWithFragmentMediaMintitle<FragmentMediaMintitle> get copyWith =>
+      CopyWithFragmentMediaMintitle(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithFragmentMediaMinFtitle<TRes> {
-  factory CopyWithFragmentMediaMinFtitle(
-    FragmentMediaMinFtitle instance,
-    TRes Function(FragmentMediaMinFtitle) then,
-  ) = _CopyWithImplFragmentMediaMinFtitle;
+abstract class CopyWithFragmentMediaMintitle<TRes> {
+  factory CopyWithFragmentMediaMintitle(
+    FragmentMediaMintitle instance,
+    TRes Function(FragmentMediaMintitle) then,
+  ) = _CopyWithImplFragmentMediaMintitle;
 
-  factory CopyWithFragmentMediaMinFtitle.stub(TRes res) =
-      _CopyWithStubImplFragmentMediaMinFtitle;
+  factory CopyWithFragmentMediaMintitle.stub(TRes res) =
+      _CopyWithStubImplFragmentMediaMintitle;
 
   TRes call({
     String? userPreferred,
@@ -519,16 +518,16 @@ abstract class CopyWithFragmentMediaMinFtitle<TRes> {
   });
 }
 
-class _CopyWithImplFragmentMediaMinFtitle<TRes>
-    implements CopyWithFragmentMediaMinFtitle<TRes> {
-  _CopyWithImplFragmentMediaMinFtitle(
+class _CopyWithImplFragmentMediaMintitle<TRes>
+    implements CopyWithFragmentMediaMintitle<TRes> {
+  _CopyWithImplFragmentMediaMintitle(
     this._instance,
     this._then,
   );
 
-  final FragmentMediaMinFtitle _instance;
+  final FragmentMediaMintitle _instance;
 
-  final TRes Function(FragmentMediaMinFtitle) _then;
+  final TRes Function(FragmentMediaMintitle) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -539,7 +538,7 @@ class _CopyWithImplFragmentMediaMinFtitle<TRes>
     Object? native = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentMediaMinFtitle(
+      _then(FragmentMediaMintitle(
         userPreferred: userPreferred == _undefined
             ? _instance.userPreferred
             : (userPreferred as String?),
@@ -553,9 +552,9 @@ class _CopyWithImplFragmentMediaMinFtitle<TRes>
       ));
 }
 
-class _CopyWithStubImplFragmentMediaMinFtitle<TRes>
-    implements CopyWithFragmentMediaMinFtitle<TRes> {
-  _CopyWithStubImplFragmentMediaMinFtitle(this._res);
+class _CopyWithStubImplFragmentMediaMintitle<TRes>
+    implements CopyWithFragmentMediaMintitle<TRes> {
+  _CopyWithStubImplFragmentMediaMintitle(this._res);
 
   TRes _res;
 
@@ -569,8 +568,8 @@ class _CopyWithStubImplFragmentMediaMinFtitle<TRes>
       _res;
 }
 
-class FragmentMediaMinFcoverImage {
-  FragmentMediaMinFcoverImage({
+class FragmentMediaMincoverImage {
+  FragmentMediaMincoverImage({
     this.extraLarge,
     this.large,
     this.medium,
@@ -578,13 +577,13 @@ class FragmentMediaMinFcoverImage {
     this.$__typename = 'MediaCoverImage',
   });
 
-  factory FragmentMediaMinFcoverImage.fromJson(Map<String, dynamic> json) {
+  factory FragmentMediaMincoverImage.fromJson(Map<String, dynamic> json) {
     final l$extraLarge = json['extraLarge'];
     final l$large = json['large'];
     final l$medium = json['medium'];
     final l$color = json['color'];
     final l$$__typename = json['__typename'];
-    return FragmentMediaMinFcoverImage(
+    return FragmentMediaMincoverImage(
       extraLarge: (l$extraLarge as String?),
       large: (l$large as String?),
       medium: (l$medium as String?),
@@ -639,7 +638,7 @@ class FragmentMediaMinFcoverImage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaMinFcoverImage) ||
+    if (!(other is FragmentMediaMincoverImage) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -672,23 +671,23 @@ class FragmentMediaMinFcoverImage {
   }
 }
 
-extension UtilityExtensionFragmentMediaMinFcoverImage
-    on FragmentMediaMinFcoverImage {
-  CopyWithFragmentMediaMinFcoverImage<FragmentMediaMinFcoverImage>
-      get copyWith => CopyWithFragmentMediaMinFcoverImage(
-            this,
-            (i) => i,
-          );
+extension UtilityExtensionFragmentMediaMincoverImage
+    on FragmentMediaMincoverImage {
+  CopyWithFragmentMediaMincoverImage<FragmentMediaMincoverImage> get copyWith =>
+      CopyWithFragmentMediaMincoverImage(
+        this,
+        (i) => i,
+      );
 }
 
-abstract class CopyWithFragmentMediaMinFcoverImage<TRes> {
-  factory CopyWithFragmentMediaMinFcoverImage(
-    FragmentMediaMinFcoverImage instance,
-    TRes Function(FragmentMediaMinFcoverImage) then,
-  ) = _CopyWithImplFragmentMediaMinFcoverImage;
+abstract class CopyWithFragmentMediaMincoverImage<TRes> {
+  factory CopyWithFragmentMediaMincoverImage(
+    FragmentMediaMincoverImage instance,
+    TRes Function(FragmentMediaMincoverImage) then,
+  ) = _CopyWithImplFragmentMediaMincoverImage;
 
-  factory CopyWithFragmentMediaMinFcoverImage.stub(TRes res) =
-      _CopyWithStubImplFragmentMediaMinFcoverImage;
+  factory CopyWithFragmentMediaMincoverImage.stub(TRes res) =
+      _CopyWithStubImplFragmentMediaMincoverImage;
 
   TRes call({
     String? extraLarge,
@@ -699,16 +698,16 @@ abstract class CopyWithFragmentMediaMinFcoverImage<TRes> {
   });
 }
 
-class _CopyWithImplFragmentMediaMinFcoverImage<TRes>
-    implements CopyWithFragmentMediaMinFcoverImage<TRes> {
-  _CopyWithImplFragmentMediaMinFcoverImage(
+class _CopyWithImplFragmentMediaMincoverImage<TRes>
+    implements CopyWithFragmentMediaMincoverImage<TRes> {
+  _CopyWithImplFragmentMediaMincoverImage(
     this._instance,
     this._then,
   );
 
-  final FragmentMediaMinFcoverImage _instance;
+  final FragmentMediaMincoverImage _instance;
 
-  final TRes Function(FragmentMediaMinFcoverImage) _then;
+  final TRes Function(FragmentMediaMincoverImage) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -719,7 +718,7 @@ class _CopyWithImplFragmentMediaMinFcoverImage<TRes>
     Object? color = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentMediaMinFcoverImage(
+      _then(FragmentMediaMincoverImage(
         extraLarge: extraLarge == _undefined
             ? _instance.extraLarge
             : (extraLarge as String?),
@@ -732,9 +731,9 @@ class _CopyWithImplFragmentMediaMinFcoverImage<TRes>
       ));
 }
 
-class _CopyWithStubImplFragmentMediaMinFcoverImage<TRes>
-    implements CopyWithFragmentMediaMinFcoverImage<TRes> {
-  _CopyWithStubImplFragmentMediaMinFcoverImage(this._res);
+class _CopyWithStubImplFragmentMediaMincoverImage<TRes>
+    implements CopyWithFragmentMediaMincoverImage<TRes> {
+  _CopyWithStubImplFragmentMediaMincoverImage(this._res);
 
   TRes _res;
 
@@ -748,8 +747,8 @@ class _CopyWithStubImplFragmentMediaMinFcoverImage<TRes>
       _res;
 }
 
-class FragmentMediaListF {
-  FragmentMediaListF({
+class FragmentMediaList {
+  FragmentMediaList({
     required this.id,
     required this.userId,
     this.media,
@@ -770,7 +769,7 @@ class FragmentMediaListF {
     this.$__typename = 'MediaList',
   });
 
-  factory FragmentMediaListF.fromJson(Map<String, dynamic> json) {
+  factory FragmentMediaList.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$userId = json['userId'];
     final l$media = json['media'];
@@ -789,12 +788,12 @@ class FragmentMediaListF {
     final l$updatedAt = json['updatedAt'];
     final l$createdAt = json['createdAt'];
     final l$$__typename = json['__typename'];
-    return FragmentMediaListF(
+    return FragmentMediaList(
       id: (l$id as int),
       userId: (l$userId as int),
       media: l$media == null
           ? null
-          : FragmentMediaMinF.fromJson((l$media as Map<String, dynamic>)),
+          : FragmentMediaMin.fromJson((l$media as Map<String, dynamic>)),
       status: l$status == null
           ? null
           : fromJsonEnumMediaListStatus((l$status as String)),
@@ -807,11 +806,11 @@ class FragmentMediaListF {
       hiddenFromStatusLists: (l$hiddenFromStatusLists as bool?),
       startedAt: l$startedAt == null
           ? null
-          : FragmentMediaListFstartedAt.fromJson(
+          : FragmentMediaListstartedAt.fromJson(
               (l$startedAt as Map<String, dynamic>)),
       completedAt: l$completedAt == null
           ? null
-          : FragmentMediaListFcompletedAt.fromJson(
+          : FragmentMediaListcompletedAt.fromJson(
               (l$completedAt as Map<String, dynamic>)),
       priority: (l$priority as int?),
       customLists: (l$customLists as String?),
@@ -825,7 +824,7 @@ class FragmentMediaListF {
 
   final int userId;
 
-  final FragmentMediaMinF? media;
+  final FragmentMediaMin? media;
 
   final EnumMediaListStatus? status;
 
@@ -843,9 +842,9 @@ class FragmentMediaListF {
 
   final bool? hiddenFromStatusLists;
 
-  final FragmentMediaListFstartedAt? startedAt;
+  final FragmentMediaListstartedAt? startedAt;
 
-  final FragmentMediaListFcompletedAt? completedAt;
+  final FragmentMediaListcompletedAt? completedAt;
 
   final int? priority;
 
@@ -946,7 +945,7 @@ class FragmentMediaListF {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaListF) || runtimeType != other.runtimeType) {
+    if (!(other is FragmentMediaList) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1043,27 +1042,27 @@ class FragmentMediaListF {
   }
 }
 
-extension UtilityExtensionFragmentMediaListF on FragmentMediaListF {
-  CopyWithFragmentMediaListF<FragmentMediaListF> get copyWith =>
-      CopyWithFragmentMediaListF(
+extension UtilityExtensionFragmentMediaList on FragmentMediaList {
+  CopyWithFragmentMediaList<FragmentMediaList> get copyWith =>
+      CopyWithFragmentMediaList(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithFragmentMediaListF<TRes> {
-  factory CopyWithFragmentMediaListF(
-    FragmentMediaListF instance,
-    TRes Function(FragmentMediaListF) then,
-  ) = _CopyWithImplFragmentMediaListF;
+abstract class CopyWithFragmentMediaList<TRes> {
+  factory CopyWithFragmentMediaList(
+    FragmentMediaList instance,
+    TRes Function(FragmentMediaList) then,
+  ) = _CopyWithImplFragmentMediaList;
 
-  factory CopyWithFragmentMediaListF.stub(TRes res) =
-      _CopyWithStubImplFragmentMediaListF;
+  factory CopyWithFragmentMediaList.stub(TRes res) =
+      _CopyWithStubImplFragmentMediaList;
 
   TRes call({
     int? id,
     int? userId,
-    FragmentMediaMinF? media,
+    FragmentMediaMin? media,
     EnumMediaListStatus? status,
     int? progress,
     int? progressVolumes,
@@ -1072,29 +1071,29 @@ abstract class CopyWithFragmentMediaListF<TRes> {
     bool? private,
     String? notes,
     bool? hiddenFromStatusLists,
-    FragmentMediaListFstartedAt? startedAt,
-    FragmentMediaListFcompletedAt? completedAt,
+    FragmentMediaListstartedAt? startedAt,
+    FragmentMediaListcompletedAt? completedAt,
     int? priority,
     String? customLists,
     int? updatedAt,
     int? createdAt,
     String? $__typename,
   });
-  CopyWithFragmentMediaMinF<TRes> get media;
-  CopyWithFragmentMediaListFstartedAt<TRes> get startedAt;
-  CopyWithFragmentMediaListFcompletedAt<TRes> get completedAt;
+  CopyWithFragmentMediaMin<TRes> get media;
+  CopyWithFragmentMediaListstartedAt<TRes> get startedAt;
+  CopyWithFragmentMediaListcompletedAt<TRes> get completedAt;
 }
 
-class _CopyWithImplFragmentMediaListF<TRes>
-    implements CopyWithFragmentMediaListF<TRes> {
-  _CopyWithImplFragmentMediaListF(
+class _CopyWithImplFragmentMediaList<TRes>
+    implements CopyWithFragmentMediaList<TRes> {
+  _CopyWithImplFragmentMediaList(
     this._instance,
     this._then,
   );
 
-  final FragmentMediaListF _instance;
+  final FragmentMediaList _instance;
 
-  final TRes Function(FragmentMediaListF) _then;
+  final TRes Function(FragmentMediaList) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1118,14 +1117,14 @@ class _CopyWithImplFragmentMediaListF<TRes>
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentMediaListF(
+      _then(FragmentMediaList(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         userId: userId == _undefined || userId == null
             ? _instance.userId
             : (userId as int),
         media: media == _undefined
             ? _instance.media
-            : (media as FragmentMediaMinF?),
+            : (media as FragmentMediaMin?),
         status: status == _undefined
             ? _instance.status
             : (status as EnumMediaListStatus?),
@@ -1143,10 +1142,10 @@ class _CopyWithImplFragmentMediaListF<TRes>
             : (hiddenFromStatusLists as bool?),
         startedAt: startedAt == _undefined
             ? _instance.startedAt
-            : (startedAt as FragmentMediaListFstartedAt?),
+            : (startedAt as FragmentMediaListstartedAt?),
         completedAt: completedAt == _undefined
             ? _instance.completedAt
-            : (completedAt as FragmentMediaListFcompletedAt?),
+            : (completedAt as FragmentMediaListcompletedAt?),
         priority:
             priority == _undefined ? _instance.priority : (priority as int?),
         customLists: customLists == _undefined
@@ -1161,40 +1160,40 @@ class _CopyWithImplFragmentMediaListF<TRes>
             : ($__typename as String),
       ));
 
-  CopyWithFragmentMediaMinF<TRes> get media {
+  CopyWithFragmentMediaMin<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
-        ? CopyWithFragmentMediaMinF.stub(_then(_instance))
-        : CopyWithFragmentMediaMinF(local$media, (e) => call(media: e));
+        ? CopyWithFragmentMediaMin.stub(_then(_instance))
+        : CopyWithFragmentMediaMin(local$media, (e) => call(media: e));
   }
 
-  CopyWithFragmentMediaListFstartedAt<TRes> get startedAt {
+  CopyWithFragmentMediaListstartedAt<TRes> get startedAt {
     final local$startedAt = _instance.startedAt;
     return local$startedAt == null
-        ? CopyWithFragmentMediaListFstartedAt.stub(_then(_instance))
-        : CopyWithFragmentMediaListFstartedAt(
+        ? CopyWithFragmentMediaListstartedAt.stub(_then(_instance))
+        : CopyWithFragmentMediaListstartedAt(
             local$startedAt, (e) => call(startedAt: e));
   }
 
-  CopyWithFragmentMediaListFcompletedAt<TRes> get completedAt {
+  CopyWithFragmentMediaListcompletedAt<TRes> get completedAt {
     final local$completedAt = _instance.completedAt;
     return local$completedAt == null
-        ? CopyWithFragmentMediaListFcompletedAt.stub(_then(_instance))
-        : CopyWithFragmentMediaListFcompletedAt(
+        ? CopyWithFragmentMediaListcompletedAt.stub(_then(_instance))
+        : CopyWithFragmentMediaListcompletedAt(
             local$completedAt, (e) => call(completedAt: e));
   }
 }
 
-class _CopyWithStubImplFragmentMediaListF<TRes>
-    implements CopyWithFragmentMediaListF<TRes> {
-  _CopyWithStubImplFragmentMediaListF(this._res);
+class _CopyWithStubImplFragmentMediaList<TRes>
+    implements CopyWithFragmentMediaList<TRes> {
+  _CopyWithStubImplFragmentMediaList(this._res);
 
   TRes _res;
 
   call({
     int? id,
     int? userId,
-    FragmentMediaMinF? media,
+    FragmentMediaMin? media,
     EnumMediaListStatus? status,
     int? progress,
     int? progressVolumes,
@@ -1203,8 +1202,8 @@ class _CopyWithStubImplFragmentMediaListF<TRes>
     bool? private,
     String? notes,
     bool? hiddenFromStatusLists,
-    FragmentMediaListFstartedAt? startedAt,
-    FragmentMediaListFcompletedAt? completedAt,
+    FragmentMediaListstartedAt? startedAt,
+    FragmentMediaListcompletedAt? completedAt,
     int? priority,
     String? customLists,
     int? updatedAt,
@@ -1213,18 +1212,18 @@ class _CopyWithStubImplFragmentMediaListF<TRes>
   }) =>
       _res;
 
-  CopyWithFragmentMediaMinF<TRes> get media =>
-      CopyWithFragmentMediaMinF.stub(_res);
+  CopyWithFragmentMediaMin<TRes> get media =>
+      CopyWithFragmentMediaMin.stub(_res);
 
-  CopyWithFragmentMediaListFstartedAt<TRes> get startedAt =>
-      CopyWithFragmentMediaListFstartedAt.stub(_res);
+  CopyWithFragmentMediaListstartedAt<TRes> get startedAt =>
+      CopyWithFragmentMediaListstartedAt.stub(_res);
 
-  CopyWithFragmentMediaListFcompletedAt<TRes> get completedAt =>
-      CopyWithFragmentMediaListFcompletedAt.stub(_res);
+  CopyWithFragmentMediaListcompletedAt<TRes> get completedAt =>
+      CopyWithFragmentMediaListcompletedAt.stub(_res);
 }
 
-const fragmentDefinitionMediaListF = FragmentDefinitionNode(
-  name: NameNode(value: 'MediaListF'),
+const fragmentDefinitionMediaList = FragmentDefinitionNode(
+  name: NameNode(value: 'MediaList'),
   typeCondition: TypeConditionNode(
       on: NamedTypeNode(
     name: NameNode(value: 'MediaList'),
@@ -1253,7 +1252,7 @@ const fragmentDefinitionMediaListF = FragmentDefinitionNode(
       directives: [],
       selectionSet: SelectionSetNode(selections: [
         FragmentSpreadNode(
-          name: NameNode(value: 'MediaMinF'),
+          name: NameNode(value: 'MediaMin'),
           directives: [],
         ),
         FieldNode(
@@ -1440,25 +1439,25 @@ const fragmentDefinitionMediaListF = FragmentDefinitionNode(
     ),
   ]),
 );
-const documentNodeFragmentMediaListF = DocumentNode(definitions: [
-  fragmentDefinitionMediaListF,
-  fragmentDefinitionMediaMinF,
+const documentNodeFragmentMediaList = DocumentNode(definitions: [
+  fragmentDefinitionMediaList,
+  fragmentDefinitionMediaMin,
 ]);
 
-class FragmentMediaListFstartedAt {
-  FragmentMediaListFstartedAt({
+class FragmentMediaListstartedAt {
+  FragmentMediaListstartedAt({
     this.year,
     this.month,
     this.day,
     this.$__typename = 'FuzzyDate',
   });
 
-  factory FragmentMediaListFstartedAt.fromJson(Map<String, dynamic> json) {
+  factory FragmentMediaListstartedAt.fromJson(Map<String, dynamic> json) {
     final l$year = json['year'];
     final l$month = json['month'];
     final l$day = json['day'];
     final l$$__typename = json['__typename'];
-    return FragmentMediaListFstartedAt(
+    return FragmentMediaListstartedAt(
       year: (l$year as int?),
       month: (l$month as int?),
       day: (l$day as int?),
@@ -1506,7 +1505,7 @@ class FragmentMediaListFstartedAt {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaListFstartedAt) ||
+    if (!(other is FragmentMediaListstartedAt) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1534,23 +1533,23 @@ class FragmentMediaListFstartedAt {
   }
 }
 
-extension UtilityExtensionFragmentMediaListFstartedAt
-    on FragmentMediaListFstartedAt {
-  CopyWithFragmentMediaListFstartedAt<FragmentMediaListFstartedAt>
-      get copyWith => CopyWithFragmentMediaListFstartedAt(
-            this,
-            (i) => i,
-          );
+extension UtilityExtensionFragmentMediaListstartedAt
+    on FragmentMediaListstartedAt {
+  CopyWithFragmentMediaListstartedAt<FragmentMediaListstartedAt> get copyWith =>
+      CopyWithFragmentMediaListstartedAt(
+        this,
+        (i) => i,
+      );
 }
 
-abstract class CopyWithFragmentMediaListFstartedAt<TRes> {
-  factory CopyWithFragmentMediaListFstartedAt(
-    FragmentMediaListFstartedAt instance,
-    TRes Function(FragmentMediaListFstartedAt) then,
-  ) = _CopyWithImplFragmentMediaListFstartedAt;
+abstract class CopyWithFragmentMediaListstartedAt<TRes> {
+  factory CopyWithFragmentMediaListstartedAt(
+    FragmentMediaListstartedAt instance,
+    TRes Function(FragmentMediaListstartedAt) then,
+  ) = _CopyWithImplFragmentMediaListstartedAt;
 
-  factory CopyWithFragmentMediaListFstartedAt.stub(TRes res) =
-      _CopyWithStubImplFragmentMediaListFstartedAt;
+  factory CopyWithFragmentMediaListstartedAt.stub(TRes res) =
+      _CopyWithStubImplFragmentMediaListstartedAt;
 
   TRes call({
     int? year,
@@ -1560,16 +1559,16 @@ abstract class CopyWithFragmentMediaListFstartedAt<TRes> {
   });
 }
 
-class _CopyWithImplFragmentMediaListFstartedAt<TRes>
-    implements CopyWithFragmentMediaListFstartedAt<TRes> {
-  _CopyWithImplFragmentMediaListFstartedAt(
+class _CopyWithImplFragmentMediaListstartedAt<TRes>
+    implements CopyWithFragmentMediaListstartedAt<TRes> {
+  _CopyWithImplFragmentMediaListstartedAt(
     this._instance,
     this._then,
   );
 
-  final FragmentMediaListFstartedAt _instance;
+  final FragmentMediaListstartedAt _instance;
 
-  final TRes Function(FragmentMediaListFstartedAt) _then;
+  final TRes Function(FragmentMediaListstartedAt) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1579,7 +1578,7 @@ class _CopyWithImplFragmentMediaListFstartedAt<TRes>
     Object? day = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentMediaListFstartedAt(
+      _then(FragmentMediaListstartedAt(
         year: year == _undefined ? _instance.year : (year as int?),
         month: month == _undefined ? _instance.month : (month as int?),
         day: day == _undefined ? _instance.day : (day as int?),
@@ -1589,9 +1588,9 @@ class _CopyWithImplFragmentMediaListFstartedAt<TRes>
       ));
 }
 
-class _CopyWithStubImplFragmentMediaListFstartedAt<TRes>
-    implements CopyWithFragmentMediaListFstartedAt<TRes> {
-  _CopyWithStubImplFragmentMediaListFstartedAt(this._res);
+class _CopyWithStubImplFragmentMediaListstartedAt<TRes>
+    implements CopyWithFragmentMediaListstartedAt<TRes> {
+  _CopyWithStubImplFragmentMediaListstartedAt(this._res);
 
   TRes _res;
 
@@ -1604,20 +1603,20 @@ class _CopyWithStubImplFragmentMediaListFstartedAt<TRes>
       _res;
 }
 
-class FragmentMediaListFcompletedAt {
-  FragmentMediaListFcompletedAt({
+class FragmentMediaListcompletedAt {
+  FragmentMediaListcompletedAt({
     this.year,
     this.month,
     this.day,
     this.$__typename = 'FuzzyDate',
   });
 
-  factory FragmentMediaListFcompletedAt.fromJson(Map<String, dynamic> json) {
+  factory FragmentMediaListcompletedAt.fromJson(Map<String, dynamic> json) {
     final l$year = json['year'];
     final l$month = json['month'];
     final l$day = json['day'];
     final l$$__typename = json['__typename'];
-    return FragmentMediaListFcompletedAt(
+    return FragmentMediaListcompletedAt(
       year: (l$year as int?),
       month: (l$month as int?),
       day: (l$day as int?),
@@ -1665,7 +1664,7 @@ class FragmentMediaListFcompletedAt {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaListFcompletedAt) ||
+    if (!(other is FragmentMediaListcompletedAt) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1693,23 +1692,23 @@ class FragmentMediaListFcompletedAt {
   }
 }
 
-extension UtilityExtensionFragmentMediaListFcompletedAt
-    on FragmentMediaListFcompletedAt {
-  CopyWithFragmentMediaListFcompletedAt<FragmentMediaListFcompletedAt>
-      get copyWith => CopyWithFragmentMediaListFcompletedAt(
+extension UtilityExtensionFragmentMediaListcompletedAt
+    on FragmentMediaListcompletedAt {
+  CopyWithFragmentMediaListcompletedAt<FragmentMediaListcompletedAt>
+      get copyWith => CopyWithFragmentMediaListcompletedAt(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithFragmentMediaListFcompletedAt<TRes> {
-  factory CopyWithFragmentMediaListFcompletedAt(
-    FragmentMediaListFcompletedAt instance,
-    TRes Function(FragmentMediaListFcompletedAt) then,
-  ) = _CopyWithImplFragmentMediaListFcompletedAt;
+abstract class CopyWithFragmentMediaListcompletedAt<TRes> {
+  factory CopyWithFragmentMediaListcompletedAt(
+    FragmentMediaListcompletedAt instance,
+    TRes Function(FragmentMediaListcompletedAt) then,
+  ) = _CopyWithImplFragmentMediaListcompletedAt;
 
-  factory CopyWithFragmentMediaListFcompletedAt.stub(TRes res) =
-      _CopyWithStubImplFragmentMediaListFcompletedAt;
+  factory CopyWithFragmentMediaListcompletedAt.stub(TRes res) =
+      _CopyWithStubImplFragmentMediaListcompletedAt;
 
   TRes call({
     int? year,
@@ -1719,16 +1718,16 @@ abstract class CopyWithFragmentMediaListFcompletedAt<TRes> {
   });
 }
 
-class _CopyWithImplFragmentMediaListFcompletedAt<TRes>
-    implements CopyWithFragmentMediaListFcompletedAt<TRes> {
-  _CopyWithImplFragmentMediaListFcompletedAt(
+class _CopyWithImplFragmentMediaListcompletedAt<TRes>
+    implements CopyWithFragmentMediaListcompletedAt<TRes> {
+  _CopyWithImplFragmentMediaListcompletedAt(
     this._instance,
     this._then,
   );
 
-  final FragmentMediaListFcompletedAt _instance;
+  final FragmentMediaListcompletedAt _instance;
 
-  final TRes Function(FragmentMediaListFcompletedAt) _then;
+  final TRes Function(FragmentMediaListcompletedAt) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1738,7 +1737,7 @@ class _CopyWithImplFragmentMediaListFcompletedAt<TRes>
     Object? day = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentMediaListFcompletedAt(
+      _then(FragmentMediaListcompletedAt(
         year: year == _undefined ? _instance.year : (year as int?),
         month: month == _undefined ? _instance.month : (month as int?),
         day: day == _undefined ? _instance.day : (day as int?),
@@ -1748,9 +1747,9 @@ class _CopyWithImplFragmentMediaListFcompletedAt<TRes>
       ));
 }
 
-class _CopyWithStubImplFragmentMediaListFcompletedAt<TRes>
-    implements CopyWithFragmentMediaListFcompletedAt<TRes> {
-  _CopyWithStubImplFragmentMediaListFcompletedAt(this._res);
+class _CopyWithStubImplFragmentMediaListcompletedAt<TRes>
+    implements CopyWithFragmentMediaListcompletedAt<TRes> {
+  _CopyWithStubImplFragmentMediaListcompletedAt(this._res);
 
   TRes _res;
 
@@ -1763,25 +1762,25 @@ class _CopyWithStubImplFragmentMediaListFcompletedAt<TRes>
       _res;
 }
 
-class FragmentUserMinF {
-  FragmentUserMinF({
+class FragmentUserMin {
+  FragmentUserMin({
     required this.id,
     required this.name,
     this.avatar,
     this.$__typename = 'User',
   });
 
-  factory FragmentUserMinF.fromJson(Map<String, dynamic> json) {
+  factory FragmentUserMin.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$avatar = json['avatar'];
     final l$$__typename = json['__typename'];
-    return FragmentUserMinF(
+    return FragmentUserMin(
       id: (l$id as int),
       name: (l$name as String),
       avatar: l$avatar == null
           ? null
-          : FragmentUserMinFavatar.fromJson((l$avatar as Map<String, dynamic>)),
+          : FragmentUserMinavatar.fromJson((l$avatar as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1790,7 +1789,7 @@ class FragmentUserMinF {
 
   final String name;
 
-  final FragmentUserMinFavatar? avatar;
+  final FragmentUserMinavatar? avatar;
 
   final String $__typename;
 
@@ -1826,7 +1825,7 @@ class FragmentUserMinF {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserMinF) || runtimeType != other.runtimeType) {
+    if (!(other is FragmentUserMin) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1853,42 +1852,42 @@ class FragmentUserMinF {
   }
 }
 
-extension UtilityExtensionFragmentUserMinF on FragmentUserMinF {
-  CopyWithFragmentUserMinF<FragmentUserMinF> get copyWith =>
-      CopyWithFragmentUserMinF(
+extension UtilityExtensionFragmentUserMin on FragmentUserMin {
+  CopyWithFragmentUserMin<FragmentUserMin> get copyWith =>
+      CopyWithFragmentUserMin(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithFragmentUserMinF<TRes> {
-  factory CopyWithFragmentUserMinF(
-    FragmentUserMinF instance,
-    TRes Function(FragmentUserMinF) then,
-  ) = _CopyWithImplFragmentUserMinF;
+abstract class CopyWithFragmentUserMin<TRes> {
+  factory CopyWithFragmentUserMin(
+    FragmentUserMin instance,
+    TRes Function(FragmentUserMin) then,
+  ) = _CopyWithImplFragmentUserMin;
 
-  factory CopyWithFragmentUserMinF.stub(TRes res) =
-      _CopyWithStubImplFragmentUserMinF;
+  factory CopyWithFragmentUserMin.stub(TRes res) =
+      _CopyWithStubImplFragmentUserMin;
 
   TRes call({
     int? id,
     String? name,
-    FragmentUserMinFavatar? avatar,
+    FragmentUserMinavatar? avatar,
     String? $__typename,
   });
-  CopyWithFragmentUserMinFavatar<TRes> get avatar;
+  CopyWithFragmentUserMinavatar<TRes> get avatar;
 }
 
-class _CopyWithImplFragmentUserMinF<TRes>
-    implements CopyWithFragmentUserMinF<TRes> {
-  _CopyWithImplFragmentUserMinF(
+class _CopyWithImplFragmentUserMin<TRes>
+    implements CopyWithFragmentUserMin<TRes> {
+  _CopyWithImplFragmentUserMin(
     this._instance,
     this._then,
   );
 
-  final FragmentUserMinF _instance;
+  final FragmentUserMin _instance;
 
-  final TRes Function(FragmentUserMinF) _then;
+  final TRes Function(FragmentUserMin) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1898,47 +1897,47 @@ class _CopyWithImplFragmentUserMinF<TRes>
     Object? avatar = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentUserMinF(
+      _then(FragmentUserMin(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
         avatar: avatar == _undefined
             ? _instance.avatar
-            : (avatar as FragmentUserMinFavatar?),
+            : (avatar as FragmentUserMinavatar?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinFavatar<TRes> get avatar {
+  CopyWithFragmentUserMinavatar<TRes> get avatar {
     final local$avatar = _instance.avatar;
     return local$avatar == null
-        ? CopyWithFragmentUserMinFavatar.stub(_then(_instance))
-        : CopyWithFragmentUserMinFavatar(local$avatar, (e) => call(avatar: e));
+        ? CopyWithFragmentUserMinavatar.stub(_then(_instance))
+        : CopyWithFragmentUserMinavatar(local$avatar, (e) => call(avatar: e));
   }
 }
 
-class _CopyWithStubImplFragmentUserMinF<TRes>
-    implements CopyWithFragmentUserMinF<TRes> {
-  _CopyWithStubImplFragmentUserMinF(this._res);
+class _CopyWithStubImplFragmentUserMin<TRes>
+    implements CopyWithFragmentUserMin<TRes> {
+  _CopyWithStubImplFragmentUserMin(this._res);
 
   TRes _res;
 
   call({
     int? id,
     String? name,
-    FragmentUserMinFavatar? avatar,
+    FragmentUserMinavatar? avatar,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinFavatar<TRes> get avatar =>
-      CopyWithFragmentUserMinFavatar.stub(_res);
+  CopyWithFragmentUserMinavatar<TRes> get avatar =>
+      CopyWithFragmentUserMinavatar.stub(_res);
 }
 
-const fragmentDefinitionUserMinF = FragmentDefinitionNode(
-  name: NameNode(value: 'UserMinF'),
+const fragmentDefinitionUserMin = FragmentDefinitionNode(
+  name: NameNode(value: 'UserMin'),
   typeCondition: TypeConditionNode(
       on: NamedTypeNode(
     name: NameNode(value: 'User'),
@@ -1998,22 +1997,22 @@ const fragmentDefinitionUserMinF = FragmentDefinitionNode(
     ),
   ]),
 );
-const documentNodeFragmentUserMinF = DocumentNode(definitions: [
-  fragmentDefinitionUserMinF,
+const documentNodeFragmentUserMin = DocumentNode(definitions: [
+  fragmentDefinitionUserMin,
 ]);
 
-class FragmentUserMinFavatar {
-  FragmentUserMinFavatar({
+class FragmentUserMinavatar {
+  FragmentUserMinavatar({
     this.large,
     this.medium,
     this.$__typename = 'UserAvatar',
   });
 
-  factory FragmentUserMinFavatar.fromJson(Map<String, dynamic> json) {
+  factory FragmentUserMinavatar.fromJson(Map<String, dynamic> json) {
     final l$large = json['large'];
     final l$medium = json['medium'];
     final l$$__typename = json['__typename'];
-    return FragmentUserMinFavatar(
+    return FragmentUserMinavatar(
       large: (l$large as String?),
       medium: (l$medium as String?),
       $__typename: (l$$__typename as String),
@@ -2054,8 +2053,7 @@ class FragmentUserMinFavatar {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserMinFavatar) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is FragmentUserMinavatar) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$large = large;
@@ -2077,22 +2075,22 @@ class FragmentUserMinFavatar {
   }
 }
 
-extension UtilityExtensionFragmentUserMinFavatar on FragmentUserMinFavatar {
-  CopyWithFragmentUserMinFavatar<FragmentUserMinFavatar> get copyWith =>
-      CopyWithFragmentUserMinFavatar(
+extension UtilityExtensionFragmentUserMinavatar on FragmentUserMinavatar {
+  CopyWithFragmentUserMinavatar<FragmentUserMinavatar> get copyWith =>
+      CopyWithFragmentUserMinavatar(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithFragmentUserMinFavatar<TRes> {
-  factory CopyWithFragmentUserMinFavatar(
-    FragmentUserMinFavatar instance,
-    TRes Function(FragmentUserMinFavatar) then,
-  ) = _CopyWithImplFragmentUserMinFavatar;
+abstract class CopyWithFragmentUserMinavatar<TRes> {
+  factory CopyWithFragmentUserMinavatar(
+    FragmentUserMinavatar instance,
+    TRes Function(FragmentUserMinavatar) then,
+  ) = _CopyWithImplFragmentUserMinavatar;
 
-  factory CopyWithFragmentUserMinFavatar.stub(TRes res) =
-      _CopyWithStubImplFragmentUserMinFavatar;
+  factory CopyWithFragmentUserMinavatar.stub(TRes res) =
+      _CopyWithStubImplFragmentUserMinavatar;
 
   TRes call({
     String? large,
@@ -2101,16 +2099,16 @@ abstract class CopyWithFragmentUserMinFavatar<TRes> {
   });
 }
 
-class _CopyWithImplFragmentUserMinFavatar<TRes>
-    implements CopyWithFragmentUserMinFavatar<TRes> {
-  _CopyWithImplFragmentUserMinFavatar(
+class _CopyWithImplFragmentUserMinavatar<TRes>
+    implements CopyWithFragmentUserMinavatar<TRes> {
+  _CopyWithImplFragmentUserMinavatar(
     this._instance,
     this._then,
   );
 
-  final FragmentUserMinFavatar _instance;
+  final FragmentUserMinavatar _instance;
 
-  final TRes Function(FragmentUserMinFavatar) _then;
+  final TRes Function(FragmentUserMinavatar) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2119,7 +2117,7 @@ class _CopyWithImplFragmentUserMinFavatar<TRes>
     Object? medium = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentUserMinFavatar(
+      _then(FragmentUserMinavatar(
         large: large == _undefined ? _instance.large : (large as String?),
         medium: medium == _undefined ? _instance.medium : (medium as String?),
         $__typename: $__typename == _undefined || $__typename == null
@@ -2128,9 +2126,9 @@ class _CopyWithImplFragmentUserMinFavatar<TRes>
       ));
 }
 
-class _CopyWithStubImplFragmentUserMinFavatar<TRes>
-    implements CopyWithFragmentUserMinFavatar<TRes> {
-  _CopyWithStubImplFragmentUserMinFavatar(this._res);
+class _CopyWithStubImplFragmentUserMinavatar<TRes>
+    implements CopyWithFragmentUserMinavatar<TRes> {
+  _CopyWithStubImplFragmentUserMinavatar(this._res);
 
   TRes _res;
 
@@ -2142,20 +2140,20 @@ class _CopyWithStubImplFragmentUserMinFavatar<TRes>
       _res;
 }
 
-class FragmentUserSocialsF {
-  FragmentUserSocialsF({
+class FragmentUserSocials {
+  FragmentUserSocials({
     this.isFollowing,
     this.isFollower,
     this.isBlocked,
     this.$__typename = 'User',
   });
 
-  factory FragmentUserSocialsF.fromJson(Map<String, dynamic> json) {
+  factory FragmentUserSocials.fromJson(Map<String, dynamic> json) {
     final l$isFollowing = json['isFollowing'];
     final l$isFollower = json['isFollower'];
     final l$isBlocked = json['isBlocked'];
     final l$$__typename = json['__typename'];
-    return FragmentUserSocialsF(
+    return FragmentUserSocials(
       isFollowing: (l$isFollowing as bool?),
       isFollower: (l$isFollower as bool?),
       isBlocked: (l$isBlocked as bool?),
@@ -2203,7 +2201,7 @@ class FragmentUserSocialsF {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSocialsF) || runtimeType != other.runtimeType) {
+    if (!(other is FragmentUserSocials) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$isFollowing = isFollowing;
@@ -2230,22 +2228,22 @@ class FragmentUserSocialsF {
   }
 }
 
-extension UtilityExtensionFragmentUserSocialsF on FragmentUserSocialsF {
-  CopyWithFragmentUserSocialsF<FragmentUserSocialsF> get copyWith =>
-      CopyWithFragmentUserSocialsF(
+extension UtilityExtensionFragmentUserSocials on FragmentUserSocials {
+  CopyWithFragmentUserSocials<FragmentUserSocials> get copyWith =>
+      CopyWithFragmentUserSocials(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithFragmentUserSocialsF<TRes> {
-  factory CopyWithFragmentUserSocialsF(
-    FragmentUserSocialsF instance,
-    TRes Function(FragmentUserSocialsF) then,
-  ) = _CopyWithImplFragmentUserSocialsF;
+abstract class CopyWithFragmentUserSocials<TRes> {
+  factory CopyWithFragmentUserSocials(
+    FragmentUserSocials instance,
+    TRes Function(FragmentUserSocials) then,
+  ) = _CopyWithImplFragmentUserSocials;
 
-  factory CopyWithFragmentUserSocialsF.stub(TRes res) =
-      _CopyWithStubImplFragmentUserSocialsF;
+  factory CopyWithFragmentUserSocials.stub(TRes res) =
+      _CopyWithStubImplFragmentUserSocials;
 
   TRes call({
     bool? isFollowing,
@@ -2255,16 +2253,16 @@ abstract class CopyWithFragmentUserSocialsF<TRes> {
   });
 }
 
-class _CopyWithImplFragmentUserSocialsF<TRes>
-    implements CopyWithFragmentUserSocialsF<TRes> {
-  _CopyWithImplFragmentUserSocialsF(
+class _CopyWithImplFragmentUserSocials<TRes>
+    implements CopyWithFragmentUserSocials<TRes> {
+  _CopyWithImplFragmentUserSocials(
     this._instance,
     this._then,
   );
 
-  final FragmentUserSocialsF _instance;
+  final FragmentUserSocials _instance;
 
-  final TRes Function(FragmentUserSocialsF) _then;
+  final TRes Function(FragmentUserSocials) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2274,7 +2272,7 @@ class _CopyWithImplFragmentUserSocialsF<TRes>
     Object? isBlocked = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentUserSocialsF(
+      _then(FragmentUserSocials(
         isFollowing: isFollowing == _undefined
             ? _instance.isFollowing
             : (isFollowing as bool?),
@@ -2290,9 +2288,9 @@ class _CopyWithImplFragmentUserSocialsF<TRes>
       ));
 }
 
-class _CopyWithStubImplFragmentUserSocialsF<TRes>
-    implements CopyWithFragmentUserSocialsF<TRes> {
-  _CopyWithStubImplFragmentUserSocialsF(this._res);
+class _CopyWithStubImplFragmentUserSocials<TRes>
+    implements CopyWithFragmentUserSocials<TRes> {
+  _CopyWithStubImplFragmentUserSocials(this._res);
 
   TRes _res;
 
@@ -2305,8 +2303,8 @@ class _CopyWithStubImplFragmentUserSocialsF<TRes>
       _res;
 }
 
-const fragmentDefinitionUserSocialsF = FragmentDefinitionNode(
-  name: NameNode(value: 'UserSocialsF'),
+const fragmentDefinitionUserSocials = FragmentDefinitionNode(
+  name: NameNode(value: 'UserSocials'),
   typeCondition: TypeConditionNode(
       on: NamedTypeNode(
     name: NameNode(value: 'User'),
@@ -2344,37 +2342,37 @@ const fragmentDefinitionUserSocialsF = FragmentDefinitionNode(
     ),
   ]),
 );
-const documentNodeFragmentUserSocialsF = DocumentNode(definitions: [
-  fragmentDefinitionUserSocialsF,
+const documentNodeFragmentUserSocials = DocumentNode(definitions: [
+  fragmentDefinitionUserSocials,
 ]);
 
-class FragmentUserSettingsF {
-  FragmentUserSettingsF({
+class FragmentUserSettings {
+  FragmentUserSettings({
     this.options,
     this.mediaListOptions,
     this.$__typename = 'User',
   });
 
-  factory FragmentUserSettingsF.fromJson(Map<String, dynamic> json) {
+  factory FragmentUserSettings.fromJson(Map<String, dynamic> json) {
     final l$options = json['options'];
     final l$mediaListOptions = json['mediaListOptions'];
     final l$$__typename = json['__typename'];
-    return FragmentUserSettingsF(
+    return FragmentUserSettings(
       options: l$options == null
           ? null
-          : FragmentUserSettingsFoptions.fromJson(
+          : FragmentUserSettingsoptions.fromJson(
               (l$options as Map<String, dynamic>)),
       mediaListOptions: l$mediaListOptions == null
           ? null
-          : FragmentUserSettingsFmediaListOptions.fromJson(
+          : FragmentUserSettingsmediaListOptions.fromJson(
               (l$mediaListOptions as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final FragmentUserSettingsFoptions? options;
+  final FragmentUserSettingsoptions? options;
 
-  final FragmentUserSettingsFmediaListOptions? mediaListOptions;
+  final FragmentUserSettingsmediaListOptions? mediaListOptions;
 
   final String $__typename;
 
@@ -2406,7 +2404,7 @@ class FragmentUserSettingsF {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSettingsF) || runtimeType != other.runtimeType) {
+    if (!(other is FragmentUserSettings) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$options = options;
@@ -2428,42 +2426,42 @@ class FragmentUserSettingsF {
   }
 }
 
-extension UtilityExtensionFragmentUserSettingsF on FragmentUserSettingsF {
-  CopyWithFragmentUserSettingsF<FragmentUserSettingsF> get copyWith =>
-      CopyWithFragmentUserSettingsF(
+extension UtilityExtensionFragmentUserSettings on FragmentUserSettings {
+  CopyWithFragmentUserSettings<FragmentUserSettings> get copyWith =>
+      CopyWithFragmentUserSettings(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithFragmentUserSettingsF<TRes> {
-  factory CopyWithFragmentUserSettingsF(
-    FragmentUserSettingsF instance,
-    TRes Function(FragmentUserSettingsF) then,
-  ) = _CopyWithImplFragmentUserSettingsF;
+abstract class CopyWithFragmentUserSettings<TRes> {
+  factory CopyWithFragmentUserSettings(
+    FragmentUserSettings instance,
+    TRes Function(FragmentUserSettings) then,
+  ) = _CopyWithImplFragmentUserSettings;
 
-  factory CopyWithFragmentUserSettingsF.stub(TRes res) =
-      _CopyWithStubImplFragmentUserSettingsF;
+  factory CopyWithFragmentUserSettings.stub(TRes res) =
+      _CopyWithStubImplFragmentUserSettings;
 
   TRes call({
-    FragmentUserSettingsFoptions? options,
-    FragmentUserSettingsFmediaListOptions? mediaListOptions,
+    FragmentUserSettingsoptions? options,
+    FragmentUserSettingsmediaListOptions? mediaListOptions,
     String? $__typename,
   });
-  CopyWithFragmentUserSettingsFoptions<TRes> get options;
-  CopyWithFragmentUserSettingsFmediaListOptions<TRes> get mediaListOptions;
+  CopyWithFragmentUserSettingsoptions<TRes> get options;
+  CopyWithFragmentUserSettingsmediaListOptions<TRes> get mediaListOptions;
 }
 
-class _CopyWithImplFragmentUserSettingsF<TRes>
-    implements CopyWithFragmentUserSettingsF<TRes> {
-  _CopyWithImplFragmentUserSettingsF(
+class _CopyWithImplFragmentUserSettings<TRes>
+    implements CopyWithFragmentUserSettings<TRes> {
+  _CopyWithImplFragmentUserSettings(
     this._instance,
     this._then,
   );
 
-  final FragmentUserSettingsF _instance;
+  final FragmentUserSettings _instance;
 
-  final TRes Function(FragmentUserSettingsF) _then;
+  final TRes Function(FragmentUserSettings) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2472,57 +2470,57 @@ class _CopyWithImplFragmentUserSettingsF<TRes>
     Object? mediaListOptions = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentUserSettingsF(
+      _then(FragmentUserSettings(
         options: options == _undefined
             ? _instance.options
-            : (options as FragmentUserSettingsFoptions?),
+            : (options as FragmentUserSettingsoptions?),
         mediaListOptions: mediaListOptions == _undefined
             ? _instance.mediaListOptions
-            : (mediaListOptions as FragmentUserSettingsFmediaListOptions?),
+            : (mediaListOptions as FragmentUserSettingsmediaListOptions?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserSettingsFoptions<TRes> get options {
+  CopyWithFragmentUserSettingsoptions<TRes> get options {
     final local$options = _instance.options;
     return local$options == null
-        ? CopyWithFragmentUserSettingsFoptions.stub(_then(_instance))
-        : CopyWithFragmentUserSettingsFoptions(
+        ? CopyWithFragmentUserSettingsoptions.stub(_then(_instance))
+        : CopyWithFragmentUserSettingsoptions(
             local$options, (e) => call(options: e));
   }
 
-  CopyWithFragmentUserSettingsFmediaListOptions<TRes> get mediaListOptions {
+  CopyWithFragmentUserSettingsmediaListOptions<TRes> get mediaListOptions {
     final local$mediaListOptions = _instance.mediaListOptions;
     return local$mediaListOptions == null
-        ? CopyWithFragmentUserSettingsFmediaListOptions.stub(_then(_instance))
-        : CopyWithFragmentUserSettingsFmediaListOptions(
+        ? CopyWithFragmentUserSettingsmediaListOptions.stub(_then(_instance))
+        : CopyWithFragmentUserSettingsmediaListOptions(
             local$mediaListOptions, (e) => call(mediaListOptions: e));
   }
 }
 
-class _CopyWithStubImplFragmentUserSettingsF<TRes>
-    implements CopyWithFragmentUserSettingsF<TRes> {
-  _CopyWithStubImplFragmentUserSettingsF(this._res);
+class _CopyWithStubImplFragmentUserSettings<TRes>
+    implements CopyWithFragmentUserSettings<TRes> {
+  _CopyWithStubImplFragmentUserSettings(this._res);
 
   TRes _res;
 
   call({
-    FragmentUserSettingsFoptions? options,
-    FragmentUserSettingsFmediaListOptions? mediaListOptions,
+    FragmentUserSettingsoptions? options,
+    FragmentUserSettingsmediaListOptions? mediaListOptions,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserSettingsFoptions<TRes> get options =>
-      CopyWithFragmentUserSettingsFoptions.stub(_res);
+  CopyWithFragmentUserSettingsoptions<TRes> get options =>
+      CopyWithFragmentUserSettingsoptions.stub(_res);
 
-  CopyWithFragmentUserSettingsFmediaListOptions<TRes> get mediaListOptions =>
-      CopyWithFragmentUserSettingsFmediaListOptions.stub(_res);
+  CopyWithFragmentUserSettingsmediaListOptions<TRes> get mediaListOptions =>
+      CopyWithFragmentUserSettingsmediaListOptions.stub(_res);
 }
 
-const fragmentDefinitionUserSettingsF = FragmentDefinitionNode(
-  name: NameNode(value: 'UserSettingsF'),
+const fragmentDefinitionUserSettings = FragmentDefinitionNode(
+  name: NameNode(value: 'UserSettings'),
   typeCondition: TypeConditionNode(
       on: NamedTypeNode(
     name: NameNode(value: 'User'),
@@ -2739,12 +2737,12 @@ const fragmentDefinitionUserSettingsF = FragmentDefinitionNode(
     ),
   ]),
 );
-const documentNodeFragmentUserSettingsF = DocumentNode(definitions: [
-  fragmentDefinitionUserSettingsF,
+const documentNodeFragmentUserSettings = DocumentNode(definitions: [
+  fragmentDefinitionUserSettings,
 ]);
 
-class FragmentUserSettingsFoptions {
-  FragmentUserSettingsFoptions({
+class FragmentUserSettingsoptions {
+  FragmentUserSettingsoptions({
     this.titleLanguage,
     this.displayAdultContent,
     this.airingNotifications,
@@ -2756,7 +2754,7 @@ class FragmentUserSettingsFoptions {
     this.$__typename = 'UserOptions',
   });
 
-  factory FragmentUserSettingsFoptions.fromJson(Map<String, dynamic> json) {
+  factory FragmentUserSettingsoptions.fromJson(Map<String, dynamic> json) {
     final l$titleLanguage = json['titleLanguage'];
     final l$displayAdultContent = json['displayAdultContent'];
     final l$airingNotifications = json['airingNotifications'];
@@ -2766,7 +2764,7 @@ class FragmentUserSettingsFoptions {
     final l$staffNameLanguage = json['staffNameLanguage'];
     final l$restrictMessagesToFollowing = json['restrictMessagesToFollowing'];
     final l$$__typename = json['__typename'];
-    return FragmentUserSettingsFoptions(
+    return FragmentUserSettingsoptions(
       titleLanguage: l$titleLanguage == null
           ? null
           : fromJsonEnumUserTitleLanguage((l$titleLanguage as String)),
@@ -2857,7 +2855,7 @@ class FragmentUserSettingsFoptions {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSettingsFoptions) ||
+    if (!(other is FragmentUserSettingsoptions) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2911,23 +2909,23 @@ class FragmentUserSettingsFoptions {
   }
 }
 
-extension UtilityExtensionFragmentUserSettingsFoptions
-    on FragmentUserSettingsFoptions {
-  CopyWithFragmentUserSettingsFoptions<FragmentUserSettingsFoptions>
-      get copyWith => CopyWithFragmentUserSettingsFoptions(
+extension UtilityExtensionFragmentUserSettingsoptions
+    on FragmentUserSettingsoptions {
+  CopyWithFragmentUserSettingsoptions<FragmentUserSettingsoptions>
+      get copyWith => CopyWithFragmentUserSettingsoptions(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithFragmentUserSettingsFoptions<TRes> {
-  factory CopyWithFragmentUserSettingsFoptions(
-    FragmentUserSettingsFoptions instance,
-    TRes Function(FragmentUserSettingsFoptions) then,
-  ) = _CopyWithImplFragmentUserSettingsFoptions;
+abstract class CopyWithFragmentUserSettingsoptions<TRes> {
+  factory CopyWithFragmentUserSettingsoptions(
+    FragmentUserSettingsoptions instance,
+    TRes Function(FragmentUserSettingsoptions) then,
+  ) = _CopyWithImplFragmentUserSettingsoptions;
 
-  factory CopyWithFragmentUserSettingsFoptions.stub(TRes res) =
-      _CopyWithStubImplFragmentUserSettingsFoptions;
+  factory CopyWithFragmentUserSettingsoptions.stub(TRes res) =
+      _CopyWithStubImplFragmentUserSettingsoptions;
 
   TRes call({
     EnumUserTitleLanguage? titleLanguage,
@@ -2942,16 +2940,16 @@ abstract class CopyWithFragmentUserSettingsFoptions<TRes> {
   });
 }
 
-class _CopyWithImplFragmentUserSettingsFoptions<TRes>
-    implements CopyWithFragmentUserSettingsFoptions<TRes> {
-  _CopyWithImplFragmentUserSettingsFoptions(
+class _CopyWithImplFragmentUserSettingsoptions<TRes>
+    implements CopyWithFragmentUserSettingsoptions<TRes> {
+  _CopyWithImplFragmentUserSettingsoptions(
     this._instance,
     this._then,
   );
 
-  final FragmentUserSettingsFoptions _instance;
+  final FragmentUserSettingsoptions _instance;
 
-  final TRes Function(FragmentUserSettingsFoptions) _then;
+  final TRes Function(FragmentUserSettingsoptions) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -2966,7 +2964,7 @@ class _CopyWithImplFragmentUserSettingsFoptions<TRes>
     Object? restrictMessagesToFollowing = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentUserSettingsFoptions(
+      _then(FragmentUserSettingsoptions(
         titleLanguage: titleLanguage == _undefined
             ? _instance.titleLanguage
             : (titleLanguage as EnumUserTitleLanguage?),
@@ -2996,9 +2994,9 @@ class _CopyWithImplFragmentUserSettingsFoptions<TRes>
       ));
 }
 
-class _CopyWithStubImplFragmentUserSettingsFoptions<TRes>
-    implements CopyWithFragmentUserSettingsFoptions<TRes> {
-  _CopyWithStubImplFragmentUserSettingsFoptions(this._res);
+class _CopyWithStubImplFragmentUserSettingsoptions<TRes>
+    implements CopyWithFragmentUserSettingsoptions<TRes> {
+  _CopyWithStubImplFragmentUserSettingsoptions(this._res);
 
   TRes _res;
 
@@ -3016,8 +3014,8 @@ class _CopyWithStubImplFragmentUserSettingsFoptions<TRes>
       _res;
 }
 
-class FragmentUserSettingsFmediaListOptions {
-  FragmentUserSettingsFmediaListOptions({
+class FragmentUserSettingsmediaListOptions {
+  FragmentUserSettingsmediaListOptions({
     this.scoreFormat,
     this.rowOrder,
     this.animeList,
@@ -3025,25 +3023,25 @@ class FragmentUserSettingsFmediaListOptions {
     this.$__typename = 'MediaListOptions',
   });
 
-  factory FragmentUserSettingsFmediaListOptions.fromJson(
+  factory FragmentUserSettingsmediaListOptions.fromJson(
       Map<String, dynamic> json) {
     final l$scoreFormat = json['scoreFormat'];
     final l$rowOrder = json['rowOrder'];
     final l$animeList = json['animeList'];
     final l$mangaList = json['mangaList'];
     final l$$__typename = json['__typename'];
-    return FragmentUserSettingsFmediaListOptions(
+    return FragmentUserSettingsmediaListOptions(
       scoreFormat: l$scoreFormat == null
           ? null
           : fromJsonEnumScoreFormat((l$scoreFormat as String)),
       rowOrder: (l$rowOrder as String?),
       animeList: l$animeList == null
           ? null
-          : FragmentUserSettingsFmediaListOptionsanimeList.fromJson(
+          : FragmentUserSettingsmediaListOptionsanimeList.fromJson(
               (l$animeList as Map<String, dynamic>)),
       mangaList: l$mangaList == null
           ? null
-          : FragmentUserSettingsFmediaListOptionsmangaList.fromJson(
+          : FragmentUserSettingsmediaListOptionsmangaList.fromJson(
               (l$mangaList as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
@@ -3053,9 +3051,9 @@ class FragmentUserSettingsFmediaListOptions {
 
   final String? rowOrder;
 
-  final FragmentUserSettingsFmediaListOptionsanimeList? animeList;
+  final FragmentUserSettingsmediaListOptionsanimeList? animeList;
 
-  final FragmentUserSettingsFmediaListOptionsmangaList? mangaList;
+  final FragmentUserSettingsmediaListOptionsmangaList? mangaList;
 
   final String $__typename;
 
@@ -3096,7 +3094,7 @@ class FragmentUserSettingsFmediaListOptions {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSettingsFmediaListOptions) ||
+    if (!(other is FragmentUserSettingsmediaListOptions) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3129,46 +3127,46 @@ class FragmentUserSettingsFmediaListOptions {
   }
 }
 
-extension UtilityExtensionFragmentUserSettingsFmediaListOptions
-    on FragmentUserSettingsFmediaListOptions {
-  CopyWithFragmentUserSettingsFmediaListOptions<
-          FragmentUserSettingsFmediaListOptions>
-      get copyWith => CopyWithFragmentUserSettingsFmediaListOptions(
+extension UtilityExtensionFragmentUserSettingsmediaListOptions
+    on FragmentUserSettingsmediaListOptions {
+  CopyWithFragmentUserSettingsmediaListOptions<
+          FragmentUserSettingsmediaListOptions>
+      get copyWith => CopyWithFragmentUserSettingsmediaListOptions(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithFragmentUserSettingsFmediaListOptions<TRes> {
-  factory CopyWithFragmentUserSettingsFmediaListOptions(
-    FragmentUserSettingsFmediaListOptions instance,
-    TRes Function(FragmentUserSettingsFmediaListOptions) then,
-  ) = _CopyWithImplFragmentUserSettingsFmediaListOptions;
+abstract class CopyWithFragmentUserSettingsmediaListOptions<TRes> {
+  factory CopyWithFragmentUserSettingsmediaListOptions(
+    FragmentUserSettingsmediaListOptions instance,
+    TRes Function(FragmentUserSettingsmediaListOptions) then,
+  ) = _CopyWithImplFragmentUserSettingsmediaListOptions;
 
-  factory CopyWithFragmentUserSettingsFmediaListOptions.stub(TRes res) =
-      _CopyWithStubImplFragmentUserSettingsFmediaListOptions;
+  factory CopyWithFragmentUserSettingsmediaListOptions.stub(TRes res) =
+      _CopyWithStubImplFragmentUserSettingsmediaListOptions;
 
   TRes call({
     EnumScoreFormat? scoreFormat,
     String? rowOrder,
-    FragmentUserSettingsFmediaListOptionsanimeList? animeList,
-    FragmentUserSettingsFmediaListOptionsmangaList? mangaList,
+    FragmentUserSettingsmediaListOptionsanimeList? animeList,
+    FragmentUserSettingsmediaListOptionsmangaList? mangaList,
     String? $__typename,
   });
-  CopyWithFragmentUserSettingsFmediaListOptionsanimeList<TRes> get animeList;
-  CopyWithFragmentUserSettingsFmediaListOptionsmangaList<TRes> get mangaList;
+  CopyWithFragmentUserSettingsmediaListOptionsanimeList<TRes> get animeList;
+  CopyWithFragmentUserSettingsmediaListOptionsmangaList<TRes> get mangaList;
 }
 
-class _CopyWithImplFragmentUserSettingsFmediaListOptions<TRes>
-    implements CopyWithFragmentUserSettingsFmediaListOptions<TRes> {
-  _CopyWithImplFragmentUserSettingsFmediaListOptions(
+class _CopyWithImplFragmentUserSettingsmediaListOptions<TRes>
+    implements CopyWithFragmentUserSettingsmediaListOptions<TRes> {
+  _CopyWithImplFragmentUserSettingsmediaListOptions(
     this._instance,
     this._then,
   );
 
-  final FragmentUserSettingsFmediaListOptions _instance;
+  final FragmentUserSettingsmediaListOptions _instance;
 
-  final TRes Function(FragmentUserSettingsFmediaListOptions) _then;
+  final TRes Function(FragmentUserSettingsmediaListOptions) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3179,7 +3177,7 @@ class _CopyWithImplFragmentUserSettingsFmediaListOptions<TRes>
     Object? mangaList = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentUserSettingsFmediaListOptions(
+      _then(FragmentUserSettingsmediaListOptions(
         scoreFormat: scoreFormat == _undefined
             ? _instance.scoreFormat
             : (scoreFormat as EnumScoreFormat?),
@@ -3187,58 +3185,58 @@ class _CopyWithImplFragmentUserSettingsFmediaListOptions<TRes>
             rowOrder == _undefined ? _instance.rowOrder : (rowOrder as String?),
         animeList: animeList == _undefined
             ? _instance.animeList
-            : (animeList as FragmentUserSettingsFmediaListOptionsanimeList?),
+            : (animeList as FragmentUserSettingsmediaListOptionsanimeList?),
         mangaList: mangaList == _undefined
             ? _instance.mangaList
-            : (mangaList as FragmentUserSettingsFmediaListOptionsmangaList?),
+            : (mangaList as FragmentUserSettingsmediaListOptionsmangaList?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserSettingsFmediaListOptionsanimeList<TRes> get animeList {
+  CopyWithFragmentUserSettingsmediaListOptionsanimeList<TRes> get animeList {
     final local$animeList = _instance.animeList;
     return local$animeList == null
-        ? CopyWithFragmentUserSettingsFmediaListOptionsanimeList.stub(
+        ? CopyWithFragmentUserSettingsmediaListOptionsanimeList.stub(
             _then(_instance))
-        : CopyWithFragmentUserSettingsFmediaListOptionsanimeList(
+        : CopyWithFragmentUserSettingsmediaListOptionsanimeList(
             local$animeList, (e) => call(animeList: e));
   }
 
-  CopyWithFragmentUserSettingsFmediaListOptionsmangaList<TRes> get mangaList {
+  CopyWithFragmentUserSettingsmediaListOptionsmangaList<TRes> get mangaList {
     final local$mangaList = _instance.mangaList;
     return local$mangaList == null
-        ? CopyWithFragmentUserSettingsFmediaListOptionsmangaList.stub(
+        ? CopyWithFragmentUserSettingsmediaListOptionsmangaList.stub(
             _then(_instance))
-        : CopyWithFragmentUserSettingsFmediaListOptionsmangaList(
+        : CopyWithFragmentUserSettingsmediaListOptionsmangaList(
             local$mangaList, (e) => call(mangaList: e));
   }
 }
 
-class _CopyWithStubImplFragmentUserSettingsFmediaListOptions<TRes>
-    implements CopyWithFragmentUserSettingsFmediaListOptions<TRes> {
-  _CopyWithStubImplFragmentUserSettingsFmediaListOptions(this._res);
+class _CopyWithStubImplFragmentUserSettingsmediaListOptions<TRes>
+    implements CopyWithFragmentUserSettingsmediaListOptions<TRes> {
+  _CopyWithStubImplFragmentUserSettingsmediaListOptions(this._res);
 
   TRes _res;
 
   call({
     EnumScoreFormat? scoreFormat,
     String? rowOrder,
-    FragmentUserSettingsFmediaListOptionsanimeList? animeList,
-    FragmentUserSettingsFmediaListOptionsmangaList? mangaList,
+    FragmentUserSettingsmediaListOptionsanimeList? animeList,
+    FragmentUserSettingsmediaListOptionsmangaList? mangaList,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserSettingsFmediaListOptionsanimeList<TRes> get animeList =>
-      CopyWithFragmentUserSettingsFmediaListOptionsanimeList.stub(_res);
+  CopyWithFragmentUserSettingsmediaListOptionsanimeList<TRes> get animeList =>
+      CopyWithFragmentUserSettingsmediaListOptionsanimeList.stub(_res);
 
-  CopyWithFragmentUserSettingsFmediaListOptionsmangaList<TRes> get mangaList =>
-      CopyWithFragmentUserSettingsFmediaListOptionsmangaList.stub(_res);
+  CopyWithFragmentUserSettingsmediaListOptionsmangaList<TRes> get mangaList =>
+      CopyWithFragmentUserSettingsmediaListOptionsmangaList.stub(_res);
 }
 
-class FragmentUserSettingsFmediaListOptionsanimeList {
-  FragmentUserSettingsFmediaListOptionsanimeList({
+class FragmentUserSettingsmediaListOptionsanimeList {
+  FragmentUserSettingsmediaListOptionsanimeList({
     this.sectionOrder,
     this.splitCompletedSectionByFormat,
     this.customLists,
@@ -3247,7 +3245,7 @@ class FragmentUserSettingsFmediaListOptionsanimeList {
     this.$__typename = 'MediaListTypeOptions',
   });
 
-  factory FragmentUserSettingsFmediaListOptionsanimeList.fromJson(
+  factory FragmentUserSettingsmediaListOptionsanimeList.fromJson(
       Map<String, dynamic> json) {
     final l$sectionOrder = json['sectionOrder'];
     final l$splitCompletedSectionByFormat =
@@ -3256,7 +3254,7 @@ class FragmentUserSettingsFmediaListOptionsanimeList {
     final l$advancedScoring = json['advancedScoring'];
     final l$advancedScoringEnabled = json['advancedScoringEnabled'];
     final l$$__typename = json['__typename'];
-    return FragmentUserSettingsFmediaListOptionsanimeList(
+    return FragmentUserSettingsmediaListOptionsanimeList(
       sectionOrder: (l$sectionOrder as List<dynamic>?)
           ?.map((e) => (e as String?))
           .toList(),
@@ -3331,7 +3329,7 @@ class FragmentUserSettingsFmediaListOptionsanimeList {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSettingsFmediaListOptionsanimeList) ||
+    if (!(other is FragmentUserSettingsmediaListOptionsanimeList) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3404,25 +3402,24 @@ class FragmentUserSettingsFmediaListOptionsanimeList {
   }
 }
 
-extension UtilityExtensionFragmentUserSettingsFmediaListOptionsanimeList
-    on FragmentUserSettingsFmediaListOptionsanimeList {
-  CopyWithFragmentUserSettingsFmediaListOptionsanimeList<
-          FragmentUserSettingsFmediaListOptionsanimeList>
-      get copyWith => CopyWithFragmentUserSettingsFmediaListOptionsanimeList(
+extension UtilityExtensionFragmentUserSettingsmediaListOptionsanimeList
+    on FragmentUserSettingsmediaListOptionsanimeList {
+  CopyWithFragmentUserSettingsmediaListOptionsanimeList<
+          FragmentUserSettingsmediaListOptionsanimeList>
+      get copyWith => CopyWithFragmentUserSettingsmediaListOptionsanimeList(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithFragmentUserSettingsFmediaListOptionsanimeList<TRes> {
-  factory CopyWithFragmentUserSettingsFmediaListOptionsanimeList(
-    FragmentUserSettingsFmediaListOptionsanimeList instance,
-    TRes Function(FragmentUserSettingsFmediaListOptionsanimeList) then,
-  ) = _CopyWithImplFragmentUserSettingsFmediaListOptionsanimeList;
+abstract class CopyWithFragmentUserSettingsmediaListOptionsanimeList<TRes> {
+  factory CopyWithFragmentUserSettingsmediaListOptionsanimeList(
+    FragmentUserSettingsmediaListOptionsanimeList instance,
+    TRes Function(FragmentUserSettingsmediaListOptionsanimeList) then,
+  ) = _CopyWithImplFragmentUserSettingsmediaListOptionsanimeList;
 
-  factory CopyWithFragmentUserSettingsFmediaListOptionsanimeList.stub(
-          TRes res) =
-      _CopyWithStubImplFragmentUserSettingsFmediaListOptionsanimeList;
+  factory CopyWithFragmentUserSettingsmediaListOptionsanimeList.stub(TRes res) =
+      _CopyWithStubImplFragmentUserSettingsmediaListOptionsanimeList;
 
   TRes call({
     List<String?>? sectionOrder,
@@ -3434,16 +3431,16 @@ abstract class CopyWithFragmentUserSettingsFmediaListOptionsanimeList<TRes> {
   });
 }
 
-class _CopyWithImplFragmentUserSettingsFmediaListOptionsanimeList<TRes>
-    implements CopyWithFragmentUserSettingsFmediaListOptionsanimeList<TRes> {
-  _CopyWithImplFragmentUserSettingsFmediaListOptionsanimeList(
+class _CopyWithImplFragmentUserSettingsmediaListOptionsanimeList<TRes>
+    implements CopyWithFragmentUserSettingsmediaListOptionsanimeList<TRes> {
+  _CopyWithImplFragmentUserSettingsmediaListOptionsanimeList(
     this._instance,
     this._then,
   );
 
-  final FragmentUserSettingsFmediaListOptionsanimeList _instance;
+  final FragmentUserSettingsmediaListOptionsanimeList _instance;
 
-  final TRes Function(FragmentUserSettingsFmediaListOptionsanimeList) _then;
+  final TRes Function(FragmentUserSettingsmediaListOptionsanimeList) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3455,7 +3452,7 @@ class _CopyWithImplFragmentUserSettingsFmediaListOptionsanimeList<TRes>
     Object? advancedScoringEnabled = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentUserSettingsFmediaListOptionsanimeList(
+      _then(FragmentUserSettingsmediaListOptionsanimeList(
         sectionOrder: sectionOrder == _undefined
             ? _instance.sectionOrder
             : (sectionOrder as List<String?>?),
@@ -3478,9 +3475,9 @@ class _CopyWithImplFragmentUserSettingsFmediaListOptionsanimeList<TRes>
       ));
 }
 
-class _CopyWithStubImplFragmentUserSettingsFmediaListOptionsanimeList<TRes>
-    implements CopyWithFragmentUserSettingsFmediaListOptionsanimeList<TRes> {
-  _CopyWithStubImplFragmentUserSettingsFmediaListOptionsanimeList(this._res);
+class _CopyWithStubImplFragmentUserSettingsmediaListOptionsanimeList<TRes>
+    implements CopyWithFragmentUserSettingsmediaListOptionsanimeList<TRes> {
+  _CopyWithStubImplFragmentUserSettingsmediaListOptionsanimeList(this._res);
 
   TRes _res;
 
@@ -3495,8 +3492,8 @@ class _CopyWithStubImplFragmentUserSettingsFmediaListOptionsanimeList<TRes>
       _res;
 }
 
-class FragmentUserSettingsFmediaListOptionsmangaList {
-  FragmentUserSettingsFmediaListOptionsmangaList({
+class FragmentUserSettingsmediaListOptionsmangaList {
+  FragmentUserSettingsmediaListOptionsmangaList({
     this.sectionOrder,
     this.splitCompletedSectionByFormat,
     this.customLists,
@@ -3505,7 +3502,7 @@ class FragmentUserSettingsFmediaListOptionsmangaList {
     this.$__typename = 'MediaListTypeOptions',
   });
 
-  factory FragmentUserSettingsFmediaListOptionsmangaList.fromJson(
+  factory FragmentUserSettingsmediaListOptionsmangaList.fromJson(
       Map<String, dynamic> json) {
     final l$sectionOrder = json['sectionOrder'];
     final l$splitCompletedSectionByFormat =
@@ -3514,7 +3511,7 @@ class FragmentUserSettingsFmediaListOptionsmangaList {
     final l$advancedScoring = json['advancedScoring'];
     final l$advancedScoringEnabled = json['advancedScoringEnabled'];
     final l$$__typename = json['__typename'];
-    return FragmentUserSettingsFmediaListOptionsmangaList(
+    return FragmentUserSettingsmediaListOptionsmangaList(
       sectionOrder: (l$sectionOrder as List<dynamic>?)
           ?.map((e) => (e as String?))
           .toList(),
@@ -3589,7 +3586,7 @@ class FragmentUserSettingsFmediaListOptionsmangaList {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSettingsFmediaListOptionsmangaList) ||
+    if (!(other is FragmentUserSettingsmediaListOptionsmangaList) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3662,25 +3659,24 @@ class FragmentUserSettingsFmediaListOptionsmangaList {
   }
 }
 
-extension UtilityExtensionFragmentUserSettingsFmediaListOptionsmangaList
-    on FragmentUserSettingsFmediaListOptionsmangaList {
-  CopyWithFragmentUserSettingsFmediaListOptionsmangaList<
-          FragmentUserSettingsFmediaListOptionsmangaList>
-      get copyWith => CopyWithFragmentUserSettingsFmediaListOptionsmangaList(
+extension UtilityExtensionFragmentUserSettingsmediaListOptionsmangaList
+    on FragmentUserSettingsmediaListOptionsmangaList {
+  CopyWithFragmentUserSettingsmediaListOptionsmangaList<
+          FragmentUserSettingsmediaListOptionsmangaList>
+      get copyWith => CopyWithFragmentUserSettingsmediaListOptionsmangaList(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithFragmentUserSettingsFmediaListOptionsmangaList<TRes> {
-  factory CopyWithFragmentUserSettingsFmediaListOptionsmangaList(
-    FragmentUserSettingsFmediaListOptionsmangaList instance,
-    TRes Function(FragmentUserSettingsFmediaListOptionsmangaList) then,
-  ) = _CopyWithImplFragmentUserSettingsFmediaListOptionsmangaList;
+abstract class CopyWithFragmentUserSettingsmediaListOptionsmangaList<TRes> {
+  factory CopyWithFragmentUserSettingsmediaListOptionsmangaList(
+    FragmentUserSettingsmediaListOptionsmangaList instance,
+    TRes Function(FragmentUserSettingsmediaListOptionsmangaList) then,
+  ) = _CopyWithImplFragmentUserSettingsmediaListOptionsmangaList;
 
-  factory CopyWithFragmentUserSettingsFmediaListOptionsmangaList.stub(
-          TRes res) =
-      _CopyWithStubImplFragmentUserSettingsFmediaListOptionsmangaList;
+  factory CopyWithFragmentUserSettingsmediaListOptionsmangaList.stub(TRes res) =
+      _CopyWithStubImplFragmentUserSettingsmediaListOptionsmangaList;
 
   TRes call({
     List<String?>? sectionOrder,
@@ -3692,16 +3688,16 @@ abstract class CopyWithFragmentUserSettingsFmediaListOptionsmangaList<TRes> {
   });
 }
 
-class _CopyWithImplFragmentUserSettingsFmediaListOptionsmangaList<TRes>
-    implements CopyWithFragmentUserSettingsFmediaListOptionsmangaList<TRes> {
-  _CopyWithImplFragmentUserSettingsFmediaListOptionsmangaList(
+class _CopyWithImplFragmentUserSettingsmediaListOptionsmangaList<TRes>
+    implements CopyWithFragmentUserSettingsmediaListOptionsmangaList<TRes> {
+  _CopyWithImplFragmentUserSettingsmediaListOptionsmangaList(
     this._instance,
     this._then,
   );
 
-  final FragmentUserSettingsFmediaListOptionsmangaList _instance;
+  final FragmentUserSettingsmediaListOptionsmangaList _instance;
 
-  final TRes Function(FragmentUserSettingsFmediaListOptionsmangaList) _then;
+  final TRes Function(FragmentUserSettingsmediaListOptionsmangaList) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3713,7 +3709,7 @@ class _CopyWithImplFragmentUserSettingsFmediaListOptionsmangaList<TRes>
     Object? advancedScoringEnabled = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentUserSettingsFmediaListOptionsmangaList(
+      _then(FragmentUserSettingsmediaListOptionsmangaList(
         sectionOrder: sectionOrder == _undefined
             ? _instance.sectionOrder
             : (sectionOrder as List<String?>?),
@@ -3736,9 +3732,9 @@ class _CopyWithImplFragmentUserSettingsFmediaListOptionsmangaList<TRes>
       ));
 }
 
-class _CopyWithStubImplFragmentUserSettingsFmediaListOptionsmangaList<TRes>
-    implements CopyWithFragmentUserSettingsFmediaListOptionsmangaList<TRes> {
-  _CopyWithStubImplFragmentUserSettingsFmediaListOptionsmangaList(this._res);
+class _CopyWithStubImplFragmentUserSettingsmediaListOptionsmangaList<TRes>
+    implements CopyWithFragmentUserSettingsmediaListOptionsmangaList<TRes> {
+  _CopyWithStubImplFragmentUserSettingsmediaListOptionsmangaList(this._res);
 
   TRes _res;
 
@@ -3753,8 +3749,8 @@ class _CopyWithStubImplFragmentUserSettingsFmediaListOptionsmangaList<TRes>
       _res;
 }
 
-class FragmentUserStatisticsF {
-  FragmentUserStatisticsF({
+class FragmentUserStatistics {
+  FragmentUserStatistics({
     required this.count,
     required this.meanScore,
     required this.standardDeviation,
@@ -3766,7 +3762,7 @@ class FragmentUserStatisticsF {
     this.$__typename = 'UserStatistics',
   });
 
-  factory FragmentUserStatisticsF.fromJson(Map<String, dynamic> json) {
+  factory FragmentUserStatistics.fromJson(Map<String, dynamic> json) {
     final l$count = json['count'];
     final l$meanScore = json['meanScore'];
     final l$standardDeviation = json['standardDeviation'];
@@ -3776,7 +3772,7 @@ class FragmentUserStatisticsF {
     final l$volumesRead = json['volumesRead'];
     final l$genres = json['genres'];
     final l$$__typename = json['__typename'];
-    return FragmentUserStatisticsF(
+    return FragmentUserStatistics(
       count: (l$count as int),
       meanScore: (l$meanScore as num).toDouble(),
       standardDeviation: (l$standardDeviation as num).toDouble(),
@@ -3787,7 +3783,7 @@ class FragmentUserStatisticsF {
       genres: (l$genres as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : FragmentUserStatisticsFgenres.fromJson(
+              : FragmentUserStatisticsgenres.fromJson(
                   (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
@@ -3808,7 +3804,7 @@ class FragmentUserStatisticsF {
 
   final int volumesRead;
 
-  final List<FragmentUserStatisticsFgenres?>? genres;
+  final List<FragmentUserStatisticsgenres?>? genres;
 
   final String $__typename;
 
@@ -3864,7 +3860,7 @@ class FragmentUserStatisticsF {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserStatisticsF) ||
+    if (!(other is FragmentUserStatistics) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3928,22 +3924,22 @@ class FragmentUserStatisticsF {
   }
 }
 
-extension UtilityExtensionFragmentUserStatisticsF on FragmentUserStatisticsF {
-  CopyWithFragmentUserStatisticsF<FragmentUserStatisticsF> get copyWith =>
-      CopyWithFragmentUserStatisticsF(
+extension UtilityExtensionFragmentUserStatistics on FragmentUserStatistics {
+  CopyWithFragmentUserStatistics<FragmentUserStatistics> get copyWith =>
+      CopyWithFragmentUserStatistics(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWithFragmentUserStatisticsF<TRes> {
-  factory CopyWithFragmentUserStatisticsF(
-    FragmentUserStatisticsF instance,
-    TRes Function(FragmentUserStatisticsF) then,
-  ) = _CopyWithImplFragmentUserStatisticsF;
+abstract class CopyWithFragmentUserStatistics<TRes> {
+  factory CopyWithFragmentUserStatistics(
+    FragmentUserStatistics instance,
+    TRes Function(FragmentUserStatistics) then,
+  ) = _CopyWithImplFragmentUserStatistics;
 
-  factory CopyWithFragmentUserStatisticsF.stub(TRes res) =
-      _CopyWithStubImplFragmentUserStatisticsF;
+  factory CopyWithFragmentUserStatistics.stub(TRes res) =
+      _CopyWithStubImplFragmentUserStatistics;
 
   TRes call({
     int? count,
@@ -3953,27 +3949,27 @@ abstract class CopyWithFragmentUserStatisticsF<TRes> {
     int? episodesWatched,
     int? chaptersRead,
     int? volumesRead,
-    List<FragmentUserStatisticsFgenres?>? genres,
+    List<FragmentUserStatisticsgenres?>? genres,
     String? $__typename,
   });
   TRes genres(
-      Iterable<FragmentUserStatisticsFgenres?>? Function(
+      Iterable<FragmentUserStatisticsgenres?>? Function(
               Iterable<
-                  CopyWithFragmentUserStatisticsFgenres<
-                      FragmentUserStatisticsFgenres>?>?)
+                  CopyWithFragmentUserStatisticsgenres<
+                      FragmentUserStatisticsgenres>?>?)
           _fn);
 }
 
-class _CopyWithImplFragmentUserStatisticsF<TRes>
-    implements CopyWithFragmentUserStatisticsF<TRes> {
-  _CopyWithImplFragmentUserStatisticsF(
+class _CopyWithImplFragmentUserStatistics<TRes>
+    implements CopyWithFragmentUserStatistics<TRes> {
+  _CopyWithImplFragmentUserStatistics(
     this._instance,
     this._then,
   );
 
-  final FragmentUserStatisticsF _instance;
+  final FragmentUserStatistics _instance;
 
-  final TRes Function(FragmentUserStatisticsF) _then;
+  final TRes Function(FragmentUserStatistics) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -3988,7 +3984,7 @@ class _CopyWithImplFragmentUserStatisticsF<TRes>
     Object? genres = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentUserStatisticsF(
+      _then(FragmentUserStatistics(
         count: count == _undefined || count == null
             ? _instance.count
             : (count as int),
@@ -4014,30 +4010,30 @@ class _CopyWithImplFragmentUserStatisticsF<TRes>
             : (volumesRead as int),
         genres: genres == _undefined
             ? _instance.genres
-            : (genres as List<FragmentUserStatisticsFgenres?>?),
+            : (genres as List<FragmentUserStatisticsgenres?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
   TRes genres(
-          Iterable<FragmentUserStatisticsFgenres?>? Function(
+          Iterable<FragmentUserStatisticsgenres?>? Function(
                   Iterable<
-                      CopyWithFragmentUserStatisticsFgenres<
-                          FragmentUserStatisticsFgenres>?>?)
+                      CopyWithFragmentUserStatisticsgenres<
+                          FragmentUserStatisticsgenres>?>?)
               _fn) =>
       call(
           genres: _fn(_instance.genres?.map((e) => e == null
               ? null
-              : CopyWithFragmentUserStatisticsFgenres(
+              : CopyWithFragmentUserStatisticsgenres(
                   e,
                   (i) => i,
                 )))?.toList());
 }
 
-class _CopyWithStubImplFragmentUserStatisticsF<TRes>
-    implements CopyWithFragmentUserStatisticsF<TRes> {
-  _CopyWithStubImplFragmentUserStatisticsF(this._res);
+class _CopyWithStubImplFragmentUserStatistics<TRes>
+    implements CopyWithFragmentUserStatistics<TRes> {
+  _CopyWithStubImplFragmentUserStatistics(this._res);
 
   TRes _res;
 
@@ -4049,7 +4045,7 @@ class _CopyWithStubImplFragmentUserStatisticsF<TRes>
     int? episodesWatched,
     int? chaptersRead,
     int? volumesRead,
-    List<FragmentUserStatisticsFgenres?>? genres,
+    List<FragmentUserStatisticsgenres?>? genres,
     String? $__typename,
   }) =>
       _res;
@@ -4057,8 +4053,8 @@ class _CopyWithStubImplFragmentUserStatisticsF<TRes>
   genres(_fn) => _res;
 }
 
-const fragmentDefinitionUserStatisticsF = FragmentDefinitionNode(
-  name: NameNode(value: 'UserStatisticsF'),
+const fragmentDefinitionUserStatistics = FragmentDefinitionNode(
+  name: NameNode(value: 'UserStatistics'),
   typeCondition: TypeConditionNode(
       on: NamedTypeNode(
     name: NameNode(value: 'UserStatistics'),
@@ -4174,12 +4170,12 @@ const fragmentDefinitionUserStatisticsF = FragmentDefinitionNode(
     ),
   ]),
 );
-const documentNodeFragmentUserStatisticsF = DocumentNode(definitions: [
-  fragmentDefinitionUserStatisticsF,
+const documentNodeFragmentUserStatistics = DocumentNode(definitions: [
+  fragmentDefinitionUserStatistics,
 ]);
 
-class FragmentUserStatisticsFgenres {
-  FragmentUserStatisticsFgenres({
+class FragmentUserStatisticsgenres {
+  FragmentUserStatisticsgenres({
     required this.count,
     this.genre,
     required this.meanScore,
@@ -4188,14 +4184,14 @@ class FragmentUserStatisticsFgenres {
     this.$__typename = 'UserGenreStatistic',
   });
 
-  factory FragmentUserStatisticsFgenres.fromJson(Map<String, dynamic> json) {
+  factory FragmentUserStatisticsgenres.fromJson(Map<String, dynamic> json) {
     final l$count = json['count'];
     final l$genre = json['genre'];
     final l$meanScore = json['meanScore'];
     final l$minutesWatched = json['minutesWatched'];
     final l$chaptersRead = json['chaptersRead'];
     final l$$__typename = json['__typename'];
-    return FragmentUserStatisticsFgenres(
+    return FragmentUserStatisticsgenres(
       count: (l$count as int),
       genre: (l$genre as String?),
       meanScore: (l$meanScore as num).toDouble(),
@@ -4257,7 +4253,7 @@ class FragmentUserStatisticsFgenres {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserStatisticsFgenres) ||
+    if (!(other is FragmentUserStatisticsgenres) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4295,23 +4291,23 @@ class FragmentUserStatisticsFgenres {
   }
 }
 
-extension UtilityExtensionFragmentUserStatisticsFgenres
-    on FragmentUserStatisticsFgenres {
-  CopyWithFragmentUserStatisticsFgenres<FragmentUserStatisticsFgenres>
-      get copyWith => CopyWithFragmentUserStatisticsFgenres(
+extension UtilityExtensionFragmentUserStatisticsgenres
+    on FragmentUserStatisticsgenres {
+  CopyWithFragmentUserStatisticsgenres<FragmentUserStatisticsgenres>
+      get copyWith => CopyWithFragmentUserStatisticsgenres(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithFragmentUserStatisticsFgenres<TRes> {
-  factory CopyWithFragmentUserStatisticsFgenres(
-    FragmentUserStatisticsFgenres instance,
-    TRes Function(FragmentUserStatisticsFgenres) then,
-  ) = _CopyWithImplFragmentUserStatisticsFgenres;
+abstract class CopyWithFragmentUserStatisticsgenres<TRes> {
+  factory CopyWithFragmentUserStatisticsgenres(
+    FragmentUserStatisticsgenres instance,
+    TRes Function(FragmentUserStatisticsgenres) then,
+  ) = _CopyWithImplFragmentUserStatisticsgenres;
 
-  factory CopyWithFragmentUserStatisticsFgenres.stub(TRes res) =
-      _CopyWithStubImplFragmentUserStatisticsFgenres;
+  factory CopyWithFragmentUserStatisticsgenres.stub(TRes res) =
+      _CopyWithStubImplFragmentUserStatisticsgenres;
 
   TRes call({
     int? count,
@@ -4323,16 +4319,16 @@ abstract class CopyWithFragmentUserStatisticsFgenres<TRes> {
   });
 }
 
-class _CopyWithImplFragmentUserStatisticsFgenres<TRes>
-    implements CopyWithFragmentUserStatisticsFgenres<TRes> {
-  _CopyWithImplFragmentUserStatisticsFgenres(
+class _CopyWithImplFragmentUserStatisticsgenres<TRes>
+    implements CopyWithFragmentUserStatisticsgenres<TRes> {
+  _CopyWithImplFragmentUserStatisticsgenres(
     this._instance,
     this._then,
   );
 
-  final FragmentUserStatisticsFgenres _instance;
+  final FragmentUserStatisticsgenres _instance;
 
-  final TRes Function(FragmentUserStatisticsFgenres) _then;
+  final TRes Function(FragmentUserStatisticsgenres) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -4344,7 +4340,7 @@ class _CopyWithImplFragmentUserStatisticsFgenres<TRes>
     Object? chaptersRead = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(FragmentUserStatisticsFgenres(
+      _then(FragmentUserStatisticsgenres(
         count: count == _undefined || count == null
             ? _instance.count
             : (count as int),
@@ -4364,9 +4360,9 @@ class _CopyWithImplFragmentUserStatisticsFgenres<TRes>
       ));
 }
 
-class _CopyWithStubImplFragmentUserStatisticsFgenres<TRes>
-    implements CopyWithFragmentUserStatisticsFgenres<TRes> {
-  _CopyWithStubImplFragmentUserStatisticsFgenres(this._res);
+class _CopyWithStubImplFragmentUserStatisticsgenres<TRes>
+    implements CopyWithFragmentUserStatisticsgenres<TRes> {
+  _CopyWithStubImplFragmentUserStatisticsgenres(this._res);
 
   TRes _res;
 
@@ -4376,414 +4372,6 @@ class _CopyWithStubImplFragmentUserStatisticsFgenres<TRes>
     double? meanScore,
     int? minutesWatched,
     int? chaptersRead,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class VariablesQueryMdToHtml {
-  factory VariablesQueryMdToHtml({required String markdown}) =>
-      VariablesQueryMdToHtml._({
-        r'markdown': markdown,
-      });
-
-  VariablesQueryMdToHtml._(this._$data);
-
-  factory VariablesQueryMdToHtml.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    final l$markdown = data['markdown'];
-    result$data['markdown'] = (l$markdown as String);
-    return VariablesQueryMdToHtml._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  String get markdown => (_$data['markdown'] as String);
-
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    final l$markdown = markdown;
-    result$data['markdown'] = l$markdown;
-    return result$data;
-  }
-
-  CopyWithVariablesQueryMdToHtml<VariablesQueryMdToHtml> get copyWith =>
-      CopyWithVariablesQueryMdToHtml(
-        this,
-        (i) => i,
-      );
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is VariablesQueryMdToHtml) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$markdown = markdown;
-    final lOther$markdown = other.markdown;
-    if (l$markdown != lOther$markdown) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$markdown = markdown;
-    return Object.hashAll([l$markdown]);
-  }
-}
-
-abstract class CopyWithVariablesQueryMdToHtml<TRes> {
-  factory CopyWithVariablesQueryMdToHtml(
-    VariablesQueryMdToHtml instance,
-    TRes Function(VariablesQueryMdToHtml) then,
-  ) = _CopyWithImplVariablesQueryMdToHtml;
-
-  factory CopyWithVariablesQueryMdToHtml.stub(TRes res) =
-      _CopyWithStubImplVariablesQueryMdToHtml;
-
-  TRes call({String? markdown});
-}
-
-class _CopyWithImplVariablesQueryMdToHtml<TRes>
-    implements CopyWithVariablesQueryMdToHtml<TRes> {
-  _CopyWithImplVariablesQueryMdToHtml(
-    this._instance,
-    this._then,
-  );
-
-  final VariablesQueryMdToHtml _instance;
-
-  final TRes Function(VariablesQueryMdToHtml) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({Object? markdown = _undefined}) => _then(VariablesQueryMdToHtml._({
-        ..._instance._$data,
-        if (markdown != _undefined && markdown != null)
-          'markdown': (markdown as String),
-      }));
-}
-
-class _CopyWithStubImplVariablesQueryMdToHtml<TRes>
-    implements CopyWithVariablesQueryMdToHtml<TRes> {
-  _CopyWithStubImplVariablesQueryMdToHtml(this._res);
-
-  TRes _res;
-
-  call({String? markdown}) => _res;
-}
-
-class QueryMdToHtml {
-  QueryMdToHtml({
-    this.Markdown,
-    this.$__typename = 'Query',
-  });
-
-  factory QueryMdToHtml.fromJson(Map<String, dynamic> json) {
-    final l$Markdown = json['Markdown'];
-    final l$$__typename = json['__typename'];
-    return QueryMdToHtml(
-      Markdown: l$Markdown == null
-          ? null
-          : QueryMdToHtmlMarkdown.fromJson(
-              (l$Markdown as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final QueryMdToHtmlMarkdown? Markdown;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$Markdown = Markdown;
-    _resultData['Markdown'] = l$Markdown?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$Markdown = Markdown;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$Markdown,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryMdToHtml) || runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$Markdown = Markdown;
-    final lOther$Markdown = other.Markdown;
-    if (l$Markdown != lOther$Markdown) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryMdToHtml on QueryMdToHtml {
-  CopyWithQueryMdToHtml<QueryMdToHtml> get copyWith => CopyWithQueryMdToHtml(
-        this,
-        (i) => i,
-      );
-}
-
-abstract class CopyWithQueryMdToHtml<TRes> {
-  factory CopyWithQueryMdToHtml(
-    QueryMdToHtml instance,
-    TRes Function(QueryMdToHtml) then,
-  ) = _CopyWithImplQueryMdToHtml;
-
-  factory CopyWithQueryMdToHtml.stub(TRes res) = _CopyWithStubImplQueryMdToHtml;
-
-  TRes call({
-    QueryMdToHtmlMarkdown? Markdown,
-    String? $__typename,
-  });
-  CopyWithQueryMdToHtmlMarkdown<TRes> get Markdown;
-}
-
-class _CopyWithImplQueryMdToHtml<TRes> implements CopyWithQueryMdToHtml<TRes> {
-  _CopyWithImplQueryMdToHtml(
-    this._instance,
-    this._then,
-  );
-
-  final QueryMdToHtml _instance;
-
-  final TRes Function(QueryMdToHtml) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? Markdown = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryMdToHtml(
-        Markdown: Markdown == _undefined
-            ? _instance.Markdown
-            : (Markdown as QueryMdToHtmlMarkdown?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryMdToHtmlMarkdown<TRes> get Markdown {
-    final local$Markdown = _instance.Markdown;
-    return local$Markdown == null
-        ? CopyWithQueryMdToHtmlMarkdown.stub(_then(_instance))
-        : CopyWithQueryMdToHtmlMarkdown(
-            local$Markdown, (e) => call(Markdown: e));
-  }
-}
-
-class _CopyWithStubImplQueryMdToHtml<TRes>
-    implements CopyWithQueryMdToHtml<TRes> {
-  _CopyWithStubImplQueryMdToHtml(this._res);
-
-  TRes _res;
-
-  call({
-    QueryMdToHtmlMarkdown? Markdown,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryMdToHtmlMarkdown<TRes> get Markdown =>
-      CopyWithQueryMdToHtmlMarkdown.stub(_res);
-}
-
-const documentNodeQueryMdToHtml = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'MdToHtml'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'markdown')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'Markdown'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'markdown'),
-            value: VariableNode(name: NameNode(value: 'markdown')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'html'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: '__typename'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      ),
-      FieldNode(
-        name: NameNode(value: '__typename'),
-        alias: null,
-        arguments: [],
-        directives: [],
-        selectionSet: null,
-      ),
-    ]),
-  ),
-]);
-
-class QueryMdToHtmlMarkdown {
-  QueryMdToHtmlMarkdown({
-    this.html,
-    this.$__typename = 'ParsedMarkdown',
-  });
-
-  factory QueryMdToHtmlMarkdown.fromJson(Map<String, dynamic> json) {
-    final l$html = json['html'];
-    final l$$__typename = json['__typename'];
-    return QueryMdToHtmlMarkdown(
-      html: (l$html as String?),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String? html;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$html = html;
-    _resultData['html'] = l$html;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$html = html;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$html,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is QueryMdToHtmlMarkdown) || runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$html = html;
-    final lOther$html = other.html;
-    if (l$html != lOther$html) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryMdToHtmlMarkdown on QueryMdToHtmlMarkdown {
-  CopyWithQueryMdToHtmlMarkdown<QueryMdToHtmlMarkdown> get copyWith =>
-      CopyWithQueryMdToHtmlMarkdown(
-        this,
-        (i) => i,
-      );
-}
-
-abstract class CopyWithQueryMdToHtmlMarkdown<TRes> {
-  factory CopyWithQueryMdToHtmlMarkdown(
-    QueryMdToHtmlMarkdown instance,
-    TRes Function(QueryMdToHtmlMarkdown) then,
-  ) = _CopyWithImplQueryMdToHtmlMarkdown;
-
-  factory CopyWithQueryMdToHtmlMarkdown.stub(TRes res) =
-      _CopyWithStubImplQueryMdToHtmlMarkdown;
-
-  TRes call({
-    String? html,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryMdToHtmlMarkdown<TRes>
-    implements CopyWithQueryMdToHtmlMarkdown<TRes> {
-  _CopyWithImplQueryMdToHtmlMarkdown(
-    this._instance,
-    this._then,
-  );
-
-  final QueryMdToHtmlMarkdown _instance;
-
-  final TRes Function(QueryMdToHtmlMarkdown) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? html = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryMdToHtmlMarkdown(
-        html: html == _undefined ? _instance.html : (html as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryMdToHtmlMarkdown<TRes>
-    implements CopyWithQueryMdToHtmlMarkdown<TRes> {
-  _CopyWithStubImplQueryMdToHtmlMarkdown(this._res);
-
-  TRes _res;
-
-  call({
-    String? html,
     String? $__typename,
   }) =>
       _res;

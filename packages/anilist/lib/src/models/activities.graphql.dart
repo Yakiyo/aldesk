@@ -53,10 +53,10 @@ class FragmentListActivity {
       createdAt: (l$createdAt as int),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       media: l$media == null
           ? null
-          : FragmentMediaMinF.fromJson((l$media as Map<String, dynamic>)),
+          : FragmentMediaMin.fromJson((l$media as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -85,9 +85,9 @@ class FragmentListActivity {
 
   final int createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
-  final FragmentMediaMinF? media;
+  final FragmentMediaMin? media;
 
   final String $__typename;
 
@@ -280,12 +280,12 @@ abstract class CopyWithFragmentListActivity<TRes> {
     bool? isPinned,
     String? siteUrl,
     int? createdAt,
-    FragmentUserMinF? user,
-    FragmentMediaMinF? media,
+    FragmentUserMin? user,
+    FragmentMediaMin? media,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
-  CopyWithFragmentMediaMinF<TRes> get media;
+  CopyWithFragmentUserMin<TRes> get user;
+  CopyWithFragmentMediaMin<TRes> get media;
 }
 
 class _CopyWithImplFragmentListActivity<TRes>
@@ -343,27 +343,27 @@ class _CopyWithImplFragmentListActivity<TRes>
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as int),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         media: media == _undefined
             ? _instance.media
-            : (media as FragmentMediaMinF?),
+            : (media as FragmentMediaMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 
-  CopyWithFragmentMediaMinF<TRes> get media {
+  CopyWithFragmentMediaMin<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
-        ? CopyWithFragmentMediaMinF.stub(_then(_instance))
-        : CopyWithFragmentMediaMinF(local$media, (e) => call(media: e));
+        ? CopyWithFragmentMediaMin.stub(_then(_instance))
+        : CopyWithFragmentMediaMin(local$media, (e) => call(media: e));
   }
 }
 
@@ -386,17 +386,16 @@ class _CopyWithStubImplFragmentListActivity<TRes>
     bool? isPinned,
     String? siteUrl,
     int? createdAt,
-    FragmentUserMinF? user,
-    FragmentMediaMinF? media,
+    FragmentUserMin? user,
+    FragmentMediaMin? media,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 
-  CopyWithFragmentMediaMinF<TRes> get media =>
-      CopyWithFragmentMediaMinF.stub(_res);
+  CopyWithFragmentMediaMin<TRes> get media =>
+      CopyWithFragmentMediaMin.stub(_res);
 }
 
 const fragmentDefinitionListActivity = FragmentDefinitionNode(
@@ -499,7 +498,7 @@ const fragmentDefinitionListActivity = FragmentDefinitionNode(
       directives: [],
       selectionSet: SelectionSetNode(selections: [
         FragmentSpreadNode(
-          name: NameNode(value: 'UserMinF'),
+          name: NameNode(value: 'UserMin'),
           directives: [],
         ),
         FieldNode(
@@ -518,7 +517,7 @@ const fragmentDefinitionListActivity = FragmentDefinitionNode(
       directives: [],
       selectionSet: SelectionSetNode(selections: [
         FragmentSpreadNode(
-          name: NameNode(value: 'MediaMinF'),
+          name: NameNode(value: 'MediaMin'),
           directives: [],
         ),
         FieldNode(
@@ -541,8 +540,8 @@ const fragmentDefinitionListActivity = FragmentDefinitionNode(
 );
 const documentNodeFragmentListActivity = DocumentNode(definitions: [
   fragmentDefinitionListActivity,
-  fragmentDefinitionUserMinF,
-  fragmentDefinitionMediaMinF,
+  fragmentDefinitionUserMin,
+  fragmentDefinitionMediaMin,
 ]);
 
 class FragmentTextActivity {
@@ -588,7 +587,7 @@ class FragmentTextActivity {
       createdAt: (l$createdAt as int),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -613,7 +612,7 @@ class FragmentTextActivity {
 
   final int createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
   final String $__typename;
 
@@ -777,10 +776,10 @@ abstract class CopyWithFragmentTextActivity<TRes> {
     int? likeCount,
     bool? isLiked,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get user;
 }
 
 class _CopyWithImplFragmentTextActivity<TRes>
@@ -831,17 +830,17 @@ class _CopyWithImplFragmentTextActivity<TRes>
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as int),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 }
 
@@ -862,13 +861,12 @@ class _CopyWithStubImplFragmentTextActivity<TRes>
     int? likeCount,
     bool? isLiked,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 }
 
 const fragmentDefinitionTextActivity = FragmentDefinitionNode(
@@ -962,7 +960,7 @@ const fragmentDefinitionTextActivity = FragmentDefinitionNode(
       directives: [],
       selectionSet: SelectionSetNode(selections: [
         FragmentSpreadNode(
-          name: NameNode(value: 'UserMinF'),
+          name: NameNode(value: 'UserMin'),
           directives: [],
         ),
         FieldNode(
@@ -985,7 +983,7 @@ const fragmentDefinitionTextActivity = FragmentDefinitionNode(
 );
 const documentNodeFragmentTextActivity = DocumentNode(definitions: [
   fragmentDefinitionTextActivity,
-  fragmentDefinitionUserMinF,
+  fragmentDefinitionUserMin,
 ]);
 
 class FragmentMessageActivity {
@@ -1037,7 +1035,7 @@ class FragmentMessageActivity {
       createdAt: (l$createdAt as int),
       messenger: l$messenger == null
           ? null
-          : FragmentUserMinF.fromJson((l$messenger as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$messenger as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1066,7 +1064,7 @@ class FragmentMessageActivity {
 
   final int createdAt;
 
-  final FragmentUserMinF? messenger;
+  final FragmentUserMin? messenger;
 
   final String $__typename;
 
@@ -1251,10 +1249,10 @@ abstract class CopyWithFragmentMessageActivity<TRes> {
     bool? isPrivate,
     String? siteUrl,
     int? createdAt,
-    FragmentUserMinF? messenger,
+    FragmentUserMin? messenger,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get messenger;
+  CopyWithFragmentUserMin<TRes> get messenger;
 }
 
 class _CopyWithImplFragmentMessageActivity<TRes>
@@ -1316,17 +1314,17 @@ class _CopyWithImplFragmentMessageActivity<TRes>
             : (createdAt as int),
         messenger: messenger == _undefined
             ? _instance.messenger
-            : (messenger as FragmentUserMinF?),
+            : (messenger as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get messenger {
+  CopyWithFragmentUserMin<TRes> get messenger {
     final local$messenger = _instance.messenger;
     return local$messenger == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$messenger, (e) => call(messenger: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$messenger, (e) => call(messenger: e));
   }
 }
 
@@ -1349,13 +1347,13 @@ class _CopyWithStubImplFragmentMessageActivity<TRes>
     bool? isPrivate,
     String? siteUrl,
     int? createdAt,
-    FragmentUserMinF? messenger,
+    FragmentUserMin? messenger,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get messenger =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get messenger =>
+      CopyWithFragmentUserMin.stub(_res);
 }
 
 const fragmentDefinitionMessageActivity = FragmentDefinitionNode(
@@ -1463,7 +1461,7 @@ const fragmentDefinitionMessageActivity = FragmentDefinitionNode(
       directives: [],
       selectionSet: SelectionSetNode(selections: [
         FragmentSpreadNode(
-          name: NameNode(value: 'UserMinF'),
+          name: NameNode(value: 'UserMin'),
           directives: [],
         ),
         FieldNode(
@@ -1486,7 +1484,7 @@ const fragmentDefinitionMessageActivity = FragmentDefinitionNode(
 );
 const documentNodeFragmentMessageActivity = DocumentNode(definitions: [
   fragmentDefinitionMessageActivity,
-  fragmentDefinitionUserMinF,
+  fragmentDefinitionUserMin,
 ]);
 
 class FragmentActivityReply {
@@ -1516,7 +1514,7 @@ class FragmentActivityReply {
       createdAt: (l$createdAt as int),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1531,7 +1529,7 @@ class FragmentActivityReply {
 
   final int createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
   final String $__typename;
 
@@ -1644,10 +1642,10 @@ abstract class CopyWithFragmentActivityReply<TRes> {
     int? likeCount,
     bool? isLiked,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get user;
 }
 
 class _CopyWithImplFragmentActivityReply<TRes>
@@ -1682,17 +1680,17 @@ class _CopyWithImplFragmentActivityReply<TRes>
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as int),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 }
 
@@ -1708,13 +1706,12 @@ class _CopyWithStubImplFragmentActivityReply<TRes>
     int? likeCount,
     bool? isLiked,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 }
 
 const fragmentDefinitionActivityReply = FragmentDefinitionNode(
@@ -1773,7 +1770,7 @@ const fragmentDefinitionActivityReply = FragmentDefinitionNode(
       directives: [],
       selectionSet: SelectionSetNode(selections: [
         FragmentSpreadNode(
-          name: NameNode(value: 'UserMinF'),
+          name: NameNode(value: 'UserMin'),
           directives: [],
         ),
         FieldNode(
@@ -1796,7 +1793,7 @@ const fragmentDefinitionActivityReply = FragmentDefinitionNode(
 );
 const documentNodeFragmentActivityReply = DocumentNode(definitions: [
   fragmentDefinitionActivityReply,
-  fragmentDefinitionUserMinF,
+  fragmentDefinitionUserMin,
 ]);
 
 class VariablesQueryActivities {
@@ -2413,8 +2410,8 @@ const documentNodeQueryActivities = DocumentNode(definitions: [
   fragmentDefinitionTextActivity,
   fragmentDefinitionListActivity,
   fragmentDefinitionMessageActivity,
-  fragmentDefinitionUserMinF,
-  fragmentDefinitionMediaMinF,
+  fragmentDefinitionUserMin,
+  fragmentDefinitionMediaMin,
 ]);
 
 class QueryActivitiesPage {
@@ -3022,7 +3019,7 @@ class QueryActivitiesPageactivitiesTextActivity
       createdAt: (l$createdAt as int),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -3047,7 +3044,7 @@ class QueryActivitiesPageactivitiesTextActivity
 
   final int createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
   final String $__typename;
 
@@ -3214,10 +3211,10 @@ abstract class CopyWithQueryActivitiesPageactivitiesTextActivity<TRes> {
     int? likeCount,
     bool? isLiked,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get user;
 }
 
 class _CopyWithImplQueryActivitiesPageactivitiesTextActivity<TRes>
@@ -3268,17 +3265,17 @@ class _CopyWithImplQueryActivitiesPageactivitiesTextActivity<TRes>
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as int),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 }
 
@@ -3299,13 +3296,12 @@ class _CopyWithStubImplQueryActivitiesPageactivitiesTextActivity<TRes>
     int? likeCount,
     bool? isLiked,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 }
 
 class QueryActivitiesPageactivitiesListActivity
@@ -3361,10 +3357,10 @@ class QueryActivitiesPageactivitiesListActivity
       createdAt: (l$createdAt as int),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       media: l$media == null
           ? null
-          : FragmentMediaMinF.fromJson((l$media as Map<String, dynamic>)),
+          : FragmentMediaMin.fromJson((l$media as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -3393,9 +3389,9 @@ class QueryActivitiesPageactivitiesListActivity
 
   final int createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
-  final FragmentMediaMinF? media;
+  final FragmentMediaMin? media;
 
   final String $__typename;
 
@@ -3591,12 +3587,12 @@ abstract class CopyWithQueryActivitiesPageactivitiesListActivity<TRes> {
     bool? isPinned,
     String? siteUrl,
     int? createdAt,
-    FragmentUserMinF? user,
-    FragmentMediaMinF? media,
+    FragmentUserMin? user,
+    FragmentMediaMin? media,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
-  CopyWithFragmentMediaMinF<TRes> get media;
+  CopyWithFragmentUserMin<TRes> get user;
+  CopyWithFragmentMediaMin<TRes> get media;
 }
 
 class _CopyWithImplQueryActivitiesPageactivitiesListActivity<TRes>
@@ -3654,27 +3650,27 @@ class _CopyWithImplQueryActivitiesPageactivitiesListActivity<TRes>
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as int),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         media: media == _undefined
             ? _instance.media
-            : (media as FragmentMediaMinF?),
+            : (media as FragmentMediaMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 
-  CopyWithFragmentMediaMinF<TRes> get media {
+  CopyWithFragmentMediaMin<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
-        ? CopyWithFragmentMediaMinF.stub(_then(_instance))
-        : CopyWithFragmentMediaMinF(local$media, (e) => call(media: e));
+        ? CopyWithFragmentMediaMin.stub(_then(_instance))
+        : CopyWithFragmentMediaMin(local$media, (e) => call(media: e));
   }
 }
 
@@ -3697,17 +3693,16 @@ class _CopyWithStubImplQueryActivitiesPageactivitiesListActivity<TRes>
     bool? isPinned,
     String? siteUrl,
     int? createdAt,
-    FragmentUserMinF? user,
-    FragmentMediaMinF? media,
+    FragmentUserMin? user,
+    FragmentMediaMin? media,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 
-  CopyWithFragmentMediaMinF<TRes> get media =>
-      CopyWithFragmentMediaMinF.stub(_res);
+  CopyWithFragmentMediaMin<TRes> get media =>
+      CopyWithFragmentMediaMin.stub(_res);
 }
 
 class QueryActivitiesPageactivitiesMessageActivity
@@ -3761,7 +3756,7 @@ class QueryActivitiesPageactivitiesMessageActivity
       createdAt: (l$createdAt as int),
       messenger: l$messenger == null
           ? null
-          : FragmentUserMinF.fromJson((l$messenger as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$messenger as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -3790,7 +3785,7 @@ class QueryActivitiesPageactivitiesMessageActivity
 
   final int createdAt;
 
-  final FragmentUserMinF? messenger;
+  final FragmentUserMin? messenger;
 
   final String $__typename;
 
@@ -3977,10 +3972,10 @@ abstract class CopyWithQueryActivitiesPageactivitiesMessageActivity<TRes> {
     bool? isPrivate,
     String? siteUrl,
     int? createdAt,
-    FragmentUserMinF? messenger,
+    FragmentUserMin? messenger,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get messenger;
+  CopyWithFragmentUserMin<TRes> get messenger;
 }
 
 class _CopyWithImplQueryActivitiesPageactivitiesMessageActivity<TRes>
@@ -4042,17 +4037,17 @@ class _CopyWithImplQueryActivitiesPageactivitiesMessageActivity<TRes>
             : (createdAt as int),
         messenger: messenger == _undefined
             ? _instance.messenger
-            : (messenger as FragmentUserMinF?),
+            : (messenger as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get messenger {
+  CopyWithFragmentUserMin<TRes> get messenger {
     final local$messenger = _instance.messenger;
     return local$messenger == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$messenger, (e) => call(messenger: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$messenger, (e) => call(messenger: e));
   }
 }
 
@@ -4075,13 +4070,13 @@ class _CopyWithStubImplQueryActivitiesPageactivitiesMessageActivity<TRes>
     bool? isPrivate,
     String? siteUrl,
     int? createdAt,
-    FragmentUserMinF? messenger,
+    FragmentUserMin? messenger,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get messenger =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get messenger =>
+      CopyWithFragmentUserMin.stub(_res);
 }
 
 class VariablesQueryActivityReplies {
@@ -4475,7 +4470,7 @@ const documentNodeQueryActivityReplies = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionActivityReply,
-  fragmentDefinitionUserMinF,
+  fragmentDefinitionUserMin,
 ]);
 
 class QueryActivityRepliesActivity {

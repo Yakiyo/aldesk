@@ -608,7 +608,7 @@ const documentNodeQueryThreads = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
                   FragmentSpreadNode(
-                    name: NameNode(value: 'UserMinF'),
+                    name: NameNode(value: 'UserMin'),
                     directives: [],
                   ),
                   FieldNode(
@@ -627,7 +627,7 @@ const documentNodeQueryThreads = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
                   FragmentSpreadNode(
-                    name: NameNode(value: 'UserMinF'),
+                    name: NameNode(value: 'UserMin'),
                     directives: [],
                   ),
                   FieldNode(
@@ -739,7 +739,7 @@ const documentNodeQueryThreads = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionUserMinF,
+  fragmentDefinitionUserMin,
 ]);
 
 class QueryThreadsPage {
@@ -1174,10 +1174,10 @@ class QueryThreadsPagethreads {
       siteUrl: (l$siteUrl as String?),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       replyUser: l$replyUser == null
           ? null
-          : FragmentUserMinF.fromJson((l$replyUser as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$replyUser as Map<String, dynamic>)),
       categories: (l$categories as List<dynamic>?)
           ?.map((e) => e == null
               ? null
@@ -1208,9 +1208,9 @@ class QueryThreadsPagethreads {
 
   final String? siteUrl;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
-  final FragmentUserMinF? replyUser;
+  final FragmentUserMin? replyUser;
 
   final List<QueryThreadsPagethreadscategories?>? categories;
 
@@ -1400,14 +1400,14 @@ abstract class CopyWithQueryThreadsPagethreads<TRes> {
     int? viewCount,
     int? repliedAt,
     String? siteUrl,
-    FragmentUserMinF? user,
-    FragmentUserMinF? replyUser,
+    FragmentUserMin? user,
+    FragmentUserMin? replyUser,
     List<QueryThreadsPagethreadscategories?>? categories,
     List<QueryThreadsPagethreadsmediaCategories?>? mediaCategories,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
-  CopyWithFragmentUserMinF<TRes> get replyUser;
+  CopyWithFragmentUserMin<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get replyUser;
   TRes categories(
       Iterable<QueryThreadsPagethreadscategories?>? Function(
               Iterable<
@@ -1462,10 +1462,10 @@ class _CopyWithImplQueryThreadsPagethreads<TRes>
             repliedAt == _undefined ? _instance.repliedAt : (repliedAt as int?),
         siteUrl:
             siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         replyUser: replyUser == _undefined
             ? _instance.replyUser
-            : (replyUser as FragmentUserMinF?),
+            : (replyUser as FragmentUserMin?),
         categories: categories == _undefined
             ? _instance.categories
             : (categories as List<QueryThreadsPagethreadscategories?>?),
@@ -1478,18 +1478,18 @@ class _CopyWithImplQueryThreadsPagethreads<TRes>
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 
-  CopyWithFragmentUserMinF<TRes> get replyUser {
+  CopyWithFragmentUserMin<TRes> get replyUser {
     final local$replyUser = _instance.replyUser;
     return local$replyUser == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$replyUser, (e) => call(replyUser: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$replyUser, (e) => call(replyUser: e));
   }
 
   TRes categories(
@@ -1535,19 +1535,18 @@ class _CopyWithStubImplQueryThreadsPagethreads<TRes>
     int? viewCount,
     int? repliedAt,
     String? siteUrl,
-    FragmentUserMinF? user,
-    FragmentUserMinF? replyUser,
+    FragmentUserMin? user,
+    FragmentUserMin? replyUser,
     List<QueryThreadsPagethreadscategories?>? categories,
     List<QueryThreadsPagethreadsmediaCategories?>? mediaCategories,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 
-  CopyWithFragmentUserMinF<TRes> get replyUser =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get replyUser =>
+      CopyWithFragmentUserMin.stub(_res);
 
   categories(_fn) => _res;
 
@@ -2452,7 +2451,7 @@ const documentNodeQueryThread = DocumentNode(definitions: [
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FragmentSpreadNode(
-                name: NameNode(value: 'UserMinF'),
+                name: NameNode(value: 'UserMin'),
                 directives: [],
               ),
               FieldNode(
@@ -2471,7 +2470,7 @@ const documentNodeQueryThread = DocumentNode(definitions: [
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FragmentSpreadNode(
-                name: NameNode(value: 'UserMinF'),
+                name: NameNode(value: 'UserMin'),
                 directives: [],
               ),
               FieldNode(
@@ -2596,7 +2595,7 @@ const documentNodeQueryThread = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionUserMinF,
+  fragmentDefinitionUserMin,
 ]);
 
 class QueryThreadThread {
@@ -2664,10 +2663,10 @@ class QueryThreadThread {
       siteUrl: (l$siteUrl as String?),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       replyUser: l$replyUser == null
           ? null
-          : FragmentUserMinF.fromJson((l$replyUser as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$replyUser as Map<String, dynamic>)),
       likes: (l$likes as List<dynamic>?)
           ?.map((e) => e == null
               ? null
@@ -2719,9 +2718,9 @@ class QueryThreadThread {
 
   final String? siteUrl;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
-  final FragmentUserMinF? replyUser;
+  final FragmentUserMin? replyUser;
 
   final List<QueryThreadThreadlikes?>? likes;
 
@@ -3012,15 +3011,15 @@ abstract class CopyWithQueryThreadThread<TRes> {
     int? createdAt,
     int? updatedAt,
     String? siteUrl,
-    FragmentUserMinF? user,
-    FragmentUserMinF? replyUser,
+    FragmentUserMin? user,
+    FragmentUserMin? replyUser,
     List<QueryThreadThreadlikes?>? likes,
     List<QueryThreadThreadcategories?>? categories,
     List<QueryThreadThreadmediaCategories?>? mediaCategories,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
-  CopyWithFragmentUserMinF<TRes> get replyUser;
+  CopyWithFragmentUserMin<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get replyUser;
   TRes likes(
       Iterable<QueryThreadThreadlikes?>? Function(
               Iterable<
@@ -3109,10 +3108,10 @@ class _CopyWithImplQueryThreadThread<TRes>
             : (updatedAt as int),
         siteUrl:
             siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         replyUser: replyUser == _undefined
             ? _instance.replyUser
-            : (replyUser as FragmentUserMinF?),
+            : (replyUser as FragmentUserMin?),
         likes: likes == _undefined
             ? _instance.likes
             : (likes as List<QueryThreadThreadlikes?>?),
@@ -3127,18 +3126,18 @@ class _CopyWithImplQueryThreadThread<TRes>
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 
-  CopyWithFragmentUserMinF<TRes> get replyUser {
+  CopyWithFragmentUserMin<TRes> get replyUser {
     final local$replyUser = _instance.replyUser;
     return local$replyUser == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$replyUser, (e) => call(replyUser: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$replyUser, (e) => call(replyUser: e));
   }
 
   TRes likes(
@@ -3205,8 +3204,8 @@ class _CopyWithStubImplQueryThreadThread<TRes>
     int? createdAt,
     int? updatedAt,
     String? siteUrl,
-    FragmentUserMinF? user,
-    FragmentUserMinF? replyUser,
+    FragmentUserMin? user,
+    FragmentUserMin? replyUser,
     List<QueryThreadThreadlikes?>? likes,
     List<QueryThreadThreadcategories?>? categories,
     List<QueryThreadThreadmediaCategories?>? mediaCategories,
@@ -3214,11 +3213,10 @@ class _CopyWithStubImplQueryThreadThread<TRes>
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 
-  CopyWithFragmentUserMinF<TRes> get replyUser =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get replyUser =>
+      CopyWithFragmentUserMin.stub(_res);
 
   likes(_fn) => _res;
 

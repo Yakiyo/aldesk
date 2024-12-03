@@ -495,7 +495,7 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'MediaMinF'),
+                        name: NameNode(value: 'MediaMin'),
                         directives: [],
                       ),
                       FieldNode(
@@ -559,7 +559,7 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'UserMinF'),
+                        name: NameNode(value: 'UserMin'),
                         directives: [],
                       ),
                       FieldNode(
@@ -637,7 +637,7 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'UserMinF'),
+                        name: NameNode(value: 'UserMin'),
                         directives: [],
                       ),
                       FieldNode(
@@ -715,7 +715,7 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'UserMinF'),
+                        name: NameNode(value: 'UserMin'),
                         directives: [],
                       ),
                       FieldNode(
@@ -786,7 +786,7 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'UserMinF'),
+                        name: NameNode(value: 'UserMin'),
                         directives: [],
                       ),
                       FieldNode(
@@ -857,7 +857,7 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'UserMinF'),
+                        name: NameNode(value: 'UserMin'),
                         directives: [],
                       ),
                       FieldNode(
@@ -928,7 +928,7 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'UserMinF'),
+                        name: NameNode(value: 'UserMin'),
                         directives: [],
                       ),
                       FieldNode(
@@ -999,7 +999,7 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'UserMinF'),
+                        name: NameNode(value: 'UserMin'),
                         directives: [],
                       ),
                       FieldNode(
@@ -1578,8 +1578,8 @@ const documentNodeQueryNotifications = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionMediaMinF,
-  fragmentDefinitionUserMinF,
+  fragmentDefinitionMediaMin,
+  fragmentDefinitionUserMin,
 ]);
 
 class QueryNotificationsPage {
@@ -2259,7 +2259,7 @@ class QueryNotificationsPagenotificationsAiringNotification
       createdAt: (l$createdAt as int?),
       media: l$media == null
           ? null
-          : FragmentMediaMinF.fromJson((l$media as Map<String, dynamic>)),
+          : FragmentMediaMin.fromJson((l$media as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2276,7 +2276,7 @@ class QueryNotificationsPagenotificationsAiringNotification
 
   final int? createdAt;
 
-  final FragmentMediaMinF? media;
+  final FragmentMediaMin? media;
 
   final String $__typename;
 
@@ -2417,10 +2417,10 @@ abstract class CopyWithQueryNotificationsPagenotificationsAiringNotification<
     int? episode,
     List<String?>? contexts,
     int? createdAt,
-    FragmentMediaMinF? media,
+    FragmentMediaMin? media,
     String? $__typename,
   });
-  CopyWithFragmentMediaMinF<TRes> get media;
+  CopyWithFragmentMediaMin<TRes> get media;
 }
 
 class _CopyWithImplQueryNotificationsPagenotificationsAiringNotification<TRes>
@@ -2466,17 +2466,17 @@ class _CopyWithImplQueryNotificationsPagenotificationsAiringNotification<TRes>
             createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
         media: media == _undefined
             ? _instance.media
-            : (media as FragmentMediaMinF?),
+            : (media as FragmentMediaMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentMediaMinF<TRes> get media {
+  CopyWithFragmentMediaMin<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
-        ? CopyWithFragmentMediaMinF.stub(_then(_instance))
-        : CopyWithFragmentMediaMinF(local$media, (e) => call(media: e));
+        ? CopyWithFragmentMediaMin.stub(_then(_instance))
+        : CopyWithFragmentMediaMin(local$media, (e) => call(media: e));
   }
 }
 
@@ -2496,13 +2496,13 @@ class _CopyWithStubImplQueryNotificationsPagenotificationsAiringNotification<
     int? episode,
     List<String?>? contexts,
     int? createdAt,
-    FragmentMediaMinF? media,
+    FragmentMediaMin? media,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentMediaMinF<TRes> get media =>
-      CopyWithFragmentMediaMinF.stub(_res);
+  CopyWithFragmentMediaMin<TRes> get media =>
+      CopyWithFragmentMediaMin.stub(_res);
 }
 
 class QueryNotificationsPagenotificationsFollowingNotification
@@ -2533,7 +2533,7 @@ class QueryNotificationsPagenotificationsFollowingNotification
       createdAt: (l$createdAt as int?),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2546,7 +2546,7 @@ class QueryNotificationsPagenotificationsFollowingNotification
 
   final int? createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
   final String $__typename;
 
@@ -2657,10 +2657,10 @@ abstract class CopyWithQueryNotificationsPagenotificationsFollowingNotification<
     EnumNotificationType? type,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get user;
 }
 
 class _CopyWithImplQueryNotificationsPagenotificationsFollowingNotification<
@@ -2696,17 +2696,17 @@ class _CopyWithImplQueryNotificationsPagenotificationsFollowingNotification<
             context == _undefined ? _instance.context : (context as String?),
         createdAt:
             createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 }
 
@@ -2724,13 +2724,12 @@ class _CopyWithStubImplQueryNotificationsPagenotificationsFollowingNotification<
     EnumNotificationType? type,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 }
 
 class QueryNotificationsPagenotificationsActivityMessageNotification
@@ -2767,7 +2766,7 @@ class QueryNotificationsPagenotificationsActivityMessageNotification
       createdAt: (l$createdAt as int?),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2784,7 +2783,7 @@ class QueryNotificationsPagenotificationsActivityMessageNotification
 
   final int? createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
   final String $__typename;
 
@@ -2917,10 +2916,10 @@ abstract class CopyWithQueryNotificationsPagenotificationsActivityMessageNotific
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get user;
 }
 
 class _CopyWithImplQueryNotificationsPagenotificationsActivityMessageNotification<
@@ -2966,17 +2965,17 @@ class _CopyWithImplQueryNotificationsPagenotificationsActivityMessageNotificatio
             context == _undefined ? _instance.context : (context as String?),
         createdAt:
             createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 }
 
@@ -2997,13 +2996,12 @@ class _CopyWithStubImplQueryNotificationsPagenotificationsActivityMessageNotific
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 }
 
 class QueryNotificationsPagenotificationsActivityMentionNotification
@@ -3040,7 +3038,7 @@ class QueryNotificationsPagenotificationsActivityMentionNotification
       createdAt: (l$createdAt as int?),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -3057,7 +3055,7 @@ class QueryNotificationsPagenotificationsActivityMentionNotification
 
   final int? createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
   final String $__typename;
 
@@ -3190,10 +3188,10 @@ abstract class CopyWithQueryNotificationsPagenotificationsActivityMentionNotific
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get user;
 }
 
 class _CopyWithImplQueryNotificationsPagenotificationsActivityMentionNotification<
@@ -3239,17 +3237,17 @@ class _CopyWithImplQueryNotificationsPagenotificationsActivityMentionNotificatio
             context == _undefined ? _instance.context : (context as String?),
         createdAt:
             createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 }
 
@@ -3270,13 +3268,12 @@ class _CopyWithStubImplQueryNotificationsPagenotificationsActivityMentionNotific
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 }
 
 class QueryNotificationsPagenotificationsActivityReplyNotification
@@ -3310,7 +3307,7 @@ class QueryNotificationsPagenotificationsActivityReplyNotification
       createdAt: (l$createdAt as int?),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -3325,7 +3322,7 @@ class QueryNotificationsPagenotificationsActivityReplyNotification
 
   final int? createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
   final String $__typename;
 
@@ -3447,10 +3444,10 @@ abstract class CopyWithQueryNotificationsPagenotificationsActivityReplyNotificat
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get user;
 }
 
 class _CopyWithImplQueryNotificationsPagenotificationsActivityReplyNotification<
@@ -3491,17 +3488,17 @@ class _CopyWithImplQueryNotificationsPagenotificationsActivityReplyNotification<
             context == _undefined ? _instance.context : (context as String?),
         createdAt:
             createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 }
 
@@ -3521,13 +3518,12 @@ class _CopyWithStubImplQueryNotificationsPagenotificationsActivityReplyNotificat
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 }
 
 class QueryNotificationsPagenotificationsActivityReplySubscribedNotification
@@ -3561,7 +3557,7 @@ class QueryNotificationsPagenotificationsActivityReplySubscribedNotification
       createdAt: (l$createdAt as int?),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -3576,7 +3572,7 @@ class QueryNotificationsPagenotificationsActivityReplySubscribedNotification
 
   final int? createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
   final String $__typename;
 
@@ -3700,10 +3696,10 @@ abstract class CopyWithQueryNotificationsPagenotificationsActivityReplySubscribe
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get user;
 }
 
 class _CopyWithImplQueryNotificationsPagenotificationsActivityReplySubscribedNotification<
@@ -3747,17 +3743,17 @@ class _CopyWithImplQueryNotificationsPagenotificationsActivityReplySubscribedNot
             context == _undefined ? _instance.context : (context as String?),
         createdAt:
             createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 }
 
@@ -3777,13 +3773,12 @@ class _CopyWithStubImplQueryNotificationsPagenotificationsActivityReplySubscribe
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 }
 
 class QueryNotificationsPagenotificationsActivityLikeNotification
@@ -3817,7 +3812,7 @@ class QueryNotificationsPagenotificationsActivityLikeNotification
       createdAt: (l$createdAt as int?),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -3832,7 +3827,7 @@ class QueryNotificationsPagenotificationsActivityLikeNotification
 
   final int? createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
   final String $__typename;
 
@@ -3954,10 +3949,10 @@ abstract class CopyWithQueryNotificationsPagenotificationsActivityLikeNotificati
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get user;
 }
 
 class _CopyWithImplQueryNotificationsPagenotificationsActivityLikeNotification<
@@ -3998,17 +3993,17 @@ class _CopyWithImplQueryNotificationsPagenotificationsActivityLikeNotification<
             context == _undefined ? _instance.context : (context as String?),
         createdAt:
             createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 }
 
@@ -4028,13 +4023,12 @@ class _CopyWithStubImplQueryNotificationsPagenotificationsActivityLikeNotificati
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 }
 
 class QueryNotificationsPagenotificationsActivityReplyLikeNotification
@@ -4068,7 +4062,7 @@ class QueryNotificationsPagenotificationsActivityReplyLikeNotification
       createdAt: (l$createdAt as int?),
       user: l$user == null
           ? null
-          : FragmentUserMinF.fromJson((l$user as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -4083,7 +4077,7 @@ class QueryNotificationsPagenotificationsActivityReplyLikeNotification
 
   final int? createdAt;
 
-  final FragmentUserMinF? user;
+  final FragmentUserMin? user;
 
   final String $__typename;
 
@@ -4206,10 +4200,10 @@ abstract class CopyWithQueryNotificationsPagenotificationsActivityReplyLikeNotif
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get user;
+  CopyWithFragmentUserMin<TRes> get user;
 }
 
 class _CopyWithImplQueryNotificationsPagenotificationsActivityReplyLikeNotification<
@@ -4251,17 +4245,17 @@ class _CopyWithImplQueryNotificationsPagenotificationsActivityReplyLikeNotificat
             context == _undefined ? _instance.context : (context as String?),
         createdAt:
             createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMinF?),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get user {
+  CopyWithFragmentUserMin<TRes> get user {
     final local$user = _instance.user;
     return local$user == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$user, (e) => call(user: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
   }
 }
 
@@ -4281,13 +4275,12 @@ class _CopyWithStubImplQueryNotificationsPagenotificationsActivityReplyLikeNotif
     int? activityId,
     String? context,
     int? createdAt,
-    FragmentUserMinF? user,
+    FragmentUserMin? user,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get user =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
 }
 
 class QueryNotificationsPagenotificationsThreadCommentMentionNotification

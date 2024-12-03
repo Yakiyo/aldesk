@@ -313,15 +313,15 @@ const documentNodeQueryUser = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'UserMinF'),
+            name: NameNode(value: 'UserMin'),
             directives: [],
           ),
           FragmentSpreadNode(
-            name: NameNode(value: 'UserSocialsF'),
+            name: NameNode(value: 'UserSocials'),
             directives: [],
           ),
           FragmentSpreadNode(
-            name: NameNode(value: 'UserSettingsF'),
+            name: NameNode(value: 'UserSettings'),
             directives: [],
           ),
           FieldNode(
@@ -368,13 +368,13 @@ const documentNodeQueryUser = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionUserMinF,
-  fragmentDefinitionUserSocialsF,
-  fragmentDefinitionUserSettingsF,
+  fragmentDefinitionUserMin,
+  fragmentDefinitionUserSocials,
+  fragmentDefinitionUserSettings,
 ]);
 
 class QueryUserUser
-    implements FragmentUserMinF, FragmentUserSocialsF, FragmentUserSettingsF {
+    implements FragmentUserMin, FragmentUserSocials, FragmentUserSettings {
   QueryUserUser({
     required this.id,
     required this.name,
@@ -730,7 +730,7 @@ class _CopyWithStubImplQueryUserUser<TRes>
       CopyWithQueryUserUsermediaListOptions.stub(_res);
 }
 
-class QueryUserUseravatar implements FragmentUserMinFavatar {
+class QueryUserUseravatar implements FragmentUserMinavatar {
   QueryUserUseravatar({
     this.large,
     this.medium,
@@ -869,7 +869,7 @@ class _CopyWithStubImplQueryUserUseravatar<TRes>
       _res;
 }
 
-class QueryUserUseroptions implements FragmentUserSettingsFoptions {
+class QueryUserUseroptions implements FragmentUserSettingsoptions {
   QueryUserUseroptions({
     this.titleLanguage,
     this.displayAdultContent,
@@ -1141,7 +1141,7 @@ class _CopyWithStubImplQueryUserUseroptions<TRes>
 }
 
 class QueryUserUsermediaListOptions
-    implements FragmentUserSettingsFmediaListOptions {
+    implements FragmentUserSettingsmediaListOptions {
   QueryUserUsermediaListOptions({
     this.scoreFormat,
     this.rowOrder,
@@ -1359,7 +1359,7 @@ class _CopyWithStubImplQueryUserUsermediaListOptions<TRes>
 }
 
 class QueryUserUsermediaListOptionsanimeList
-    implements FragmentUserSettingsFmediaListOptionsanimeList {
+    implements FragmentUserSettingsmediaListOptionsanimeList {
   QueryUserUsermediaListOptionsanimeList({
     this.sectionOrder,
     this.splitCompletedSectionByFormat,
@@ -1617,7 +1617,7 @@ class _CopyWithStubImplQueryUserUsermediaListOptionsanimeList<TRes>
 }
 
 class QueryUserUsermediaListOptionsmangaList
-    implements FragmentUserSettingsFmediaListOptionsmangaList {
+    implements FragmentUserSettingsmediaListOptionsmangaList {
   QueryUserUsermediaListOptionsmangaList({
     this.sectionOrder,
     this.splitCompletedSectionByFormat,
@@ -2026,12 +2026,12 @@ class QueryUserMin {
     return QueryUserMin(
       User: l$User == null
           ? null
-          : FragmentUserMinF.fromJson((l$User as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$User as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final FragmentUserMinF? User;
+  final FragmentUserMin? User;
 
   final String $__typename;
 
@@ -2092,10 +2092,10 @@ abstract class CopyWithQueryUserMin<TRes> {
   factory CopyWithQueryUserMin.stub(TRes res) = _CopyWithStubImplQueryUserMin;
 
   TRes call({
-    FragmentUserMinF? User,
+    FragmentUserMin? User,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get User;
+  CopyWithFragmentUserMin<TRes> get User;
 }
 
 class _CopyWithImplQueryUserMin<TRes> implements CopyWithQueryUserMin<TRes> {
@@ -2115,17 +2115,17 @@ class _CopyWithImplQueryUserMin<TRes> implements CopyWithQueryUserMin<TRes> {
     Object? $__typename = _undefined,
   }) =>
       _then(QueryUserMin(
-        User: User == _undefined ? _instance.User : (User as FragmentUserMinF?),
+        User: User == _undefined ? _instance.User : (User as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get User {
+  CopyWithFragmentUserMin<TRes> get User {
     final local$User = _instance.User;
     return local$User == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$User, (e) => call(User: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$User, (e) => call(User: e));
   }
 }
 
@@ -2136,13 +2136,12 @@ class _CopyWithStubImplQueryUserMin<TRes>
   TRes _res;
 
   call({
-    FragmentUserMinF? User,
+    FragmentUserMin? User,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get User =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get User => CopyWithFragmentUserMin.stub(_res);
 }
 
 const documentNodeQueryUserMin = DocumentNode(definitions: [
@@ -2187,7 +2186,7 @@ const documentNodeQueryUserMin = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'UserMinF'),
+            name: NameNode(value: 'UserMin'),
             directives: [],
           ),
           FieldNode(
@@ -2208,7 +2207,7 @@ const documentNodeQueryUserMin = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionUserMinF,
+  fragmentDefinitionUserMin,
 ]);
 
 class QueryViewer {
@@ -2223,12 +2222,12 @@ class QueryViewer {
     return QueryViewer(
       Viewer: l$Viewer == null
           ? null
-          : FragmentUserMinF.fromJson((l$Viewer as Map<String, dynamic>)),
+          : FragmentUserMin.fromJson((l$Viewer as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final FragmentUserMinF? Viewer;
+  final FragmentUserMin? Viewer;
 
   final String $__typename;
 
@@ -2289,10 +2288,10 @@ abstract class CopyWithQueryViewer<TRes> {
   factory CopyWithQueryViewer.stub(TRes res) = _CopyWithStubImplQueryViewer;
 
   TRes call({
-    FragmentUserMinF? Viewer,
+    FragmentUserMin? Viewer,
     String? $__typename,
   });
-  CopyWithFragmentUserMinF<TRes> get Viewer;
+  CopyWithFragmentUserMin<TRes> get Viewer;
 }
 
 class _CopyWithImplQueryViewer<TRes> implements CopyWithQueryViewer<TRes> {
@@ -2314,17 +2313,17 @@ class _CopyWithImplQueryViewer<TRes> implements CopyWithQueryViewer<TRes> {
       _then(QueryViewer(
         Viewer: Viewer == _undefined
             ? _instance.Viewer
-            : (Viewer as FragmentUserMinF?),
+            : (Viewer as FragmentUserMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserMinF<TRes> get Viewer {
+  CopyWithFragmentUserMin<TRes> get Viewer {
     final local$Viewer = _instance.Viewer;
     return local$Viewer == null
-        ? CopyWithFragmentUserMinF.stub(_then(_instance))
-        : CopyWithFragmentUserMinF(local$Viewer, (e) => call(Viewer: e));
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$Viewer, (e) => call(Viewer: e));
   }
 }
 
@@ -2334,13 +2333,13 @@ class _CopyWithStubImplQueryViewer<TRes> implements CopyWithQueryViewer<TRes> {
   TRes _res;
 
   call({
-    FragmentUserMinF? Viewer,
+    FragmentUserMin? Viewer,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserMinF<TRes> get Viewer =>
-      CopyWithFragmentUserMinF.stub(_res);
+  CopyWithFragmentUserMin<TRes> get Viewer =>
+      CopyWithFragmentUserMin.stub(_res);
 }
 
 const documentNodeQueryViewer = DocumentNode(definitions: [
@@ -2357,7 +2356,7 @@ const documentNodeQueryViewer = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FragmentSpreadNode(
-            name: NameNode(value: 'UserMinF'),
+            name: NameNode(value: 'UserMin'),
             directives: [],
           ),
           FieldNode(
@@ -2378,7 +2377,7 @@ const documentNodeQueryViewer = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionUserMinF,
+  fragmentDefinitionUserMin,
 ]);
 
 class VariablesQueryUserStatisticsMin {
@@ -2714,7 +2713,7 @@ const documentNodeQueryUserStatisticsMin = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
                   FragmentSpreadNode(
-                    name: NameNode(value: 'UserStatisticsF'),
+                    name: NameNode(value: 'UserStatistics'),
                     directives: [],
                   ),
                   FieldNode(
@@ -2733,7 +2732,7 @@ const documentNodeQueryUserStatisticsMin = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
                   FragmentSpreadNode(
-                    name: NameNode(value: 'UserStatisticsF'),
+                    name: NameNode(value: 'UserStatistics'),
                     directives: [],
                   ),
                   FieldNode(
@@ -2772,7 +2771,7 @@ const documentNodeQueryUserStatisticsMin = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionUserStatisticsF,
+  fragmentDefinitionUserStatistics,
 ]);
 
 class QueryUserStatisticsMinUser {
@@ -2930,17 +2929,17 @@ class QueryUserStatisticsMinUserstatistics {
     return QueryUserStatisticsMinUserstatistics(
       anime: l$anime == null
           ? null
-          : FragmentUserStatisticsF.fromJson((l$anime as Map<String, dynamic>)),
+          : FragmentUserStatistics.fromJson((l$anime as Map<String, dynamic>)),
       manga: l$manga == null
           ? null
-          : FragmentUserStatisticsF.fromJson((l$manga as Map<String, dynamic>)),
+          : FragmentUserStatistics.fromJson((l$manga as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final FragmentUserStatisticsF? anime;
+  final FragmentUserStatistics? anime;
 
-  final FragmentUserStatisticsF? manga;
+  final FragmentUserStatistics? manga;
 
   final String $__typename;
 
@@ -3015,12 +3014,12 @@ abstract class CopyWithQueryUserStatisticsMinUserstatistics<TRes> {
       _CopyWithStubImplQueryUserStatisticsMinUserstatistics;
 
   TRes call({
-    FragmentUserStatisticsF? anime,
-    FragmentUserStatisticsF? manga,
+    FragmentUserStatistics? anime,
+    FragmentUserStatistics? manga,
     String? $__typename,
   });
-  CopyWithFragmentUserStatisticsF<TRes> get anime;
-  CopyWithFragmentUserStatisticsF<TRes> get manga;
+  CopyWithFragmentUserStatistics<TRes> get anime;
+  CopyWithFragmentUserStatistics<TRes> get manga;
 }
 
 class _CopyWithImplQueryUserStatisticsMinUserstatistics<TRes>
@@ -3044,27 +3043,27 @@ class _CopyWithImplQueryUserStatisticsMinUserstatistics<TRes>
       _then(QueryUserStatisticsMinUserstatistics(
         anime: anime == _undefined
             ? _instance.anime
-            : (anime as FragmentUserStatisticsF?),
+            : (anime as FragmentUserStatistics?),
         manga: manga == _undefined
             ? _instance.manga
-            : (manga as FragmentUserStatisticsF?),
+            : (manga as FragmentUserStatistics?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentUserStatisticsF<TRes> get anime {
+  CopyWithFragmentUserStatistics<TRes> get anime {
     final local$anime = _instance.anime;
     return local$anime == null
-        ? CopyWithFragmentUserStatisticsF.stub(_then(_instance))
-        : CopyWithFragmentUserStatisticsF(local$anime, (e) => call(anime: e));
+        ? CopyWithFragmentUserStatistics.stub(_then(_instance))
+        : CopyWithFragmentUserStatistics(local$anime, (e) => call(anime: e));
   }
 
-  CopyWithFragmentUserStatisticsF<TRes> get manga {
+  CopyWithFragmentUserStatistics<TRes> get manga {
     final local$manga = _instance.manga;
     return local$manga == null
-        ? CopyWithFragmentUserStatisticsF.stub(_then(_instance))
-        : CopyWithFragmentUserStatisticsF(local$manga, (e) => call(manga: e));
+        ? CopyWithFragmentUserStatistics.stub(_then(_instance))
+        : CopyWithFragmentUserStatistics(local$manga, (e) => call(manga: e));
   }
 }
 
@@ -3075,15 +3074,15 @@ class _CopyWithStubImplQueryUserStatisticsMinUserstatistics<TRes>
   TRes _res;
 
   call({
-    FragmentUserStatisticsF? anime,
-    FragmentUserStatisticsF? manga,
+    FragmentUserStatistics? anime,
+    FragmentUserStatistics? manga,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentUserStatisticsF<TRes> get anime =>
-      CopyWithFragmentUserStatisticsF.stub(_res);
+  CopyWithFragmentUserStatistics<TRes> get anime =>
+      CopyWithFragmentUserStatistics.stub(_res);
 
-  CopyWithFragmentUserStatisticsF<TRes> get manga =>
-      CopyWithFragmentUserStatisticsF.stub(_res);
+  CopyWithFragmentUserStatistics<TRes> get manga =>
+      CopyWithFragmentUserStatistics.stub(_res);
 }

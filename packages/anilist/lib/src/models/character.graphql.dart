@@ -611,7 +611,7 @@ const documentNodeQueryCharacter = DocumentNode(definitions: [
                     directives: [],
                     selectionSet: SelectionSetNode(selections: [
                       FragmentSpreadNode(
-                        name: NameNode(value: 'MediaMinF'),
+                        name: NameNode(value: 'MediaMin'),
                         directives: [],
                       ),
                       FieldNode(
@@ -659,7 +659,7 @@ const documentNodeQueryCharacter = DocumentNode(definitions: [
       ),
     ]),
   ),
-  fragmentDefinitionMediaMinF,
+  fragmentDefinitionMediaMin,
 ]);
 
 class QueryCharacterCharacter {
@@ -1796,7 +1796,7 @@ class QueryCharacterCharactermediaedges {
           : fromJsonEnumCharacterRole((l$characterRole as String)),
       node: l$node == null
           ? null
-          : FragmentMediaMinF.fromJson((l$node as Map<String, dynamic>)),
+          : FragmentMediaMin.fromJson((l$node as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1805,7 +1805,7 @@ class QueryCharacterCharactermediaedges {
 
   final EnumCharacterRole? characterRole;
 
-  final FragmentMediaMinF? node;
+  final FragmentMediaMin? node;
 
   final String $__typename;
 
@@ -1892,10 +1892,10 @@ abstract class CopyWithQueryCharacterCharactermediaedges<TRes> {
   TRes call({
     int? id,
     EnumCharacterRole? characterRole,
-    FragmentMediaMinF? node,
+    FragmentMediaMin? node,
     String? $__typename,
   });
-  CopyWithFragmentMediaMinF<TRes> get node;
+  CopyWithFragmentMediaMin<TRes> get node;
 }
 
 class _CopyWithImplQueryCharacterCharactermediaedges<TRes>
@@ -1922,18 +1922,17 @@ class _CopyWithImplQueryCharacterCharactermediaedges<TRes>
         characterRole: characterRole == _undefined
             ? _instance.characterRole
             : (characterRole as EnumCharacterRole?),
-        node:
-            node == _undefined ? _instance.node : (node as FragmentMediaMinF?),
+        node: node == _undefined ? _instance.node : (node as FragmentMediaMin?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWithFragmentMediaMinF<TRes> get node {
+  CopyWithFragmentMediaMin<TRes> get node {
     final local$node = _instance.node;
     return local$node == null
-        ? CopyWithFragmentMediaMinF.stub(_then(_instance))
-        : CopyWithFragmentMediaMinF(local$node, (e) => call(node: e));
+        ? CopyWithFragmentMediaMin.stub(_then(_instance))
+        : CopyWithFragmentMediaMin(local$node, (e) => call(node: e));
   }
 }
 
@@ -1946,11 +1945,11 @@ class _CopyWithStubImplQueryCharacterCharactermediaedges<TRes>
   call({
     int? id,
     EnumCharacterRole? characterRole,
-    FragmentMediaMinF? node,
+    FragmentMediaMin? node,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWithFragmentMediaMinF<TRes> get node =>
-      CopyWithFragmentMediaMinF.stub(_res);
+  CopyWithFragmentMediaMin<TRes> get node =>
+      CopyWithFragmentMediaMin.stub(_res);
 }
