@@ -20,6 +20,11 @@ scripts:
     packageFilters:
       flutter: true
       dependsOn: "flutter_launcher_icons"
+  
+  export:
+    exec: dart run scripts.dart exports
+    packageFilters:
+      scope: "anilist"
 
   gen:
     exec: dart run build_runner build

@@ -11,8 +11,8 @@ void main(List<String> args) {
 }
 
 void exportsCommand() async {
-  final models = Directory("packages/anilist/lib/src/models");
-  final outputFile = File("packages/anilist/lib/models.dart");
+  final models = Directory("lib/src/models");
+  final outputFile = File("lib/models.dart");
 
   if (await outputFile.exists()) {
     await outputFile.delete();
@@ -23,7 +23,7 @@ void exportsCommand() async {
       .writeAsString("// GENERATED FILE BY `scripts.dart`. DO NOT MODIFY\n\n");
   for (final file in files) {
     if (file is Directory) continue;
-    final path = file.path.split(RegExp(r'\\|/')).skip(3).join("/");
+    final path = file.path.split(RegExp(r'\\|/')).skip(1).join("/");
     final content = "export '$path';\n";
     await outputFile.writeAsString(content, mode: FileMode.append);
   }
