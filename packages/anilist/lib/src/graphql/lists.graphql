@@ -2,7 +2,8 @@
 # otherwise it returns all the lists for that media type.
 # use notesLike to filter entries based on a some user note.
 query MediaListCollection(
-  $userId: Int!
+  $userId: Int
+  $username: String
   $type: MediaType!
   $status: MediaListStatus
   $chunk: Int
@@ -12,6 +13,7 @@ query MediaListCollection(
 ) {
   MediaListCollection(
     userId: $userId
+    userName: $username
     type: $type
     status: $status
     chunk: $chunk

@@ -4,7 +4,8 @@ import 'schema.graphql.dart';
 
 class VariablesQueryMediaListCollection {
   factory VariablesQueryMediaListCollection({
-    required int userId,
+    int? userId,
+    String? username,
     required EnumMediaType type,
     EnumMediaListStatus? status,
     int? chunk,
@@ -13,7 +14,8 @@ class VariablesQueryMediaListCollection {
     String? notesLike,
   }) =>
       VariablesQueryMediaListCollection._({
-        r'userId': userId,
+        if (userId != null) r'userId': userId,
+        if (username != null) r'username': username,
         r'type': type,
         if (status != null) r'status': status,
         if (chunk != null) r'chunk': chunk,
@@ -27,8 +29,14 @@ class VariablesQueryMediaListCollection {
   factory VariablesQueryMediaListCollection.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$userId = data['userId'];
-    result$data['userId'] = (l$userId as int);
+    if (data.containsKey('userId')) {
+      final l$userId = data['userId'];
+      result$data['userId'] = (l$userId as int?);
+    }
+    if (data.containsKey('username')) {
+      final l$username = data['username'];
+      result$data['username'] = (l$username as String?);
+    }
     final l$type = data['type'];
     result$data['type'] = fromJsonEnumMediaType((l$type as String));
     if (data.containsKey('status')) {
@@ -61,7 +69,9 @@ class VariablesQueryMediaListCollection {
 
   Map<String, dynamic> _$data;
 
-  int get userId => (_$data['userId'] as int);
+  int? get userId => (_$data['userId'] as int?);
+
+  String? get username => (_$data['username'] as String?);
 
   EnumMediaType get type => (_$data['type'] as EnumMediaType);
 
@@ -78,8 +88,14 @@ class VariablesQueryMediaListCollection {
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$userId = userId;
-    result$data['userId'] = l$userId;
+    if (_$data.containsKey('userId')) {
+      final l$userId = userId;
+      result$data['userId'] = l$userId;
+    }
+    if (_$data.containsKey('username')) {
+      final l$username = username;
+      result$data['username'] = l$username;
+    }
     final l$type = type;
     result$data['type'] = toJsonEnumMediaType(l$type);
     if (_$data.containsKey('status')) {
@@ -125,7 +141,19 @@ class VariablesQueryMediaListCollection {
     }
     final l$userId = userId;
     final lOther$userId = other.userId;
+    if (_$data.containsKey('userId') != other._$data.containsKey('userId')) {
+      return false;
+    }
     if (l$userId != lOther$userId) {
+      return false;
+    }
+    final l$username = username;
+    final lOther$username = other.username;
+    if (_$data.containsKey('username') !=
+        other._$data.containsKey('username')) {
+      return false;
+    }
+    if (l$username != lOther$username) {
       return false;
     }
     final l$type = type;
@@ -192,6 +220,7 @@ class VariablesQueryMediaListCollection {
   @override
   int get hashCode {
     final l$userId = userId;
+    final l$username = username;
     final l$type = type;
     final l$status = status;
     final l$chunk = chunk;
@@ -199,7 +228,8 @@ class VariablesQueryMediaListCollection {
     final l$sort = sort;
     final l$notesLike = notesLike;
     return Object.hashAll([
-      l$userId,
+      _$data.containsKey('userId') ? l$userId : const {},
+      _$data.containsKey('username') ? l$username : const {},
       l$type,
       _$data.containsKey('status') ? l$status : const {},
       _$data.containsKey('chunk') ? l$chunk : const {},
@@ -225,6 +255,7 @@ abstract class CopyWithVariablesQueryMediaListCollection<TRes> {
 
   TRes call({
     int? userId,
+    String? username,
     EnumMediaType? type,
     EnumMediaListStatus? status,
     int? chunk,
@@ -249,6 +280,7 @@ class _CopyWithImplVariablesQueryMediaListCollection<TRes>
 
   TRes call({
     Object? userId = _undefined,
+    Object? username = _undefined,
     Object? type = _undefined,
     Object? status = _undefined,
     Object? chunk = _undefined,
@@ -258,7 +290,8 @@ class _CopyWithImplVariablesQueryMediaListCollection<TRes>
   }) =>
       _then(VariablesQueryMediaListCollection._({
         ..._instance._$data,
-        if (userId != _undefined && userId != null) 'userId': (userId as int),
+        if (userId != _undefined) 'userId': (userId as int?),
+        if (username != _undefined) 'username': (username as String?),
         if (type != _undefined && type != null) 'type': (type as EnumMediaType),
         if (status != _undefined) 'status': (status as EnumMediaListStatus?),
         if (chunk != _undefined) 'chunk': (chunk as int?),
@@ -276,6 +309,7 @@ class _CopyWithStubImplVariablesQueryMediaListCollection<TRes>
 
   call({
     int? userId,
+    String? username,
     EnumMediaType? type,
     EnumMediaListStatus? status,
     int? chunk,
@@ -439,7 +473,16 @@ const documentNodeQueryMediaListCollection = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'userId')),
         type: NamedTypeNode(
           name: NameNode(value: 'Int'),
-          isNonNull: true,
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'username')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
@@ -514,6 +557,10 @@ const documentNodeQueryMediaListCollection = DocumentNode(definitions: [
           ArgumentNode(
             name: NameNode(value: 'userId'),
             value: VariableNode(name: NameNode(value: 'userId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'userName'),
+            value: VariableNode(name: NameNode(value: 'username')),
           ),
           ArgumentNode(
             name: NameNode(value: 'type'),
