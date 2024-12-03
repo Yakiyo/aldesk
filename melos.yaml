@@ -14,6 +14,12 @@ scripts:
     exec: flutter run
     packageFilters:
       flutter: true
+  
+  icon:
+    exec: dart run flutter_launcher_icons
+    packageFilters:
+      flutter: true
+      dependsOn: "flutter_launcher_icons"
 
   gen:
     exec: dart run build_runner build
