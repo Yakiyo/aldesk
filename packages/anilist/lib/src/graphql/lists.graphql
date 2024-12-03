@@ -1,6 +1,6 @@
 # Get a user's media list. If $status is provided, it returns a specific list, 
 # otherwise it returns all the lists for that media type.
-# use notesLike to filter entries based on a some user note.
+# use notesLike to filter entries based on some user note.
 query MediaListCollection(
   $userId: Int
   $username: String
