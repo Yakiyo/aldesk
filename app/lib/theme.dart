@@ -1,7 +1,6 @@
+import 'package:aldesk/utils/singletons.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 /// A theme manager that controls the app's theme state (light/dark) and persists
 /// it using shared preferences
@@ -12,14 +11,14 @@ class ThemeManager with ChangeNotifier {
   }
 
   void _init() {
-    final pref = GetIt.I.get<SharedPreferences>();
+    final pref = Get.prefs();
     final theme = (pref.getString("theme")) ?? ThemeMode.light.toString();
     _mode =
         theme == ThemeMode.dark.toString() ? ThemeMode.dark : ThemeMode.light;
   }
 
   void _updateStore() async {
-    final pref = GetIt.I.get<SharedPreferences>();
+    final pref = Get.prefs();
     await pref.setString("theme", _mode.toString());
   }
 
