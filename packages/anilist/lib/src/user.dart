@@ -2,7 +2,7 @@ import 'consts.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 
-/// Get the authenticated user. If there is no token set, it will return null.
+/// Get the authenticated user.
 ///
 /// Requires to be authenticated, otherwise returns a [AuthError]
 ReturnType<FragmentUserMin> viewer() async {
