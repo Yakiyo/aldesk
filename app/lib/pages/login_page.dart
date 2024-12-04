@@ -117,6 +117,7 @@ class _LoginFormState extends State<LoginForm> {
                     borderSide: BorderSide(color: Colors.grey.shade400),
                   ),
                 ),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey),
                 obscureText: true,
                 validator: (value) => isValidToken(value)
                     ? null
