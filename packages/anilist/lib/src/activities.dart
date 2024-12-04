@@ -1,6 +1,5 @@
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
-import 'package:option_result/result.dart';
 import 'consts.dart';
 
 /// Get activities from the global activity feed

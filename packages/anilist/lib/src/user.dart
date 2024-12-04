@@ -1,7 +1,6 @@
 import 'consts.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
-import 'package:option_result/result.dart';
 
 /// Get the authenticated user. If there is no token set, it will return null.
 ///
