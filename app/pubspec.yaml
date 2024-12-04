@@ -18,6 +18,8 @@ dependencies:
   get_it: ^8.0.2
   shared_preferences: ^2.3.3
   logger: ^2.5.0
+  toastification: ^2.3.0
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +29,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/google_fonts/
 
 flutter_launcher_icons:
   image_path: "assets/aldesk.png"
