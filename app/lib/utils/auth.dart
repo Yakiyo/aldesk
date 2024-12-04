@@ -1,14 +1,17 @@
+import 'package:aldesk/utils/singletons.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
-import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 /// The minimum difference between now and expiry date that we consider to be
 /// valid for the app
 const minDiff = Duration(days: 1);
 
+String? getToken() => Get.prefs().getString("token");
+
+void storeToken(String token) =>
+    Get.prefs().setString("token", token);
+
 bool isLoggedIn() {
-  final pref = GetIt.I.get<SharedPreferences>();
-  final token = pref.getString("token");
+  final token = Get.prefs().getString("token");
   return isValidToken(token);
 }
 

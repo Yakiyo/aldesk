@@ -1,11 +1,11 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import 'utils/singletons.dart';
+import 'utils/auth.dart';
 import 'router.dart';
 import 'theme.dart';
-import 'utils/auth.dart';
 
 void main() async {
   await _initialize();
@@ -13,10 +13,9 @@ void main() async {
 }
 
 Future<void> _initialize() async {
-  final i = GetIt.instance;
-  i.registerSingleton(await SharedPreferences.getInstance());
-  i.registerSingleton(ThemeManager());
-  i.registerSingleton(Logger(
+  Get.setPrefs(await SharedPreferences.getInstance());
+  Get.setThemeManager(ThemeManager());
+  Get.setLogger(Logger(
     level: kDebugMode ? Level.debug : Level.warning,
   ));
 }
@@ -29,7 +28,7 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  final _themeManager = GetIt.I.get<ThemeManager>();
+  final _themeManager = Get.themeManager();
   @override
   void initState() {
     _themeManager.addListener(_listener);

@@ -1,8 +1,8 @@
+import 'package:go_router/go_router.dart';
+import 'pages/settings_page.dart';
+import 'pages/login_page.dart';
 import 'pages/error_page.dart';
 import 'pages/home_page.dart';
-import 'pages/login_page.dart';
-import 'pages/settings_page.dart';
-import 'package:go_router/go_router.dart';
 
 GoRouter router(bool isLoggedIn) {
   return GoRouter(
@@ -23,11 +23,6 @@ GoRouter router(bool isLoggedIn) {
         path: "/login",
         builder: (context, state) => const LoginPage(),
       ),
-      // GoRoute(
-      //   name: "splash",
-      //   path: "/splash",
-      //   builder: (context, state) => const SplashPage(),
-      // ),
       GoRoute(
         name: "settings",
         path: "/settings",

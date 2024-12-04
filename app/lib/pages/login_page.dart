@@ -1,6 +1,8 @@
 import 'package:aldesk/utils/auth.dart';
+import 'package:aldesk/utils/singletons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:toastification/toastification.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -50,6 +52,14 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+  final _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -61,14 +71,15 @@ class _LoginFormState extends State<LoginForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // header section
               RichText(
                   text: TextSpan(children: [
                 TextSpan(
                     text: "Welcome to ",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge
-                        ?.copyWith(fontSize: 30, color: Colors.black)),
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold)),
                 TextSpan(
                     text: "Aldesk",
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -76,15 +87,26 @@ class _LoginFormState extends State<LoginForm> {
                         color: Colors.blue,
                         fontWeight: FontWeight.bold)),
               ])),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
+              // small description section
+              Text(
+                "To get started, please login with your Anilist account",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(fontWeight: FontWeight.w100, color: Colors.grey),
+              ),
+              const SizedBox(height: 10),
+              // input field
               TextFormField(
+                controller: _controller,
                 autofocus: true,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   hintText: "Provide your token here",
                   hintStyle: TextStyle(color: Colors.grey[400]),
                   prefixIcon: Icon(
-                    Icons.lock,
+                    Icons.lock_outlined,
                     color: Colors.grey[400],
                   ),
                   focusColor: Colors.black,
@@ -100,13 +122,16 @@ class _LoginFormState extends State<LoginForm> {
                     ? null
                     : 'Invalid value. Must be a non-empty token that has not expired',
               ),
+              // generate token text
               Align(
-                  alignment: Alignment.centerRight, child: _urlButton(context)),
+                  alignment: Alignment.bottomRight, child: _urlButton(context)),
+              // login button
               _loginButton(context),
               const SizedBox(height: 10),
+              // small note
               Text(
                 "N.B: Aldesk is not affiliated with Anilist. It is a community built app. "
-                "We do not collect any data from your usage.",
+                "We do not collect any data from you.",
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall
@@ -122,12 +147,8 @@ class _LoginFormState extends State<LoginForm> {
   Widget _urlButton(BuildContext context) {
     return TextButton(
         onPressed: () async {
-          late final bool launched;
-          try {
-            launched = await launchUrl(_url);
-          } catch (_) {
-            launched = false;
-          }
+          if (!mounted) return;
+          final launched = await launchUrl(_url).catchError((_) => false);
           if (launched) return;
           Clipboard.setData(ClipboardData(text: _url.toString()));
           toastification.show(
@@ -151,6 +172,9 @@ class _LoginFormState extends State<LoginForm> {
     return InkWell(
       onTap: () {
         if (!_formKey.currentState!.validate()) return;
+        Get.prefs().setString("token", _controller.value.text);
+        Get.logger().i("saving token");
+
         toastification.show(
             context: context,
             type: ToastificationType.success,
@@ -158,6 +182,13 @@ class _LoginFormState extends State<LoginForm> {
             alignment: Alignment.bottomRight,
             title: const Text("Login Successful"),
             autoCloseDuration: const Duration(seconds: 2));
+
+        Future.delayed(const Duration(seconds: 2), () {
+          if (!mounted) return;
+          // ignore: use_build_context_synchronously
+          context.go('/');
+          return null;
+        });
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10),
@@ -169,8 +200,10 @@ class _LoginFormState extends State<LoginForm> {
         child: Center(
           child: Text(
             "Login",
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Colors.white, fontWeight: FontWeight.bold),
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
       ),
