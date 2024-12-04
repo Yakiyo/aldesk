@@ -6,11 +6,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// valid for the app
 const minDiff = Duration(days: 1);
 
-
 bool isLoggedIn() {
   final pref = GetIt.I.get<SharedPreferences>();
   final token = pref.getString("token");
-  if (token == null) return false;
+  return isValidToken(token);
+}
+
+bool isValidToken(String? token) {
+  if (token == null || token.isEmpty) return false;
   try {
     final payload = JWT.decode(token).payload as Map<String, dynamic>;
     final expiresAt =
