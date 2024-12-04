@@ -40,6 +40,8 @@ const highlightColor = Color.fromRGBO(232, 93, 117, 1);
 
 final font = GoogleFonts.overpassTextTheme();
 
+const darkModePrimary = Color(0xFF152232);
+
 /// Dark mode themes
 final darkTheme = ThemeData(
   fontFamily: GoogleFonts.roboto().fontFamily,
@@ -50,8 +52,8 @@ final darkTheme = ThemeData(
   ),
   scaffoldBackgroundColor: const Color(0xFF0B1622),
   colorScheme: ColorScheme.fromSeed(
-      seedColor: const Color(0xFF152232),
-      primary: const Color(0xFF152232),
+      seedColor: darkModePrimary,
+      primary: darkModePrimary,
       secondary: const Color.fromARGB(255, 170, 164, 164),
       brightness: Brightness.dark),
 );
