@@ -1,3 +1,4 @@
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,8 @@ import 'theme.dart';
 
 void main() async {
   await _initialize();
-  runApp(const MainApp());
+  final routes = router(isLoggedIn());
+  runApp(MainApp(routes: routes,));
 }
 
 Future<void> _initialize() async {
@@ -21,7 +23,8 @@ Future<void> _initialize() async {
 }
 
 class MainApp extends StatefulWidget {
-  const MainApp({super.key});
+  final GoRouter routes;
+  const MainApp({super.key, required this.routes});
 
   @override
   State<MainApp> createState() => _MainAppState();
@@ -49,7 +52,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: router(isLoggedIn()),
+      routerConfig: widget.routes,
       title: "Aldesk",
       debugShowCheckedModeBanner: false,
       theme: lightTheme,

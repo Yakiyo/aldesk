@@ -17,7 +17,7 @@ GoRouter router(bool isLoggedIn) {
       GoRoute(
         name: "home",
         path: "/home",
-        builder: (context, state) => const Page(HomePage()),
+        builder: (context, state) => const Page(child: HomePage()),
       ),
       GoRoute(
         name: "login",
@@ -27,9 +27,9 @@ GoRouter router(bool isLoggedIn) {
       GoRoute(
         name: "settings",
         path: "/settings",
-        builder: (context, state) => const Page(SettingsPage()),
+        builder: (context, state) => const Page(child: SettingsPage()),
       ),
     ],
-    errorBuilder: (context, state) => const Page(ErrorPage()),
+    errorBuilder: (context, state) => const Page(child: ErrorPage()),
   );
 }

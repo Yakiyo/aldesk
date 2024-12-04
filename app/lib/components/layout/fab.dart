@@ -15,19 +15,9 @@ class Fab extends StatefulWidget {
 
 class _FabState extends State<Fab> {
   final tm = Get.themeManager();
-  bool isDark = false;
-
-  @override
-  void initState() {
-    isDark = tm.isDark;
-    super.initState();
-  }
 
   void _toggleTheme() {
     tm.toggleTheme(tm.isLight);
-    setState(() {
-      isDark = tm.isDark;
-    });
   }
 
   void _logout() {
@@ -47,7 +37,7 @@ class _FabState extends State<Fab> {
           tooltip: "Toggle Theme",
           heroTag: null,
           onPressed: _toggleTheme,
-          child: Icon(isDark ? Icons.light_mode : Icons.dark_mode_outlined)),
+          child: Icon(tm.isDark ? Icons.light_mode : Icons.dark_mode_outlined)),
       FloatingActionButton.small(
           tooltip: "Logout",
           heroTag: null,
