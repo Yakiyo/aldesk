@@ -1,3 +1,4 @@
+import 'package:aldesk/utils/assets.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class _MyAppBarState extends State<MyAppBar> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/aldesk.png',
+              Assets.aldeskLogo,
               fit: BoxFit.cover,
               height: kToolbarHeight - 5,
             ),
@@ -82,7 +83,11 @@ class _AvatarSectionState extends State<AvatarSection> {
       void Function(String) onPressed,
       [double size = 15]) {
     return TextButton(
-        onPressed: () => onPressed(location),
+        onPressed: () {
+          _overlayEntry?.remove();
+          _overlayEntry = null;
+          onPressed(location);
+        },
         child: Row(
           children: [
             FaIcon(
@@ -113,7 +118,7 @@ class _AvatarSectionState extends State<AvatarSection> {
   OverlayEntry _overlayEntryBuilder(
       Offset offset, Size size, double cardWidth) {
     // ignore: prefer_function_declarations_over_variables
-    final onPressed = (String location) => context.go(location);
+    final onPressed = (String location) => context.push(location);
     return OverlayEntry(
       builder: (context) {
         return Positioned(
@@ -175,7 +180,6 @@ class _AvatarSectionState extends State<AvatarSection> {
   }
 
   void toggleOverlay(bool value) {
-    print("some clicke");
     if (value) {
       _createOverlayEntry();
       Overlay.of(context).insert(_overlayEntry!);
