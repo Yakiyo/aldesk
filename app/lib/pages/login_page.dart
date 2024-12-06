@@ -1,3 +1,4 @@
+import 'package:aldesk/utils/assets.dart';
 import 'package:aldesk/utils/auth.dart';
 import 'package:aldesk/utils/singletons.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class LoginPage extends StatelessWidget {
               color: Colors.blue[300],
               child: Padding(
                 padding: const EdgeInsets.all(40),
-                child: Image.asset('assets/images/anilist_long_text.png'),
+                child: Image.asset(Assets.anilistLongText),
               )),
         ));
 
