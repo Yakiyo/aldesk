@@ -1,9 +1,9 @@
-import 'package:aldesk/components/layout/page.dart';
+import 'package:aldesk/ui/components/layout/page.dart';
 import 'package:go_router/go_router.dart';
-import 'pages/settings_page.dart';
-import 'pages/login_page.dart';
-import 'pages/error_page.dart';
-import 'pages/home_page.dart';
+import 'ui/pages/settings_page.dart';
+import 'ui/pages/login_page.dart';
+import 'ui/pages/error_page.dart';
+import 'ui/pages/home_page.dart';
 
 GoRouter router(bool isLoggedIn) {
   return GoRouter(

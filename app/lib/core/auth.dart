@@ -1,4 +1,4 @@
-import 'package:aldesk/utils/singletons.dart';
+import 'package:aldesk/core/singletons.dart';
 import 'package:anilist/anilist.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 

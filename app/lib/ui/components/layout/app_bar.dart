@@ -1,4 +1,4 @@
-import 'package:aldesk/utils/assets.dart';
+import 'package:aldesk/core/assets.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';

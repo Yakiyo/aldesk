@@ -1,5 +1,5 @@
-import 'package:aldesk/utils/auth.dart';
-import 'package:aldesk/utils/singletons.dart';
+import 'package:aldesk/core/auth.dart';
+import 'package:aldesk/core/singletons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:go_router/go_router.dart';

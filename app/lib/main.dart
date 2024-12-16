@@ -3,15 +3,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'utils/singletons.dart';
-import 'utils/auth.dart';
+import 'core/singletons.dart';
+import 'core/auth.dart';
 import 'router.dart';
-import 'theme.dart';
+import 'core/theme.dart';
 
 void main() async {
   await _initialize();
   final routes = router(isLoggedIn());
-  runApp(MainApp(routes: routes,));
+  runApp(MainApp(routes: routes));
 }
 
 Future<void> _initialize() async {

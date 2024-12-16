@@ -1,4 +1,4 @@
-import 'package:aldesk/utils/singletons.dart';
+import 'package:aldesk/core/singletons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
