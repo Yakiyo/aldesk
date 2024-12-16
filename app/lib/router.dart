@@ -1,5 +1,6 @@
 import 'package:aldesk/ui/components/layout/page.dart';
 import 'package:go_router/go_router.dart';
+import 'ui/pages/anime_list.dart';
 import 'ui/pages/settings_page.dart';
 import 'ui/pages/login_page.dart';
 import 'ui/pages/error_page.dart';
@@ -29,6 +30,10 @@ GoRouter router(bool isLoggedIn) {
         path: "/settings",
         builder: (context, state) => const Page(child: SettingsPage()),
       ),
+      GoRoute(
+          name: "anime list",
+          path: "/anime_list",
+          builder: (context, state) => const Page(child: AnimeList())),
     ],
     errorBuilder: (context, state) => const Page(child: ErrorPage()),
   );
