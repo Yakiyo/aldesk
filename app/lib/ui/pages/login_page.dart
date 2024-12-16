@@ -1,11 +1,13 @@
-import 'package:aldesk/core/assets.dart';
-import 'package:aldesk/core/auth.dart';
-import 'package:aldesk/core/singletons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logger/logger.dart';
 import 'package:toastification/toastification.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../core/assets.dart';
+import '../../core/auth.dart';
+import '../../core/misc.dart';
 
 // TODO: set this at compile time and also remove this application later on
 const _clientId = "20687";
@@ -118,7 +120,10 @@ class _LoginFormState extends State<LoginForm> {
                     borderSide: BorderSide(color: Colors.grey.shade400),
                   ),
                 ),
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: Colors.grey),
                 obscureText: true,
                 validator: (value) => isValidToken(value)
                     ? null
@@ -174,8 +179,8 @@ class _LoginFormState extends State<LoginForm> {
     return InkWell(
       onTap: () {
         if (!_formKey.currentState!.validate()) return;
-        Get.prefs().setString("token", _controller.value.text);
-        Get.logger().i("saving token");
+        get<Storage>().token = _controller.value.text;
+        get<Logger>().i("saving token");
 
         toastification.show(
             context: context,

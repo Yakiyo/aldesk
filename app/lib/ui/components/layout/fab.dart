@@ -1,8 +1,11 @@
-import 'package:aldesk/core/auth.dart';
-import 'package:aldesk/core/singletons.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../core/auth.dart';
+import '../../../core/misc.dart';
+import '../../../core/theme.dart';
 
 /// Floating action button
 class Fab extends StatefulWidget {
@@ -14,10 +17,10 @@ class Fab extends StatefulWidget {
 }
 
 class _FabState extends State<Fab> {
-  final tm = Get.themeManager();
+  final tm = get<ThemeManager>();
 
   void _toggleTheme() {
-    tm.toggleTheme(tm.isLight);
+    tm.toggleTheme();
   }
 
   void _logout() {

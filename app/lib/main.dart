@@ -1,12 +1,13 @@
-import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
-import 'core/singletons.dart';
+
 import 'core/auth.dart';
-import 'router.dart';
+import 'core/misc.dart';
 import 'core/theme.dart';
+import 'router.dart';
 
 void main() async {
   await _initialize();
@@ -15,49 +16,34 @@ void main() async {
 }
 
 Future<void> _initialize() async {
-  Get.setPrefs(await SharedPreferences.getInstance());
-  Get.setThemeManager(ThemeManager());
-  Get.setLogger(Logger(
-    level: kDebugMode ? Level.debug : Level.warning,
-  ));
+  final i = GetIt.instance;
+  i.registerSingleton(await Storage.create());
+  i.registerSingleton(ThemeManager());
+  // TODO: pipe logs to a file in production
+  i.registerLazySingleton(() => Logger(
+        level: kDebugMode ? Level.debug : Level.warning,
+      ));
 }
 
-class MainApp extends StatefulWidget {
+class MainApp extends StatelessWidget {
   final GoRouter routes;
   const MainApp({super.key, required this.routes});
 
   @override
-  State<MainApp> createState() => _MainAppState();
-}
-
-class _MainAppState extends State<MainApp> {
-  final _themeManager = Get.themeManager();
-  @override
-  void initState() {
-    _themeManager.addListener(_listener);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _themeManager.removeListener(_listener);
-    super.dispose();
-  }
-
-  void _listener() {
-    if (mounted) setState(() {});
-  }
-
-  // This widget is the root of your application.
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: widget.routes,
-      title: "Aldesk",
-      debugShowCheckedModeBanner: false,
-      theme: lightTheme,
-      darkTheme: darkTheme,
-      themeMode: _themeManager.themeMode,
+    final themeManager = get<ThemeManager>();
+    return ValueListenableBuilder(
+      valueListenable: themeManager.modeNotifier,
+      builder: (context, value, child) {
+        return MaterialApp.router(
+          routerConfig: routes,
+          title: "Aldesk",
+          debugShowCheckedModeBanner: false,
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          themeMode: value,
+        );
+      },
     );
   }
 }

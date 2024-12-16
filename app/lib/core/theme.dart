@@ -1,32 +1,26 @@
-import 'package:aldesk/core/singletons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// A theme manager that controls the app's theme state (light/dark) and persists
-/// it using shared preferences
-class ThemeManager with ChangeNotifier {
-  late ThemeMode _mode;
+import 'misc.dart';
+
+
+class ThemeManager {
+  late final ValueNotifier<ThemeMode> _mode;
+  ValueNotifier<ThemeMode> get modeNotifier => _mode;
+  ThemeMode get mode => _mode.value;
+
   ThemeManager() {
-    final pref = Get.prefs();
-    final theme = (pref.getString("theme")) ?? ThemeMode.light.toString();
-    _mode =
-        theme == ThemeMode.dark.toString() ? ThemeMode.dark : ThemeMode.light;
+    final pref = get<Storage>();
+    final theme = pref.theme;
+    _mode = ValueNotifier(theme);
   }
 
-  void _updateStore() async {
-    final pref = Get.prefs();
-    await pref.setString("theme", _mode.toString());
-  }
+  bool get isDark => mode == ThemeMode.dark;
 
-  get themeMode => _mode;
-
-  bool get isDark => _mode == ThemeMode.dark;
-  bool get isLight => !isDark;
-
-  void toggleTheme(bool toDark) {
-    _mode = toDark ? ThemeMode.dark : ThemeMode.light;
-    notifyListeners();
-    _updateStore();
+  void toggleTheme() {
+    final newMode = mode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    _mode.value = newMode;
+    get<Storage>().theme = newMode;
   }
 }
 

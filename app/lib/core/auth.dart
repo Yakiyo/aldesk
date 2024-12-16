@@ -1,26 +1,25 @@
-import 'package:aldesk/core/singletons.dart';
 import 'package:anilist/anilist.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
+
+import 'misc.dart';
 
 /// The minimum difference between now and expiry date that we consider to be
 /// valid for the app
 const minDiff = Duration(days: 1);
 
-String? getToken() => Get.prefs().getString("token");
-
 void storeToken(String token) {
-  Get.prefs().setString("token", token);
+  get<Storage>().token = token;
   registerToken(token);
 }
 
 void removeToken() {
-  Get.prefs().remove("token");
+  get<Storage>().token = null;
   registerToken(null);
 }
 
 /// function used to check if user is authenticated during app startup
 bool isLoggedIn() {
-  final token = Get.prefs().getString("token");
+  final token = get<Storage>().token;
   final valid = isValidToken(token);
   // registers the token to the package during load time
   if (valid) registerToken(token);
