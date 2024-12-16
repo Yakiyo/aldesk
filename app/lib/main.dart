@@ -39,8 +39,8 @@ class MainApp extends StatelessWidget {
           routerConfig: routes,
           title: "Aldesk",
           debugShowCheckedModeBanner: false,
-          theme: lightTheme,
-          darkTheme: darkTheme,
+          theme: Themes.light,
+          darkTheme: Themes.dark,
           themeMode: value,
         );
       },
