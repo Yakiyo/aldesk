@@ -1,8 +1,12 @@
+import 'package:anilist/anilist.dart';
 import 'package:flutter/material.dart';
 
-class MyFutureBuilder<T> extends StatelessWidget {
+/// Custom future builder. If result of `future` is a Result, it handles the
+/// result accordingly. In that case `T` should be `Result<V, dynamic>`, otherwise
+/// `T` and `V` should be the same.
+class MyFutureBuilder<T, V> extends StatelessWidget {
   final Future<T> future;
-  final Widget Function(T) builder;
+  final Widget Function(V) builder;
   final Widget Function(Object?) errorBuilder;
   final Widget loadingWidget;
   const MyFutureBuilder({
@@ -19,7 +23,14 @@ class MyFutureBuilder<T> extends StatelessWidget {
         future: future,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return builder(snapshot.data as T);
+            final data = snapshot.data as T;
+            if (data is Result) {
+              return switch (data) {
+                Ok(value: final value) => builder(value as V),
+                Err(value: final error) => errorBuilder(error),
+              };
+            }
+            return builder(data as V);
           } else if (snapshot.hasError) {
             return errorBuilder(snapshot.error);
           } else {
