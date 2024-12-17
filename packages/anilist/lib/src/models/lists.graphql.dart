@@ -2719,3 +2719,722 @@ class _CopyWithStubImplQueryPaginatedMediaListPagepageInfo<TRes>
   }) =>
       _res;
 }
+
+class VariablesMutationSaveMediaListEntry {
+  factory VariablesMutationSaveMediaListEntry({
+    int? mediaListId,
+    int? progress,
+    int? mediaId,
+    EnumMediaListStatus? status,
+    double? score,
+    int? progressVolumes,
+    int? repeat,
+    bool? private,
+    String? notes,
+    InputFuzzyDateInput? startedAt,
+    InputFuzzyDateInput? completedAt,
+  }) =>
+      VariablesMutationSaveMediaListEntry._({
+        if (mediaListId != null) r'mediaListId': mediaListId,
+        if (progress != null) r'progress': progress,
+        if (mediaId != null) r'mediaId': mediaId,
+        if (status != null) r'status': status,
+        if (score != null) r'score': score,
+        if (progressVolumes != null) r'progressVolumes': progressVolumes,
+        if (repeat != null) r'repeat': repeat,
+        if (private != null) r'private': private,
+        if (notes != null) r'notes': notes,
+        if (startedAt != null) r'startedAt': startedAt,
+        if (completedAt != null) r'completedAt': completedAt,
+      });
+
+  VariablesMutationSaveMediaListEntry._(this._$data);
+
+  factory VariablesMutationSaveMediaListEntry.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('mediaListId')) {
+      final l$mediaListId = data['mediaListId'];
+      result$data['mediaListId'] = (l$mediaListId as int?);
+    }
+    if (data.containsKey('progress')) {
+      final l$progress = data['progress'];
+      result$data['progress'] = (l$progress as int?);
+    }
+    if (data.containsKey('mediaId')) {
+      final l$mediaId = data['mediaId'];
+      result$data['mediaId'] = (l$mediaId as int?);
+    }
+    if (data.containsKey('status')) {
+      final l$status = data['status'];
+      result$data['status'] = l$status == null
+          ? null
+          : fromJsonEnumMediaListStatus((l$status as String));
+    }
+    if (data.containsKey('score')) {
+      final l$score = data['score'];
+      result$data['score'] = (l$score as num?)?.toDouble();
+    }
+    if (data.containsKey('progressVolumes')) {
+      final l$progressVolumes = data['progressVolumes'];
+      result$data['progressVolumes'] = (l$progressVolumes as int?);
+    }
+    if (data.containsKey('repeat')) {
+      final l$repeat = data['repeat'];
+      result$data['repeat'] = (l$repeat as int?);
+    }
+    if (data.containsKey('private')) {
+      final l$private = data['private'];
+      result$data['private'] = (l$private as bool?);
+    }
+    if (data.containsKey('notes')) {
+      final l$notes = data['notes'];
+      result$data['notes'] = (l$notes as String?);
+    }
+    if (data.containsKey('startedAt')) {
+      final l$startedAt = data['startedAt'];
+      result$data['startedAt'] = l$startedAt == null
+          ? null
+          : InputFuzzyDateInput.fromJson((l$startedAt as Map<String, dynamic>));
+    }
+    if (data.containsKey('completedAt')) {
+      final l$completedAt = data['completedAt'];
+      result$data['completedAt'] = l$completedAt == null
+          ? null
+          : InputFuzzyDateInput.fromJson(
+              (l$completedAt as Map<String, dynamic>));
+    }
+    return VariablesMutationSaveMediaListEntry._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get mediaListId => (_$data['mediaListId'] as int?);
+
+  int? get progress => (_$data['progress'] as int?);
+
+  int? get mediaId => (_$data['mediaId'] as int?);
+
+  EnumMediaListStatus? get status => (_$data['status'] as EnumMediaListStatus?);
+
+  double? get score => (_$data['score'] as double?);
+
+  int? get progressVolumes => (_$data['progressVolumes'] as int?);
+
+  int? get repeat => (_$data['repeat'] as int?);
+
+  bool? get private => (_$data['private'] as bool?);
+
+  String? get notes => (_$data['notes'] as String?);
+
+  InputFuzzyDateInput? get startedAt =>
+      (_$data['startedAt'] as InputFuzzyDateInput?);
+
+  InputFuzzyDateInput? get completedAt =>
+      (_$data['completedAt'] as InputFuzzyDateInput?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('mediaListId')) {
+      final l$mediaListId = mediaListId;
+      result$data['mediaListId'] = l$mediaListId;
+    }
+    if (_$data.containsKey('progress')) {
+      final l$progress = progress;
+      result$data['progress'] = l$progress;
+    }
+    if (_$data.containsKey('mediaId')) {
+      final l$mediaId = mediaId;
+      result$data['mediaId'] = l$mediaId;
+    }
+    if (_$data.containsKey('status')) {
+      final l$status = status;
+      result$data['status'] =
+          l$status == null ? null : toJsonEnumMediaListStatus(l$status);
+    }
+    if (_$data.containsKey('score')) {
+      final l$score = score;
+      result$data['score'] = l$score;
+    }
+    if (_$data.containsKey('progressVolumes')) {
+      final l$progressVolumes = progressVolumes;
+      result$data['progressVolumes'] = l$progressVolumes;
+    }
+    if (_$data.containsKey('repeat')) {
+      final l$repeat = repeat;
+      result$data['repeat'] = l$repeat;
+    }
+    if (_$data.containsKey('private')) {
+      final l$private = private;
+      result$data['private'] = l$private;
+    }
+    if (_$data.containsKey('notes')) {
+      final l$notes = notes;
+      result$data['notes'] = l$notes;
+    }
+    if (_$data.containsKey('startedAt')) {
+      final l$startedAt = startedAt;
+      result$data['startedAt'] = l$startedAt?.toJson();
+    }
+    if (_$data.containsKey('completedAt')) {
+      final l$completedAt = completedAt;
+      result$data['completedAt'] = l$completedAt?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWithVariablesMutationSaveMediaListEntry<
+          VariablesMutationSaveMediaListEntry>
+      get copyWith => CopyWithVariablesMutationSaveMediaListEntry(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is VariablesMutationSaveMediaListEntry) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$mediaListId = mediaListId;
+    final lOther$mediaListId = other.mediaListId;
+    if (_$data.containsKey('mediaListId') !=
+        other._$data.containsKey('mediaListId')) {
+      return false;
+    }
+    if (l$mediaListId != lOther$mediaListId) {
+      return false;
+    }
+    final l$progress = progress;
+    final lOther$progress = other.progress;
+    if (_$data.containsKey('progress') !=
+        other._$data.containsKey('progress')) {
+      return false;
+    }
+    if (l$progress != lOther$progress) {
+      return false;
+    }
+    final l$mediaId = mediaId;
+    final lOther$mediaId = other.mediaId;
+    if (_$data.containsKey('mediaId') != other._$data.containsKey('mediaId')) {
+      return false;
+    }
+    if (l$mediaId != lOther$mediaId) {
+      return false;
+    }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (_$data.containsKey('status') != other._$data.containsKey('status')) {
+      return false;
+    }
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$score = score;
+    final lOther$score = other.score;
+    if (_$data.containsKey('score') != other._$data.containsKey('score')) {
+      return false;
+    }
+    if (l$score != lOther$score) {
+      return false;
+    }
+    final l$progressVolumes = progressVolumes;
+    final lOther$progressVolumes = other.progressVolumes;
+    if (_$data.containsKey('progressVolumes') !=
+        other._$data.containsKey('progressVolumes')) {
+      return false;
+    }
+    if (l$progressVolumes != lOther$progressVolumes) {
+      return false;
+    }
+    final l$repeat = repeat;
+    final lOther$repeat = other.repeat;
+    if (_$data.containsKey('repeat') != other._$data.containsKey('repeat')) {
+      return false;
+    }
+    if (l$repeat != lOther$repeat) {
+      return false;
+    }
+    final l$private = private;
+    final lOther$private = other.private;
+    if (_$data.containsKey('private') != other._$data.containsKey('private')) {
+      return false;
+    }
+    if (l$private != lOther$private) {
+      return false;
+    }
+    final l$notes = notes;
+    final lOther$notes = other.notes;
+    if (_$data.containsKey('notes') != other._$data.containsKey('notes')) {
+      return false;
+    }
+    if (l$notes != lOther$notes) {
+      return false;
+    }
+    final l$startedAt = startedAt;
+    final lOther$startedAt = other.startedAt;
+    if (_$data.containsKey('startedAt') !=
+        other._$data.containsKey('startedAt')) {
+      return false;
+    }
+    if (l$startedAt != lOther$startedAt) {
+      return false;
+    }
+    final l$completedAt = completedAt;
+    final lOther$completedAt = other.completedAt;
+    if (_$data.containsKey('completedAt') !=
+        other._$data.containsKey('completedAt')) {
+      return false;
+    }
+    if (l$completedAt != lOther$completedAt) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$mediaListId = mediaListId;
+    final l$progress = progress;
+    final l$mediaId = mediaId;
+    final l$status = status;
+    final l$score = score;
+    final l$progressVolumes = progressVolumes;
+    final l$repeat = repeat;
+    final l$private = private;
+    final l$notes = notes;
+    final l$startedAt = startedAt;
+    final l$completedAt = completedAt;
+    return Object.hashAll([
+      _$data.containsKey('mediaListId') ? l$mediaListId : const {},
+      _$data.containsKey('progress') ? l$progress : const {},
+      _$data.containsKey('mediaId') ? l$mediaId : const {},
+      _$data.containsKey('status') ? l$status : const {},
+      _$data.containsKey('score') ? l$score : const {},
+      _$data.containsKey('progressVolumes') ? l$progressVolumes : const {},
+      _$data.containsKey('repeat') ? l$repeat : const {},
+      _$data.containsKey('private') ? l$private : const {},
+      _$data.containsKey('notes') ? l$notes : const {},
+      _$data.containsKey('startedAt') ? l$startedAt : const {},
+      _$data.containsKey('completedAt') ? l$completedAt : const {},
+    ]);
+  }
+}
+
+abstract class CopyWithVariablesMutationSaveMediaListEntry<TRes> {
+  factory CopyWithVariablesMutationSaveMediaListEntry(
+    VariablesMutationSaveMediaListEntry instance,
+    TRes Function(VariablesMutationSaveMediaListEntry) then,
+  ) = _CopyWithImplVariablesMutationSaveMediaListEntry;
+
+  factory CopyWithVariablesMutationSaveMediaListEntry.stub(TRes res) =
+      _CopyWithStubImplVariablesMutationSaveMediaListEntry;
+
+  TRes call({
+    int? mediaListId,
+    int? progress,
+    int? mediaId,
+    EnumMediaListStatus? status,
+    double? score,
+    int? progressVolumes,
+    int? repeat,
+    bool? private,
+    String? notes,
+    InputFuzzyDateInput? startedAt,
+    InputFuzzyDateInput? completedAt,
+  });
+}
+
+class _CopyWithImplVariablesMutationSaveMediaListEntry<TRes>
+    implements CopyWithVariablesMutationSaveMediaListEntry<TRes> {
+  _CopyWithImplVariablesMutationSaveMediaListEntry(
+    this._instance,
+    this._then,
+  );
+
+  final VariablesMutationSaveMediaListEntry _instance;
+
+  final TRes Function(VariablesMutationSaveMediaListEntry) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? mediaListId = _undefined,
+    Object? progress = _undefined,
+    Object? mediaId = _undefined,
+    Object? status = _undefined,
+    Object? score = _undefined,
+    Object? progressVolumes = _undefined,
+    Object? repeat = _undefined,
+    Object? private = _undefined,
+    Object? notes = _undefined,
+    Object? startedAt = _undefined,
+    Object? completedAt = _undefined,
+  }) =>
+      _then(VariablesMutationSaveMediaListEntry._({
+        ..._instance._$data,
+        if (mediaListId != _undefined) 'mediaListId': (mediaListId as int?),
+        if (progress != _undefined) 'progress': (progress as int?),
+        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+        if (status != _undefined) 'status': (status as EnumMediaListStatus?),
+        if (score != _undefined) 'score': (score as double?),
+        if (progressVolumes != _undefined)
+          'progressVolumes': (progressVolumes as int?),
+        if (repeat != _undefined) 'repeat': (repeat as int?),
+        if (private != _undefined) 'private': (private as bool?),
+        if (notes != _undefined) 'notes': (notes as String?),
+        if (startedAt != _undefined)
+          'startedAt': (startedAt as InputFuzzyDateInput?),
+        if (completedAt != _undefined)
+          'completedAt': (completedAt as InputFuzzyDateInput?),
+      }));
+}
+
+class _CopyWithStubImplVariablesMutationSaveMediaListEntry<TRes>
+    implements CopyWithVariablesMutationSaveMediaListEntry<TRes> {
+  _CopyWithStubImplVariablesMutationSaveMediaListEntry(this._res);
+
+  TRes _res;
+
+  call({
+    int? mediaListId,
+    int? progress,
+    int? mediaId,
+    EnumMediaListStatus? status,
+    double? score,
+    int? progressVolumes,
+    int? repeat,
+    bool? private,
+    String? notes,
+    InputFuzzyDateInput? startedAt,
+    InputFuzzyDateInput? completedAt,
+  }) =>
+      _res;
+}
+
+class MutationSaveMediaListEntry {
+  MutationSaveMediaListEntry({
+    this.SaveMediaListEntry,
+    this.$__typename = 'Mutation',
+  });
+
+  factory MutationSaveMediaListEntry.fromJson(Map<String, dynamic> json) {
+    final l$SaveMediaListEntry = json['SaveMediaListEntry'];
+    final l$$__typename = json['__typename'];
+    return MutationSaveMediaListEntry(
+      SaveMediaListEntry: l$SaveMediaListEntry == null
+          ? null
+          : FragmentMediaList.fromJson(
+              (l$SaveMediaListEntry as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final FragmentMediaList? SaveMediaListEntry;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$SaveMediaListEntry = SaveMediaListEntry;
+    _resultData['SaveMediaListEntry'] = l$SaveMediaListEntry?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$SaveMediaListEntry = SaveMediaListEntry;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$SaveMediaListEntry,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is MutationSaveMediaListEntry) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$SaveMediaListEntry = SaveMediaListEntry;
+    final lOther$SaveMediaListEntry = other.SaveMediaListEntry;
+    if (l$SaveMediaListEntry != lOther$SaveMediaListEntry) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionMutationSaveMediaListEntry
+    on MutationSaveMediaListEntry {
+  CopyWithMutationSaveMediaListEntry<MutationSaveMediaListEntry> get copyWith =>
+      CopyWithMutationSaveMediaListEntry(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithMutationSaveMediaListEntry<TRes> {
+  factory CopyWithMutationSaveMediaListEntry(
+    MutationSaveMediaListEntry instance,
+    TRes Function(MutationSaveMediaListEntry) then,
+  ) = _CopyWithImplMutationSaveMediaListEntry;
+
+  factory CopyWithMutationSaveMediaListEntry.stub(TRes res) =
+      _CopyWithStubImplMutationSaveMediaListEntry;
+
+  TRes call({
+    FragmentMediaList? SaveMediaListEntry,
+    String? $__typename,
+  });
+  CopyWithFragmentMediaList<TRes> get SaveMediaListEntry;
+}
+
+class _CopyWithImplMutationSaveMediaListEntry<TRes>
+    implements CopyWithMutationSaveMediaListEntry<TRes> {
+  _CopyWithImplMutationSaveMediaListEntry(
+    this._instance,
+    this._then,
+  );
+
+  final MutationSaveMediaListEntry _instance;
+
+  final TRes Function(MutationSaveMediaListEntry) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? SaveMediaListEntry = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(MutationSaveMediaListEntry(
+        SaveMediaListEntry: SaveMediaListEntry == _undefined
+            ? _instance.SaveMediaListEntry
+            : (SaveMediaListEntry as FragmentMediaList?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithFragmentMediaList<TRes> get SaveMediaListEntry {
+    final local$SaveMediaListEntry = _instance.SaveMediaListEntry;
+    return local$SaveMediaListEntry == null
+        ? CopyWithFragmentMediaList.stub(_then(_instance))
+        : CopyWithFragmentMediaList(
+            local$SaveMediaListEntry, (e) => call(SaveMediaListEntry: e));
+  }
+}
+
+class _CopyWithStubImplMutationSaveMediaListEntry<TRes>
+    implements CopyWithMutationSaveMediaListEntry<TRes> {
+  _CopyWithStubImplMutationSaveMediaListEntry(this._res);
+
+  TRes _res;
+
+  call({
+    FragmentMediaList? SaveMediaListEntry,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithFragmentMediaList<TRes> get SaveMediaListEntry =>
+      CopyWithFragmentMediaList.stub(_res);
+}
+
+const documentNodeMutationSaveMediaListEntry = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'SaveMediaListEntry'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'mediaListId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'progress')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'mediaId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'status')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'MediaListStatus'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'score')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Float'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'progressVolumes')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'repeat')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'private')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Boolean'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'notes')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'startedAt')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'FuzzyDateInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'completedAt')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'FuzzyDateInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'SaveMediaListEntry'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'id'),
+            value: VariableNode(name: NameNode(value: 'mediaListId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'progress'),
+            value: VariableNode(name: NameNode(value: 'progress')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'mediaId'),
+            value: VariableNode(name: NameNode(value: 'mediaId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'status'),
+            value: VariableNode(name: NameNode(value: 'status')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'score'),
+            value: VariableNode(name: NameNode(value: 'score')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'progressVolumes'),
+            value: VariableNode(name: NameNode(value: 'progressVolumes')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'repeat'),
+            value: VariableNode(name: NameNode(value: 'repeat')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'private'),
+            value: VariableNode(name: NameNode(value: 'private')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'notes'),
+            value: VariableNode(name: NameNode(value: 'notes')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'startedAt'),
+            value: VariableNode(name: NameNode(value: 'startedAt')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'completedAt'),
+            value: VariableNode(name: NameNode(value: 'completedAt')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'MediaList'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionMediaList,
+  fragmentDefinitionMediaMin,
+]);

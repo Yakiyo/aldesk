@@ -83,3 +83,33 @@ query PaginatedMediaList(
     }
   }
 }
+
+mutation SaveMediaListEntry(
+  $mediaListId: Int
+  $progress: Int
+  $mediaId: Int
+  $status: MediaListStatus
+  $score: Float
+  $progressVolumes: Int
+  $repeat: Int
+  $private: Boolean
+  $notes: String
+  $startedAt: FuzzyDateInput
+  $completedAt: FuzzyDateInput
+) {
+  SaveMediaListEntry(
+    id: $mediaListId
+    progress: $progress
+    mediaId: $mediaId
+    status: $status
+    score: $score
+    progressVolumes: $progressVolumes
+    repeat: $repeat
+    private: $private
+    notes: $notes
+    startedAt: $startedAt
+    completedAt: $completedAt
+  ) {
+    ...MediaList
+  }
+}

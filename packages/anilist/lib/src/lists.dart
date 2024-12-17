@@ -99,3 +99,34 @@ ReturnType<MediaListCollection> mediaListCollection(
   return res.map(
       (value) => QueryMediaListCollection.fromJson(value).MediaListCollection!);
 }
+
+/// Update the progress of a media list entry by 1
+///
+/// [preventOverflow] can be used to avoid increasing progress more than total episodes/chapters.
+ReturnType<FragmentMediaList> incrementProgress(
+    {required FragmentMediaList entry, bool preventOverflow = false}) async {
+  final progress = (entry.progress ?? 0) + 1;
+  final total = entry.media?.total;
+
+  if (preventOverflow) {
+    // if there is a max count, and progress is not lower than total, return current value
+    if (total != null && progress >= total) {
+      return Ok(entry);
+    }
+  }
+  // if incrementing progress makes it equal to total, then set it to completed
+  final EnumMediaListStatus? status = total != null && progress == total
+      ? EnumMediaListStatus.COMPLETED
+      : entry.status;
+
+  final result = await request(
+      query: printNode(documentNodeMutationSaveMediaListEntry),
+      variables: VariablesMutationSaveMediaListEntry(
+        mediaListId: entry.id,
+        progress: progress,
+        status: status,
+      ).toJson());
+
+  return result.map((value) =>
+      MutationSaveMediaListEntry.fromJson(value).SaveMediaListEntry!);
+}
