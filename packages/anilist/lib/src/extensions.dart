@@ -4,8 +4,9 @@ extension Compare on FragmentMediaList {
   bool operator >(FragmentMediaList other) {
     return isGt(other);
   }
+
   /// if [this] is greater than [other]
-  /// 
+  ///
   /// precedence is determined by the following:
   /// - if only one is airing, the airing one is greater
   /// - if both are airing, the one that'll have a new episode sooner is greater
@@ -26,8 +27,20 @@ extension Compare on FragmentMediaList {
     if (other.media!.status == EnumMediaStatus.RELEASING) {
       return false;
     }
-    // if neither is releasing, the one that was most recently updated should 
+    // if neither is releasing, the one that was most recently updated should
     // be considered greater
     return self.updatedAt! > other.updatedAt!;
   }
+}
+
+extension Helpers on FragmentMediaMin {
+  /// total episodes or chapters for the media
+  int? get total => switch (type) {
+        EnumMediaType.ANIME => episodes,
+        EnumMediaType.MANGA => chapters,
+        _ => null,
+      };
+
+  bool get isAnime => type == EnumMediaType.ANIME;
+  bool get isManga => !isAnime;
 }
