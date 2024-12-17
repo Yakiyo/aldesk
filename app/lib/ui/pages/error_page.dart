@@ -58,7 +58,7 @@ class _ErrorPageState extends State<ErrorPage> with TickerProviderStateMixin {
           Padding(
             padding: const EdgeInsets.all(20),
             child: InkWell(
-                onTap: () => context.go("/"),
+                onTap: () => context.canPop() ? context.pop() : context.go('/'),
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.blue,
@@ -74,7 +74,7 @@ class _ErrorPageState extends State<ErrorPage> with TickerProviderStateMixin {
                         Icons.arrow_back,
                         color: Colors.white,
                       ),
-                      Text("Return to Home",
+                      Text(context.canPop() ? "Go Back" : "Return to Home",
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium
