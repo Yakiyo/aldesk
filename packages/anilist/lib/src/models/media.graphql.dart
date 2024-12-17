@@ -9170,3 +9170,1658 @@ class _CopyWithStubImplQueryMediaMediamediaListEntry<TRes>
   }) =>
       _res;
 }
+
+class VariablesQueryPaginatedMedia {
+  factory VariablesQueryPaginatedMedia({
+    int? page,
+    int? perPage,
+    EnumMediaType? type,
+    EnumMediaFormat? format,
+    EnumMediaStatus? status,
+    bool? isAdult,
+    String? genre,
+    String? tag,
+    bool? onList,
+    String? search,
+    List<EnumMediaSort?>? sort,
+    EnumMediaSeason? season,
+    int? seasonYear,
+    String? countryOfOrigin,
+    bool? isLicensed,
+    List<EnumMediaFormat?>? formatIn,
+    List<EnumMediaStatus?>? statusIn,
+    List<String?>? genreIn,
+    List<String?>? tagIn,
+    List<EnumMediaSource?>? sourceIn,
+  }) =>
+      VariablesQueryPaginatedMedia._({
+        if (page != null) r'page': page,
+        if (perPage != null) r'perPage': perPage,
+        if (type != null) r'type': type,
+        if (format != null) r'format': format,
+        if (status != null) r'status': status,
+        if (isAdult != null) r'isAdult': isAdult,
+        if (genre != null) r'genre': genre,
+        if (tag != null) r'tag': tag,
+        if (onList != null) r'onList': onList,
+        if (search != null) r'search': search,
+        if (sort != null) r'sort': sort,
+        if (season != null) r'season': season,
+        if (seasonYear != null) r'seasonYear': seasonYear,
+        if (countryOfOrigin != null) r'countryOfOrigin': countryOfOrigin,
+        if (isLicensed != null) r'isLicensed': isLicensed,
+        if (formatIn != null) r'formatIn': formatIn,
+        if (statusIn != null) r'statusIn': statusIn,
+        if (genreIn != null) r'genreIn': genreIn,
+        if (tagIn != null) r'tagIn': tagIn,
+        if (sourceIn != null) r'sourceIn': sourceIn,
+      });
+
+  VariablesQueryPaginatedMedia._(this._$data);
+
+  factory VariablesQueryPaginatedMedia.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('page')) {
+      final l$page = data['page'];
+      result$data['page'] = (l$page as int?);
+    }
+    if (data.containsKey('perPage')) {
+      final l$perPage = data['perPage'];
+      result$data['perPage'] = (l$perPage as int?);
+    }
+    if (data.containsKey('type')) {
+      final l$type = data['type'];
+      result$data['type'] =
+          l$type == null ? null : fromJsonEnumMediaType((l$type as String));
+    }
+    if (data.containsKey('format')) {
+      final l$format = data['format'];
+      result$data['format'] = l$format == null
+          ? null
+          : fromJsonEnumMediaFormat((l$format as String));
+    }
+    if (data.containsKey('status')) {
+      final l$status = data['status'];
+      result$data['status'] = l$status == null
+          ? null
+          : fromJsonEnumMediaStatus((l$status as String));
+    }
+    if (data.containsKey('isAdult')) {
+      final l$isAdult = data['isAdult'];
+      result$data['isAdult'] = (l$isAdult as bool?);
+    }
+    if (data.containsKey('genre')) {
+      final l$genre = data['genre'];
+      result$data['genre'] = (l$genre as String?);
+    }
+    if (data.containsKey('tag')) {
+      final l$tag = data['tag'];
+      result$data['tag'] = (l$tag as String?);
+    }
+    if (data.containsKey('onList')) {
+      final l$onList = data['onList'];
+      result$data['onList'] = (l$onList as bool?);
+    }
+    if (data.containsKey('search')) {
+      final l$search = data['search'];
+      result$data['search'] = (l$search as String?);
+    }
+    if (data.containsKey('sort')) {
+      final l$sort = data['sort'];
+      result$data['sort'] = (l$sort as List<dynamic>?)
+          ?.map((e) => e == null ? null : fromJsonEnumMediaSort((e as String)))
+          .toList();
+    }
+    if (data.containsKey('season')) {
+      final l$season = data['season'];
+      result$data['season'] = l$season == null
+          ? null
+          : fromJsonEnumMediaSeason((l$season as String));
+    }
+    if (data.containsKey('seasonYear')) {
+      final l$seasonYear = data['seasonYear'];
+      result$data['seasonYear'] = (l$seasonYear as int?);
+    }
+    if (data.containsKey('countryOfOrigin')) {
+      final l$countryOfOrigin = data['countryOfOrigin'];
+      result$data['countryOfOrigin'] = (l$countryOfOrigin as String?);
+    }
+    if (data.containsKey('isLicensed')) {
+      final l$isLicensed = data['isLicensed'];
+      result$data['isLicensed'] = (l$isLicensed as bool?);
+    }
+    if (data.containsKey('formatIn')) {
+      final l$formatIn = data['formatIn'];
+      result$data['formatIn'] = (l$formatIn as List<dynamic>?)
+          ?.map(
+              (e) => e == null ? null : fromJsonEnumMediaFormat((e as String)))
+          .toList();
+    }
+    if (data.containsKey('statusIn')) {
+      final l$statusIn = data['statusIn'];
+      result$data['statusIn'] = (l$statusIn as List<dynamic>?)
+          ?.map(
+              (e) => e == null ? null : fromJsonEnumMediaStatus((e as String)))
+          .toList();
+    }
+    if (data.containsKey('genreIn')) {
+      final l$genreIn = data['genreIn'];
+      result$data['genreIn'] =
+          (l$genreIn as List<dynamic>?)?.map((e) => (e as String?)).toList();
+    }
+    if (data.containsKey('tagIn')) {
+      final l$tagIn = data['tagIn'];
+      result$data['tagIn'] =
+          (l$tagIn as List<dynamic>?)?.map((e) => (e as String?)).toList();
+    }
+    if (data.containsKey('sourceIn')) {
+      final l$sourceIn = data['sourceIn'];
+      result$data['sourceIn'] = (l$sourceIn as List<dynamic>?)
+          ?.map(
+              (e) => e == null ? null : fromJsonEnumMediaSource((e as String)))
+          .toList();
+    }
+    return VariablesQueryPaginatedMedia._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get page => (_$data['page'] as int?);
+
+  int? get perPage => (_$data['perPage'] as int?);
+
+  EnumMediaType? get type => (_$data['type'] as EnumMediaType?);
+
+  EnumMediaFormat? get format => (_$data['format'] as EnumMediaFormat?);
+
+  EnumMediaStatus? get status => (_$data['status'] as EnumMediaStatus?);
+
+  bool? get isAdult => (_$data['isAdult'] as bool?);
+
+  String? get genre => (_$data['genre'] as String?);
+
+  String? get tag => (_$data['tag'] as String?);
+
+  bool? get onList => (_$data['onList'] as bool?);
+
+  String? get search => (_$data['search'] as String?);
+
+  List<EnumMediaSort?>? get sort => (_$data['sort'] as List<EnumMediaSort?>?);
+
+  EnumMediaSeason? get season => (_$data['season'] as EnumMediaSeason?);
+
+  int? get seasonYear => (_$data['seasonYear'] as int?);
+
+  String? get countryOfOrigin => (_$data['countryOfOrigin'] as String?);
+
+  bool? get isLicensed => (_$data['isLicensed'] as bool?);
+
+  List<EnumMediaFormat?>? get formatIn =>
+      (_$data['formatIn'] as List<EnumMediaFormat?>?);
+
+  List<EnumMediaStatus?>? get statusIn =>
+      (_$data['statusIn'] as List<EnumMediaStatus?>?);
+
+  List<String?>? get genreIn => (_$data['genreIn'] as List<String?>?);
+
+  List<String?>? get tagIn => (_$data['tagIn'] as List<String?>?);
+
+  List<EnumMediaSource?>? get sourceIn =>
+      (_$data['sourceIn'] as List<EnumMediaSource?>?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('page')) {
+      final l$page = page;
+      result$data['page'] = l$page;
+    }
+    if (_$data.containsKey('perPage')) {
+      final l$perPage = perPage;
+      result$data['perPage'] = l$perPage;
+    }
+    if (_$data.containsKey('type')) {
+      final l$type = type;
+      result$data['type'] = l$type == null ? null : toJsonEnumMediaType(l$type);
+    }
+    if (_$data.containsKey('format')) {
+      final l$format = format;
+      result$data['format'] =
+          l$format == null ? null : toJsonEnumMediaFormat(l$format);
+    }
+    if (_$data.containsKey('status')) {
+      final l$status = status;
+      result$data['status'] =
+          l$status == null ? null : toJsonEnumMediaStatus(l$status);
+    }
+    if (_$data.containsKey('isAdult')) {
+      final l$isAdult = isAdult;
+      result$data['isAdult'] = l$isAdult;
+    }
+    if (_$data.containsKey('genre')) {
+      final l$genre = genre;
+      result$data['genre'] = l$genre;
+    }
+    if (_$data.containsKey('tag')) {
+      final l$tag = tag;
+      result$data['tag'] = l$tag;
+    }
+    if (_$data.containsKey('onList')) {
+      final l$onList = onList;
+      result$data['onList'] = l$onList;
+    }
+    if (_$data.containsKey('search')) {
+      final l$search = search;
+      result$data['search'] = l$search;
+    }
+    if (_$data.containsKey('sort')) {
+      final l$sort = sort;
+      result$data['sort'] = l$sort
+          ?.map((e) => e == null ? null : toJsonEnumMediaSort(e))
+          .toList();
+    }
+    if (_$data.containsKey('season')) {
+      final l$season = season;
+      result$data['season'] =
+          l$season == null ? null : toJsonEnumMediaSeason(l$season);
+    }
+    if (_$data.containsKey('seasonYear')) {
+      final l$seasonYear = seasonYear;
+      result$data['seasonYear'] = l$seasonYear;
+    }
+    if (_$data.containsKey('countryOfOrigin')) {
+      final l$countryOfOrigin = countryOfOrigin;
+      result$data['countryOfOrigin'] = l$countryOfOrigin;
+    }
+    if (_$data.containsKey('isLicensed')) {
+      final l$isLicensed = isLicensed;
+      result$data['isLicensed'] = l$isLicensed;
+    }
+    if (_$data.containsKey('formatIn')) {
+      final l$formatIn = formatIn;
+      result$data['formatIn'] = l$formatIn
+          ?.map((e) => e == null ? null : toJsonEnumMediaFormat(e))
+          .toList();
+    }
+    if (_$data.containsKey('statusIn')) {
+      final l$statusIn = statusIn;
+      result$data['statusIn'] = l$statusIn
+          ?.map((e) => e == null ? null : toJsonEnumMediaStatus(e))
+          .toList();
+    }
+    if (_$data.containsKey('genreIn')) {
+      final l$genreIn = genreIn;
+      result$data['genreIn'] = l$genreIn?.map((e) => e).toList();
+    }
+    if (_$data.containsKey('tagIn')) {
+      final l$tagIn = tagIn;
+      result$data['tagIn'] = l$tagIn?.map((e) => e).toList();
+    }
+    if (_$data.containsKey('sourceIn')) {
+      final l$sourceIn = sourceIn;
+      result$data['sourceIn'] = l$sourceIn
+          ?.map((e) => e == null ? null : toJsonEnumMediaSource(e))
+          .toList();
+    }
+    return result$data;
+  }
+
+  CopyWithVariablesQueryPaginatedMedia<VariablesQueryPaginatedMedia>
+      get copyWith => CopyWithVariablesQueryPaginatedMedia(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is VariablesQueryPaginatedMedia) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$page = page;
+    final lOther$page = other.page;
+    if (_$data.containsKey('page') != other._$data.containsKey('page')) {
+      return false;
+    }
+    if (l$page != lOther$page) {
+      return false;
+    }
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (_$data.containsKey('perPage') != other._$data.containsKey('perPage')) {
+      return false;
+    }
+    if (l$perPage != lOther$perPage) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (_$data.containsKey('type') != other._$data.containsKey('type')) {
+      return false;
+    }
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$format = format;
+    final lOther$format = other.format;
+    if (_$data.containsKey('format') != other._$data.containsKey('format')) {
+      return false;
+    }
+    if (l$format != lOther$format) {
+      return false;
+    }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (_$data.containsKey('status') != other._$data.containsKey('status')) {
+      return false;
+    }
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$isAdult = isAdult;
+    final lOther$isAdult = other.isAdult;
+    if (_$data.containsKey('isAdult') != other._$data.containsKey('isAdult')) {
+      return false;
+    }
+    if (l$isAdult != lOther$isAdult) {
+      return false;
+    }
+    final l$genre = genre;
+    final lOther$genre = other.genre;
+    if (_$data.containsKey('genre') != other._$data.containsKey('genre')) {
+      return false;
+    }
+    if (l$genre != lOther$genre) {
+      return false;
+    }
+    final l$tag = tag;
+    final lOther$tag = other.tag;
+    if (_$data.containsKey('tag') != other._$data.containsKey('tag')) {
+      return false;
+    }
+    if (l$tag != lOther$tag) {
+      return false;
+    }
+    final l$onList = onList;
+    final lOther$onList = other.onList;
+    if (_$data.containsKey('onList') != other._$data.containsKey('onList')) {
+      return false;
+    }
+    if (l$onList != lOther$onList) {
+      return false;
+    }
+    final l$search = search;
+    final lOther$search = other.search;
+    if (_$data.containsKey('search') != other._$data.containsKey('search')) {
+      return false;
+    }
+    if (l$search != lOther$search) {
+      return false;
+    }
+    final l$sort = sort;
+    final lOther$sort = other.sort;
+    if (_$data.containsKey('sort') != other._$data.containsKey('sort')) {
+      return false;
+    }
+    if (l$sort != null && lOther$sort != null) {
+      if (l$sort.length != lOther$sort.length) {
+        return false;
+      }
+      for (int i = 0; i < l$sort.length; i++) {
+        final l$sort$entry = l$sort[i];
+        final lOther$sort$entry = lOther$sort[i];
+        if (l$sort$entry != lOther$sort$entry) {
+          return false;
+        }
+      }
+    } else if (l$sort != lOther$sort) {
+      return false;
+    }
+    final l$season = season;
+    final lOther$season = other.season;
+    if (_$data.containsKey('season') != other._$data.containsKey('season')) {
+      return false;
+    }
+    if (l$season != lOther$season) {
+      return false;
+    }
+    final l$seasonYear = seasonYear;
+    final lOther$seasonYear = other.seasonYear;
+    if (_$data.containsKey('seasonYear') !=
+        other._$data.containsKey('seasonYear')) {
+      return false;
+    }
+    if (l$seasonYear != lOther$seasonYear) {
+      return false;
+    }
+    final l$countryOfOrigin = countryOfOrigin;
+    final lOther$countryOfOrigin = other.countryOfOrigin;
+    if (_$data.containsKey('countryOfOrigin') !=
+        other._$data.containsKey('countryOfOrigin')) {
+      return false;
+    }
+    if (l$countryOfOrigin != lOther$countryOfOrigin) {
+      return false;
+    }
+    final l$isLicensed = isLicensed;
+    final lOther$isLicensed = other.isLicensed;
+    if (_$data.containsKey('isLicensed') !=
+        other._$data.containsKey('isLicensed')) {
+      return false;
+    }
+    if (l$isLicensed != lOther$isLicensed) {
+      return false;
+    }
+    final l$formatIn = formatIn;
+    final lOther$formatIn = other.formatIn;
+    if (_$data.containsKey('formatIn') !=
+        other._$data.containsKey('formatIn')) {
+      return false;
+    }
+    if (l$formatIn != null && lOther$formatIn != null) {
+      if (l$formatIn.length != lOther$formatIn.length) {
+        return false;
+      }
+      for (int i = 0; i < l$formatIn.length; i++) {
+        final l$formatIn$entry = l$formatIn[i];
+        final lOther$formatIn$entry = lOther$formatIn[i];
+        if (l$formatIn$entry != lOther$formatIn$entry) {
+          return false;
+        }
+      }
+    } else if (l$formatIn != lOther$formatIn) {
+      return false;
+    }
+    final l$statusIn = statusIn;
+    final lOther$statusIn = other.statusIn;
+    if (_$data.containsKey('statusIn') !=
+        other._$data.containsKey('statusIn')) {
+      return false;
+    }
+    if (l$statusIn != null && lOther$statusIn != null) {
+      if (l$statusIn.length != lOther$statusIn.length) {
+        return false;
+      }
+      for (int i = 0; i < l$statusIn.length; i++) {
+        final l$statusIn$entry = l$statusIn[i];
+        final lOther$statusIn$entry = lOther$statusIn[i];
+        if (l$statusIn$entry != lOther$statusIn$entry) {
+          return false;
+        }
+      }
+    } else if (l$statusIn != lOther$statusIn) {
+      return false;
+    }
+    final l$genreIn = genreIn;
+    final lOther$genreIn = other.genreIn;
+    if (_$data.containsKey('genreIn') != other._$data.containsKey('genreIn')) {
+      return false;
+    }
+    if (l$genreIn != null && lOther$genreIn != null) {
+      if (l$genreIn.length != lOther$genreIn.length) {
+        return false;
+      }
+      for (int i = 0; i < l$genreIn.length; i++) {
+        final l$genreIn$entry = l$genreIn[i];
+        final lOther$genreIn$entry = lOther$genreIn[i];
+        if (l$genreIn$entry != lOther$genreIn$entry) {
+          return false;
+        }
+      }
+    } else if (l$genreIn != lOther$genreIn) {
+      return false;
+    }
+    final l$tagIn = tagIn;
+    final lOther$tagIn = other.tagIn;
+    if (_$data.containsKey('tagIn') != other._$data.containsKey('tagIn')) {
+      return false;
+    }
+    if (l$tagIn != null && lOther$tagIn != null) {
+      if (l$tagIn.length != lOther$tagIn.length) {
+        return false;
+      }
+      for (int i = 0; i < l$tagIn.length; i++) {
+        final l$tagIn$entry = l$tagIn[i];
+        final lOther$tagIn$entry = lOther$tagIn[i];
+        if (l$tagIn$entry != lOther$tagIn$entry) {
+          return false;
+        }
+      }
+    } else if (l$tagIn != lOther$tagIn) {
+      return false;
+    }
+    final l$sourceIn = sourceIn;
+    final lOther$sourceIn = other.sourceIn;
+    if (_$data.containsKey('sourceIn') !=
+        other._$data.containsKey('sourceIn')) {
+      return false;
+    }
+    if (l$sourceIn != null && lOther$sourceIn != null) {
+      if (l$sourceIn.length != lOther$sourceIn.length) {
+        return false;
+      }
+      for (int i = 0; i < l$sourceIn.length; i++) {
+        final l$sourceIn$entry = l$sourceIn[i];
+        final lOther$sourceIn$entry = lOther$sourceIn[i];
+        if (l$sourceIn$entry != lOther$sourceIn$entry) {
+          return false;
+        }
+      }
+    } else if (l$sourceIn != lOther$sourceIn) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$page = page;
+    final l$perPage = perPage;
+    final l$type = type;
+    final l$format = format;
+    final l$status = status;
+    final l$isAdult = isAdult;
+    final l$genre = genre;
+    final l$tag = tag;
+    final l$onList = onList;
+    final l$search = search;
+    final l$sort = sort;
+    final l$season = season;
+    final l$seasonYear = seasonYear;
+    final l$countryOfOrigin = countryOfOrigin;
+    final l$isLicensed = isLicensed;
+    final l$formatIn = formatIn;
+    final l$statusIn = statusIn;
+    final l$genreIn = genreIn;
+    final l$tagIn = tagIn;
+    final l$sourceIn = sourceIn;
+    return Object.hashAll([
+      _$data.containsKey('page') ? l$page : const {},
+      _$data.containsKey('perPage') ? l$perPage : const {},
+      _$data.containsKey('type') ? l$type : const {},
+      _$data.containsKey('format') ? l$format : const {},
+      _$data.containsKey('status') ? l$status : const {},
+      _$data.containsKey('isAdult') ? l$isAdult : const {},
+      _$data.containsKey('genre') ? l$genre : const {},
+      _$data.containsKey('tag') ? l$tag : const {},
+      _$data.containsKey('onList') ? l$onList : const {},
+      _$data.containsKey('search') ? l$search : const {},
+      _$data.containsKey('sort')
+          ? l$sort == null
+              ? null
+              : Object.hashAll(l$sort.map((v) => v))
+          : const {},
+      _$data.containsKey('season') ? l$season : const {},
+      _$data.containsKey('seasonYear') ? l$seasonYear : const {},
+      _$data.containsKey('countryOfOrigin') ? l$countryOfOrigin : const {},
+      _$data.containsKey('isLicensed') ? l$isLicensed : const {},
+      _$data.containsKey('formatIn')
+          ? l$formatIn == null
+              ? null
+              : Object.hashAll(l$formatIn.map((v) => v))
+          : const {},
+      _$data.containsKey('statusIn')
+          ? l$statusIn == null
+              ? null
+              : Object.hashAll(l$statusIn.map((v) => v))
+          : const {},
+      _$data.containsKey('genreIn')
+          ? l$genreIn == null
+              ? null
+              : Object.hashAll(l$genreIn.map((v) => v))
+          : const {},
+      _$data.containsKey('tagIn')
+          ? l$tagIn == null
+              ? null
+              : Object.hashAll(l$tagIn.map((v) => v))
+          : const {},
+      _$data.containsKey('sourceIn')
+          ? l$sourceIn == null
+              ? null
+              : Object.hashAll(l$sourceIn.map((v) => v))
+          : const {},
+    ]);
+  }
+}
+
+abstract class CopyWithVariablesQueryPaginatedMedia<TRes> {
+  factory CopyWithVariablesQueryPaginatedMedia(
+    VariablesQueryPaginatedMedia instance,
+    TRes Function(VariablesQueryPaginatedMedia) then,
+  ) = _CopyWithImplVariablesQueryPaginatedMedia;
+
+  factory CopyWithVariablesQueryPaginatedMedia.stub(TRes res) =
+      _CopyWithStubImplVariablesQueryPaginatedMedia;
+
+  TRes call({
+    int? page,
+    int? perPage,
+    EnumMediaType? type,
+    EnumMediaFormat? format,
+    EnumMediaStatus? status,
+    bool? isAdult,
+    String? genre,
+    String? tag,
+    bool? onList,
+    String? search,
+    List<EnumMediaSort?>? sort,
+    EnumMediaSeason? season,
+    int? seasonYear,
+    String? countryOfOrigin,
+    bool? isLicensed,
+    List<EnumMediaFormat?>? formatIn,
+    List<EnumMediaStatus?>? statusIn,
+    List<String?>? genreIn,
+    List<String?>? tagIn,
+    List<EnumMediaSource?>? sourceIn,
+  });
+}
+
+class _CopyWithImplVariablesQueryPaginatedMedia<TRes>
+    implements CopyWithVariablesQueryPaginatedMedia<TRes> {
+  _CopyWithImplVariablesQueryPaginatedMedia(
+    this._instance,
+    this._then,
+  );
+
+  final VariablesQueryPaginatedMedia _instance;
+
+  final TRes Function(VariablesQueryPaginatedMedia) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? page = _undefined,
+    Object? perPage = _undefined,
+    Object? type = _undefined,
+    Object? format = _undefined,
+    Object? status = _undefined,
+    Object? isAdult = _undefined,
+    Object? genre = _undefined,
+    Object? tag = _undefined,
+    Object? onList = _undefined,
+    Object? search = _undefined,
+    Object? sort = _undefined,
+    Object? season = _undefined,
+    Object? seasonYear = _undefined,
+    Object? countryOfOrigin = _undefined,
+    Object? isLicensed = _undefined,
+    Object? formatIn = _undefined,
+    Object? statusIn = _undefined,
+    Object? genreIn = _undefined,
+    Object? tagIn = _undefined,
+    Object? sourceIn = _undefined,
+  }) =>
+      _then(VariablesQueryPaginatedMedia._({
+        ..._instance._$data,
+        if (page != _undefined) 'page': (page as int?),
+        if (perPage != _undefined) 'perPage': (perPage as int?),
+        if (type != _undefined) 'type': (type as EnumMediaType?),
+        if (format != _undefined) 'format': (format as EnumMediaFormat?),
+        if (status != _undefined) 'status': (status as EnumMediaStatus?),
+        if (isAdult != _undefined) 'isAdult': (isAdult as bool?),
+        if (genre != _undefined) 'genre': (genre as String?),
+        if (tag != _undefined) 'tag': (tag as String?),
+        if (onList != _undefined) 'onList': (onList as bool?),
+        if (search != _undefined) 'search': (search as String?),
+        if (sort != _undefined) 'sort': (sort as List<EnumMediaSort?>?),
+        if (season != _undefined) 'season': (season as EnumMediaSeason?),
+        if (seasonYear != _undefined) 'seasonYear': (seasonYear as int?),
+        if (countryOfOrigin != _undefined)
+          'countryOfOrigin': (countryOfOrigin as String?),
+        if (isLicensed != _undefined) 'isLicensed': (isLicensed as bool?),
+        if (formatIn != _undefined)
+          'formatIn': (formatIn as List<EnumMediaFormat?>?),
+        if (statusIn != _undefined)
+          'statusIn': (statusIn as List<EnumMediaStatus?>?),
+        if (genreIn != _undefined) 'genreIn': (genreIn as List<String?>?),
+        if (tagIn != _undefined) 'tagIn': (tagIn as List<String?>?),
+        if (sourceIn != _undefined)
+          'sourceIn': (sourceIn as List<EnumMediaSource?>?),
+      }));
+}
+
+class _CopyWithStubImplVariablesQueryPaginatedMedia<TRes>
+    implements CopyWithVariablesQueryPaginatedMedia<TRes> {
+  _CopyWithStubImplVariablesQueryPaginatedMedia(this._res);
+
+  TRes _res;
+
+  call({
+    int? page,
+    int? perPage,
+    EnumMediaType? type,
+    EnumMediaFormat? format,
+    EnumMediaStatus? status,
+    bool? isAdult,
+    String? genre,
+    String? tag,
+    bool? onList,
+    String? search,
+    List<EnumMediaSort?>? sort,
+    EnumMediaSeason? season,
+    int? seasonYear,
+    String? countryOfOrigin,
+    bool? isLicensed,
+    List<EnumMediaFormat?>? formatIn,
+    List<EnumMediaStatus?>? statusIn,
+    List<String?>? genreIn,
+    List<String?>? tagIn,
+    List<EnumMediaSource?>? sourceIn,
+  }) =>
+      _res;
+}
+
+class QueryPaginatedMedia {
+  QueryPaginatedMedia({
+    this.Page,
+    this.$__typename = 'Query',
+  });
+
+  factory QueryPaginatedMedia.fromJson(Map<String, dynamic> json) {
+    final l$Page = json['Page'];
+    final l$$__typename = json['__typename'];
+    return QueryPaginatedMedia(
+      Page: l$Page == null
+          ? null
+          : QueryPaginatedMediaPage.fromJson((l$Page as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final QueryPaginatedMediaPage? Page;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$Page = Page;
+    _resultData['Page'] = l$Page?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$Page = Page;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$Page,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryPaginatedMedia) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$Page = Page;
+    final lOther$Page = other.Page;
+    if (l$Page != lOther$Page) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryPaginatedMedia on QueryPaginatedMedia {
+  CopyWithQueryPaginatedMedia<QueryPaginatedMedia> get copyWith =>
+      CopyWithQueryPaginatedMedia(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithQueryPaginatedMedia<TRes> {
+  factory CopyWithQueryPaginatedMedia(
+    QueryPaginatedMedia instance,
+    TRes Function(QueryPaginatedMedia) then,
+  ) = _CopyWithImplQueryPaginatedMedia;
+
+  factory CopyWithQueryPaginatedMedia.stub(TRes res) =
+      _CopyWithStubImplQueryPaginatedMedia;
+
+  TRes call({
+    QueryPaginatedMediaPage? Page,
+    String? $__typename,
+  });
+  CopyWithQueryPaginatedMediaPage<TRes> get Page;
+}
+
+class _CopyWithImplQueryPaginatedMedia<TRes>
+    implements CopyWithQueryPaginatedMedia<TRes> {
+  _CopyWithImplQueryPaginatedMedia(
+    this._instance,
+    this._then,
+  );
+
+  final QueryPaginatedMedia _instance;
+
+  final TRes Function(QueryPaginatedMedia) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? Page = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryPaginatedMedia(
+        Page: Page == _undefined
+            ? _instance.Page
+            : (Page as QueryPaginatedMediaPage?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryPaginatedMediaPage<TRes> get Page {
+    final local$Page = _instance.Page;
+    return local$Page == null
+        ? CopyWithQueryPaginatedMediaPage.stub(_then(_instance))
+        : CopyWithQueryPaginatedMediaPage(local$Page, (e) => call(Page: e));
+  }
+}
+
+class _CopyWithStubImplQueryPaginatedMedia<TRes>
+    implements CopyWithQueryPaginatedMedia<TRes> {
+  _CopyWithStubImplQueryPaginatedMedia(this._res);
+
+  TRes _res;
+
+  call({
+    QueryPaginatedMediaPage? Page,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryPaginatedMediaPage<TRes> get Page =>
+      CopyWithQueryPaginatedMediaPage.stub(_res);
+}
+
+const documentNodeQueryPaginatedMedia = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'PaginatedMedia'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: IntValueNode(value: '1')),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'perPage')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'type')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'MediaType'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'format')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'MediaFormat'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'status')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'MediaStatus'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'isAdult')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Boolean'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'genre')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'tag')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'onList')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Boolean'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'search')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'sort')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaSort'),
+            isNonNull: false,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'season')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'MediaSeason'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'seasonYear')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'countryOfOrigin')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'CountryCode'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'isLicensed')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Boolean'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'formatIn')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaFormat'),
+            isNonNull: false,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'statusIn')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaStatus'),
+            isNonNull: false,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'genreIn')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'tagIn')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: false,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'sourceIn')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'MediaSource'),
+            isNonNull: false,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'Page'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'perPage'),
+            value: VariableNode(name: NameNode(value: 'perPage')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'pageInfo'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'total'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'perPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'currentPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'lastPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'hasNextPage'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'media'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'type'),
+                value: VariableNode(name: NameNode(value: 'type')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'format'),
+                value: VariableNode(name: NameNode(value: 'format')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'status'),
+                value: VariableNode(name: NameNode(value: 'status')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'isAdult'),
+                value: VariableNode(name: NameNode(value: 'isAdult')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'genre'),
+                value: VariableNode(name: NameNode(value: 'genre')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'tag'),
+                value: VariableNode(name: NameNode(value: 'tag')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'onList'),
+                value: VariableNode(name: NameNode(value: 'onList')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'search'),
+                value: VariableNode(name: NameNode(value: 'search')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'sort'),
+                value: VariableNode(name: NameNode(value: 'sort')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'season'),
+                value: VariableNode(name: NameNode(value: 'season')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'seasonYear'),
+                value: VariableNode(name: NameNode(value: 'seasonYear')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'countryOfOrigin'),
+                value: VariableNode(name: NameNode(value: 'countryOfOrigin')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'isLicensed'),
+                value: VariableNode(name: NameNode(value: 'isLicensed')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'format_in'),
+                value: VariableNode(name: NameNode(value: 'formatIn')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'status_in'),
+                value: VariableNode(name: NameNode(value: 'statusIn')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'genre_in'),
+                value: VariableNode(name: NameNode(value: 'genreIn')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'tag_in'),
+                value: VariableNode(name: NameNode(value: 'tagIn')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'source_in'),
+                value: VariableNode(name: NameNode(value: 'sourceIn')),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FragmentSpreadNode(
+                name: NameNode(value: 'MediaMin'),
+                directives: [],
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionMediaMin,
+]);
+
+class QueryPaginatedMediaPage {
+  QueryPaginatedMediaPage({
+    this.pageInfo,
+    this.media,
+    this.$__typename = 'Page',
+  });
+
+  factory QueryPaginatedMediaPage.fromJson(Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
+    final l$media = json['media'];
+    final l$$__typename = json['__typename'];
+    return QueryPaginatedMediaPage(
+      pageInfo: l$pageInfo == null
+          ? null
+          : QueryPaginatedMediaPagepageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
+      media: (l$media as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : FragmentMediaMin.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final QueryPaginatedMediaPagepageInfo? pageInfo;
+
+  final List<FragmentMediaMin?>? media;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
+    final l$media = media;
+    _resultData['media'] = l$media?.map((e) => e?.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$pageInfo = pageInfo;
+    final l$media = media;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$pageInfo,
+      l$media == null ? null : Object.hashAll(l$media.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryPaginatedMediaPage) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
+      return false;
+    }
+    final l$media = media;
+    final lOther$media = other.media;
+    if (l$media != null && lOther$media != null) {
+      if (l$media.length != lOther$media.length) {
+        return false;
+      }
+      for (int i = 0; i < l$media.length; i++) {
+        final l$media$entry = l$media[i];
+        final lOther$media$entry = lOther$media[i];
+        if (l$media$entry != lOther$media$entry) {
+          return false;
+        }
+      }
+    } else if (l$media != lOther$media) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryPaginatedMediaPage on QueryPaginatedMediaPage {
+  CopyWithQueryPaginatedMediaPage<QueryPaginatedMediaPage> get copyWith =>
+      CopyWithQueryPaginatedMediaPage(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithQueryPaginatedMediaPage<TRes> {
+  factory CopyWithQueryPaginatedMediaPage(
+    QueryPaginatedMediaPage instance,
+    TRes Function(QueryPaginatedMediaPage) then,
+  ) = _CopyWithImplQueryPaginatedMediaPage;
+
+  factory CopyWithQueryPaginatedMediaPage.stub(TRes res) =
+      _CopyWithStubImplQueryPaginatedMediaPage;
+
+  TRes call({
+    QueryPaginatedMediaPagepageInfo? pageInfo,
+    List<FragmentMediaMin?>? media,
+    String? $__typename,
+  });
+  CopyWithQueryPaginatedMediaPagepageInfo<TRes> get pageInfo;
+  TRes media(
+      Iterable<FragmentMediaMin?>? Function(
+              Iterable<CopyWithFragmentMediaMin<FragmentMediaMin>?>?)
+          _fn);
+}
+
+class _CopyWithImplQueryPaginatedMediaPage<TRes>
+    implements CopyWithQueryPaginatedMediaPage<TRes> {
+  _CopyWithImplQueryPaginatedMediaPage(
+    this._instance,
+    this._then,
+  );
+
+  final QueryPaginatedMediaPage _instance;
+
+  final TRes Function(QueryPaginatedMediaPage) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? pageInfo = _undefined,
+    Object? media = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryPaginatedMediaPage(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo as QueryPaginatedMediaPagepageInfo?),
+        media: media == _undefined
+            ? _instance.media
+            : (media as List<FragmentMediaMin?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryPaginatedMediaPagepageInfo<TRes> get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWithQueryPaginatedMediaPagepageInfo.stub(_then(_instance))
+        : CopyWithQueryPaginatedMediaPagepageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+
+  TRes media(
+          Iterable<FragmentMediaMin?>? Function(
+                  Iterable<CopyWithFragmentMediaMin<FragmentMediaMin>?>?)
+              _fn) =>
+      call(
+          media: _fn(_instance.media?.map((e) => e == null
+              ? null
+              : CopyWithFragmentMediaMin(
+                  e,
+                  (i) => i,
+                )))?.toList());
+}
+
+class _CopyWithStubImplQueryPaginatedMediaPage<TRes>
+    implements CopyWithQueryPaginatedMediaPage<TRes> {
+  _CopyWithStubImplQueryPaginatedMediaPage(this._res);
+
+  TRes _res;
+
+  call({
+    QueryPaginatedMediaPagepageInfo? pageInfo,
+    List<FragmentMediaMin?>? media,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryPaginatedMediaPagepageInfo<TRes> get pageInfo =>
+      CopyWithQueryPaginatedMediaPagepageInfo.stub(_res);
+
+  media(_fn) => _res;
+}
+
+class QueryPaginatedMediaPagepageInfo {
+  QueryPaginatedMediaPagepageInfo({
+    this.total,
+    this.perPage,
+    this.currentPage,
+    this.lastPage,
+    this.hasNextPage,
+    this.$__typename = 'PageInfo',
+  });
+
+  factory QueryPaginatedMediaPagepageInfo.fromJson(Map<String, dynamic> json) {
+    final l$total = json['total'];
+    final l$perPage = json['perPage'];
+    final l$currentPage = json['currentPage'];
+    final l$lastPage = json['lastPage'];
+    final l$hasNextPage = json['hasNextPage'];
+    final l$$__typename = json['__typename'];
+    return QueryPaginatedMediaPagepageInfo(
+      total: (l$total as int?),
+      perPage: (l$perPage as int?),
+      currentPage: (l$currentPage as int?),
+      lastPage: (l$lastPage as int?),
+      hasNextPage: (l$hasNextPage as bool?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? total;
+
+  final int? perPage;
+
+  final int? currentPage;
+
+  final int? lastPage;
+
+  final bool? hasNextPage;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$total = total;
+    _resultData['total'] = l$total;
+    final l$perPage = perPage;
+    _resultData['perPage'] = l$perPage;
+    final l$currentPage = currentPage;
+    _resultData['currentPage'] = l$currentPage;
+    final l$lastPage = lastPage;
+    _resultData['lastPage'] = l$lastPage;
+    final l$hasNextPage = hasNextPage;
+    _resultData['hasNextPage'] = l$hasNextPage;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$total = total;
+    final l$perPage = perPage;
+    final l$currentPage = currentPage;
+    final l$lastPage = lastPage;
+    final l$hasNextPage = hasNextPage;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$total,
+      l$perPage,
+      l$currentPage,
+      l$lastPage,
+      l$hasNextPage,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryPaginatedMediaPagepageInfo) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
+      return false;
+    }
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (l$perPage != lOther$perPage) {
+      return false;
+    }
+    final l$currentPage = currentPage;
+    final lOther$currentPage = other.currentPage;
+    if (l$currentPage != lOther$currentPage) {
+      return false;
+    }
+    final l$lastPage = lastPage;
+    final lOther$lastPage = other.lastPage;
+    if (l$lastPage != lOther$lastPage) {
+      return false;
+    }
+    final l$hasNextPage = hasNextPage;
+    final lOther$hasNextPage = other.hasNextPage;
+    if (l$hasNextPage != lOther$hasNextPage) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryPaginatedMediaPagepageInfo
+    on QueryPaginatedMediaPagepageInfo {
+  CopyWithQueryPaginatedMediaPagepageInfo<QueryPaginatedMediaPagepageInfo>
+      get copyWith => CopyWithQueryPaginatedMediaPagepageInfo(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryPaginatedMediaPagepageInfo<TRes> {
+  factory CopyWithQueryPaginatedMediaPagepageInfo(
+    QueryPaginatedMediaPagepageInfo instance,
+    TRes Function(QueryPaginatedMediaPagepageInfo) then,
+  ) = _CopyWithImplQueryPaginatedMediaPagepageInfo;
+
+  factory CopyWithQueryPaginatedMediaPagepageInfo.stub(TRes res) =
+      _CopyWithStubImplQueryPaginatedMediaPagepageInfo;
+
+  TRes call({
+    int? total,
+    int? perPage,
+    int? currentPage,
+    int? lastPage,
+    bool? hasNextPage,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryPaginatedMediaPagepageInfo<TRes>
+    implements CopyWithQueryPaginatedMediaPagepageInfo<TRes> {
+  _CopyWithImplQueryPaginatedMediaPagepageInfo(
+    this._instance,
+    this._then,
+  );
+
+  final QueryPaginatedMediaPagepageInfo _instance;
+
+  final TRes Function(QueryPaginatedMediaPagepageInfo) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? total = _undefined,
+    Object? perPage = _undefined,
+    Object? currentPage = _undefined,
+    Object? lastPage = _undefined,
+    Object? hasNextPage = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryPaginatedMediaPagepageInfo(
+        total: total == _undefined ? _instance.total : (total as int?),
+        perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
+        currentPage: currentPage == _undefined
+            ? _instance.currentPage
+            : (currentPage as int?),
+        lastPage:
+            lastPage == _undefined ? _instance.lastPage : (lastPage as int?),
+        hasNextPage: hasNextPage == _undefined
+            ? _instance.hasNextPage
+            : (hasNextPage as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryPaginatedMediaPagepageInfo<TRes>
+    implements CopyWithQueryPaginatedMediaPagepageInfo<TRes> {
+  _CopyWithStubImplQueryPaginatedMediaPagepageInfo(this._res);
+
+  TRes _res;
+
+  call({
+    int? total,
+    int? perPage,
+    int? currentPage,
+    int? lastPage,
+    bool? hasNextPage,
+    String? $__typename,
+  }) =>
+      _res;
+}

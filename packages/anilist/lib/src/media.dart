@@ -54,3 +54,92 @@ ReturnType<QueryMediaMedia> media({
   return request(query: printNode(documentNodeQueryMedia), variables: variables)
       .then((future) => future.map((data) => QueryMedia.fromJson(data).Media!));
 }
+
+/// Paginated media entries. [page] and [perPage] are optional.
+ReturnType<QueryPaginatedMediaPage> paginatedMedia({
+  int page = 1,
+  int perPage = 10,
+  EnumMediaType? type,
+  EnumMediaFormat? format,
+  EnumMediaStatus? status,
+  bool? isAdult,
+  List<String>? genres,
+  List<String>? tags,
+  bool? onList,
+  List<EnumMediaSource>? sources,
+  String? search,
+  EnumMediaSeason? season,
+  int? seasonYear,
+  List<EnumMediaSort>? sort,
+  String? countryOfOrigin,
+  bool? isLicensed,
+  List<EnumMediaFormat>? formatIn,
+  List<EnumMediaStatus>? statusIn,
+  List<EnumMediaSource>? sourceIn,
+}) async {
+  final variables = VariablesQueryPaginatedMedia(
+          page: page,
+          perPage: perPage,
+          type: type,
+          format: format,
+          status: status,
+          isAdult: isAdult,
+          genreIn: genres,
+          tagIn: tags,
+          onList: onList,
+          sourceIn: sources,
+          search: search,
+          season: season,
+          seasonYear: seasonYear,
+          sort: sort,
+          countryOfOrigin: countryOfOrigin,
+          isLicensed: isLicensed,
+          formatIn: formatIn,
+          statusIn: statusIn)
+      .toJson();
+
+  return request(
+          query: printNode(documentNodeQueryPaginatedMedia),
+          variables: variables)
+      .then((future) =>
+          future.map((data) => QueryPaginatedMedia.fromJson(data).Page!));
+}
+
+/// Get trending media entries.
+/// 
+/// [type] is optional and can be used to filter by media type, otherwise it 
+/// returns entries of both anime and manga
+ReturnType<QueryPaginatedMediaPage> trendingMedia(
+    {int page = 1, int perPage = 10, EnumMediaType? type}) {
+  return paginatedMedia(
+      page: page,
+      perPage: perPage,
+      type: type,
+      sort: [EnumMediaSort.TRENDING_DESC]);
+}
+
+/// Get currently popular media entries.
+/// 
+/// [type] is optional and can be used to filter by media type, otherwise it 
+/// returns entries of both anime and manga
+ReturnType<QueryPaginatedMediaPage> popularMedia(
+    {int page = 1, int perPage = 10, EnumMediaType? type}) {
+  return paginatedMedia(
+      page: page,
+      perPage: perPage,
+      type: type,
+      sort: [EnumMediaSort.POPULARITY_DESC]);
+}
+
+/// Get newly added media entries.
+/// 
+/// [type] is optional and can be used to filter by media type, otherwise it 
+/// returns entries of both anime and manga
+ReturnType<QueryPaginatedMediaPage> newMedia(
+    {int page = 1, int perPage = 10, EnumMediaType? type}) {
+  return paginatedMedia(
+      page: page,
+      perPage: perPage,
+      type: type,
+      sort: [EnumMediaSort.ID_DESC]);
+}

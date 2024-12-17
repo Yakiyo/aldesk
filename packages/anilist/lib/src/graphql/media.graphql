@@ -207,3 +207,60 @@ query Media(
     }
   }
 }
+
+# Get a paginated list of media. Useful for things like trending and popular media series
+# or newly added entries
+query PaginatedMedia(
+  $page: Int = 1
+  $perPage: Int
+  $type: MediaType
+  $format: MediaFormat
+  $status: MediaStatus
+  $isAdult: Boolean
+  $genre: String
+  $tag: String
+  $onList: Boolean
+  $search: String
+  $sort: [MediaSort]
+  $season: MediaSeason
+  $seasonYear: Int
+  $countryOfOrigin: CountryCode
+  $isLicensed: Boolean
+  $formatIn: [MediaFormat]
+  $statusIn: [MediaStatus]
+  $genreIn: [String]
+  $tagIn: [String]
+  $sourceIn: [MediaSource]
+) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      perPage
+      currentPage
+      lastPage
+      hasNextPage
+    }
+    media(
+      type: $type
+      format: $format
+      status: $status
+      isAdult: $isAdult
+      genre: $genre
+      tag: $tag
+      onList: $onList
+      search: $search
+      sort: $sort
+      season: $season
+      seasonYear: $seasonYear
+      countryOfOrigin: $countryOfOrigin
+      isLicensed: $isLicensed
+      format_in: $formatIn
+      status_in: $statusIn
+      genre_in: $genreIn
+      tag_in: $tagIn
+      source_in: $sourceIn
+    ) {
+      ...MediaMin
+    }
+  }
+}
