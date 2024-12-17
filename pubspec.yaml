@@ -4,3 +4,5 @@ environment:
   sdk: ^3.5.4
 dev_dependencies:
   melos: ^6.2.0
+dependencies:
+  toastification: ^2.3.0
