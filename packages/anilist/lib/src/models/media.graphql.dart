@@ -2134,6 +2134,8 @@ class QueryMediaMedia implements FragmentMediaMin {
     this.type,
     this.format,
     this.status,
+    this.episodes,
+    this.chapters,
     this.title,
     this.coverImage,
     this.$__typename = 'Media',
@@ -2141,9 +2143,7 @@ class QueryMediaMedia implements FragmentMediaMin {
     this.idMal,
     this.season,
     this.seasonYear,
-    this.episodes,
     this.duration,
-    this.chapters,
     this.volumes,
     this.countryOfOrigin,
     this.isLicensed,
@@ -2190,6 +2190,8 @@ class QueryMediaMedia implements FragmentMediaMin {
     final l$type = json['type'];
     final l$format = json['format'];
     final l$status = json['status'];
+    final l$episodes = json['episodes'];
+    final l$chapters = json['chapters'];
     final l$title = json['title'];
     final l$coverImage = json['coverImage'];
     final l$$__typename = json['__typename'];
@@ -2197,9 +2199,7 @@ class QueryMediaMedia implements FragmentMediaMin {
     final l$idMal = json['idMal'];
     final l$season = json['season'];
     final l$seasonYear = json['seasonYear'];
-    final l$episodes = json['episodes'];
     final l$duration = json['duration'];
-    final l$chapters = json['chapters'];
     final l$volumes = json['volumes'];
     final l$countryOfOrigin = json['countryOfOrigin'];
     final l$isLicensed = json['isLicensed'];
@@ -2248,6 +2248,8 @@ class QueryMediaMedia implements FragmentMediaMin {
       status: l$status == null
           ? null
           : fromJsonEnumMediaStatus((l$status as String)),
+      episodes: (l$episodes as int?),
+      chapters: (l$chapters as int?),
       title: l$title == null
           ? null
           : QueryMediaMediatitle.fromJson((l$title as Map<String, dynamic>)),
@@ -2262,9 +2264,7 @@ class QueryMediaMedia implements FragmentMediaMin {
           ? null
           : fromJsonEnumMediaSeason((l$season as String)),
       seasonYear: (l$seasonYear as int?),
-      episodes: (l$episodes as int?),
       duration: (l$duration as int?),
-      chapters: (l$chapters as int?),
       volumes: (l$volumes as int?),
       countryOfOrigin: (l$countryOfOrigin as String?),
       isLicensed: (l$isLicensed as bool?),
@@ -2369,6 +2369,10 @@ class QueryMediaMedia implements FragmentMediaMin {
 
   final EnumMediaStatus? status;
 
+  final int? episodes;
+
+  final int? chapters;
+
   final QueryMediaMediatitle? title;
 
   final QueryMediaMediacoverImage? coverImage;
@@ -2383,11 +2387,7 @@ class QueryMediaMedia implements FragmentMediaMin {
 
   final int? seasonYear;
 
-  final int? episodes;
-
   final int? duration;
-
-  final int? chapters;
 
   final int? volumes;
 
@@ -2479,6 +2479,10 @@ class QueryMediaMedia implements FragmentMediaMin {
     final l$status = status;
     _resultData['status'] =
         l$status == null ? null : toJsonEnumMediaStatus(l$status);
+    final l$episodes = episodes;
+    _resultData['episodes'] = l$episodes;
+    final l$chapters = chapters;
+    _resultData['chapters'] = l$chapters;
     final l$title = title;
     _resultData['title'] = l$title?.toJson();
     final l$coverImage = coverImage;
@@ -2494,12 +2498,8 @@ class QueryMediaMedia implements FragmentMediaMin {
         l$season == null ? null : toJsonEnumMediaSeason(l$season);
     final l$seasonYear = seasonYear;
     _resultData['seasonYear'] = l$seasonYear;
-    final l$episodes = episodes;
-    _resultData['episodes'] = l$episodes;
     final l$duration = duration;
     _resultData['duration'] = l$duration;
-    final l$chapters = chapters;
-    _resultData['chapters'] = l$chapters;
     final l$volumes = volumes;
     _resultData['volumes'] = l$volumes;
     final l$countryOfOrigin = countryOfOrigin;
@@ -2590,6 +2590,8 @@ class QueryMediaMedia implements FragmentMediaMin {
     final l$type = type;
     final l$format = format;
     final l$status = status;
+    final l$episodes = episodes;
+    final l$chapters = chapters;
     final l$title = title;
     final l$coverImage = coverImage;
     final l$$__typename = $__typename;
@@ -2597,9 +2599,7 @@ class QueryMediaMedia implements FragmentMediaMin {
     final l$idMal = idMal;
     final l$season = season;
     final l$seasonYear = seasonYear;
-    final l$episodes = episodes;
     final l$duration = duration;
-    final l$chapters = chapters;
     final l$volumes = volumes;
     final l$countryOfOrigin = countryOfOrigin;
     final l$isLicensed = isLicensed;
@@ -2644,6 +2644,8 @@ class QueryMediaMedia implements FragmentMediaMin {
       l$type,
       l$format,
       l$status,
+      l$episodes,
+      l$chapters,
       l$title,
       l$coverImage,
       l$$__typename,
@@ -2651,9 +2653,7 @@ class QueryMediaMedia implements FragmentMediaMin {
       l$idMal,
       l$season,
       l$seasonYear,
-      l$episodes,
       l$duration,
-      l$chapters,
       l$volumes,
       l$countryOfOrigin,
       l$isLicensed,
@@ -2728,6 +2728,16 @@ class QueryMediaMedia implements FragmentMediaMin {
     if (l$status != lOther$status) {
       return false;
     }
+    final l$episodes = episodes;
+    final lOther$episodes = other.episodes;
+    if (l$episodes != lOther$episodes) {
+      return false;
+    }
+    final l$chapters = chapters;
+    final lOther$chapters = other.chapters;
+    if (l$chapters != lOther$chapters) {
+      return false;
+    }
     final l$title = title;
     final lOther$title = other.title;
     if (l$title != lOther$title) {
@@ -2763,19 +2773,9 @@ class QueryMediaMedia implements FragmentMediaMin {
     if (l$seasonYear != lOther$seasonYear) {
       return false;
     }
-    final l$episodes = episodes;
-    final lOther$episodes = other.episodes;
-    if (l$episodes != lOther$episodes) {
-      return false;
-    }
     final l$duration = duration;
     final lOther$duration = other.duration;
     if (l$duration != lOther$duration) {
-      return false;
-    }
-    final l$chapters = chapters;
-    final lOther$chapters = other.chapters;
-    if (l$chapters != lOther$chapters) {
       return false;
     }
     final l$volumes = volumes;
@@ -3054,6 +3054,8 @@ abstract class CopyWithQueryMediaMedia<TRes> {
     EnumMediaType? type,
     EnumMediaFormat? format,
     EnumMediaStatus? status,
+    int? episodes,
+    int? chapters,
     QueryMediaMediatitle? title,
     QueryMediaMediacoverImage? coverImage,
     String? $__typename,
@@ -3061,9 +3063,7 @@ abstract class CopyWithQueryMediaMedia<TRes> {
     int? idMal,
     EnumMediaSeason? season,
     int? seasonYear,
-    int? episodes,
     int? duration,
-    int? chapters,
     int? volumes,
     String? countryOfOrigin,
     bool? isLicensed,
@@ -3155,6 +3155,8 @@ class _CopyWithImplQueryMediaMedia<TRes>
     Object? type = _undefined,
     Object? format = _undefined,
     Object? status = _undefined,
+    Object? episodes = _undefined,
+    Object? chapters = _undefined,
     Object? title = _undefined,
     Object? coverImage = _undefined,
     Object? $__typename = _undefined,
@@ -3162,9 +3164,7 @@ class _CopyWithImplQueryMediaMedia<TRes>
     Object? idMal = _undefined,
     Object? season = _undefined,
     Object? seasonYear = _undefined,
-    Object? episodes = _undefined,
     Object? duration = _undefined,
-    Object? chapters = _undefined,
     Object? volumes = _undefined,
     Object? countryOfOrigin = _undefined,
     Object? isLicensed = _undefined,
@@ -3214,6 +3214,10 @@ class _CopyWithImplQueryMediaMedia<TRes>
         status: status == _undefined
             ? _instance.status
             : (status as EnumMediaStatus?),
+        episodes:
+            episodes == _undefined ? _instance.episodes : (episodes as int?),
+        chapters:
+            chapters == _undefined ? _instance.chapters : (chapters as int?),
         title: title == _undefined
             ? _instance.title
             : (title as QueryMediaMediatitle?),
@@ -3233,12 +3237,8 @@ class _CopyWithImplQueryMediaMedia<TRes>
         seasonYear: seasonYear == _undefined
             ? _instance.seasonYear
             : (seasonYear as int?),
-        episodes:
-            episodes == _undefined ? _instance.episodes : (episodes as int?),
         duration:
             duration == _undefined ? _instance.duration : (duration as int?),
-        chapters:
-            chapters == _undefined ? _instance.chapters : (chapters as int?),
         volumes: volumes == _undefined ? _instance.volumes : (volumes as int?),
         countryOfOrigin: countryOfOrigin == _undefined
             ? _instance.countryOfOrigin
@@ -3518,6 +3518,8 @@ class _CopyWithStubImplQueryMediaMedia<TRes>
     EnumMediaType? type,
     EnumMediaFormat? format,
     EnumMediaStatus? status,
+    int? episodes,
+    int? chapters,
     QueryMediaMediatitle? title,
     QueryMediaMediacoverImage? coverImage,
     String? $__typename,
@@ -3525,9 +3527,7 @@ class _CopyWithStubImplQueryMediaMedia<TRes>
     int? idMal,
     EnumMediaSeason? season,
     int? seasonYear,
-    int? episodes,
     int? duration,
-    int? chapters,
     int? volumes,
     String? countryOfOrigin,
     bool? isLicensed,

@@ -7,6 +7,8 @@ class FragmentMediaMin {
     this.type,
     this.format,
     this.status,
+    this.episodes,
+    this.chapters,
     this.title,
     this.coverImage,
     this.$__typename = 'Media',
@@ -17,6 +19,8 @@ class FragmentMediaMin {
     final l$type = json['type'];
     final l$format = json['format'];
     final l$status = json['status'];
+    final l$episodes = json['episodes'];
+    final l$chapters = json['chapters'];
     final l$title = json['title'];
     final l$coverImage = json['coverImage'];
     final l$$__typename = json['__typename'];
@@ -29,6 +33,8 @@ class FragmentMediaMin {
       status: l$status == null
           ? null
           : fromJsonEnumMediaStatus((l$status as String)),
+      episodes: (l$episodes as int?),
+      chapters: (l$chapters as int?),
       title: l$title == null
           ? null
           : FragmentMediaMintitle.fromJson((l$title as Map<String, dynamic>)),
@@ -48,6 +54,10 @@ class FragmentMediaMin {
 
   final EnumMediaStatus? status;
 
+  final int? episodes;
+
+  final int? chapters;
+
   final FragmentMediaMintitle? title;
 
   final FragmentMediaMincoverImage? coverImage;
@@ -66,6 +76,10 @@ class FragmentMediaMin {
     final l$status = status;
     _resultData['status'] =
         l$status == null ? null : toJsonEnumMediaStatus(l$status);
+    final l$episodes = episodes;
+    _resultData['episodes'] = l$episodes;
+    final l$chapters = chapters;
+    _resultData['chapters'] = l$chapters;
     final l$title = title;
     _resultData['title'] = l$title?.toJson();
     final l$coverImage = coverImage;
@@ -81,6 +95,8 @@ class FragmentMediaMin {
     final l$type = type;
     final l$format = format;
     final l$status = status;
+    final l$episodes = episodes;
+    final l$chapters = chapters;
     final l$title = title;
     final l$coverImage = coverImage;
     final l$$__typename = $__typename;
@@ -89,6 +105,8 @@ class FragmentMediaMin {
       l$type,
       l$format,
       l$status,
+      l$episodes,
+      l$chapters,
       l$title,
       l$coverImage,
       l$$__typename,
@@ -121,6 +139,16 @@ class FragmentMediaMin {
     final l$status = status;
     final lOther$status = other.status;
     if (l$status != lOther$status) {
+      return false;
+    }
+    final l$episodes = episodes;
+    final lOther$episodes = other.episodes;
+    if (l$episodes != lOther$episodes) {
+      return false;
+    }
+    final l$chapters = chapters;
+    final lOther$chapters = other.chapters;
+    if (l$chapters != lOther$chapters) {
       return false;
     }
     final l$title = title;
@@ -164,6 +192,8 @@ abstract class CopyWithFragmentMediaMin<TRes> {
     EnumMediaType? type,
     EnumMediaFormat? format,
     EnumMediaStatus? status,
+    int? episodes,
+    int? chapters,
     FragmentMediaMintitle? title,
     FragmentMediaMincoverImage? coverImage,
     String? $__typename,
@@ -190,6 +220,8 @@ class _CopyWithImplFragmentMediaMin<TRes>
     Object? type = _undefined,
     Object? format = _undefined,
     Object? status = _undefined,
+    Object? episodes = _undefined,
+    Object? chapters = _undefined,
     Object? title = _undefined,
     Object? coverImage = _undefined,
     Object? $__typename = _undefined,
@@ -203,6 +235,10 @@ class _CopyWithImplFragmentMediaMin<TRes>
         status: status == _undefined
             ? _instance.status
             : (status as EnumMediaStatus?),
+        episodes:
+            episodes == _undefined ? _instance.episodes : (episodes as int?),
+        chapters:
+            chapters == _undefined ? _instance.chapters : (chapters as int?),
         title: title == _undefined
             ? _instance.title
             : (title as FragmentMediaMintitle?),
@@ -241,6 +277,8 @@ class _CopyWithStubImplFragmentMediaMin<TRes>
     EnumMediaType? type,
     EnumMediaFormat? format,
     EnumMediaStatus? status,
+    int? episodes,
+    int? chapters,
     FragmentMediaMintitle? title,
     FragmentMediaMincoverImage? coverImage,
     String? $__typename,
@@ -286,6 +324,20 @@ const fragmentDefinitionMediaMin = FragmentDefinitionNode(
     ),
     FieldNode(
       name: NameNode(value: 'status'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'episodes'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'chapters'),
       alias: null,
       arguments: [],
       directives: [],
@@ -791,7 +843,7 @@ class FragmentMediaList {
       userId: (l$userId as int),
       media: l$media == null
           ? null
-          : FragmentMediaMin.fromJson((l$media as Map<String, dynamic>)),
+          : FragmentMediaListmedia.fromJson((l$media as Map<String, dynamic>)),
       status: l$status == null
           ? null
           : fromJsonEnumMediaListStatus((l$status as String)),
@@ -821,7 +873,7 @@ class FragmentMediaList {
 
   final int userId;
 
-  final FragmentMediaMin? media;
+  final FragmentMediaListmedia? media;
 
   final EnumMediaListStatus? status;
 
@@ -1048,7 +1100,7 @@ abstract class CopyWithFragmentMediaList<TRes> {
   TRes call({
     int? id,
     int? userId,
-    FragmentMediaMin? media,
+    FragmentMediaListmedia? media,
     EnumMediaListStatus? status,
     int? progress,
     int? progressVolumes,
@@ -1064,7 +1116,7 @@ abstract class CopyWithFragmentMediaList<TRes> {
     int? createdAt,
     String? $__typename,
   });
-  CopyWithFragmentMediaMin<TRes> get media;
+  CopyWithFragmentMediaListmedia<TRes> get media;
   CopyWithFragmentMediaListstartedAt<TRes> get startedAt;
   CopyWithFragmentMediaListcompletedAt<TRes> get completedAt;
 }
@@ -1108,7 +1160,7 @@ class _CopyWithImplFragmentMediaList<TRes>
             : (userId as int),
         media: media == _undefined
             ? _instance.media
-            : (media as FragmentMediaMin?),
+            : (media as FragmentMediaListmedia?),
         status: status == _undefined
             ? _instance.status
             : (status as EnumMediaListStatus?),
@@ -1141,11 +1193,11 @@ class _CopyWithImplFragmentMediaList<TRes>
             : ($__typename as String),
       ));
 
-  CopyWithFragmentMediaMin<TRes> get media {
+  CopyWithFragmentMediaListmedia<TRes> get media {
     final local$media = _instance.media;
     return local$media == null
-        ? CopyWithFragmentMediaMin.stub(_then(_instance))
-        : CopyWithFragmentMediaMin(local$media, (e) => call(media: e));
+        ? CopyWithFragmentMediaListmedia.stub(_then(_instance))
+        : CopyWithFragmentMediaListmedia(local$media, (e) => call(media: e));
   }
 
   CopyWithFragmentMediaListstartedAt<TRes> get startedAt {
@@ -1174,7 +1226,7 @@ class _CopyWithStubImplFragmentMediaList<TRes>
   call({
     int? id,
     int? userId,
-    FragmentMediaMin? media,
+    FragmentMediaListmedia? media,
     EnumMediaListStatus? status,
     int? progress,
     int? progressVolumes,
@@ -1192,8 +1244,8 @@ class _CopyWithStubImplFragmentMediaList<TRes>
   }) =>
       _res;
 
-  CopyWithFragmentMediaMin<TRes> get media =>
-      CopyWithFragmentMediaMin.stub(_res);
+  CopyWithFragmentMediaListmedia<TRes> get media =>
+      CopyWithFragmentMediaListmedia.stub(_res);
 
   CopyWithFragmentMediaListstartedAt<TRes> get startedAt =>
       CopyWithFragmentMediaListstartedAt.stub(_res);
@@ -1234,6 +1286,56 @@ const fragmentDefinitionMediaList = FragmentDefinitionNode(
         FragmentSpreadNode(
           name: NameNode(value: 'MediaMin'),
           directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: 'nextAiringEpisode'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'id'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'airingAt'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'timeUntilAiring'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'episode'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: 'mediaId'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
         ),
         FieldNode(
           name: NameNode(value: '__typename'),
@@ -1411,6 +1513,900 @@ const documentNodeFragmentMediaList = DocumentNode(definitions: [
   fragmentDefinitionMediaList,
   fragmentDefinitionMediaMin,
 ]);
+
+class FragmentMediaListmedia implements FragmentMediaMin {
+  FragmentMediaListmedia({
+    required this.id,
+    this.type,
+    this.format,
+    this.status,
+    this.episodes,
+    this.chapters,
+    this.title,
+    this.coverImage,
+    this.$__typename = 'Media',
+    this.nextAiringEpisode,
+  });
+
+  factory FragmentMediaListmedia.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$type = json['type'];
+    final l$format = json['format'];
+    final l$status = json['status'];
+    final l$episodes = json['episodes'];
+    final l$chapters = json['chapters'];
+    final l$title = json['title'];
+    final l$coverImage = json['coverImage'];
+    final l$$__typename = json['__typename'];
+    final l$nextAiringEpisode = json['nextAiringEpisode'];
+    return FragmentMediaListmedia(
+      id: (l$id as int),
+      type: l$type == null ? null : fromJsonEnumMediaType((l$type as String)),
+      format: l$format == null
+          ? null
+          : fromJsonEnumMediaFormat((l$format as String)),
+      status: l$status == null
+          ? null
+          : fromJsonEnumMediaStatus((l$status as String)),
+      episodes: (l$episodes as int?),
+      chapters: (l$chapters as int?),
+      title: l$title == null
+          ? null
+          : FragmentMediaListmediatitle.fromJson(
+              (l$title as Map<String, dynamic>)),
+      coverImage: l$coverImage == null
+          ? null
+          : FragmentMediaListmediacoverImage.fromJson(
+              (l$coverImage as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+      nextAiringEpisode: l$nextAiringEpisode == null
+          ? null
+          : FragmentMediaListmedianextAiringEpisode.fromJson(
+              (l$nextAiringEpisode as Map<String, dynamic>)),
+    );
+  }
+
+  final int id;
+
+  final EnumMediaType? type;
+
+  final EnumMediaFormat? format;
+
+  final EnumMediaStatus? status;
+
+  final int? episodes;
+
+  final int? chapters;
+
+  final FragmentMediaListmediatitle? title;
+
+  final FragmentMediaListmediacoverImage? coverImage;
+
+  final String $__typename;
+
+  final FragmentMediaListmedianextAiringEpisode? nextAiringEpisode;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$type = type;
+    _resultData['type'] = l$type == null ? null : toJsonEnumMediaType(l$type);
+    final l$format = format;
+    _resultData['format'] =
+        l$format == null ? null : toJsonEnumMediaFormat(l$format);
+    final l$status = status;
+    _resultData['status'] =
+        l$status == null ? null : toJsonEnumMediaStatus(l$status);
+    final l$episodes = episodes;
+    _resultData['episodes'] = l$episodes;
+    final l$chapters = chapters;
+    _resultData['chapters'] = l$chapters;
+    final l$title = title;
+    _resultData['title'] = l$title?.toJson();
+    final l$coverImage = coverImage;
+    _resultData['coverImage'] = l$coverImage?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$nextAiringEpisode = nextAiringEpisode;
+    _resultData['nextAiringEpisode'] = l$nextAiringEpisode?.toJson();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$type = type;
+    final l$format = format;
+    final l$status = status;
+    final l$episodes = episodes;
+    final l$chapters = chapters;
+    final l$title = title;
+    final l$coverImage = coverImage;
+    final l$$__typename = $__typename;
+    final l$nextAiringEpisode = nextAiringEpisode;
+    return Object.hashAll([
+      l$id,
+      l$type,
+      l$format,
+      l$status,
+      l$episodes,
+      l$chapters,
+      l$title,
+      l$coverImage,
+      l$$__typename,
+      l$nextAiringEpisode,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is FragmentMediaListmedia) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$format = format;
+    final lOther$format = other.format;
+    if (l$format != lOther$format) {
+      return false;
+    }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$episodes = episodes;
+    final lOther$episodes = other.episodes;
+    if (l$episodes != lOther$episodes) {
+      return false;
+    }
+    final l$chapters = chapters;
+    final lOther$chapters = other.chapters;
+    if (l$chapters != lOther$chapters) {
+      return false;
+    }
+    final l$title = title;
+    final lOther$title = other.title;
+    if (l$title != lOther$title) {
+      return false;
+    }
+    final l$coverImage = coverImage;
+    final lOther$coverImage = other.coverImage;
+    if (l$coverImage != lOther$coverImage) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    final l$nextAiringEpisode = nextAiringEpisode;
+    final lOther$nextAiringEpisode = other.nextAiringEpisode;
+    if (l$nextAiringEpisode != lOther$nextAiringEpisode) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentMediaListmedia on FragmentMediaListmedia {
+  CopyWithFragmentMediaListmedia<FragmentMediaListmedia> get copyWith =>
+      CopyWithFragmentMediaListmedia(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithFragmentMediaListmedia<TRes> {
+  factory CopyWithFragmentMediaListmedia(
+    FragmentMediaListmedia instance,
+    TRes Function(FragmentMediaListmedia) then,
+  ) = _CopyWithImplFragmentMediaListmedia;
+
+  factory CopyWithFragmentMediaListmedia.stub(TRes res) =
+      _CopyWithStubImplFragmentMediaListmedia;
+
+  TRes call({
+    int? id,
+    EnumMediaType? type,
+    EnumMediaFormat? format,
+    EnumMediaStatus? status,
+    int? episodes,
+    int? chapters,
+    FragmentMediaListmediatitle? title,
+    FragmentMediaListmediacoverImage? coverImage,
+    String? $__typename,
+    FragmentMediaListmedianextAiringEpisode? nextAiringEpisode,
+  });
+  CopyWithFragmentMediaListmediatitle<TRes> get title;
+  CopyWithFragmentMediaListmediacoverImage<TRes> get coverImage;
+  CopyWithFragmentMediaListmedianextAiringEpisode<TRes> get nextAiringEpisode;
+}
+
+class _CopyWithImplFragmentMediaListmedia<TRes>
+    implements CopyWithFragmentMediaListmedia<TRes> {
+  _CopyWithImplFragmentMediaListmedia(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentMediaListmedia _instance;
+
+  final TRes Function(FragmentMediaListmedia) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? type = _undefined,
+    Object? format = _undefined,
+    Object? status = _undefined,
+    Object? episodes = _undefined,
+    Object? chapters = _undefined,
+    Object? title = _undefined,
+    Object? coverImage = _undefined,
+    Object? $__typename = _undefined,
+    Object? nextAiringEpisode = _undefined,
+  }) =>
+      _then(FragmentMediaListmedia(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        type: type == _undefined ? _instance.type : (type as EnumMediaType?),
+        format: format == _undefined
+            ? _instance.format
+            : (format as EnumMediaFormat?),
+        status: status == _undefined
+            ? _instance.status
+            : (status as EnumMediaStatus?),
+        episodes:
+            episodes == _undefined ? _instance.episodes : (episodes as int?),
+        chapters:
+            chapters == _undefined ? _instance.chapters : (chapters as int?),
+        title: title == _undefined
+            ? _instance.title
+            : (title as FragmentMediaListmediatitle?),
+        coverImage: coverImage == _undefined
+            ? _instance.coverImage
+            : (coverImage as FragmentMediaListmediacoverImage?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        nextAiringEpisode: nextAiringEpisode == _undefined
+            ? _instance.nextAiringEpisode
+            : (nextAiringEpisode as FragmentMediaListmedianextAiringEpisode?),
+      ));
+
+  CopyWithFragmentMediaListmediatitle<TRes> get title {
+    final local$title = _instance.title;
+    return local$title == null
+        ? CopyWithFragmentMediaListmediatitle.stub(_then(_instance))
+        : CopyWithFragmentMediaListmediatitle(
+            local$title, (e) => call(title: e));
+  }
+
+  CopyWithFragmentMediaListmediacoverImage<TRes> get coverImage {
+    final local$coverImage = _instance.coverImage;
+    return local$coverImage == null
+        ? CopyWithFragmentMediaListmediacoverImage.stub(_then(_instance))
+        : CopyWithFragmentMediaListmediacoverImage(
+            local$coverImage, (e) => call(coverImage: e));
+  }
+
+  CopyWithFragmentMediaListmedianextAiringEpisode<TRes> get nextAiringEpisode {
+    final local$nextAiringEpisode = _instance.nextAiringEpisode;
+    return local$nextAiringEpisode == null
+        ? CopyWithFragmentMediaListmedianextAiringEpisode.stub(_then(_instance))
+        : CopyWithFragmentMediaListmedianextAiringEpisode(
+            local$nextAiringEpisode, (e) => call(nextAiringEpisode: e));
+  }
+}
+
+class _CopyWithStubImplFragmentMediaListmedia<TRes>
+    implements CopyWithFragmentMediaListmedia<TRes> {
+  _CopyWithStubImplFragmentMediaListmedia(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    EnumMediaType? type,
+    EnumMediaFormat? format,
+    EnumMediaStatus? status,
+    int? episodes,
+    int? chapters,
+    FragmentMediaListmediatitle? title,
+    FragmentMediaListmediacoverImage? coverImage,
+    String? $__typename,
+    FragmentMediaListmedianextAiringEpisode? nextAiringEpisode,
+  }) =>
+      _res;
+
+  CopyWithFragmentMediaListmediatitle<TRes> get title =>
+      CopyWithFragmentMediaListmediatitle.stub(_res);
+
+  CopyWithFragmentMediaListmediacoverImage<TRes> get coverImage =>
+      CopyWithFragmentMediaListmediacoverImage.stub(_res);
+
+  CopyWithFragmentMediaListmedianextAiringEpisode<TRes> get nextAiringEpisode =>
+      CopyWithFragmentMediaListmedianextAiringEpisode.stub(_res);
+}
+
+class FragmentMediaListmediatitle implements FragmentMediaMintitle {
+  FragmentMediaListmediatitle({
+    this.userPreferred,
+    this.romaji,
+    this.english,
+    this.native,
+    this.$__typename = 'MediaTitle',
+  });
+
+  factory FragmentMediaListmediatitle.fromJson(Map<String, dynamic> json) {
+    final l$userPreferred = json['userPreferred'];
+    final l$romaji = json['romaji'];
+    final l$english = json['english'];
+    final l$native = json['native'];
+    final l$$__typename = json['__typename'];
+    return FragmentMediaListmediatitle(
+      userPreferred: (l$userPreferred as String?),
+      romaji: (l$romaji as String?),
+      english: (l$english as String?),
+      native: (l$native as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? userPreferred;
+
+  final String? romaji;
+
+  final String? english;
+
+  final String? native;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$userPreferred = userPreferred;
+    _resultData['userPreferred'] = l$userPreferred;
+    final l$romaji = romaji;
+    _resultData['romaji'] = l$romaji;
+    final l$english = english;
+    _resultData['english'] = l$english;
+    final l$native = native;
+    _resultData['native'] = l$native;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$userPreferred = userPreferred;
+    final l$romaji = romaji;
+    final l$english = english;
+    final l$native = native;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$userPreferred,
+      l$romaji,
+      l$english,
+      l$native,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is FragmentMediaListmediatitle) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$userPreferred = userPreferred;
+    final lOther$userPreferred = other.userPreferred;
+    if (l$userPreferred != lOther$userPreferred) {
+      return false;
+    }
+    final l$romaji = romaji;
+    final lOther$romaji = other.romaji;
+    if (l$romaji != lOther$romaji) {
+      return false;
+    }
+    final l$english = english;
+    final lOther$english = other.english;
+    if (l$english != lOther$english) {
+      return false;
+    }
+    final l$native = native;
+    final lOther$native = other.native;
+    if (l$native != lOther$native) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentMediaListmediatitle
+    on FragmentMediaListmediatitle {
+  CopyWithFragmentMediaListmediatitle<FragmentMediaListmediatitle>
+      get copyWith => CopyWithFragmentMediaListmediatitle(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithFragmentMediaListmediatitle<TRes> {
+  factory CopyWithFragmentMediaListmediatitle(
+    FragmentMediaListmediatitle instance,
+    TRes Function(FragmentMediaListmediatitle) then,
+  ) = _CopyWithImplFragmentMediaListmediatitle;
+
+  factory CopyWithFragmentMediaListmediatitle.stub(TRes res) =
+      _CopyWithStubImplFragmentMediaListmediatitle;
+
+  TRes call({
+    String? userPreferred,
+    String? romaji,
+    String? english,
+    String? native,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplFragmentMediaListmediatitle<TRes>
+    implements CopyWithFragmentMediaListmediatitle<TRes> {
+  _CopyWithImplFragmentMediaListmediatitle(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentMediaListmediatitle _instance;
+
+  final TRes Function(FragmentMediaListmediatitle) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? userPreferred = _undefined,
+    Object? romaji = _undefined,
+    Object? english = _undefined,
+    Object? native = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentMediaListmediatitle(
+        userPreferred: userPreferred == _undefined
+            ? _instance.userPreferred
+            : (userPreferred as String?),
+        romaji: romaji == _undefined ? _instance.romaji : (romaji as String?),
+        english:
+            english == _undefined ? _instance.english : (english as String?),
+        native: native == _undefined ? _instance.native : (native as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplFragmentMediaListmediatitle<TRes>
+    implements CopyWithFragmentMediaListmediatitle<TRes> {
+  _CopyWithStubImplFragmentMediaListmediatitle(this._res);
+
+  TRes _res;
+
+  call({
+    String? userPreferred,
+    String? romaji,
+    String? english,
+    String? native,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class FragmentMediaListmediacoverImage implements FragmentMediaMincoverImage {
+  FragmentMediaListmediacoverImage({
+    this.extraLarge,
+    this.large,
+    this.medium,
+    this.color,
+    this.$__typename = 'MediaCoverImage',
+  });
+
+  factory FragmentMediaListmediacoverImage.fromJson(Map<String, dynamic> json) {
+    final l$extraLarge = json['extraLarge'];
+    final l$large = json['large'];
+    final l$medium = json['medium'];
+    final l$color = json['color'];
+    final l$$__typename = json['__typename'];
+    return FragmentMediaListmediacoverImage(
+      extraLarge: (l$extraLarge as String?),
+      large: (l$large as String?),
+      medium: (l$medium as String?),
+      color: (l$color as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? extraLarge;
+
+  final String? large;
+
+  final String? medium;
+
+  final String? color;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$extraLarge = extraLarge;
+    _resultData['extraLarge'] = l$extraLarge;
+    final l$large = large;
+    _resultData['large'] = l$large;
+    final l$medium = medium;
+    _resultData['medium'] = l$medium;
+    final l$color = color;
+    _resultData['color'] = l$color;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$extraLarge = extraLarge;
+    final l$large = large;
+    final l$medium = medium;
+    final l$color = color;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$extraLarge,
+      l$large,
+      l$medium,
+      l$color,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is FragmentMediaListmediacoverImage) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$extraLarge = extraLarge;
+    final lOther$extraLarge = other.extraLarge;
+    if (l$extraLarge != lOther$extraLarge) {
+      return false;
+    }
+    final l$large = large;
+    final lOther$large = other.large;
+    if (l$large != lOther$large) {
+      return false;
+    }
+    final l$medium = medium;
+    final lOther$medium = other.medium;
+    if (l$medium != lOther$medium) {
+      return false;
+    }
+    final l$color = color;
+    final lOther$color = other.color;
+    if (l$color != lOther$color) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentMediaListmediacoverImage
+    on FragmentMediaListmediacoverImage {
+  CopyWithFragmentMediaListmediacoverImage<FragmentMediaListmediacoverImage>
+      get copyWith => CopyWithFragmentMediaListmediacoverImage(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithFragmentMediaListmediacoverImage<TRes> {
+  factory CopyWithFragmentMediaListmediacoverImage(
+    FragmentMediaListmediacoverImage instance,
+    TRes Function(FragmentMediaListmediacoverImage) then,
+  ) = _CopyWithImplFragmentMediaListmediacoverImage;
+
+  factory CopyWithFragmentMediaListmediacoverImage.stub(TRes res) =
+      _CopyWithStubImplFragmentMediaListmediacoverImage;
+
+  TRes call({
+    String? extraLarge,
+    String? large,
+    String? medium,
+    String? color,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplFragmentMediaListmediacoverImage<TRes>
+    implements CopyWithFragmentMediaListmediacoverImage<TRes> {
+  _CopyWithImplFragmentMediaListmediacoverImage(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentMediaListmediacoverImage _instance;
+
+  final TRes Function(FragmentMediaListmediacoverImage) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? extraLarge = _undefined,
+    Object? large = _undefined,
+    Object? medium = _undefined,
+    Object? color = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentMediaListmediacoverImage(
+        extraLarge: extraLarge == _undefined
+            ? _instance.extraLarge
+            : (extraLarge as String?),
+        large: large == _undefined ? _instance.large : (large as String?),
+        medium: medium == _undefined ? _instance.medium : (medium as String?),
+        color: color == _undefined ? _instance.color : (color as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplFragmentMediaListmediacoverImage<TRes>
+    implements CopyWithFragmentMediaListmediacoverImage<TRes> {
+  _CopyWithStubImplFragmentMediaListmediacoverImage(this._res);
+
+  TRes _res;
+
+  call({
+    String? extraLarge,
+    String? large,
+    String? medium,
+    String? color,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class FragmentMediaListmedianextAiringEpisode {
+  FragmentMediaListmedianextAiringEpisode({
+    required this.id,
+    required this.airingAt,
+    required this.timeUntilAiring,
+    required this.episode,
+    required this.mediaId,
+    this.$__typename = 'AiringSchedule',
+  });
+
+  factory FragmentMediaListmedianextAiringEpisode.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$airingAt = json['airingAt'];
+    final l$timeUntilAiring = json['timeUntilAiring'];
+    final l$episode = json['episode'];
+    final l$mediaId = json['mediaId'];
+    final l$$__typename = json['__typename'];
+    return FragmentMediaListmedianextAiringEpisode(
+      id: (l$id as int),
+      airingAt: (l$airingAt as int),
+      timeUntilAiring: (l$timeUntilAiring as int),
+      episode: (l$episode as int),
+      mediaId: (l$mediaId as int),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final int airingAt;
+
+  final int timeUntilAiring;
+
+  final int episode;
+
+  final int mediaId;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$airingAt = airingAt;
+    _resultData['airingAt'] = l$airingAt;
+    final l$timeUntilAiring = timeUntilAiring;
+    _resultData['timeUntilAiring'] = l$timeUntilAiring;
+    final l$episode = episode;
+    _resultData['episode'] = l$episode;
+    final l$mediaId = mediaId;
+    _resultData['mediaId'] = l$mediaId;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$airingAt = airingAt;
+    final l$timeUntilAiring = timeUntilAiring;
+    final l$episode = episode;
+    final l$mediaId = mediaId;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$airingAt,
+      l$timeUntilAiring,
+      l$episode,
+      l$mediaId,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is FragmentMediaListmedianextAiringEpisode) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$airingAt = airingAt;
+    final lOther$airingAt = other.airingAt;
+    if (l$airingAt != lOther$airingAt) {
+      return false;
+    }
+    final l$timeUntilAiring = timeUntilAiring;
+    final lOther$timeUntilAiring = other.timeUntilAiring;
+    if (l$timeUntilAiring != lOther$timeUntilAiring) {
+      return false;
+    }
+    final l$episode = episode;
+    final lOther$episode = other.episode;
+    if (l$episode != lOther$episode) {
+      return false;
+    }
+    final l$mediaId = mediaId;
+    final lOther$mediaId = other.mediaId;
+    if (l$mediaId != lOther$mediaId) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentMediaListmedianextAiringEpisode
+    on FragmentMediaListmedianextAiringEpisode {
+  CopyWithFragmentMediaListmedianextAiringEpisode<
+          FragmentMediaListmedianextAiringEpisode>
+      get copyWith => CopyWithFragmentMediaListmedianextAiringEpisode(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithFragmentMediaListmedianextAiringEpisode<TRes> {
+  factory CopyWithFragmentMediaListmedianextAiringEpisode(
+    FragmentMediaListmedianextAiringEpisode instance,
+    TRes Function(FragmentMediaListmedianextAiringEpisode) then,
+  ) = _CopyWithImplFragmentMediaListmedianextAiringEpisode;
+
+  factory CopyWithFragmentMediaListmedianextAiringEpisode.stub(TRes res) =
+      _CopyWithStubImplFragmentMediaListmedianextAiringEpisode;
+
+  TRes call({
+    int? id,
+    int? airingAt,
+    int? timeUntilAiring,
+    int? episode,
+    int? mediaId,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplFragmentMediaListmedianextAiringEpisode<TRes>
+    implements CopyWithFragmentMediaListmedianextAiringEpisode<TRes> {
+  _CopyWithImplFragmentMediaListmedianextAiringEpisode(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentMediaListmedianextAiringEpisode _instance;
+
+  final TRes Function(FragmentMediaListmedianextAiringEpisode) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? airingAt = _undefined,
+    Object? timeUntilAiring = _undefined,
+    Object? episode = _undefined,
+    Object? mediaId = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentMediaListmedianextAiringEpisode(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        airingAt: airingAt == _undefined || airingAt == null
+            ? _instance.airingAt
+            : (airingAt as int),
+        timeUntilAiring:
+            timeUntilAiring == _undefined || timeUntilAiring == null
+                ? _instance.timeUntilAiring
+                : (timeUntilAiring as int),
+        episode: episode == _undefined || episode == null
+            ? _instance.episode
+            : (episode as int),
+        mediaId: mediaId == _undefined || mediaId == null
+            ? _instance.mediaId
+            : (mediaId as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplFragmentMediaListmedianextAiringEpisode<TRes>
+    implements CopyWithFragmentMediaListmedianextAiringEpisode<TRes> {
+  _CopyWithStubImplFragmentMediaListmedianextAiringEpisode(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    int? airingAt,
+    int? timeUntilAiring,
+    int? episode,
+    int? mediaId,
+    String? $__typename,
+  }) =>
+      _res;
+}
 
 class FragmentMediaListstartedAt {
   FragmentMediaListstartedAt({

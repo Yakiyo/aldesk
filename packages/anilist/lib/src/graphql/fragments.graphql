@@ -5,6 +5,8 @@ fragment MediaMin on Media {
   type
   format
   status
+  episodes
+  chapters
   title {
     userPreferred
     romaji
@@ -26,6 +28,13 @@ fragment MediaList on MediaList {
   userId
   media {
     ...MediaMin
+    nextAiringEpisode {
+      id
+      airingAt
+      timeUntilAiring
+      episode
+      mediaId
+    }
   }
   status
   progress
