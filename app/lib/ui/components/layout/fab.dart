@@ -1,51 +1,45 @@
-
+import 'package:aldesk/core/misc.dart';
+import 'package:aldesk/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/auth.dart';
-import '../../../core/misc.dart';
-import '../../../core/theme.dart';
-
-/// Floating action button
-class Fab extends StatefulWidget {
-  final void Function() refresh;
-  const Fab({super.key, required this.refresh});
-
-  @override
-  State<Fab> createState() => _FabState();
-}
-
-class _FabState extends State<Fab> {
-  final tm = get<ThemeManager>();
-
-  void _toggleTheme() {
-    tm.toggleTheme();
-  }
-
-  void _logout() {
-    removeToken();
-    context.go("/login");
-  }
+class Fab extends StatelessWidget {
+  const Fab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ExpandableFab(distance: 80, fanAngle: 90, children: [
+    return ExpandableFab(children: [
       FloatingActionButton.small(
-          tooltip: "Refresh Page",
-          heroTag: null,
-          onPressed: widget.refresh,
-          child: const Icon(Icons.refresh)),
+        heroTag: null,
+        onPressed: () {
+          context.go("/home");
+        },
+        child: const FaIcon(FontAwesomeIcons.house),
+      ),
       FloatingActionButton.small(
-          tooltip: "Toggle Theme",
-          heroTag: null,
-          onPressed: _toggleTheme,
-          child: Icon(tm.isDark ? Icons.light_mode : Icons.dark_mode_outlined)),
+        heroTag: null,
+        onPressed: () {
+          context.go("/profile");
+        },
+        child: const FaIcon(FontAwesomeIcons.solidUser),
+      ),
       FloatingActionButton.small(
-          tooltip: "Logout",
-          heroTag: null,
-          onPressed: _logout,
-          child: const Icon(Icons.logout_outlined)),
+        heroTag: null,
+        onPressed: () {
+          context.go("/settings");
+        },
+        child: const FaIcon(FontAwesomeIcons.gear),
+      ),
+      // TODO: remove this in prod
+      FloatingActionButton.small(
+        heroTag: null,
+        onPressed: () {
+          get<ThemeManager>().toggleTheme();
+        },
+        child: const FaIcon(FontAwesomeIcons.sun),
+      ),
     ]);
   }
 }

@@ -1,6 +1,7 @@
-import 'package:aldesk/core/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../core/assets.dart';
 
 class ErrorPage extends StatefulWidget {
   const ErrorPage({super.key});
@@ -32,56 +33,58 @@ class _ErrorPageState extends State<ErrorPage> with TickerProviderStateMixin {
         .textTheme
         .headlineLarge
         ?.copyWith(fontWeight: FontWeight.bold);
-    return Center(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        ScaleTransition(
-          scale: _animation,
-          child: Image.asset(
-            Assets.brain,
-            width: 200,
-            height: 200,
+    return Scaffold(
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ScaleTransition(
+            scale: _animation,
+            child: Image.asset(
+              Assets.brain,
+              width: 200,
+              height: 200,
+            ),
           ),
-        ),
-        Text(
-          "404",
-          style: style?.copyWith(fontSize: 80, letterSpacing: 0.1),
-        ),
-        Text(
-          "Page Not Found",
-          style: style,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: TextButton(
-              onPressed: () => context.pop(),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(10)),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                    ),
-                    Text("Go Back",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: Colors.white)),
-                  ],
-                ),
-              )),
-        )
-      ],
-    ));
+          Text(
+            "404",
+            style: style?.copyWith(fontSize: 80, letterSpacing: 0.1),
+          ),
+          Text(
+            "Page Not Found",
+            style: style,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: InkWell(
+                onTap: () => context.go("/"),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10)),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
+                      Text("Return to Home",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(color: Colors.white)),
+                    ],
+                  ),
+                )),
+          )
+        ],
+      )),
+    );
   }
 }
