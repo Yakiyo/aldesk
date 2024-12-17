@@ -36,8 +36,8 @@ class MyFutureBuilder<T> extends StatelessWidget {
               Err(value: final error) => errorBuilder(error),
             };
           } else if (snapshot.hasError) {
-            throw snapshot.error as Error;
-            // return errorBuilder(snapshot.error as Error);
+            // throw snapshot.error as Error;
+            return errorBuilder(snapshot.error as Error);
           } else {
             return loadingWidget;
           }
