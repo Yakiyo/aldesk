@@ -43,8 +43,11 @@ abstract class Themes {
     scaffoldBackgroundColor: const Color(0xFF0B1622),
     colorScheme: ColorScheme.fromSeed(
       seedColor: const Color(0xFF152232),
+      // main color, the one used in containers and app bar and etc
       primary: const Color(0xFF152232),
-      secondary: const Color.fromARGB(255, 170, 164, 164),
+      // same as scaffold background color
+      secondary: const Color(0xFF0B1622),
+      tertiary: const Color.fromARGB(255, 170, 164, 164),
       brightness: Brightness.dark,
     ),
     iconButtonTheme: const IconButtonThemeData(
@@ -66,7 +69,8 @@ abstract class Themes {
       colorScheme: ColorScheme.fromSeed(
         seedColor: const Color(0xFFFAFAFA),
         primary: const Color(0xFFFAFAFA),
-        secondary: const Color.fromARGB(255, 3, 95, 244),
+        secondary: const Color(0xFFEDF1F5),
+        tertiary: const Color.fromARGB(255, 3, 95, 244),
         brightness: Brightness.light,
       ),
       iconButtonTheme: const IconButtonThemeData(
