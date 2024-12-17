@@ -1,14 +1,21 @@
 import 'package:anilist/anilist.dart';
 import 'package:flutter/material.dart';
 
-/// Custom future builder. If result of `future` is a Result, it handles the
-/// result accordingly. In that case `T` should be `Result<V, dynamic>`, otherwise
-/// `T` and `V` should be the same.
-class MyFutureBuilder<T, V> extends StatelessWidget {
-  final Future<T> future;
-  final Widget Function(V) builder;
-  final Widget Function(Object?) errorBuilder;
+/// Custom future builder. This works for Futures that return a Result
+///
+/// ```dart
+/// final Future<Result<MyType, Error>> futureResult =  someFuture();
+/// MyFutureBuilder(
+///     future: futureResult,
+///     builder: (MyType value) => MyWidget(value),
+/// );
+/// ```
+class MyFutureBuilder<T> extends StatelessWidget {
+  final Future<Result<T, Error>> future;
+  final Widget Function(T) builder;
+  final Widget Function(Error) errorBuilder;
   final Widget loadingWidget;
+
   const MyFutureBuilder({
     super.key,
     required this.future,
@@ -19,20 +26,18 @@ class MyFutureBuilder<T, V> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
+    return FutureBuilder<Result<T, Error>>(
         future: future,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            final data = snapshot.data as T;
-            if (data is Result) {
-              return switch (data) {
-                Ok(value: final value) => builder(value as V),
-                Err(value: final error) => errorBuilder(error),
-              };
-            }
-            return builder(data as V);
+            final data = snapshot.data as Result<T, Error>;
+            return switch (data) {
+              Ok(value: final value) => builder(value),
+              Err(value: final error) => errorBuilder(error),
+            };
           } else if (snapshot.hasError) {
-            return errorBuilder(snapshot.error);
+            throw snapshot.error as Error;
+            // return errorBuilder(snapshot.error as Error);
           } else {
             return loadingWidget;
           }
