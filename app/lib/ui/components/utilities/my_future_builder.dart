@@ -1,5 +1,8 @@
 import 'package:anilist/anilist.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
+
+import '../../../core/misc.dart';
 
 /// Custom future builder. This works for Futures that return a Result
 ///
@@ -26,17 +29,21 @@ class MyFutureBuilder<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final logger = get<Logger>();
     return FutureBuilder<Result<T, Error>>(
         future: future,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final data = snapshot.data as Result<T, Error>;
+            if (data.isErr()) {
+              logger.e(data.unwrapErr());
+            }
             return switch (data) {
               Ok(value: final value) => builder(value),
               Err(value: final error) => errorBuilder(error),
             };
           } else if (snapshot.hasError) {
-            // throw snapshot.error as Error;
+            logger.e(snapshot.error);
             return errorBuilder(snapshot.error as Error);
           } else {
             return loadingWidget;
