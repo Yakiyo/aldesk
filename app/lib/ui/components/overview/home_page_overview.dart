@@ -1,6 +1,7 @@
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:toastification/toastification.dart';
 
 import '../../../core/theme.dart';
@@ -20,6 +21,9 @@ class CurrentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (mediaList.isEmpty) {
+      return const SizedBox.shrink();
+    }
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,11 +40,8 @@ class CurrentList extends StatelessWidget {
           ),
           child: LayoutBuilder(
             builder: (context, constraints) {
-              final children = mediaList
-                  .map((entry) => MediaTile(
-                        entry: entry,
-                      ))
-                  .toList();
+              final children =
+                  mediaList.map((entry) => MediaTile(entry: entry)).toList();
               // use [Wrap] for larger screens and [ListView] for smaller screens
               if (constraints.maxWidth > 600) {
                 return Wrap(
@@ -218,5 +219,64 @@ class _MediaTileState extends State<MediaTile> {
       entry = result.unwrap();
       _isProcessing = false;
     });
+  }
+}
+
+class CurrentListPlaceholder extends StatelessWidget {
+  const CurrentListPlaceholder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Shimmer.fromColors(
+              baseColor: Theme.of(context).primaryColor,
+              highlightColor: Theme.of(context).scaffoldBackgroundColor,
+              child: Container(
+                width: 80,
+                height: 20,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            const SizedBox(height: 5),
+            Container(
+              width: double.infinity,
+              // height: 230,
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Wrap(
+                children: List.generate(
+                  5,
+                  (index) => Shimmer.fromColors(
+                    baseColor: Theme.of(context).primaryColor,
+                    highlightColor: Theme.of(context).scaffoldBackgroundColor,
+                    child: Container(
+                      width: 120,
+                      height: 180,
+                      margin: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

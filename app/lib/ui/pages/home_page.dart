@@ -47,6 +47,7 @@ class HomePageBody extends StatelessWidget {
           children: [
             MyFutureBuilder(
                 future: currentAnimeF,
+                loadingWidget: const CurrentListPlaceholder(),
                 builder: (value) {
                   final medias = value.mediaList
                           ?.whereType<FragmentMediaList>()
@@ -62,6 +63,7 @@ class HomePageBody extends StatelessWidget {
             const SizedBox(height: 20),
             MyFutureBuilder(
                 future: currentMangaF,
+                loadingWidget: const CurrentListPlaceholder(),
                 builder: (value) {
                   final medias = value.mediaList
                           ?.whereType<FragmentMediaList>()
