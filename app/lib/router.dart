@@ -1,6 +1,6 @@
+import 'package:aldesk/ui/pages/login_page.dart';
 import 'package:go_router/go_router.dart';
 
-import 'ui/pages/error_page.dart';
 import 'ui/pages/home_page.dart';
 import 'ui/pages/settings_page.dart';
 
@@ -18,8 +18,12 @@ GoRouter router(bool isLoggedIn) {
         name: "settings",
         path: "/settings",
         builder: (context, state) => const SettingsPage(),
+      ),
+      GoRoute(
+        name: "login",
+        path: "/login",
+        builder: (context, state) => const LoginPage(),
       )
     ],
-    errorBuilder: (context, state) => const ErrorPage(),
   );
 }
