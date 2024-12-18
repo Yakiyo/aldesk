@@ -59,8 +59,8 @@ abstract class Themes {
   static ThemeData light = ThemeData(
       fontFamily: GoogleFonts.roboto().fontFamily,
       textTheme: font.apply(
-        bodyColor: Colors.grey,
-        displayColor: Colors.grey,
+        bodyColor: Colors.grey.shade700,
+        displayColor: Colors.grey.shade700,
         decoration: TextDecoration.none,
       ),
       appBarTheme: const AppBarTheme(
@@ -75,7 +75,7 @@ abstract class Themes {
         tertiary: const Color.fromARGB(255, 3, 95, 244),
         brightness: Brightness.light,
       ),
-      iconButtonTheme: const IconButtonThemeData(
+      iconButtonTheme: IconButtonThemeData(
           style: ButtonStyle(
-              foregroundColor: WidgetStatePropertyAll(Colors.grey))));
+              foregroundColor: WidgetStatePropertyAll(Colors.grey.shade700))));
 }
