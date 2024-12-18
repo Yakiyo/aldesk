@@ -25,8 +25,9 @@ extension Compare on FragmentMediaList {
         return true;
       }
       // if both are airing, the one with the sooner next airing date is greater
-      return self.media!.nextAiringEpisode!.timeUntilAiring <
-          other.media!.nextAiringEpisode!.timeUntilAiring;
+      return (self.media!.nextAiringEpisode?.timeUntilAiring ??
+              double.infinity) <
+          (other.media!.nextAiringEpisode?.timeUntilAiring ?? double.infinity);
     }
 
     // self is not releasing, but other is, so other is greater
