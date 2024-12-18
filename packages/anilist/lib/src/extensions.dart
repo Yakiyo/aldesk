@@ -13,6 +13,12 @@ extension Compare on FragmentMediaList {
   /// - if neither are airing, the one that was most recently updated is greater
   bool isGt(FragmentMediaList other) {
     final self = this;
+    // for manga we just sort based on last updated
+    if ([self.media?.type, other.media?.type]
+        .every((element) => element == EnumMediaType.MANGA)) {
+      return self.updatedAt! > other.updatedAt!;
+    }
+
     // if this is airing while other is not, then this is greater
     if (self.media!.status == EnumMediaStatus.RELEASING) {
       if (other.media!.status != EnumMediaStatus.RELEASING) {
