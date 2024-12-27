@@ -109,7 +109,6 @@ ReturnType<QueryPaginatedMediaPage> paginatedMedia({
 /// returns entries of both anime and manga
 ReturnType<QueryPaginatedMediaPage> trendingMedia(
     {int page = 1, int perPage = 10, EnumMediaType? type}) {
-      print("trendingMedia");
   return paginatedMedia(
       page: page,
       perPage: perPage,
