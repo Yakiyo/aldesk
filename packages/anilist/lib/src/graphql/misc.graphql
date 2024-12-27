@@ -1,0 +1,13 @@
+# Like/Unlike an entry
+mutation ToggleLike($id: Int!, $type: LikeableType!) {
+  ToggleLike(id: $id, type: $type) {
+    __typename
+  }
+}
+
+# Convert anilist markdown to html
+query MdToHtml($markdown: String!) {
+  Markdown(markdown: $markdown) {
+    html
+  }
+}

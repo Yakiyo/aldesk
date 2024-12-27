@@ -1,0 +1,35 @@
+query User($id: Int, $search: String) {
+  User(id: $id, search: $search) {
+    ...UserMin
+    ...UserSocials
+    ...UserSettings
+    about(asHtml: false)
+    bannerImage
+    siteUrl
+  }
+}
+
+query UserMin($id: Int, $search: String) {
+  User(id: $id, search: $search) {
+    ...UserMin
+  }
+}
+
+query Viewer {
+  Viewer {
+    ...UserMin
+  }
+}
+
+query UserStatisticsMin($id: Int, $search: String) {
+  User(id: $id, search: $search) {
+    statistics {
+      anime {
+        ...UserStatistics
+      }
+      manga {
+        ...UserStatistics
+      }
+    }
+  }
+}

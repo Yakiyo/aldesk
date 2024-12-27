@@ -1,0 +1,173 @@
+# Retrieve notifications of authenticated user.
+# The query itself is not fully implemented, since there are
+# a lot of subtypes. Most of them have their id property and can
+# can be individually retrieved using it.
+query Notifications(
+  $page: Int
+  $perPage: Int
+  $resetNotificationCount: Boolean = true
+  $typeIn: [NotificationType]
+) {
+  Page(page: $page, perPage: $perPage) {
+    notifications(
+      resetNotificationCount: $resetNotificationCount
+      type_in: $typeIn
+    ) {
+      ... on AiringNotification {
+        id
+        type
+        animeId
+        episode
+        contexts
+        createdAt
+        media {
+          ...MediaMin
+        }
+      }
+      ... on FollowingNotification {
+        id
+        type
+        context
+        createdAt
+        user {
+          ...UserMin
+        }
+      }
+      ... on ActivityMessageNotification {
+        id
+        userId
+        type
+        # refetch activity details with id if needed
+        activityId
+        context
+        createdAt
+        user {
+          ...UserMin
+        }
+      }
+      ... on ActivityMentionNotification {
+        id
+        userId
+        type
+        activityId
+        context
+        createdAt
+        user {
+          ...UserMin
+        }
+      }
+      ... on ActivityReplyNotification {
+        id
+        type
+        activityId
+        context
+        createdAt
+        user {
+          ...UserMin
+        }
+      }
+      ... on ActivityReplySubscribedNotification {
+        id
+        type
+        activityId
+        context
+        createdAt
+        user {
+          ...UserMin
+        }
+      }
+      ... on ActivityLikeNotification {
+        id
+        type
+        activityId
+        context
+        createdAt
+        user {
+          ...UserMin
+        }
+      }
+      ... on ActivityReplyLikeNotification {
+        id
+        type
+        activityId
+        context
+        createdAt
+        user {
+          ...UserMin
+        }
+      }
+      ... on ThreadCommentMentionNotification {
+        id
+        userId
+        type
+        commentId
+        context
+        createdAt
+      }
+      ... on ThreadCommentReplyNotification {
+        id
+        userId
+        type
+        commentId
+        context
+        createdAt
+      }
+      ... on ThreadCommentSubscribedNotification {
+        id
+        userId
+        type
+        commentId
+        context
+        createdAt
+      }
+      ... on ThreadCommentLikeNotification {
+        id
+        userId
+        type
+        commentId
+        context
+        createdAt
+      }
+      ... on ThreadLikeNotification {
+        id
+        userId
+        type
+        threadId
+        context
+        createdAt
+      }
+      ... on RelatedMediaAdditionNotification {
+        id
+        type
+        mediaId
+        context
+        createdAt
+      }
+      ... on MediaDataChangeNotification {
+        id
+        type
+        mediaId
+        context
+        reason
+        createdAt
+      }
+      ... on MediaMergeNotification {
+        id
+        type
+        mediaId
+        deletedMediaTitles
+        context
+        reason
+        createdAt
+      }
+      ... on MediaDeletionNotification {
+        id
+        type
+        deletedMediaTitle
+        context
+        reason
+        createdAt
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+# Media related fragments
+
+fragment MediaMin on Media {
+  id
+  type
+  format
+  status
+  episodes
+  chapters
+  title {
+    userPreferred
+    romaji
+    english
+    native
+  }
+  coverImage {
+    extraLarge
+    large
+    medium
+    color
+  }
+}
+
+# List related fragments
+
+fragment MediaList on MediaList {
+  id
+  userId
+  media {
+    ...MediaMin
+    nextAiringEpisode {
+      id
+      airingAt
+      timeUntilAiring
+      episode
+      mediaId
+    }
+  }
+  status
+  progress
+  progressVolumes
+  score(format: POINT_10)
+  repeat
+  private
+  notes
+  hiddenFromStatusLists
+  startedAt {
+    year
+    month
+    day
+  }
+  completedAt {
+    year
+    month
+    day
+  }
+  priority
+  # this breaks codegen cz dart:convert makes it Map<String, dynamic> while codegen expects a String bcz its a Json
+  # customLists(asArray: false)
+  updatedAt
+  createdAt
+}
+
+# user related fragments
+
+fragment UserMin on User {
+  id
+  name
+  avatar {
+    large
+    medium
+  }
+}
+
+fragment UserSocials on User {
+  isFollowing
+  isFollower
+  isBlocked
+}
+
+fragment UserSettings on User {
+  options {
+    titleLanguage
+    displayAdultContent
+    airingNotifications
+    profileColor
+    timezone
+    activityMergeTime
+    staffNameLanguage
+    restrictMessagesToFollowing
+  }
+  mediaListOptions {
+    scoreFormat
+    rowOrder
+    animeList {
+      sectionOrder
+      splitCompletedSectionByFormat
+      customLists
+      advancedScoring
+      advancedScoringEnabled
+    }
+    mangaList {
+      sectionOrder
+      splitCompletedSectionByFormat
+      customLists
+      advancedScoring
+      advancedScoringEnabled
+    }
+  }
+}
+
+fragment UserStatistics on UserStatistics {
+  count
+  meanScore
+  standardDeviation
+  minutesWatched
+  episodesWatched
+  chaptersRead
+  volumesRead
+  genres {
+    count
+    genre
+    meanScore
+    minutesWatched
+    chaptersRead
+  }
+}

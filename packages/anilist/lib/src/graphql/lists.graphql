@@ -1,0 +1,115 @@
+# Get a user's media list. If $status is provided, it returns a specific list, 
+# otherwise it returns all the lists for that media type.
+# use notesLike to filter entries based on some user note.
+query MediaListCollection(
+  $userId: Int
+  $username: String
+  $type: MediaType!
+  $status: MediaListStatus
+  $chunk: Int
+  $perChunk: Int
+  $sort: [MediaListSort] = [UPDATED_TIME_DESC]
+  $notesLike: String
+) {
+  MediaListCollection(
+    userId: $userId
+    userName: $username
+    type: $type
+    status: $status
+    chunk: $chunk
+    perChunk: $perChunk
+    sort: $sort
+    notes_like: $notesLike
+  ) {
+    hasNextChunk
+    user {
+      id
+    }
+    lists {
+      name
+      isCustomList
+      status
+      entries {
+        ...MediaList
+      }
+    }
+  }
+}
+
+# Get a single entry of media list
+query MediaList(
+  $mediaListId: Int
+  $userId: Int
+  $mediaId: Int
+  $userName: String
+) {
+  MediaList(
+    id: $mediaListId
+    userId: $userId
+    mediaId: $mediaId
+    userName: $userName
+  ) {
+    ...MediaList
+  }
+}
+
+# Get a paginated list of media list entries, useful for getting a portion of the list
+# for example, getting the entries for the overview entries in the home page
+query PaginatedMediaList(
+  $page: Int
+  $perPage: Int
+  $userId: Int
+  $userName: String
+  $type: MediaType
+  $status: MediaListStatus
+  $sort: [MediaListSort] = UPDATED_TIME_DESC
+) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      perPage
+      currentPage
+      lastPage
+      hasNextPage
+    }
+    mediaList(
+      userId: $userId
+      userName: $userName
+      type: $type
+      status: $status
+      sort: $sort
+    ) {
+      ...MediaList
+    }
+  }
+}
+
+mutation SaveMediaListEntry(
+  $mediaListId: Int
+  $progress: Int
+  $mediaId: Int
+  $status: MediaListStatus
+  $score: Float
+  $progressVolumes: Int
+  $repeat: Int
+  $private: Boolean
+  $notes: String
+  $startedAt: FuzzyDateInput
+  $completedAt: FuzzyDateInput
+) {
+  SaveMediaListEntry(
+    id: $mediaListId
+    progress: $progress
+    mediaId: $mediaId
+    status: $status
+    score: $score
+    progressVolumes: $progressVolumes
+    repeat: $repeat
+    private: $private
+    notes: $notes
+    startedAt: $startedAt
+    completedAt: $completedAt
+  ) {
+    ...MediaList
+  }
+}

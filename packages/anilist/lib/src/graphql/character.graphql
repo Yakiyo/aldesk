@@ -1,0 +1,42 @@
+query Character(
+  $characterId: Int
+  $search: String
+  $sort: [CharacterSort] = [ID_DESC]
+) {
+  Character(id: $characterId, search: $search, sort: $sort) {
+    id
+    name {
+      full
+      native
+      userPreferred
+      alternative
+      alternativeSpoiler
+    }
+    image {
+      large
+      medium
+    }
+    description(asHtml: false)
+    gender
+    dateOfBirth {
+      year
+      month
+      day
+    }
+    bloodType
+    age
+    isFavourite
+    isFavouriteBlocked
+    siteUrl
+    favourites
+    media(sort: [FORMAT, START_DATE]) {
+      edges {
+        id
+        characterRole
+        node {
+          ...MediaMin
+        }
+      }
+    }
+  }
+}

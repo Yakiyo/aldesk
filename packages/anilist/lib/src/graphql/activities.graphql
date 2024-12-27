@@ -1,0 +1,122 @@
+fragment ListActivity on ListActivity {
+  id
+  type
+  status
+  progress
+  isLocked
+  isSubscribed
+  replyCount
+  likeCount
+  isLiked
+  isPinned
+  siteUrl
+  createdAt
+  user {
+    ...UserMin
+  }
+  media {
+    ...MediaMin
+  }
+}
+
+fragment TextActivity on TextActivity {
+  id
+  type
+  replyCount
+  text(asHtml: false)
+  siteUrl
+  isLocked
+  isSubscribed
+  likeCount
+  isLiked
+  createdAt
+  user {
+    ...UserMin
+  }
+}
+
+fragment MessageActivity on MessageActivity {
+  id
+  recipientId
+  type
+  replyCount
+  message(asHtml: false)
+  isLocked
+  isSubscribed
+  likeCount
+  isLiked
+  isPrivate
+  siteUrl
+  createdAt
+  messenger {
+    ...UserMin
+  }
+}
+
+# Get a list of activities
+# For getting global and following user's activities, typeIn should be as it is
+# For following user's activities, isFollowing should be true
+# For global activities, hasRepliesOrTypeText should be true
+# For getting a specific user's all activities, userId must be set and
+# typeIn should also consist of the MESSAGE type in addition to the default ones
+query Activities(
+  $page: Int
+  $perPage: Int
+  $isFollowing: Boolean
+  $typeIn: [ActivityType] = [ANIME_LIST, MANGA_LIST, TEXT]
+  $hasRepliesOrTypeText: Boolean
+  $userId: Int
+) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      perPage
+      currentPage
+      lastPage
+      hasNextPage
+    }
+    activities(
+      sort: ID_DESC
+      isFollowing: $isFollowing
+      type_in: $typeIn
+      hasRepliesOrTypeText: $hasRepliesOrTypeText
+      userId: $userId
+    ) {
+      ...TextActivity
+      ...ListActivity
+      ...MessageActivity
+    }
+  }
+}
+
+fragment ActivityReply on ActivityReply {
+  id
+  text(asHtml: false)
+  likeCount
+  isLiked
+  createdAt
+  user {
+    ...UserMin
+  }
+}
+
+query ActivityReplies($activityId: Int!) {
+  Activity(id: $activityId) {
+    ... on TextActivity {
+      replies {
+        ...ActivityReply
+      }
+    }
+    ... on ListActivity {
+      replies {
+        ...ActivityReply
+      }
+    }
+
+    ... on MessageActivity {
+      replies {
+        ...ActivityReply
+      }
+    }
+  }
+}

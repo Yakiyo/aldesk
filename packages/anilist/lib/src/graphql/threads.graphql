@@ -1,0 +1,89 @@
+# Get multiple threads
+# For pinned threads: sort should be IS_STICKY
+# For subscribed threads: subscribed should be true
+# For release discussion threads: category must be 5
+# For recently active threads: sort should be REPLIED_AT_DESC
+# For newly created threads: sort should be CREATED_AT_DESC
+query Threads(
+  $page: Int
+  $perPage: Int
+  $sort: [ThreadSort]
+  $subscribed: Boolean
+  $categoryId: Int
+  $asHtml: Boolean = false
+) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      perPage
+      currentPage
+      lastPage
+      hasNextPage
+    }
+    threads(sort: $sort, subscribed: $subscribed, categoryId: $categoryId) {
+      id
+      title
+      body(asHtml: $asHtml)
+      replyCount
+      viewCount
+      repliedAt
+      siteUrl
+      user {
+        ...UserMin
+      }
+      replyUser {
+        ...UserMin
+      }
+      categories {
+        id
+        name
+      }
+      mediaCategories {
+        id
+        title {
+          userPreferred
+        }
+      }
+    }
+  }
+}
+
+# Get a single thread entry
+query Thread($threadId: Int, $search: String, $asHtml: Boolean = false) {
+  Thread(id: $threadId, search: $search) {
+    id
+    title
+    body(asHtml: $asHtml)
+    replyCommentId
+    replyCount
+    viewCount
+    isLocked
+    isSticky
+    isSubscribed
+    likeCount
+    isLiked
+    repliedAt
+    createdAt
+    updatedAt
+    siteUrl
+    user {
+      ...UserMin
+    }
+    replyUser {
+      ...UserMin
+    }
+    likes {
+      id
+    }
+    categories {
+      id
+      name
+    }
+    mediaCategories {
+      id
+      title {
+        userPreferred
+      }
+    }
+  }
+}

@@ -1,0 +1,266 @@
+query MediaMin(
+  $id: Int
+  $type: MediaType
+  $format: MediaFormat
+  $status: MediaStatus
+  $isAdult: Boolean
+  $search: String
+) {
+  Media(
+    id: $id
+    type: $type
+    format: $format
+    status: $status
+    isAdult: $isAdult
+    search: $search
+  ) {
+    ...MediaMin
+  }
+}
+
+query Media(
+  $id: Int
+  $type: MediaType
+  $format: MediaFormat
+  $status: MediaStatus
+  $isAdult: Boolean
+  $search: String
+) {
+  Media(
+    id: $id
+    type: $type
+    format: $format
+    status: $status
+    isAdult: $isAdult
+    search: $search
+  ) {
+    # main info
+    ...MediaMin
+    description(asHtml: false)
+    idMal
+    # scalar fields
+    season
+    seasonYear
+    episodes
+    duration
+    chapters
+    volumes
+    countryOfOrigin
+    isLicensed
+    source
+    hashtag
+    updatedAt
+    bannerImage
+    genres
+    synonyms
+    averageScore
+    meanScore
+    popularity
+    isLocked
+    trending
+    favourites
+    isFavourite
+    isFavouriteBlocked
+    isAdult
+    siteUrl
+    autoCreateForumThread
+    isRecommendationBlocked
+    isReviewBlocked
+    modNotes
+    # non-scalar fields
+    startDate {
+      year
+      month
+      day
+    }
+    endDate {
+      year
+      month
+      day
+    }
+    trailer {
+      id
+      site
+      thumbnail
+    }
+    tags {
+      id
+      name
+      description
+    }
+    nextAiringEpisode {
+      id
+      episode
+      airingAt
+      timeUntilAiring
+    }
+    externalLinks {
+      id
+      site
+      url
+      icon
+    }
+    # only take minimal info about reviews, if needed, it can be
+    # fetched using the id for full info
+    reviews {
+      nodes {
+        id
+        userId
+        summary
+      }
+    }
+    stats {
+      scoreDistribution {
+        amount
+        score
+      }
+      statusDistribution {
+        amount
+        status
+      }
+    }
+    # relation like fields
+
+    # only get basic info from edge, for info in node, it can
+    # be fetched using the id from node
+    characters {
+      edges {
+        id
+        name
+        role
+        node {
+          id
+        }
+      }
+    }
+
+    staff {
+      edges {
+        id
+        role
+        favouriteOrder
+        node {
+          id
+        }
+      }
+    }
+    # only get the id of the related media, can just fetch
+    # the data of the media if needed
+    relations {
+      edges {
+        id
+        relationType(version: 2)
+        node {
+          id
+        }
+      }
+    }
+    airingSchedule {
+      nodes {
+        id
+        airingAt
+        timeUntilAiring
+        episode
+        mediaId
+      }
+    }
+
+    recommendations(sort: ID_DESC) {
+      nodes {
+        id
+        rating
+        userRating
+        mediaRecommendation {
+          id
+        }
+        user {
+          id
+          name
+        }
+      }
+    }
+    studios {
+      edges {
+        id
+        isMain
+        node {
+          id
+          name
+        }
+      }
+    }
+
+    streamingEpisodes {
+      title
+      url
+      site
+      thumbnail
+    }
+
+    # applicable only if user is logged in
+    mediaListEntry {
+      id
+      userId
+      score
+      status
+      progress
+    }
+  }
+}
+
+# Get a paginated list of media. Useful for things like trending and popular media series
+# or newly added entries
+query PaginatedMedia(
+  $page: Int = 1
+  $perPage: Int
+  $type: MediaType
+  $format: MediaFormat
+  $status: MediaStatus
+  $isAdult: Boolean
+  $genre: String
+  $tag: String
+  $onList: Boolean
+  $search: String
+  $sort: [MediaSort]
+  $season: MediaSeason
+  $seasonYear: Int
+  $countryOfOrigin: CountryCode
+  $isLicensed: Boolean
+  $formatIn: [MediaFormat]
+  $statusIn: [MediaStatus]
+  $genreIn: [String]
+  $tagIn: [String]
+  $sourceIn: [MediaSource]
+) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      perPage
+      currentPage
+      lastPage
+      hasNextPage
+    }
+    media(
+      type: $type
+      format: $format
+      status: $status
+      isAdult: $isAdult
+      genre: $genre
+      tag: $tag
+      onList: $onList
+      search: $search
+      sort: $sort
+      season: $season
+      seasonYear: $seasonYear
+      countryOfOrigin: $countryOfOrigin
+      isLicensed: $isLicensed
+      format_in: $formatIn
+      status_in: $statusIn
+      genre_in: $genreIn
+      tag_in: $tagIn
+      source_in: $sourceIn
+    ) {
+      ...MediaMin
+    }
+  }
+}
