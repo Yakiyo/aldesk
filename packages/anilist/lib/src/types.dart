@@ -44,7 +44,7 @@ class ApiError extends Error {
     return ApiError(
       message: json['message'],
       status: json['status'],
-      locations: (json['locations'] as List<dynamic>)
+      locations: ((json['locations'] ?? []) as List<dynamic>)
           .map((e) => (
                 (e as Map<String, dynamic>)['line'] as int,
                 (e)['column'] as int,
