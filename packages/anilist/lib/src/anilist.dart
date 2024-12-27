@@ -2,7 +2,6 @@ import 'types.dart';
 import 'consts.dart';
 import 'dart:convert';
 import 'package:http/http.dart';
-import 'package:option_result/result.dart';
 
 /// Registers a token to send with request
 ///
@@ -40,19 +39,19 @@ ReturnType<Map<String, dynamic>> request({
     final errors = errorR
         .map((e) => ApiError.fromJson(e as Map<String, dynamic>))
         .toList();
-    return Err(ApiErrors(errors));
+    throw ApiErrors(errors);
   }
   final data = body['data'] as Map<String, dynamic>?;
 
   // this should not happen but handle it regardless
   if (data == null) {
-    return Err(ApiErrors([
+    throw ApiErrors([
       ApiError(
           message: "Missing body data despite not having errors",
           status: 0,
           locations: [])
-    ]));
+    ]);
   }
 
-  return Ok(data);
+  return data;
 }

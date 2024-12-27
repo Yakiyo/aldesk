@@ -8,8 +8,8 @@ void main() {
         query: printNode(documentNodeQueryMediaMin),
         variables: VariablesQueryMediaMin(search: "Naruto").toJson());
 
-    assert(res.isOk(), res.unwrapErr().toString());
-    final media = QueryMediaMin.fromJson(res.unwrap()).Media;
+    
+    final media = QueryMediaMin.fromJson(res).Media;
     assert(media != null);
     assert(media?.title?.romaji?.toLowerCase() == "naruto");
   });

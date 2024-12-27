@@ -11,20 +11,18 @@ String? _token;
 ///
 /// Requires to be authenticated, otherwise returns a [AuthError]
 ReturnType<FragmentUserMin> viewer() async {
-  if (!isAuthed()) return Err(AuthError());
+  if (!isAuthed()) throw AuthError();
   final currentToken =
       headers["Authorization"]!.replaceAll("Bearer ", "").trim();
   // if cache is empty or token has changed, fetch the user
   if (_viewerCache == null || _token != currentToken) {
     final result = await request(query: printNode(documentNodeQueryViewer))
-        .then((future) =>
-            future.map((value) => QueryViewer.fromJson(value).Viewer!));
-    if (result.isErr()) return result;
-    _viewerCache = result.unwrap();
+        .then((value) => QueryViewer.fromJson(value).Viewer!);
+    _viewerCache = result;
     _token = currentToken;
   }
 
-  return Ok(_viewerCache!);
+  return _viewerCache!;
 }
 
 /// Minimal info regarding a user. Either [id] or [search] must be provided.
@@ -35,8 +33,7 @@ ReturnType<FragmentUserMin> userMin({int? id, String? search}) async {
   return request(
           query: printNode(documentNodeQueryUserMin),
           variables: VariablesQueryUserMin(id: id, search: search).toJson())
-      .then((future) =>
-          future.map((value) => QueryUserMin.fromJson(value).User!));
+      .then((value) => QueryUserMin.fromJson(value).User!);
 }
 
 /// Full info regarding a user. Either [id] or [search] must be provided.
@@ -47,5 +44,5 @@ ReturnType<QueryUserUser> user({int? id, String? search}) async {
   return request(
           query: printNode(documentNodeQueryUser),
           variables: VariablesQueryUser(id: id, search: search).toJson())
-      .then((future) => future.map((value) => QueryUser.fromJson(value).User!));
+      .then((value) => QueryUser.fromJson(value).User!);
 }

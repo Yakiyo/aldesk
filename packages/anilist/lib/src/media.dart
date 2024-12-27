@@ -25,8 +25,7 @@ ReturnType<FragmentMediaMin> mediaMin({
 
   return request(
           query: printNode(documentNodeQueryMediaMin), variables: variables)
-      .then((future) =>
-          future.map((data) => QueryMediaMin.fromJson(data).Media!));
+      .then((data) => QueryMediaMin.fromJson(data).Media!);
 }
 
 /// Full info regarding a media entry. Either [id] or [search] must be provided.
@@ -52,7 +51,7 @@ ReturnType<QueryMediaMedia> media({
       .toJson();
 
   return request(query: printNode(documentNodeQueryMedia), variables: variables)
-      .then((future) => future.map((data) => QueryMedia.fromJson(data).Media!));
+      .then((data) => QueryMedia.fromJson(data).Media!);
 }
 
 /// Paginated media entries. [page] and [perPage] are optional.
@@ -101,8 +100,7 @@ ReturnType<QueryPaginatedMediaPage> paginatedMedia({
   return request(
           query: printNode(documentNodeQueryPaginatedMedia),
           variables: variables)
-      .then((future) =>
-          future.map((data) => QueryPaginatedMedia.fromJson(data).Page!));
+      .then((data) => QueryPaginatedMedia.fromJson(data).Page!);
 }
 
 /// Get trending media entries.

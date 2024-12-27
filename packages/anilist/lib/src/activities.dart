@@ -10,12 +10,12 @@ ReturnType<List<QueryActivitiesPageactivities>> globalActivities(
           page: page, perPage: perPage, hasRepliesOrTypeText: true)
       .toJson();
 
-  final result = await request(query: query, variables: variables);
-  return result.map((value) => QueryActivities.fromJson(value)
+  final value = await request(query: query, variables: variables);
+  return QueryActivities.fromJson(value)
       .Page!
       .activities!
       .map((activity) => activity!)
-      .toList());
+      .toList();
 }
 
 /// Get activities from authenticated user's followed users
@@ -23,18 +23,18 @@ ReturnType<List<QueryActivitiesPageactivities>> globalActivities(
 /// Requires to be authenticated, otherwise returns a [AuthError]
 ReturnType<List<QueryActivitiesPageactivities>> followingActivities(
     {int page = 1, int perPage = 50}) async {
-  if (!isAuthed()) return Err(AuthError());
+  if (!isAuthed()) throw AuthError();
   final query = printNode(documentNodeQueryActivities);
   final variables =
       VariablesQueryActivities(page: page, perPage: perPage, isFollowing: true)
           .toJson();
 
-  final result = await request(query: query, variables: variables);
-  return result.map((value) => QueryActivities.fromJson(value)
+  final value = await request(query: query, variables: variables);
+  return QueryActivities.fromJson(value)
       .Page!
       .activities!
       .map((activity) => activity!)
-      .toList());
+      .toList();
 }
 
 /// Get's a user's activities
@@ -52,10 +52,10 @@ ReturnType<List<QueryActivitiesPageactivities>> userActivities(int userId,
         EnumActivityType.TEXT
       ]).toJson();
 
-  final result = await request(query: query, variables: variables);
-  return result.map((value) => QueryActivities.fromJson(value)
+  final value = await request(query: query, variables: variables);
+  return QueryActivities.fromJson(value)
       .Page!
       .activities!
       .map((activity) => activity!)
-      .toList());
+      .toList();
 }

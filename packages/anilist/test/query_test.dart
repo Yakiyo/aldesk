@@ -5,17 +5,15 @@ import 'package:test/test.dart';
 void main() {
   test("media min test", () async {
     final res = await mediaMin(search: "Naruto");
-    assert(res.isOk(), res.unwrapErr());
 
-    final media = res.unwrap();
+    final media = res;
     assert(media.title!.english!.toLowerCase() == "naruto");
   });
 
   test("media test", () async {
     final res = await media(search: "grand blue");
-    assert(res.isOk(), res.unwrapErr());
 
-    final data = res.unwrap();
+    final data = res;
     assert(data.title!.romaji!.toLowerCase() == "grand blue");
     assert(data.type == EnumMediaType.ANIME);
   });

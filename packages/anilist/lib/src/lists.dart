@@ -29,8 +29,8 @@ ReturnType<FragmentMediaList> mediaListEntry(
           mediaListId: entryId,
           userName: username)
       .toJson();
-  final res = await request(query: query, variables: variables);
-  return res.map((value) => QueryMediaList.fromJson(value).MediaList!);
+  final value = await request(query: query, variables: variables);
+  return QueryMediaList.fromJson(value).MediaList!;
 }
 
 /// Get a paginated media list collection. Useful for getting a portion of a user's
@@ -62,8 +62,8 @@ ReturnType<QueryPaginatedMediaListPage> paginatedMediaList(
           status: mediaStatus,
           sort: sort)
       .toJson();
-  final res = await request(query: query, variables: variables);
-  return res.map((value) => QueryPaginatedMediaList.fromJson(value).Page!);
+  final value = await request(query: query, variables: variables);
+  return QueryPaginatedMediaList.fromJson(value).Page!;
 }
 
 typedef MediaListCollection = QueryMediaListCollectionMediaListCollection;
@@ -95,9 +95,8 @@ ReturnType<MediaListCollection> mediaListCollection(
           sort: sort,
           notesLike: notesLike)
       .toJson();
-  final res = await request(query: query, variables: variables);
-  return res.map(
-      (value) => QueryMediaListCollection.fromJson(value).MediaListCollection!);
+  final value = await request(query: query, variables: variables);
+  return QueryMediaListCollection.fromJson(value).MediaListCollection!;
 }
 
 /// Update the progress of a media list entry by 1
@@ -111,7 +110,7 @@ ReturnType<FragmentMediaList> incrementProgress(
   if (preventOverflow) {
     // if there is a max count, and progress is not lower than total, return current value
     if (total != null && progress >= total) {
-      return Ok(entry);
+      return entry;
     }
   }
   // if incrementing progress makes it equal to total, then set it to completed
@@ -119,7 +118,7 @@ ReturnType<FragmentMediaList> incrementProgress(
       ? EnumMediaListStatus.COMPLETED
       : entry.status;
 
-  final result = await request(
+  final value = await request(
       query: printNode(documentNodeMutationSaveMediaListEntry),
       variables: VariablesMutationSaveMediaListEntry(
         mediaListId: entry.id,
@@ -127,6 +126,5 @@ ReturnType<FragmentMediaList> incrementProgress(
         status: status,
       ).toJson());
 
-  return result.map((value) =>
-      MutationSaveMediaListEntry.fromJson(value).SaveMediaListEntry!);
+  return MutationSaveMediaListEntry.fromJson(value).SaveMediaListEntry!;
 }

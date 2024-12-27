@@ -1,8 +1,7 @@
 import 'dart:convert';
-import 'package:option_result/result.dart';
 
 /// Return type for functions in the library
-typedef ReturnType<T> = FutureResult<T, Error>;
+typedef ReturnType<T> = Future<T>;
 
 class ApiErrors extends Error {
   final List<ApiError> errors;
