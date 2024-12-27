@@ -9,7 +9,7 @@ import 'kaomoji.dart';
 /// A widget that builds itself based on the latest snapshot of a future.
 ///
 /// This is basically a wrapper around [AsyncBuilder] that provides some defaults
-class AsyncWidget<T extends Object> extends StatelessWidget {
+class AsyncWidget<T> extends StatelessWidget {
   final Future<T> future;
   final Widget Function(BuildContext context, T value) builder;
   final WidgetBuilder loading;
