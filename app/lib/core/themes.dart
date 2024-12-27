@@ -1,3 +1,4 @@
+import 'package:aldesk/core/utils/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,7 +12,7 @@ part 'themes.g.dart';
 class ThemeManager extends _$ThemeManager {
   @override
   ThemeMode build() {
-    final str = getPref().getString("theme")!;
+    final str = pref.getString("theme")!;
     return ThemeMode.values.firstWhere(
       (e) => e.toString() == str,
       // safety net but it should never be needed
@@ -26,7 +27,7 @@ class ThemeManager extends _$ThemeManager {
 
   void setThemeMode(ThemeMode themeMode) {
     state = themeMode;
-    getPref().setString('theme', themeMode.toString());
+    pref.setString('theme', themeMode.toString());
   }
 }
 
@@ -105,12 +106,12 @@ abstract class Themes {
 class UserColor extends _$UserColor {
   @override
   Color build() {
-    final str = getPref().getString('user_color')!;
+    final str = pref.getString('user_color')!;
     return colorFromStr(str);
   }
 
   void setColor(Color color) async {
-    await getPref().setString('user_color', color.toRgbaStr());
+    await pref.setString('user_color', color.toRgbaStr());
     state = color;
   }
 }

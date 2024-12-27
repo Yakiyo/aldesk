@@ -1,3 +1,4 @@
+import 'package:anilist/anilist.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -8,7 +9,10 @@ part 'token.g.dart';
 
 @riverpod
 Token? token(Ref ref) {
-  return Token.fromStorage();
+  final token = Token.fromStorage();
+  // update the packages token whenever app's one changes
+  registerToken(token?.token);
+  return token;
 }
 
 class Token {

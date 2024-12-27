@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'utils/get.dart';
-
 final _defaults = {
   // app theme to use
   'theme': 'system',
@@ -30,8 +28,6 @@ Future<SharedPreferencesWithCache> initStorage() async {
   }
   return pref;
 }
-
-SharedPreferencesWithCache getPref() => get<SharedPreferencesWithCache>();
 
 extension ToRGBAStr on Color {
   String toRgbaStr() => [r, g, b, a].join(',');
