@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
@@ -45,6 +46,19 @@ class MainApp extends ConsumerWidget {
       themeMode: themeMode,
       theme: themes.light(),
       darkTheme: themes.dark(),
+      scrollBehavior: const MyScrollBehaviour(),
     );
   }
+}
+
+/// Custom scroll behavior to allow for mouse based scrolling
+class MyScrollBehaviour extends MaterialScrollBehavior {
+  const MyScrollBehaviour();
+
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        // PointerDeviceKind.stylus,
+      };
 }
