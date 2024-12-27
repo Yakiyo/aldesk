@@ -12,6 +12,7 @@ class MyScaffold extends StatelessWidget {
     return Scaffold(
       floatingActionButton: const Fab(),
       body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Expanded(
               flex: 1,
