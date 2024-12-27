@@ -44,4 +44,14 @@ class Token {
 
     return true;
   }
+
+  static Token? tryBuild(String token) {
+    try {
+      final t = Token(token);
+      if (t.isValid) return t;
+      return null;
+    } catch (_) {
+      return null;
+    }
+  }
 }

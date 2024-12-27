@@ -6,6 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../ui/pages/dummy_page.dart';
 import '../ui/pages/home.dart';
+import '../ui/pages/settings.dart';
 
 part 'router.g.dart';
 
@@ -19,7 +20,8 @@ GoRouter router(Ref ref) {
     GoRoute(path: "/login", builder: (context, state) => const LoginPage()),
     GoRoute(path: "/profile", builder: (context, state) => const DummyPage()),
     GoRoute(path: "/search", builder: (context, state) => const DummyPage()),
-    GoRoute(path: "/settings", builder: (context, state) => const DummyPage()),
+    GoRoute(
+        path: "/settings", builder: (context, state) => const SettingsPage()),
     GoRoute(
         path: "/library/anime", builder: (context, state) => const DummyPage()),
     GoRoute(
