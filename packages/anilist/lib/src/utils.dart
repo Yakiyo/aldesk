@@ -1,6 +1,7 @@
 import 'package:anilist/models.dart';
 
 extension Compare on FragmentMediaList {
+  /// Compare two instances of [FragmentMediaList]
   bool operator >(FragmentMediaList other) {
     return isGt(other);
   }
@@ -50,4 +51,26 @@ extension Helpers on FragmentMediaMin {
 
   bool get isAnime => type == EnumMediaType.ANIME;
   bool get isManga => !isAnime;
+}
+
+/// Converts a dart DateTime object to an EnumMediaSeason
+///
+/// Based on the information provided in the [Anilist API docs](https://submission-manual.anilist.co/anilist/Release-Data-72ae49d8449842868b73520512b5471e)
+EnumMediaSeason timeToSeason(DateTime month) {
+  return switch (month.month) {
+    DateTime.january ||
+    DateTime.february ||
+    DateTime.march =>
+      EnumMediaSeason.WINTER,
+    DateTime.april || DateTime.may || DateTime.june => EnumMediaSeason.SPRING,
+    DateTime.july ||
+    DateTime.august ||
+    DateTime.september =>
+      EnumMediaSeason.SUMMER,
+    DateTime.october ||
+    DateTime.november ||
+    DateTime.december =>
+      EnumMediaSeason.FALL,
+    _ => throw Exception('Invalid month'),
+  };
 }
