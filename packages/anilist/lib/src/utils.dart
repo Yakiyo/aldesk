@@ -74,3 +74,44 @@ EnumMediaSeason timeToSeason(DateTime month) {
     _ => throw Exception('Invalid month'),
   };
 }
+
+/// Get the current season based on the current date
+/// 
+/// Returns a tuple of the year and the season
+(int, EnumMediaSeason) currentSeason() {
+  final now = DateTime.now();
+  return (now.year, timeToSeason(now));
+}
+
+// We cannot add/subtract 90/92 days from current date, since some seasons have
+// 91 days while some 91. 
+
+/// Get the next season based on the current date
+/// 
+/// Returns a tuple of the year and the season
+(int, EnumMediaSeason) nextSeason() {
+  final now = DateTime.now();
+  var year = now.year;
+  var month = now.month + 3;
+  if (month > 12) {
+    year++;
+    month -= 12;
+  }
+  final next = DateTime(year, month);
+  return (next.year, timeToSeason(next));
+}
+
+/// Get the previous season based on the current date
+/// 
+/// Returns a tuple of the year and the season
+(int, EnumMediaSeason) previousSeason() {
+  final now = DateTime.now();
+  var year = now.year;
+  var month = now.month - 3;
+  if (month < 1) {
+    year--;
+    month += 12;
+  }
+  final previous = DateTime(year, month);
+  return (previous.year, timeToSeason(previous));
+}
