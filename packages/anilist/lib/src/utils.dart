@@ -1,5 +1,6 @@
 import 'package:anilist/models.dart';
 
+/// Comparator for [FragmentMediaList]
 extension Compare on FragmentMediaList {
   /// Compare two instances of [FragmentMediaList]
   bool operator >(FragmentMediaList other) {
@@ -41,6 +42,15 @@ extension Compare on FragmentMediaList {
   }
 }
 
+/// Filter out null values from a list
+extension FilterNull<T> on List<T?> {
+  /// Filter out null values from a list
+  List<T> filterNull() {
+    return whereType<T>().toList();
+  }
+}
+
+/// Helper functions for [FragmentMediaMin]
 extension Helpers on FragmentMediaMin {
   /// total episodes or chapters for the media
   int? get total => switch (type) {
@@ -76,7 +86,7 @@ EnumMediaSeason timeToSeason(DateTime month) {
 }
 
 /// Get the current season based on the current date
-/// 
+///
 /// Returns a tuple of the year and the season
 (int, EnumMediaSeason) currentSeason() {
   final now = DateTime.now();
@@ -84,10 +94,10 @@ EnumMediaSeason timeToSeason(DateTime month) {
 }
 
 // We cannot add/subtract 90/92 days from current date, since some seasons have
-// 91 days while some 91. 
+// 91 days while some 91.
 
 /// Get the next season based on the current date
-/// 
+///
 /// Returns a tuple of the year and the season
 (int, EnumMediaSeason) nextSeason() {
   final now = DateTime.now();
@@ -102,7 +112,7 @@ EnumMediaSeason timeToSeason(DateTime month) {
 }
 
 /// Get the previous season based on the current date
-/// 
+///
 /// Returns a tuple of the year and the season
 (int, EnumMediaSeason) previousSeason() {
   final now = DateTime.now();

@@ -22,4 +22,12 @@ void main() {
       assert(timeToSeason(DateTime(2022, 10, 1)) == EnumMediaSeason.FALL);
     },
   );
+
+  test("filter null test", () {
+    final listWithNull = [1, 2, 3, null, 4, 5, null];
+    final listWithoutNull = listWithNull.filterNull();
+    assert(listWithoutNull.length == 5);
+    // ignore: unnecessary_null_comparison
+    assert(listWithoutNull.every((element) => element != null));
+  });
 }
