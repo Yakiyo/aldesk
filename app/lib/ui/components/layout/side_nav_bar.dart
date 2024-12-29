@@ -41,6 +41,30 @@ class SideNavBar extends StatelessWidget {
               context.go('/profile');
             },
           ),
+          ExpansionTile(
+            title: const Text("Library"),
+            leading: const Icon(Icons.shelves),
+            shape: const RoundedRectangleBorder(side: BorderSide.none),
+            childrenPadding: const EdgeInsets.only(left: 20),
+            children: [
+              ListTile(
+                title: const Text('Anime'),
+                leading: const Icon(Icons.video_collection_outlined),
+                dense: true,
+                onTap: () {
+                  context.go('/library/anime');
+                },
+              ),
+              ListTile(
+                title: const Text('Manga'),
+                leading: const Icon(Icons.book_outlined),
+                dense: true,
+                onTap: () {
+                  context.go('/library/manga');
+                },
+              ),
+            ],
+          ),
           ListTile(
             title: const Text('Settings'),
             leading: const Icon(Icons.settings_outlined),
@@ -87,8 +111,7 @@ class _AppInfo extends ConsumerWidget {
               context: context,
               builder: (context) => const AboutDialogWidget(),
             );
-          }
-        ),
+          }),
     };
   }
 }

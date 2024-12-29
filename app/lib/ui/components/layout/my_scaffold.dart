@@ -10,20 +10,19 @@ class MyScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // TODO: remove the fab in prod
       floatingActionButton: const Fab(),
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Expanded(
-              flex: 1,
-              child: Material(
-                elevation: 10,
-                child: SideNavBar(),
-              )),
-          Expanded(
-            flex: 5,
-            child: body,
+          const SizedBox(
+            width: 200,
+            child: Material(
+              elevation: 10,
+              child: SideNavBar(),
+            ),
           ),
+          Expanded(child: body),
         ],
       ),
     );
