@@ -28,7 +28,7 @@ ReturnType<QueryNotificationsPage> notifications({
 }
 
 /// Get the authenticated user's unread notification count.
-/// 
+///
 /// Throws [AuthError] if not authenticated.
 ReturnType<int> unreadNotificationCount() {
   if (!isAuthed()) throw AuthError();
@@ -37,5 +37,8 @@ ReturnType<int> unreadNotificationCount() {
           query: printNode(documentNodeQueryUnreadNotificationCount),
           variables: {})
       .then((data) =>
-          QueryUnreadNotificationCount.fromJson(data).Viewer?.id ?? 0);
+          QueryUnreadNotificationCount.fromJson(data)
+              .Viewer
+              ?.unreadNotificationCount ??
+          0);
 }
