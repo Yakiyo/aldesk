@@ -11,6 +11,7 @@ class FragmentMediaMin {
     this.chapters,
     this.title,
     this.coverImage,
+    this.bannerImage,
     this.$__typename = 'Media',
   });
 
@@ -23,6 +24,7 @@ class FragmentMediaMin {
     final l$chapters = json['chapters'];
     final l$title = json['title'];
     final l$coverImage = json['coverImage'];
+    final l$bannerImage = json['bannerImage'];
     final l$$__typename = json['__typename'];
     return FragmentMediaMin(
       id: (l$id as int),
@@ -42,6 +44,7 @@ class FragmentMediaMin {
           ? null
           : FragmentMediaMincoverImage.fromJson(
               (l$coverImage as Map<String, dynamic>)),
+      bannerImage: (l$bannerImage as String?),
       $__typename: (l$$__typename as String),
     );
   }
@@ -61,6 +64,8 @@ class FragmentMediaMin {
   final FragmentMediaMintitle? title;
 
   final FragmentMediaMincoverImage? coverImage;
+
+  final String? bannerImage;
 
   final String $__typename;
 
@@ -84,6 +89,8 @@ class FragmentMediaMin {
     _resultData['title'] = l$title?.toJson();
     final l$coverImage = coverImage;
     _resultData['coverImage'] = l$coverImage?.toJson();
+    final l$bannerImage = bannerImage;
+    _resultData['bannerImage'] = l$bannerImage;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -99,6 +106,7 @@ class FragmentMediaMin {
     final l$chapters = chapters;
     final l$title = title;
     final l$coverImage = coverImage;
+    final l$bannerImage = bannerImage;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
@@ -109,6 +117,7 @@ class FragmentMediaMin {
       l$chapters,
       l$title,
       l$coverImage,
+      l$bannerImage,
       l$$__typename,
     ]);
   }
@@ -161,6 +170,11 @@ class FragmentMediaMin {
     if (l$coverImage != lOther$coverImage) {
       return false;
     }
+    final l$bannerImage = bannerImage;
+    final lOther$bannerImage = other.bannerImage;
+    if (l$bannerImage != lOther$bannerImage) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
@@ -196,6 +210,7 @@ abstract class CopyWithFragmentMediaMin<TRes> {
     int? chapters,
     FragmentMediaMintitle? title,
     FragmentMediaMincoverImage? coverImage,
+    String? bannerImage,
     String? $__typename,
   });
   CopyWithFragmentMediaMintitle<TRes> get title;
@@ -224,6 +239,7 @@ class _CopyWithImplFragmentMediaMin<TRes>
     Object? chapters = _undefined,
     Object? title = _undefined,
     Object? coverImage = _undefined,
+    Object? bannerImage = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(FragmentMediaMin(
@@ -245,6 +261,9 @@ class _CopyWithImplFragmentMediaMin<TRes>
         coverImage: coverImage == _undefined
             ? _instance.coverImage
             : (coverImage as FragmentMediaMincoverImage?),
+        bannerImage: bannerImage == _undefined
+            ? _instance.bannerImage
+            : (bannerImage as String?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -281,6 +300,7 @@ class _CopyWithStubImplFragmentMediaMin<TRes>
     int? chapters,
     FragmentMediaMintitle? title,
     FragmentMediaMincoverImage? coverImage,
+    String? bannerImage,
     String? $__typename,
   }) =>
       _res;
@@ -428,6 +448,13 @@ const fragmentDefinitionMediaMin = FragmentDefinitionNode(
           selectionSet: null,
         ),
       ]),
+    ),
+    FieldNode(
+      name: NameNode(value: 'bannerImage'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
     ),
     FieldNode(
       name: NameNode(value: '__typename'),
@@ -1524,6 +1551,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     this.chapters,
     this.title,
     this.coverImage,
+    this.bannerImage,
     this.$__typename = 'Media',
     this.nextAiringEpisode,
   });
@@ -1537,6 +1565,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     final l$chapters = json['chapters'];
     final l$title = json['title'];
     final l$coverImage = json['coverImage'];
+    final l$bannerImage = json['bannerImage'];
     final l$$__typename = json['__typename'];
     final l$nextAiringEpisode = json['nextAiringEpisode'];
     return FragmentMediaListmedia(
@@ -1558,6 +1587,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
           ? null
           : FragmentMediaListmediacoverImage.fromJson(
               (l$coverImage as Map<String, dynamic>)),
+      bannerImage: (l$bannerImage as String?),
       $__typename: (l$$__typename as String),
       nextAiringEpisode: l$nextAiringEpisode == null
           ? null
@@ -1581,6 +1611,8 @@ class FragmentMediaListmedia implements FragmentMediaMin {
   final FragmentMediaListmediatitle? title;
 
   final FragmentMediaListmediacoverImage? coverImage;
+
+  final String? bannerImage;
 
   final String $__typename;
 
@@ -1606,6 +1638,8 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     _resultData['title'] = l$title?.toJson();
     final l$coverImage = coverImage;
     _resultData['coverImage'] = l$coverImage?.toJson();
+    final l$bannerImage = bannerImage;
+    _resultData['bannerImage'] = l$bannerImage;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     final l$nextAiringEpisode = nextAiringEpisode;
@@ -1623,6 +1657,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     final l$chapters = chapters;
     final l$title = title;
     final l$coverImage = coverImage;
+    final l$bannerImage = bannerImage;
     final l$$__typename = $__typename;
     final l$nextAiringEpisode = nextAiringEpisode;
     return Object.hashAll([
@@ -1634,6 +1669,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
       l$chapters,
       l$title,
       l$coverImage,
+      l$bannerImage,
       l$$__typename,
       l$nextAiringEpisode,
     ]);
@@ -1688,6 +1724,11 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     if (l$coverImage != lOther$coverImage) {
       return false;
     }
+    final l$bannerImage = bannerImage;
+    final lOther$bannerImage = other.bannerImage;
+    if (l$bannerImage != lOther$bannerImage) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
@@ -1728,6 +1769,7 @@ abstract class CopyWithFragmentMediaListmedia<TRes> {
     int? chapters,
     FragmentMediaListmediatitle? title,
     FragmentMediaListmediacoverImage? coverImage,
+    String? bannerImage,
     String? $__typename,
     FragmentMediaListmedianextAiringEpisode? nextAiringEpisode,
   });
@@ -1758,6 +1800,7 @@ class _CopyWithImplFragmentMediaListmedia<TRes>
     Object? chapters = _undefined,
     Object? title = _undefined,
     Object? coverImage = _undefined,
+    Object? bannerImage = _undefined,
     Object? $__typename = _undefined,
     Object? nextAiringEpisode = _undefined,
   }) =>
@@ -1780,6 +1823,9 @@ class _CopyWithImplFragmentMediaListmedia<TRes>
         coverImage: coverImage == _undefined
             ? _instance.coverImage
             : (coverImage as FragmentMediaListmediacoverImage?),
+        bannerImage: bannerImage == _undefined
+            ? _instance.bannerImage
+            : (bannerImage as String?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -1828,6 +1874,7 @@ class _CopyWithStubImplFragmentMediaListmedia<TRes>
     int? chapters,
     FragmentMediaListmediatitle? title,
     FragmentMediaListmediacoverImage? coverImage,
+    String? bannerImage,
     String? $__typename,
     FragmentMediaListmedianextAiringEpisode? nextAiringEpisode,
   }) =>

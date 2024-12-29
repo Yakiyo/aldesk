@@ -19,6 +19,7 @@ fragment MediaMin on Media {
     medium
     color
   }
+  bannerImage
 }
 
 # List related fragments

@@ -2138,6 +2138,7 @@ class QueryMediaMedia implements FragmentMediaMin {
     this.chapters,
     this.title,
     this.coverImage,
+    this.bannerImage,
     this.$__typename = 'Media',
     this.description,
     this.idMal,
@@ -2150,7 +2151,6 @@ class QueryMediaMedia implements FragmentMediaMin {
     this.source,
     this.hashtag,
     this.updatedAt,
-    this.bannerImage,
     this.genres,
     this.synonyms,
     this.averageScore,
@@ -2194,6 +2194,7 @@ class QueryMediaMedia implements FragmentMediaMin {
     final l$chapters = json['chapters'];
     final l$title = json['title'];
     final l$coverImage = json['coverImage'];
+    final l$bannerImage = json['bannerImage'];
     final l$$__typename = json['__typename'];
     final l$description = json['description'];
     final l$idMal = json['idMal'];
@@ -2206,7 +2207,6 @@ class QueryMediaMedia implements FragmentMediaMin {
     final l$source = json['source'];
     final l$hashtag = json['hashtag'];
     final l$updatedAt = json['updatedAt'];
-    final l$bannerImage = json['bannerImage'];
     final l$genres = json['genres'];
     final l$synonyms = json['synonyms'];
     final l$averageScore = json['averageScore'];
@@ -2257,6 +2257,7 @@ class QueryMediaMedia implements FragmentMediaMin {
           ? null
           : QueryMediaMediacoverImage.fromJson(
               (l$coverImage as Map<String, dynamic>)),
+      bannerImage: (l$bannerImage as String?),
       $__typename: (l$$__typename as String),
       description: (l$description as String?),
       idMal: (l$idMal as int?),
@@ -2273,7 +2274,6 @@ class QueryMediaMedia implements FragmentMediaMin {
           : fromJsonEnumMediaSource((l$source as String)),
       hashtag: (l$hashtag as String?),
       updatedAt: (l$updatedAt as int?),
-      bannerImage: (l$bannerImage as String?),
       genres: (l$genres as List<dynamic>?)?.map((e) => (e as String?)).toList(),
       synonyms:
           (l$synonyms as List<dynamic>?)?.map((e) => (e as String?)).toList(),
@@ -2377,6 +2377,8 @@ class QueryMediaMedia implements FragmentMediaMin {
 
   final QueryMediaMediacoverImage? coverImage;
 
+  final String? bannerImage;
+
   final String $__typename;
 
   final String? description;
@@ -2400,8 +2402,6 @@ class QueryMediaMedia implements FragmentMediaMin {
   final String? hashtag;
 
   final int? updatedAt;
-
-  final String? bannerImage;
 
   final List<String?>? genres;
 
@@ -2487,6 +2487,8 @@ class QueryMediaMedia implements FragmentMediaMin {
     _resultData['title'] = l$title?.toJson();
     final l$coverImage = coverImage;
     _resultData['coverImage'] = l$coverImage?.toJson();
+    final l$bannerImage = bannerImage;
+    _resultData['bannerImage'] = l$bannerImage;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     final l$description = description;
@@ -2513,8 +2515,6 @@ class QueryMediaMedia implements FragmentMediaMin {
     _resultData['hashtag'] = l$hashtag;
     final l$updatedAt = updatedAt;
     _resultData['updatedAt'] = l$updatedAt;
-    final l$bannerImage = bannerImage;
-    _resultData['bannerImage'] = l$bannerImage;
     final l$genres = genres;
     _resultData['genres'] = l$genres?.map((e) => e).toList();
     final l$synonyms = synonyms;
@@ -2594,6 +2594,7 @@ class QueryMediaMedia implements FragmentMediaMin {
     final l$chapters = chapters;
     final l$title = title;
     final l$coverImage = coverImage;
+    final l$bannerImage = bannerImage;
     final l$$__typename = $__typename;
     final l$description = description;
     final l$idMal = idMal;
@@ -2606,7 +2607,6 @@ class QueryMediaMedia implements FragmentMediaMin {
     final l$source = source;
     final l$hashtag = hashtag;
     final l$updatedAt = updatedAt;
-    final l$bannerImage = bannerImage;
     final l$genres = genres;
     final l$synonyms = synonyms;
     final l$averageScore = averageScore;
@@ -2648,6 +2648,7 @@ class QueryMediaMedia implements FragmentMediaMin {
       l$chapters,
       l$title,
       l$coverImage,
+      l$bannerImage,
       l$$__typename,
       l$description,
       l$idMal,
@@ -2660,7 +2661,6 @@ class QueryMediaMedia implements FragmentMediaMin {
       l$source,
       l$hashtag,
       l$updatedAt,
-      l$bannerImage,
       l$genres == null ? null : Object.hashAll(l$genres.map((v) => v)),
       l$synonyms == null ? null : Object.hashAll(l$synonyms.map((v) => v)),
       l$averageScore,
@@ -2748,6 +2748,11 @@ class QueryMediaMedia implements FragmentMediaMin {
     if (l$coverImage != lOther$coverImage) {
       return false;
     }
+    final l$bannerImage = bannerImage;
+    final lOther$bannerImage = other.bannerImage;
+    if (l$bannerImage != lOther$bannerImage) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
@@ -2806,11 +2811,6 @@ class QueryMediaMedia implements FragmentMediaMin {
     final l$updatedAt = updatedAt;
     final lOther$updatedAt = other.updatedAt;
     if (l$updatedAt != lOther$updatedAt) {
-      return false;
-    }
-    final l$bannerImage = bannerImage;
-    final lOther$bannerImage = other.bannerImage;
-    if (l$bannerImage != lOther$bannerImage) {
       return false;
     }
     final l$genres = genres;
@@ -3058,6 +3058,7 @@ abstract class CopyWithQueryMediaMedia<TRes> {
     int? chapters,
     QueryMediaMediatitle? title,
     QueryMediaMediacoverImage? coverImage,
+    String? bannerImage,
     String? $__typename,
     String? description,
     int? idMal,
@@ -3070,7 +3071,6 @@ abstract class CopyWithQueryMediaMedia<TRes> {
     EnumMediaSource? source,
     String? hashtag,
     int? updatedAt,
-    String? bannerImage,
     List<String?>? genres,
     List<String?>? synonyms,
     int? averageScore,
@@ -3159,6 +3159,7 @@ class _CopyWithImplQueryMediaMedia<TRes>
     Object? chapters = _undefined,
     Object? title = _undefined,
     Object? coverImage = _undefined,
+    Object? bannerImage = _undefined,
     Object? $__typename = _undefined,
     Object? description = _undefined,
     Object? idMal = _undefined,
@@ -3171,7 +3172,6 @@ class _CopyWithImplQueryMediaMedia<TRes>
     Object? source = _undefined,
     Object? hashtag = _undefined,
     Object? updatedAt = _undefined,
-    Object? bannerImage = _undefined,
     Object? genres = _undefined,
     Object? synonyms = _undefined,
     Object? averageScore = _undefined,
@@ -3224,6 +3224,9 @@ class _CopyWithImplQueryMediaMedia<TRes>
         coverImage: coverImage == _undefined
             ? _instance.coverImage
             : (coverImage as QueryMediaMediacoverImage?),
+        bannerImage: bannerImage == _undefined
+            ? _instance.bannerImage
+            : (bannerImage as String?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -3253,9 +3256,6 @@ class _CopyWithImplQueryMediaMedia<TRes>
             hashtag == _undefined ? _instance.hashtag : (hashtag as String?),
         updatedAt:
             updatedAt == _undefined ? _instance.updatedAt : (updatedAt as int?),
-        bannerImage: bannerImage == _undefined
-            ? _instance.bannerImage
-            : (bannerImage as String?),
         genres: genres == _undefined
             ? _instance.genres
             : (genres as List<String?>?),
@@ -3522,6 +3522,7 @@ class _CopyWithStubImplQueryMediaMedia<TRes>
     int? chapters,
     QueryMediaMediatitle? title,
     QueryMediaMediacoverImage? coverImage,
+    String? bannerImage,
     String? $__typename,
     String? description,
     int? idMal,
@@ -3534,7 +3535,6 @@ class _CopyWithStubImplQueryMediaMedia<TRes>
     EnumMediaSource? source,
     String? hashtag,
     int? updatedAt,
-    String? bannerImage,
     List<String?>? genres,
     List<String?>? synonyms,
     int? averageScore,
@@ -10405,6 +10405,27 @@ const documentNodeQueryPaginatedMedia = DocumentNode(definitions: [
                 directives: [],
               ),
               FieldNode(
+                name: NameNode(value: 'meanScore'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'favourites'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'genres'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
                 name: NameNode(value: '__typename'),
                 alias: null,
                 arguments: [],
@@ -10453,7 +10474,8 @@ class QueryPaginatedMediaPage {
       media: (l$media as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : FragmentMediaMin.fromJson((e as Map<String, dynamic>)))
+              : QueryPaginatedMediaPagemedia.fromJson(
+                  (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -10461,7 +10483,7 @@ class QueryPaginatedMediaPage {
 
   final QueryPaginatedMediaPagepageInfo? pageInfo;
 
-  final List<FragmentMediaMin?>? media;
+  final List<QueryPaginatedMediaPagemedia?>? media;
 
   final String $__typename;
 
@@ -10546,13 +10568,15 @@ abstract class CopyWithQueryPaginatedMediaPage<TRes> {
 
   TRes call({
     QueryPaginatedMediaPagepageInfo? pageInfo,
-    List<FragmentMediaMin?>? media,
+    List<QueryPaginatedMediaPagemedia?>? media,
     String? $__typename,
   });
   CopyWithQueryPaginatedMediaPagepageInfo<TRes> get pageInfo;
   TRes media(
-      Iterable<FragmentMediaMin?>? Function(
-              Iterable<CopyWithFragmentMediaMin<FragmentMediaMin>?>?)
+      Iterable<QueryPaginatedMediaPagemedia?>? Function(
+              Iterable<
+                  CopyWithQueryPaginatedMediaPagemedia<
+                      QueryPaginatedMediaPagemedia>?>?)
           _fn);
 }
 
@@ -10580,7 +10604,7 @@ class _CopyWithImplQueryPaginatedMediaPage<TRes>
             : (pageInfo as QueryPaginatedMediaPagepageInfo?),
         media: media == _undefined
             ? _instance.media
-            : (media as List<FragmentMediaMin?>?),
+            : (media as List<QueryPaginatedMediaPagemedia?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -10595,13 +10619,15 @@ class _CopyWithImplQueryPaginatedMediaPage<TRes>
   }
 
   TRes media(
-          Iterable<FragmentMediaMin?>? Function(
-                  Iterable<CopyWithFragmentMediaMin<FragmentMediaMin>?>?)
+          Iterable<QueryPaginatedMediaPagemedia?>? Function(
+                  Iterable<
+                      CopyWithQueryPaginatedMediaPagemedia<
+                          QueryPaginatedMediaPagemedia>?>?)
               _fn) =>
       call(
           media: _fn(_instance.media?.map((e) => e == null
               ? null
-              : CopyWithFragmentMediaMin(
+              : CopyWithQueryPaginatedMediaPagemedia(
                   e,
                   (i) => i,
                 )))?.toList());
@@ -10615,7 +10641,7 @@ class _CopyWithStubImplQueryPaginatedMediaPage<TRes>
 
   call({
     QueryPaginatedMediaPagepageInfo? pageInfo,
-    List<FragmentMediaMin?>? media,
+    List<QueryPaginatedMediaPagemedia?>? media,
     String? $__typename,
   }) =>
       _res;
@@ -10821,6 +10847,754 @@ class _CopyWithStubImplQueryPaginatedMediaPagepageInfo<TRes>
     int? currentPage,
     int? lastPage,
     bool? hasNextPage,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class QueryPaginatedMediaPagemedia implements FragmentMediaMin {
+  QueryPaginatedMediaPagemedia({
+    required this.id,
+    this.type,
+    this.format,
+    this.status,
+    this.episodes,
+    this.chapters,
+    this.title,
+    this.coverImage,
+    this.bannerImage,
+    this.$__typename = 'Media',
+    this.meanScore,
+    this.favourites,
+    this.genres,
+  });
+
+  factory QueryPaginatedMediaPagemedia.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$type = json['type'];
+    final l$format = json['format'];
+    final l$status = json['status'];
+    final l$episodes = json['episodes'];
+    final l$chapters = json['chapters'];
+    final l$title = json['title'];
+    final l$coverImage = json['coverImage'];
+    final l$bannerImage = json['bannerImage'];
+    final l$$__typename = json['__typename'];
+    final l$meanScore = json['meanScore'];
+    final l$favourites = json['favourites'];
+    final l$genres = json['genres'];
+    return QueryPaginatedMediaPagemedia(
+      id: (l$id as int),
+      type: l$type == null ? null : fromJsonEnumMediaType((l$type as String)),
+      format: l$format == null
+          ? null
+          : fromJsonEnumMediaFormat((l$format as String)),
+      status: l$status == null
+          ? null
+          : fromJsonEnumMediaStatus((l$status as String)),
+      episodes: (l$episodes as int?),
+      chapters: (l$chapters as int?),
+      title: l$title == null
+          ? null
+          : QueryPaginatedMediaPagemediatitle.fromJson(
+              (l$title as Map<String, dynamic>)),
+      coverImage: l$coverImage == null
+          ? null
+          : QueryPaginatedMediaPagemediacoverImage.fromJson(
+              (l$coverImage as Map<String, dynamic>)),
+      bannerImage: (l$bannerImage as String?),
+      $__typename: (l$$__typename as String),
+      meanScore: (l$meanScore as int?),
+      favourites: (l$favourites as int?),
+      genres: (l$genres as List<dynamic>?)?.map((e) => (e as String?)).toList(),
+    );
+  }
+
+  final int id;
+
+  final EnumMediaType? type;
+
+  final EnumMediaFormat? format;
+
+  final EnumMediaStatus? status;
+
+  final int? episodes;
+
+  final int? chapters;
+
+  final QueryPaginatedMediaPagemediatitle? title;
+
+  final QueryPaginatedMediaPagemediacoverImage? coverImage;
+
+  final String? bannerImage;
+
+  final String $__typename;
+
+  final int? meanScore;
+
+  final int? favourites;
+
+  final List<String?>? genres;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$type = type;
+    _resultData['type'] = l$type == null ? null : toJsonEnumMediaType(l$type);
+    final l$format = format;
+    _resultData['format'] =
+        l$format == null ? null : toJsonEnumMediaFormat(l$format);
+    final l$status = status;
+    _resultData['status'] =
+        l$status == null ? null : toJsonEnumMediaStatus(l$status);
+    final l$episodes = episodes;
+    _resultData['episodes'] = l$episodes;
+    final l$chapters = chapters;
+    _resultData['chapters'] = l$chapters;
+    final l$title = title;
+    _resultData['title'] = l$title?.toJson();
+    final l$coverImage = coverImage;
+    _resultData['coverImage'] = l$coverImage?.toJson();
+    final l$bannerImage = bannerImage;
+    _resultData['bannerImage'] = l$bannerImage;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$meanScore = meanScore;
+    _resultData['meanScore'] = l$meanScore;
+    final l$favourites = favourites;
+    _resultData['favourites'] = l$favourites;
+    final l$genres = genres;
+    _resultData['genres'] = l$genres?.map((e) => e).toList();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$type = type;
+    final l$format = format;
+    final l$status = status;
+    final l$episodes = episodes;
+    final l$chapters = chapters;
+    final l$title = title;
+    final l$coverImage = coverImage;
+    final l$bannerImage = bannerImage;
+    final l$$__typename = $__typename;
+    final l$meanScore = meanScore;
+    final l$favourites = favourites;
+    final l$genres = genres;
+    return Object.hashAll([
+      l$id,
+      l$type,
+      l$format,
+      l$status,
+      l$episodes,
+      l$chapters,
+      l$title,
+      l$coverImage,
+      l$bannerImage,
+      l$$__typename,
+      l$meanScore,
+      l$favourites,
+      l$genres == null ? null : Object.hashAll(l$genres.map((v) => v)),
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryPaginatedMediaPagemedia) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$format = format;
+    final lOther$format = other.format;
+    if (l$format != lOther$format) {
+      return false;
+    }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$episodes = episodes;
+    final lOther$episodes = other.episodes;
+    if (l$episodes != lOther$episodes) {
+      return false;
+    }
+    final l$chapters = chapters;
+    final lOther$chapters = other.chapters;
+    if (l$chapters != lOther$chapters) {
+      return false;
+    }
+    final l$title = title;
+    final lOther$title = other.title;
+    if (l$title != lOther$title) {
+      return false;
+    }
+    final l$coverImage = coverImage;
+    final lOther$coverImage = other.coverImage;
+    if (l$coverImage != lOther$coverImage) {
+      return false;
+    }
+    final l$bannerImage = bannerImage;
+    final lOther$bannerImage = other.bannerImage;
+    if (l$bannerImage != lOther$bannerImage) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    final l$meanScore = meanScore;
+    final lOther$meanScore = other.meanScore;
+    if (l$meanScore != lOther$meanScore) {
+      return false;
+    }
+    final l$favourites = favourites;
+    final lOther$favourites = other.favourites;
+    if (l$favourites != lOther$favourites) {
+      return false;
+    }
+    final l$genres = genres;
+    final lOther$genres = other.genres;
+    if (l$genres != null && lOther$genres != null) {
+      if (l$genres.length != lOther$genres.length) {
+        return false;
+      }
+      for (int i = 0; i < l$genres.length; i++) {
+        final l$genres$entry = l$genres[i];
+        final lOther$genres$entry = lOther$genres[i];
+        if (l$genres$entry != lOther$genres$entry) {
+          return false;
+        }
+      }
+    } else if (l$genres != lOther$genres) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryPaginatedMediaPagemedia
+    on QueryPaginatedMediaPagemedia {
+  CopyWithQueryPaginatedMediaPagemedia<QueryPaginatedMediaPagemedia>
+      get copyWith => CopyWithQueryPaginatedMediaPagemedia(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryPaginatedMediaPagemedia<TRes> {
+  factory CopyWithQueryPaginatedMediaPagemedia(
+    QueryPaginatedMediaPagemedia instance,
+    TRes Function(QueryPaginatedMediaPagemedia) then,
+  ) = _CopyWithImplQueryPaginatedMediaPagemedia;
+
+  factory CopyWithQueryPaginatedMediaPagemedia.stub(TRes res) =
+      _CopyWithStubImplQueryPaginatedMediaPagemedia;
+
+  TRes call({
+    int? id,
+    EnumMediaType? type,
+    EnumMediaFormat? format,
+    EnumMediaStatus? status,
+    int? episodes,
+    int? chapters,
+    QueryPaginatedMediaPagemediatitle? title,
+    QueryPaginatedMediaPagemediacoverImage? coverImage,
+    String? bannerImage,
+    String? $__typename,
+    int? meanScore,
+    int? favourites,
+    List<String?>? genres,
+  });
+  CopyWithQueryPaginatedMediaPagemediatitle<TRes> get title;
+  CopyWithQueryPaginatedMediaPagemediacoverImage<TRes> get coverImage;
+}
+
+class _CopyWithImplQueryPaginatedMediaPagemedia<TRes>
+    implements CopyWithQueryPaginatedMediaPagemedia<TRes> {
+  _CopyWithImplQueryPaginatedMediaPagemedia(
+    this._instance,
+    this._then,
+  );
+
+  final QueryPaginatedMediaPagemedia _instance;
+
+  final TRes Function(QueryPaginatedMediaPagemedia) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? type = _undefined,
+    Object? format = _undefined,
+    Object? status = _undefined,
+    Object? episodes = _undefined,
+    Object? chapters = _undefined,
+    Object? title = _undefined,
+    Object? coverImage = _undefined,
+    Object? bannerImage = _undefined,
+    Object? $__typename = _undefined,
+    Object? meanScore = _undefined,
+    Object? favourites = _undefined,
+    Object? genres = _undefined,
+  }) =>
+      _then(QueryPaginatedMediaPagemedia(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        type: type == _undefined ? _instance.type : (type as EnumMediaType?),
+        format: format == _undefined
+            ? _instance.format
+            : (format as EnumMediaFormat?),
+        status: status == _undefined
+            ? _instance.status
+            : (status as EnumMediaStatus?),
+        episodes:
+            episodes == _undefined ? _instance.episodes : (episodes as int?),
+        chapters:
+            chapters == _undefined ? _instance.chapters : (chapters as int?),
+        title: title == _undefined
+            ? _instance.title
+            : (title as QueryPaginatedMediaPagemediatitle?),
+        coverImage: coverImage == _undefined
+            ? _instance.coverImage
+            : (coverImage as QueryPaginatedMediaPagemediacoverImage?),
+        bannerImage: bannerImage == _undefined
+            ? _instance.bannerImage
+            : (bannerImage as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        meanScore:
+            meanScore == _undefined ? _instance.meanScore : (meanScore as int?),
+        favourites: favourites == _undefined
+            ? _instance.favourites
+            : (favourites as int?),
+        genres: genres == _undefined
+            ? _instance.genres
+            : (genres as List<String?>?),
+      ));
+
+  CopyWithQueryPaginatedMediaPagemediatitle<TRes> get title {
+    final local$title = _instance.title;
+    return local$title == null
+        ? CopyWithQueryPaginatedMediaPagemediatitle.stub(_then(_instance))
+        : CopyWithQueryPaginatedMediaPagemediatitle(
+            local$title, (e) => call(title: e));
+  }
+
+  CopyWithQueryPaginatedMediaPagemediacoverImage<TRes> get coverImage {
+    final local$coverImage = _instance.coverImage;
+    return local$coverImage == null
+        ? CopyWithQueryPaginatedMediaPagemediacoverImage.stub(_then(_instance))
+        : CopyWithQueryPaginatedMediaPagemediacoverImage(
+            local$coverImage, (e) => call(coverImage: e));
+  }
+}
+
+class _CopyWithStubImplQueryPaginatedMediaPagemedia<TRes>
+    implements CopyWithQueryPaginatedMediaPagemedia<TRes> {
+  _CopyWithStubImplQueryPaginatedMediaPagemedia(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    EnumMediaType? type,
+    EnumMediaFormat? format,
+    EnumMediaStatus? status,
+    int? episodes,
+    int? chapters,
+    QueryPaginatedMediaPagemediatitle? title,
+    QueryPaginatedMediaPagemediacoverImage? coverImage,
+    String? bannerImage,
+    String? $__typename,
+    int? meanScore,
+    int? favourites,
+    List<String?>? genres,
+  }) =>
+      _res;
+
+  CopyWithQueryPaginatedMediaPagemediatitle<TRes> get title =>
+      CopyWithQueryPaginatedMediaPagemediatitle.stub(_res);
+
+  CopyWithQueryPaginatedMediaPagemediacoverImage<TRes> get coverImage =>
+      CopyWithQueryPaginatedMediaPagemediacoverImage.stub(_res);
+}
+
+class QueryPaginatedMediaPagemediatitle implements FragmentMediaMintitle {
+  QueryPaginatedMediaPagemediatitle({
+    this.userPreferred,
+    this.romaji,
+    this.english,
+    this.native,
+    this.$__typename = 'MediaTitle',
+  });
+
+  factory QueryPaginatedMediaPagemediatitle.fromJson(
+      Map<String, dynamic> json) {
+    final l$userPreferred = json['userPreferred'];
+    final l$romaji = json['romaji'];
+    final l$english = json['english'];
+    final l$native = json['native'];
+    final l$$__typename = json['__typename'];
+    return QueryPaginatedMediaPagemediatitle(
+      userPreferred: (l$userPreferred as String?),
+      romaji: (l$romaji as String?),
+      english: (l$english as String?),
+      native: (l$native as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? userPreferred;
+
+  final String? romaji;
+
+  final String? english;
+
+  final String? native;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$userPreferred = userPreferred;
+    _resultData['userPreferred'] = l$userPreferred;
+    final l$romaji = romaji;
+    _resultData['romaji'] = l$romaji;
+    final l$english = english;
+    _resultData['english'] = l$english;
+    final l$native = native;
+    _resultData['native'] = l$native;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$userPreferred = userPreferred;
+    final l$romaji = romaji;
+    final l$english = english;
+    final l$native = native;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$userPreferred,
+      l$romaji,
+      l$english,
+      l$native,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryPaginatedMediaPagemediatitle) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$userPreferred = userPreferred;
+    final lOther$userPreferred = other.userPreferred;
+    if (l$userPreferred != lOther$userPreferred) {
+      return false;
+    }
+    final l$romaji = romaji;
+    final lOther$romaji = other.romaji;
+    if (l$romaji != lOther$romaji) {
+      return false;
+    }
+    final l$english = english;
+    final lOther$english = other.english;
+    if (l$english != lOther$english) {
+      return false;
+    }
+    final l$native = native;
+    final lOther$native = other.native;
+    if (l$native != lOther$native) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryPaginatedMediaPagemediatitle
+    on QueryPaginatedMediaPagemediatitle {
+  CopyWithQueryPaginatedMediaPagemediatitle<QueryPaginatedMediaPagemediatitle>
+      get copyWith => CopyWithQueryPaginatedMediaPagemediatitle(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryPaginatedMediaPagemediatitle<TRes> {
+  factory CopyWithQueryPaginatedMediaPagemediatitle(
+    QueryPaginatedMediaPagemediatitle instance,
+    TRes Function(QueryPaginatedMediaPagemediatitle) then,
+  ) = _CopyWithImplQueryPaginatedMediaPagemediatitle;
+
+  factory CopyWithQueryPaginatedMediaPagemediatitle.stub(TRes res) =
+      _CopyWithStubImplQueryPaginatedMediaPagemediatitle;
+
+  TRes call({
+    String? userPreferred,
+    String? romaji,
+    String? english,
+    String? native,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryPaginatedMediaPagemediatitle<TRes>
+    implements CopyWithQueryPaginatedMediaPagemediatitle<TRes> {
+  _CopyWithImplQueryPaginatedMediaPagemediatitle(
+    this._instance,
+    this._then,
+  );
+
+  final QueryPaginatedMediaPagemediatitle _instance;
+
+  final TRes Function(QueryPaginatedMediaPagemediatitle) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? userPreferred = _undefined,
+    Object? romaji = _undefined,
+    Object? english = _undefined,
+    Object? native = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryPaginatedMediaPagemediatitle(
+        userPreferred: userPreferred == _undefined
+            ? _instance.userPreferred
+            : (userPreferred as String?),
+        romaji: romaji == _undefined ? _instance.romaji : (romaji as String?),
+        english:
+            english == _undefined ? _instance.english : (english as String?),
+        native: native == _undefined ? _instance.native : (native as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryPaginatedMediaPagemediatitle<TRes>
+    implements CopyWithQueryPaginatedMediaPagemediatitle<TRes> {
+  _CopyWithStubImplQueryPaginatedMediaPagemediatitle(this._res);
+
+  TRes _res;
+
+  call({
+    String? userPreferred,
+    String? romaji,
+    String? english,
+    String? native,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class QueryPaginatedMediaPagemediacoverImage
+    implements FragmentMediaMincoverImage {
+  QueryPaginatedMediaPagemediacoverImage({
+    this.extraLarge,
+    this.large,
+    this.medium,
+    this.color,
+    this.$__typename = 'MediaCoverImage',
+  });
+
+  factory QueryPaginatedMediaPagemediacoverImage.fromJson(
+      Map<String, dynamic> json) {
+    final l$extraLarge = json['extraLarge'];
+    final l$large = json['large'];
+    final l$medium = json['medium'];
+    final l$color = json['color'];
+    final l$$__typename = json['__typename'];
+    return QueryPaginatedMediaPagemediacoverImage(
+      extraLarge: (l$extraLarge as String?),
+      large: (l$large as String?),
+      medium: (l$medium as String?),
+      color: (l$color as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? extraLarge;
+
+  final String? large;
+
+  final String? medium;
+
+  final String? color;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$extraLarge = extraLarge;
+    _resultData['extraLarge'] = l$extraLarge;
+    final l$large = large;
+    _resultData['large'] = l$large;
+    final l$medium = medium;
+    _resultData['medium'] = l$medium;
+    final l$color = color;
+    _resultData['color'] = l$color;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$extraLarge = extraLarge;
+    final l$large = large;
+    final l$medium = medium;
+    final l$color = color;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$extraLarge,
+      l$large,
+      l$medium,
+      l$color,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is QueryPaginatedMediaPagemediacoverImage) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$extraLarge = extraLarge;
+    final lOther$extraLarge = other.extraLarge;
+    if (l$extraLarge != lOther$extraLarge) {
+      return false;
+    }
+    final l$large = large;
+    final lOther$large = other.large;
+    if (l$large != lOther$large) {
+      return false;
+    }
+    final l$medium = medium;
+    final lOther$medium = other.medium;
+    if (l$medium != lOther$medium) {
+      return false;
+    }
+    final l$color = color;
+    final lOther$color = other.color;
+    if (l$color != lOther$color) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryPaginatedMediaPagemediacoverImage
+    on QueryPaginatedMediaPagemediacoverImage {
+  CopyWithQueryPaginatedMediaPagemediacoverImage<
+          QueryPaginatedMediaPagemediacoverImage>
+      get copyWith => CopyWithQueryPaginatedMediaPagemediacoverImage(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryPaginatedMediaPagemediacoverImage<TRes> {
+  factory CopyWithQueryPaginatedMediaPagemediacoverImage(
+    QueryPaginatedMediaPagemediacoverImage instance,
+    TRes Function(QueryPaginatedMediaPagemediacoverImage) then,
+  ) = _CopyWithImplQueryPaginatedMediaPagemediacoverImage;
+
+  factory CopyWithQueryPaginatedMediaPagemediacoverImage.stub(TRes res) =
+      _CopyWithStubImplQueryPaginatedMediaPagemediacoverImage;
+
+  TRes call({
+    String? extraLarge,
+    String? large,
+    String? medium,
+    String? color,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryPaginatedMediaPagemediacoverImage<TRes>
+    implements CopyWithQueryPaginatedMediaPagemediacoverImage<TRes> {
+  _CopyWithImplQueryPaginatedMediaPagemediacoverImage(
+    this._instance,
+    this._then,
+  );
+
+  final QueryPaginatedMediaPagemediacoverImage _instance;
+
+  final TRes Function(QueryPaginatedMediaPagemediacoverImage) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? extraLarge = _undefined,
+    Object? large = _undefined,
+    Object? medium = _undefined,
+    Object? color = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryPaginatedMediaPagemediacoverImage(
+        extraLarge: extraLarge == _undefined
+            ? _instance.extraLarge
+            : (extraLarge as String?),
+        large: large == _undefined ? _instance.large : (large as String?),
+        medium: medium == _undefined ? _instance.medium : (medium as String?),
+        color: color == _undefined ? _instance.color : (color as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryPaginatedMediaPagemediacoverImage<TRes>
+    implements CopyWithQueryPaginatedMediaPagemediacoverImage<TRes> {
+  _CopyWithStubImplQueryPaginatedMediaPagemediacoverImage(this._res);
+
+  TRes _res;
+
+  call({
+    String? extraLarge,
+    String? large,
+    String? medium,
+    String? color,
     String? $__typename,
   }) =>
       _res;
