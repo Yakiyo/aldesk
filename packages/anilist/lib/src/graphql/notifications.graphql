@@ -1,7 +1,6 @@
 # Retrieve notifications of authenticated user.
-# The query itself is not fully implemented, since there are
-# a lot of subtypes. Most of them have their id property and can
-# can be individually retrieved using it.
+# This is the query used by the anilist website as of 29th December, 2024.
+# If new notification types are added, this query will need to be updated.
 query Notifications(
   $page: Int
   $perPage: Int
@@ -9,165 +8,292 @@ query Notifications(
   $typeIn: [NotificationType]
 ) {
   Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      perPage
+      currentPage
+      lastPage
+      hasNextPage
+    }
     notifications(
-      resetNotificationCount: $resetNotificationCount
       type_in: $typeIn
+      resetNotificationCount: $resetNotificationCount
     ) {
       ... on AiringNotification {
         id
         type
-        animeId
         episode
         contexts
-        createdAt
         media {
-          ...MediaMin
+          id
+          type
+          bannerImage
+          title {
+            userPreferred
+          }
+          coverImage {
+            large
+          }
         }
-      }
-      ... on FollowingNotification {
-        id
-        type
-        context
-        createdAt
-        user {
-          ...UserMin
-        }
-      }
-      ... on ActivityMessageNotification {
-        id
-        userId
-        type
-        # refetch activity details with id if needed
-        activityId
-        context
-        createdAt
-        user {
-          ...UserMin
-        }
-      }
-      ... on ActivityMentionNotification {
-        id
-        userId
-        type
-        activityId
-        context
-        createdAt
-        user {
-          ...UserMin
-        }
-      }
-      ... on ActivityReplyNotification {
-        id
-        type
-        activityId
-        context
-        createdAt
-        user {
-          ...UserMin
-        }
-      }
-      ... on ActivityReplySubscribedNotification {
-        id
-        type
-        activityId
-        context
-        createdAt
-        user {
-          ...UserMin
-        }
-      }
-      ... on ActivityLikeNotification {
-        id
-        type
-        activityId
-        context
-        createdAt
-        user {
-          ...UserMin
-        }
-      }
-      ... on ActivityReplyLikeNotification {
-        id
-        type
-        activityId
-        context
-        createdAt
-        user {
-          ...UserMin
-        }
-      }
-      ... on ThreadCommentMentionNotification {
-        id
-        userId
-        type
-        commentId
-        context
-        createdAt
-      }
-      ... on ThreadCommentReplyNotification {
-        id
-        userId
-        type
-        commentId
-        context
-        createdAt
-      }
-      ... on ThreadCommentSubscribedNotification {
-        id
-        userId
-        type
-        commentId
-        context
-        createdAt
-      }
-      ... on ThreadCommentLikeNotification {
-        id
-        userId
-        type
-        commentId
-        context
-        createdAt
-      }
-      ... on ThreadLikeNotification {
-        id
-        userId
-        type
-        threadId
-        context
         createdAt
       }
       ... on RelatedMediaAdditionNotification {
         id
         type
-        mediaId
         context
+        media {
+          id
+          type
+          bannerImage
+          title {
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on FollowingNotification {
+        id
+        type
+        context
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ActivityMessageNotification {
+        id
+        type
+        context
+        activityId
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ActivityMentionNotification {
+        id
+        type
+        context
+        activityId
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ActivityReplyNotification {
+        id
+        type
+        context
+        activityId
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ActivityReplySubscribedNotification {
+        id
+        type
+        context
+        activityId
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ActivityLikeNotification {
+        id
+        type
+        context
+        activityId
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ActivityReplyLikeNotification {
+        id
+        type
+        context
+        activityId
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ThreadCommentMentionNotification {
+        id
+        type
+        context
+        commentId
+        thread {
+          id
+          title
+        }
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ThreadCommentReplyNotification {
+        id
+        type
+        context
+        commentId
+        thread {
+          id
+          title
+        }
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ThreadCommentSubscribedNotification {
+        id
+        type
+        context
+        commentId
+        thread {
+          id
+          title
+        }
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ThreadCommentLikeNotification {
+        id
+        type
+        context
+        commentId
+        thread {
+          id
+          title
+        }
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
+        createdAt
+      }
+      ... on ThreadLikeNotification {
+        id
+        type
+        context
+        thread {
+          id
+          title
+        }
+        user {
+          id
+          name
+          avatar {
+            large
+          }
+        }
         createdAt
       }
       ... on MediaDataChangeNotification {
         id
         type
-        mediaId
         context
+        media {
+          id
+          type
+          bannerImage
+          title {
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
         reason
         createdAt
       }
       ... on MediaMergeNotification {
         id
         type
-        mediaId
-        deletedMediaTitles
         context
+        media {
+          id
+          type
+          bannerImage
+          title {
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
+        deletedMediaTitles
         reason
         createdAt
       }
       ... on MediaDeletionNotification {
         id
         type
-        deletedMediaTitle
         context
+        deletedMediaTitle
         reason
         createdAt
       }
     }
+  }
+}
+
+
+# Get unread notification count of authenticated user.
+query UnreadNotificationCount {
+  Viewer {
+    id
+    unreadNotificationCount
   }
 }
