@@ -90,11 +90,20 @@ class _NotifTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final count = ref.watch(unreadNotificationProvider).when(
+          data: (data) => data,
+          loading: () => 0,
+          error: (error, stackTrace) {
+            logger.e("Error fetching unread notification count",
+                error: error, stackTrace: stackTrace);
+            return 0;
+          },
+        );
     return ListTile(
       title: const Text('Notifications'),
       leading: Badge.count(
-        count: 0,
-        isLabelVisible: false,
+        count: count,
+        isLabelVisible: count > 0 ? true : false,
         child: const Icon(Icons.notifications_outlined),
       ),
       onTap: () {
