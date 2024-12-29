@@ -1,4 +1,5 @@
 import 'package:anilist/anilist.dart';
+import 'package:anilist/models.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -13,6 +14,12 @@ Token? token(Ref ref) {
   // update the packages token whenever app's one changes
   registerToken(token?.token);
   return token;
+}
+
+@riverpod
+Future<FragmentUserMin> authUser(Ref ref) {
+  ref.watch(tokenProvider);
+  return viewer();
 }
 
 class Token {

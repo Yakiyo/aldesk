@@ -27,7 +27,7 @@ final themeDataProvider = AutoDisposeProvider<(ThemeData, ThemeData)>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef ThemeDataRef = AutoDisposeProviderRef<(ThemeData, ThemeData)>;
-String _$themeManagerHash() => r'e0389718239a5a8e5bca94e1ffa95468b9ff0a37';
+String _$themeManagerHash() => r'0a7426bea0668a0b938e260ba74007e76af18b3f';
 
 /// See also [ThemeManager].
 @ProviderFor(ThemeManager)
@@ -42,7 +42,7 @@ final themeManagerProvider =
 );
 
 typedef _$ThemeManager = AutoDisposeNotifier<ThemeMode>;
-String _$userColorHash() => r'897d4acd2d59dfa597db06fafccaa548ef557537';
+String _$userColorHash() => r'563ae35fac0adf935c03ff7c9d19c8791c911a52';
 
 /// See also [UserColor].
 @ProviderFor(UserColor)
