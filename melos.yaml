@@ -27,7 +27,7 @@ scripts:
       scope: "anilist"
 
   gen:
-    exec: dart run build_runner build
+    exec: dart run build_runner build -d
     packageFilters:
       dependsOn: "build_runner"
 
