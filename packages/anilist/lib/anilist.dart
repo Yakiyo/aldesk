@@ -7,6 +7,7 @@ export 'src/anilist.dart';
 export 'src/lists.dart';
 export 'src/media.dart';
 export 'src/notifications.dart';
+export 'src/reviews.dart';
 export 'src/types.dart';
 export 'src/user.dart';
 export 'src/utils.dart';

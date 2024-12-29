@@ -1,3 +1,23 @@
+fragment Review on Review {
+  id
+  summary
+  body(asHtml: $asHtml)
+  rating
+  ratingAmount
+  userRating
+  score
+  private
+  siteUrl
+  createdAt
+  updatedAt
+  user {
+    ...UserMin
+  }
+  media {
+    ...MediaMin
+  }
+}
+
 # Gets a page of reviews
 query PaginatedReviews(
   $page: Int = 1
@@ -24,19 +44,14 @@ query PaginatedReviews(
       mediaType: $mediaType
       sort: $sort
     ) {
-      id
-      summary
-      body(asHtml: $asHtml)
-      rating
-      ratingAmount
-      userRating
-      score
-      user {
-        ...UserMin
-      }
-      media {
-        ...MediaMin
-      }
+      ...Review
     }
+  }
+}
+
+# Gets a single review by id
+query Review($id: Int, $asHtml: Boolean) {
+  Review(id: $id) {
+    ...Review
   }
 }
