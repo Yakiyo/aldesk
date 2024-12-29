@@ -65,6 +65,7 @@ class SideNavBar extends StatelessWidget {
               ),
             ],
           ),
+          const _NotifTile(),
           ListTile(
             title: const Text('Settings'),
             leading: const Icon(Icons.settings_outlined),
@@ -80,6 +81,25 @@ class SideNavBar extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class _NotifTile extends ConsumerWidget {
+  const _NotifTile();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ListTile(
+      title: const Text('Notifications'),
+      leading: Badge.count(
+        count: 0,
+        isLabelVisible: false,
+        child: const Icon(Icons.notifications_outlined),
+      ),
+      onTap: () {
+        context.go('/notifications');
+      },
     );
   }
 }

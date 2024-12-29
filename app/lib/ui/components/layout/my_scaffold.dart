@@ -16,7 +16,7 @@ class MyScaffold extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(
-            width: 200,
+            width: 250,
             child: Material(
               elevation: 10,
               child: SideNavBar(),
