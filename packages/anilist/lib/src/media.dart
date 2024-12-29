@@ -104,8 +104,8 @@ ReturnType<QueryPaginatedMediaPage> paginatedMedia({
 }
 
 /// Get trending media entries.
-/// 
-/// [type] is optional and can be used to filter by media type, otherwise it 
+///
+/// [type] is optional and can be used to filter by media type, otherwise it
 /// returns entries of both anime and manga
 ReturnType<QueryPaginatedMediaPage> trendingMedia(
     {int page = 1, int perPage = 10, EnumMediaType? type}) {
@@ -117,8 +117,8 @@ ReturnType<QueryPaginatedMediaPage> trendingMedia(
 }
 
 /// Get currently popular media entries.
-/// 
-/// [type] is optional and can be used to filter by media type, otherwise it 
+///
+/// [type] is optional and can be used to filter by media type, otherwise it
 /// returns entries of both anime and manga
 ReturnType<QueryPaginatedMediaPage> popularMedia(
     {int page = 1, int perPage = 10, EnumMediaType? type}) {
@@ -130,14 +130,57 @@ ReturnType<QueryPaginatedMediaPage> popularMedia(
 }
 
 /// Get newly added media entries.
-/// 
-/// [type] is optional and can be used to filter by media type, otherwise it 
+///
+/// [type] is optional and can be used to filter by media type, otherwise it
 /// returns entries of both anime and manga
 ReturnType<QueryPaginatedMediaPage> newMedia(
     {int page = 1, int perPage = 10, EnumMediaType? type}) {
   return paginatedMedia(
+      page: page, perPage: perPage, type: type, sort: [EnumMediaSort.ID_DESC]);
+}
+
+/// Get medias of a particular season of a year.
+///
+/// [type] is optional and can be used to filter by media type, otherwise it
+/// returns entries of both anime and manga
+ReturnType<QueryPaginatedMediaPage> seasonMedia(
+    int year, EnumMediaSeason season,
+    {int page = 1,
+    int perPage = 10,
+    EnumMediaType? type,
+    List<EnumMediaSort> sort = const [EnumMediaSort.POPULARITY_DESC]}) {
+  return paginatedMedia(
       page: page,
       perPage: perPage,
       type: type,
-      sort: [EnumMediaSort.ID_DESC]);
+      season: season,
+      seasonYear: year,
+      sort: sort);
+}
+
+/// Get medias of the current season.
+/// 
+/// A wrapper around [seasonMedia]
+ReturnType<QueryPaginatedMediaPage> currentSeasonMedia(
+    {int page = 1, int perPage = 10, EnumMediaType? type}) {
+  final (year, season) = currentSeason();
+  return seasonMedia(year, season, page: page, perPage: perPage, type: type);
+}
+
+/// Get medias of the next season.
+/// 
+/// A wrapper around [seasonMedia]
+ReturnType<QueryPaginatedMediaPage> nextSeasonMedia(
+    {int page = 1, int perPage = 10, EnumMediaType? type}) {
+  final (year, season) = nextSeason();
+  return seasonMedia(year, season, page: page, perPage: perPage, type: type);
+}
+
+/// Get medias of the previous season.
+/// 
+/// A wrapper around [seasonMedia]
+ReturnType<QueryPaginatedMediaPage> previousSeasonMedia(
+    {int page = 1, int perPage = 10, EnumMediaType? type}) {
+  final (year, season) = previousSeason();
+  return seasonMedia(year, season, page: page, perPage: perPage, type: type);
 }
