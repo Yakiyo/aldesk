@@ -1,0 +1,42 @@
+# Gets a page of reviews
+query PaginatedReviews(
+  $page: Int = 1
+  $perPage: Int = 4
+  $reviewsId: Int
+  $mediaId: Int
+  $userId: Int
+  $mediaType: MediaType
+  $sort: [ReviewSort] = [ID_DESC]
+  $asHtml: Boolean = false
+) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      perPage
+      currentPage
+      lastPage
+      hasNextPage
+    }
+    reviews(
+      id: $reviewsId
+      mediaId: $mediaId
+      userId: $userId
+      mediaType: $mediaType
+      sort: $sort
+    ) {
+      id
+      summary
+      body(asHtml: $asHtml)
+      rating
+      ratingAmount
+      userRating
+      score
+      user {
+        ...UserMin
+      }
+      media {
+        ...MediaMin
+      }
+    }
+  }
+}
