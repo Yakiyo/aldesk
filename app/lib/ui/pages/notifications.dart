@@ -125,7 +125,8 @@ class _NotificationPageBodyState extends State<_NotificationPageBody> {
                   border: (index < widget.initialUnreadCount)
                       ? Border(
                           right: BorderSide(
-                              color: Theme.of(context).primaryColor, width: 2))
+                              color: Theme.of(context).colorScheme.primary,
+                              width: 2))
                       : null,
                   borderRadius: BorderRadius.circular(8),
                 ),
@@ -147,7 +148,11 @@ class _NotificationPageBodyState extends State<_NotificationPageBody> {
                     if (item.image == null)
                       const SizedBox(width: 100, height: 100),
                     Expanded(
-                      child: Text(item.context),
+                      child: RichText(
+                        text: item.contextSpan(context),
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     Text(timeDifference(item.createdAt)),
                   ],
