@@ -43,12 +43,12 @@ Color _colorFromStr(String str) {
 
 // Helper functions that update values to shared preferences and invalidates the providers
 
-void updateTheme(ThemeMode mode, Ref ref) {
+void updateTheme(ThemeMode mode, WidgetRef ref) {
   pref.setString('theme', mode.name);
   ref.invalidate(themeModeProvider);
 }
 
-void updatePrimary(Color color, Ref ref) {
+void updatePrimary(Color color, WidgetRef ref) {
   pref.setString('primary', [color.r, color.g, color.b, color.a].join(','));
   ref.invalidate(primaryColorProvider);
 }
