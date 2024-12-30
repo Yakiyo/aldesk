@@ -1,5 +1,6 @@
 import 'package:aldesk/core/auth/token.dart';
 import 'package:aldesk/ui/pages/login.dart';
+import 'package:aldesk/ui/pages/notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -28,10 +29,15 @@ GoRouter router(Ref ref) {
     GoRoute(
         path: "/library/manga", builder: (context, state) => const DummyPage()),
     GoRoute(
-        path: "/notifications", builder: (context, state) => const DummyPage()),
+        path: "/notifications",
+        builder: (context, state) => const NotificationsPage()),
     GoRoute(
         path: '/media/:id',
         builder: (context, state) =>
             MediaPage(id: int.parse(state.pathParameters['id']!))),
+    GoRoute(
+        path: '/thread/:id', builder: (context, state) => const DummyPage()),
+    GoRoute(
+        path: '/activity/:id', builder: (context, state) => const DummyPage()),
   ]);
 }
