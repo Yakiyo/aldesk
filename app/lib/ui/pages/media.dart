@@ -1,3 +1,4 @@
+import 'package:aldesk/ui/components/layout/my_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class MediaPage extends StatelessWidget {
@@ -6,6 +7,6 @@ class MediaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const MyScaffold(body: Placeholder());
   }
 }
