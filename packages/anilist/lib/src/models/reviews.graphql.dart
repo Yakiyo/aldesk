@@ -42,8 +42,7 @@ class VariablesFragmentReview {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesFragmentReview) ||
-        runtimeType != other.runtimeType) {
+    if (other is! VariablesFragmentReview || runtimeType != other.runtimeType) {
       return false;
     }
     final l$asHtml = asHtml;
@@ -262,7 +261,7 @@ class FragmentReview {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentReview) || runtimeType != other.runtimeType) {
+    if (other is! FragmentReview || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -758,7 +757,7 @@ class VariablesQueryPaginatedReviews {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryPaginatedReviews) ||
+    if (other is! VariablesQueryPaginatedReviews ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -991,7 +990,7 @@ class QueryPaginatedReviews {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedReviews) || runtimeType != other.runtimeType) {
+    if (other is! QueryPaginatedReviews || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -1354,7 +1353,7 @@ class QueryPaginatedReviewsPage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedReviewsPage) ||
+    if (other is! QueryPaginatedReviewsPage ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1568,7 +1567,7 @@ class QueryPaginatedReviewsPagepageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedReviewsPagepageInfo) ||
+    if (other is! QueryPaginatedReviewsPagepageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1744,7 +1743,7 @@ class VariablesQueryReview {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryReview) || runtimeType != other.runtimeType) {
+    if (other is! VariablesQueryReview || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1874,7 +1873,7 @@ class QueryReview {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryReview) || runtimeType != other.runtimeType) {
+    if (other is! QueryReview || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Review = Review;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-
 final _random = Random();
 
 /// A loading state indicator widget that shows an ever rotating kaomoji

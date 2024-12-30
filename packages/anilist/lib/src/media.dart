@@ -159,7 +159,7 @@ ReturnType<QueryPaginatedMediaPage> seasonMedia(
 }
 
 /// Get medias of the current season.
-/// 
+///
 /// A wrapper around [seasonMedia]
 ReturnType<QueryPaginatedMediaPage> currentSeasonMedia(
     {int page = 1, int perPage = 10, EnumMediaType? type}) {
@@ -168,7 +168,7 @@ ReturnType<QueryPaginatedMediaPage> currentSeasonMedia(
 }
 
 /// Get medias of the next season.
-/// 
+///
 /// A wrapper around [seasonMedia]
 ReturnType<QueryPaginatedMediaPage> nextSeasonMedia(
     {int page = 1, int perPage = 10, EnumMediaType? type}) {
@@ -177,7 +177,7 @@ ReturnType<QueryPaginatedMediaPage> nextSeasonMedia(
 }
 
 /// Get medias of the previous season.
-/// 
+///
 /// A wrapper around [seasonMedia]
 ReturnType<QueryPaginatedMediaPage> previousSeasonMedia(
     {int page = 1, int perPage = 10, EnumMediaType? type}) {

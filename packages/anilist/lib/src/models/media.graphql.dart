@@ -112,8 +112,7 @@ class VariablesQueryMediaMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryMediaMin) ||
-        runtimeType != other.runtimeType) {
+    if (other is! VariablesQueryMediaMin || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -299,7 +298,7 @@ class QueryMediaMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMin) || runtimeType != other.runtimeType) {
+    if (other is! QueryMediaMin || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Media = Media;
@@ -615,7 +614,7 @@ class VariablesQueryMedia {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryMedia) || runtimeType != other.runtimeType) {
+    if (other is! VariablesQueryMedia || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -801,7 +800,7 @@ class QueryMedia {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMedia) || runtimeType != other.runtimeType) {
+    if (other is! QueryMedia || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Media = Media;
@@ -2705,7 +2704,7 @@ class QueryMediaMedia implements FragmentMediaMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMedia) || runtimeType != other.runtimeType) {
+    if (other is! QueryMediaMedia || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -3692,7 +3691,7 @@ class QueryMediaMediatitle implements FragmentMediaMintitle {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediatitle) || runtimeType != other.runtimeType) {
+    if (other is! QueryMediaMediatitle || runtimeType != other.runtimeType) {
       return false;
     }
     final l$userPreferred = userPreferred;
@@ -3870,7 +3869,7 @@ class QueryMediaMediacoverImage implements FragmentMediaMincoverImage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediacoverImage) ||
+    if (other is! QueryMediaMediacoverImage ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4040,7 +4039,7 @@ class QueryMediaMediastartDate {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastartDate) ||
+    if (other is! QueryMediaMediastartDate ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4198,8 +4197,7 @@ class QueryMediaMediaendDate {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediaendDate) ||
-        runtimeType != other.runtimeType) {
+    if (other is! QueryMediaMediaendDate || runtimeType != other.runtimeType) {
       return false;
     }
     final l$year = year;
@@ -4356,8 +4354,7 @@ class QueryMediaMediatrailer {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediatrailer) ||
-        runtimeType != other.runtimeType) {
+    if (other is! QueryMediaMediatrailer || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -4516,7 +4513,7 @@ class QueryMediaMediatags {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediatags) || runtimeType != other.runtimeType) {
+    if (other is! QueryMediaMediatags || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -4686,7 +4683,7 @@ class QueryMediaMedianextAiringEpisode {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMedianextAiringEpisode) ||
+    if (other is! QueryMediaMedianextAiringEpisode ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4870,7 +4867,7 @@ class QueryMediaMediaexternalLinks {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediaexternalLinks) ||
+    if (other is! QueryMediaMediaexternalLinks ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -5027,8 +5024,7 @@ class QueryMediaMediareviews {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediareviews) ||
-        runtimeType != other.runtimeType) {
+    if (other is! QueryMediaMediareviews || runtimeType != other.runtimeType) {
       return false;
     }
     final l$nodes = nodes;
@@ -5202,7 +5198,7 @@ class QueryMediaMediareviewsnodes {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediareviewsnodes) ||
+    if (other is! QueryMediaMediareviewsnodes ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -5371,7 +5367,7 @@ class QueryMediaMediastats {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastats) || runtimeType != other.runtimeType) {
+    if (other is! QueryMediaMediastats || runtimeType != other.runtimeType) {
       return false;
     }
     final l$scoreDistribution = scoreDistribution;
@@ -5585,7 +5581,7 @@ class QueryMediaMediastatsscoreDistribution {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastatsscoreDistribution) ||
+    if (other is! QueryMediaMediastatsscoreDistribution ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -5731,7 +5727,7 @@ class QueryMediaMediastatsstatusDistribution {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastatsstatusDistribution) ||
+    if (other is! QueryMediaMediastatsstatusDistribution ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -5871,7 +5867,7 @@ class QueryMediaMediacharacters {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediacharacters) ||
+    if (other is! QueryMediaMediacharacters ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -6061,7 +6057,7 @@ class QueryMediaMediacharactersedges {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediacharactersedges) ||
+    if (other is! QueryMediaMediacharactersedges ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -6227,7 +6223,7 @@ class QueryMediaMediacharactersedgesnode {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediacharactersedgesnode) ||
+    if (other is! QueryMediaMediacharactersedgesnode ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -6354,7 +6350,7 @@ class QueryMediaMediastaff {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastaff) || runtimeType != other.runtimeType) {
+    if (other is! QueryMediaMediastaff || runtimeType != other.runtimeType) {
       return false;
     }
     final l$edges = edges;
@@ -6540,7 +6536,7 @@ class QueryMediaMediastaffedges {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastaffedges) ||
+    if (other is! QueryMediaMediastaffedges ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -6706,7 +6702,7 @@ class QueryMediaMediastaffedgesnode {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastaffedgesnode) ||
+    if (other is! QueryMediaMediastaffedgesnode ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -6834,7 +6830,7 @@ class QueryMediaMediarelations {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediarelations) ||
+    if (other is! QueryMediaMediarelations ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -7015,7 +7011,7 @@ class QueryMediaMediarelationsedges {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediarelationsedges) ||
+    if (other is! QueryMediaMediarelationsedges ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -7173,7 +7169,7 @@ class QueryMediaMediarelationsedgesnode {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediarelationsedgesnode) ||
+    if (other is! QueryMediaMediarelationsedgesnode ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -7301,7 +7297,7 @@ class QueryMediaMediaairingSchedule {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediaairingSchedule) ||
+    if (other is! QueryMediaMediaairingSchedule ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -7496,7 +7492,7 @@ class QueryMediaMediaairingSchedulenodes {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediaairingSchedulenodes) ||
+    if (other is! QueryMediaMediaairingSchedulenodes ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -7669,7 +7665,7 @@ class QueryMediaMediarecommendations {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediarecommendations) ||
+    if (other is! QueryMediaMediarecommendations ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -7875,7 +7871,7 @@ class QueryMediaMediarecommendationsnodes {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediarecommendationsnodes) ||
+    if (other is! QueryMediaMediarecommendationsnodes ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -8072,7 +8068,7 @@ class QueryMediaMediarecommendationsnodesmediaRecommendation {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediarecommendationsnodesmediaRecommendation) ||
+    if (other is! QueryMediaMediarecommendationsnodesmediaRecommendation ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -8214,7 +8210,7 @@ class QueryMediaMediarecommendationsnodesuser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediarecommendationsnodesuser) ||
+    if (other is! QueryMediaMediarecommendationsnodesuser ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -8354,8 +8350,7 @@ class QueryMediaMediastudios {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastudios) ||
-        runtimeType != other.runtimeType) {
+    if (other is! QueryMediaMediastudios || runtimeType != other.runtimeType) {
       return false;
     }
     final l$edges = edges;
@@ -8532,7 +8527,7 @@ class QueryMediaMediastudiosedges {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastudiosedges) ||
+    if (other is! QueryMediaMediastudiosedges ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -8698,7 +8693,7 @@ class QueryMediaMediastudiosedgesnode {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastudiosedgesnode) ||
+    if (other is! QueryMediaMediastudiosedgesnode ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -8859,7 +8854,7 @@ class QueryMediaMediastreamingEpisodes {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediastreamingEpisodes) ||
+    if (other is! QueryMediaMediastreamingEpisodes ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -9050,7 +9045,7 @@ class QueryMediaMediamediaListEntry {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaMediamediaListEntry) ||
+    if (other is! QueryMediaMediamediaListEntry ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -9476,7 +9471,7 @@ class VariablesQueryPaginatedMedia {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryPaginatedMedia) ||
+    if (other is! VariablesQueryPaginatedMedia ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -9959,7 +9954,7 @@ class QueryPaginatedMedia {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedMedia) || runtimeType != other.runtimeType) {
+    if (other is! QueryPaginatedMedia || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -10515,8 +10510,7 @@ class QueryPaginatedMediaPage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedMediaPage) ||
-        runtimeType != other.runtimeType) {
+    if (other is! QueryPaginatedMediaPage || runtimeType != other.runtimeType) {
       return false;
     }
     final l$pageInfo = pageInfo;
@@ -10731,7 +10725,7 @@ class QueryPaginatedMediaPagepageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedMediaPagepageInfo) ||
+    if (other is! QueryPaginatedMediaPagepageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -11006,7 +11000,7 @@ class QueryPaginatedMediaPagemedia implements FragmentMediaMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedMediaPagemedia) ||
+    if (other is! QueryPaginatedMediaPagemedia ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -11308,7 +11302,7 @@ class QueryPaginatedMediaPagemediatitle implements FragmentMediaMintitle {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedMediaPagemediatitle) ||
+    if (other is! QueryPaginatedMediaPagemediatitle ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -11490,7 +11484,7 @@ class QueryPaginatedMediaPagemediacoverImage
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedMediaPagemediacoverImage) ||
+    if (other is! QueryPaginatedMediaPagemediacoverImage ||
         runtimeType != other.runtimeType) {
       return false;
     }

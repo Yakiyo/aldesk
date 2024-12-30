@@ -65,7 +65,7 @@ class InputAiringScheduleInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is InputAiringScheduleInput) ||
+    if (other is! InputAiringScheduleInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -223,7 +223,7 @@ class InputAniChartHighlightInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is InputAniChartHighlightInput) ||
+    if (other is! InputAniChartHighlightInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -421,8 +421,7 @@ class InputCharacterNameInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is InputCharacterNameInput) ||
-        runtimeType != other.runtimeType) {
+    if (other is! InputCharacterNameInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$first = first;
@@ -664,7 +663,7 @@ class InputFuzzyDateInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is InputFuzzyDateInput) || runtimeType != other.runtimeType) {
+    if (other is! InputFuzzyDateInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$year = year;
@@ -821,7 +820,7 @@ class InputListActivityOptionInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is InputListActivityOptionInput) ||
+    if (other is! InputListActivityOptionInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -963,7 +962,7 @@ class InputMediaExternalLinkInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is InputMediaExternalLinkInput) ||
+    if (other is! InputMediaExternalLinkInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1173,7 +1172,7 @@ class InputMediaListOptionsInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is InputMediaListOptionsInput) ||
+    if (other is! InputMediaListOptionsInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1444,7 +1443,7 @@ class InputMediaTitleInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is InputMediaTitleInput) || runtimeType != other.runtimeType) {
+    if (other is! InputMediaTitleInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$romaji = romaji;
@@ -1601,7 +1600,7 @@ class InputNotificationOptionInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is InputNotificationOptionInput) ||
+    if (other is! InputNotificationOptionInput ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1780,7 +1779,7 @@ class InputStaffNameInput {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is InputStaffNameInput) || runtimeType != other.runtimeType) {
+    if (other is! InputStaffNameInput || runtimeType != other.runtimeType) {
       return false;
     }
     final l$first = first;

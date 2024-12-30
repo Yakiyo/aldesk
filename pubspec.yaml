@@ -1,6 +1,9 @@
 name: aldesk_monorepo
+publish_to: 'none'
+
+workspace:
+  - packages/anilist
+  - app/
 
 environment:
-  sdk: ^3.5.4
-dev_dependencies:
-  melos: ^6.2.0
+  sdk: ^3.6.0

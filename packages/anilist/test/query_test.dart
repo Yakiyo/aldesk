@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 void main() {
   test("media min test", () async {
-    final res = await mediaMin(search: "Naruto");
+    final res = await mediaMin(search: "Naruto", type: EnumMediaType.ANIME);
 
     final media = res;
     assert(media.title!.english!.toLowerCase() == "naruto");

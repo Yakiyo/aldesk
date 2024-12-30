@@ -135,7 +135,7 @@ class VariablesQueryMediaListCollection {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryMediaListCollection) ||
+    if (other is! VariablesQueryMediaListCollection ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -366,7 +366,7 @@ class QueryMediaListCollection {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaListCollection) ||
+    if (other is! QueryMediaListCollection ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -765,7 +765,7 @@ class QueryMediaListCollectionMediaListCollection {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaListCollectionMediaListCollection) ||
+    if (other is! QueryMediaListCollectionMediaListCollection ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -961,7 +961,7 @@ class QueryMediaListCollectionMediaListCollectionuser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaListCollectionMediaListCollectionuser) ||
+    if (other is! QueryMediaListCollectionMediaListCollectionuser ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1121,7 +1121,7 @@ class QueryMediaListCollectionMediaListCollectionlists {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaListCollectionMediaListCollectionlists) ||
+    if (other is! QueryMediaListCollectionMediaListCollectionlists ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1344,8 +1344,7 @@ class VariablesQueryMediaList {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryMediaList) ||
-        runtimeType != other.runtimeType) {
+    if (other is! VariablesQueryMediaList || runtimeType != other.runtimeType) {
       return false;
     }
     final l$mediaListId = mediaListId;
@@ -1505,7 +1504,7 @@ class QueryMediaList {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMediaList) || runtimeType != other.runtimeType) {
+    if (other is! QueryMediaList || runtimeType != other.runtimeType) {
       return false;
     }
     final l$MediaList = MediaList;
@@ -1813,7 +1812,7 @@ class VariablesQueryPaginatedMediaList {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryPaginatedMediaList) ||
+    if (other is! VariablesQueryPaginatedMediaList ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2031,8 +2030,7 @@ class QueryPaginatedMediaList {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedMediaList) ||
-        runtimeType != other.runtimeType) {
+    if (other is! QueryPaginatedMediaList || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -2384,7 +2382,7 @@ class QueryPaginatedMediaListPage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedMediaListPage) ||
+    if (other is! QueryPaginatedMediaListPage ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2598,7 +2596,7 @@ class QueryPaginatedMediaListPagepageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryPaginatedMediaListPagepageInfo) ||
+    if (other is! QueryPaginatedMediaListPagepageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2895,7 +2893,7 @@ class VariablesMutationSaveMediaListEntry {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesMutationSaveMediaListEntry) ||
+    if (other is! VariablesMutationSaveMediaListEntry ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3161,7 +3159,7 @@ class MutationSaveMediaListEntry {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is MutationSaveMediaListEntry) ||
+    if (other is! MutationSaveMediaListEntry ||
         runtimeType != other.runtimeType) {
       return false;
     }
