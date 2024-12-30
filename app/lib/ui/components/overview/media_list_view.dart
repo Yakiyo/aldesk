@@ -27,7 +27,7 @@ class MediaListView extends StatelessWidget {
             if (seeMore != null)
               IconButton(
                 onPressed: () {
-                  context.push(seeMore!);
+                  context.go(seeMore!);
                 },
                 icon: const Icon(Icons.open_in_new),
               )
@@ -63,7 +63,7 @@ class _MediaEntryState extends State<_MediaEntry> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print("tapped");
+        context.go('/media/${widget.media.id}');
       },
       onHover: (value) => setState(() => _scaleEnd = value ? 1.1 : 1.0),
       child: TweenAnimationBuilder(
