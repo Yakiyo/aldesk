@@ -23,7 +23,7 @@ final packageInfoProvider = AutoDisposeFutureProvider<PackageInfo>.internal(
 // ignore: unused_element
 typedef PackageInfoRef = AutoDisposeFutureProviderRef<PackageInfo>;
 String _$unreadNotificationHash() =>
-    r'afa62b4df730ff72966ffb270029fc8fdc2e5793';
+    r'cbbafaff5fb712cff7a638d983e135eaaf5fd920';
 
 /// See also [unreadNotification].
 @ProviderFor(unreadNotification)

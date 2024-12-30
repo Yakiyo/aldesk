@@ -3,14 +3,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/router.dart';
-import 'core/storage.dart';
-import 'core/themes.dart';
-import 'ui/theme/theme.dart';
+import 'ui/themes/themes.dart';
 
 void main() async {
   await initialize();
@@ -19,7 +17,8 @@ void main() async {
 
 Future<void> initialize() async {
   final i = GetIt.instance;
-  i.registerSingleton(await initStorage());
+  i.registerSingleton(await SharedPreferencesWithCache.create(
+      cacheOptions: const SharedPreferencesWithCacheOptions()));
   final logDir =
       await getApplicationDocumentsDirectory().then((d) => '${d.path}/logs');
   i.registerLazySingleton(() => Logger(
@@ -36,16 +35,16 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeManagerProvider);
+    final mode = ref.watch(themeModeProvider);
     final router = ref.watch(routerProvider);
-    final themes = MaterialTheme(GoogleFonts.robotoTextTheme());
+    final (light, dark) = ref.watch(themeDataProvider);
     return MaterialApp.router(
       title: 'Aldesk',
       routerConfig: router,
       debugShowCheckedModeBanner: false,
-      themeMode: themeMode,
-      theme: themes.light(),
-      darkTheme: themes.dark(),
+      themeMode: mode,
+      theme: light,
+      darkTheme: dark,
       scrollBehavior: const MyScrollBehaviour(),
     );
   }
