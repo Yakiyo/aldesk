@@ -6,6 +6,8 @@ version: 0.1.0
 environment:
   sdk: ^3.6.0
 
+resolution: workspace
+
 dependencies:
   dart_jsonwebtoken: ^2.14.2
   flutter:
