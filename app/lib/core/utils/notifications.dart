@@ -215,7 +215,10 @@ class NotificationUnion {
               text: item.text,
               style: TextStyle(color: Theme.of(context).colorScheme.primary))
         else
-          TextSpan(text: item.toString(), style: TextStyle(color: Theme.of(context).textTheme.bodyLarge?.color))
+          TextSpan(
+              text: item.toString(),
+              style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyLarge?.color))
     ]);
   }
 }

@@ -35,7 +35,6 @@ Color primaryColor(Ref ref) {
   return (lightTheme(primary), darkTheme(primary));
 }
 
-
 Color _colorFromStr(String str) {
   final [red, green, blue, alpha] = str.split(',').map(double.parse).toList();
   return Color.from(red: red, green: green, blue: blue, alpha: alpha);
