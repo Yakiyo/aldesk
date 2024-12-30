@@ -6,6 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../ui/pages/dummy_page.dart';
 import '../ui/pages/home.dart';
+import '../ui/pages/media.dart';
 import '../ui/pages/settings.dart';
 
 part 'router.g.dart';
@@ -28,5 +29,9 @@ GoRouter router(Ref ref) {
         path: "/library/manga", builder: (context, state) => const DummyPage()),
     GoRoute(
         path: "/notifications", builder: (context, state) => const DummyPage()),
+    GoRoute(
+        path: '/media/:id',
+        builder: (context, state) =>
+            MediaPage(id: int.parse(state.pathParameters['id']!))),
   ]);
 }
