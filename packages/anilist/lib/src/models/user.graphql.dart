@@ -57,7 +57,7 @@ class VariablesQueryUser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryUser) || runtimeType != other.runtimeType) {
+    if (other is! VariablesQueryUser || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -187,7 +187,7 @@ class QueryUser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUser) || runtimeType != other.runtimeType) {
+    if (other is! QueryUser || runtimeType != other.runtimeType) {
       return false;
     }
     final l$User = User;
@@ -514,7 +514,7 @@ class QueryUserUser
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserUser) || runtimeType != other.runtimeType) {
+    if (other is! QueryUserUser || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -782,7 +782,7 @@ class QueryUserUseravatar implements FragmentUserMinavatar {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserUseravatar) || runtimeType != other.runtimeType) {
+    if (other is! QueryUserUseravatar || runtimeType != other.runtimeType) {
       return false;
     }
     final l$large = large;
@@ -983,7 +983,7 @@ class QueryUserUseroptions implements FragmentUserSettingsoptions {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserUseroptions) || runtimeType != other.runtimeType) {
+    if (other is! QueryUserUseroptions || runtimeType != other.runtimeType) {
       return false;
     }
     final l$titleLanguage = titleLanguage;
@@ -1220,7 +1220,7 @@ class QueryUserUsermediaListOptions
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserUsermediaListOptions) ||
+    if (other is! QueryUserUsermediaListOptions ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1453,7 +1453,7 @@ class QueryUserUsermediaListOptionsanimeList
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserUsermediaListOptionsanimeList) ||
+    if (other is! QueryUserUsermediaListOptionsanimeList ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1711,7 +1711,7 @@ class QueryUserUsermediaListOptionsmangaList
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserUsermediaListOptionsmangaList) ||
+    if (other is! QueryUserUsermediaListOptionsmangaList ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1929,7 +1929,7 @@ class VariablesQueryUserMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryUserMin) || runtimeType != other.runtimeType) {
+    if (other is! VariablesQueryUserMin || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -2059,7 +2059,7 @@ class QueryUserMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserMin) || runtimeType != other.runtimeType) {
+    if (other is! QueryUserMin || runtimeType != other.runtimeType) {
       return false;
     }
     final l$User = User;
@@ -2255,7 +2255,7 @@ class QueryViewer {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryViewer) || runtimeType != other.runtimeType) {
+    if (other is! QueryViewer || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Viewer = Viewer;
@@ -2435,7 +2435,7 @@ class VariablesQueryUserStatisticsMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryUserStatisticsMin) ||
+    if (other is! VariablesQueryUserStatisticsMin ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2567,8 +2567,7 @@ class QueryUserStatisticsMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserStatisticsMin) ||
-        runtimeType != other.runtimeType) {
+    if (other is! QueryUserStatisticsMin || runtimeType != other.runtimeType) {
       return false;
     }
     final l$User = User;
@@ -2820,7 +2819,7 @@ class QueryUserStatisticsMinUser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserStatisticsMinUser) ||
+    if (other is! QueryUserStatisticsMinUser ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2971,7 +2970,7 @@ class QueryUserStatisticsMinUserstatistics {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryUserStatisticsMinUserstatistics) ||
+    if (other is! QueryUserStatisticsMinUserstatistics ||
         runtimeType != other.runtimeType) {
       return false;
     }

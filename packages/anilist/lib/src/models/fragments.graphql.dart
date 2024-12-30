@@ -127,7 +127,7 @@ class FragmentMediaMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaMin) || runtimeType != other.runtimeType) {
+    if (other is! FragmentMediaMin || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -539,7 +539,7 @@ class FragmentMediaMintitle {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaMintitle) || runtimeType != other.runtimeType) {
+    if (other is! FragmentMediaMintitle || runtimeType != other.runtimeType) {
       return false;
     }
     final l$userPreferred = userPreferred;
@@ -717,7 +717,7 @@ class FragmentMediaMincoverImage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaMincoverImage) ||
+    if (other is! FragmentMediaMincoverImage ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1015,7 +1015,7 @@ class FragmentMediaList {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaList) || runtimeType != other.runtimeType) {
+    if (other is! FragmentMediaList || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1680,8 +1680,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaListmedia) ||
-        runtimeType != other.runtimeType) {
+    if (other is! FragmentMediaListmedia || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1960,7 +1959,7 @@ class FragmentMediaListmediatitle implements FragmentMediaMintitle {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaListmediatitle) ||
+    if (other is! FragmentMediaListmediatitle ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2140,7 +2139,7 @@ class FragmentMediaListmediacoverImage implements FragmentMediaMincoverImage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaListmediacoverImage) ||
+    if (other is! FragmentMediaListmediacoverImage ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2329,7 +2328,7 @@ class FragmentMediaListmedianextAiringEpisode {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaListmedianextAiringEpisode) ||
+    if (other is! FragmentMediaListmedianextAiringEpisode ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2516,7 +2515,7 @@ class FragmentMediaListstartedAt {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaListstartedAt) ||
+    if (other is! FragmentMediaListstartedAt ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2675,7 +2674,7 @@ class FragmentMediaListcompletedAt {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMediaListcompletedAt) ||
+    if (other is! FragmentMediaListcompletedAt ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2836,7 +2835,7 @@ class FragmentUserMin {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserMin) || runtimeType != other.runtimeType) {
+    if (other is! FragmentUserMin || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -3064,7 +3063,7 @@ class FragmentUserMinavatar {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserMinavatar) || runtimeType != other.runtimeType) {
+    if (other is! FragmentUserMinavatar || runtimeType != other.runtimeType) {
       return false;
     }
     final l$large = large;
@@ -3212,7 +3211,7 @@ class FragmentUserSocials {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSocials) || runtimeType != other.runtimeType) {
+    if (other is! FragmentUserSocials || runtimeType != other.runtimeType) {
       return false;
     }
     final l$isFollowing = isFollowing;
@@ -3415,7 +3414,7 @@ class FragmentUserSettings {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSettings) || runtimeType != other.runtimeType) {
+    if (other is! FragmentUserSettings || runtimeType != other.runtimeType) {
       return false;
     }
     final l$options = options;
@@ -3866,7 +3865,7 @@ class FragmentUserSettingsoptions {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSettingsoptions) ||
+    if (other is! FragmentUserSettingsoptions ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4105,7 +4104,7 @@ class FragmentUserSettingsmediaListOptions {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSettingsmediaListOptions) ||
+    if (other is! FragmentUserSettingsmediaListOptions ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4340,7 +4339,7 @@ class FragmentUserSettingsmediaListOptionsanimeList {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSettingsmediaListOptionsanimeList) ||
+    if (other is! FragmentUserSettingsmediaListOptionsanimeList ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4597,7 +4596,7 @@ class FragmentUserSettingsmediaListOptionsmangaList {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserSettingsmediaListOptionsmangaList) ||
+    if (other is! FragmentUserSettingsmediaListOptionsmangaList ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4871,8 +4870,7 @@ class FragmentUserStatistics {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserStatistics) ||
-        runtimeType != other.runtimeType) {
+    if (other is! FragmentUserStatistics || runtimeType != other.runtimeType) {
       return false;
     }
     final l$count = count;
@@ -5264,7 +5262,7 @@ class FragmentUserStatisticsgenres {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentUserStatisticsgenres) ||
+    if (other is! FragmentUserStatisticsgenres ||
         runtimeType != other.runtimeType) {
       return false;
     }

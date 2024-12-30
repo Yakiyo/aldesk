@@ -168,7 +168,7 @@ class FragmentListActivity {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentListActivity) || runtimeType != other.runtimeType) {
+    if (other is! FragmentListActivity || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -681,7 +681,7 @@ class FragmentTextActivity {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentTextActivity) || runtimeType != other.runtimeType) {
+    if (other is! FragmentTextActivity || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1141,8 +1141,7 @@ class FragmentMessageActivity {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentMessageActivity) ||
-        runtimeType != other.runtimeType) {
+    if (other is! FragmentMessageActivity || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1577,7 +1576,7 @@ class FragmentActivityReply {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is FragmentActivityReply) || runtimeType != other.runtimeType) {
+    if (other is! FragmentActivityReply || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1906,7 +1905,7 @@ class VariablesQueryActivities {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryActivities) ||
+    if (other is! VariablesQueryActivities ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2114,7 +2113,7 @@ class QueryActivities {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivities) || runtimeType != other.runtimeType) {
+    if (other is! QueryActivities || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -2474,7 +2473,7 @@ class QueryActivitiesPage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivitiesPage) || runtimeType != other.runtimeType) {
+    if (other is! QueryActivitiesPage || runtimeType != other.runtimeType) {
       return false;
     }
     final l$pageInfo = pageInfo;
@@ -2689,7 +2688,7 @@ class QueryActivitiesPagepageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivitiesPagepageInfo) ||
+    if (other is! QueryActivitiesPagepageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2851,7 +2850,7 @@ class QueryActivitiesPageactivities {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivitiesPageactivities) ||
+    if (other is! QueryActivitiesPageactivities ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3113,7 +3112,7 @@ class QueryActivitiesPageactivitiesTextActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivitiesPageactivitiesTextActivity) ||
+    if (other is! QueryActivitiesPageactivitiesTextActivity ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3472,7 +3471,7 @@ class QueryActivitiesPageactivitiesListActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivitiesPageactivitiesListActivity) ||
+    if (other is! QueryActivitiesPageactivitiesListActivity ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3862,7 +3861,7 @@ class QueryActivitiesPageactivitiesMessageActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivitiesPageactivitiesMessageActivity) ||
+    if (other is! QueryActivitiesPageactivitiesMessageActivity ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4116,7 +4115,7 @@ class VariablesQueryActivityReplies {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryActivityReplies) ||
+    if (other is! VariablesQueryActivityReplies ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4223,7 +4222,7 @@ class QueryActivityReplies {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivityReplies) || runtimeType != other.runtimeType) {
+    if (other is! QueryActivityReplies || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Activity = Activity;
@@ -4514,7 +4513,7 @@ class QueryActivityRepliesActivity {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivityRepliesActivity) ||
+    if (other is! QueryActivityRepliesActivity ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4682,7 +4681,7 @@ class QueryActivityRepliesActivityTextActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivityRepliesActivityTextActivity) ||
+    if (other is! QueryActivityRepliesActivityTextActivity ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -4844,7 +4843,7 @@ class QueryActivityRepliesActivityListActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivityRepliesActivityListActivity) ||
+    if (other is! QueryActivityRepliesActivityListActivity ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -5006,7 +5005,7 @@ class QueryActivityRepliesActivityMessageActivity
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryActivityRepliesActivityMessageActivity) ||
+    if (other is! QueryActivityRepliesActivityMessageActivity ||
         runtimeType != other.runtimeType) {
       return false;
     }

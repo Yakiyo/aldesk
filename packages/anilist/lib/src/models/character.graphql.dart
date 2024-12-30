@@ -75,8 +75,7 @@ class VariablesQueryCharacter {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryCharacter) ||
-        runtimeType != other.runtimeType) {
+    if (other is! VariablesQueryCharacter || runtimeType != other.runtimeType) {
       return false;
     }
     final l$characterId = characterId;
@@ -237,7 +236,7 @@ class QueryCharacter {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryCharacter) || runtimeType != other.runtimeType) {
+    if (other is! QueryCharacter || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Character = Character;
@@ -825,8 +824,7 @@ class QueryCharacterCharacter {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryCharacterCharacter) ||
-        runtimeType != other.runtimeType) {
+    if (other is! QueryCharacterCharacter || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1167,7 +1165,7 @@ class QueryCharacterCharactername {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryCharacterCharactername) ||
+    if (other is! QueryCharacterCharactername ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1363,7 +1361,7 @@ class QueryCharacterCharacterimage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryCharacterCharacterimage) ||
+    if (other is! QueryCharacterCharacterimage ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1514,7 +1512,7 @@ class QueryCharacterCharacterdateOfBirth {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryCharacterCharacterdateOfBirth) ||
+    if (other is! QueryCharacterCharacterdateOfBirth ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1660,7 +1658,7 @@ class QueryCharacterCharactermedia {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryCharacterCharactermedia) ||
+    if (other is! QueryCharacterCharactermedia ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1843,7 +1841,7 @@ class QueryCharacterCharactermediaedges {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryCharacterCharactermediaedges) ||
+    if (other is! QueryCharacterCharactermediaedges ||
         runtimeType != other.runtimeType) {
       return false;
     }

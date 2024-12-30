@@ -109,7 +109,7 @@ class VariablesQueryThreads {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryThreads) || runtimeType != other.runtimeType) {
+    if (other is! VariablesQueryThreads || runtimeType != other.runtimeType) {
       return false;
     }
     final l$page = page;
@@ -312,7 +312,7 @@ class QueryThreads {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreads) || runtimeType != other.runtimeType) {
+    if (other is! QueryThreads || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Page = Page;
@@ -801,7 +801,7 @@ class QueryThreadsPage {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadsPage) || runtimeType != other.runtimeType) {
+    if (other is! QueryThreadsPage || runtimeType != other.runtimeType) {
       return false;
     }
     final l$pageInfo = pageInfo;
@@ -1015,7 +1015,7 @@ class QueryThreadsPagepageInfo {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadsPagepageInfo) ||
+    if (other is! QueryThreadsPagepageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1285,8 +1285,7 @@ class QueryThreadsPagethreads {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadsPagethreads) ||
-        runtimeType != other.runtimeType) {
+    if (other is! QueryThreadsPagethreads || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1606,7 +1605,7 @@ class QueryThreadsPagethreadscategories {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadsPagethreadscategories) ||
+    if (other is! QueryThreadsPagethreadscategories ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1753,7 +1752,7 @@ class QueryThreadsPagethreadsmediaCategories {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadsPagethreadsmediaCategories) ||
+    if (other is! QueryThreadsPagethreadsmediaCategories ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1902,7 +1901,7 @@ class QueryThreadsPagethreadsmediaCategoriestitle {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadsPagethreadsmediaCategoriestitle) ||
+    if (other is! QueryThreadsPagethreadsmediaCategoriestitle ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2052,7 +2051,7 @@ class VariablesQueryThread {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryThread) || runtimeType != other.runtimeType) {
+    if (other is! VariablesQueryThread || runtimeType != other.runtimeType) {
       return false;
     }
     final l$threadId = threadId;
@@ -2197,7 +2196,7 @@ class QueryThread {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThread) || runtimeType != other.runtimeType) {
+    if (other is! QueryThread || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Thread = Thread;
@@ -2833,7 +2832,7 @@ class QueryThreadThread {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadThread) || runtimeType != other.runtimeType) {
+    if (other is! QueryThreadThread || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -3268,8 +3267,7 @@ class QueryThreadThreadlikes {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadThreadlikes) ||
-        runtimeType != other.runtimeType) {
+    if (other is! QueryThreadThreadlikes || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -3399,7 +3397,7 @@ class QueryThreadThreadcategories {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadThreadcategories) ||
+    if (other is! QueryThreadThreadcategories ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3545,7 +3543,7 @@ class QueryThreadThreadmediaCategories {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadThreadmediaCategories) ||
+    if (other is! QueryThreadThreadmediaCategories ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -3692,7 +3690,7 @@ class QueryThreadThreadmediaCategoriestitle {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryThreadThreadmediaCategoriestitle) ||
+    if (other is! QueryThreadThreadmediaCategoriestitle ||
         runtimeType != other.runtimeType) {
       return false;
     }

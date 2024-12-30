@@ -48,7 +48,7 @@ class VariablesMutationToggleLike {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesMutationToggleLike) ||
+    if (other is! VariablesMutationToggleLike ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -177,7 +177,7 @@ class MutationToggleLike {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is MutationToggleLike) || runtimeType != other.runtimeType) {
+    if (other is! MutationToggleLike || runtimeType != other.runtimeType) {
       return false;
     }
     final l$ToggleLike = ToggleLike;
@@ -379,7 +379,7 @@ class MutationToggleLikeToggleLike {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is MutationToggleLikeToggleLike) ||
+    if (other is! MutationToggleLikeToggleLike ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -479,8 +479,7 @@ class VariablesQueryMdToHtml {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is VariablesQueryMdToHtml) ||
-        runtimeType != other.runtimeType) {
+    if (other is! VariablesQueryMdToHtml || runtimeType != other.runtimeType) {
       return false;
     }
     final l$markdown = markdown;
@@ -585,7 +584,7 @@ class QueryMdToHtml {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMdToHtml) || runtimeType != other.runtimeType) {
+    if (other is! QueryMdToHtml || runtimeType != other.runtimeType) {
       return false;
     }
     final l$Markdown = Markdown;
@@ -772,7 +771,7 @@ class QueryMdToHtmlMarkdown {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is QueryMdToHtmlMarkdown) || runtimeType != other.runtimeType) {
+    if (other is! QueryMdToHtmlMarkdown || runtimeType != other.runtimeType) {
       return false;
     }
     final l$html = html;
