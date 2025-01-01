@@ -27,7 +27,7 @@ class ReviewListView extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 200,
+          height: 210,
           child: ListView.builder(
             padding: const EdgeInsets.only(right: 10),
             itemCount: reviews.length,
@@ -67,7 +67,7 @@ class ReviewEntry extends StatelessWidget {
               Image.network(
                 _coverImage!,
                 width: 120,
-                height: 190,
+                height: 210,
                 fit: BoxFit.cover,
               ),
             if (_coverImage == null) const SizedBox(width: 210, height: 190),
@@ -81,7 +81,7 @@ class ReviewEntry extends StatelessWidget {
                 children: [
                   Text(
                       "Review of ${review.media?.title?.userPreferred ?? "<unknown>"} by ${review.user?.name ?? "<unknown>"}",
-                      maxLines: 4),
+                      maxLines: 3),
                   const SizedBox(height: 5),
                   Text(
                     review.summary ?? "<no summary>",
