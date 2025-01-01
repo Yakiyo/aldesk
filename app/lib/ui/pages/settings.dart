@@ -1,3 +1,4 @@
+import 'package:aldesk/core/utils/misc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -30,6 +31,7 @@ class SettingsPageBody extends ConsumerWidget {
       return const Center(child: CircularProgressIndicator());
     }
     final token = ref.watch(tokenProvider)!;
+    final theme = ref.watch(themeModeProvider);
     final viewer = value.asData!.value;
     final style = DefaultTextStyle.of(context).style;
     return SingleChildScrollView(
@@ -58,7 +60,8 @@ class SettingsPageBody extends ConsumerWidget {
               const TextSpan(text: "Issued at: "),
               TextSpan(
                   text: "${token.iat.day}/${token.iat.month}/${token.iat.year}",
-                  style: TextStyle(color: Theme.of(context).colorScheme.primary)),
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.primary)),
             ]),
           ),
           RichText(
@@ -80,7 +83,8 @@ class SettingsPageBody extends ConsumerWidget {
             style: Theme.of(context).textTheme.displayMedium,
           ),
           const Divider(),
-          const Text("Change ur primary color by pressing one of the boxes below"),
+          const Text(
+              "Change ur primary color by pressing one of the boxes below"),
           Row(
             spacing: 5,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -98,6 +102,28 @@ class SettingsPageBody extends ConsumerWidget {
                     color: color,
                   ),
                 )
+            ],
+          ),
+          const Text("App Theme"),
+          Column(
+            
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (final mode in ThemeMode.values)
+                ListTile(
+                  dense: true,
+                  leading: Radio(
+                    value: mode,
+                    groupValue: theme,
+                    onChanged: (value) {
+                      if (value == null) return;
+                      updateTheme(value, ref);
+                    },
+                  ),
+                  title: Text(mode.name.capitalize()),
+                ),
             ],
           )
         ],
