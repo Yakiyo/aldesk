@@ -39,5 +39,6 @@ GoRouter router(Ref ref) {
         path: '/thread/:id', builder: (context, state) => const DummyPage()),
     GoRoute(
         path: '/activity/:id', builder: (context, state) => const DummyPage()),
+    GoRoute(path: '/reviews', builder: (context, state) => const DummyPage()),
   ]);
 }
