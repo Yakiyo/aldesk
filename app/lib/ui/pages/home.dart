@@ -72,7 +72,6 @@ class _HomePageState extends ConsumerState<HomePage> {
               ),
               builder: (context, value) => ReviewListView(reviews: value),
             ),
-
             const SizedBox(height: 50),
           ],
         ),

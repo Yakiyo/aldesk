@@ -107,7 +107,6 @@ class SettingsPageBody extends ConsumerWidget {
           ),
           const Text("App Theme"),
           Column(
-            
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
