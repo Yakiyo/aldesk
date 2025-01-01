@@ -126,7 +126,7 @@ class _NotificationPageBodyState extends State<_NotificationPageBody> {
                       ? Border(
                           right: BorderSide(
                               color: Theme.of(context).colorScheme.primary,
-                              width: 2))
+                              width: 5))
                       : null,
                   borderRadius: BorderRadius.circular(8),
                 ),
@@ -138,6 +138,7 @@ class _NotificationPageBodyState extends State<_NotificationPageBody> {
                   children: [
                     if (item.image != null)
                       ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
                           clipBehavior: Clip.hardEdge,
                           child: Image.network(
                             item.image!,
