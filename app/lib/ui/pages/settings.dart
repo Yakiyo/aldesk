@@ -1,4 +1,5 @@
 import 'package:aldesk/core/utils/misc.dart';
+import 'package:aldesk/ui/components/misc/kaomoji.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -28,7 +29,7 @@ class SettingsPageBody extends ConsumerWidget {
     final value = ref.watch(authUserProvider);
 
     if (!value.hasValue) {
-      return const Center(child: CircularProgressIndicator());
+      return const Center(child: KaomojiLoader());
     }
     final token = ref.watch(tokenProvider)!;
     final theme = ref.watch(themeModeProvider);

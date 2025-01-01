@@ -42,7 +42,8 @@ class _KaomojiLoaderState extends State<KaomojiLoader>
             turns: _animation,
             child: Text(
               emoji,
-              style: const TextStyle(color: Colors.lightBlue, fontSize: 18),
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary, fontSize: 18),
             )),
       ),
     );
