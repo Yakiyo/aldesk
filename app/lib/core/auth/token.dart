@@ -16,7 +16,7 @@ Token? token(Ref ref) {
   return token;
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 Future<FragmentUserMin> authUser(Ref ref) {
   ref.watch(tokenProvider);
   return viewer();

@@ -28,6 +28,11 @@ ThemeData lightTheme(Color primary) {
       displayColor: primary,
       bodyColor: Colors.black,
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(primary),
+      foregroundColor: const WidgetStatePropertyAll(Colors.black),
+    )),
     brightness: Brightness.light,
     colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.light,
@@ -48,6 +53,11 @@ ThemeData darkTheme(Color primary) {
       displayColor: primary,
       bodyColor: Colors.white70,
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(primary),
+      foregroundColor: const WidgetStatePropertyAll(Colors.white),
+    )),
     brightness: Brightness.dark,
     colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.dark,

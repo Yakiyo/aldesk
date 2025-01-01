@@ -38,7 +38,7 @@ final primaryColorProvider = AutoDisposeProvider<Color>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef PrimaryColorRef = AutoDisposeProviderRef<Color>;
-String _$themeDataHash() => r'6835e0add85980c72a67bd819dc170a44babf872';
+String _$themeDataHash() => r'dba0248080a48728266f9de0657f3e9b6ffe2ff0';
 
 /// See also [themeData].
 @ProviderFor(themeData)
