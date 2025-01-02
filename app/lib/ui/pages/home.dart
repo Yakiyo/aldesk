@@ -6,6 +6,7 @@ import '../components/layout/my_scaffold.dart';
 import '../components/misc/async_widget.dart';
 import '../components/overview/media_list_view.dart';
 import '../components/overview/review_list_view.dart';
+import '../components/overview/threads_grid_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,6 +17,7 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(left: 10),
         child: Column(
+          spacing: 20,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
@@ -47,6 +49,13 @@ class HomePage extends StatelessWidget {
               return AsyncWidgetConsumer(
                 value: reviews,
                 builder: (context, value) => ReviewListView(reviews: value),
+              );
+            }),
+            Consumer(builder: (context, ref, child) {
+              final threads = ref.watch(recentThreadsProvider);
+              return AsyncWidgetConsumer(
+                value: threads,
+                builder: (context, value) => ThreadsGridView(threads: value),
               );
             }),
             const SizedBox(height: 50),

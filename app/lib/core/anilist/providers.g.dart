@@ -7,7 +7,7 @@ part of 'providers.dart';
 // **************************************************************************
 
 String _$unreadNotificationHash() =>
-    r'7f68a37ffd1a338ac6a162b4365978f8b66ac83a';
+    r'9f49c37819fc780edfbd90789f3aecc90a1f824a';
 
 /// See also [unreadNotification].
 @ProviderFor(unreadNotification)
@@ -24,7 +24,7 @@ final unreadNotificationProvider = FutureProvider<int>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef UnreadNotificationRef = FutureProviderRef<int>;
-String _$trendingMediaItemHash() => r'70a81dedd8c7170a601a397bce9cfab30dfeaa64';
+String _$trendingMediaItemHash() => r'8e3492ee93871dcc6ce10150c13a9ee0aea3696d';
 
 /// See also [trendingMediaItem].
 @ProviderFor(trendingMediaItem)
@@ -42,7 +42,7 @@ final trendingMediaItemProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef TrendingMediaItemRef = FutureProviderRef<List<FragmentMediaMin>>;
-String _$popularMediaItemHash() => r'c742855ad0e262f47534baf131a59b821bce6204';
+String _$popularMediaItemHash() => r'2d091e196265d288b29ce118928b97f1455adf4e';
 
 /// See also [popularMediaItem].
 @ProviderFor(popularMediaItem)
@@ -60,7 +60,7 @@ final popularMediaItemProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef PopularMediaItemRef = FutureProviderRef<List<FragmentMediaMin>>;
-String _$recentReviewsHash() => r'e0f1f37fcaa176211cadae4ebaf2ccc172de1d1b';
+String _$recentReviewsHash() => r'95f44bf3575ae9257ee521a727667cc91c7982a2';
 
 /// See also [recentReviews].
 @ProviderFor(recentReviews)
@@ -77,5 +77,23 @@ final recentReviewsProvider = FutureProvider<List<FragmentReview>>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef RecentReviewsRef = FutureProviderRef<List<FragmentReview>>;
+String _$recentThreadsHash() => r'32b488eeb9eb81ddd0a866c0ac365ad1c565bd3d';
+
+/// See also [recentThreads].
+@ProviderFor(recentThreads)
+final recentThreadsProvider =
+    FutureProvider<List<QueryThreadsPagethreads>>.internal(
+  recentThreads,
+  name: r'recentThreadsProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$recentThreadsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef RecentThreadsRef = FutureProviderRef<List<QueryThreadsPagethreads>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
