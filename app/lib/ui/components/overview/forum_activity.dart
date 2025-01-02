@@ -153,7 +153,7 @@ class ThreadTile extends StatelessWidget {
                                     .bodySmall
                                     ?.copyWith(
                                       color: Colors.white,
-                                      fontSize: 10,
+                                      fontSize: 8,
                                     ),
                               ),
                             ))
