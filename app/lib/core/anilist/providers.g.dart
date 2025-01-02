@@ -77,7 +77,7 @@ final recentReviewsProvider = FutureProvider<List<FragmentReview>>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef RecentReviewsRef = FutureProviderRef<List<FragmentReview>>;
-String _$recentThreadsHash() => r'32b488eeb9eb81ddd0a866c0ac365ad1c565bd3d';
+String _$recentThreadsHash() => r'd74c11dc35e01801c60ea209a8ba4d38b3f776f0';
 
 /// See also [recentThreads].
 @ProviderFor(recentThreads)
@@ -95,5 +95,40 @@ final recentThreadsProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef RecentThreadsRef = FutureProviderRef<List<QueryThreadsPagethreads>>;
+String _$globalActivitiesHash() => r'98e22ee8a3cfbf9485996f3950b3a0c95edf7c00';
+
+/// See also [GlobalActivities].
+@ProviderFor(GlobalActivities)
+final globalActivitiesProvider = AutoDisposeAsyncNotifierProvider<
+    GlobalActivities, List<QueryActivitiesPageactivities>>.internal(
+  GlobalActivities.new,
+  name: r'globalActivitiesProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$globalActivitiesHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$GlobalActivities
+    = AutoDisposeAsyncNotifier<List<QueryActivitiesPageactivities>>;
+String _$followingActivitiesHash() =>
+    r'715e9ac0c4dc80a4cdb86a5fb39485b95c0e56e9';
+
+/// See also [FollowingActivities].
+@ProviderFor(FollowingActivities)
+final followingActivitiesProvider = AutoDisposeAsyncNotifierProvider<
+    FollowingActivities, List<QueryActivitiesPageactivities>>.internal(
+  FollowingActivities.new,
+  name: r'followingActivitiesProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$followingActivitiesHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$FollowingActivities
+    = AutoDisposeAsyncNotifier<List<QueryActivitiesPageactivities>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/anilist/providers.dart';
 import '../components/layout/my_scaffold.dart';
 import '../components/misc/async_widget.dart';
+import '../components/overview/activities.dart';
 import '../components/overview/media_list_view.dart';
 import '../components/overview/recent_reviews.dart';
 import '../components/overview/forum_activity.dart';
@@ -53,6 +54,8 @@ class HomePage extends StatelessWidget {
               builder: (context, value) => ThreadsGridView(threads: value),
             );
           }),
+          const SizedBox(height: 50),
+          const Activities(),
           const SizedBox(height: 50),
         ],
       ),

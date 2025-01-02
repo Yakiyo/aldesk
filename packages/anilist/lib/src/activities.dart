@@ -3,7 +3,7 @@ import 'package:anilist/models.dart';
 import 'consts.dart';
 
 /// Get activities from the global activity feed
-ReturnType<List<QueryActivitiesPageactivities>> globalActivities(
+ReturnType<QueryActivitiesPage> globalActivities(
     {int page = 1, int perPage = 50}) async {
   final query = printNode(documentNodeQueryActivities);
   final variables = VariablesQueryActivities(
@@ -11,17 +11,13 @@ ReturnType<List<QueryActivitiesPageactivities>> globalActivities(
       .toJson();
 
   final value = await request(query: query, variables: variables);
-  return QueryActivities.fromJson(value)
-      .Page!
-      .activities!
-      .map((activity) => activity!)
-      .toList();
+  return QueryActivities.fromJson(value).Page!;
 }
 
 /// Get activities from authenticated user's followed users
 ///
 /// Requires to be authenticated, otherwise returns a [AuthError]
-ReturnType<List<QueryActivitiesPageactivities>> followingActivities(
+ReturnType<QueryActivitiesPage> followingActivities(
     {int page = 1, int perPage = 50}) async {
   if (!isAuthed()) throw AuthError();
   final query = printNode(documentNodeQueryActivities);
@@ -30,15 +26,11 @@ ReturnType<List<QueryActivitiesPageactivities>> followingActivities(
           .toJson();
 
   final value = await request(query: query, variables: variables);
-  return QueryActivities.fromJson(value)
-      .Page!
-      .activities!
-      .map((activity) => activity!)
-      .toList();
+  return QueryActivities.fromJson(value).Page!;
 }
 
 /// Get's a user's activities
-ReturnType<List<QueryActivitiesPageactivities>> userActivities(int userId,
+ReturnType<QueryActivitiesPage> userActivities(int userId,
     {int page = 1, int perPage = 50}) async {
   final query = printNode(documentNodeQueryActivities);
   final variables = VariablesQueryActivities(
@@ -53,9 +45,5 @@ ReturnType<List<QueryActivitiesPageactivities>> userActivities(int userId,
       ]).toJson();
 
   final value = await request(query: query, variables: variables);
-  return QueryActivities.fromJson(value)
-      .Page!
-      .activities!
-      .map((activity) => activity!)
-      .toList();
+  return QueryActivities.fromJson(value).Page!;
 }

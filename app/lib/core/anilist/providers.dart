@@ -50,7 +50,9 @@ FutureOr<List<FragmentReview>> recentReviews(Ref ref) {
 FutureOr<List<QueryThreadsPagethreads>> recentThreads(Ref ref) {
   ref.invalidateAfter(const Duration(minutes: 2));
   logger.i("Fetching recent threads");
-  return paginatedThreads(perPage: 6, sort: [EnumThreadSort.REPLIED_AT_DESC, EnumThreadSort.ID_DESC])
+  return paginatedThreads(
+          perPage: 6,
+          sort: [EnumThreadSort.REPLIED_AT_DESC, EnumThreadSort.ID_DESC])
       .then((value) => value.threads?.filterNull() ?? []);
 }
 
@@ -62,5 +64,51 @@ extension TimeRef on Ref {
         timer.cancel();
       }
     });
+  }
+}
+
+@riverpod
+class GlobalActivities extends _$GlobalActivities {
+  int _page = 1;
+  @override
+  FutureOr<List<QueryActivitiesPageactivities>> build() {
+    return globalActivities(page: _page, perPage: 26)
+        .then((page) => page.activities?.filterNull() ?? []);
+  }
+
+  Future<void> loadMore() async {
+    _page++;
+    final newActivities = await globalActivities(page: _page, perPage: 26)
+        .then((page) => page.activities?.filterNull() ?? []);
+    final prevActivities = await future;
+
+    state = AsyncData([...prevActivities, ...newActivities]);
+  }
+}
+
+@riverpod
+class FollowingActivities extends _$FollowingActivities {
+  int _page = 1;
+  bool _hasNext = true;
+  @override
+  FutureOr<List<QueryActivitiesPageactivities>> build() async {
+    return _getActivities();
+  }
+
+  Future<List<QueryActivitiesPageactivities>> _getActivities() async {
+    final page = await followingActivities(page: _page, perPage: 26);
+    _hasNext = page.pageInfo?.hasNextPage ?? false;
+    return page.activities?.filterNull() ?? [];
+  }
+
+  Future<void> loadMore() async {
+    // prevent over progression, since sometimes there aren't any more pages
+    // for example, a newly signed in user might not have many activities
+    if (!_hasNext) return;
+    _page++;
+    final newActivities = await _getActivities();
+    final prevActivities = await future;
+
+    state = AsyncData([...prevActivities, ...newActivities]);
   }
 }
