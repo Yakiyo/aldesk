@@ -14,53 +14,47 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyScaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.only(left: 10),
-        child: Column(
-          spacing: 20,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Consumer(builder: (context, ref, child) {
-              final trending = ref.watch(trendingMediaItemProvider);
-              return AsyncWidgetConsumer(
-                value: trending,
-                builder: (context, value) => MediaListView(
-                  medias: value,
-                  title: 'Trending Now',
-                  seeMore: "/search?sort=TRENDING_DESC",
-                ),
-              );
-            }),
-            Consumer(builder: (context, ref, child) {
-              final popular = ref.watch(popularMediaItemProvider);
-              return AsyncWidgetConsumer(
-                value: popular,
-                builder: (context, value) => MediaListView(
-                  medias: value,
-                  title: 'Popular All Time',
-                  seeMore: "/search?sort=POPULAR_DESC",
-                ),
-              );
-            }),
-            Consumer(builder: (context, ref, child) {
-              final reviews = ref.watch(recentReviewsProvider);
-              return AsyncWidgetConsumer(
-                value: reviews,
-                builder: (context, value) => ReviewListView(reviews: value),
-              );
-            }),
-            Consumer(builder: (context, ref, child) {
-              final threads = ref.watch(recentThreadsProvider);
-              return AsyncWidgetConsumer(
-                value: threads,
-                builder: (context, value) => ThreadsGridView(threads: value),
-              );
-            }),
-            const SizedBox(height: 50),
-          ],
-        ),
+      body: ListView(
+        padding: const EdgeInsets.all(20),
+        children: [
+          Consumer(builder: (context, ref, child) {
+            final trending = ref.watch(trendingMediaItemProvider);
+            return AsyncWidgetConsumer(
+              value: trending,
+              builder: (context, value) => MediaListView(
+                medias: value,
+                title: 'Trending Now',
+                seeMore: "/search?sort=TRENDING_DESC",
+              ),
+            );
+          }),
+          Consumer(builder: (context, ref, child) {
+            final popular = ref.watch(popularMediaItemProvider);
+            return AsyncWidgetConsumer(
+              value: popular,
+              builder: (context, value) => MediaListView(
+                medias: value,
+                title: 'Popular All Time',
+                seeMore: "/search?sort=POPULAR_DESC",
+              ),
+            );
+          }),
+          Consumer(builder: (context, ref, child) {
+            final reviews = ref.watch(recentReviewsProvider);
+            return AsyncWidgetConsumer(
+              value: reviews,
+              builder: (context, value) => ReviewListView(reviews: value),
+            );
+          }),
+          Consumer(builder: (context, ref, child) {
+            final threads = ref.watch(recentThreadsProvider);
+            return AsyncWidgetConsumer(
+              value: threads,
+              builder: (context, value) => ThreadsGridView(threads: value),
+            );
+          }),
+          const SizedBox(height: 50),
+        ],
       ),
     );
   }
