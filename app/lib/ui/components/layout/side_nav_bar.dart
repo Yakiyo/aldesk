@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
 
-import '../../../core/utils/providers.dart';
+import '../../../core/anilist/providers.dart';
+import '../../../core/package.dart';
 import '../../../core/utils/get.dart';
 import '../../../core/utils/misc.dart';
 import '../misc/about.dart';

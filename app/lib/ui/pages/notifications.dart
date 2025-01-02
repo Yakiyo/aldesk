@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../core/utils/providers.dart';
+import '../../core/anilist/providers.dart';
 import '../components/layout/my_scaffold.dart';
 import '../components/misc/async_widget.dart';
 

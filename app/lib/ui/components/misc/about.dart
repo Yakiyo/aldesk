@@ -7,7 +7,7 @@ import 'package:logger/logger.dart';
 import 'package:toastification/toastification.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../core/utils/providers.dart';
+import '../../../core/package.dart';
 import '../../../core/utils/get.dart';
 
 class AboutDialogWidget extends ConsumerWidget {

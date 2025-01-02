@@ -1,19 +1,15 @@
+// providers related to anilist api
+
 import 'dart:async';
 
 import 'package:aldesk/core/utils/get.dart';
 import 'package:anilist/anilist.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'providers.g.dart';
 
-@riverpod
-Future<PackageInfo> packageInfo(Ref ref) {
-  return PackageInfo.fromPlatform();
-}
-
-@riverpod
+@Riverpod(keepAlive: true)
 Future<int> unreadNotification(Ref ref) {
   // every 15 mins, we invalidate the provider, so it refetches the data
   final timer = Timer(const Duration(minutes: 15), () => ref.invalidateSelf());
