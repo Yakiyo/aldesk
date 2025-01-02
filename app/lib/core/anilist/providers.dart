@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:aldesk/core/utils/get.dart';
 import 'package:anilist/anilist.dart';
+import 'package:anilist/models.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -24,4 +25,42 @@ Future<int> unreadNotification(Ref ref) {
 
   logger.i("Fetching unread notification count");
   return unreadNotificationCount();
+}
+
+// popular and trending medias do not change that easily over the span of a single
+// app runtime, so we just cache them and invalidate them every 15 minutes
+
+@Riverpod(keepAlive: true)
+FutureOr<List<FragmentMediaMin>> trendingMediaItem(Ref ref) {
+  final timer = Timer(const Duration(minutes: 15), () => ref.invalidateSelf());
+  ref.onDispose(() {
+    if (timer.isActive) {
+      timer.cancel();
+    }
+  });
+  return trendingMedia().then((value) => value.media?.filterNull() ?? []);
+}
+
+@Riverpod(keepAlive: true)
+FutureOr<List<FragmentMediaMin>> popularMediaItem(Ref ref) {
+  final timer = Timer(const Duration(minutes: 15), () => ref.invalidateSelf());
+  ref.onDispose(() {
+    if (timer.isActive) {
+      timer.cancel();
+    }
+  });
+  return popularMedia().then((value) => value.media?.filterNull() ?? []);
+}
+
+// reviews are more likely to change quickly, so we cache them for 5 mins
+@Riverpod(keepAlive: true)
+FutureOr<List<FragmentReview>> recentReviews(Ref ref) {
+  final timer = Timer(const Duration(minutes: 5), () => ref.invalidateSelf());
+  ref.onDispose(() {
+    if (timer.isActive) {
+      timer.cancel();
+    }
+  });
+  return paginatedReviews(perPage: 5)
+      .then((value) => value.reviews?.filterNull() ?? []);
 }
