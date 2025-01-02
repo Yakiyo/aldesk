@@ -1,6 +1,9 @@
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../core/anilist/providers.dart';
 
 class ReviewListView extends StatelessWidget {
   final List<FragmentReview> reviews;
@@ -18,11 +21,25 @@ class ReviewListView extends StatelessWidget {
           children: [
             Text("Recent Reviews",
                 style: Theme.of(context).textTheme.displaySmall),
-            IconButton(
-              onPressed: () {
-                context.go("/reviews");
-              },
-              icon: const Icon(Icons.open_in_new),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Consumer(
+                  builder: (context, ref, child) => IconButton(
+                      tooltip: "Refresh reviews (auto refreshes every 5 mins)",
+                      onPressed: () {
+                        ref.invalidate(recentReviewsProvider);
+                      },
+                      icon: const Icon(Icons.refresh)),
+                ),
+                IconButton(
+                  onPressed: () {
+                    context.go("/reviews");
+                  },
+                  icon: const Icon(Icons.open_in_new),
+                ),
+              ],
             )
           ],
         ),
