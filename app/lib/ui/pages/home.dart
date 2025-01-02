@@ -5,8 +5,8 @@ import '../../core/anilist/providers.dart';
 import '../components/layout/my_scaffold.dart';
 import '../components/misc/async_widget.dart';
 import '../components/overview/media_list_view.dart';
-import '../components/overview/review_list_view.dart';
-import '../components/overview/threads_grid_view.dart';
+import '../components/overview/recent_reviews.dart';
+import '../components/overview/forum_activity.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
