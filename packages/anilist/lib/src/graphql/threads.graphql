@@ -1,3 +1,44 @@
+fragment ThreadMin on Thread {
+  id
+  title
+  body(asHtml: $asHtml)
+  replyCountOrNull: replyCount
+  viewCount
+  repliedAt
+  siteUrl
+  user {
+    ...UserMin
+  }
+  replyUser {
+    ...UserMin
+  }
+  categories {
+    id
+    name
+  }
+  mediaCategories {
+    id
+    title {
+      userPreferred
+    }
+  }
+}
+
+fragment Thread on Thread {
+  ...ThreadMin
+  replyCommentId
+  isLocked
+  isSticky
+  isSubscribed
+  likeCount
+  isLiked
+  createdAt
+  updatedAt
+  likes {
+    id
+  }
+}
+
 # Get multiple threads
 # For pinned threads: sort should be IS_STICKY
 # For subscribed threads: subscribed should be true
@@ -21,29 +62,7 @@ query Threads(
       hasNextPage
     }
     threads(sort: $sort, subscribed: $subscribed, categoryId: $categoryId) {
-      id
-      title
-      body(asHtml: $asHtml)
-      replyCount
-      viewCount
-      repliedAt
-      siteUrl
-      user {
-        ...UserMin
-      }
-      replyUser {
-        ...UserMin
-      }
-      categories {
-        id
-        name
-      }
-      mediaCategories {
-        id
-        title {
-          userPreferred
-        }
-      }
+      ...ThreadMin
     }
   }
 }
@@ -51,39 +70,6 @@ query Threads(
 # Get a single thread entry
 query Thread($threadId: Int, $search: String, $asHtml: Boolean = false) {
   Thread(id: $threadId, search: $search) {
-    id
-    title
-    body(asHtml: $asHtml)
-    replyCommentId
-    replyCount
-    viewCount
-    isLocked
-    isSticky
-    isSubscribed
-    likeCount
-    isLiked
-    repliedAt
-    createdAt
-    updatedAt
-    siteUrl
-    user {
-      ...UserMin
-    }
-    replyUser {
-      ...UserMin
-    }
-    likes {
-      id
-    }
-    categories {
-      id
-      name
-    }
-    mediaCategories {
-      id
-      title {
-        userPreferred
-      }
-    }
+    ...Thread
   }
 }

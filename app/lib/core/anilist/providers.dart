@@ -47,7 +47,7 @@ FutureOr<List<FragmentReview>> recentReviews(Ref ref) {
 
 // update threads every 2 mins cause they change more often because of user replies
 @Riverpod(keepAlive: true)
-FutureOr<List<QueryThreadsPagethreads>> recentThreads(Ref ref) {
+FutureOr<List<FragmentThreadMin>> recentThreads(Ref ref) {
   ref.invalidateAfter(const Duration(minutes: 2));
   logger.i("Fetching recent threads");
   return paginatedThreads(
@@ -94,6 +94,19 @@ class RecentActivity extends _$RecentActivity {
     _hasNext = res.pageInfo?.hasNextPage ?? false;
     final prevState = await future;
     state = AsyncData([...prevState, ...(res.activities?.filterNull() ?? [])]);
+  }
+
+  Future<void> toggleLike(QueryActivitiesPageactivities activity) async {
+    final json = activity.toJson();
+    final id = json['id'] as int?;
+    if (id == null) return;
+    final activities = await future;
+    final index = activities.indexWhere((e) =>
+        e.maybeWhen(orElse: () => false, listActivity: (e) => e.id == id));
+    if (index < 0) return;
+    final newActivity = await toggleActivityLike(id) as dynamic;
+    activities[index] = newActivity;
+    state = AsyncData(activities);
   }
 }
 

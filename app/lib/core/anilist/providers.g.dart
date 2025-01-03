@@ -77,12 +77,11 @@ final recentReviewsProvider = FutureProvider<List<FragmentReview>>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef RecentReviewsRef = FutureProviderRef<List<FragmentReview>>;
-String _$recentThreadsHash() => r'd74c11dc35e01801c60ea209a8ba4d38b3f776f0';
+String _$recentThreadsHash() => r'7536c45236434378918ef4abc4778c9eb2800f23';
 
 /// See also [recentThreads].
 @ProviderFor(recentThreads)
-final recentThreadsProvider =
-    FutureProvider<List<QueryThreadsPagethreads>>.internal(
+final recentThreadsProvider = FutureProvider<List<FragmentThreadMin>>.internal(
   recentThreads,
   name: r'recentThreadsProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -94,7 +93,7 @@ final recentThreadsProvider =
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef RecentThreadsRef = FutureProviderRef<List<QueryThreadsPagethreads>>;
+typedef RecentThreadsRef = FutureProviderRef<List<FragmentThreadMin>>;
 String _$activityTypeHash() => r'f3ae07c1b6a8de6f9561b39e20f617163a21fbc3';
 
 /// See also [activityType].
@@ -111,7 +110,7 @@ final activityTypeProvider = AutoDisposeProvider<ActivityType>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef ActivityTypeRef = AutoDisposeProviderRef<ActivityType>;
-String _$recentActivityHash() => r'69f982e92ed31a1965d60c279ab01eb14aaec384';
+String _$recentActivityHash() => r'6133a0d7cda54c39cca0d3b1bf77c8148d26ebe7';
 
 /// See also [RecentActivity].
 @ProviderFor(RecentActivity)

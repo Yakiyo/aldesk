@@ -1,11 +1,14 @@
+import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:toastification/toastification.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/anilist/providers.dart';
+import '../../../core/utils/get.dart';
 import '../../../core/utils/misc.dart';
 import '../misc/async_widget.dart';
 
@@ -20,7 +23,7 @@ class Activities extends ConsumerWidget {
         builder: (context, value) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,75 +62,65 @@ class Activities extends ConsumerWidget {
   }
 }
 
-class ActivityList extends StatelessWidget {
+class ActivityList extends StatefulWidget {
   final List<QueryActivitiesPageactivities> activities;
   const ActivityList({super.key, required this.activities});
 
   @override
+  State<ActivityList> createState() => _ActivityListState();
+}
+
+class _ActivityListState extends State<ActivityList> {
+  @override
   Widget build(BuildContext context) {
-    return Wrap(
-      children: activities.map((activity) {
-        return activity.maybeWhen(
-          listActivity: (activity) => ListActivityTile(activity: activity),
-          orElse: () => UnsupportedActivityTile(json: activity.toJson()),
-        );
-      }).toList(),
+    return Padding(
+      padding: const EdgeInsets.only(left: 15),
+      child: Wrap(
+        children: widget.activities.map((activity) {
+          return activity.maybeWhen(
+            listActivity: (activity) => ListActivityTile(activity: activity),
+            orElse: () => UnsupportedActivityTile(json: activity.toJson()),
+          );
+        }).toList(),
+      ),
     );
+  }
+
+  /// Toggle's the like status for a specific activity
+  /// 
+  /// It will updat the item in the list eagerly and rebuild the widget, and then
+  /// make the request to the api. If any error occurs during the request, it will
+  /// revert the changes made to the item in the list and show a toast notification
+  void _toggleLike(QueryActivitiesPageactivitiesListActivity activity,
+      BuildContext context) {
+    final index = widget.activities.indexWhere((item) => item.maybeWhen(
+        orElse: () => false, listActivity: (a) => a.id == activity.id));
+    if (index < 0) return;
+    final newLikeStatus = !(activity.isLiked ?? false);
+    final newLikeCount = activity.likeCount + (newLikeStatus ? 1 : -1);
+    setState(() {
+      widget.activities[index] =
+          activity.copyWith(isLiked: newLikeStatus, likeCount: newLikeCount);
+    });
+    toggleActivityLike(activity.id).then((_) {
+      logger.i("Toggled like status of activity ${activity.id}");
+    }).catchError((error) {
+      logger.e("Failed to toggle like status of activity ${activity.id}");
+      setState(() {
+        widget.activities[index] = activity;
+      });
+      if (context.mounted) {
+        toastification.show(
+            context: context,
+            title: const Text("Failed to toggle like status for activity"),
+            type: ToastificationType.error);
+      }
+    });
   }
 }
 
 const tileWidth = 550.0;
 const tileHeight = 150.0;
-
-class UnsupportedActivityTile extends StatelessWidget {
-  final Map<String, dynamic> json;
-  const UnsupportedActivityTile({super.key, required this.json});
-
-  String get _author {
-    final user = json["messenger"] ?? json["user"] as Map<String, dynamic>?;
-    return user?["name"] ?? "<unknown>";
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: tileWidth,
-      height: tileHeight,
-      child: Card(
-          color: Theme.of(context).colorScheme.secondary,
-          child: Column(
-            spacing: 10,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                  "Unsupported activity of type ${json["type"] ?? "<unknown>"} (${json['__typename']})"),
-              Text("Activity Author: $_author"),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  TextButton.icon(
-                      onPressed: () {
-                        launchUrl(Uri.parse(
-                            "https://anilist.co/activity/${json["id"]}"));
-                      },
-                      label: const Text("View on AniList"),
-                      icon: const FaIcon(FontAwesomeIcons.link)),
-                  TextButton.icon(
-                      onPressed: () {
-                        launchUrl(
-                            Uri.parse("https://github.com/Yakiyo/aldesk"));
-                      },
-                      label: const Text("Open github issues"),
-                      icon: const FaIcon(FontAwesomeIcons.github)),
-                ],
-              )
-            ],
-          )),
-    );
-  }
-}
 
 class ListActivityTile extends StatelessWidget {
   final QueryActivitiesPageactivitiesListActivity activity;
@@ -282,6 +275,56 @@ class ListActivityTile extends StatelessWidget {
                       style: TextStyle(color: primary)),
                 ])),
       ],
+    );
+  }
+}
+
+class UnsupportedActivityTile extends StatelessWidget {
+  final Map<String, dynamic> json;
+  const UnsupportedActivityTile({super.key, required this.json});
+
+  String get _author {
+    final user = json["messenger"] ?? json["user"] as Map<String, dynamic>?;
+    return user?["name"] ?? "<unknown>";
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: tileWidth,
+      height: tileHeight,
+      child: Card(
+          color: Theme.of(context).colorScheme.secondary,
+          child: Column(
+            spacing: 10,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                  "Unsupported activity of type ${json["type"] ?? "<unknown>"} (${json['__typename']})"),
+              Text("Activity Author: $_author"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TextButton.icon(
+                      onPressed: () {
+                        launchUrl(Uri.parse(
+                            "https://anilist.co/activity/${json["id"]}"));
+                      },
+                      label: const Text("View on AniList"),
+                      icon: const FaIcon(FontAwesomeIcons.link)),
+                  TextButton.icon(
+                      onPressed: () {
+                        launchUrl(
+                            Uri.parse("https://github.com/Yakiyo/aldesk"));
+                      },
+                      label: const Text("Open github issues"),
+                      icon: const FaIcon(FontAwesomeIcons.github)),
+                ],
+              )
+            ],
+          )),
     );
   }
 }

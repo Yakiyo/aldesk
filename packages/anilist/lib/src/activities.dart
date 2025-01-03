@@ -47,3 +47,18 @@ ReturnType<QueryActivitiesPage> userActivities(int userId,
   final value = await request(query: query, variables: variables);
   return QueryActivities.fromJson(value).Page!;
 }
+
+/// Toggle's the like status of an activity
+/// 
+/// [activityId] must be the id of an activity, not a thread or another type,
+/// otherwise it will return an error
+ReturnType<MutationToggleLikeToggleLikeV2> toggleActivityLike(
+    int activityId) async {
+  final variables = VariablesMutationToggleLike(
+          id: activityId, type: EnumLikeableType.ACTIVITY)
+      .toJson();
+  return request(
+          query: printNode(documentNodeMutationToggleLike),
+          variables: variables)
+      .then((value) => MutationToggleLike.fromJson(value).ToggleLikeV2!);
+}

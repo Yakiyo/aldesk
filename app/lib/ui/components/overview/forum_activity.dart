@@ -10,7 +10,7 @@ import '../../../core/anilist/providers.dart';
 import '../../../core/utils/misc.dart';
 
 class ThreadsGridView extends StatelessWidget {
-  final List<QueryThreadsPagethreads> threads;
+  final List<FragmentThreadMin> threads;
   const ThreadsGridView({super.key, required this.threads});
 
   @override
@@ -64,7 +64,7 @@ class ThreadsGridView extends StatelessWidget {
 }
 
 class ThreadTile extends StatelessWidget {
-  final QueryThreadsPagethreads thread;
+  final FragmentThreadMin thread;
   const ThreadTile({super.key, required this.thread});
 
   @override
@@ -186,7 +186,7 @@ class ThreadTile extends StatelessWidget {
       .toList();
   String? get _replierAvatar => thread.replyUser?.avatar?.medium;
   int get _views => thread.viewCount ?? 0;
-  int get _comments => thread.replyCount ?? 0;
+  int get _comments => thread.replyCountOrNull ?? 0;
 
   String get _lastReplied {
     final repliedAt = thread.repliedAt != null

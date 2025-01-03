@@ -25,7 +25,7 @@ ReturnType<QueryThreadsPage> paginatedThreads({
 }
 
 /// Gets a single thread based on thread if or search query
-ReturnType<QueryThreadThread> thread(
+ReturnType<FragmentThread> thread(
     {int? threadId, String? search, bool? asHtml}) {
   if (threadId == null && search == null) {
     throw ArgumentError('one of threadId or search must be provided');

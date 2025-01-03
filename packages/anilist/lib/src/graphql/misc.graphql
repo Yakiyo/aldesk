@@ -1,9 +1,25 @@
 # Like/Unlike an entry
-mutation ToggleLike($id: Int!, $type: LikeableType!) {
-  ToggleLike(id: $id, type: $type) {
+mutation ToggleLike($id: Int!, $type: LikeableType!, $asHtml: Boolean = false) {
+  ToggleLikeV2(id: $id, type: $type) {
     __typename
+    ... on TextActivity {
+      ...TextActivity
+    }
+    ... on ListActivity {
+      ...ListActivity
+    }
+    ... on MessageActivity {
+      ...MessageActivity
+    }
+    ... on ActivityReply {
+      ...ActivityReply
+    }
+    ... on Thread {
+      ...Thread
+    }
   }
 }
+
 
 # Convert anilist markdown to html
 query MdToHtml($markdown: String!) {
