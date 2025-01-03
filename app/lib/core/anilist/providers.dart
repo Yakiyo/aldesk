@@ -67,19 +67,25 @@ extension TimeRef on Ref {
   }
 }
 
+// keep it a multiple of 6, so that theres always a full row of activities
+// since max 3 activities are shown in a row and 2 rows are shown when screen is
+// not wide enough
+const _activityPerPage = 18;
+
 @riverpod
 class GlobalActivities extends _$GlobalActivities {
   int _page = 1;
   @override
   FutureOr<List<QueryActivitiesPageactivities>> build() {
-    return globalActivities(page: _page, perPage: 26)
+    return globalActivities(page: _page, perPage: _activityPerPage)
         .then((page) => page.activities?.filterNull() ?? []);
   }
 
   Future<void> loadMore() async {
     _page++;
-    final newActivities = await globalActivities(page: _page, perPage: 26)
-        .then((page) => page.activities?.filterNull() ?? []);
+    final newActivities =
+        await globalActivities(page: _page, perPage: _activityPerPage)
+            .then((page) => page.activities?.filterNull() ?? []);
     final prevActivities = await future;
 
     state = AsyncData([...prevActivities, ...newActivities]);
@@ -96,7 +102,8 @@ class FollowingActivities extends _$FollowingActivities {
   }
 
   Future<List<QueryActivitiesPageactivities>> _getActivities() async {
-    final page = await followingActivities(page: _page, perPage: 26);
+    final page =
+        await followingActivities(page: _page, perPage: _activityPerPage);
     _hasNext = page.pageInfo?.hasNextPage ?? false;
     return page.activities?.filterNull() ?? [];
   }
@@ -111,4 +118,33 @@ class FollowingActivities extends _$FollowingActivities {
 
     state = AsyncData([...prevActivities, ...newActivities]);
   }
+}
+
+@riverpod
+Future<List<QueryActivitiesPageactivities>> generalActivity(Ref ref) {
+  final type = ref.watch(activityTypeProvider);
+  if (type == ActivityType.following) {
+    return ref.watch(followingActivitiesProvider.future);
+  } else {
+    return ref.watch(globalActivitiesProvider.future);
+  }
+}
+
+enum ActivityType {
+  following,
+  global,
+}
+
+@riverpod
+ActivityType activityType(Ref ref) {
+  final str = pref.getString("activityType") ?? "following";
+  return ActivityType.values.firstWhere(
+    (e) => e.name == str,
+    orElse: () => ActivityType.following,
+  );
+}
+
+void updateActivityType(ActivityType type, WidgetRef ref) async {
+  await pref.setString("activityType", type.name);
+  ref.invalidate(activityTypeProvider);
 }

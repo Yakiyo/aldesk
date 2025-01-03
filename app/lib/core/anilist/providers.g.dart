@@ -95,7 +95,42 @@ final recentThreadsProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef RecentThreadsRef = FutureProviderRef<List<QueryThreadsPagethreads>>;
-String _$globalActivitiesHash() => r'98e22ee8a3cfbf9485996f3950b3a0c95edf7c00';
+String _$generalActivityHash() => r'763d69916675ccb7d1d1a375a5fcf1701f1a8f10';
+
+/// See also [generalActivity].
+@ProviderFor(generalActivity)
+final generalActivityProvider =
+    AutoDisposeFutureProvider<List<QueryActivitiesPageactivities>>.internal(
+  generalActivity,
+  name: r'generalActivityProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$generalActivityHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef GeneralActivityRef
+    = AutoDisposeFutureProviderRef<List<QueryActivitiesPageactivities>>;
+String _$activityTypeHash() => r'f3ae07c1b6a8de6f9561b39e20f617163a21fbc3';
+
+/// See also [activityType].
+@ProviderFor(activityType)
+final activityTypeProvider = AutoDisposeProvider<ActivityType>.internal(
+  activityType,
+  name: r'activityTypeProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$activityTypeHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef ActivityTypeRef = AutoDisposeProviderRef<ActivityType>;
+String _$globalActivitiesHash() => r'fc900d456c48c071b1f0d3871914ea222d1a6a57';
 
 /// See also [GlobalActivities].
 @ProviderFor(GlobalActivities)
@@ -113,7 +148,7 @@ final globalActivitiesProvider = AutoDisposeAsyncNotifierProvider<
 typedef _$GlobalActivities
     = AutoDisposeAsyncNotifier<List<QueryActivitiesPageactivities>>;
 String _$followingActivitiesHash() =>
-    r'715e9ac0c4dc80a4cdb86a5fb39485b95c0e56e9';
+    r'bd01a89e132c3a7b69d843cb40248f2d66c812b0';
 
 /// See also [FollowingActivities].
 @ProviderFor(FollowingActivities)
