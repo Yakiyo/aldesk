@@ -216,7 +216,9 @@ class ListActivityTile extends StatelessWidget {
                               "https://anilist.co/activity/${activity.id}")),
                           icon: const FaIcon(FontAwesomeIcons.link, size: 12)),
                       Text(
-                        _timeDiff,
+                        DateTime.fromMillisecondsSinceEpoch(
+                                activity.createdAt * 1000)
+                            .diffString(),
                         style: TextStyle(
                           fontSize:
                               Theme.of(context).textTheme.bodySmall?.fontSize,
@@ -243,16 +245,11 @@ class ListActivityTile extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         if (_comments != null) Text(_comments!),
-        const IconButton(
-            icon: FaIcon(
-              FontAwesomeIcons.solidComments,
-              size: 14,
-            ),
-            // onPressed: () {
-            //   context.go("/activity/${activity.id}");
-            // },
-            // TODO: fix this, allow reading activity comments
-            onPressed: null),
+        IconButton(
+            icon: const FaIcon(FontAwesomeIcons.solidComments, size: 14),
+            onPressed: () {
+              context.go("/activity/${activity.id}");
+            }),
         if (activity.likeCount > 0) Text("${activity.likeCount}"),
         IconButton(
             icon: FaIcon(FontAwesomeIcons.solidHeart,
@@ -286,20 +283,5 @@ class ListActivityTile extends StatelessWidget {
                 ])),
       ],
     );
-  }
-
-  String get _timeDiff {
-    final createdAt =
-        DateTime.fromMillisecondsSinceEpoch(activity.createdAt * 1000);
-    final diff = DateTime.now().difference(createdAt);
-    if (diff.inDays > 0) {
-      return "${diff.inDays} days ago";
-    } else if (diff.inHours > 0) {
-      return "${diff.inHours} hours ago";
-    } else if (diff.inMinutes > 0) {
-      return "${diff.inMinutes} minutes ago";
-    } else {
-      return "just now";
-    }
   }
 }

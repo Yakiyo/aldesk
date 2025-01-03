@@ -1,11 +1,13 @@
 import 'dart:math';
 
-import 'package:aldesk/core/anilist/providers.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../core/anilist/providers.dart';
+import '../../../core/utils/misc.dart';
 
 class ThreadsGridView extends StatelessWidget {
   final List<QueryThreadsPagethreads> threads;
@@ -190,16 +192,7 @@ class ThreadTile extends StatelessWidget {
     final repliedAt = thread.repliedAt != null
         ? DateTime.fromMillisecondsSinceEpoch(thread.repliedAt! * 1000)
         : DateTime.now();
-    final diff = DateTime.now().difference(repliedAt);
-    if (diff.inDays > 0) {
-      return "${diff.inDays} days ago";
-    } else if (diff.inHours > 0) {
-      return "${diff.inHours} hours ago";
-    } else if (diff.inMinutes > 0) {
-      return "${diff.inMinutes} minutes ago";
-    } else {
-      return "just now";
-    }
+    return repliedAt.diffString();
   }
 }
 
