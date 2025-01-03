@@ -73,60 +73,27 @@ extension TimeRef on Ref {
 const _activityPerPage = 18;
 
 @riverpod
-class GlobalActivities extends _$GlobalActivities {
+class RecentActivity extends _$RecentActivity {
   int _page = 1;
-  @override
-  FutureOr<List<QueryActivitiesPageactivities>> build() {
-    return globalActivities(page: _page, perPage: _activityPerPage)
-        .then((page) => page.activities?.filterNull() ?? []);
-  }
-
-  Future<void> loadMore() async {
-    _page++;
-    final newActivities =
-        await globalActivities(page: _page, perPage: _activityPerPage)
-            .then((page) => page.activities?.filterNull() ?? []);
-    final prevActivities = await future;
-
-    state = AsyncData([...prevActivities, ...newActivities]);
-  }
-}
-
-@riverpod
-class FollowingActivities extends _$FollowingActivities {
-  int _page = 1;
-  bool _hasNext = true;
+  bool _hasNext = false;
+  late Future<QueryActivitiesPage> Function({int page, int perPage}) _fetcher;
   @override
   FutureOr<List<QueryActivitiesPageactivities>> build() async {
-    return _getActivities();
-  }
-
-  Future<List<QueryActivitiesPageactivities>> _getActivities() async {
-    final page =
-        await followingActivities(page: _page, perPage: _activityPerPage);
-    _hasNext = page.pageInfo?.hasNextPage ?? false;
-    return page.activities?.filterNull() ?? [];
+    final type = ref.watch(activityTypeProvider);
+    _fetcher =
+        type == ActivityType.following ? followingActivities : globalActivities;
+    final res = await _fetcher(page: _page, perPage: _activityPerPage);
+    _hasNext = res.pageInfo?.hasNextPage ?? false;
+    return res.activities?.filterNull() ?? [];
   }
 
   Future<void> loadMore() async {
-    // prevent over progression, since sometimes there aren't any more pages
-    // for example, a newly signed in user might not have many activities
     if (!_hasNext) return;
     _page++;
-    final newActivities = await _getActivities();
-    final prevActivities = await future;
-
-    state = AsyncData([...prevActivities, ...newActivities]);
-  }
-}
-
-@riverpod
-Future<List<QueryActivitiesPageactivities>> generalActivity(Ref ref) {
-  final type = ref.watch(activityTypeProvider);
-  if (type == ActivityType.following) {
-    return ref.watch(followingActivitiesProvider.future);
-  } else {
-    return ref.watch(globalActivitiesProvider.future);
+    final res = await _fetcher(page: _page, perPage: _activityPerPage);
+    _hasNext = res.pageInfo?.hasNextPage ?? false;
+    final prevState = await future;
+    state = AsyncData([...prevState, ...(res.activities?.filterNull() ?? [])]);
   }
 }
 

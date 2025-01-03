@@ -14,11 +14,10 @@ class Activities extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final activities = ref.watch(generalActivityProvider);
+    final activities = ref.watch(recentActivityProvider);
     return AsyncWidgetConsumer(
         value: activities,
         builder: (context, value) {
-          final activityType = ref.watch(activityTypeProvider);
           return Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,11 +50,7 @@ class Activities extends ConsumerWidget {
               const SizedBox(height: 16),
               ElevatedButton(
                   onPressed: () {
-                    if (activityType == ActivityType.following) {
-                      ref.read(followingActivitiesProvider.notifier).loadMore();
-                    } else {
-                      ref.read(globalActivitiesProvider.notifier).loadMore();
-                    }
+                    ref.read(recentActivityProvider.notifier).loadMore();
                   },
                   child: const Text("Load More"))
             ],
@@ -245,10 +240,10 @@ class ListActivityTile extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
       children: [
         if (_comments != null) Text(_comments!),
         const IconButton(
-            tooltip: "Unsupported",
             icon: FaIcon(
               FontAwesomeIcons.solidComments,
               size: 14,

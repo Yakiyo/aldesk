@@ -95,25 +95,6 @@ final recentThreadsProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef RecentThreadsRef = FutureProviderRef<List<QueryThreadsPagethreads>>;
-String _$generalActivityHash() => r'763d69916675ccb7d1d1a375a5fcf1701f1a8f10';
-
-/// See also [generalActivity].
-@ProviderFor(generalActivity)
-final generalActivityProvider =
-    AutoDisposeFutureProvider<List<QueryActivitiesPageactivities>>.internal(
-  generalActivity,
-  name: r'generalActivityProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$generalActivityHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef GeneralActivityRef
-    = AutoDisposeFutureProviderRef<List<QueryActivitiesPageactivities>>;
 String _$activityTypeHash() => r'f3ae07c1b6a8de6f9561b39e20f617163a21fbc3';
 
 /// See also [activityType].
@@ -130,40 +111,22 @@ final activityTypeProvider = AutoDisposeProvider<ActivityType>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef ActivityTypeRef = AutoDisposeProviderRef<ActivityType>;
-String _$globalActivitiesHash() => r'fc900d456c48c071b1f0d3871914ea222d1a6a57';
+String _$recentActivityHash() => r'69f982e92ed31a1965d60c279ab01eb14aaec384';
 
-/// See also [GlobalActivities].
-@ProviderFor(GlobalActivities)
-final globalActivitiesProvider = AutoDisposeAsyncNotifierProvider<
-    GlobalActivities, List<QueryActivitiesPageactivities>>.internal(
-  GlobalActivities.new,
-  name: r'globalActivitiesProvider',
+/// See also [RecentActivity].
+@ProviderFor(RecentActivity)
+final recentActivityProvider = AutoDisposeAsyncNotifierProvider<RecentActivity,
+    List<QueryActivitiesPageactivities>>.internal(
+  RecentActivity.new,
+  name: r'recentActivityProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$globalActivitiesHash,
+      : _$recentActivityHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$GlobalActivities
-    = AutoDisposeAsyncNotifier<List<QueryActivitiesPageactivities>>;
-String _$followingActivitiesHash() =>
-    r'bd01a89e132c3a7b69d843cb40248f2d66c812b0';
-
-/// See also [FollowingActivities].
-@ProviderFor(FollowingActivities)
-final followingActivitiesProvider = AutoDisposeAsyncNotifierProvider<
-    FollowingActivities, List<QueryActivitiesPageactivities>>.internal(
-  FollowingActivities.new,
-  name: r'followingActivitiesProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$followingActivitiesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$FollowingActivities
+typedef _$RecentActivity
     = AutoDisposeAsyncNotifier<List<QueryActivitiesPageactivities>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
