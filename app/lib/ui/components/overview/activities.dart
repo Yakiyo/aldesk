@@ -1,14 +1,11 @@
-import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toastification/toastification.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/anilist/providers.dart';
-import '../../../core/utils/get.dart';
 import '../../../core/utils/misc.dart';
 import '../misc/async_widget.dart';
 
@@ -62,21 +59,16 @@ class Activities extends ConsumerWidget {
   }
 }
 
-class ActivityList extends StatefulWidget {
+class ActivityList extends StatelessWidget {
   final List<QueryActivitiesPageactivities> activities;
   const ActivityList({super.key, required this.activities});
 
-  @override
-  State<ActivityList> createState() => _ActivityListState();
-}
-
-class _ActivityListState extends State<ActivityList> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 15),
       child: Wrap(
-        children: widget.activities.map((activity) {
+        children: activities.map((activity) {
           return activity.maybeWhen(
             listActivity: (activity) => ListActivityTile(activity: activity),
             orElse: () => UnsupportedActivityTile(json: activity.toJson()),
@@ -85,44 +77,12 @@ class _ActivityListState extends State<ActivityList> {
       ),
     );
   }
-
-  /// Toggle's the like status for a specific activity
-  /// 
-  /// It will updat the item in the list eagerly and rebuild the widget, and then
-  /// make the request to the api. If any error occurs during the request, it will
-  /// revert the changes made to the item in the list and show a toast notification
-  void _toggleLike(QueryActivitiesPageactivitiesListActivity activity,
-      BuildContext context) {
-    final index = widget.activities.indexWhere((item) => item.maybeWhen(
-        orElse: () => false, listActivity: (a) => a.id == activity.id));
-    if (index < 0) return;
-    final newLikeStatus = !(activity.isLiked ?? false);
-    final newLikeCount = activity.likeCount + (newLikeStatus ? 1 : -1);
-    setState(() {
-      widget.activities[index] =
-          activity.copyWith(isLiked: newLikeStatus, likeCount: newLikeCount);
-    });
-    toggleActivityLike(activity.id).then((_) {
-      logger.i("Toggled like status of activity ${activity.id}");
-    }).catchError((error) {
-      logger.e("Failed to toggle like status of activity ${activity.id}");
-      setState(() {
-        widget.activities[index] = activity;
-      });
-      if (context.mounted) {
-        toastification.show(
-            context: context,
-            title: const Text("Failed to toggle like status for activity"),
-            type: ToastificationType.error);
-      }
-    });
-  }
 }
 
 const tileWidth = 550.0;
 const tileHeight = 150.0;
 
-class ListActivityTile extends StatelessWidget {
+class ListActivityTile extends ConsumerWidget {
   final QueryActivitiesPageactivitiesListActivity activity;
   const ListActivityTile({super.key, required this.activity});
 
@@ -141,7 +101,7 @@ class ListActivityTile extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
       width: tileWidth,
       height: tileHeight,
@@ -221,7 +181,7 @@ class ListActivityTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  _interactionButtons(context)
+                  _interactionButtons(context, ref)
                 ],
               ),
             )
@@ -231,7 +191,7 @@ class ListActivityTile extends StatelessWidget {
     );
   }
 
-  Widget _interactionButtons(BuildContext context) {
+  Widget _interactionButtons(BuildContext context, WidgetRef ref) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -248,7 +208,9 @@ class ListActivityTile extends StatelessWidget {
             icon: FaIcon(FontAwesomeIcons.solidHeart,
                 size: 14,
                 color: (activity.isLiked ?? false) ? Colors.red : null),
-            onPressed: null),
+            onPressed: () {
+              ref.read(recentActivityProvider.notifier).toggleLike(activity);
+            }),
       ],
     );
   }

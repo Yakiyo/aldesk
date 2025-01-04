@@ -99,13 +99,27 @@ class RecentActivity extends _$RecentActivity {
   Future<void> toggleLike(QueryActivitiesPageactivities activity) async {
     final json = activity.toJson();
     final id = json['id'] as int?;
+    logger.d("toggling like $id");
     if (id == null) return;
     final activities = await future;
     final index = activities.indexWhere((e) =>
         e.maybeWhen(orElse: () => false, listActivity: (e) => e.id == id));
+    logger.d("index $index");
     if (index < 0) return;
-    final newActivity = await toggleActivityLike(id) as dynamic;
-    activities[index] = newActivity;
+    await toggleActivityLike(id);
+    final newActivity = await fetchActivity(activityId: id);
+    final asActivity = newActivity.maybeWhen(
+      orElse: () => throw Error(),
+      listActivity: (e) =>
+          QueryActivitiesPageactivitiesListActivity.fromJson(e.toJson()),
+      messageActivity: (e) =>
+          QueryActivitiesPageactivitiesMessageActivity.fromJson(e.toJson()),
+      textActivity: (e) =>
+          QueryActivitiesPageactivitiesTextActivity.fromJson(e.toJson()),
+    );
+    logger.d(newActivity.toJson());
+    activities[index] = asActivity;
+    logger.d('updating state');
     state = AsyncData(activities);
   }
 }

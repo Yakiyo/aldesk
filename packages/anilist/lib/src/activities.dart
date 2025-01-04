@@ -49,7 +49,7 @@ ReturnType<QueryActivitiesPage> userActivities(int userId,
 }
 
 /// Toggle's the like status of an activity
-/// 
+///
 /// [activityId] must be the id of an activity, not a thread or another type,
 /// otherwise it will return an error
 ReturnType<MutationToggleLikeToggleLikeV2> toggleActivityLike(
@@ -61,4 +61,48 @@ ReturnType<MutationToggleLikeToggleLikeV2> toggleActivityLike(
           query: printNode(documentNodeMutationToggleLike),
           variables: variables)
       .then((value) => MutationToggleLike.fromJson(value).ToggleLikeV2!);
+}
+
+ReturnType<QueryActivityActivity> fetchActivity({
+  int? activityId,
+  EnumActivityType? type,
+  bool? isFollowing,
+  bool? hasReplies,
+  bool? hasRepliesOrTypeText,
+  List<int>? idIn,
+  List<int>? idNotIn,
+  List<int>? userIdIn,
+  List<int>? userIdNotIn,
+  List<int>? messengerIdIn,
+  List<int>? messengerIdNotIn,
+  List<int>? mediaIdIn,
+  List<int>? mediaIdNotIn,
+  List<EnumActivityType>? typeIn,
+  List<EnumActivityType>? typeNotIn,
+  List<EnumActivitySort>? sort,
+  bool? asHtml,
+}) {
+  final variables = VariablesQueryActivity(
+    activityId: activityId,
+    type: type,
+    isFollowing: isFollowing,
+    hasReplies: hasReplies,
+    hasRepliesOrTypeText: hasRepliesOrTypeText,
+    idIn: idIn,
+    idNotIn: idNotIn,
+    userIdIn: userIdIn,
+    userIdNotIn: userIdNotIn,
+    messengerIdIn: messengerIdIn,
+    messengerIdNotIn: messengerIdNotIn,
+    mediaIdIn: mediaIdIn,
+    mediaIdNotIn: mediaIdNotIn,
+    typeIn: typeIn,
+    typeNotIn: typeNotIn,
+    sort: sort,
+    asHtml: asHtml,
+  ).toJson();
+
+  return request(
+          query: printNode(documentNodeQueryActivity), variables: variables)
+      .then((value) => QueryActivity.fromJson(value).Activity!);
 }

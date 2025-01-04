@@ -353,110 +353,25 @@ const documentNodeMutationToggleLike = DocumentNode(definitions: [
             directives: [],
             selectionSet: null,
           ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'TextActivity'),
-              isNonNull: false,
-            )),
+          FragmentSpreadNode(
+            name: NameNode(value: 'TextActivity'),
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'TextActivity'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
           ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'ListActivity'),
-              isNonNull: false,
-            )),
+          FragmentSpreadNode(
+            name: NameNode(value: 'ListActivity'),
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ListActivity'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
           ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'MessageActivity'),
-              isNonNull: false,
-            )),
+          FragmentSpreadNode(
+            name: NameNode(value: 'MessageActivity'),
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'MessageActivity'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
           ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'ActivityReply'),
-              isNonNull: false,
-            )),
+          FragmentSpreadNode(
+            name: NameNode(value: 'ActivityReply'),
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'ActivityReply'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
           ),
-          InlineFragmentNode(
-            typeCondition: TypeConditionNode(
-                on: NamedTypeNode(
-              name: NameNode(value: 'Thread'),
-              isNonNull: false,
-            )),
+          FragmentSpreadNode(
+            name: NameNode(value: 'Thread'),
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                name: NameNode(value: 'Thread'),
-                directives: [],
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
           ),
         ]),
       ),
@@ -470,12 +385,12 @@ const documentNodeMutationToggleLike = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionTextActivity,
-  fragmentDefinitionUserMin,
   fragmentDefinitionListActivity,
-  fragmentDefinitionMediaMin,
   fragmentDefinitionMessageActivity,
   fragmentDefinitionActivityReply,
   fragmentDefinitionThread,
+  fragmentDefinitionUserMin,
+  fragmentDefinitionMediaMin,
   fragmentDefinitionThreadMin,
 ]);
 
@@ -484,11 +399,11 @@ class MutationToggleLikeToggleLikeV2 {
 
   factory MutationToggleLikeToggleLikeV2.fromJson(Map<String, dynamic> json) {
     switch (json["__typename"] as String) {
-      case "TextActivity":
-        return MutationToggleLikeToggleLikeV2TextActivity.fromJson(json);
-
       case "ListActivity":
         return MutationToggleLikeToggleLikeV2ListActivity.fromJson(json);
+
+      case "TextActivity":
+        return MutationToggleLikeToggleLikeV2TextActivity.fromJson(json);
 
       case "MessageActivity":
         return MutationToggleLikeToggleLikeV2MessageActivity.fromJson(json);
@@ -550,10 +465,10 @@ extension UtilityExtensionMutationToggleLikeToggleLikeV2
             (i) => i,
           );
   _T when<_T>({
-    required _T Function(MutationToggleLikeToggleLikeV2TextActivity)
-        textActivity,
     required _T Function(MutationToggleLikeToggleLikeV2ListActivity)
         listActivity,
+    required _T Function(MutationToggleLikeToggleLikeV2TextActivity)
+        textActivity,
     required _T Function(MutationToggleLikeToggleLikeV2MessageActivity)
         messageActivity,
     required _T Function(MutationToggleLikeToggleLikeV2ActivityReply)
@@ -564,11 +479,11 @@ extension UtilityExtensionMutationToggleLikeToggleLikeV2
     required _T Function() orElse,
   }) {
     switch ($__typename) {
-      case "TextActivity":
-        return textActivity(this as MutationToggleLikeToggleLikeV2TextActivity);
-
       case "ListActivity":
         return listActivity(this as MutationToggleLikeToggleLikeV2ListActivity);
+
+      case "TextActivity":
+        return textActivity(this as MutationToggleLikeToggleLikeV2TextActivity);
 
       case "MessageActivity":
         return messageActivity(
@@ -591,8 +506,8 @@ extension UtilityExtensionMutationToggleLikeToggleLikeV2
   }
 
   _T maybeWhen<_T>({
-    _T Function(MutationToggleLikeToggleLikeV2TextActivity)? textActivity,
     _T Function(MutationToggleLikeToggleLikeV2ListActivity)? listActivity,
+    _T Function(MutationToggleLikeToggleLikeV2TextActivity)? textActivity,
     _T Function(MutationToggleLikeToggleLikeV2MessageActivity)? messageActivity,
     _T Function(MutationToggleLikeToggleLikeV2ActivityReply)? activityReply,
     _T Function(MutationToggleLikeToggleLikeV2Thread)? thread,
@@ -600,18 +515,18 @@ extension UtilityExtensionMutationToggleLikeToggleLikeV2
     required _T Function() orElse,
   }) {
     switch ($__typename) {
-      case "TextActivity":
-        if (textActivity != null) {
-          return textActivity(
-              this as MutationToggleLikeToggleLikeV2TextActivity);
-        } else {
-          return orElse();
-        }
-
       case "ListActivity":
         if (listActivity != null) {
           return listActivity(
               this as MutationToggleLikeToggleLikeV2ListActivity);
+        } else {
+          return orElse();
+        }
+
+      case "TextActivity":
+        if (textActivity != null) {
+          return textActivity(
+              this as MutationToggleLikeToggleLikeV2TextActivity);
         } else {
           return orElse();
         }
@@ -694,339 +609,10 @@ class _CopyWithStubImplMutationToggleLikeToggleLikeV2<TRes>
   call({String? $__typename}) => _res;
 }
 
-class MutationToggleLikeToggleLikeV2TextActivity
-    implements FragmentTextActivity, MutationToggleLikeToggleLikeV2 {
-  MutationToggleLikeToggleLikeV2TextActivity({
-    required this.id,
-    this.type,
-    required this.replyCount,
-    this.text,
-    this.siteUrl,
-    this.isLocked,
-    this.isSubscribed,
-    required this.likeCount,
-    this.isLiked,
-    required this.createdAt,
-    this.user,
-    this.$__typename = 'TextActivity',
-  });
-
-  factory MutationToggleLikeToggleLikeV2TextActivity.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$type = json['type'];
-    final l$replyCount = json['replyCount'];
-    final l$text = json['text'];
-    final l$siteUrl = json['siteUrl'];
-    final l$isLocked = json['isLocked'];
-    final l$isSubscribed = json['isSubscribed'];
-    final l$likeCount = json['likeCount'];
-    final l$isLiked = json['isLiked'];
-    final l$createdAt = json['createdAt'];
-    final l$user = json['user'];
-    final l$$__typename = json['__typename'];
-    return MutationToggleLikeToggleLikeV2TextActivity(
-      id: (l$id as int),
-      type:
-          l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
-      replyCount: (l$replyCount as int),
-      text: (l$text as String?),
-      siteUrl: (l$siteUrl as String?),
-      isLocked: (l$isLocked as bool?),
-      isSubscribed: (l$isSubscribed as bool?),
-      likeCount: (l$likeCount as int),
-      isLiked: (l$isLiked as bool?),
-      createdAt: (l$createdAt as int),
-      user: l$user == null
-          ? null
-          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final EnumActivityType? type;
-
-  final int replyCount;
-
-  final String? text;
-
-  final String? siteUrl;
-
-  final bool? isLocked;
-
-  final bool? isSubscribed;
-
-  final int likeCount;
-
-  final bool? isLiked;
-
-  final int createdAt;
-
-  final FragmentUserMin? user;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$type = type;
-    _resultData['type'] =
-        l$type == null ? null : toJsonEnumActivityType(l$type);
-    final l$replyCount = replyCount;
-    _resultData['replyCount'] = l$replyCount;
-    final l$text = text;
-    _resultData['text'] = l$text;
-    final l$siteUrl = siteUrl;
-    _resultData['siteUrl'] = l$siteUrl;
-    final l$isLocked = isLocked;
-    _resultData['isLocked'] = l$isLocked;
-    final l$isSubscribed = isSubscribed;
-    _resultData['isSubscribed'] = l$isSubscribed;
-    final l$likeCount = likeCount;
-    _resultData['likeCount'] = l$likeCount;
-    final l$isLiked = isLiked;
-    _resultData['isLiked'] = l$isLiked;
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
-    final l$user = user;
-    _resultData['user'] = l$user?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$type = type;
-    final l$replyCount = replyCount;
-    final l$text = text;
-    final l$siteUrl = siteUrl;
-    final l$isLocked = isLocked;
-    final l$isSubscribed = isSubscribed;
-    final l$likeCount = likeCount;
-    final l$isLiked = isLiked;
-    final l$createdAt = createdAt;
-    final l$user = user;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$type,
-      l$replyCount,
-      l$text,
-      l$siteUrl,
-      l$isLocked,
-      l$isSubscribed,
-      l$likeCount,
-      l$isLiked,
-      l$createdAt,
-      l$user,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (other is! MutationToggleLikeToggleLikeV2TextActivity ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$type = type;
-    final lOther$type = other.type;
-    if (l$type != lOther$type) {
-      return false;
-    }
-    final l$replyCount = replyCount;
-    final lOther$replyCount = other.replyCount;
-    if (l$replyCount != lOther$replyCount) {
-      return false;
-    }
-    final l$text = text;
-    final lOther$text = other.text;
-    if (l$text != lOther$text) {
-      return false;
-    }
-    final l$siteUrl = siteUrl;
-    final lOther$siteUrl = other.siteUrl;
-    if (l$siteUrl != lOther$siteUrl) {
-      return false;
-    }
-    final l$isLocked = isLocked;
-    final lOther$isLocked = other.isLocked;
-    if (l$isLocked != lOther$isLocked) {
-      return false;
-    }
-    final l$isSubscribed = isSubscribed;
-    final lOther$isSubscribed = other.isSubscribed;
-    if (l$isSubscribed != lOther$isSubscribed) {
-      return false;
-    }
-    final l$likeCount = likeCount;
-    final lOther$likeCount = other.likeCount;
-    if (l$likeCount != lOther$likeCount) {
-      return false;
-    }
-    final l$isLiked = isLiked;
-    final lOther$isLiked = other.isLiked;
-    if (l$isLiked != lOther$isLiked) {
-      return false;
-    }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
-      return false;
-    }
-    final l$user = user;
-    final lOther$user = other.user;
-    if (l$user != lOther$user) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionMutationToggleLikeToggleLikeV2TextActivity
-    on MutationToggleLikeToggleLikeV2TextActivity {
-  CopyWithMutationToggleLikeToggleLikeV2TextActivity<
-          MutationToggleLikeToggleLikeV2TextActivity>
-      get copyWith => CopyWithMutationToggleLikeToggleLikeV2TextActivity(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithMutationToggleLikeToggleLikeV2TextActivity<TRes> {
-  factory CopyWithMutationToggleLikeToggleLikeV2TextActivity(
-    MutationToggleLikeToggleLikeV2TextActivity instance,
-    TRes Function(MutationToggleLikeToggleLikeV2TextActivity) then,
-  ) = _CopyWithImplMutationToggleLikeToggleLikeV2TextActivity;
-
-  factory CopyWithMutationToggleLikeToggleLikeV2TextActivity.stub(TRes res) =
-      _CopyWithStubImplMutationToggleLikeToggleLikeV2TextActivity;
-
-  TRes call({
-    int? id,
-    EnumActivityType? type,
-    int? replyCount,
-    String? text,
-    String? siteUrl,
-    bool? isLocked,
-    bool? isSubscribed,
-    int? likeCount,
-    bool? isLiked,
-    int? createdAt,
-    FragmentUserMin? user,
-    String? $__typename,
-  });
-  CopyWithFragmentUserMin<TRes> get user;
-}
-
-class _CopyWithImplMutationToggleLikeToggleLikeV2TextActivity<TRes>
-    implements CopyWithMutationToggleLikeToggleLikeV2TextActivity<TRes> {
-  _CopyWithImplMutationToggleLikeToggleLikeV2TextActivity(
-    this._instance,
-    this._then,
-  );
-
-  final MutationToggleLikeToggleLikeV2TextActivity _instance;
-
-  final TRes Function(MutationToggleLikeToggleLikeV2TextActivity) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? type = _undefined,
-    Object? replyCount = _undefined,
-    Object? text = _undefined,
-    Object? siteUrl = _undefined,
-    Object? isLocked = _undefined,
-    Object? isSubscribed = _undefined,
-    Object? likeCount = _undefined,
-    Object? isLiked = _undefined,
-    Object? createdAt = _undefined,
-    Object? user = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(MutationToggleLikeToggleLikeV2TextActivity(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        type: type == _undefined ? _instance.type : (type as EnumActivityType?),
-        replyCount: replyCount == _undefined || replyCount == null
-            ? _instance.replyCount
-            : (replyCount as int),
-        text: text == _undefined ? _instance.text : (text as String?),
-        siteUrl:
-            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
-        isLocked:
-            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
-        isSubscribed: isSubscribed == _undefined
-            ? _instance.isSubscribed
-            : (isSubscribed as bool?),
-        likeCount: likeCount == _undefined || likeCount == null
-            ? _instance.likeCount
-            : (likeCount as int),
-        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as int),
-        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithFragmentUserMin<TRes> get user {
-    final local$user = _instance.user;
-    return local$user == null
-        ? CopyWithFragmentUserMin.stub(_then(_instance))
-        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
-  }
-}
-
-class _CopyWithStubImplMutationToggleLikeToggleLikeV2TextActivity<TRes>
-    implements CopyWithMutationToggleLikeToggleLikeV2TextActivity<TRes> {
-  _CopyWithStubImplMutationToggleLikeToggleLikeV2TextActivity(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    EnumActivityType? type,
-    int? replyCount,
-    String? text,
-    String? siteUrl,
-    bool? isLocked,
-    bool? isSubscribed,
-    int? likeCount,
-    bool? isLiked,
-    int? createdAt,
-    FragmentUserMin? user,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
-}
-
 class MutationToggleLikeToggleLikeV2ListActivity
     implements FragmentListActivity, MutationToggleLikeToggleLikeV2 {
   MutationToggleLikeToggleLikeV2ListActivity({
+    this.$__typename = 'ListActivity',
     required this.id,
     this.type,
     this.status,
@@ -1041,11 +627,11 @@ class MutationToggleLikeToggleLikeV2ListActivity
     required this.createdAt,
     this.user,
     this.media,
-    this.$__typename = 'ListActivity',
   });
 
   factory MutationToggleLikeToggleLikeV2ListActivity.fromJson(
       Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
     final l$id = json['id'];
     final l$type = json['type'];
     final l$status = json['status'];
@@ -1060,8 +646,8 @@ class MutationToggleLikeToggleLikeV2ListActivity
     final l$createdAt = json['createdAt'];
     final l$user = json['user'];
     final l$media = json['media'];
-    final l$$__typename = json['__typename'];
     return MutationToggleLikeToggleLikeV2ListActivity(
+      $__typename: (l$$__typename as String),
       id: (l$id as int),
       type:
           l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
@@ -1081,9 +667,10 @@ class MutationToggleLikeToggleLikeV2ListActivity
       media: l$media == null
           ? null
           : FragmentMediaMin.fromJson((l$media as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
     );
   }
+
+  final String $__typename;
 
   final int id;
 
@@ -1113,10 +700,10 @@ class MutationToggleLikeToggleLikeV2ListActivity
 
   final FragmentMediaMin? media;
 
-  final String $__typename;
-
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     final l$id = id;
     _resultData['id'] = l$id;
     final l$type = type;
@@ -1146,13 +733,12 @@ class MutationToggleLikeToggleLikeV2ListActivity
     _resultData['user'] = l$user?.toJson();
     final l$media = media;
     _resultData['media'] = l$media?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
     return _resultData;
   }
 
   @override
   int get hashCode {
+    final l$$__typename = $__typename;
     final l$id = id;
     final l$type = type;
     final l$status = status;
@@ -1167,8 +753,8 @@ class MutationToggleLikeToggleLikeV2ListActivity
     final l$createdAt = createdAt;
     final l$user = user;
     final l$media = media;
-    final l$$__typename = $__typename;
     return Object.hashAll([
+      l$$__typename,
       l$id,
       l$type,
       l$status,
@@ -1183,7 +769,6 @@ class MutationToggleLikeToggleLikeV2ListActivity
       l$createdAt,
       l$user,
       l$media,
-      l$$__typename,
     ]);
   }
 
@@ -1194,6 +779,11 @@ class MutationToggleLikeToggleLikeV2ListActivity
     }
     if (other is! MutationToggleLikeToggleLikeV2ListActivity ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
       return false;
     }
     final l$id = id;
@@ -1266,11 +856,6 @@ class MutationToggleLikeToggleLikeV2ListActivity
     if (l$media != lOther$media) {
       return false;
     }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
     return true;
   }
 }
@@ -1295,6 +880,7 @@ abstract class CopyWithMutationToggleLikeToggleLikeV2ListActivity<TRes> {
       _CopyWithStubImplMutationToggleLikeToggleLikeV2ListActivity;
 
   TRes call({
+    String? $__typename,
     int? id,
     EnumActivityType? type,
     String? status,
@@ -1309,7 +895,6 @@ abstract class CopyWithMutationToggleLikeToggleLikeV2ListActivity<TRes> {
     int? createdAt,
     FragmentUserMin? user,
     FragmentMediaMin? media,
-    String? $__typename,
   });
   CopyWithFragmentUserMin<TRes> get user;
   CopyWithFragmentMediaMin<TRes> get media;
@@ -1329,6 +914,7 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2ListActivity<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? $__typename = _undefined,
     Object? id = _undefined,
     Object? type = _undefined,
     Object? status = _undefined,
@@ -1343,9 +929,11 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2ListActivity<TRes>
     Object? createdAt = _undefined,
     Object? user = _undefined,
     Object? media = _undefined,
-    Object? $__typename = _undefined,
   }) =>
       _then(MutationToggleLikeToggleLikeV2ListActivity(
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
         id: id == _undefined || id == null ? _instance.id : (id as int),
         type: type == _undefined ? _instance.type : (type as EnumActivityType?),
         status: status == _undefined ? _instance.status : (status as String?),
@@ -1374,9 +962,6 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2ListActivity<TRes>
         media: media == _undefined
             ? _instance.media
             : (media as FragmentMediaMin?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
       ));
 
   CopyWithFragmentUserMin<TRes> get user {
@@ -1401,6 +986,7 @@ class _CopyWithStubImplMutationToggleLikeToggleLikeV2ListActivity<TRes>
   TRes _res;
 
   call({
+    String? $__typename,
     int? id,
     EnumActivityType? type,
     String? status,
@@ -1415,7 +1001,6 @@ class _CopyWithStubImplMutationToggleLikeToggleLikeV2ListActivity<TRes>
     int? createdAt,
     FragmentUserMin? user,
     FragmentMediaMin? media,
-    String? $__typename,
   }) =>
       _res;
 
@@ -1425,9 +1010,340 @@ class _CopyWithStubImplMutationToggleLikeToggleLikeV2ListActivity<TRes>
       CopyWithFragmentMediaMin.stub(_res);
 }
 
+class MutationToggleLikeToggleLikeV2TextActivity
+    implements FragmentTextActivity, MutationToggleLikeToggleLikeV2 {
+  MutationToggleLikeToggleLikeV2TextActivity({
+    this.$__typename = 'TextActivity',
+    required this.id,
+    this.type,
+    required this.replyCount,
+    this.text,
+    this.siteUrl,
+    this.isLocked,
+    this.isSubscribed,
+    required this.likeCount,
+    this.isLiked,
+    required this.createdAt,
+    this.user,
+  });
+
+  factory MutationToggleLikeToggleLikeV2TextActivity.fromJson(
+      Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
+    final l$id = json['id'];
+    final l$type = json['type'];
+    final l$replyCount = json['replyCount'];
+    final l$text = json['text'];
+    final l$siteUrl = json['siteUrl'];
+    final l$isLocked = json['isLocked'];
+    final l$isSubscribed = json['isSubscribed'];
+    final l$likeCount = json['likeCount'];
+    final l$isLiked = json['isLiked'];
+    final l$createdAt = json['createdAt'];
+    final l$user = json['user'];
+    return MutationToggleLikeToggleLikeV2TextActivity(
+      $__typename: (l$$__typename as String),
+      id: (l$id as int),
+      type:
+          l$type == null ? null : fromJsonEnumActivityType((l$type as String)),
+      replyCount: (l$replyCount as int),
+      text: (l$text as String?),
+      siteUrl: (l$siteUrl as String?),
+      isLocked: (l$isLocked as bool?),
+      isSubscribed: (l$isSubscribed as bool?),
+      likeCount: (l$likeCount as int),
+      isLiked: (l$isLiked as bool?),
+      createdAt: (l$createdAt as int),
+      user: l$user == null
+          ? null
+          : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
+    );
+  }
+
+  final String $__typename;
+
+  final int id;
+
+  final EnumActivityType? type;
+
+  final int replyCount;
+
+  final String? text;
+
+  final String? siteUrl;
+
+  final bool? isLocked;
+
+  final bool? isSubscribed;
+
+  final int likeCount;
+
+  final bool? isLiked;
+
+  final int createdAt;
+
+  final FragmentUserMin? user;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$type = type;
+    _resultData['type'] =
+        l$type == null ? null : toJsonEnumActivityType(l$type);
+    final l$replyCount = replyCount;
+    _resultData['replyCount'] = l$replyCount;
+    final l$text = text;
+    _resultData['text'] = l$text;
+    final l$siteUrl = siteUrl;
+    _resultData['siteUrl'] = l$siteUrl;
+    final l$isLocked = isLocked;
+    _resultData['isLocked'] = l$isLocked;
+    final l$isSubscribed = isSubscribed;
+    _resultData['isSubscribed'] = l$isSubscribed;
+    final l$likeCount = likeCount;
+    _resultData['likeCount'] = l$likeCount;
+    final l$isLiked = isLiked;
+    _resultData['isLiked'] = l$isLiked;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$user = user;
+    _resultData['user'] = l$user?.toJson();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$$__typename = $__typename;
+    final l$id = id;
+    final l$type = type;
+    final l$replyCount = replyCount;
+    final l$text = text;
+    final l$siteUrl = siteUrl;
+    final l$isLocked = isLocked;
+    final l$isSubscribed = isSubscribed;
+    final l$likeCount = likeCount;
+    final l$isLiked = isLiked;
+    final l$createdAt = createdAt;
+    final l$user = user;
+    return Object.hashAll([
+      l$$__typename,
+      l$id,
+      l$type,
+      l$replyCount,
+      l$text,
+      l$siteUrl,
+      l$isLocked,
+      l$isSubscribed,
+      l$likeCount,
+      l$isLiked,
+      l$createdAt,
+      l$user,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! MutationToggleLikeToggleLikeV2TextActivity ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$replyCount = replyCount;
+    final lOther$replyCount = other.replyCount;
+    if (l$replyCount != lOther$replyCount) {
+      return false;
+    }
+    final l$text = text;
+    final lOther$text = other.text;
+    if (l$text != lOther$text) {
+      return false;
+    }
+    final l$siteUrl = siteUrl;
+    final lOther$siteUrl = other.siteUrl;
+    if (l$siteUrl != lOther$siteUrl) {
+      return false;
+    }
+    final l$isLocked = isLocked;
+    final lOther$isLocked = other.isLocked;
+    if (l$isLocked != lOther$isLocked) {
+      return false;
+    }
+    final l$isSubscribed = isSubscribed;
+    final lOther$isSubscribed = other.isSubscribed;
+    if (l$isSubscribed != lOther$isSubscribed) {
+      return false;
+    }
+    final l$likeCount = likeCount;
+    final lOther$likeCount = other.likeCount;
+    if (l$likeCount != lOther$likeCount) {
+      return false;
+    }
+    final l$isLiked = isLiked;
+    final lOther$isLiked = other.isLiked;
+    if (l$isLiked != lOther$isLiked) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$user = user;
+    final lOther$user = other.user;
+    if (l$user != lOther$user) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionMutationToggleLikeToggleLikeV2TextActivity
+    on MutationToggleLikeToggleLikeV2TextActivity {
+  CopyWithMutationToggleLikeToggleLikeV2TextActivity<
+          MutationToggleLikeToggleLikeV2TextActivity>
+      get copyWith => CopyWithMutationToggleLikeToggleLikeV2TextActivity(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithMutationToggleLikeToggleLikeV2TextActivity<TRes> {
+  factory CopyWithMutationToggleLikeToggleLikeV2TextActivity(
+    MutationToggleLikeToggleLikeV2TextActivity instance,
+    TRes Function(MutationToggleLikeToggleLikeV2TextActivity) then,
+  ) = _CopyWithImplMutationToggleLikeToggleLikeV2TextActivity;
+
+  factory CopyWithMutationToggleLikeToggleLikeV2TextActivity.stub(TRes res) =
+      _CopyWithStubImplMutationToggleLikeToggleLikeV2TextActivity;
+
+  TRes call({
+    String? $__typename,
+    int? id,
+    EnumActivityType? type,
+    int? replyCount,
+    String? text,
+    String? siteUrl,
+    bool? isLocked,
+    bool? isSubscribed,
+    int? likeCount,
+    bool? isLiked,
+    int? createdAt,
+    FragmentUserMin? user,
+  });
+  CopyWithFragmentUserMin<TRes> get user;
+}
+
+class _CopyWithImplMutationToggleLikeToggleLikeV2TextActivity<TRes>
+    implements CopyWithMutationToggleLikeToggleLikeV2TextActivity<TRes> {
+  _CopyWithImplMutationToggleLikeToggleLikeV2TextActivity(
+    this._instance,
+    this._then,
+  );
+
+  final MutationToggleLikeToggleLikeV2TextActivity _instance;
+
+  final TRes Function(MutationToggleLikeToggleLikeV2TextActivity) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? $__typename = _undefined,
+    Object? id = _undefined,
+    Object? type = _undefined,
+    Object? replyCount = _undefined,
+    Object? text = _undefined,
+    Object? siteUrl = _undefined,
+    Object? isLocked = _undefined,
+    Object? isSubscribed = _undefined,
+    Object? likeCount = _undefined,
+    Object? isLiked = _undefined,
+    Object? createdAt = _undefined,
+    Object? user = _undefined,
+  }) =>
+      _then(MutationToggleLikeToggleLikeV2TextActivity(
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        type: type == _undefined ? _instance.type : (type as EnumActivityType?),
+        replyCount: replyCount == _undefined || replyCount == null
+            ? _instance.replyCount
+            : (replyCount as int),
+        text: text == _undefined ? _instance.text : (text as String?),
+        siteUrl:
+            siteUrl == _undefined ? _instance.siteUrl : (siteUrl as String?),
+        isLocked:
+            isLocked == _undefined ? _instance.isLocked : (isLocked as bool?),
+        isSubscribed: isSubscribed == _undefined
+            ? _instance.isSubscribed
+            : (isSubscribed as bool?),
+        likeCount: likeCount == _undefined || likeCount == null
+            ? _instance.likeCount
+            : (likeCount as int),
+        isLiked: isLiked == _undefined ? _instance.isLiked : (isLiked as bool?),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as int),
+        user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
+      ));
+
+  CopyWithFragmentUserMin<TRes> get user {
+    final local$user = _instance.user;
+    return local$user == null
+        ? CopyWithFragmentUserMin.stub(_then(_instance))
+        : CopyWithFragmentUserMin(local$user, (e) => call(user: e));
+  }
+}
+
+class _CopyWithStubImplMutationToggleLikeToggleLikeV2TextActivity<TRes>
+    implements CopyWithMutationToggleLikeToggleLikeV2TextActivity<TRes> {
+  _CopyWithStubImplMutationToggleLikeToggleLikeV2TextActivity(this._res);
+
+  TRes _res;
+
+  call({
+    String? $__typename,
+    int? id,
+    EnumActivityType? type,
+    int? replyCount,
+    String? text,
+    String? siteUrl,
+    bool? isLocked,
+    bool? isSubscribed,
+    int? likeCount,
+    bool? isLiked,
+    int? createdAt,
+    FragmentUserMin? user,
+  }) =>
+      _res;
+
+  CopyWithFragmentUserMin<TRes> get user => CopyWithFragmentUserMin.stub(_res);
+}
+
 class MutationToggleLikeToggleLikeV2MessageActivity
     implements FragmentMessageActivity, MutationToggleLikeToggleLikeV2 {
   MutationToggleLikeToggleLikeV2MessageActivity({
+    this.$__typename = 'MessageActivity',
     required this.id,
     this.recipientId,
     this.type,
@@ -1441,11 +1357,11 @@ class MutationToggleLikeToggleLikeV2MessageActivity
     this.siteUrl,
     required this.createdAt,
     this.messenger,
-    this.$__typename = 'MessageActivity',
   });
 
   factory MutationToggleLikeToggleLikeV2MessageActivity.fromJson(
       Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
     final l$id = json['id'];
     final l$recipientId = json['recipientId'];
     final l$type = json['type'];
@@ -1459,8 +1375,8 @@ class MutationToggleLikeToggleLikeV2MessageActivity
     final l$siteUrl = json['siteUrl'];
     final l$createdAt = json['createdAt'];
     final l$messenger = json['messenger'];
-    final l$$__typename = json['__typename'];
     return MutationToggleLikeToggleLikeV2MessageActivity(
+      $__typename: (l$$__typename as String),
       id: (l$id as int),
       recipientId: (l$recipientId as int?),
       type:
@@ -1477,9 +1393,10 @@ class MutationToggleLikeToggleLikeV2MessageActivity
       messenger: l$messenger == null
           ? null
           : FragmentUserMin.fromJson((l$messenger as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
     );
   }
+
+  final String $__typename;
 
   final int id;
 
@@ -1507,10 +1424,10 @@ class MutationToggleLikeToggleLikeV2MessageActivity
 
   final FragmentUserMin? messenger;
 
-  final String $__typename;
-
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     final l$id = id;
     _resultData['id'] = l$id;
     final l$recipientId = recipientId;
@@ -1538,13 +1455,12 @@ class MutationToggleLikeToggleLikeV2MessageActivity
     _resultData['createdAt'] = l$createdAt;
     final l$messenger = messenger;
     _resultData['messenger'] = l$messenger?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
     return _resultData;
   }
 
   @override
   int get hashCode {
+    final l$$__typename = $__typename;
     final l$id = id;
     final l$recipientId = recipientId;
     final l$type = type;
@@ -1558,8 +1474,8 @@ class MutationToggleLikeToggleLikeV2MessageActivity
     final l$siteUrl = siteUrl;
     final l$createdAt = createdAt;
     final l$messenger = messenger;
-    final l$$__typename = $__typename;
     return Object.hashAll([
+      l$$__typename,
       l$id,
       l$recipientId,
       l$type,
@@ -1573,7 +1489,6 @@ class MutationToggleLikeToggleLikeV2MessageActivity
       l$siteUrl,
       l$createdAt,
       l$messenger,
-      l$$__typename,
     ]);
   }
 
@@ -1584,6 +1499,11 @@ class MutationToggleLikeToggleLikeV2MessageActivity
     }
     if (other is! MutationToggleLikeToggleLikeV2MessageActivity ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
       return false;
     }
     final l$id = id;
@@ -1651,11 +1571,6 @@ class MutationToggleLikeToggleLikeV2MessageActivity
     if (l$messenger != lOther$messenger) {
       return false;
     }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
     return true;
   }
 }
@@ -1680,6 +1595,7 @@ abstract class CopyWithMutationToggleLikeToggleLikeV2MessageActivity<TRes> {
       _CopyWithStubImplMutationToggleLikeToggleLikeV2MessageActivity;
 
   TRes call({
+    String? $__typename,
     int? id,
     int? recipientId,
     EnumActivityType? type,
@@ -1693,7 +1609,6 @@ abstract class CopyWithMutationToggleLikeToggleLikeV2MessageActivity<TRes> {
     String? siteUrl,
     int? createdAt,
     FragmentUserMin? messenger,
-    String? $__typename,
   });
   CopyWithFragmentUserMin<TRes> get messenger;
 }
@@ -1712,6 +1627,7 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2MessageActivity<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? $__typename = _undefined,
     Object? id = _undefined,
     Object? recipientId = _undefined,
     Object? type = _undefined,
@@ -1725,9 +1641,11 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2MessageActivity<TRes>
     Object? siteUrl = _undefined,
     Object? createdAt = _undefined,
     Object? messenger = _undefined,
-    Object? $__typename = _undefined,
   }) =>
       _then(MutationToggleLikeToggleLikeV2MessageActivity(
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
         id: id == _undefined || id == null ? _instance.id : (id as int),
         recipientId: recipientId == _undefined
             ? _instance.recipientId
@@ -1758,9 +1676,6 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2MessageActivity<TRes>
         messenger: messenger == _undefined
             ? _instance.messenger
             : (messenger as FragmentUserMin?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
       ));
 
   CopyWithFragmentUserMin<TRes> get messenger {
@@ -1778,6 +1693,7 @@ class _CopyWithStubImplMutationToggleLikeToggleLikeV2MessageActivity<TRes>
   TRes _res;
 
   call({
+    String? $__typename,
     int? id,
     int? recipientId,
     EnumActivityType? type,
@@ -1791,7 +1707,6 @@ class _CopyWithStubImplMutationToggleLikeToggleLikeV2MessageActivity<TRes>
     String? siteUrl,
     int? createdAt,
     FragmentUserMin? messenger,
-    String? $__typename,
   }) =>
       _res;
 
@@ -1802,25 +1717,26 @@ class _CopyWithStubImplMutationToggleLikeToggleLikeV2MessageActivity<TRes>
 class MutationToggleLikeToggleLikeV2ActivityReply
     implements FragmentActivityReply, MutationToggleLikeToggleLikeV2 {
   MutationToggleLikeToggleLikeV2ActivityReply({
+    this.$__typename = 'ActivityReply',
     required this.id,
     this.text,
     required this.likeCount,
     this.isLiked,
     required this.createdAt,
     this.user,
-    this.$__typename = 'ActivityReply',
   });
 
   factory MutationToggleLikeToggleLikeV2ActivityReply.fromJson(
       Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
     final l$id = json['id'];
     final l$text = json['text'];
     final l$likeCount = json['likeCount'];
     final l$isLiked = json['isLiked'];
     final l$createdAt = json['createdAt'];
     final l$user = json['user'];
-    final l$$__typename = json['__typename'];
     return MutationToggleLikeToggleLikeV2ActivityReply(
+      $__typename: (l$$__typename as String),
       id: (l$id as int),
       text: (l$text as String?),
       likeCount: (l$likeCount as int),
@@ -1829,9 +1745,10 @@ class MutationToggleLikeToggleLikeV2ActivityReply
       user: l$user == null
           ? null
           : FragmentUserMin.fromJson((l$user as Map<String, dynamic>)),
-      $__typename: (l$$__typename as String),
     );
   }
+
+  final String $__typename;
 
   final int id;
 
@@ -1845,10 +1762,10 @@ class MutationToggleLikeToggleLikeV2ActivityReply
 
   final FragmentUserMin? user;
 
-  final String $__typename;
-
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     final l$id = id;
     _resultData['id'] = l$id;
     final l$text = text;
@@ -1861,28 +1778,26 @@ class MutationToggleLikeToggleLikeV2ActivityReply
     _resultData['createdAt'] = l$createdAt;
     final l$user = user;
     _resultData['user'] = l$user?.toJson();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
     return _resultData;
   }
 
   @override
   int get hashCode {
+    final l$$__typename = $__typename;
     final l$id = id;
     final l$text = text;
     final l$likeCount = likeCount;
     final l$isLiked = isLiked;
     final l$createdAt = createdAt;
     final l$user = user;
-    final l$$__typename = $__typename;
     return Object.hashAll([
+      l$$__typename,
       l$id,
       l$text,
       l$likeCount,
       l$isLiked,
       l$createdAt,
       l$user,
-      l$$__typename,
     ]);
   }
 
@@ -1893,6 +1808,11 @@ class MutationToggleLikeToggleLikeV2ActivityReply
     }
     if (other is! MutationToggleLikeToggleLikeV2ActivityReply ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
       return false;
     }
     final l$id = id;
@@ -1925,11 +1845,6 @@ class MutationToggleLikeToggleLikeV2ActivityReply
     if (l$user != lOther$user) {
       return false;
     }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
     return true;
   }
 }
@@ -1954,13 +1869,13 @@ abstract class CopyWithMutationToggleLikeToggleLikeV2ActivityReply<TRes> {
       _CopyWithStubImplMutationToggleLikeToggleLikeV2ActivityReply;
 
   TRes call({
+    String? $__typename,
     int? id,
     String? text,
     int? likeCount,
     bool? isLiked,
     int? createdAt,
     FragmentUserMin? user,
-    String? $__typename,
   });
   CopyWithFragmentUserMin<TRes> get user;
 }
@@ -1979,15 +1894,18 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2ActivityReply<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? $__typename = _undefined,
     Object? id = _undefined,
     Object? text = _undefined,
     Object? likeCount = _undefined,
     Object? isLiked = _undefined,
     Object? createdAt = _undefined,
     Object? user = _undefined,
-    Object? $__typename = _undefined,
   }) =>
       _then(MutationToggleLikeToggleLikeV2ActivityReply(
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
         id: id == _undefined || id == null ? _instance.id : (id as int),
         text: text == _undefined ? _instance.text : (text as String?),
         likeCount: likeCount == _undefined || likeCount == null
@@ -1998,9 +1916,6 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2ActivityReply<TRes>
             ? _instance.createdAt
             : (createdAt as int),
         user: user == _undefined ? _instance.user : (user as FragmentUserMin?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
       ));
 
   CopyWithFragmentUserMin<TRes> get user {
@@ -2018,13 +1933,13 @@ class _CopyWithStubImplMutationToggleLikeToggleLikeV2ActivityReply<TRes>
   TRes _res;
 
   call({
+    String? $__typename,
     int? id,
     String? text,
     int? likeCount,
     bool? isLiked,
     int? createdAt,
     FragmentUserMin? user,
-    String? $__typename,
   }) =>
       _res;
 
@@ -2037,6 +1952,7 @@ class MutationToggleLikeToggleLikeV2Thread
         FragmentThreadMin,
         MutationToggleLikeToggleLikeV2 {
   MutationToggleLikeToggleLikeV2Thread({
+    this.$__typename = 'Thread',
     required this.id,
     this.title,
     this.body,
@@ -2048,7 +1964,6 @@ class MutationToggleLikeToggleLikeV2Thread
     this.replyUser,
     this.categories,
     this.mediaCategories,
-    this.$__typename = 'Thread',
     this.replyCommentId,
     this.isLocked,
     this.isSticky,
@@ -2062,6 +1977,7 @@ class MutationToggleLikeToggleLikeV2Thread
 
   factory MutationToggleLikeToggleLikeV2Thread.fromJson(
       Map<String, dynamic> json) {
+    final l$$__typename = json['__typename'];
     final l$id = json['id'];
     final l$title = json['title'];
     final l$body = json['body'];
@@ -2073,7 +1989,6 @@ class MutationToggleLikeToggleLikeV2Thread
     final l$replyUser = json['replyUser'];
     final l$categories = json['categories'];
     final l$mediaCategories = json['mediaCategories'];
-    final l$$__typename = json['__typename'];
     final l$replyCommentId = json['replyCommentId'];
     final l$isLocked = json['isLocked'];
     final l$isSticky = json['isSticky'];
@@ -2084,6 +1999,7 @@ class MutationToggleLikeToggleLikeV2Thread
     final l$updatedAt = json['updatedAt'];
     final l$likes = json['likes'];
     return MutationToggleLikeToggleLikeV2Thread(
+      $__typename: (l$$__typename as String),
       id: (l$id as int),
       title: (l$title as String?),
       body: (l$body as String?),
@@ -2109,7 +2025,6 @@ class MutationToggleLikeToggleLikeV2Thread
               : MutationToggleLikeToggleLikeV2ThreadmediaCategories.fromJson(
                   (e as Map<String, dynamic>)))
           .toList(),
-      $__typename: (l$$__typename as String),
       replyCommentId: (l$replyCommentId as int?),
       isLocked: (l$isLocked as bool?),
       isSticky: (l$isSticky as bool?),
@@ -2126,6 +2041,8 @@ class MutationToggleLikeToggleLikeV2Thread
           .toList(),
     );
   }
+
+  final String $__typename;
 
   final int id;
 
@@ -2150,8 +2067,6 @@ class MutationToggleLikeToggleLikeV2Thread
   final List<MutationToggleLikeToggleLikeV2ThreadmediaCategories?>?
       mediaCategories;
 
-  final String $__typename;
-
   final int? replyCommentId;
 
   final bool? isLocked;
@@ -2172,6 +2087,8 @@ class MutationToggleLikeToggleLikeV2Thread
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
     final l$id = id;
     _resultData['id'] = l$id;
     final l$title = title;
@@ -2195,8 +2112,6 @@ class MutationToggleLikeToggleLikeV2Thread
     final l$mediaCategories = mediaCategories;
     _resultData['mediaCategories'] =
         l$mediaCategories?.map((e) => e?.toJson()).toList();
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
     final l$replyCommentId = replyCommentId;
     _resultData['replyCommentId'] = l$replyCommentId;
     final l$isLocked = isLocked;
@@ -2220,6 +2135,7 @@ class MutationToggleLikeToggleLikeV2Thread
 
   @override
   int get hashCode {
+    final l$$__typename = $__typename;
     final l$id = id;
     final l$title = title;
     final l$body = body;
@@ -2231,7 +2147,6 @@ class MutationToggleLikeToggleLikeV2Thread
     final l$replyUser = replyUser;
     final l$categories = categories;
     final l$mediaCategories = mediaCategories;
-    final l$$__typename = $__typename;
     final l$replyCommentId = replyCommentId;
     final l$isLocked = isLocked;
     final l$isSticky = isSticky;
@@ -2242,6 +2157,7 @@ class MutationToggleLikeToggleLikeV2Thread
     final l$updatedAt = updatedAt;
     final l$likes = likes;
     return Object.hashAll([
+      l$$__typename,
       l$id,
       l$title,
       l$body,
@@ -2255,7 +2171,6 @@ class MutationToggleLikeToggleLikeV2Thread
       l$mediaCategories == null
           ? null
           : Object.hashAll(l$mediaCategories.map((v) => v)),
-      l$$__typename,
       l$replyCommentId,
       l$isLocked,
       l$isSticky,
@@ -2275,6 +2190,11 @@ class MutationToggleLikeToggleLikeV2Thread
     }
     if (other is! MutationToggleLikeToggleLikeV2Thread ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
       return false;
     }
     final l$id = id;
@@ -2352,11 +2272,6 @@ class MutationToggleLikeToggleLikeV2Thread
         }
       }
     } else if (l$mediaCategories != lOther$mediaCategories) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
       return false;
     }
     final l$replyCommentId = replyCommentId;
@@ -2439,6 +2354,7 @@ abstract class CopyWithMutationToggleLikeToggleLikeV2Thread<TRes> {
       _CopyWithStubImplMutationToggleLikeToggleLikeV2Thread;
 
   TRes call({
+    String? $__typename,
     int? id,
     String? title,
     String? body,
@@ -2450,7 +2366,6 @@ abstract class CopyWithMutationToggleLikeToggleLikeV2Thread<TRes> {
     FragmentUserMin? replyUser,
     List<MutationToggleLikeToggleLikeV2Threadcategories?>? categories,
     List<MutationToggleLikeToggleLikeV2ThreadmediaCategories?>? mediaCategories,
-    String? $__typename,
     int? replyCommentId,
     bool? isLocked,
     bool? isSticky,
@@ -2497,6 +2412,7 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2Thread<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? $__typename = _undefined,
     Object? id = _undefined,
     Object? title = _undefined,
     Object? body = _undefined,
@@ -2508,7 +2424,6 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2Thread<TRes>
     Object? replyUser = _undefined,
     Object? categories = _undefined,
     Object? mediaCategories = _undefined,
-    Object? $__typename = _undefined,
     Object? replyCommentId = _undefined,
     Object? isLocked = _undefined,
     Object? isSticky = _undefined,
@@ -2520,6 +2435,9 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2Thread<TRes>
     Object? likes = _undefined,
   }) =>
       _then(MutationToggleLikeToggleLikeV2Thread(
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
         id: id == _undefined || id == null ? _instance.id : (id as int),
         title: title == _undefined ? _instance.title : (title as String?),
         body: body == _undefined ? _instance.body : (body as String?),
@@ -2544,9 +2462,6 @@ class _CopyWithImplMutationToggleLikeToggleLikeV2Thread<TRes>
             ? _instance.mediaCategories
             : (mediaCategories
                 as List<MutationToggleLikeToggleLikeV2ThreadmediaCategories?>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
         replyCommentId: replyCommentId == _undefined
             ? _instance.replyCommentId
             : (replyCommentId as int?),
@@ -2636,6 +2551,7 @@ class _CopyWithStubImplMutationToggleLikeToggleLikeV2Thread<TRes>
   TRes _res;
 
   call({
+    String? $__typename,
     int? id,
     String? title,
     String? body,
@@ -2647,7 +2563,6 @@ class _CopyWithStubImplMutationToggleLikeToggleLikeV2Thread<TRes>
     FragmentUserMin? replyUser,
     List<MutationToggleLikeToggleLikeV2Threadcategories?>? categories,
     List<MutationToggleLikeToggleLikeV2ThreadmediaCategories?>? mediaCategories,
-    String? $__typename,
     int? replyCommentId,
     bool? isLocked,
     bool? isSticky,

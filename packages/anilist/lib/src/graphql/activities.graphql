@@ -91,7 +91,7 @@ query Activities(
 
 fragment ActivityReply on ActivityReply {
   id
-  text(asHtml: false)
+  text(asHtml: $asHtml)
   likeCount
   isLiked
   createdAt
@@ -114,6 +114,65 @@ query ActivityReplies($activityId: Int!) {
     }
 
     ... on MessageActivity {
+      replies {
+        ...ActivityReply
+      }
+    }
+  }
+}
+
+query Activity(
+  $activityId: Int
+  $type: ActivityType
+  $isFollowing: Boolean
+  $hasReplies: Boolean
+  $hasRepliesOrTypeText: Boolean
+  $idIn: [Int]
+  $idNotIn: [Int]
+  $userIdIn: [Int]
+  $userIdNotIn: [Int]
+  $messengerIdIn: [Int]
+  $messengerIdNotIn: [Int]
+  $mediaIdIn: [Int]
+  $mediaIdNotIn: [Int]
+  $typeIn: [ActivityType]
+  $typeNotIn: [ActivityType]
+  $sort: [ActivitySort]
+  $asHtml: Boolean = false
+) {
+  Activity(
+    id: $activityId
+    type: $type
+    isFollowing: $isFollowing
+    hasReplies: $hasReplies
+    hasRepliesOrTypeText: $hasRepliesOrTypeText
+    id_in: $idIn
+    id_not_in: $idNotIn
+    userId_in: $userIdIn
+    userId_not_in: $userIdNotIn
+    messengerId_in: $messengerIdIn
+    messengerId_not_in: $messengerIdNotIn
+    mediaId_in: $mediaIdIn
+    mediaId_not_in: $mediaIdNotIn
+    type_in: $typeIn
+    type_not_in: $typeNotIn
+    sort: $sort
+  ) {
+    ... on TextActivity {
+      ...TextActivity
+      replies {
+        ...ActivityReply
+      }
+    }
+    ... on ListActivity {
+      ...ListActivity
+      replies {
+        ...ActivityReply
+      }
+    }
+
+    ... on MessageActivity {
+      ...MessageActivity
       replies {
         ...ActivityReply
       }
