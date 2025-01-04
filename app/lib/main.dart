@@ -33,7 +33,7 @@ Future<void> initialize() async {
       ));
 
   // Sets the minimum width of the window for the app
-  setWindowMinSize(const Size(800, 600));
+  setWindowMinSize(const Size(1000, 700));
 }
 
 class MainApp extends ConsumerWidget {
