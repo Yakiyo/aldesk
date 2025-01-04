@@ -158,6 +158,15 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        Consumer(
+                          builder: (context, ref, child) => IconButton(
+                              tooltip:
+                                  "Refresh activities (auto refreshes every minute)",
+                              onPressed: () {
+                                ref.invalidate(recentActivityProvider);
+                              },
+                              icon: const Icon(Icons.refresh)),
+                        ),
                         TextButton(
                             style:
                                 type == ActivityType.following ? border : null,

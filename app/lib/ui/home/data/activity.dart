@@ -13,13 +13,14 @@ part 'activity.g.dart';
 
 const _activityPerPage = 18;
 
-@riverpod
+@Riverpod(keepAlive: true)
 class RecentActivity extends _$RecentActivity {
   int _page = 1;
   bool _hasNext = false;
   late Future<QueryActivitiesPage> Function({int page, int perPage}) _fetcher;
   @override
   FutureOr<List<QueryActivitiesPageactivities>> build() async {
+    ref.invalidateAfter(const Duration(minutes: 1));
     final type = ref.watch(activityTypeProvider);
     _fetcher =
         type == ActivityType.following ? followingActivities : globalActivities;

@@ -22,11 +22,11 @@ final activityTypeProvider = AutoDisposeProvider<ActivityType>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef ActivityTypeRef = AutoDisposeProviderRef<ActivityType>;
-String _$recentActivityHash() => r'd3aea602ec3c75ce05b77f27c95d3f526ec24611';
+String _$recentActivityHash() => r'c244239bf445259587ff50ab9dca686c3dd9cb84';
 
 /// See also [RecentActivity].
 @ProviderFor(RecentActivity)
-final recentActivityProvider = AutoDisposeAsyncNotifierProvider<RecentActivity,
+final recentActivityProvider = AsyncNotifierProvider<RecentActivity,
     List<QueryActivitiesPageactivities>>.internal(
   RecentActivity.new,
   name: r'recentActivityProvider',
@@ -37,7 +37,6 @@ final recentActivityProvider = AutoDisposeAsyncNotifierProvider<RecentActivity,
   allTransitiveDependencies: null,
 );
 
-typedef _$RecentActivity
-    = AutoDisposeAsyncNotifier<List<QueryActivitiesPageactivities>>;
+typedef _$RecentActivity = AsyncNotifier<List<QueryActivitiesPageactivities>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
