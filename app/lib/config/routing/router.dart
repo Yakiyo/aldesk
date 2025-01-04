@@ -19,7 +19,7 @@ GoRouter router(Ref ref) {
   final authed = token != null && token.isValid;
   final authId = token?.sub ?? "";
   return GoRouter(initialLocation: authed ? Routes.home : Routes.login, routes: [
-    GoRoute(path: Routes.home, redirect: (context, state) => Routes.home),
+    GoRoute(path: Routes.home, redirect: (context, state) => Routes.homeBase),
     GoRoute(path: Routes.homeBase, builder: (context, state) => const HomePage()),
     GoRoute(path: Routes.login, builder: (context, state) => const LoginPage()),
     // profile page just redirects to the user page
