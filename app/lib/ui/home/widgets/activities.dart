@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../config/routing/routes.dart';
 import '../../../config/utils/utils.dart';
 import '../../core/widgets/async_widget.dart';
 
@@ -131,7 +132,7 @@ class ListActivityTile extends ConsumerWidget {
             if (_cover != null)
               InkWell(
                 onTap: () {
-                  context.go("/media/${activity.media!.id}");
+                  context.go(Routes.mediaWithId(activity.media!.id));
                 },
                 child: Image.network(
                   _cover!,
@@ -215,7 +216,7 @@ class ListActivityTile extends ConsumerWidget {
         IconButton(
             icon: const FaIcon(FontAwesomeIcons.solidComments, size: 14),
             onPressed: () {
-              context.go("/activity/${activity.id}");
+              context.go(Routes.activityWithId(activity.id));
             }),
         if (activity.likeCount > 0) Text("${activity.likeCount}"),
         IconButton(

@@ -1,5 +1,6 @@
 // utility to convert different notification type to a common type
 
+import 'package:aldesk/config/routing/routes.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,7 @@ NotificationUnion transformNotification(
           HighlightedText(i.media?.title?.userPreferred ?? "<unknown>"),
           " aired"
         ],
-        route: "/media/${i.media!.id}",
+        route: Routes.mediaWithId(i.media!.id),
         image: i.media?.coverImage?.large),
     followingNotification: (i) => NotificationUnion(
         id: i.id,

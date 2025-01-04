@@ -1,3 +1,4 @@
+import 'package:aldesk/config/routing/routes.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -63,7 +64,7 @@ class _MediaEntryState extends State<_MediaEntry> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.go('/media/${widget.media.id}');
+        context.go(Routes.mediaWithId(widget.media.id));
       },
       onHover: (value) => setState(() => _scaleEnd = value ? 1.1 : 1.0),
       child: TweenAnimationBuilder(

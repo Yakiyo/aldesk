@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:aldesk/config/routing/routes.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class ThreadsGridView extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    context.go("/forum");
+                    context.go(Routes.forum);
                   },
                   icon: const Icon(Icons.open_in_new),
                 ),
@@ -72,7 +73,7 @@ class ThreadTile extends StatelessWidget {
     return InkWell(
       hoverColor: Colors.transparent,
       onTap: () {
-        context.go("/forum/${thread.id}");
+        context.go(Routes.threadWithId(thread.id));
       },
       child: Card(
         color: Theme.of(context).colorScheme.secondary,

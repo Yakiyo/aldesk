@@ -1,3 +1,4 @@
+import 'package:aldesk/config/routing/routes.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -36,7 +37,7 @@ class ReviewListView extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    context.go("/reviews");
+                    context.go(Routes.reviews);
                   },
                   icon: const Icon(Icons.open_in_new),
                 ),
@@ -71,7 +72,7 @@ class ReviewEntry extends StatelessWidget {
     return InkWell(
       onTap: () {
         // TODO: implement this page
-        context.go("/review/${review.id}");
+        context.go(Routes.reviewsWithId(review.id));
       },
       child: Card(
         clipBehavior: Clip.hardEdge,

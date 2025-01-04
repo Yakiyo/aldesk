@@ -1,3 +1,4 @@
+import 'package:aldesk/config/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -24,21 +25,21 @@ class SideNavBar extends StatelessWidget {
             title: const Text('Home'),
             leading: const Icon(Icons.home_sharp),
             onTap: () {
-              context.go('/');
+              context.go(Routes.home);
             },
           ),
           ListTile(
             title: const Text('Browse'),
             leading: const Icon(Icons.search_outlined),
             onTap: () {
-              context.go('/search');
+              context.go(Routes.search);
             },
           ),
           ListTile(
             title: const Text('Profile'),
             leading: const Icon(Icons.person),
             onTap: () {
-              context.go('/profile');
+              context.go(Routes.profile);
             },
           ),
           ExpansionTile(
@@ -52,7 +53,7 @@ class SideNavBar extends StatelessWidget {
                 leading: const Icon(Icons.video_collection_outlined),
                 dense: true,
                 onTap: () {
-                  context.go('/library/anime');
+                  context.go(Routes.libraryAnime);
                 },
               ),
               ListTile(
@@ -60,7 +61,7 @@ class SideNavBar extends StatelessWidget {
                 leading: const Icon(Icons.book_outlined),
                 dense: true,
                 onTap: () {
-                  context.go('/library/manga');
+                  context.go(Routes.libraryManga);
                 },
               ),
             ],
@@ -70,7 +71,7 @@ class SideNavBar extends StatelessWidget {
             title: const Text('Settings'),
             leading: const Icon(Icons.settings_outlined),
             onTap: () {
-              context.go('/settings');
+              context.go(Routes.settings);
             },
           ),
           const Expanded(
@@ -107,7 +108,7 @@ class _NotifTile extends ConsumerWidget {
         child: const Icon(Icons.notifications_outlined),
       ),
       onTap: () {
-        context.go('/notifications');
+        context.go(Routes.notifications);
       },
     );
   }
