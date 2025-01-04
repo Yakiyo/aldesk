@@ -55,5 +55,7 @@ GoRouter router(Ref ref) {
         path: Routes.reviews, builder: (context, state) => const DummyPage()),
     GoRoute(
         path: Routes.review, builder: (context, state) => const DummyPage()),
+    GoRoute(
+        path: Routes.character, builder: (context, state) => const DummyPage()),
   ]);
 }
