@@ -28,21 +28,35 @@ class Activities extends ConsumerWidget {
                 children: [
                   Text("Activities",
                       style: Theme.of(context).textTheme.displaySmall),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      TextButton(
-                          onPressed: () {
-                            updateActivityType(ActivityType.following, ref);
-                          },
-                          child: const Text("Following")),
-                      TextButton(
-                          onPressed: () {
-                            updateActivityType(ActivityType.global, ref);
-                          },
-                          child: const Text("Global")),
-                    ],
+                  Consumer(
+                    builder: (context, ref, child) {
+                      final type = ref.watch(activityTypeProvider);
+                      final border = ButtonStyle(
+                        side: WidgetStatePropertyAll(BorderSide(
+                            color: Theme.of(context).colorScheme.primary)),
+                      );
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          TextButton(
+                              style: type == ActivityType.following
+                                  ? border
+                                  : null,
+                              onPressed: () {
+                                updateActivityType(ActivityType.following, ref);
+                              },
+                              child: const Text("Following")),
+                          TextButton(
+                              style:
+                                  type == ActivityType.global ? border : null,
+                              onPressed: () {
+                                updateActivityType(ActivityType.global, ref);
+                              },
+                              child: const Text("Global")),
+                        ],
+                      );
+                    },
                   ),
                 ],
               ),
