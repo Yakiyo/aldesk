@@ -4,11 +4,9 @@ import 'package:aldesk/config/routing/routes.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../config/utils/utils.dart';
-import '../data/socials.dart';
 
 class ThreadsGridView extends StatelessWidget {
   final List<FragmentThreadMin> threads;
@@ -16,49 +14,11 @@ class ThreadsGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Wrap(
       children: [
-        const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text("Forum Activity",
-                style: Theme.of(context).textTheme.displaySmall),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Consumer(
-                  builder: (context, ref, child) => IconButton(
-                      tooltip: "Refresh threads (auto refreshes every 2 mins)",
-                      onPressed: () {
-                        ref.invalidate(recentThreadsProvider);
-                      },
-                      icon: const Icon(Icons.refresh)),
-                ),
-                IconButton(
-                  onPressed: () {
-                    context.go(Routes.forum);
-                  },
-                  icon: const Icon(Icons.open_in_new),
-                ),
-              ],
-            ),
-          ],
-        ),
-        Align(
-          alignment: Alignment.center,
-          child: Wrap(
-            children: [
-              ...threads.map((thread) {
-                return ThreadTile(thread: thread);
-              })
-            ],
-          ),
-        )
+        ...threads.map((thread) {
+          return ThreadTile(thread: thread);
+        })
       ],
     );
   }

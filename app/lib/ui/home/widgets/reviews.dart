@@ -1,10 +1,8 @@
-import 'package:aldesk/config/routing/routes.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../data/socials.dart';
+import '../../../config/routing/routes.dart';
 
 
 class ReviewListView extends StatelessWidget {
@@ -13,51 +11,17 @@ class ReviewListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text("Recent Reviews",
-                style: Theme.of(context).textTheme.displaySmall),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Consumer(
-                  builder: (context, ref, child) => IconButton(
-                      tooltip: "Refresh reviews (auto refreshes every 5 mins)",
-                      onPressed: () {
-                        ref.invalidate(recentReviewsProvider);
-                      },
-                      icon: const Icon(Icons.refresh)),
-                ),
-                IconButton(
-                  onPressed: () {
-                    context.go(Routes.reviews);
-                  },
-                  icon: const Icon(Icons.open_in_new),
-                ),
-              ],
-            )
-          ],
-        ),
-        SizedBox(
-          height: 210,
-          child: ListView.builder(
-            padding: const EdgeInsets.only(right: 10),
-            itemCount: reviews.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              final review = reviews[index];
-              return ReviewEntry(review: review);
-            },
-          ),
-        )
-      ],
+    return SizedBox(
+      height: 210,
+      child: ListView.builder(
+        padding: const EdgeInsets.only(right: 10),
+        itemCount: reviews.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          final review = reviews[index];
+          return ReviewEntry(review: review);
+        },
+      ),
     );
   }
 }
@@ -71,7 +35,6 @@ class ReviewEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // TODO: implement this page
         context.go(Routes.reviewsWithId(review.id));
       },
       child: Card(
@@ -82,6 +45,7 @@ class ReviewEntry extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // left side image
             if (_coverImage != null)
               Image.network(
                 _coverImage!,
@@ -90,6 +54,7 @@ class ReviewEntry extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             if (_coverImage == null) const SizedBox(width: 210, height: 190),
+            // middle side of the body containing review title and summary
             Container(
               padding: const EdgeInsets.all(10),
               width: 220,
@@ -109,6 +74,7 @@ class ReviewEntry extends StatelessWidget {
                     softWrap: true,
                     style: const TextStyle(fontStyle: FontStyle.italic),
                   ),
+                  // number of up and down votes of the review
                   Expanded(
                     child: Align(
                       alignment: Alignment.bottomRight,
@@ -135,44 +101,3 @@ class ReviewEntry extends StatelessWidget {
     );
   }
 }
-
-// class _ReviewEntry extends StatelessWidget {
-//   final FragmentReview review;
-//   const _ReviewEntry({required this.review});
-
-//   String? get _bannerImage => review.media?.bannerImage;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//       child: Container(
-//         decoration: BoxDecoration(
-//           image: _bannerImage != null
-//               ? DecorationImage(
-//                   image: NetworkImage(_bannerImage ?? ""), fit: BoxFit.cover)
-//               : null,
-//         ),
-//         width: 210,
-//         height: 190,
-//         child: ClipRRect(
-//           child: BackdropFilter(
-//             filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-//             child: Padding(
-//               padding: const EdgeInsets.all(10.0),
-//               child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.start,
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   Text(
-//                       "Review of ${review.media?.title?.userPreferred ?? "<unknown>"}",
-//                       maxLines: 2),
-//                   Text("By ${review.user?.name ?? "<unknown>"}"),
-//                 ],
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

@@ -4,48 +4,27 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class MediaListView extends StatelessWidget {
-  final String? title;
-  final String? seeMore;
   final List<FragmentMediaMin> medias;
   const MediaListView(
-      {super.key, required this.medias, this.title, this.seeMore});
+      {super.key, required this.medias});
 
   @override
   Widget build(BuildContext context) {
     if (medias.isEmpty) {
-      return const SizedBox();
+      return const Center(
+        child: Text("Oops, no media matches the criteria"),
+      );
     }
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            if (title != null)
-              Text(title!, style: Theme.of(context).textTheme.displaySmall),
-            if (seeMore != null)
-              IconButton(
-                onPressed: () {
-                  context.go(seeMore!);
-                },
-                icon: const Icon(Icons.open_in_new),
-              )
-          ],
-        ),
-        SizedBox(
-          height: 350,
-          child: ListView.builder(
-            itemCount: medias.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              final media = medias[index];
-              return _MediaEntry(media: media);
-            },
-          ),
-        ),
-      ],
+    return SizedBox(
+      height: 350,
+      child: ListView.builder(
+        itemCount: medias.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          final media = medias[index];
+          return _MediaEntry(media: media);
+        },
+      ),
     );
   }
 }

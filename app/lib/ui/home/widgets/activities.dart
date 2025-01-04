@@ -18,79 +18,21 @@ class Activities extends ConsumerWidget {
     final activities = ref.watch(recentActivityProvider);
     return AsyncWidgetConsumer(
         value: activities,
-        builder: (context, value) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("Activities",
-                      style: Theme.of(context).textTheme.displaySmall),
-                  Consumer(
-                    builder: (context, ref, child) {
-                      final type = ref.watch(activityTypeProvider);
-                      final border = ButtonStyle(
-                        side: WidgetStatePropertyAll(BorderSide(
-                            color: Theme.of(context).colorScheme.primary)),
-                      );
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          TextButton(
-                              style: type == ActivityType.following
-                                  ? border
-                                  : null,
-                              onPressed: () {
-                                updateActivityType(ActivityType.following, ref);
-                              },
-                              child: const Text("Following")),
-                          TextButton(
-                              style:
-                                  type == ActivityType.global ? border : null,
-                              onPressed: () {
-                                updateActivityType(ActivityType.global, ref);
-                              },
-                              child: const Text("Global")),
-                        ],
-                      );
-                    },
-                  ),
-                ],
-              ),
-              ActivityList(activities: value),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                  onPressed: () {
-                    ref.read(recentActivityProvider.notifier).loadMore();
-                  },
-                  child: const Text("Load More"))
-            ],
+        builder: (context, activities) {
+          return Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Wrap(
+              children: activities.map((activity) {
+                return activity.maybeWhen(
+                  listActivity: (activity) =>
+                      ListActivityTile(activity: activity),
+                  orElse: () =>
+                      UnsupportedActivityTile(json: activity.toJson()),
+                );
+              }).toList(),
+            ),
           );
         });
-  }
-}
-
-class ActivityList extends StatelessWidget {
-  final List<QueryActivitiesPageactivities> activities;
-  const ActivityList({super.key, required this.activities});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15),
-      child: Wrap(
-        children: activities.map((activity) {
-          return activity.maybeWhen(
-            listActivity: (activity) => ListActivityTile(activity: activity),
-            orElse: () => UnsupportedActivityTile(json: activity.toJson()),
-          );
-        }).toList(),
-      ),
-    );
   }
 }
 
