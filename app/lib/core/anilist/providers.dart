@@ -96,30 +96,35 @@ class RecentActivity extends _$RecentActivity {
     state = AsyncData([...prevState, ...(res.activities?.filterNull() ?? [])]);
   }
 
+  /// Toggles like on a specific activity.
+  ///
+  /// It basically gets the index of the activity in the list, makes a toggle like
+  /// mutation, and then updates the activity in the list with the new activity.
+  ///
+  /// ToggleLikeV2 when returning a ListActivity, does not include a media object,
+  /// so we have to manually add it from the previous activity data.
   Future<void> toggleLike(QueryActivitiesPageactivities activity) async {
     final json = activity.toJson();
     final id = json['id'] as int?;
-    logger.d("toggling like $id");
     if (id == null) return;
     final activities = await future;
     final index = activities.indexWhere((e) =>
         e.maybeWhen(orElse: () => false, listActivity: (e) => e.id == id));
-    logger.d("index $index");
     if (index < 0) return;
-    await toggleActivityLike(id);
-    final newActivity = await fetchActivity(activityId: id);
+    final newActivity = await toggleActivityLike(id);
     final asActivity = newActivity.maybeWhen(
       orElse: () => throw Error(),
-      listActivity: (e) =>
-          QueryActivitiesPageactivitiesListActivity.fromJson(e.toJson()),
+      listActivity: (e) {
+        final ejson = e.toJson();
+        ejson['media'] = json['media'];
+        return QueryActivitiesPageactivitiesListActivity.fromJson(ejson);
+      },
       messageActivity: (e) =>
           QueryActivitiesPageactivitiesMessageActivity.fromJson(e.toJson()),
       textActivity: (e) =>
           QueryActivitiesPageactivitiesTextActivity.fromJson(e.toJson()),
     );
-    logger.d(newActivity.toJson());
     activities[index] = asActivity;
-    logger.d('updating state');
     state = AsyncData(activities);
   }
 }
