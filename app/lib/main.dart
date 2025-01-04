@@ -7,11 +7,13 @@ import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toastification/toastification.dart';
+import 'package:window_size/window_size.dart';
 
 import 'config/routing/router.dart';
 import 'ui/core/themes/themes.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await initialize();
   runApp(const ProviderScope(child: ToastificationWrapper(child: MainApp())));
 }
@@ -29,6 +31,9 @@ Future<void> initialize() async {
             ? AdvancedFileOutput(path: logDir, maxRotatedFilesCount: 4)
             : null,
       ));
+
+  // Sets the minimum width of the window for the app
+  setWindowMinSize(const Size(800, 600));
 }
 
 class MainApp extends ConsumerWidget {
