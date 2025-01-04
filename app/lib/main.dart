@@ -6,13 +6,14 @@ import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toastification/toastification.dart';
 
 import 'config/routing/router.dart';
 import 'ui/core/themes/themes.dart';
 
 void main() async {
   await initialize();
-  runApp(const ProviderScope(child: MainApp()));
+  runApp(const ProviderScope(child: ToastificationWrapper(child: MainApp())));
 }
 
 Future<void> initialize() async {
