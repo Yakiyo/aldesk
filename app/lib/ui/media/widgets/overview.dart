@@ -7,6 +7,29 @@ class Overview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        GridView.count(
+          crossAxisCount: 4,
+          shrinkWrap: true,
+          children: const [
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+            ListTile(title: Text("Type"), subtitle: Text("TV"), tileColor: Colors.amber,),
+          ],
+        ),
+      ],
+    );
   }
 }

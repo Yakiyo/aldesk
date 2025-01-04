@@ -1,3 +1,10 @@
+// The media page
+//
+// The page displays the hero section [./widgets/hero_section.dart] and shows tabs
+// for different sections. Since flutter whines when using a TabBarView within
+// a ListView, we use a AnimatedSwitcher with an IndexedStack to switch between
+// different tabs. The tabs are themselves contained in individual files
+// [./widgets] directory for better organization.
 
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
@@ -21,47 +28,73 @@ class MediaPage extends ConsumerWidget {
         value: media,
         builder: (context, value) => Padding(
           padding: const EdgeInsets.all(10),
-          child: SingleChildScrollView(child: MediaPageBody(media: value)),
+          child: MediaPageBody(media: value),
         ),
       ),
     );
   }
 }
 
-class MediaPageBody extends StatelessWidget {
+const _tabs = ["Overview", "Relations", "Staff"];
+
+class MediaPageBody extends StatefulWidget {
   final QueryMediaMedia media;
   const MediaPageBody({super.key, required this.media});
 
-  String? get _banner => media.bannerImage;
-  String? get _coverImage => media.coverImage?.large;
-  static const _tabs = ["Overview", "Relations", "Staff"];
+  @override
+  State<MediaPageBody> createState() => _MediaPageBodyState();
+}
+
+class _MediaPageBodyState extends State<MediaPageBody>
+    with SingleTickerProviderStateMixin {
+  late final TabController _controller;
+  int _index = 0;
+
+  @override
+  void initState() {
+    _controller = TabController(length: _tabs.length, vsync: this);
+    _controller.addListener(_onTabChange);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_onTabChange);
+    super.dispose();
+  }
+
+  void _onTabChange() {
+    setState(() {
+      _index = _controller.index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: _tabs.length,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          HeroSection(
-              banner: _banner,
-              coverImage: _coverImage,
-              title: media.title?.romaji,
-              description: media.description),
-          TabBar(tabs: _tabs.map((e) => Tab(text: e)).toList()),
-          Container(
-              constraints:
-                  const BoxConstraints(minHeight: 500, maxHeight: 700),
-              child:
-                  TabBarView(children: [
-                    Overview(media: media),
-                    const Placeholder(),
-                    const Placeholder()
-                  ]))
-        ],
-      ),
+    return ListView(
+      children: [
+        HeroSection(
+            banner: widget.media.bannerImage,
+            coverImage: widget.media.coverImage?.large,
+            title: widget.media.title?.romaji,
+            description: widget.media.description),
+        TabBar(
+          tabs: _tabs.map((e) => Tab(text: e)).toList(),
+          controller: _controller,
+        ),
+        AnimatedSwitcher(
+          duration: const Duration(milliseconds: 300),
+          child: IndexedStack(
+            index: _index,
+            key: ValueKey(_index),
+            children: [
+              Overview(media: widget.media),
+              const Text("Relations"),
+              const Text("Staff")
+            ],
+          ),
+        )
+      ],
     );
   }
 }
-
