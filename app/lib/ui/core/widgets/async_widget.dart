@@ -1,8 +1,8 @@
+import 'package:aldesk/ui/core/toast/toast.dart';
 import 'package:async_builder/async_builder.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:toastification/toastification.dart';
 
 import '../../../config/utils/utils.dart';
 import 'kaomoji.dart';
@@ -64,12 +64,7 @@ Widget _defaultLoading(BuildContext context) {
 
 Widget _defaultError(
     BuildContext context, Object error, StackTrace? stackTrace) {
-  toastification.show(
-    context: context,
-    type: ToastificationType.error,
-    style: ToastificationStyle.flat,
-    title: const Text("Error when fetching data from API"),
-  );
+  displayError("Error when fetching data from API", message: error.toString());
   logger.e(
     "Error when fetching data from API",
     error: error,

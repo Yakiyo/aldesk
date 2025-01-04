@@ -1,10 +1,10 @@
 import 'package:aldesk/config/utils/utils.dart';
+import 'package:aldesk/ui/core/toast/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:logger/logger.dart';
-import 'package:toastification/toastification.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../config/package/package.dart';
@@ -104,13 +104,9 @@ class AboutDialogWidget extends ConsumerWidget {
       logger.e('Failed to copy url to clipboard', error: e);
       return false;
     });
-    if (!context.mounted && copied) return;
-    toastification.show(
-      context: context,
-      type: ToastificationType.error,
-      title: const Text("Failed to open url"),
-      description: Text("Url $url has been copied to your clipboard. "
-          "Please open it in your browser."),
-    );
+    if (!copied) return;
+    displayError("Failed to open url",
+        message: "Url $url has been copied to your clipboard. "
+            "Please open it in your browser.");
   }
 }

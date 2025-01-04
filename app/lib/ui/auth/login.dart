@@ -1,15 +1,14 @@
 import 'package:aldesk/config/routing/routes.dart';
+import 'package:aldesk/ui/core/toast/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toastification/toastification.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'data/token.dart';
 import '../../config/utils/utils.dart';
 
-// TODO: set this at compile time and also remove this application later on
 const _clientId = "20687";
 final Uri _url = Uri.parse(
     "https://anilist.co/api/v2/oauth/authorize?client_id=$_clientId&response_type=token");
@@ -158,16 +157,9 @@ class _LoginFormState extends ConsumerState<LoginForm> {
           final launched = await launchUrl(_url).catchError((_) => false);
           if (launched) return;
           Clipboard.setData(ClipboardData(text: _url.toString()));
-          toastification.show(
-              // ignore: use_build_context_synchronously
-              context: context,
-              type: ToastificationType.error,
-              style: ToastificationStyle.flat,
-              alignment: Alignment.bottomRight,
-              title: const Text("Failed to launch URL"),
-              description: const Text(
-                  "Url has been copied to clipboard. Please open it manually in your browser"),
-              autoCloseDuration: const Duration(seconds: 2));
+          displayError("Failed to launch URL",
+              message:
+                  "Url has been copied to clipboard. Please open it manually in your browser");
         },
         child: const Text(
           "Get Token",
@@ -182,13 +174,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
         pref.setString("token", _controller.text);
         ref.invalidate(tokenProvider);
 
-        toastification.show(
-            context: context,
-            type: ToastificationType.success,
-            style: ToastificationStyle.flat,
-            alignment: Alignment.bottomRight,
-            title: const Text("Login Successful"),
-            autoCloseDuration: const Duration(seconds: 2));
+        displaySuccess("Login successful", message: "Redirecting to home page");
 
         Future.delayed(const Duration(seconds: 2), () {
           if (!mounted) return;
