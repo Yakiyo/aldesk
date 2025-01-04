@@ -7,8 +7,8 @@ import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'core/router.dart';
-import 'ui/themes/themes.dart';
+import 'config/routing/router.dart';
+import 'ui/core/themes/themes.dart';
 
 void main() async {
   await initialize();
