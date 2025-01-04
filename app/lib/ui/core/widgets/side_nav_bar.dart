@@ -66,7 +66,7 @@ class SideNavBar extends StatelessWidget {
               ),
             ],
           ),
-          const _NotifTile(),
+          const _NotificationTile(),
           ListTile(
             title: const Text('Settings'),
             leading: const Icon(Icons.settings_outlined),
@@ -86,8 +86,8 @@ class SideNavBar extends StatelessWidget {
   }
 }
 
-class _NotifTile extends ConsumerWidget {
-  const _NotifTile();
+class _NotificationTile extends ConsumerWidget {
+  const _NotificationTile();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
