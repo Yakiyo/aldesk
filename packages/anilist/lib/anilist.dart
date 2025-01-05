@@ -5,6 +5,7 @@ export 'package:gql/language.dart' show printNode;
 
 export 'src/activities.dart';
 export 'src/anilist.dart';
+export 'src/characters.dart';
 export 'src/lists.dart';
 export 'src/media.dart';
 export 'src/notifications.dart';

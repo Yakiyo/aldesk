@@ -13,7 +13,7 @@ class SideNavBar extends StatelessWidget {
   const SideNavBar({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {    
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
       child: Column(
@@ -61,7 +61,7 @@ class SideNavBar extends StatelessWidget {
                 leading: const Icon(Icons.book_outlined),
                 dense: true,
                 onTap: () {
-                  context.go(Routes.libraryManga);
+                  context.push(Routes.libraryManga);
                 },
               ),
             ],
@@ -74,6 +74,14 @@ class SideNavBar extends StatelessWidget {
               context.go(Routes.settings);
             },
           ),
+          if (context.canPop())
+            ListTile(
+              title: const Text('Back'),
+              leading: const Icon(Icons.arrow_back),
+              onTap: () {
+                context.pop();
+              },
+            ),
           const Expanded(
             child: Align(
               alignment: Alignment.bottomCenter,

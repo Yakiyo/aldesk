@@ -2,6 +2,1360 @@ import 'fragments.graphql.dart';
 import 'package:gql/ast.dart';
 import 'schema.graphql.dart';
 
+class FragmentCharacterEdge {
+  FragmentCharacterEdge({
+    this.id,
+    this.role,
+    this.name,
+    this.voiceActors,
+    this.node,
+    this.$__typename = 'CharacterEdge',
+  });
+
+  factory FragmentCharacterEdge.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$role = json['role'];
+    final l$name = json['name'];
+    final l$voiceActors = json['voiceActors'];
+    final l$node = json['node'];
+    final l$$__typename = json['__typename'];
+    return FragmentCharacterEdge(
+      id: (l$id as int?),
+      role:
+          l$role == null ? null : fromJsonEnumCharacterRole((l$role as String)),
+      name: (l$name as String?),
+      voiceActors: (l$voiceActors as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : FragmentCharacterEdgevoiceActors.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      node: l$node == null
+          ? null
+          : FragmentCharacterEdgenode.fromJson(
+              (l$node as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? id;
+
+  final EnumCharacterRole? role;
+
+  final String? name;
+
+  final List<FragmentCharacterEdgevoiceActors?>? voiceActors;
+
+  final FragmentCharacterEdgenode? node;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$role = role;
+    _resultData['role'] =
+        l$role == null ? null : toJsonEnumCharacterRole(l$role);
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$voiceActors = voiceActors;
+    _resultData['voiceActors'] =
+        l$voiceActors?.map((e) => e?.toJson()).toList();
+    final l$node = node;
+    _resultData['node'] = l$node?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$role = role;
+    final l$name = name;
+    final l$voiceActors = voiceActors;
+    final l$node = node;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$role,
+      l$name,
+      l$voiceActors == null
+          ? null
+          : Object.hashAll(l$voiceActors.map((v) => v)),
+      l$node,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! FragmentCharacterEdge || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$role = role;
+    final lOther$role = other.role;
+    if (l$role != lOther$role) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$voiceActors = voiceActors;
+    final lOther$voiceActors = other.voiceActors;
+    if (l$voiceActors != null && lOther$voiceActors != null) {
+      if (l$voiceActors.length != lOther$voiceActors.length) {
+        return false;
+      }
+      for (int i = 0; i < l$voiceActors.length; i++) {
+        final l$voiceActors$entry = l$voiceActors[i];
+        final lOther$voiceActors$entry = lOther$voiceActors[i];
+        if (l$voiceActors$entry != lOther$voiceActors$entry) {
+          return false;
+        }
+      }
+    } else if (l$voiceActors != lOther$voiceActors) {
+      return false;
+    }
+    final l$node = node;
+    final lOther$node = other.node;
+    if (l$node != lOther$node) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentCharacterEdge on FragmentCharacterEdge {
+  CopyWithFragmentCharacterEdge<FragmentCharacterEdge> get copyWith =>
+      CopyWithFragmentCharacterEdge(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithFragmentCharacterEdge<TRes> {
+  factory CopyWithFragmentCharacterEdge(
+    FragmentCharacterEdge instance,
+    TRes Function(FragmentCharacterEdge) then,
+  ) = _CopyWithImplFragmentCharacterEdge;
+
+  factory CopyWithFragmentCharacterEdge.stub(TRes res) =
+      _CopyWithStubImplFragmentCharacterEdge;
+
+  TRes call({
+    int? id,
+    EnumCharacterRole? role,
+    String? name,
+    List<FragmentCharacterEdgevoiceActors?>? voiceActors,
+    FragmentCharacterEdgenode? node,
+    String? $__typename,
+  });
+  TRes voiceActors(
+      Iterable<FragmentCharacterEdgevoiceActors?>? Function(
+              Iterable<
+                  CopyWithFragmentCharacterEdgevoiceActors<
+                      FragmentCharacterEdgevoiceActors>?>?)
+          _fn);
+  CopyWithFragmentCharacterEdgenode<TRes> get node;
+}
+
+class _CopyWithImplFragmentCharacterEdge<TRes>
+    implements CopyWithFragmentCharacterEdge<TRes> {
+  _CopyWithImplFragmentCharacterEdge(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentCharacterEdge _instance;
+
+  final TRes Function(FragmentCharacterEdge) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? role = _undefined,
+    Object? name = _undefined,
+    Object? voiceActors = _undefined,
+    Object? node = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentCharacterEdge(
+        id: id == _undefined ? _instance.id : (id as int?),
+        role:
+            role == _undefined ? _instance.role : (role as EnumCharacterRole?),
+        name: name == _undefined ? _instance.name : (name as String?),
+        voiceActors: voiceActors == _undefined
+            ? _instance.voiceActors
+            : (voiceActors as List<FragmentCharacterEdgevoiceActors?>?),
+        node: node == _undefined
+            ? _instance.node
+            : (node as FragmentCharacterEdgenode?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  TRes voiceActors(
+          Iterable<FragmentCharacterEdgevoiceActors?>? Function(
+                  Iterable<
+                      CopyWithFragmentCharacterEdgevoiceActors<
+                          FragmentCharacterEdgevoiceActors>?>?)
+              _fn) =>
+      call(
+          voiceActors: _fn(_instance.voiceActors?.map((e) => e == null
+              ? null
+              : CopyWithFragmentCharacterEdgevoiceActors(
+                  e,
+                  (i) => i,
+                )))?.toList());
+
+  CopyWithFragmentCharacterEdgenode<TRes> get node {
+    final local$node = _instance.node;
+    return local$node == null
+        ? CopyWithFragmentCharacterEdgenode.stub(_then(_instance))
+        : CopyWithFragmentCharacterEdgenode(local$node, (e) => call(node: e));
+  }
+}
+
+class _CopyWithStubImplFragmentCharacterEdge<TRes>
+    implements CopyWithFragmentCharacterEdge<TRes> {
+  _CopyWithStubImplFragmentCharacterEdge(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    EnumCharacterRole? role,
+    String? name,
+    List<FragmentCharacterEdgevoiceActors?>? voiceActors,
+    FragmentCharacterEdgenode? node,
+    String? $__typename,
+  }) =>
+      _res;
+
+  voiceActors(_fn) => _res;
+
+  CopyWithFragmentCharacterEdgenode<TRes> get node =>
+      CopyWithFragmentCharacterEdgenode.stub(_res);
+}
+
+const fragmentDefinitionCharacterEdge = FragmentDefinitionNode(
+  name: NameNode(value: 'CharacterEdge'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'CharacterEdge'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'id'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'role'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'name'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'voiceActors'),
+      alias: null,
+      arguments: [
+        ArgumentNode(
+          name: NameNode(value: 'language'),
+          value: EnumValueNode(name: NameNode(value: 'JAPANESE')),
+        ),
+        ArgumentNode(
+          name: NameNode(value: 'sort'),
+          value: ListValueNode(values: [
+            EnumValueNode(name: NameNode(value: 'RELEVANCE')),
+            EnumValueNode(name: NameNode(value: 'ID')),
+          ]),
+        ),
+      ],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'id'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'name'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'userPreferred'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: 'languageV2'),
+          alias: NameNode(value: 'language'),
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'image'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'large'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: 'node'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'id'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: 'name'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'userPreferred'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: 'image'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'large'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentCharacterEdge = DocumentNode(definitions: [
+  fragmentDefinitionCharacterEdge,
+]);
+
+class FragmentCharacterEdgevoiceActors {
+  FragmentCharacterEdgevoiceActors({
+    required this.id,
+    this.name,
+    this.language,
+    this.image,
+    this.$__typename = 'Staff',
+  });
+
+  factory FragmentCharacterEdgevoiceActors.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$language = json['language'];
+    final l$image = json['image'];
+    final l$$__typename = json['__typename'];
+    return FragmentCharacterEdgevoiceActors(
+      id: (l$id as int),
+      name: l$name == null
+          ? null
+          : FragmentCharacterEdgevoiceActorsname.fromJson(
+              (l$name as Map<String, dynamic>)),
+      language: (l$language as String?),
+      image: l$image == null
+          ? null
+          : FragmentCharacterEdgevoiceActorsimage.fromJson(
+              (l$image as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final FragmentCharacterEdgevoiceActorsname? name;
+
+  final String? language;
+
+  final FragmentCharacterEdgevoiceActorsimage? image;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name?.toJson();
+    final l$language = language;
+    _resultData['language'] = l$language;
+    final l$image = image;
+    _resultData['image'] = l$image?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$language = language;
+    final l$image = image;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$language,
+      l$image,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! FragmentCharacterEdgevoiceActors ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$language = language;
+    final lOther$language = other.language;
+    if (l$language != lOther$language) {
+      return false;
+    }
+    final l$image = image;
+    final lOther$image = other.image;
+    if (l$image != lOther$image) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentCharacterEdgevoiceActors
+    on FragmentCharacterEdgevoiceActors {
+  CopyWithFragmentCharacterEdgevoiceActors<FragmentCharacterEdgevoiceActors>
+      get copyWith => CopyWithFragmentCharacterEdgevoiceActors(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithFragmentCharacterEdgevoiceActors<TRes> {
+  factory CopyWithFragmentCharacterEdgevoiceActors(
+    FragmentCharacterEdgevoiceActors instance,
+    TRes Function(FragmentCharacterEdgevoiceActors) then,
+  ) = _CopyWithImplFragmentCharacterEdgevoiceActors;
+
+  factory CopyWithFragmentCharacterEdgevoiceActors.stub(TRes res) =
+      _CopyWithStubImplFragmentCharacterEdgevoiceActors;
+
+  TRes call({
+    int? id,
+    FragmentCharacterEdgevoiceActorsname? name,
+    String? language,
+    FragmentCharacterEdgevoiceActorsimage? image,
+    String? $__typename,
+  });
+  CopyWithFragmentCharacterEdgevoiceActorsname<TRes> get name;
+  CopyWithFragmentCharacterEdgevoiceActorsimage<TRes> get image;
+}
+
+class _CopyWithImplFragmentCharacterEdgevoiceActors<TRes>
+    implements CopyWithFragmentCharacterEdgevoiceActors<TRes> {
+  _CopyWithImplFragmentCharacterEdgevoiceActors(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentCharacterEdgevoiceActors _instance;
+
+  final TRes Function(FragmentCharacterEdgevoiceActors) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? language = _undefined,
+    Object? image = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentCharacterEdgevoiceActors(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined
+            ? _instance.name
+            : (name as FragmentCharacterEdgevoiceActorsname?),
+        language:
+            language == _undefined ? _instance.language : (language as String?),
+        image: image == _undefined
+            ? _instance.image
+            : (image as FragmentCharacterEdgevoiceActorsimage?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithFragmentCharacterEdgevoiceActorsname<TRes> get name {
+    final local$name = _instance.name;
+    return local$name == null
+        ? CopyWithFragmentCharacterEdgevoiceActorsname.stub(_then(_instance))
+        : CopyWithFragmentCharacterEdgevoiceActorsname(
+            local$name, (e) => call(name: e));
+  }
+
+  CopyWithFragmentCharacterEdgevoiceActorsimage<TRes> get image {
+    final local$image = _instance.image;
+    return local$image == null
+        ? CopyWithFragmentCharacterEdgevoiceActorsimage.stub(_then(_instance))
+        : CopyWithFragmentCharacterEdgevoiceActorsimage(
+            local$image, (e) => call(image: e));
+  }
+}
+
+class _CopyWithStubImplFragmentCharacterEdgevoiceActors<TRes>
+    implements CopyWithFragmentCharacterEdgevoiceActors<TRes> {
+  _CopyWithStubImplFragmentCharacterEdgevoiceActors(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    FragmentCharacterEdgevoiceActorsname? name,
+    String? language,
+    FragmentCharacterEdgevoiceActorsimage? image,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithFragmentCharacterEdgevoiceActorsname<TRes> get name =>
+      CopyWithFragmentCharacterEdgevoiceActorsname.stub(_res);
+
+  CopyWithFragmentCharacterEdgevoiceActorsimage<TRes> get image =>
+      CopyWithFragmentCharacterEdgevoiceActorsimage.stub(_res);
+}
+
+class FragmentCharacterEdgevoiceActorsname {
+  FragmentCharacterEdgevoiceActorsname({
+    this.userPreferred,
+    this.$__typename = 'StaffName',
+  });
+
+  factory FragmentCharacterEdgevoiceActorsname.fromJson(
+      Map<String, dynamic> json) {
+    final l$userPreferred = json['userPreferred'];
+    final l$$__typename = json['__typename'];
+    return FragmentCharacterEdgevoiceActorsname(
+      userPreferred: (l$userPreferred as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? userPreferred;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$userPreferred = userPreferred;
+    _resultData['userPreferred'] = l$userPreferred;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$userPreferred = userPreferred;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$userPreferred,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! FragmentCharacterEdgevoiceActorsname ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$userPreferred = userPreferred;
+    final lOther$userPreferred = other.userPreferred;
+    if (l$userPreferred != lOther$userPreferred) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentCharacterEdgevoiceActorsname
+    on FragmentCharacterEdgevoiceActorsname {
+  CopyWithFragmentCharacterEdgevoiceActorsname<
+          FragmentCharacterEdgevoiceActorsname>
+      get copyWith => CopyWithFragmentCharacterEdgevoiceActorsname(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithFragmentCharacterEdgevoiceActorsname<TRes> {
+  factory CopyWithFragmentCharacterEdgevoiceActorsname(
+    FragmentCharacterEdgevoiceActorsname instance,
+    TRes Function(FragmentCharacterEdgevoiceActorsname) then,
+  ) = _CopyWithImplFragmentCharacterEdgevoiceActorsname;
+
+  factory CopyWithFragmentCharacterEdgevoiceActorsname.stub(TRes res) =
+      _CopyWithStubImplFragmentCharacterEdgevoiceActorsname;
+
+  TRes call({
+    String? userPreferred,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplFragmentCharacterEdgevoiceActorsname<TRes>
+    implements CopyWithFragmentCharacterEdgevoiceActorsname<TRes> {
+  _CopyWithImplFragmentCharacterEdgevoiceActorsname(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentCharacterEdgevoiceActorsname _instance;
+
+  final TRes Function(FragmentCharacterEdgevoiceActorsname) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? userPreferred = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentCharacterEdgevoiceActorsname(
+        userPreferred: userPreferred == _undefined
+            ? _instance.userPreferred
+            : (userPreferred as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplFragmentCharacterEdgevoiceActorsname<TRes>
+    implements CopyWithFragmentCharacterEdgevoiceActorsname<TRes> {
+  _CopyWithStubImplFragmentCharacterEdgevoiceActorsname(this._res);
+
+  TRes _res;
+
+  call({
+    String? userPreferred,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class FragmentCharacterEdgevoiceActorsimage {
+  FragmentCharacterEdgevoiceActorsimage({
+    this.large,
+    this.$__typename = 'StaffImage',
+  });
+
+  factory FragmentCharacterEdgevoiceActorsimage.fromJson(
+      Map<String, dynamic> json) {
+    final l$large = json['large'];
+    final l$$__typename = json['__typename'];
+    return FragmentCharacterEdgevoiceActorsimage(
+      large: (l$large as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? large;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$large = large;
+    _resultData['large'] = l$large;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$large = large;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$large,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! FragmentCharacterEdgevoiceActorsimage ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$large = large;
+    final lOther$large = other.large;
+    if (l$large != lOther$large) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentCharacterEdgevoiceActorsimage
+    on FragmentCharacterEdgevoiceActorsimage {
+  CopyWithFragmentCharacterEdgevoiceActorsimage<
+          FragmentCharacterEdgevoiceActorsimage>
+      get copyWith => CopyWithFragmentCharacterEdgevoiceActorsimage(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithFragmentCharacterEdgevoiceActorsimage<TRes> {
+  factory CopyWithFragmentCharacterEdgevoiceActorsimage(
+    FragmentCharacterEdgevoiceActorsimage instance,
+    TRes Function(FragmentCharacterEdgevoiceActorsimage) then,
+  ) = _CopyWithImplFragmentCharacterEdgevoiceActorsimage;
+
+  factory CopyWithFragmentCharacterEdgevoiceActorsimage.stub(TRes res) =
+      _CopyWithStubImplFragmentCharacterEdgevoiceActorsimage;
+
+  TRes call({
+    String? large,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplFragmentCharacterEdgevoiceActorsimage<TRes>
+    implements CopyWithFragmentCharacterEdgevoiceActorsimage<TRes> {
+  _CopyWithImplFragmentCharacterEdgevoiceActorsimage(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentCharacterEdgevoiceActorsimage _instance;
+
+  final TRes Function(FragmentCharacterEdgevoiceActorsimage) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? large = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentCharacterEdgevoiceActorsimage(
+        large: large == _undefined ? _instance.large : (large as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplFragmentCharacterEdgevoiceActorsimage<TRes>
+    implements CopyWithFragmentCharacterEdgevoiceActorsimage<TRes> {
+  _CopyWithStubImplFragmentCharacterEdgevoiceActorsimage(this._res);
+
+  TRes _res;
+
+  call({
+    String? large,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class FragmentCharacterEdgenode {
+  FragmentCharacterEdgenode({
+    required this.id,
+    this.name,
+    this.image,
+    this.$__typename = 'Character',
+  });
+
+  factory FragmentCharacterEdgenode.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$image = json['image'];
+    final l$$__typename = json['__typename'];
+    return FragmentCharacterEdgenode(
+      id: (l$id as int),
+      name: l$name == null
+          ? null
+          : FragmentCharacterEdgenodename.fromJson(
+              (l$name as Map<String, dynamic>)),
+      image: l$image == null
+          ? null
+          : FragmentCharacterEdgenodeimage.fromJson(
+              (l$image as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final FragmentCharacterEdgenodename? name;
+
+  final FragmentCharacterEdgenodeimage? image;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name?.toJson();
+    final l$image = image;
+    _resultData['image'] = l$image?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$image = image;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$image,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! FragmentCharacterEdgenode ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$image = image;
+    final lOther$image = other.image;
+    if (l$image != lOther$image) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentCharacterEdgenode
+    on FragmentCharacterEdgenode {
+  CopyWithFragmentCharacterEdgenode<FragmentCharacterEdgenode> get copyWith =>
+      CopyWithFragmentCharacterEdgenode(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithFragmentCharacterEdgenode<TRes> {
+  factory CopyWithFragmentCharacterEdgenode(
+    FragmentCharacterEdgenode instance,
+    TRes Function(FragmentCharacterEdgenode) then,
+  ) = _CopyWithImplFragmentCharacterEdgenode;
+
+  factory CopyWithFragmentCharacterEdgenode.stub(TRes res) =
+      _CopyWithStubImplFragmentCharacterEdgenode;
+
+  TRes call({
+    int? id,
+    FragmentCharacterEdgenodename? name,
+    FragmentCharacterEdgenodeimage? image,
+    String? $__typename,
+  });
+  CopyWithFragmentCharacterEdgenodename<TRes> get name;
+  CopyWithFragmentCharacterEdgenodeimage<TRes> get image;
+}
+
+class _CopyWithImplFragmentCharacterEdgenode<TRes>
+    implements CopyWithFragmentCharacterEdgenode<TRes> {
+  _CopyWithImplFragmentCharacterEdgenode(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentCharacterEdgenode _instance;
+
+  final TRes Function(FragmentCharacterEdgenode) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? image = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentCharacterEdgenode(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined
+            ? _instance.name
+            : (name as FragmentCharacterEdgenodename?),
+        image: image == _undefined
+            ? _instance.image
+            : (image as FragmentCharacterEdgenodeimage?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithFragmentCharacterEdgenodename<TRes> get name {
+    final local$name = _instance.name;
+    return local$name == null
+        ? CopyWithFragmentCharacterEdgenodename.stub(_then(_instance))
+        : CopyWithFragmentCharacterEdgenodename(
+            local$name, (e) => call(name: e));
+  }
+
+  CopyWithFragmentCharacterEdgenodeimage<TRes> get image {
+    final local$image = _instance.image;
+    return local$image == null
+        ? CopyWithFragmentCharacterEdgenodeimage.stub(_then(_instance))
+        : CopyWithFragmentCharacterEdgenodeimage(
+            local$image, (e) => call(image: e));
+  }
+}
+
+class _CopyWithStubImplFragmentCharacterEdgenode<TRes>
+    implements CopyWithFragmentCharacterEdgenode<TRes> {
+  _CopyWithStubImplFragmentCharacterEdgenode(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    FragmentCharacterEdgenodename? name,
+    FragmentCharacterEdgenodeimage? image,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithFragmentCharacterEdgenodename<TRes> get name =>
+      CopyWithFragmentCharacterEdgenodename.stub(_res);
+
+  CopyWithFragmentCharacterEdgenodeimage<TRes> get image =>
+      CopyWithFragmentCharacterEdgenodeimage.stub(_res);
+}
+
+class FragmentCharacterEdgenodename {
+  FragmentCharacterEdgenodename({
+    this.userPreferred,
+    this.$__typename = 'CharacterName',
+  });
+
+  factory FragmentCharacterEdgenodename.fromJson(Map<String, dynamic> json) {
+    final l$userPreferred = json['userPreferred'];
+    final l$$__typename = json['__typename'];
+    return FragmentCharacterEdgenodename(
+      userPreferred: (l$userPreferred as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? userPreferred;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$userPreferred = userPreferred;
+    _resultData['userPreferred'] = l$userPreferred;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$userPreferred = userPreferred;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$userPreferred,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! FragmentCharacterEdgenodename ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$userPreferred = userPreferred;
+    final lOther$userPreferred = other.userPreferred;
+    if (l$userPreferred != lOther$userPreferred) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentCharacterEdgenodename
+    on FragmentCharacterEdgenodename {
+  CopyWithFragmentCharacterEdgenodename<FragmentCharacterEdgenodename>
+      get copyWith => CopyWithFragmentCharacterEdgenodename(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithFragmentCharacterEdgenodename<TRes> {
+  factory CopyWithFragmentCharacterEdgenodename(
+    FragmentCharacterEdgenodename instance,
+    TRes Function(FragmentCharacterEdgenodename) then,
+  ) = _CopyWithImplFragmentCharacterEdgenodename;
+
+  factory CopyWithFragmentCharacterEdgenodename.stub(TRes res) =
+      _CopyWithStubImplFragmentCharacterEdgenodename;
+
+  TRes call({
+    String? userPreferred,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplFragmentCharacterEdgenodename<TRes>
+    implements CopyWithFragmentCharacterEdgenodename<TRes> {
+  _CopyWithImplFragmentCharacterEdgenodename(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentCharacterEdgenodename _instance;
+
+  final TRes Function(FragmentCharacterEdgenodename) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? userPreferred = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentCharacterEdgenodename(
+        userPreferred: userPreferred == _undefined
+            ? _instance.userPreferred
+            : (userPreferred as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplFragmentCharacterEdgenodename<TRes>
+    implements CopyWithFragmentCharacterEdgenodename<TRes> {
+  _CopyWithStubImplFragmentCharacterEdgenodename(this._res);
+
+  TRes _res;
+
+  call({
+    String? userPreferred,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class FragmentCharacterEdgenodeimage {
+  FragmentCharacterEdgenodeimage({
+    this.large,
+    this.$__typename = 'CharacterImage',
+  });
+
+  factory FragmentCharacterEdgenodeimage.fromJson(Map<String, dynamic> json) {
+    final l$large = json['large'];
+    final l$$__typename = json['__typename'];
+    return FragmentCharacterEdgenodeimage(
+      large: (l$large as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? large;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$large = large;
+    _resultData['large'] = l$large;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$large = large;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$large,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! FragmentCharacterEdgenodeimage ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$large = large;
+    final lOther$large = other.large;
+    if (l$large != lOther$large) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentCharacterEdgenodeimage
+    on FragmentCharacterEdgenodeimage {
+  CopyWithFragmentCharacterEdgenodeimage<FragmentCharacterEdgenodeimage>
+      get copyWith => CopyWithFragmentCharacterEdgenodeimage(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithFragmentCharacterEdgenodeimage<TRes> {
+  factory CopyWithFragmentCharacterEdgenodeimage(
+    FragmentCharacterEdgenodeimage instance,
+    TRes Function(FragmentCharacterEdgenodeimage) then,
+  ) = _CopyWithImplFragmentCharacterEdgenodeimage;
+
+  factory CopyWithFragmentCharacterEdgenodeimage.stub(TRes res) =
+      _CopyWithStubImplFragmentCharacterEdgenodeimage;
+
+  TRes call({
+    String? large,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplFragmentCharacterEdgenodeimage<TRes>
+    implements CopyWithFragmentCharacterEdgenodeimage<TRes> {
+  _CopyWithImplFragmentCharacterEdgenodeimage(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentCharacterEdgenodeimage _instance;
+
+  final TRes Function(FragmentCharacterEdgenodeimage) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? large = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentCharacterEdgenodeimage(
+        large: large == _undefined ? _instance.large : (large as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplFragmentCharacterEdgenodeimage<TRes>
+    implements CopyWithFragmentCharacterEdgenodeimage<TRes> {
+  _CopyWithStubImplFragmentCharacterEdgenodeimage(this._res);
+
+  TRes _res;
+
+  call({
+    String? large,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
 class VariablesQueryCharacter {
   factory VariablesQueryCharacter({
     int? characterId,
@@ -1950,4 +3304,1040 @@ class _CopyWithStubImplQueryCharacterCharactermediaedges<TRes>
 
   CopyWithFragmentMediaMin<TRes> get node =>
       CopyWithFragmentMediaMin.stub(_res);
+}
+
+class VariablesQueryMediaCharacters {
+  factory VariablesQueryMediaCharacters({
+    int? id,
+    int? page,
+    int? perPage,
+  }) =>
+      VariablesQueryMediaCharacters._({
+        if (id != null) r'id': id,
+        if (page != null) r'page': page,
+        if (perPage != null) r'perPage': perPage,
+      });
+
+  VariablesQueryMediaCharacters._(this._$data);
+
+  factory VariablesQueryMediaCharacters.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = (l$id as int?);
+    }
+    if (data.containsKey('page')) {
+      final l$page = data['page'];
+      result$data['page'] = (l$page as int?);
+    }
+    if (data.containsKey('perPage')) {
+      final l$perPage = data['perPage'];
+      result$data['perPage'] = (l$perPage as int?);
+    }
+    return VariablesQueryMediaCharacters._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get id => (_$data['id'] as int?);
+
+  int? get page => (_$data['page'] as int?);
+
+  int? get perPage => (_$data['perPage'] as int?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id;
+    }
+    if (_$data.containsKey('page')) {
+      final l$page = page;
+      result$data['page'] = l$page;
+    }
+    if (_$data.containsKey('perPage')) {
+      final l$perPage = perPage;
+      result$data['perPage'] = l$perPage;
+    }
+    return result$data;
+  }
+
+  CopyWithVariablesQueryMediaCharacters<VariablesQueryMediaCharacters>
+      get copyWith => CopyWithVariablesQueryMediaCharacters(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! VariablesQueryMediaCharacters ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$page = page;
+    final lOther$page = other.page;
+    if (_$data.containsKey('page') != other._$data.containsKey('page')) {
+      return false;
+    }
+    if (l$page != lOther$page) {
+      return false;
+    }
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (_$data.containsKey('perPage') != other._$data.containsKey('perPage')) {
+      return false;
+    }
+    if (l$perPage != lOther$perPage) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$page = page;
+    final l$perPage = perPage;
+    return Object.hashAll([
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('page') ? l$page : const {},
+      _$data.containsKey('perPage') ? l$perPage : const {},
+    ]);
+  }
+}
+
+abstract class CopyWithVariablesQueryMediaCharacters<TRes> {
+  factory CopyWithVariablesQueryMediaCharacters(
+    VariablesQueryMediaCharacters instance,
+    TRes Function(VariablesQueryMediaCharacters) then,
+  ) = _CopyWithImplVariablesQueryMediaCharacters;
+
+  factory CopyWithVariablesQueryMediaCharacters.stub(TRes res) =
+      _CopyWithStubImplVariablesQueryMediaCharacters;
+
+  TRes call({
+    int? id,
+    int? page,
+    int? perPage,
+  });
+}
+
+class _CopyWithImplVariablesQueryMediaCharacters<TRes>
+    implements CopyWithVariablesQueryMediaCharacters<TRes> {
+  _CopyWithImplVariablesQueryMediaCharacters(
+    this._instance,
+    this._then,
+  );
+
+  final VariablesQueryMediaCharacters _instance;
+
+  final TRes Function(VariablesQueryMediaCharacters) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? page = _undefined,
+    Object? perPage = _undefined,
+  }) =>
+      _then(VariablesQueryMediaCharacters._({
+        ..._instance._$data,
+        if (id != _undefined) 'id': (id as int?),
+        if (page != _undefined) 'page': (page as int?),
+        if (perPage != _undefined) 'perPage': (perPage as int?),
+      }));
+}
+
+class _CopyWithStubImplVariablesQueryMediaCharacters<TRes>
+    implements CopyWithVariablesQueryMediaCharacters<TRes> {
+  _CopyWithStubImplVariablesQueryMediaCharacters(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    int? page,
+    int? perPage,
+  }) =>
+      _res;
+}
+
+class QueryMediaCharacters {
+  QueryMediaCharacters({
+    this.Media,
+    this.$__typename = 'Query',
+  });
+
+  factory QueryMediaCharacters.fromJson(Map<String, dynamic> json) {
+    final l$Media = json['Media'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaCharacters(
+      Media: l$Media == null
+          ? null
+          : QueryMediaCharactersMedia.fromJson(
+              (l$Media as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final QueryMediaCharactersMedia? Media;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$Media = Media;
+    _resultData['Media'] = l$Media?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$Media = Media;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$Media,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaCharacters || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$Media = Media;
+    final lOther$Media = other.Media;
+    if (l$Media != lOther$Media) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaCharacters on QueryMediaCharacters {
+  CopyWithQueryMediaCharacters<QueryMediaCharacters> get copyWith =>
+      CopyWithQueryMediaCharacters(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithQueryMediaCharacters<TRes> {
+  factory CopyWithQueryMediaCharacters(
+    QueryMediaCharacters instance,
+    TRes Function(QueryMediaCharacters) then,
+  ) = _CopyWithImplQueryMediaCharacters;
+
+  factory CopyWithQueryMediaCharacters.stub(TRes res) =
+      _CopyWithStubImplQueryMediaCharacters;
+
+  TRes call({
+    QueryMediaCharactersMedia? Media,
+    String? $__typename,
+  });
+  CopyWithQueryMediaCharactersMedia<TRes> get Media;
+}
+
+class _CopyWithImplQueryMediaCharacters<TRes>
+    implements CopyWithQueryMediaCharacters<TRes> {
+  _CopyWithImplQueryMediaCharacters(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaCharacters _instance;
+
+  final TRes Function(QueryMediaCharacters) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? Media = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaCharacters(
+        Media: Media == _undefined
+            ? _instance.Media
+            : (Media as QueryMediaCharactersMedia?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryMediaCharactersMedia<TRes> get Media {
+    final local$Media = _instance.Media;
+    return local$Media == null
+        ? CopyWithQueryMediaCharactersMedia.stub(_then(_instance))
+        : CopyWithQueryMediaCharactersMedia(local$Media, (e) => call(Media: e));
+  }
+}
+
+class _CopyWithStubImplQueryMediaCharacters<TRes>
+    implements CopyWithQueryMediaCharacters<TRes> {
+  _CopyWithStubImplQueryMediaCharacters(this._res);
+
+  TRes _res;
+
+  call({
+    QueryMediaCharactersMedia? Media,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryMediaCharactersMedia<TRes> get Media =>
+      CopyWithQueryMediaCharactersMedia.stub(_res);
+}
+
+const documentNodeQueryMediaCharacters = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'MediaCharacters'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'perPage')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'Media'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'id'),
+            value: VariableNode(name: NameNode(value: 'id')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'characters'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'sort'),
+                value: ListValueNode(values: [
+                  EnumValueNode(name: NameNode(value: 'ROLE')),
+                  EnumValueNode(name: NameNode(value: 'RELEVANCE')),
+                  EnumValueNode(name: NameNode(value: 'ID')),
+                ]),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: VariableNode(name: NameNode(value: 'perPage')),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'total'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'perPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'currentPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'lastPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'hasNextPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'edges'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'CharacterEdge'),
+                    directives: [],
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionCharacterEdge,
+]);
+
+class QueryMediaCharactersMedia {
+  QueryMediaCharactersMedia({
+    required this.id,
+    this.characters,
+    this.$__typename = 'Media',
+  });
+
+  factory QueryMediaCharactersMedia.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$characters = json['characters'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaCharactersMedia(
+      id: (l$id as int),
+      characters: l$characters == null
+          ? null
+          : QueryMediaCharactersMediacharacters.fromJson(
+              (l$characters as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final QueryMediaCharactersMediacharacters? characters;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$characters = characters;
+    _resultData['characters'] = l$characters?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$characters = characters;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$characters,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaCharactersMedia ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$characters = characters;
+    final lOther$characters = other.characters;
+    if (l$characters != lOther$characters) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaCharactersMedia
+    on QueryMediaCharactersMedia {
+  CopyWithQueryMediaCharactersMedia<QueryMediaCharactersMedia> get copyWith =>
+      CopyWithQueryMediaCharactersMedia(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithQueryMediaCharactersMedia<TRes> {
+  factory CopyWithQueryMediaCharactersMedia(
+    QueryMediaCharactersMedia instance,
+    TRes Function(QueryMediaCharactersMedia) then,
+  ) = _CopyWithImplQueryMediaCharactersMedia;
+
+  factory CopyWithQueryMediaCharactersMedia.stub(TRes res) =
+      _CopyWithStubImplQueryMediaCharactersMedia;
+
+  TRes call({
+    int? id,
+    QueryMediaCharactersMediacharacters? characters,
+    String? $__typename,
+  });
+  CopyWithQueryMediaCharactersMediacharacters<TRes> get characters;
+}
+
+class _CopyWithImplQueryMediaCharactersMedia<TRes>
+    implements CopyWithQueryMediaCharactersMedia<TRes> {
+  _CopyWithImplQueryMediaCharactersMedia(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaCharactersMedia _instance;
+
+  final TRes Function(QueryMediaCharactersMedia) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? characters = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaCharactersMedia(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        characters: characters == _undefined
+            ? _instance.characters
+            : (characters as QueryMediaCharactersMediacharacters?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryMediaCharactersMediacharacters<TRes> get characters {
+    final local$characters = _instance.characters;
+    return local$characters == null
+        ? CopyWithQueryMediaCharactersMediacharacters.stub(_then(_instance))
+        : CopyWithQueryMediaCharactersMediacharacters(
+            local$characters, (e) => call(characters: e));
+  }
+}
+
+class _CopyWithStubImplQueryMediaCharactersMedia<TRes>
+    implements CopyWithQueryMediaCharactersMedia<TRes> {
+  _CopyWithStubImplQueryMediaCharactersMedia(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    QueryMediaCharactersMediacharacters? characters,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryMediaCharactersMediacharacters<TRes> get characters =>
+      CopyWithQueryMediaCharactersMediacharacters.stub(_res);
+}
+
+class QueryMediaCharactersMediacharacters {
+  QueryMediaCharactersMediacharacters({
+    this.pageInfo,
+    this.edges,
+    this.$__typename = 'CharacterConnection',
+  });
+
+  factory QueryMediaCharactersMediacharacters.fromJson(
+      Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
+    final l$edges = json['edges'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaCharactersMediacharacters(
+      pageInfo: l$pageInfo == null
+          ? null
+          : QueryMediaCharactersMediacharacterspageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
+      edges: (l$edges as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : FragmentCharacterEdge.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final QueryMediaCharactersMediacharacterspageInfo? pageInfo;
+
+  final List<FragmentCharacterEdge?>? edges;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
+    final l$edges = edges;
+    _resultData['edges'] = l$edges?.map((e) => e?.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$pageInfo = pageInfo;
+    final l$edges = edges;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$pageInfo,
+      l$edges == null ? null : Object.hashAll(l$edges.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaCharactersMediacharacters ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
+      return false;
+    }
+    final l$edges = edges;
+    final lOther$edges = other.edges;
+    if (l$edges != null && lOther$edges != null) {
+      if (l$edges.length != lOther$edges.length) {
+        return false;
+      }
+      for (int i = 0; i < l$edges.length; i++) {
+        final l$edges$entry = l$edges[i];
+        final lOther$edges$entry = lOther$edges[i];
+        if (l$edges$entry != lOther$edges$entry) {
+          return false;
+        }
+      }
+    } else if (l$edges != lOther$edges) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaCharactersMediacharacters
+    on QueryMediaCharactersMediacharacters {
+  CopyWithQueryMediaCharactersMediacharacters<
+          QueryMediaCharactersMediacharacters>
+      get copyWith => CopyWithQueryMediaCharactersMediacharacters(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaCharactersMediacharacters<TRes> {
+  factory CopyWithQueryMediaCharactersMediacharacters(
+    QueryMediaCharactersMediacharacters instance,
+    TRes Function(QueryMediaCharactersMediacharacters) then,
+  ) = _CopyWithImplQueryMediaCharactersMediacharacters;
+
+  factory CopyWithQueryMediaCharactersMediacharacters.stub(TRes res) =
+      _CopyWithStubImplQueryMediaCharactersMediacharacters;
+
+  TRes call({
+    QueryMediaCharactersMediacharacterspageInfo? pageInfo,
+    List<FragmentCharacterEdge?>? edges,
+    String? $__typename,
+  });
+  CopyWithQueryMediaCharactersMediacharacterspageInfo<TRes> get pageInfo;
+  TRes edges(
+      Iterable<FragmentCharacterEdge?>? Function(
+              Iterable<CopyWithFragmentCharacterEdge<FragmentCharacterEdge>?>?)
+          _fn);
+}
+
+class _CopyWithImplQueryMediaCharactersMediacharacters<TRes>
+    implements CopyWithQueryMediaCharactersMediacharacters<TRes> {
+  _CopyWithImplQueryMediaCharactersMediacharacters(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaCharactersMediacharacters _instance;
+
+  final TRes Function(QueryMediaCharactersMediacharacters) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? pageInfo = _undefined,
+    Object? edges = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaCharactersMediacharacters(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo as QueryMediaCharactersMediacharacterspageInfo?),
+        edges: edges == _undefined
+            ? _instance.edges
+            : (edges as List<FragmentCharacterEdge?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryMediaCharactersMediacharacterspageInfo<TRes> get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWithQueryMediaCharactersMediacharacterspageInfo.stub(
+            _then(_instance))
+        : CopyWithQueryMediaCharactersMediacharacterspageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+
+  TRes edges(
+          Iterable<FragmentCharacterEdge?>? Function(
+                  Iterable<
+                      CopyWithFragmentCharacterEdge<FragmentCharacterEdge>?>?)
+              _fn) =>
+      call(
+          edges: _fn(_instance.edges?.map((e) => e == null
+              ? null
+              : CopyWithFragmentCharacterEdge(
+                  e,
+                  (i) => i,
+                )))?.toList());
+}
+
+class _CopyWithStubImplQueryMediaCharactersMediacharacters<TRes>
+    implements CopyWithQueryMediaCharactersMediacharacters<TRes> {
+  _CopyWithStubImplQueryMediaCharactersMediacharacters(this._res);
+
+  TRes _res;
+
+  call({
+    QueryMediaCharactersMediacharacterspageInfo? pageInfo,
+    List<FragmentCharacterEdge?>? edges,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryMediaCharactersMediacharacterspageInfo<TRes> get pageInfo =>
+      CopyWithQueryMediaCharactersMediacharacterspageInfo.stub(_res);
+
+  edges(_fn) => _res;
+}
+
+class QueryMediaCharactersMediacharacterspageInfo {
+  QueryMediaCharactersMediacharacterspageInfo({
+    this.total,
+    this.perPage,
+    this.currentPage,
+    this.lastPage,
+    this.hasNextPage,
+    this.$__typename = 'PageInfo',
+  });
+
+  factory QueryMediaCharactersMediacharacterspageInfo.fromJson(
+      Map<String, dynamic> json) {
+    final l$total = json['total'];
+    final l$perPage = json['perPage'];
+    final l$currentPage = json['currentPage'];
+    final l$lastPage = json['lastPage'];
+    final l$hasNextPage = json['hasNextPage'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaCharactersMediacharacterspageInfo(
+      total: (l$total as int?),
+      perPage: (l$perPage as int?),
+      currentPage: (l$currentPage as int?),
+      lastPage: (l$lastPage as int?),
+      hasNextPage: (l$hasNextPage as bool?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? total;
+
+  final int? perPage;
+
+  final int? currentPage;
+
+  final int? lastPage;
+
+  final bool? hasNextPage;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$total = total;
+    _resultData['total'] = l$total;
+    final l$perPage = perPage;
+    _resultData['perPage'] = l$perPage;
+    final l$currentPage = currentPage;
+    _resultData['currentPage'] = l$currentPage;
+    final l$lastPage = lastPage;
+    _resultData['lastPage'] = l$lastPage;
+    final l$hasNextPage = hasNextPage;
+    _resultData['hasNextPage'] = l$hasNextPage;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$total = total;
+    final l$perPage = perPage;
+    final l$currentPage = currentPage;
+    final l$lastPage = lastPage;
+    final l$hasNextPage = hasNextPage;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$total,
+      l$perPage,
+      l$currentPage,
+      l$lastPage,
+      l$hasNextPage,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaCharactersMediacharacterspageInfo ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
+      return false;
+    }
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (l$perPage != lOther$perPage) {
+      return false;
+    }
+    final l$currentPage = currentPage;
+    final lOther$currentPage = other.currentPage;
+    if (l$currentPage != lOther$currentPage) {
+      return false;
+    }
+    final l$lastPage = lastPage;
+    final lOther$lastPage = other.lastPage;
+    if (l$lastPage != lOther$lastPage) {
+      return false;
+    }
+    final l$hasNextPage = hasNextPage;
+    final lOther$hasNextPage = other.hasNextPage;
+    if (l$hasNextPage != lOther$hasNextPage) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaCharactersMediacharacterspageInfo
+    on QueryMediaCharactersMediacharacterspageInfo {
+  CopyWithQueryMediaCharactersMediacharacterspageInfo<
+          QueryMediaCharactersMediacharacterspageInfo>
+      get copyWith => CopyWithQueryMediaCharactersMediacharacterspageInfo(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaCharactersMediacharacterspageInfo<TRes> {
+  factory CopyWithQueryMediaCharactersMediacharacterspageInfo(
+    QueryMediaCharactersMediacharacterspageInfo instance,
+    TRes Function(QueryMediaCharactersMediacharacterspageInfo) then,
+  ) = _CopyWithImplQueryMediaCharactersMediacharacterspageInfo;
+
+  factory CopyWithQueryMediaCharactersMediacharacterspageInfo.stub(TRes res) =
+      _CopyWithStubImplQueryMediaCharactersMediacharacterspageInfo;
+
+  TRes call({
+    int? total,
+    int? perPage,
+    int? currentPage,
+    int? lastPage,
+    bool? hasNextPage,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryMediaCharactersMediacharacterspageInfo<TRes>
+    implements CopyWithQueryMediaCharactersMediacharacterspageInfo<TRes> {
+  _CopyWithImplQueryMediaCharactersMediacharacterspageInfo(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaCharactersMediacharacterspageInfo _instance;
+
+  final TRes Function(QueryMediaCharactersMediacharacterspageInfo) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? total = _undefined,
+    Object? perPage = _undefined,
+    Object? currentPage = _undefined,
+    Object? lastPage = _undefined,
+    Object? hasNextPage = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaCharactersMediacharacterspageInfo(
+        total: total == _undefined ? _instance.total : (total as int?),
+        perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
+        currentPage: currentPage == _undefined
+            ? _instance.currentPage
+            : (currentPage as int?),
+        lastPage:
+            lastPage == _undefined ? _instance.lastPage : (lastPage as int?),
+        hasNextPage: hasNextPage == _undefined
+            ? _instance.hasNextPage
+            : (hasNextPage as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryMediaCharactersMediacharacterspageInfo<TRes>
+    implements CopyWithQueryMediaCharactersMediacharacterspageInfo<TRes> {
+  _CopyWithStubImplQueryMediaCharactersMediacharacterspageInfo(this._res);
+
+  TRes _res;
+
+  call({
+    int? total,
+    int? perPage,
+    int? currentPage,
+    int? lastPage,
+    bool? hasNextPage,
+    String? $__typename,
+  }) =>
+      _res;
 }

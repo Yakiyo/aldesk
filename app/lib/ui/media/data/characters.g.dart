@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'provider.dart';
+part of 'characters.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$mediaItemHash() => r'0f4cf688b97b51f1e9d3ef56176c5d60bd441d83';
+String _$mediaCharacterHash() => r'a538db9f54293378d7c48cfa6048c25066bfd72a';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,27 +29,37 @@ class _SystemHash {
   }
 }
 
-/// See also [mediaItem].
-@ProviderFor(mediaItem)
-const mediaItemProvider = MediaItemFamily();
+abstract class _$MediaCharacter
+    extends BuildlessAutoDisposeAsyncNotifier<List<FragmentCharacterEdge>> {
+  late final int id;
 
-/// See also [mediaItem].
-class MediaItemFamily extends Family<AsyncValue<QueryMediaMedia>> {
-  /// See also [mediaItem].
-  const MediaItemFamily();
+  FutureOr<List<FragmentCharacterEdge>> build(
+    int id,
+  );
+}
 
-  /// See also [mediaItem].
-  MediaItemProvider call(
+/// See also [MediaCharacter].
+@ProviderFor(MediaCharacter)
+const mediaCharacterProvider = MediaCharacterFamily();
+
+/// See also [MediaCharacter].
+class MediaCharacterFamily
+    extends Family<AsyncValue<List<FragmentCharacterEdge>>> {
+  /// See also [MediaCharacter].
+  const MediaCharacterFamily();
+
+  /// See also [MediaCharacter].
+  MediaCharacterProvider call(
     int id,
   ) {
-    return MediaItemProvider(
+    return MediaCharacterProvider(
       id,
     );
   }
 
   @override
-  MediaItemProvider getProviderOverride(
-    covariant MediaItemProvider provider,
+  MediaCharacterProvider getProviderOverride(
+    covariant MediaCharacterProvider provider,
   ) {
     return call(
       provider.id,
@@ -68,31 +78,30 @@ class MediaItemFamily extends Family<AsyncValue<QueryMediaMedia>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'mediaItemProvider';
+  String? get name => r'mediaCharacterProvider';
 }
 
-/// See also [mediaItem].
-class MediaItemProvider extends FutureProvider<QueryMediaMedia> {
-  /// See also [mediaItem].
-  MediaItemProvider(
+/// See also [MediaCharacter].
+class MediaCharacterProvider extends AutoDisposeAsyncNotifierProviderImpl<
+    MediaCharacter, List<FragmentCharacterEdge>> {
+  /// See also [MediaCharacter].
+  MediaCharacterProvider(
     int id,
   ) : this._internal(
-          (ref) => mediaItem(
-            ref as MediaItemRef,
-            id,
-          ),
-          from: mediaItemProvider,
-          name: r'mediaItemProvider',
+          () => MediaCharacter()..id = id,
+          from: mediaCharacterProvider,
+          name: r'mediaCharacterProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$mediaItemHash,
-          dependencies: MediaItemFamily._dependencies,
-          allTransitiveDependencies: MediaItemFamily._allTransitiveDependencies,
+                  : _$mediaCharacterHash,
+          dependencies: MediaCharacterFamily._dependencies,
+          allTransitiveDependencies:
+              MediaCharacterFamily._allTransitiveDependencies,
           id: id,
         );
 
-  MediaItemProvider._internal(
+  MediaCharacterProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -105,13 +114,20 @@ class MediaItemProvider extends FutureProvider<QueryMediaMedia> {
   final int id;
 
   @override
-  Override overrideWith(
-    FutureOr<QueryMediaMedia> Function(MediaItemRef provider) create,
+  FutureOr<List<FragmentCharacterEdge>> runNotifierBuild(
+    covariant MediaCharacter notifier,
   ) {
+    return notifier.build(
+      id,
+    );
+  }
+
+  @override
+  Override overrideWith(MediaCharacter Function() create) {
     return ProviderOverride(
       origin: this,
-      override: MediaItemProvider._internal(
-        (ref) => create(ref as MediaItemRef),
+      override: MediaCharacterProvider._internal(
+        () => create()..id = id,
         from: from,
         name: null,
         dependencies: null,
@@ -123,13 +139,14 @@ class MediaItemProvider extends FutureProvider<QueryMediaMedia> {
   }
 
   @override
-  FutureProviderElement<QueryMediaMedia> createElement() {
-    return _MediaItemProviderElement(this);
+  AutoDisposeAsyncNotifierProviderElement<MediaCharacter,
+      List<FragmentCharacterEdge>> createElement() {
+    return _MediaCharacterProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is MediaItemProvider && other.id == id;
+    return other is MediaCharacterProvider && other.id == id;
   }
 
   @override
@@ -143,17 +160,19 @@ class MediaItemProvider extends FutureProvider<QueryMediaMedia> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin MediaItemRef on FutureProviderRef<QueryMediaMedia> {
+mixin MediaCharacterRef
+    on AutoDisposeAsyncNotifierProviderRef<List<FragmentCharacterEdge>> {
   /// The parameter `id` of this provider.
   int get id;
 }
 
-class _MediaItemProviderElement extends FutureProviderElement<QueryMediaMedia>
-    with MediaItemRef {
-  _MediaItemProviderElement(super.provider);
+class _MediaCharacterProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<MediaCharacter,
+        List<FragmentCharacterEdge>> with MediaCharacterRef {
+  _MediaCharacterProviderElement(super.provider);
 
   @override
-  int get id => (origin as MediaItemProvider).id;
+  int get id => (origin as MediaCharacterProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

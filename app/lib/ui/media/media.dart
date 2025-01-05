@@ -6,6 +6,7 @@
 // different tabs. The tabs are themselves contained in individual files
 // [./widgets] directory for better organization.
 
+import 'package:aldesk/ui/media/data/characters.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +14,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/widgets/async_widget.dart';
 import '../core/widgets/my_scaffold.dart';
-import 'data/provider.dart';
+import 'data/media.dart';
 import 'data/utils.dart';
 import 'widgets/categories.dart';
+import 'widgets/characters.dart';
 import 'widgets/hero_section.dart';
 import 'widgets/info_list.dart';
 import 'widgets/relations.dart';
@@ -69,8 +71,7 @@ class MediaPageBody extends StatelessWidget {
           child: InfoList(media: media),
         ),
       ),
-      if (genres.isNotEmpty)
-        _headerText("Genres"),
+      if (genres.isNotEmpty) _headerText("Genres"),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: MediaGenres(genres: genres),
@@ -82,6 +83,30 @@ class MediaPageBody extends StatelessWidget {
       ),
       if (relations.isNotEmpty) _headerText("Relations"),
       Relations(relations: relations),
+      Consumer(builder: (context, ref, child) {
+        final length =
+            (ref.watch(mediaCharacterProvider(media.id)).valueOrNull ?? [])
+                .length;
+        if (length == 0) {
+          return const SizedBox.shrink();
+        }
+        final notifier = ref.read(mediaCharacterProvider(media.id).notifier);
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _headerText("Characters"),
+            TextButton(
+              onPressed: notifier.hasNext()
+                  ? () {
+                      notifier.loadMore();
+                    }
+                  : null,
+              child: const Text("Load More"),
+            )
+          ],
+        );
+      }),
+      CharacterList(id: media.id),
       const SizedBox(height: 50)
     ];
     return ListView.builder(

@@ -22,4 +22,6 @@ abstract class Routes {
   static String reviewsWithId(int id) => '/reviews/$id';
   static const character = '/character/:id';
   static String characterWithId(int id) => '/character/$id';
+  static const staff = '/staff/:id';
+  static String staffWithId(int id) => '/staff/$id';
 }

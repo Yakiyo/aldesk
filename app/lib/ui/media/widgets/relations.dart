@@ -55,6 +55,7 @@ class RelationMediaTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      hoverColor: Colors.transparent,
       onTap: () => context.go(Routes.mediaWithId(relation.node!.id)),
       child: Container(
         decoration: BoxDecoration(

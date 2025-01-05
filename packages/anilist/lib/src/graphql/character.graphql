@@ -1,3 +1,28 @@
+fragment CharacterEdge on CharacterEdge {
+  id
+  role
+  name
+  voiceActors(language: JAPANESE, sort: [RELEVANCE, ID]) {
+    id
+    name {
+      userPreferred
+    }
+    language: languageV2
+    image {
+      large
+    }
+  }
+  node {
+    id
+    name {
+      userPreferred
+    }
+    image {
+      large
+    }
+  }
+}
+
 query Character(
   $characterId: Int
   $search: String
@@ -36,6 +61,24 @@ query Character(
         node {
           ...MediaMin
         }
+      }
+    }
+  }
+}
+
+query MediaCharacters($id: Int, $page: Int, $perPage: Int) {
+  Media(id: $id) {
+    id
+    characters(page: $page, sort: [ROLE, RELEVANCE, ID], perPage: $perPage) {
+      pageInfo {
+        total
+        perPage
+        currentPage
+        lastPage
+        hasNextPage
+      }
+      edges {
+        ...CharacterEdge
       }
     }
   }
