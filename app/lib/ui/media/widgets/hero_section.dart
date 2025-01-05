@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../data/utils.dart';
 
@@ -11,8 +13,14 @@ class HeroSection extends StatelessWidget {
   final String? coverImage;
   final String? title;
   final String? description;
+  final String? siteUrl;
   const HeroSection(
-      {super.key, this.banner, this.coverImage, this.title, this.description});
+      {super.key,
+      this.banner,
+      this.coverImage,
+      this.title,
+      this.description,
+      this.siteUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +100,15 @@ class HeroSection extends StatelessWidget {
                   )
                 ],
               )),
+          Positioned(
+              right: 20,
+              top: 20,
+              child: IconButton(
+                  tooltip: "Open in AniList",
+                  onPressed: () {
+                    launchUrl(Uri.parse(siteUrl ?? "https://anilist.co"));
+                  },
+                  icon: const FaIcon(FontAwesomeIcons.link, size: 15))),
         ],
       ),
     );
