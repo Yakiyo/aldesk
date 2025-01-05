@@ -25,7 +25,8 @@ query Media(
   $status: MediaStatus
   $isAdult: Boolean
   $search: String
-  $perPage: Int
+  $characterPerPage: Int = 6
+  $staffPerPage: Int = 9
 ) {
   Media(
     id: $id
@@ -127,29 +128,32 @@ query Media(
 
     # only get basic info from edge, for info in node, it can
     # be fetched using the id from node
-    characters(page: 1, sort: [ROLE, RELEVANCE, ID], perPage: $perPage) {
+    characters(page: 1, sort: [ROLE, RELEVANCE, ID], perPage: $characterPerPage) {
       pageInfo {
-        total
-        perPage
         currentPage
-        lastPage
         hasNextPage
+        lastPage
+        perPage
+        total
       }
       edges {
         ...CharacterEdge
       }
     }
 
-    staff {
+    staff(page: 1, sort: [RELEVANCE, ID], perPage: $staffPerPage) {
+      pageInfo {
+        currentPage
+        hasNextPage
+        lastPage
+        perPage
+        total
+      }
       edges {
-        id
-        role
-        favouriteOrder
-        node {
-          id
-        }
+        ...StaffEdge
       }
     }
+    
     relations {
       edges {
         id

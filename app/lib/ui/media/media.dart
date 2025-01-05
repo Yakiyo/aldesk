@@ -6,7 +6,6 @@
 // different tabs. The tabs are themselves contained in individual files
 // [./widgets] directory for better organization.
 
-import 'package:aldesk/ui/media/data/characters.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +13,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/widgets/async_widget.dart';
 import '../core/widgets/my_scaffold.dart';
+import 'data/characters.dart';
 import 'data/media.dart';
+import 'data/staff.dart';
 import 'data/utils.dart';
 import 'widgets/categories.dart';
 import 'widgets/characters.dart';
 import 'widgets/hero_section.dart';
 import 'widgets/info_list.dart';
 import 'widgets/relations.dart';
+import 'widgets/staff.dart';
 
 class MediaPage extends ConsumerWidget {
   final int id;
@@ -106,6 +108,28 @@ class MediaPageBody extends StatelessWidget {
         );
       }),
       CharacterList(id: media.id),
+      Consumer(builder: (context, ref, child) {
+        final length =
+            (ref.watch(mediaStaffProvider(media.id)).valueOrNull ?? []).length;
+        if (length == 0) {
+          return const SizedBox.shrink();
+        }
+        final notifier = ref.read(mediaStaffProvider(media.id).notifier);
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _headerText("Staff"),
+            if (notifier.hasNext())
+              TextButton(
+                onPressed: () {
+                  notifier.loadMore();
+                },
+                child: const Text("Load More"),
+              )
+          ],
+        );
+      }),
+      StaffList(id: media.id),
       const SizedBox(height: 50)
     ];
     return ListView.builder(

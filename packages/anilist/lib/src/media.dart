@@ -36,7 +36,8 @@ ReturnType<QueryMediaMedia> media({
   EnumMediaStatus? status,
   bool? isAdult,
   String? search,
-  int characterPerPage = 6,
+  int characterPerPage = 9,
+  int staffPerPage = 9,
 }) async {
   if (id == null && search == null) {
     throw ArgumentError("Either id or search must be provided", "id, search");
@@ -49,7 +50,8 @@ ReturnType<QueryMediaMedia> media({
           status: status,
           isAdult: isAdult,
           search: search,
-          perPage: characterPerPage)
+          characterPerPage: characterPerPage,
+          staffPerPage: staffPerPage)
       .toJson();
 
   return request(query: printNode(documentNodeQueryMedia), variables: variables)

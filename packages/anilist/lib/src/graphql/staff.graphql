@@ -1,0 +1,31 @@
+fragment StaffEdge on StaffEdge {
+  id
+  role
+  node {
+    id
+    name {
+      userPreferred
+    }
+    language: languageV2
+    image {
+      large
+    }
+  }
+}
+
+query MediaStaff($id: Int, $page: Int, $perPage: Int) {
+  Media(id: $id) {
+    staff(page: $page, sort: [RELEVANCE, ID], perPage: $perPage) {
+      pageInfo {
+        currentPage
+        hasNextPage
+        lastPage
+        perPage
+        total
+      }
+      edges {
+        ...StaffEdge
+      }
+    }
+  }
+}

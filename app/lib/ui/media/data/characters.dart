@@ -10,7 +10,7 @@ part 'characters.g.dart';
 class MediaCharacter extends _$MediaCharacter {
   int _page = 1;
   bool _hasNext = false;
-  var _perPage = 6;
+  var _perPage = 9;
   @override
   FutureOr<List<FragmentCharacterEdge>> build(int id) async {
     final characters = await ref
@@ -19,11 +19,8 @@ class MediaCharacter extends _$MediaCharacter {
       return [];
     }
     _hasNext = characters.pageInfo?.hasNextPage ?? false;
-    final value = characters.edges?.filterNull() ?? [];
-    if (value.isNotEmpty) {
-      _perPage = value.length;
-    }
-    return value;
+    _perPage = characters.pageInfo?.perPage ?? 9;
+    return characters.edges?.filterNull() ?? [];
   }
 
   void loadMore() async {

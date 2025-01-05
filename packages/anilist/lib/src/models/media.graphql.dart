@@ -2,6 +2,7 @@ import 'character.graphql.dart';
 import 'fragments.graphql.dart';
 import 'package:gql/ast.dart';
 import 'schema.graphql.dart';
+import 'staff.graphql.dart';
 
 class VariablesQueryMediaMin {
   factory VariablesQueryMediaMin({
@@ -513,7 +514,8 @@ class VariablesQueryMedia {
     EnumMediaStatus? status,
     bool? isAdult,
     String? search,
-    int? perPage,
+    int? characterPerPage,
+    int? staffPerPage,
   }) =>
       VariablesQueryMedia._({
         if (id != null) r'id': id,
@@ -522,7 +524,8 @@ class VariablesQueryMedia {
         if (status != null) r'status': status,
         if (isAdult != null) r'isAdult': isAdult,
         if (search != null) r'search': search,
-        if (perPage != null) r'perPage': perPage,
+        if (characterPerPage != null) r'characterPerPage': characterPerPage,
+        if (staffPerPage != null) r'staffPerPage': staffPerPage,
       });
 
   VariablesQueryMedia._(this._$data);
@@ -558,9 +561,13 @@ class VariablesQueryMedia {
       final l$search = data['search'];
       result$data['search'] = (l$search as String?);
     }
-    if (data.containsKey('perPage')) {
-      final l$perPage = data['perPage'];
-      result$data['perPage'] = (l$perPage as int?);
+    if (data.containsKey('characterPerPage')) {
+      final l$characterPerPage = data['characterPerPage'];
+      result$data['characterPerPage'] = (l$characterPerPage as int?);
+    }
+    if (data.containsKey('staffPerPage')) {
+      final l$staffPerPage = data['staffPerPage'];
+      result$data['staffPerPage'] = (l$staffPerPage as int?);
     }
     return VariablesQueryMedia._(result$data);
   }
@@ -579,7 +586,9 @@ class VariablesQueryMedia {
 
   String? get search => (_$data['search'] as String?);
 
-  int? get perPage => (_$data['perPage'] as int?);
+  int? get characterPerPage => (_$data['characterPerPage'] as int?);
+
+  int? get staffPerPage => (_$data['staffPerPage'] as int?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -609,9 +618,13 @@ class VariablesQueryMedia {
       final l$search = search;
       result$data['search'] = l$search;
     }
-    if (_$data.containsKey('perPage')) {
-      final l$perPage = perPage;
-      result$data['perPage'] = l$perPage;
+    if (_$data.containsKey('characterPerPage')) {
+      final l$characterPerPage = characterPerPage;
+      result$data['characterPerPage'] = l$characterPerPage;
+    }
+    if (_$data.containsKey('staffPerPage')) {
+      final l$staffPerPage = staffPerPage;
+      result$data['staffPerPage'] = l$staffPerPage;
     }
     return result$data;
   }
@@ -678,12 +691,22 @@ class VariablesQueryMedia {
     if (l$search != lOther$search) {
       return false;
     }
-    final l$perPage = perPage;
-    final lOther$perPage = other.perPage;
-    if (_$data.containsKey('perPage') != other._$data.containsKey('perPage')) {
+    final l$characterPerPage = characterPerPage;
+    final lOther$characterPerPage = other.characterPerPage;
+    if (_$data.containsKey('characterPerPage') !=
+        other._$data.containsKey('characterPerPage')) {
       return false;
     }
-    if (l$perPage != lOther$perPage) {
+    if (l$characterPerPage != lOther$characterPerPage) {
+      return false;
+    }
+    final l$staffPerPage = staffPerPage;
+    final lOther$staffPerPage = other.staffPerPage;
+    if (_$data.containsKey('staffPerPage') !=
+        other._$data.containsKey('staffPerPage')) {
+      return false;
+    }
+    if (l$staffPerPage != lOther$staffPerPage) {
       return false;
     }
     return true;
@@ -697,7 +720,8 @@ class VariablesQueryMedia {
     final l$status = status;
     final l$isAdult = isAdult;
     final l$search = search;
-    final l$perPage = perPage;
+    final l$characterPerPage = characterPerPage;
+    final l$staffPerPage = staffPerPage;
     return Object.hashAll([
       _$data.containsKey('id') ? l$id : const {},
       _$data.containsKey('type') ? l$type : const {},
@@ -705,7 +729,8 @@ class VariablesQueryMedia {
       _$data.containsKey('status') ? l$status : const {},
       _$data.containsKey('isAdult') ? l$isAdult : const {},
       _$data.containsKey('search') ? l$search : const {},
-      _$data.containsKey('perPage') ? l$perPage : const {},
+      _$data.containsKey('characterPerPage') ? l$characterPerPage : const {},
+      _$data.containsKey('staffPerPage') ? l$staffPerPage : const {},
     ]);
   }
 }
@@ -726,7 +751,8 @@ abstract class CopyWithVariablesQueryMedia<TRes> {
     EnumMediaStatus? status,
     bool? isAdult,
     String? search,
-    int? perPage,
+    int? characterPerPage,
+    int? staffPerPage,
   });
 }
 
@@ -750,7 +776,8 @@ class _CopyWithImplVariablesQueryMedia<TRes>
     Object? status = _undefined,
     Object? isAdult = _undefined,
     Object? search = _undefined,
-    Object? perPage = _undefined,
+    Object? characterPerPage = _undefined,
+    Object? staffPerPage = _undefined,
   }) =>
       _then(VariablesQueryMedia._({
         ..._instance._$data,
@@ -760,7 +787,9 @@ class _CopyWithImplVariablesQueryMedia<TRes>
         if (status != _undefined) 'status': (status as EnumMediaStatus?),
         if (isAdult != _undefined) 'isAdult': (isAdult as bool?),
         if (search != _undefined) 'search': (search as String?),
-        if (perPage != _undefined) 'perPage': (perPage as int?),
+        if (characterPerPage != _undefined)
+          'characterPerPage': (characterPerPage as int?),
+        if (staffPerPage != _undefined) 'staffPerPage': (staffPerPage as int?),
       }));
 }
 
@@ -777,7 +806,8 @@ class _CopyWithStubImplVariablesQueryMedia<TRes>
     EnumMediaStatus? status,
     bool? isAdult,
     String? search,
-    int? perPage,
+    int? characterPerPage,
+    int? staffPerPage,
   }) =>
       _res;
 }
@@ -972,12 +1002,21 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
         directives: [],
       ),
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'perPage')),
+        variable: VariableNode(name: NameNode(value: 'characterPerPage')),
         type: NamedTypeNode(
           name: NameNode(value: 'Int'),
           isNonNull: false,
         ),
-        defaultValue: DefaultValueNode(value: null),
+        defaultValue: DefaultValueNode(value: IntValueNode(value: '6')),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'staffPerPage')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: IntValueNode(value: '9')),
         directives: [],
       ),
     ],
@@ -1626,7 +1665,7 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
               ),
               ArgumentNode(
                 name: NameNode(value: 'perPage'),
-                value: VariableNode(name: NameNode(value: 'perPage')),
+                value: VariableNode(name: NameNode(value: 'characterPerPage')),
               ),
             ],
             directives: [],
@@ -1638,21 +1677,14 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
                   FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'perPage'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
                     name: NameNode(value: 'currentPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'hasNextPage'),
                     alias: null,
                     arguments: [],
                     directives: [],
@@ -1666,7 +1698,14 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
                     selectionSet: null,
                   ),
                   FieldNode(
-                    name: NameNode(value: 'hasNextPage'),
+                    name: NameNode(value: 'perPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'total'),
                     alias: null,
                     arguments: [],
                     directives: [],
@@ -1712,57 +1751,84 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
           FieldNode(
             name: NameNode(value: 'staff'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: IntValueNode(value: '1'),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'sort'),
+                value: ListValueNode(values: [
+                  EnumValueNode(name: NameNode(value: 'RELEVANCE')),
+                  EnumValueNode(name: NameNode(value: 'ID')),
+                ]),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: VariableNode(name: NameNode(value: 'staffPerPage')),
+              ),
+            ],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'currentPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'hasNextPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'lastPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'perPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'total'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
               FieldNode(
                 name: NameNode(value: 'edges'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'StaffEdge'),
                     directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'role'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'favouriteOrder'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'node'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -2288,6 +2354,7 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
   ),
   fragmentDefinitionMediaMin,
   fragmentDefinitionCharacterEdge,
+  fragmentDefinitionStaffEdge,
 ]);
 
 class QueryMediaMedia implements FragmentMediaMin {
@@ -6236,56 +6303,56 @@ class _CopyWithStubImplQueryMediaMediacharacters<TRes>
 
 class QueryMediaMediacharacterspageInfo {
   QueryMediaMediacharacterspageInfo({
-    this.total,
-    this.perPage,
     this.currentPage,
-    this.lastPage,
     this.hasNextPage,
+    this.lastPage,
+    this.perPage,
+    this.total,
     this.$__typename = 'PageInfo',
   });
 
   factory QueryMediaMediacharacterspageInfo.fromJson(
       Map<String, dynamic> json) {
-    final l$total = json['total'];
-    final l$perPage = json['perPage'];
     final l$currentPage = json['currentPage'];
-    final l$lastPage = json['lastPage'];
     final l$hasNextPage = json['hasNextPage'];
+    final l$lastPage = json['lastPage'];
+    final l$perPage = json['perPage'];
+    final l$total = json['total'];
     final l$$__typename = json['__typename'];
     return QueryMediaMediacharacterspageInfo(
-      total: (l$total as int?),
-      perPage: (l$perPage as int?),
       currentPage: (l$currentPage as int?),
-      lastPage: (l$lastPage as int?),
       hasNextPage: (l$hasNextPage as bool?),
+      lastPage: (l$lastPage as int?),
+      perPage: (l$perPage as int?),
+      total: (l$total as int?),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final int? total;
-
-  final int? perPage;
-
   final int? currentPage;
+
+  final bool? hasNextPage;
 
   final int? lastPage;
 
-  final bool? hasNextPage;
+  final int? perPage;
+
+  final int? total;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$total = total;
-    _resultData['total'] = l$total;
-    final l$perPage = perPage;
-    _resultData['perPage'] = l$perPage;
     final l$currentPage = currentPage;
     _resultData['currentPage'] = l$currentPage;
-    final l$lastPage = lastPage;
-    _resultData['lastPage'] = l$lastPage;
     final l$hasNextPage = hasNextPage;
     _resultData['hasNextPage'] = l$hasNextPage;
+    final l$lastPage = lastPage;
+    _resultData['lastPage'] = l$lastPage;
+    final l$perPage = perPage;
+    _resultData['perPage'] = l$perPage;
+    final l$total = total;
+    _resultData['total'] = l$total;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -6293,18 +6360,18 @@ class QueryMediaMediacharacterspageInfo {
 
   @override
   int get hashCode {
-    final l$total = total;
-    final l$perPage = perPage;
     final l$currentPage = currentPage;
-    final l$lastPage = lastPage;
     final l$hasNextPage = hasNextPage;
+    final l$lastPage = lastPage;
+    final l$perPage = perPage;
+    final l$total = total;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$total,
-      l$perPage,
       l$currentPage,
-      l$lastPage,
       l$hasNextPage,
+      l$lastPage,
+      l$perPage,
+      l$total,
       l$$__typename,
     ]);
   }
@@ -6318,19 +6385,14 @@ class QueryMediaMediacharacterspageInfo {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$total = total;
-    final lOther$total = other.total;
-    if (l$total != lOther$total) {
-      return false;
-    }
-    final l$perPage = perPage;
-    final lOther$perPage = other.perPage;
-    if (l$perPage != lOther$perPage) {
-      return false;
-    }
     final l$currentPage = currentPage;
     final lOther$currentPage = other.currentPage;
     if (l$currentPage != lOther$currentPage) {
+      return false;
+    }
+    final l$hasNextPage = hasNextPage;
+    final lOther$hasNextPage = other.hasNextPage;
+    if (l$hasNextPage != lOther$hasNextPage) {
       return false;
     }
     final l$lastPage = lastPage;
@@ -6338,9 +6400,14 @@ class QueryMediaMediacharacterspageInfo {
     if (l$lastPage != lOther$lastPage) {
       return false;
     }
-    final l$hasNextPage = hasNextPage;
-    final lOther$hasNextPage = other.hasNextPage;
-    if (l$hasNextPage != lOther$hasNextPage) {
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (l$perPage != lOther$perPage) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -6371,11 +6438,11 @@ abstract class CopyWithQueryMediaMediacharacterspageInfo<TRes> {
       _CopyWithStubImplQueryMediaMediacharacterspageInfo;
 
   TRes call({
-    int? total,
-    int? perPage,
     int? currentPage,
-    int? lastPage,
     bool? hasNextPage,
+    int? lastPage,
+    int? perPage,
+    int? total,
     String? $__typename,
   });
 }
@@ -6394,24 +6461,24 @@ class _CopyWithImplQueryMediaMediacharacterspageInfo<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? total = _undefined,
-    Object? perPage = _undefined,
     Object? currentPage = _undefined,
-    Object? lastPage = _undefined,
     Object? hasNextPage = _undefined,
+    Object? lastPage = _undefined,
+    Object? perPage = _undefined,
+    Object? total = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(QueryMediaMediacharacterspageInfo(
-        total: total == _undefined ? _instance.total : (total as int?),
-        perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
         currentPage: currentPage == _undefined
             ? _instance.currentPage
             : (currentPage as int?),
-        lastPage:
-            lastPage == _undefined ? _instance.lastPage : (lastPage as int?),
         hasNextPage: hasNextPage == _undefined
             ? _instance.hasNextPage
             : (hasNextPage as bool?),
+        lastPage:
+            lastPage == _undefined ? _instance.lastPage : (lastPage as int?),
+        perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
+        total: total == _undefined ? _instance.total : (total as int?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -6425,11 +6492,11 @@ class _CopyWithStubImplQueryMediaMediacharacterspageInfo<TRes>
   TRes _res;
 
   call({
-    int? total,
-    int? perPage,
     int? currentPage,
-    int? lastPage,
     bool? hasNextPage,
+    int? lastPage,
+    int? perPage,
+    int? total,
     String? $__typename,
   }) =>
       _res;
@@ -6437,29 +6504,39 @@ class _CopyWithStubImplQueryMediaMediacharacterspageInfo<TRes>
 
 class QueryMediaMediastaff {
   QueryMediaMediastaff({
+    this.pageInfo,
     this.edges,
     this.$__typename = 'StaffConnection',
   });
 
   factory QueryMediaMediastaff.fromJson(Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
     final l$edges = json['edges'];
     final l$$__typename = json['__typename'];
     return QueryMediaMediastaff(
+      pageInfo: l$pageInfo == null
+          ? null
+          : QueryMediaMediastaffpageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
       edges: (l$edges as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : QueryMediaMediastaffedges.fromJson((e as Map<String, dynamic>)))
+              : FragmentStaffEdge.fromJson((e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<QueryMediaMediastaffedges?>? edges;
+  final QueryMediaMediastaffpageInfo? pageInfo;
+
+  final List<FragmentStaffEdge?>? edges;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$edges = edges;
     _resultData['edges'] = l$edges?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
@@ -6469,9 +6546,11 @@ class QueryMediaMediastaff {
 
   @override
   int get hashCode {
+    final l$pageInfo = pageInfo;
     final l$edges = edges;
     final l$$__typename = $__typename;
     return Object.hashAll([
+      l$pageInfo,
       l$edges == null ? null : Object.hashAll(l$edges.map((v) => v)),
       l$$__typename,
     ]);
@@ -6483,6 +6562,11 @@ class QueryMediaMediastaff {
       return true;
     }
     if (other is! QueryMediaMediastaff || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
       return false;
     }
     final l$edges = edges;
@@ -6528,14 +6612,14 @@ abstract class CopyWithQueryMediaMediastaff<TRes> {
       _CopyWithStubImplQueryMediaMediastaff;
 
   TRes call({
-    List<QueryMediaMediastaffedges?>? edges,
+    QueryMediaMediastaffpageInfo? pageInfo,
+    List<FragmentStaffEdge?>? edges,
     String? $__typename,
   });
+  CopyWithQueryMediaMediastaffpageInfo<TRes> get pageInfo;
   TRes edges(
-      Iterable<QueryMediaMediastaffedges?>? Function(
-              Iterable<
-                  CopyWithQueryMediaMediastaffedges<
-                      QueryMediaMediastaffedges>?>?)
+      Iterable<FragmentStaffEdge?>? Function(
+              Iterable<CopyWithFragmentStaffEdge<FragmentStaffEdge>?>?)
           _fn);
 }
 
@@ -6553,28 +6637,38 @@ class _CopyWithImplQueryMediaMediastaff<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? pageInfo = _undefined,
     Object? edges = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(QueryMediaMediastaff(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo as QueryMediaMediastaffpageInfo?),
         edges: edges == _undefined
             ? _instance.edges
-            : (edges as List<QueryMediaMediastaffedges?>?),
+            : (edges as List<FragmentStaffEdge?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
+  CopyWithQueryMediaMediastaffpageInfo<TRes> get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWithQueryMediaMediastaffpageInfo.stub(_then(_instance))
+        : CopyWithQueryMediaMediastaffpageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+
   TRes edges(
-          Iterable<QueryMediaMediastaffedges?>? Function(
-                  Iterable<
-                      CopyWithQueryMediaMediastaffedges<
-                          QueryMediaMediastaffedges>?>?)
+          Iterable<FragmentStaffEdge?>? Function(
+                  Iterable<CopyWithFragmentStaffEdge<FragmentStaffEdge>?>?)
               _fn) =>
       call(
           edges: _fn(_instance.edges?.map((e) => e == null
               ? null
-              : CopyWithQueryMediaMediastaffedges(
+              : CopyWithFragmentStaffEdge(
                   e,
                   (i) => i,
                 )))?.toList());
@@ -6587,61 +6681,69 @@ class _CopyWithStubImplQueryMediaMediastaff<TRes>
   TRes _res;
 
   call({
-    List<QueryMediaMediastaffedges?>? edges,
+    QueryMediaMediastaffpageInfo? pageInfo,
+    List<FragmentStaffEdge?>? edges,
     String? $__typename,
   }) =>
       _res;
+
+  CopyWithQueryMediaMediastaffpageInfo<TRes> get pageInfo =>
+      CopyWithQueryMediaMediastaffpageInfo.stub(_res);
 
   edges(_fn) => _res;
 }
 
-class QueryMediaMediastaffedges {
-  QueryMediaMediastaffedges({
-    this.id,
-    this.role,
-    this.favouriteOrder,
-    this.node,
-    this.$__typename = 'StaffEdge',
+class QueryMediaMediastaffpageInfo {
+  QueryMediaMediastaffpageInfo({
+    this.currentPage,
+    this.hasNextPage,
+    this.lastPage,
+    this.perPage,
+    this.total,
+    this.$__typename = 'PageInfo',
   });
 
-  factory QueryMediaMediastaffedges.fromJson(Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$role = json['role'];
-    final l$favouriteOrder = json['favouriteOrder'];
-    final l$node = json['node'];
+  factory QueryMediaMediastaffpageInfo.fromJson(Map<String, dynamic> json) {
+    final l$currentPage = json['currentPage'];
+    final l$hasNextPage = json['hasNextPage'];
+    final l$lastPage = json['lastPage'];
+    final l$perPage = json['perPage'];
+    final l$total = json['total'];
     final l$$__typename = json['__typename'];
-    return QueryMediaMediastaffedges(
-      id: (l$id as int?),
-      role: (l$role as String?),
-      favouriteOrder: (l$favouriteOrder as int?),
-      node: l$node == null
-          ? null
-          : QueryMediaMediastaffedgesnode.fromJson(
-              (l$node as Map<String, dynamic>)),
+    return QueryMediaMediastaffpageInfo(
+      currentPage: (l$currentPage as int?),
+      hasNextPage: (l$hasNextPage as bool?),
+      lastPage: (l$lastPage as int?),
+      perPage: (l$perPage as int?),
+      total: (l$total as int?),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final int? id;
+  final int? currentPage;
 
-  final String? role;
+  final bool? hasNextPage;
 
-  final int? favouriteOrder;
+  final int? lastPage;
 
-  final QueryMediaMediastaffedgesnode? node;
+  final int? perPage;
+
+  final int? total;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$role = role;
-    _resultData['role'] = l$role;
-    final l$favouriteOrder = favouriteOrder;
-    _resultData['favouriteOrder'] = l$favouriteOrder;
-    final l$node = node;
-    _resultData['node'] = l$node?.toJson();
+    final l$currentPage = currentPage;
+    _resultData['currentPage'] = l$currentPage;
+    final l$hasNextPage = hasNextPage;
+    _resultData['hasNextPage'] = l$hasNextPage;
+    final l$lastPage = lastPage;
+    _resultData['lastPage'] = l$lastPage;
+    final l$perPage = perPage;
+    _resultData['perPage'] = l$perPage;
+    final l$total = total;
+    _resultData['total'] = l$total;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -6649,16 +6751,18 @@ class QueryMediaMediastaffedges {
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$role = role;
-    final l$favouriteOrder = favouriteOrder;
-    final l$node = node;
+    final l$currentPage = currentPage;
+    final l$hasNextPage = hasNextPage;
+    final l$lastPage = lastPage;
+    final l$perPage = perPage;
+    final l$total = total;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$id,
-      l$role,
-      l$favouriteOrder,
-      l$node,
+      l$currentPage,
+      l$hasNextPage,
+      l$lastPage,
+      l$perPage,
+      l$total,
       l$$__typename,
     ]);
   }
@@ -6668,28 +6772,33 @@ class QueryMediaMediastaffedges {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! QueryMediaMediastaffedges ||
+    if (other is! QueryMediaMediastaffpageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
+    final l$currentPage = currentPage;
+    final lOther$currentPage = other.currentPage;
+    if (l$currentPage != lOther$currentPage) {
       return false;
     }
-    final l$role = role;
-    final lOther$role = other.role;
-    if (l$role != lOther$role) {
+    final l$hasNextPage = hasNextPage;
+    final lOther$hasNextPage = other.hasNextPage;
+    if (l$hasNextPage != lOther$hasNextPage) {
       return false;
     }
-    final l$favouriteOrder = favouriteOrder;
-    final lOther$favouriteOrder = other.favouriteOrder;
-    if (l$favouriteOrder != lOther$favouriteOrder) {
+    final l$lastPage = lastPage;
+    final lOther$lastPage = other.lastPage;
+    if (l$lastPage != lOther$lastPage) {
       return false;
     }
-    final l$node = node;
-    final lOther$node = other.node;
-    if (l$node != lOther$node) {
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (l$perPage != lOther$perPage) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -6701,214 +6810,84 @@ class QueryMediaMediastaffedges {
   }
 }
 
-extension UtilityExtensionQueryMediaMediastaffedges
-    on QueryMediaMediastaffedges {
-  CopyWithQueryMediaMediastaffedges<QueryMediaMediastaffedges> get copyWith =>
-      CopyWithQueryMediaMediastaffedges(
-        this,
-        (i) => i,
-      );
-}
-
-abstract class CopyWithQueryMediaMediastaffedges<TRes> {
-  factory CopyWithQueryMediaMediastaffedges(
-    QueryMediaMediastaffedges instance,
-    TRes Function(QueryMediaMediastaffedges) then,
-  ) = _CopyWithImplQueryMediaMediastaffedges;
-
-  factory CopyWithQueryMediaMediastaffedges.stub(TRes res) =
-      _CopyWithStubImplQueryMediaMediastaffedges;
-
-  TRes call({
-    int? id,
-    String? role,
-    int? favouriteOrder,
-    QueryMediaMediastaffedgesnode? node,
-    String? $__typename,
-  });
-  CopyWithQueryMediaMediastaffedgesnode<TRes> get node;
-}
-
-class _CopyWithImplQueryMediaMediastaffedges<TRes>
-    implements CopyWithQueryMediaMediastaffedges<TRes> {
-  _CopyWithImplQueryMediaMediastaffedges(
-    this._instance,
-    this._then,
-  );
-
-  final QueryMediaMediastaffedges _instance;
-
-  final TRes Function(QueryMediaMediastaffedges) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? role = _undefined,
-    Object? favouriteOrder = _undefined,
-    Object? node = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryMediaMediastaffedges(
-        id: id == _undefined ? _instance.id : (id as int?),
-        role: role == _undefined ? _instance.role : (role as String?),
-        favouriteOrder: favouriteOrder == _undefined
-            ? _instance.favouriteOrder
-            : (favouriteOrder as int?),
-        node: node == _undefined
-            ? _instance.node
-            : (node as QueryMediaMediastaffedgesnode?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryMediaMediastaffedgesnode<TRes> get node {
-    final local$node = _instance.node;
-    return local$node == null
-        ? CopyWithQueryMediaMediastaffedgesnode.stub(_then(_instance))
-        : CopyWithQueryMediaMediastaffedgesnode(
-            local$node, (e) => call(node: e));
-  }
-}
-
-class _CopyWithStubImplQueryMediaMediastaffedges<TRes>
-    implements CopyWithQueryMediaMediastaffedges<TRes> {
-  _CopyWithStubImplQueryMediaMediastaffedges(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? role,
-    int? favouriteOrder,
-    QueryMediaMediastaffedgesnode? node,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryMediaMediastaffedgesnode<TRes> get node =>
-      CopyWithQueryMediaMediastaffedgesnode.stub(_res);
-}
-
-class QueryMediaMediastaffedgesnode {
-  QueryMediaMediastaffedgesnode({
-    required this.id,
-    this.$__typename = 'Staff',
-  });
-
-  factory QueryMediaMediastaffedgesnode.fromJson(Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$$__typename = json['__typename'];
-    return QueryMediaMediastaffedgesnode(
-      id: (l$id as int),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (other is! QueryMediaMediastaffedgesnode ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryMediaMediastaffedgesnode
-    on QueryMediaMediastaffedgesnode {
-  CopyWithQueryMediaMediastaffedgesnode<QueryMediaMediastaffedgesnode>
-      get copyWith => CopyWithQueryMediaMediastaffedgesnode(
+extension UtilityExtensionQueryMediaMediastaffpageInfo
+    on QueryMediaMediastaffpageInfo {
+  CopyWithQueryMediaMediastaffpageInfo<QueryMediaMediastaffpageInfo>
+      get copyWith => CopyWithQueryMediaMediastaffpageInfo(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithQueryMediaMediastaffedgesnode<TRes> {
-  factory CopyWithQueryMediaMediastaffedgesnode(
-    QueryMediaMediastaffedgesnode instance,
-    TRes Function(QueryMediaMediastaffedgesnode) then,
-  ) = _CopyWithImplQueryMediaMediastaffedgesnode;
+abstract class CopyWithQueryMediaMediastaffpageInfo<TRes> {
+  factory CopyWithQueryMediaMediastaffpageInfo(
+    QueryMediaMediastaffpageInfo instance,
+    TRes Function(QueryMediaMediastaffpageInfo) then,
+  ) = _CopyWithImplQueryMediaMediastaffpageInfo;
 
-  factory CopyWithQueryMediaMediastaffedgesnode.stub(TRes res) =
-      _CopyWithStubImplQueryMediaMediastaffedgesnode;
+  factory CopyWithQueryMediaMediastaffpageInfo.stub(TRes res) =
+      _CopyWithStubImplQueryMediaMediastaffpageInfo;
 
   TRes call({
-    int? id,
+    int? currentPage,
+    bool? hasNextPage,
+    int? lastPage,
+    int? perPage,
+    int? total,
     String? $__typename,
   });
 }
 
-class _CopyWithImplQueryMediaMediastaffedgesnode<TRes>
-    implements CopyWithQueryMediaMediastaffedgesnode<TRes> {
-  _CopyWithImplQueryMediaMediastaffedgesnode(
+class _CopyWithImplQueryMediaMediastaffpageInfo<TRes>
+    implements CopyWithQueryMediaMediastaffpageInfo<TRes> {
+  _CopyWithImplQueryMediaMediastaffpageInfo(
     this._instance,
     this._then,
   );
 
-  final QueryMediaMediastaffedgesnode _instance;
+  final QueryMediaMediastaffpageInfo _instance;
 
-  final TRes Function(QueryMediaMediastaffedgesnode) _then;
+  final TRes Function(QueryMediaMediastaffpageInfo) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? id = _undefined,
+    Object? currentPage = _undefined,
+    Object? hasNextPage = _undefined,
+    Object? lastPage = _undefined,
+    Object? perPage = _undefined,
+    Object? total = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryMediaMediastaffedgesnode(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
+      _then(QueryMediaMediastaffpageInfo(
+        currentPage: currentPage == _undefined
+            ? _instance.currentPage
+            : (currentPage as int?),
+        hasNextPage: hasNextPage == _undefined
+            ? _instance.hasNextPage
+            : (hasNextPage as bool?),
+        lastPage:
+            lastPage == _undefined ? _instance.lastPage : (lastPage as int?),
+        perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
+        total: total == _undefined ? _instance.total : (total as int?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImplQueryMediaMediastaffedgesnode<TRes>
-    implements CopyWithQueryMediaMediastaffedgesnode<TRes> {
-  _CopyWithStubImplQueryMediaMediastaffedgesnode(this._res);
+class _CopyWithStubImplQueryMediaMediastaffpageInfo<TRes>
+    implements CopyWithQueryMediaMediastaffpageInfo<TRes> {
+  _CopyWithStubImplQueryMediaMediastaffpageInfo(this._res);
 
   TRes _res;
 
   call({
-    int? id,
+    int? currentPage,
+    bool? hasNextPage,
+    int? lastPage,
+    int? perPage,
+    int? total,
     String? $__typename,
   }) =>
       _res;

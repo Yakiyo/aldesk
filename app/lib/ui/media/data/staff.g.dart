@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'characters.dart';
+part of 'staff.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$mediaCharacterHash() => r'53e93e76721276a026d3b528fc2af7682b33bb22';
+String _$mediaStaffHash() => r'ce4f3fd67bf4190987653c24a977d8df56f4a615';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,37 +29,36 @@ class _SystemHash {
   }
 }
 
-abstract class _$MediaCharacter
-    extends BuildlessAutoDisposeAsyncNotifier<List<FragmentCharacterEdge>> {
+abstract class _$MediaStaff
+    extends BuildlessAutoDisposeAsyncNotifier<List<FragmentStaffEdge>> {
   late final int id;
 
-  FutureOr<List<FragmentCharacterEdge>> build(
+  FutureOr<List<FragmentStaffEdge>> build(
     int id,
   );
 }
 
-/// See also [MediaCharacter].
-@ProviderFor(MediaCharacter)
-const mediaCharacterProvider = MediaCharacterFamily();
+/// See also [MediaStaff].
+@ProviderFor(MediaStaff)
+const mediaStaffProvider = MediaStaffFamily();
 
-/// See also [MediaCharacter].
-class MediaCharacterFamily
-    extends Family<AsyncValue<List<FragmentCharacterEdge>>> {
-  /// See also [MediaCharacter].
-  const MediaCharacterFamily();
+/// See also [MediaStaff].
+class MediaStaffFamily extends Family<AsyncValue<List<FragmentStaffEdge>>> {
+  /// See also [MediaStaff].
+  const MediaStaffFamily();
 
-  /// See also [MediaCharacter].
-  MediaCharacterProvider call(
+  /// See also [MediaStaff].
+  MediaStaffProvider call(
     int id,
   ) {
-    return MediaCharacterProvider(
+    return MediaStaffProvider(
       id,
     );
   }
 
   @override
-  MediaCharacterProvider getProviderOverride(
-    covariant MediaCharacterProvider provider,
+  MediaStaffProvider getProviderOverride(
+    covariant MediaStaffProvider provider,
   ) {
     return call(
       provider.id,
@@ -78,30 +77,30 @@ class MediaCharacterFamily
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'mediaCharacterProvider';
+  String? get name => r'mediaStaffProvider';
 }
 
-/// See also [MediaCharacter].
-class MediaCharacterProvider extends AutoDisposeAsyncNotifierProviderImpl<
-    MediaCharacter, List<FragmentCharacterEdge>> {
-  /// See also [MediaCharacter].
-  MediaCharacterProvider(
+/// See also [MediaStaff].
+class MediaStaffProvider extends AutoDisposeAsyncNotifierProviderImpl<
+    MediaStaff, List<FragmentStaffEdge>> {
+  /// See also [MediaStaff].
+  MediaStaffProvider(
     int id,
   ) : this._internal(
-          () => MediaCharacter()..id = id,
-          from: mediaCharacterProvider,
-          name: r'mediaCharacterProvider',
+          () => MediaStaff()..id = id,
+          from: mediaStaffProvider,
+          name: r'mediaStaffProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$mediaCharacterHash,
-          dependencies: MediaCharacterFamily._dependencies,
+                  : _$mediaStaffHash,
+          dependencies: MediaStaffFamily._dependencies,
           allTransitiveDependencies:
-              MediaCharacterFamily._allTransitiveDependencies,
+              MediaStaffFamily._allTransitiveDependencies,
           id: id,
         );
 
-  MediaCharacterProvider._internal(
+  MediaStaffProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -114,8 +113,8 @@ class MediaCharacterProvider extends AutoDisposeAsyncNotifierProviderImpl<
   final int id;
 
   @override
-  FutureOr<List<FragmentCharacterEdge>> runNotifierBuild(
-    covariant MediaCharacter notifier,
+  FutureOr<List<FragmentStaffEdge>> runNotifierBuild(
+    covariant MediaStaff notifier,
   ) {
     return notifier.build(
       id,
@@ -123,10 +122,10 @@ class MediaCharacterProvider extends AutoDisposeAsyncNotifierProviderImpl<
   }
 
   @override
-  Override overrideWith(MediaCharacter Function() create) {
+  Override overrideWith(MediaStaff Function() create) {
     return ProviderOverride(
       origin: this,
-      override: MediaCharacterProvider._internal(
+      override: MediaStaffProvider._internal(
         () => create()..id = id,
         from: from,
         name: null,
@@ -139,14 +138,14 @@ class MediaCharacterProvider extends AutoDisposeAsyncNotifierProviderImpl<
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<MediaCharacter,
-      List<FragmentCharacterEdge>> createElement() {
-    return _MediaCharacterProviderElement(this);
+  AutoDisposeAsyncNotifierProviderElement<MediaStaff, List<FragmentStaffEdge>>
+      createElement() {
+    return _MediaStaffProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is MediaCharacterProvider && other.id == id;
+    return other is MediaStaffProvider && other.id == id;
   }
 
   @override
@@ -160,19 +159,19 @@ class MediaCharacterProvider extends AutoDisposeAsyncNotifierProviderImpl<
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin MediaCharacterRef
-    on AutoDisposeAsyncNotifierProviderRef<List<FragmentCharacterEdge>> {
+mixin MediaStaffRef
+    on AutoDisposeAsyncNotifierProviderRef<List<FragmentStaffEdge>> {
   /// The parameter `id` of this provider.
   int get id;
 }
 
-class _MediaCharacterProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<MediaCharacter,
-        List<FragmentCharacterEdge>> with MediaCharacterRef {
-  _MediaCharacterProviderElement(super.provider);
+class _MediaStaffProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<MediaStaff,
+        List<FragmentStaffEdge>> with MediaStaffRef {
+  _MediaStaffProviderElement(super.provider);
 
   @override
-  int get id => (origin as MediaCharacterProvider).id;
+  int get id => (origin as MediaStaffProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
