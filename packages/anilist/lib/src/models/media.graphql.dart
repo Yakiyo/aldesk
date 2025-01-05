@@ -1763,6 +1763,83 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
                         selectionSet: null,
                       ),
                       FieldNode(
+                        name: NameNode(value: 'title'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'userPreferred'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: '__typename'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'format'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'type'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'status'),
+                        alias: null,
+                        arguments: [
+                          ArgumentNode(
+                            name: NameNode(value: 'version'),
+                            value: IntValueNode(value: '2'),
+                          )
+                        ],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'bannerImage'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'coverImage'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'large'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: '__typename'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      ),
+                      FieldNode(
                         name: NameNode(value: '__typename'),
                         alias: null,
                         arguments: [],
@@ -7207,20 +7284,60 @@ class _CopyWithStubImplQueryMediaMediarelationsedges<TRes>
 class QueryMediaMediarelationsedgesnode {
   QueryMediaMediarelationsedgesnode({
     required this.id,
+    this.title,
+    this.format,
+    this.type,
+    this.status,
+    this.bannerImage,
+    this.coverImage,
     this.$__typename = 'Media',
   });
 
   factory QueryMediaMediarelationsedgesnode.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
+    final l$title = json['title'];
+    final l$format = json['format'];
+    final l$type = json['type'];
+    final l$status = json['status'];
+    final l$bannerImage = json['bannerImage'];
+    final l$coverImage = json['coverImage'];
     final l$$__typename = json['__typename'];
     return QueryMediaMediarelationsedgesnode(
       id: (l$id as int),
+      title: l$title == null
+          ? null
+          : QueryMediaMediarelationsedgesnodetitle.fromJson(
+              (l$title as Map<String, dynamic>)),
+      format: l$format == null
+          ? null
+          : fromJsonEnumMediaFormat((l$format as String)),
+      type: l$type == null ? null : fromJsonEnumMediaType((l$type as String)),
+      status: l$status == null
+          ? null
+          : fromJsonEnumMediaStatus((l$status as String)),
+      bannerImage: (l$bannerImage as String?),
+      coverImage: l$coverImage == null
+          ? null
+          : QueryMediaMediarelationsedgesnodecoverImage.fromJson(
+              (l$coverImage as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
   final int id;
+
+  final QueryMediaMediarelationsedgesnodetitle? title;
+
+  final EnumMediaFormat? format;
+
+  final EnumMediaType? type;
+
+  final EnumMediaStatus? status;
+
+  final String? bannerImage;
+
+  final QueryMediaMediarelationsedgesnodecoverImage? coverImage;
 
   final String $__typename;
 
@@ -7228,6 +7345,20 @@ class QueryMediaMediarelationsedgesnode {
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
+    final l$title = title;
+    _resultData['title'] = l$title?.toJson();
+    final l$format = format;
+    _resultData['format'] =
+        l$format == null ? null : toJsonEnumMediaFormat(l$format);
+    final l$type = type;
+    _resultData['type'] = l$type == null ? null : toJsonEnumMediaType(l$type);
+    final l$status = status;
+    _resultData['status'] =
+        l$status == null ? null : toJsonEnumMediaStatus(l$status);
+    final l$bannerImage = bannerImage;
+    _resultData['bannerImage'] = l$bannerImage;
+    final l$coverImage = coverImage;
+    _resultData['coverImage'] = l$coverImage?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -7236,9 +7367,21 @@ class QueryMediaMediarelationsedgesnode {
   @override
   int get hashCode {
     final l$id = id;
+    final l$title = title;
+    final l$format = format;
+    final l$type = type;
+    final l$status = status;
+    final l$bannerImage = bannerImage;
+    final l$coverImage = coverImage;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
+      l$title,
+      l$format,
+      l$type,
+      l$status,
+      l$bannerImage,
+      l$coverImage,
       l$$__typename,
     ]);
   }
@@ -7255,6 +7398,36 @@ class QueryMediaMediarelationsedgesnode {
     final l$id = id;
     final lOther$id = other.id;
     if (l$id != lOther$id) {
+      return false;
+    }
+    final l$title = title;
+    final lOther$title = other.title;
+    if (l$title != lOther$title) {
+      return false;
+    }
+    final l$format = format;
+    final lOther$format = other.format;
+    if (l$format != lOther$format) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$bannerImage = bannerImage;
+    final lOther$bannerImage = other.bannerImage;
+    if (l$bannerImage != lOther$bannerImage) {
+      return false;
+    }
+    final l$coverImage = coverImage;
+    final lOther$coverImage = other.coverImage;
+    if (l$coverImage != lOther$coverImage) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -7286,8 +7459,16 @@ abstract class CopyWithQueryMediaMediarelationsedgesnode<TRes> {
 
   TRes call({
     int? id,
+    QueryMediaMediarelationsedgesnodetitle? title,
+    EnumMediaFormat? format,
+    EnumMediaType? type,
+    EnumMediaStatus? status,
+    String? bannerImage,
+    QueryMediaMediarelationsedgesnodecoverImage? coverImage,
     String? $__typename,
   });
+  CopyWithQueryMediaMediarelationsedgesnodetitle<TRes> get title;
+  CopyWithQueryMediaMediarelationsedgesnodecoverImage<TRes> get coverImage;
 }
 
 class _CopyWithImplQueryMediaMediarelationsedgesnode<TRes>
@@ -7305,14 +7486,53 @@ class _CopyWithImplQueryMediaMediarelationsedgesnode<TRes>
 
   TRes call({
     Object? id = _undefined,
+    Object? title = _undefined,
+    Object? format = _undefined,
+    Object? type = _undefined,
+    Object? status = _undefined,
+    Object? bannerImage = _undefined,
+    Object? coverImage = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(QueryMediaMediarelationsedgesnode(
         id: id == _undefined || id == null ? _instance.id : (id as int),
+        title: title == _undefined
+            ? _instance.title
+            : (title as QueryMediaMediarelationsedgesnodetitle?),
+        format: format == _undefined
+            ? _instance.format
+            : (format as EnumMediaFormat?),
+        type: type == _undefined ? _instance.type : (type as EnumMediaType?),
+        status: status == _undefined
+            ? _instance.status
+            : (status as EnumMediaStatus?),
+        bannerImage: bannerImage == _undefined
+            ? _instance.bannerImage
+            : (bannerImage as String?),
+        coverImage: coverImage == _undefined
+            ? _instance.coverImage
+            : (coverImage as QueryMediaMediarelationsedgesnodecoverImage?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
+
+  CopyWithQueryMediaMediarelationsedgesnodetitle<TRes> get title {
+    final local$title = _instance.title;
+    return local$title == null
+        ? CopyWithQueryMediaMediarelationsedgesnodetitle.stub(_then(_instance))
+        : CopyWithQueryMediaMediarelationsedgesnodetitle(
+            local$title, (e) => call(title: e));
+  }
+
+  CopyWithQueryMediaMediarelationsedgesnodecoverImage<TRes> get coverImage {
+    final local$coverImage = _instance.coverImage;
+    return local$coverImage == null
+        ? CopyWithQueryMediaMediarelationsedgesnodecoverImage.stub(
+            _then(_instance))
+        : CopyWithQueryMediaMediarelationsedgesnodecoverImage(
+            local$coverImage, (e) => call(coverImage: e));
+  }
 }
 
 class _CopyWithStubImplQueryMediaMediarelationsedgesnode<TRes>
@@ -7323,6 +7543,270 @@ class _CopyWithStubImplQueryMediaMediarelationsedgesnode<TRes>
 
   call({
     int? id,
+    QueryMediaMediarelationsedgesnodetitle? title,
+    EnumMediaFormat? format,
+    EnumMediaType? type,
+    EnumMediaStatus? status,
+    String? bannerImage,
+    QueryMediaMediarelationsedgesnodecoverImage? coverImage,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryMediaMediarelationsedgesnodetitle<TRes> get title =>
+      CopyWithQueryMediaMediarelationsedgesnodetitle.stub(_res);
+
+  CopyWithQueryMediaMediarelationsedgesnodecoverImage<TRes> get coverImage =>
+      CopyWithQueryMediaMediarelationsedgesnodecoverImage.stub(_res);
+}
+
+class QueryMediaMediarelationsedgesnodetitle {
+  QueryMediaMediarelationsedgesnodetitle({
+    this.userPreferred,
+    this.$__typename = 'MediaTitle',
+  });
+
+  factory QueryMediaMediarelationsedgesnodetitle.fromJson(
+      Map<String, dynamic> json) {
+    final l$userPreferred = json['userPreferred'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaMediarelationsedgesnodetitle(
+      userPreferred: (l$userPreferred as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? userPreferred;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$userPreferred = userPreferred;
+    _resultData['userPreferred'] = l$userPreferred;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$userPreferred = userPreferred;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$userPreferred,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaMediarelationsedgesnodetitle ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$userPreferred = userPreferred;
+    final lOther$userPreferred = other.userPreferred;
+    if (l$userPreferred != lOther$userPreferred) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaMediarelationsedgesnodetitle
+    on QueryMediaMediarelationsedgesnodetitle {
+  CopyWithQueryMediaMediarelationsedgesnodetitle<
+          QueryMediaMediarelationsedgesnodetitle>
+      get copyWith => CopyWithQueryMediaMediarelationsedgesnodetitle(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaMediarelationsedgesnodetitle<TRes> {
+  factory CopyWithQueryMediaMediarelationsedgesnodetitle(
+    QueryMediaMediarelationsedgesnodetitle instance,
+    TRes Function(QueryMediaMediarelationsedgesnodetitle) then,
+  ) = _CopyWithImplQueryMediaMediarelationsedgesnodetitle;
+
+  factory CopyWithQueryMediaMediarelationsedgesnodetitle.stub(TRes res) =
+      _CopyWithStubImplQueryMediaMediarelationsedgesnodetitle;
+
+  TRes call({
+    String? userPreferred,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryMediaMediarelationsedgesnodetitle<TRes>
+    implements CopyWithQueryMediaMediarelationsedgesnodetitle<TRes> {
+  _CopyWithImplQueryMediaMediarelationsedgesnodetitle(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaMediarelationsedgesnodetitle _instance;
+
+  final TRes Function(QueryMediaMediarelationsedgesnodetitle) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? userPreferred = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaMediarelationsedgesnodetitle(
+        userPreferred: userPreferred == _undefined
+            ? _instance.userPreferred
+            : (userPreferred as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryMediaMediarelationsedgesnodetitle<TRes>
+    implements CopyWithQueryMediaMediarelationsedgesnodetitle<TRes> {
+  _CopyWithStubImplQueryMediaMediarelationsedgesnodetitle(this._res);
+
+  TRes _res;
+
+  call({
+    String? userPreferred,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class QueryMediaMediarelationsedgesnodecoverImage {
+  QueryMediaMediarelationsedgesnodecoverImage({
+    this.large,
+    this.$__typename = 'MediaCoverImage',
+  });
+
+  factory QueryMediaMediarelationsedgesnodecoverImage.fromJson(
+      Map<String, dynamic> json) {
+    final l$large = json['large'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaMediarelationsedgesnodecoverImage(
+      large: (l$large as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? large;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$large = large;
+    _resultData['large'] = l$large;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$large = large;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$large,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaMediarelationsedgesnodecoverImage ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$large = large;
+    final lOther$large = other.large;
+    if (l$large != lOther$large) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaMediarelationsedgesnodecoverImage
+    on QueryMediaMediarelationsedgesnodecoverImage {
+  CopyWithQueryMediaMediarelationsedgesnodecoverImage<
+          QueryMediaMediarelationsedgesnodecoverImage>
+      get copyWith => CopyWithQueryMediaMediarelationsedgesnodecoverImage(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaMediarelationsedgesnodecoverImage<TRes> {
+  factory CopyWithQueryMediaMediarelationsedgesnodecoverImage(
+    QueryMediaMediarelationsedgesnodecoverImage instance,
+    TRes Function(QueryMediaMediarelationsedgesnodecoverImage) then,
+  ) = _CopyWithImplQueryMediaMediarelationsedgesnodecoverImage;
+
+  factory CopyWithQueryMediaMediarelationsedgesnodecoverImage.stub(TRes res) =
+      _CopyWithStubImplQueryMediaMediarelationsedgesnodecoverImage;
+
+  TRes call({
+    String? large,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryMediaMediarelationsedgesnodecoverImage<TRes>
+    implements CopyWithQueryMediaMediarelationsedgesnodecoverImage<TRes> {
+  _CopyWithImplQueryMediaMediarelationsedgesnodecoverImage(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaMediarelationsedgesnodecoverImage _instance;
+
+  final TRes Function(QueryMediaMediarelationsedgesnodecoverImage) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? large = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaMediarelationsedgesnodecoverImage(
+        large: large == _undefined ? _instance.large : (large as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryMediaMediarelationsedgesnodecoverImage<TRes>
+    implements CopyWithQueryMediaMediarelationsedgesnodecoverImage<TRes> {
+  _CopyWithStubImplQueryMediaMediarelationsedgesnodecoverImage(this._res);
+
+  TRes _res;
+
+  call({
+    String? large,
     String? $__typename,
   }) =>
       _res;

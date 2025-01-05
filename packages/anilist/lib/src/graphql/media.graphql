@@ -147,14 +147,22 @@ query Media(
         }
       }
     }
-    # only get the id of the related media, can just fetch
-    # the data of the media if needed
     relations {
       edges {
         id
         relationType(version: 2)
         node {
           id
+          title {
+            userPreferred
+          }
+          format
+          type
+          status(version: 2)
+          bannerImage
+          coverImage {
+            large
+          }
         }
       }
     }
