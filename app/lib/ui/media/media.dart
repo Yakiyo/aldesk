@@ -18,6 +18,7 @@ import 'data/utils.dart';
 import 'widgets/categories.dart';
 import 'widgets/hero_section.dart';
 import 'widgets/info_list.dart';
+import 'widgets/relations.dart';
 
 class MediaPage extends ConsumerWidget {
   final int id;
@@ -44,6 +45,9 @@ class MediaPageBody extends StatelessWidget {
 
   List<String> get genres => media.genres?.filterNull() ?? [];
   List<QueryMediaMediatags> get tags => media.tags?.filterNull() ?? [];
+  List<QueryMediaMediarelationsedges> get relations =>
+      media.relations?.edges?.filterNull() ?? [];
+
   @override
   Widget build(BuildContext context) {
     final items = [
@@ -53,13 +57,7 @@ class MediaPageBody extends StatelessWidget {
           coverImage: media.coverImage?.large,
           title: media.title?.romaji,
           description: media.description),
-      Padding(
-          padding: const EdgeInsets.only(left: 25, top: 10),
-          child: Text(
-            "Details",
-            style:
-                Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 25),
-          )),
+      _headerText("Details"),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Container(
@@ -72,34 +70,35 @@ class MediaPageBody extends StatelessWidget {
         ),
       ),
       if (genres.isNotEmpty)
-        Padding(
-            padding: const EdgeInsets.only(left: 25, top: 10),
-            child: Text(
-              "Genres",
-              style:
-                  Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 25),
-            )),
+        _headerText("Genres"),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: MediaGenres(genres: genres),
       ),
-      if (tags.isNotEmpty)
-        Padding(
-            padding: const EdgeInsets.only(left: 25, top: 10),
-            child: Text(
-              "Tags",
-              style:
-                  Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 25),
-            )),
+      if (tags.isNotEmpty) _headerText("Tags"),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: MediaTags(tags: tags.sortTags()),
       ),
+      if (relations.isNotEmpty) _headerText("Relations"),
+      Relations(relations: relations),
       const SizedBox(height: 50)
     ];
     return ListView.builder(
       itemCount: items.length,
       itemBuilder: (context, index) => items[index],
     );
+  }
+
+  Widget _headerText(String text) {
+    return Builder(builder: (context) {
+      return Padding(
+          padding: const EdgeInsets.only(left: 25, top: 10),
+          child: Text(
+            text,
+            style:
+                Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 25),
+          ));
+    });
   }
 }
