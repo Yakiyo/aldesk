@@ -12,6 +12,9 @@ class InfoList extends StatelessWidget {
 
   bool get isAnime => media.type == EnumMediaType.ANIME;
 
+  String? get _season => media.season?.name.toLowerCase().capitalize();
+  int? get _seasonYear => media.seasonYear;
+
   @override
   Widget build(BuildContext context) {
     return Wrap(
@@ -36,8 +39,9 @@ class InfoList extends StatelessWidget {
             "End Date",
             _dateStr(
                 media.endDate?.day, media.endDate?.month, media.endDate?.year)),
-        _tile("Season",
-            "${media.season?.name.toLowerCase().capitalize()} ${media.seasonYear}"),
+        if (_season != null && _seasonYear != null)
+          _tile("Season",
+              "${media.season?.name.toLowerCase().capitalize()} ${media.seasonYear}"),
         _tile("Average Score", _score(media.averageScore)),
         _tile("Mean Score", _score(media.meanScore)),
         _tile("Popularity", media.popularity?.toString() ?? "N/A"),

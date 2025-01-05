@@ -95,14 +95,13 @@ class MediaPageBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             _headerText("Characters"),
-            TextButton(
-              onPressed: notifier.hasNext()
-                  ? () {
-                      notifier.loadMore();
-                    }
-                  : null,
-              child: const Text("Load More"),
-            )
+            if (notifier.hasNext())
+              TextButton(
+                onPressed: () {
+                  notifier.loadMore();
+                },
+                child: const Text("Load More"),
+              )
           ],
         );
       }),
