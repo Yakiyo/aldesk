@@ -13,7 +13,7 @@ class SideNavBar extends StatelessWidget {
   const SideNavBar({super.key});
 
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
       child: Column(
@@ -25,21 +25,21 @@ class SideNavBar extends StatelessWidget {
             title: const Text('Home'),
             leading: const Icon(Icons.home_sharp),
             onTap: () {
-              context.go(Routes.home);
+              context.push(Routes.home);
             },
           ),
           ListTile(
             title: const Text('Browse'),
             leading: const Icon(Icons.search_outlined),
             onTap: () {
-              context.go(Routes.search);
+              context.push(Routes.search);
             },
           ),
           ListTile(
             title: const Text('Profile'),
             leading: const Icon(Icons.person),
             onTap: () {
-              context.go(Routes.profile);
+              context.push(Routes.profile);
             },
           ),
           ExpansionTile(
@@ -53,7 +53,7 @@ class SideNavBar extends StatelessWidget {
                 leading: const Icon(Icons.video_collection_outlined),
                 dense: true,
                 onTap: () {
-                  context.go(Routes.libraryAnime);
+                  context.push(Routes.libraryAnime);
                 },
               ),
               ListTile(
@@ -71,7 +71,7 @@ class SideNavBar extends StatelessWidget {
             title: const Text('Settings'),
             leading: const Icon(Icons.settings_outlined),
             onTap: () {
-              context.go(Routes.settings);
+              context.push(Routes.settings);
             },
           ),
           if (context.canPop())
@@ -116,7 +116,7 @@ class _NotificationTile extends ConsumerWidget {
         child: const Icon(Icons.notifications_outlined),
       ),
       onTap: () {
-        context.go(Routes.notifications);
+        context.push(Routes.notifications);
       },
     );
   }

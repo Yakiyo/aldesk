@@ -33,7 +33,7 @@ class ThreadTile extends StatelessWidget {
     return InkWell(
       hoverColor: Colors.transparent,
       onTap: () {
-        context.go(Routes.threadWithId(thread.id));
+        context.push(Routes.threadWithId(thread.id));
       },
       child: Card(
         color: Theme.of(context).colorScheme.secondary,

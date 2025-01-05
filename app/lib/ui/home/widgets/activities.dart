@@ -74,7 +74,7 @@ class ListActivityTile extends ConsumerWidget {
             if (_cover != null)
               InkWell(
                 onTap: () {
-                  context.go(Routes.mediaWithId(activity.media!.id));
+                  context.push(Routes.mediaWithId(activity.media!.id));
                 },
                 child: Image.network(
                   _cover!,
@@ -158,7 +158,7 @@ class ListActivityTile extends ConsumerWidget {
         IconButton(
             icon: const FaIcon(FontAwesomeIcons.solidComments, size: 14),
             onPressed: () {
-              context.go(Routes.activityWithId(activity.id));
+              context.push(Routes.activityWithId(activity.id));
             }),
         if (activity.likeCount > 0) Text("${activity.likeCount}"),
         IconButton(

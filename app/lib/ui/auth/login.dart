@@ -179,7 +179,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
         Future.delayed(const Duration(seconds: 2), () {
           if (!mounted) return;
           // ignore: use_build_context_synchronously
-          context.go(Routes.home);
+          context.push(Routes.home);
           return null;
         });
       },

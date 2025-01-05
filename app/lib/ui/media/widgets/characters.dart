@@ -95,7 +95,7 @@ class CharacterTile extends StatelessWidget {
             onTap: () {
               final id = character.node?.id;
               assert(id != null);
-              context.go(Routes.characterWithId(id!));
+              context.push(Routes.characterWithId(id!));
             },
             child: Row(
               spacing: 5,
@@ -122,7 +122,7 @@ class CharacterTile extends StatelessWidget {
               onTap: () {
                 final id = _va?.id;
                 assert(id != null);
-                context.go(Routes.staffWithId(id!));
+                context.push(Routes.staffWithId(id!));
               },
               child: Row(
                 spacing: 5,

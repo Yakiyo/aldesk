@@ -5,8 +5,7 @@ import 'package:go_router/go_router.dart';
 
 class MediaListView extends StatelessWidget {
   final List<FragmentMediaMin> medias;
-  const MediaListView(
-      {super.key, required this.medias});
+  const MediaListView({super.key, required this.medias});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +42,7 @@ class _MediaEntryState extends State<_MediaEntry> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.go(Routes.mediaWithId(widget.media.id));
+        context.push(Routes.mediaWithId(widget.media.id));
       },
       onHover: (value) => setState(() => _scaleEnd = value ? 1.1 : 1.0),
       child: TweenAnimationBuilder(

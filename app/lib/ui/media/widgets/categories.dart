@@ -27,7 +27,7 @@ class MediaGenres extends StatelessWidget {
                   Theme.of(context).colorScheme.secondary),
               label: Text(genre),
               onPressed: () {
-                context.go(Routes.search, extra: {"genre": genre});
+                context.push(Routes.search, extra: {"genre": genre});
               },
             ),
           )
@@ -78,13 +78,14 @@ class _MediaTagsState extends State<MediaTags> {
             Padding(
               padding: const EdgeInsets.all(5),
               child: ActionChip(
-                side: tag.isRegular ? null : const BorderSide(color: Colors.red),
+                side:
+                    tag.isRegular ? null : const BorderSide(color: Colors.red),
                 tooltip: tag.description,
                 color: WidgetStatePropertyAll(
                     Theme.of(context).colorScheme.secondary),
                 label: Text(tag.name),
                 onPressed: () {
-                  context.go(Routes.search, extra: {"tag": tag.name});
+                  context.push(Routes.search, extra: {"tag": tag.name});
                 },
               ),
             ),

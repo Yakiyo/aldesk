@@ -115,7 +115,7 @@ class _NotificationPageBodyState extends State<_NotificationPageBody> {
                 if (item.route.startsWith("http")) {
                   launchUrl(Uri.parse(item.route));
                 } else {
-                  context.go(item.route);
+                  context.push(item.route);
                 }
               },
               child: Container(

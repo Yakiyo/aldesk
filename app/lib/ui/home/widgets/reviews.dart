@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../../config/routing/routes.dart';
 
-
 class ReviewListView extends StatelessWidget {
   final List<FragmentReview> reviews;
   const ReviewListView({super.key, required this.reviews});
@@ -35,7 +34,7 @@ class ReviewEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.go(Routes.reviewsWithId(review.id));
+        context.push(Routes.reviewsWithId(review.id));
       },
       child: Card(
         clipBehavior: Clip.hardEdge,

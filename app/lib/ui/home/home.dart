@@ -34,7 +34,8 @@ class HomePage extends StatelessWidget {
                 IconButton(
                   onPressed: () {
                     // TODO: consider using enum for sort here
-                    context.go(Routes.search, extra: {"sort": "TRENDING_DESC"});
+                    context
+                        .push(Routes.search, extra: {"sort": "TRENDING_DESC"});
                   },
                   icon: const Icon(Icons.open_in_new),
                 )
@@ -55,7 +56,8 @@ class HomePage extends StatelessWidget {
                     style: Theme.of(context).textTheme.displaySmall),
                 IconButton(
                   onPressed: () {
-                    context.go(Routes.search, extra: {"sort": "POPULAR_DESC"});
+                    context
+                        .push(Routes.search, extra: {"sort": "POPULAR_DESC"});
                   },
                   icon: const Icon(Icons.open_in_new),
                 )
@@ -89,7 +91,7 @@ class HomePage extends StatelessWidget {
                     ),
                     IconButton(
                       onPressed: () {
-                        context.go(Routes.forum);
+                        context.push(Routes.forum);
                       },
                       icon: const Icon(Icons.open_in_new),
                     ),
@@ -125,7 +127,7 @@ class HomePage extends StatelessWidget {
                     ),
                     IconButton(
                       onPressed: () {
-                        context.go(Routes.reviews);
+                        context.push(Routes.reviews);
                       },
                       icon: const Icon(Icons.open_in_new),
                     ),
