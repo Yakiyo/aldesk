@@ -1,3 +1,5 @@
+import 'package:anilist/models.dart';
+
 /// Sanitizes markdown text returned from Anilist, replacing html tags with
 /// markdown syntax. (as much as possible)
 String sanitizeMd(String? md, [bool allowSpoiler = false]) {
@@ -46,4 +48,35 @@ String monthFromInt(int num) {
   }
   // for march to july
   return str;
+}
+
+extension TagType on QueryMediaMediatags {
+  bool get isSpoiler => (isGeneralSpoiler ?? false) || (isMediaSpoiler ?? false);
+  bool get adult => (isAdult ?? false);
+  bool get isRegular => !isSpoiler && !adult;
+}
+
+// sort a list of tags,
+// regular tags come first, then comes adult tags, then comes spoiler tags
+extension SortTags on List<QueryMediaMediatags> {
+  List<QueryMediaMediatags> sortTags() {
+    // make a copy of the list
+    final list = toList();
+    list.sort((a, b) {
+      if (a.adult && !b.adult) {
+        return 1;
+      }
+      if (!a.adult && b.adult) {
+        return -1;
+      }
+      if (a.isSpoiler && !b.isSpoiler) {
+        return 1;
+      }
+      if (!a.isSpoiler && b.isSpoiler) {
+        return -1;
+      }
+      return 0;
+    });
+    return list;
+  }
 }

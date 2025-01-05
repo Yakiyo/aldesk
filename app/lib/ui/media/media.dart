@@ -6,6 +6,7 @@
 // different tabs. The tabs are themselves contained in individual files
 // [./widgets] directory for better organization.
 
+import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,6 +14,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../core/widgets/async_widget.dart';
 import '../core/widgets/my_scaffold.dart';
 import 'data/provider.dart';
+import 'data/utils.dart';
+import 'widgets/categories.dart';
 import 'widgets/hero_section.dart';
 import 'widgets/info_list.dart';
 
@@ -39,35 +42,64 @@ class MediaPageBody extends StatelessWidget {
   final QueryMediaMedia media;
   const MediaPageBody({super.key, required this.media});
 
+  List<String> get genres => media.genres?.filterNull() ?? [];
+  List<QueryMediaMediatags> get tags => media.tags?.filterNull() ?? [];
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        HeroSection(
-            banner: media.bannerImage,
-            coverImage: media.coverImage?.large,
-            title: media.title?.romaji,
-            description: media.description),
+    final items = [
+      HeroSection(
+          siteUrl: media.siteUrl,
+          banner: media.bannerImage,
+          coverImage: media.coverImage?.large,
+          title: media.title?.romaji,
+          description: media.description),
+      Padding(
+          padding: const EdgeInsets.only(left: 25, top: 10),
+          child: Text(
+            "Details",
+            style:
+                Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 25),
+          )),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.secondary,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          // height: 80,
+          child: InfoList(media: media),
+        ),
+      ),
+      if (genres.isNotEmpty)
         Padding(
             padding: const EdgeInsets.only(left: 25, top: 10),
             child: Text(
-              "Details",
+              "Genres",
               style:
                   Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 25),
             )),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: MediaGenres(genres: genres),
+      ),
+      if (tags.isNotEmpty)
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            // height: 80,
-            child: InfoList(media: media),
-          ),
-        ),
-        const SizedBox(height: 50)
-      ],
+            padding: const EdgeInsets.only(left: 25, top: 10),
+            child: Text(
+              "Tags",
+              style:
+                  Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 25),
+            )),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: MediaTags(tags: tags.sortTags()),
+      ),
+      const SizedBox(height: 50)
+    ];
+    return ListView.builder(
+      itemCount: items.length,
+      itemBuilder: (context, index) => items[index],
     );
   }
 }
