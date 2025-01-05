@@ -87,6 +87,9 @@ query Media(
       id
       name
       description
+      isGeneralSpoiler
+      isMediaSpoiler
+      isAdult
     }
     nextAiringEpisode {
       id

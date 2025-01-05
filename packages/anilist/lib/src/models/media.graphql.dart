@@ -1333,6 +1333,27 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
+                name: NameNode(value: 'isGeneralSpoiler'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isMediaSpoiler'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isAdult'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
                 name: NameNode(value: '__typename'),
                 alias: null,
                 arguments: [],
@@ -4457,6 +4478,9 @@ class QueryMediaMediatags {
     required this.id,
     required this.name,
     this.description,
+    this.isGeneralSpoiler,
+    this.isMediaSpoiler,
+    this.isAdult,
     this.$__typename = 'MediaTag',
   });
 
@@ -4464,11 +4488,17 @@ class QueryMediaMediatags {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$description = json['description'];
+    final l$isGeneralSpoiler = json['isGeneralSpoiler'];
+    final l$isMediaSpoiler = json['isMediaSpoiler'];
+    final l$isAdult = json['isAdult'];
     final l$$__typename = json['__typename'];
     return QueryMediaMediatags(
       id: (l$id as int),
       name: (l$name as String),
       description: (l$description as String?),
+      isGeneralSpoiler: (l$isGeneralSpoiler as bool?),
+      isMediaSpoiler: (l$isMediaSpoiler as bool?),
+      isAdult: (l$isAdult as bool?),
       $__typename: (l$$__typename as String),
     );
   }
@@ -4478,6 +4508,12 @@ class QueryMediaMediatags {
   final String name;
 
   final String? description;
+
+  final bool? isGeneralSpoiler;
+
+  final bool? isMediaSpoiler;
+
+  final bool? isAdult;
 
   final String $__typename;
 
@@ -4489,6 +4525,12 @@ class QueryMediaMediatags {
     _resultData['name'] = l$name;
     final l$description = description;
     _resultData['description'] = l$description;
+    final l$isGeneralSpoiler = isGeneralSpoiler;
+    _resultData['isGeneralSpoiler'] = l$isGeneralSpoiler;
+    final l$isMediaSpoiler = isMediaSpoiler;
+    _resultData['isMediaSpoiler'] = l$isMediaSpoiler;
+    final l$isAdult = isAdult;
+    _resultData['isAdult'] = l$isAdult;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -4499,11 +4541,17 @@ class QueryMediaMediatags {
     final l$id = id;
     final l$name = name;
     final l$description = description;
+    final l$isGeneralSpoiler = isGeneralSpoiler;
+    final l$isMediaSpoiler = isMediaSpoiler;
+    final l$isAdult = isAdult;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$name,
       l$description,
+      l$isGeneralSpoiler,
+      l$isMediaSpoiler,
+      l$isAdult,
       l$$__typename,
     ]);
   }
@@ -4529,6 +4577,21 @@ class QueryMediaMediatags {
     final l$description = description;
     final lOther$description = other.description;
     if (l$description != lOther$description) {
+      return false;
+    }
+    final l$isGeneralSpoiler = isGeneralSpoiler;
+    final lOther$isGeneralSpoiler = other.isGeneralSpoiler;
+    if (l$isGeneralSpoiler != lOther$isGeneralSpoiler) {
+      return false;
+    }
+    final l$isMediaSpoiler = isMediaSpoiler;
+    final lOther$isMediaSpoiler = other.isMediaSpoiler;
+    if (l$isMediaSpoiler != lOther$isMediaSpoiler) {
+      return false;
+    }
+    final l$isAdult = isAdult;
+    final lOther$isAdult = other.isAdult;
+    if (l$isAdult != lOther$isAdult) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -4561,6 +4624,9 @@ abstract class CopyWithQueryMediaMediatags<TRes> {
     int? id,
     String? name,
     String? description,
+    bool? isGeneralSpoiler,
+    bool? isMediaSpoiler,
+    bool? isAdult,
     String? $__typename,
   });
 }
@@ -4582,6 +4648,9 @@ class _CopyWithImplQueryMediaMediatags<TRes>
     Object? id = _undefined,
     Object? name = _undefined,
     Object? description = _undefined,
+    Object? isGeneralSpoiler = _undefined,
+    Object? isMediaSpoiler = _undefined,
+    Object? isAdult = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(QueryMediaMediatags(
@@ -4592,6 +4661,13 @@ class _CopyWithImplQueryMediaMediatags<TRes>
         description: description == _undefined
             ? _instance.description
             : (description as String?),
+        isGeneralSpoiler: isGeneralSpoiler == _undefined
+            ? _instance.isGeneralSpoiler
+            : (isGeneralSpoiler as bool?),
+        isMediaSpoiler: isMediaSpoiler == _undefined
+            ? _instance.isMediaSpoiler
+            : (isMediaSpoiler as bool?),
+        isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -4608,6 +4684,9 @@ class _CopyWithStubImplQueryMediaMediatags<TRes>
     int? id,
     String? name,
     String? description,
+    bool? isGeneralSpoiler,
+    bool? isMediaSpoiler,
+    bool? isAdult,
     String? $__typename,
   }) =>
       _res;
