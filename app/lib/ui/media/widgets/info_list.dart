@@ -21,6 +21,7 @@ class InfoList extends StatelessWidget {
       // maxCrossAxisExtent: 250,
       // scrollDirection: Axis.horizontal,
       children: [
+        if (media.nextAiringEpisode != null) _nextEpisodeTile(),
         _tile("Type", media.type?.name.toLowerCase().capitalize()),
         _tile("Format", media.format?.name),
         _tile("Status", media.status?.name),
@@ -125,6 +126,32 @@ class InfoList extends StatelessWidget {
                   ))),
       ],
     );
+  }
+
+  Widget _nextEpisodeTile() {
+    return SizedBox(
+      width: 180,
+      child: ListTile(
+        isThreeLine: true,
+        title: const Text(
+          "Airing",
+          style: TextStyle(fontSize: 18, color: Colors.lightBlue),
+        ),
+        subtitle: Text(
+          "Ep ${media.nextAiringEpisode?.episode ?? 0}: ${_airingIn()}",
+          style: const TextStyle(fontSize: 15, color: Colors.lightBlue),
+        ),
+      ),
+    );
+  }
+
+  String _airingIn() {
+    final n = media.nextAiringEpisode?.timeUntilAiring ?? 0;
+    final duration = Duration(seconds: n);
+    final days = duration.inDays;
+    final hours = duration.inHours % 24;
+    final minutes = duration.inMinutes % 60;
+    return "${days}d ${hours}h ${minutes}m";
   }
 
   Widget _tile(String? title, String? subtitle,
