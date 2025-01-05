@@ -21,3 +21,29 @@ String sanitizeMd(String? md, [bool allowSpoiler = false]) {
 
   return sanitized;
 }
+
+String monthFromInt(int num) {
+  if (num < 1 || num > 12) {
+    return "N/A";
+  }
+  final str = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ][num - 1];
+  if (str.length > 5) {
+    // shortens the longer names
+    return str.substring(0, 3);
+  }
+  // for march to july
+  return str;
+}

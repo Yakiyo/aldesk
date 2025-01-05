@@ -14,7 +14,7 @@ import '../core/widgets/async_widget.dart';
 import '../core/widgets/my_scaffold.dart';
 import 'data/provider.dart';
 import 'widgets/hero_section.dart';
-import 'widgets/overview.dart';
+import 'widgets/info_list.dart';
 
 class MediaPage extends ConsumerWidget {
   final int id;
@@ -35,65 +35,38 @@ class MediaPage extends ConsumerWidget {
   }
 }
 
-const _tabs = ["Overview", "Relations", "Staff"];
-
-class MediaPageBody extends StatefulWidget {
+class MediaPageBody extends StatelessWidget {
   final QueryMediaMedia media;
   const MediaPageBody({super.key, required this.media});
-
-  @override
-  State<MediaPageBody> createState() => _MediaPageBodyState();
-}
-
-class _MediaPageBodyState extends State<MediaPageBody>
-    with SingleTickerProviderStateMixin {
-  late final TabController _controller;
-  int _index = 0;
-
-  @override
-  void initState() {
-    _controller = TabController(length: _tabs.length, vsync: this);
-    _controller.addListener(_onTabChange);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.removeListener(_onTabChange);
-    super.dispose();
-  }
-
-  void _onTabChange() {
-    setState(() {
-      _index = _controller.index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
         HeroSection(
-            banner: widget.media.bannerImage,
-            coverImage: widget.media.coverImage?.large,
-            title: widget.media.title?.romaji,
-            description: widget.media.description),
-        TabBar(
-          tabs: _tabs.map((e) => Tab(text: e)).toList(),
-          controller: _controller,
-        ),
-        AnimatedSwitcher(
-          duration: const Duration(milliseconds: 300),
-          child: IndexedStack(
-            index: _index,
-            key: ValueKey(_index),
-            children: [
-              Overview(media: widget.media),
-              const Text("Relations"),
-              const Text("Staff")
-            ],
+            banner: media.bannerImage,
+            coverImage: media.coverImage?.large,
+            title: media.title?.romaji,
+            description: media.description),
+        Padding(
+            padding: const EdgeInsets.only(left: 25, top: 10),
+            child: Text(
+              "Details",
+              style:
+                  Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 25),
+            )),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondary,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            // height: 80,
+            child: InfoList(media: media),
           ),
-        )
+        ),
+        const SizedBox(height: 50)
       ],
     );
   }

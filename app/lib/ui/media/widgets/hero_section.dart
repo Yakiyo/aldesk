@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-import '../data/markdown.dart';
+import '../data/utils.dart';
 
 const _coverImageWidth = 215.0;
 
