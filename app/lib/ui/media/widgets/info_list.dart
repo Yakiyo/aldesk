@@ -70,9 +70,45 @@ class InfoList extends StatelessWidget {
               ),
             ),
           ),
-        _tile("Native", media.title?.native ?? "N/A"),
-        _tile("Romaji", media.title?.romaji ?? "N/A"),
-        _tile("English", media.title?.english ?? "N/A"),
+        // _tile("Native", media.title?.native ?? "N/A"),
+        // _tile("Romaji", media.title?.romaji ?? "N/A"),
+        // _tile("English", media.title?.english ?? "N/A"),
+        if (media.title?.native != null)
+          SizedBox(
+            width: 180,
+            child: ListTile(
+              title: const Text(
+                "Native",
+                style: TextStyle(fontSize: 18),
+              ),
+              subtitle: SelectableText(media.title!.native!,
+                  style: const TextStyle(fontSize: 15)),
+            ),
+          ),
+        if (media.title?.romaji != null)
+          SizedBox(
+            width: 180,
+            child: ListTile(
+              title: const Text(
+                "Romaji",
+                style: TextStyle(fontSize: 18),
+              ),
+              subtitle: SelectableText(media.title!.romaji!,
+                  style: const TextStyle(fontSize: 15)),
+            ),
+          ),
+        if (media.title?.english != null)
+          SizedBox(
+            width: 180,
+            child: ListTile(
+              title: const Text(
+                "English",
+                style: TextStyle(fontSize: 18),
+              ),
+              subtitle: SelectableText(media.title!.english!,
+                  style: const TextStyle(fontSize: 15)),
+            ),
+          ),
         if (media.synonyms != null && media.synonyms!.isNotEmpty)
           SizedBox(
               width: 180,
@@ -84,7 +120,7 @@ class InfoList extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: media.synonyms!
                         .filterNull()
-                        .map((e) => Text(e))
+                        .map((e) => SelectableText(e))
                         .toList(),
                   ))),
       ],
