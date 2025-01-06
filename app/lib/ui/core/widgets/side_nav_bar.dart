@@ -79,7 +79,8 @@ class SideNavBar extends StatelessWidget {
               title: const Text('Back'),
               leading: const Icon(Icons.arrow_back),
               onTap: () {
-                context.pop();
+                // safety net
+                if (context.canPop()) context.pop();
               },
             ),
           const Expanded(
