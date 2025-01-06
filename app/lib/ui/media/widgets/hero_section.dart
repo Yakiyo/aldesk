@@ -44,7 +44,9 @@ class HeroSection extends StatelessWidget {
                 )
               else
                 const SizedBox(height: 300),
-              Padding(
+              Container(
+                constraints: const BoxConstraints(
+                    minHeight: 200, maxHeight: double.infinity),
                 padding: const EdgeInsets.only(
                     left: _coverImageWidth + 20 * 2,
                     right: 20,
