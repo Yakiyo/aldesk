@@ -113,6 +113,9 @@ query Media(
       site
       url
       icon
+      color
+      language
+      type
     }
     # only take minimal info about reviews, if needed, it can be
     # fetched using the id for full info

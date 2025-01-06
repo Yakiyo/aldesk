@@ -20,6 +20,7 @@ import 'data/staff.dart';
 import 'data/utils.dart';
 import 'widgets/categories.dart';
 import 'widgets/characters.dart';
+import 'widgets/external_sites.dart';
 import 'widgets/hero_section.dart';
 import 'widgets/info_list.dart';
 import 'widgets/recommendations.dart';
@@ -53,6 +54,7 @@ class MediaPageBody extends StatelessWidget {
   List<QueryMediaMediatags> get tags => media.tags?.filterNull() ?? [];
   List<QueryMediaMediarelationsedges> get relations =>
       media.relations?.edges?.filterNull() ?? [];
+  List<QueryMediaMediaexternalLinks> get _externalLinks => media.externalLinks?.filterNull() ?? [];
 
   @override
   Widget build(BuildContext context) {
@@ -156,6 +158,8 @@ class MediaPageBody extends StatelessWidget {
         );
       }),
       RecommendationsList(id: media.id),
+      if (_externalLinks.isNotEmpty) _headerText("External Links"),
+      if (_externalLinks.isNotEmpty) ExternalSiteLinks(sites: _externalLinks),
       const SizedBox(height: 50)
     ];
     return ListView.builder(

@@ -1787,6 +1787,27 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
+                name: NameNode(value: 'color'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'language'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'type'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
                 name: NameNode(value: '__typename'),
                 alias: null,
                 arguments: [],
@@ -5355,6 +5376,9 @@ class QueryMediaMediaexternalLinks {
     required this.site,
     this.url,
     this.icon,
+    this.color,
+    this.language,
+    this.type,
     this.$__typename = 'MediaExternalLink',
   });
 
@@ -5363,12 +5387,20 @@ class QueryMediaMediaexternalLinks {
     final l$site = json['site'];
     final l$url = json['url'];
     final l$icon = json['icon'];
+    final l$color = json['color'];
+    final l$language = json['language'];
+    final l$type = json['type'];
     final l$$__typename = json['__typename'];
     return QueryMediaMediaexternalLinks(
       id: (l$id as int),
       site: (l$site as String),
       url: (l$url as String?),
       icon: (l$icon as String?),
+      color: (l$color as String?),
+      language: (l$language as String?),
+      type: l$type == null
+          ? null
+          : fromJsonEnumExternalLinkType((l$type as String)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -5380,6 +5412,12 @@ class QueryMediaMediaexternalLinks {
   final String? url;
 
   final String? icon;
+
+  final String? color;
+
+  final String? language;
+
+  final EnumExternalLinkType? type;
 
   final String $__typename;
 
@@ -5393,6 +5431,13 @@ class QueryMediaMediaexternalLinks {
     _resultData['url'] = l$url;
     final l$icon = icon;
     _resultData['icon'] = l$icon;
+    final l$color = color;
+    _resultData['color'] = l$color;
+    final l$language = language;
+    _resultData['language'] = l$language;
+    final l$type = type;
+    _resultData['type'] =
+        l$type == null ? null : toJsonEnumExternalLinkType(l$type);
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -5404,12 +5449,18 @@ class QueryMediaMediaexternalLinks {
     final l$site = site;
     final l$url = url;
     final l$icon = icon;
+    final l$color = color;
+    final l$language = language;
+    final l$type = type;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$site,
       l$url,
       l$icon,
+      l$color,
+      l$language,
+      l$type,
       l$$__typename,
     ]);
   }
@@ -5441,6 +5492,21 @@ class QueryMediaMediaexternalLinks {
     final l$icon = icon;
     final lOther$icon = other.icon;
     if (l$icon != lOther$icon) {
+      return false;
+    }
+    final l$color = color;
+    final lOther$color = other.color;
+    if (l$color != lOther$color) {
+      return false;
+    }
+    final l$language = language;
+    final lOther$language = other.language;
+    if (l$language != lOther$language) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -5475,6 +5541,9 @@ abstract class CopyWithQueryMediaMediaexternalLinks<TRes> {
     String? site,
     String? url,
     String? icon,
+    String? color,
+    String? language,
+    EnumExternalLinkType? type,
     String? $__typename,
   });
 }
@@ -5497,6 +5566,9 @@ class _CopyWithImplQueryMediaMediaexternalLinks<TRes>
     Object? site = _undefined,
     Object? url = _undefined,
     Object? icon = _undefined,
+    Object? color = _undefined,
+    Object? language = _undefined,
+    Object? type = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(QueryMediaMediaexternalLinks(
@@ -5506,6 +5578,12 @@ class _CopyWithImplQueryMediaMediaexternalLinks<TRes>
             : (site as String),
         url: url == _undefined ? _instance.url : (url as String?),
         icon: icon == _undefined ? _instance.icon : (icon as String?),
+        color: color == _undefined ? _instance.color : (color as String?),
+        language:
+            language == _undefined ? _instance.language : (language as String?),
+        type: type == _undefined
+            ? _instance.type
+            : (type as EnumExternalLinkType?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -5523,6 +5601,9 @@ class _CopyWithStubImplQueryMediaMediaexternalLinks<TRes>
     String? site,
     String? url,
     String? icon,
+    String? color,
+    String? language,
+    EnumExternalLinkType? type,
     String? $__typename,
   }) =>
       _res;
