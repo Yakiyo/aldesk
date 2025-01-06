@@ -71,12 +71,26 @@ class SettingsPageBody extends ConsumerWidget {
                 text: "${token.exp.day}/${token.exp.month}/${token.exp.year}",
                 style: TextStyle(color: Theme.of(context).colorScheme.primary))
           ])),
-          ElevatedButton(
-            onPressed: () {
-              pref.remove("token");
-              ref.invalidate(tokenProvider);
-            },
-            child: const Text("Logout"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            spacing: 15,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  pref.remove("token");
+                  ref.invalidate(tokenProvider);
+                },
+                child: const Text("Logout"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  ref.invalidate(authUserProvider);
+                },
+                child: const Text("Refresh User"),
+              ),
+            ],
           ),
           Text(
             "Preference",
