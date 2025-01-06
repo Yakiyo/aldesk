@@ -1,8 +1,10 @@
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../config/routing/routes.dart';
 import '../../../config/utils/utils.dart';
 import '../data/utils.dart';
 
@@ -14,15 +16,16 @@ class InfoList extends StatelessWidget {
 
   String? get _season => media.season?.name.toLowerCase().capitalize();
   int? get _seasonYear => media.seasonYear;
+  List<(String, int, bool)> get _studios =>
+      media.studios?.edges
+          ?.filterNull()
+          .map((s) => (s.node?.name ?? "", s.id ?? 0, s.isMain))
+          .toList() ??
+      [];
 
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      // childAspectRatio: 2 / 1,
-      // shrinkWrap: true,
-      // crossAxisCount: 5,
-      // maxCrossAxisExtent: 250,
-      // scrollDirection: Axis.horizontal,
       children: [
         if (media.nextAiringEpisode != null) _nextEpisodeTile(),
         _tile("Type", media.type?.name.toLowerCase().capitalize()),
@@ -75,9 +78,6 @@ class InfoList extends StatelessWidget {
               ),
             ),
           ),
-        // _tile("Native", media.title?.native ?? "N/A"),
-        // _tile("Romaji", media.title?.romaji ?? "N/A"),
-        // _tile("English", media.title?.english ?? "N/A"),
         if (media.title?.native != null)
           SizedBox(
             width: 180,
@@ -128,7 +128,47 @@ class InfoList extends StatelessWidget {
                         .map((e) => SelectableText(e))
                         .toList(),
                   ))),
+        if (_studios.isNotEmpty) _studioTile(context),
       ],
+    );
+  }
+
+  Widget _studioTile(BuildContext context) {
+    final List<Widget> row = [];
+    _studios.sort((a, b) {
+      if (a.$3 && !b.$3) {
+        return -1;
+      } else if (!a.$3 && b.$3) {
+        return 1;
+      }
+      return -1;
+    });
+    for (final studio in _studios) {
+      row.add(InkWell(
+        onTap: () {
+          context.go(Routes.studioWithId(studio.$2));
+        },
+        child: Text(studio.$1,
+            style: TextStyle(
+                fontSize: 15,
+                fontWeight: studio.$3 ? FontWeight.bold : FontWeight.normal)),
+      ));
+    }
+    return SizedBox(
+      width: 180,
+      child: ListTile(
+        isThreeLine: true,
+        title: const Text(
+          "Studios",
+          style: TextStyle(fontSize: 18),
+        ),
+        subtitle: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: row,
+        ),
+      ),
     );
   }
 
