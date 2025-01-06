@@ -15,12 +15,14 @@ import '../core/widgets/async_widget.dart';
 import '../core/widgets/my_scaffold.dart';
 import 'data/characters.dart';
 import 'data/media.dart';
+import 'data/recommendations.dart';
 import 'data/staff.dart';
 import 'data/utils.dart';
 import 'widgets/categories.dart';
 import 'widgets/characters.dart';
 import 'widgets/hero_section.dart';
 import 'widgets/info_list.dart';
+import 'widgets/recommendations.dart';
 import 'widgets/relations.dart';
 import 'widgets/staff.dart';
 
@@ -130,6 +132,30 @@ class MediaPageBody extends StatelessWidget {
         );
       }),
       StaffList(id: media.id),
+      Consumer(builder: (context, ref, child) {
+        final length =
+            (ref.watch(mediaRecommendationProvider(media.id)).valueOrNull ?? [])
+                .length;
+        if (length == 0) {
+          return const SizedBox.shrink();
+        }
+        final notifier =
+            ref.read(mediaRecommendationProvider(media.id).notifier);
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _headerText("Recommendations"),
+            if (notifier.hasNext())
+              TextButton(
+                onPressed: () {
+                  notifier.loadMore();
+                },
+                child: const Text("Load More"),
+              )
+          ],
+        );
+      }),
+      RecommendationsList(id: media.id),
       const SizedBox(height: 50)
     ];
     return ListView.builder(

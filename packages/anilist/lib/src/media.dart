@@ -188,3 +188,16 @@ ReturnType<QueryPaginatedMediaPage> previousSeasonMedia(
   final (year, season) = previousSeason();
   return seasonMedia(year, season, page: page, perPage: perPage, type: type);
 }
+
+/// Get recommendations for a media entry.
+ReturnType<QueryMediaRecommendationsMediarecommendations> mediaRecommendations(
+    {required int id, int page = 1, int perPage = 5}) async {
+  final variables = VariablesQueryMediaRecommendations(
+          mediaId: id, page: page, perPage: perPage)
+      .toJson();
+  return request(
+          query: printNode(documentNodeQueryMediaRecommendations),
+          variables: variables)
+      .then((value) =>
+          QueryMediaRecommendations.fromJson(value).Media!.recommendations!);
+}

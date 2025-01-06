@@ -4,6 +4,238 @@ import 'package:gql/ast.dart';
 import 'schema.graphql.dart';
 import 'staff.graphql.dart';
 
+class FragmentRecommendationNode {
+  FragmentRecommendationNode({
+    required this.id,
+    this.rating,
+    this.mediaRecommendation,
+    this.$__typename = 'Recommendation',
+  });
+
+  factory FragmentRecommendationNode.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$rating = json['rating'];
+    final l$mediaRecommendation = json['mediaRecommendation'];
+    final l$$__typename = json['__typename'];
+    return FragmentRecommendationNode(
+      id: (l$id as int),
+      rating: (l$rating as int?),
+      mediaRecommendation: l$mediaRecommendation == null
+          ? null
+          : FragmentMediaMin.fromJson(
+              (l$mediaRecommendation as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final int? rating;
+
+  final FragmentMediaMin? mediaRecommendation;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$rating = rating;
+    _resultData['rating'] = l$rating;
+    final l$mediaRecommendation = mediaRecommendation;
+    _resultData['mediaRecommendation'] = l$mediaRecommendation?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$rating = rating;
+    final l$mediaRecommendation = mediaRecommendation;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$rating,
+      l$mediaRecommendation,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! FragmentRecommendationNode ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$rating = rating;
+    final lOther$rating = other.rating;
+    if (l$rating != lOther$rating) {
+      return false;
+    }
+    final l$mediaRecommendation = mediaRecommendation;
+    final lOther$mediaRecommendation = other.mediaRecommendation;
+    if (l$mediaRecommendation != lOther$mediaRecommendation) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionFragmentRecommendationNode
+    on FragmentRecommendationNode {
+  CopyWithFragmentRecommendationNode<FragmentRecommendationNode> get copyWith =>
+      CopyWithFragmentRecommendationNode(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithFragmentRecommendationNode<TRes> {
+  factory CopyWithFragmentRecommendationNode(
+    FragmentRecommendationNode instance,
+    TRes Function(FragmentRecommendationNode) then,
+  ) = _CopyWithImplFragmentRecommendationNode;
+
+  factory CopyWithFragmentRecommendationNode.stub(TRes res) =
+      _CopyWithStubImplFragmentRecommendationNode;
+
+  TRes call({
+    int? id,
+    int? rating,
+    FragmentMediaMin? mediaRecommendation,
+    String? $__typename,
+  });
+  CopyWithFragmentMediaMin<TRes> get mediaRecommendation;
+}
+
+class _CopyWithImplFragmentRecommendationNode<TRes>
+    implements CopyWithFragmentRecommendationNode<TRes> {
+  _CopyWithImplFragmentRecommendationNode(
+    this._instance,
+    this._then,
+  );
+
+  final FragmentRecommendationNode _instance;
+
+  final TRes Function(FragmentRecommendationNode) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? rating = _undefined,
+    Object? mediaRecommendation = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(FragmentRecommendationNode(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        rating: rating == _undefined ? _instance.rating : (rating as int?),
+        mediaRecommendation: mediaRecommendation == _undefined
+            ? _instance.mediaRecommendation
+            : (mediaRecommendation as FragmentMediaMin?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithFragmentMediaMin<TRes> get mediaRecommendation {
+    final local$mediaRecommendation = _instance.mediaRecommendation;
+    return local$mediaRecommendation == null
+        ? CopyWithFragmentMediaMin.stub(_then(_instance))
+        : CopyWithFragmentMediaMin(
+            local$mediaRecommendation, (e) => call(mediaRecommendation: e));
+  }
+}
+
+class _CopyWithStubImplFragmentRecommendationNode<TRes>
+    implements CopyWithFragmentRecommendationNode<TRes> {
+  _CopyWithStubImplFragmentRecommendationNode(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    int? rating,
+    FragmentMediaMin? mediaRecommendation,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithFragmentMediaMin<TRes> get mediaRecommendation =>
+      CopyWithFragmentMediaMin.stub(_res);
+}
+
+const fragmentDefinitionRecommendationNode = FragmentDefinitionNode(
+  name: NameNode(value: 'RecommendationNode'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'Recommendation'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'id'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'rating'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'mediaRecommendation'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FragmentSpreadNode(
+          name: NameNode(value: 'MediaMin'),
+          directives: [],
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentRecommendationNode = DocumentNode(definitions: [
+  fragmentDefinitionRecommendationNode,
+  fragmentDefinitionMediaMin,
+]);
+
 class VariablesQueryMediaMin {
   factory VariablesQueryMediaMin({
     int? id,
@@ -516,6 +748,7 @@ class VariablesQueryMedia {
     String? search,
     int? characterPerPage,
     int? staffPerPage,
+    int? recommendationPerPage,
   }) =>
       VariablesQueryMedia._({
         if (id != null) r'id': id,
@@ -526,6 +759,8 @@ class VariablesQueryMedia {
         if (search != null) r'search': search,
         if (characterPerPage != null) r'characterPerPage': characterPerPage,
         if (staffPerPage != null) r'staffPerPage': staffPerPage,
+        if (recommendationPerPage != null)
+          r'recommendationPerPage': recommendationPerPage,
       });
 
   VariablesQueryMedia._(this._$data);
@@ -569,6 +804,10 @@ class VariablesQueryMedia {
       final l$staffPerPage = data['staffPerPage'];
       result$data['staffPerPage'] = (l$staffPerPage as int?);
     }
+    if (data.containsKey('recommendationPerPage')) {
+      final l$recommendationPerPage = data['recommendationPerPage'];
+      result$data['recommendationPerPage'] = (l$recommendationPerPage as int?);
+    }
     return VariablesQueryMedia._(result$data);
   }
 
@@ -589,6 +828,8 @@ class VariablesQueryMedia {
   int? get characterPerPage => (_$data['characterPerPage'] as int?);
 
   int? get staffPerPage => (_$data['staffPerPage'] as int?);
+
+  int? get recommendationPerPage => (_$data['recommendationPerPage'] as int?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -625,6 +866,10 @@ class VariablesQueryMedia {
     if (_$data.containsKey('staffPerPage')) {
       final l$staffPerPage = staffPerPage;
       result$data['staffPerPage'] = l$staffPerPage;
+    }
+    if (_$data.containsKey('recommendationPerPage')) {
+      final l$recommendationPerPage = recommendationPerPage;
+      result$data['recommendationPerPage'] = l$recommendationPerPage;
     }
     return result$data;
   }
@@ -709,6 +954,15 @@ class VariablesQueryMedia {
     if (l$staffPerPage != lOther$staffPerPage) {
       return false;
     }
+    final l$recommendationPerPage = recommendationPerPage;
+    final lOther$recommendationPerPage = other.recommendationPerPage;
+    if (_$data.containsKey('recommendationPerPage') !=
+        other._$data.containsKey('recommendationPerPage')) {
+      return false;
+    }
+    if (l$recommendationPerPage != lOther$recommendationPerPage) {
+      return false;
+    }
     return true;
   }
 
@@ -722,6 +976,7 @@ class VariablesQueryMedia {
     final l$search = search;
     final l$characterPerPage = characterPerPage;
     final l$staffPerPage = staffPerPage;
+    final l$recommendationPerPage = recommendationPerPage;
     return Object.hashAll([
       _$data.containsKey('id') ? l$id : const {},
       _$data.containsKey('type') ? l$type : const {},
@@ -731,6 +986,9 @@ class VariablesQueryMedia {
       _$data.containsKey('search') ? l$search : const {},
       _$data.containsKey('characterPerPage') ? l$characterPerPage : const {},
       _$data.containsKey('staffPerPage') ? l$staffPerPage : const {},
+      _$data.containsKey('recommendationPerPage')
+          ? l$recommendationPerPage
+          : const {},
     ]);
   }
 }
@@ -753,6 +1011,7 @@ abstract class CopyWithVariablesQueryMedia<TRes> {
     String? search,
     int? characterPerPage,
     int? staffPerPage,
+    int? recommendationPerPage,
   });
 }
 
@@ -778,6 +1037,7 @@ class _CopyWithImplVariablesQueryMedia<TRes>
     Object? search = _undefined,
     Object? characterPerPage = _undefined,
     Object? staffPerPage = _undefined,
+    Object? recommendationPerPage = _undefined,
   }) =>
       _then(VariablesQueryMedia._({
         ..._instance._$data,
@@ -790,6 +1050,8 @@ class _CopyWithImplVariablesQueryMedia<TRes>
         if (characterPerPage != _undefined)
           'characterPerPage': (characterPerPage as int?),
         if (staffPerPage != _undefined) 'staffPerPage': (staffPerPage as int?),
+        if (recommendationPerPage != _undefined)
+          'recommendationPerPage': (recommendationPerPage as int?),
       }));
 }
 
@@ -808,6 +1070,7 @@ class _CopyWithStubImplVariablesQueryMedia<TRes>
     String? search,
     int? characterPerPage,
     int? staffPerPage,
+    int? recommendationPerPage,
   }) =>
       _res;
 }
@@ -1017,6 +1280,15 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
           isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: IntValueNode(value: '9')),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'recommendationPerPage')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: IntValueNode(value: '5')),
         directives: [],
       ),
     ],
@@ -2067,88 +2339,79 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
             arguments: [
               ArgumentNode(
                 name: NameNode(value: 'sort'),
-                value: EnumValueNode(name: NameNode(value: 'ID_DESC')),
-              )
+                value: EnumValueNode(name: NameNode(value: 'RATING_DESC')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: IntValueNode(value: '1'),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: VariableNode(
+                    name: NameNode(value: 'recommendationPerPage')),
+              ),
             ],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'currentPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'hasNextPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'lastPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'perPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'total'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
               FieldNode(
                 name: NameNode(value: 'nodes'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'RecommendationNode'),
                     directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'rating'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'userRating'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'mediaRecommendation'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'user'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                      FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null,
-                      ),
-                    ]),
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -2355,6 +2618,7 @@ const documentNodeQueryMedia = DocumentNode(definitions: [
   fragmentDefinitionMediaMin,
   fragmentDefinitionCharacterEdge,
   fragmentDefinitionStaffEdge,
+  fragmentDefinitionRecommendationNode,
 ]);
 
 class QueryMediaMedia implements FragmentMediaMin {
@@ -8137,30 +8401,40 @@ class _CopyWithStubImplQueryMediaMediaairingSchedulenodes<TRes>
 
 class QueryMediaMediarecommendations {
   QueryMediaMediarecommendations({
+    this.pageInfo,
     this.nodes,
     this.$__typename = 'RecommendationConnection',
   });
 
   factory QueryMediaMediarecommendations.fromJson(Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
     final l$nodes = json['nodes'];
     final l$$__typename = json['__typename'];
     return QueryMediaMediarecommendations(
+      pageInfo: l$pageInfo == null
+          ? null
+          : QueryMediaMediarecommendationspageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
       nodes: (l$nodes as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : QueryMediaMediarecommendationsnodes.fromJson(
+              : FragmentRecommendationNode.fromJson(
                   (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<QueryMediaMediarecommendationsnodes?>? nodes;
+  final QueryMediaMediarecommendationspageInfo? pageInfo;
+
+  final List<FragmentRecommendationNode?>? nodes;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
     final l$nodes = nodes;
     _resultData['nodes'] = l$nodes?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
@@ -8170,9 +8444,11 @@ class QueryMediaMediarecommendations {
 
   @override
   int get hashCode {
+    final l$pageInfo = pageInfo;
     final l$nodes = nodes;
     final l$$__typename = $__typename;
     return Object.hashAll([
+      l$pageInfo,
       l$nodes == null ? null : Object.hashAll(l$nodes.map((v) => v)),
       l$$__typename,
     ]);
@@ -8185,6 +8461,11 @@ class QueryMediaMediarecommendations {
     }
     if (other is! QueryMediaMediarecommendations ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
       return false;
     }
     final l$nodes = nodes;
@@ -8231,14 +8512,16 @@ abstract class CopyWithQueryMediaMediarecommendations<TRes> {
       _CopyWithStubImplQueryMediaMediarecommendations;
 
   TRes call({
-    List<QueryMediaMediarecommendationsnodes?>? nodes,
+    QueryMediaMediarecommendationspageInfo? pageInfo,
+    List<FragmentRecommendationNode?>? nodes,
     String? $__typename,
   });
+  CopyWithQueryMediaMediarecommendationspageInfo<TRes> get pageInfo;
   TRes nodes(
-      Iterable<QueryMediaMediarecommendationsnodes?>? Function(
+      Iterable<FragmentRecommendationNode?>? Function(
               Iterable<
-                  CopyWithQueryMediaMediarecommendationsnodes<
-                      QueryMediaMediarecommendationsnodes>?>?)
+                  CopyWithFragmentRecommendationNode<
+                      FragmentRecommendationNode>?>?)
           _fn);
 }
 
@@ -8256,28 +8539,40 @@ class _CopyWithImplQueryMediaMediarecommendations<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? pageInfo = _undefined,
     Object? nodes = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(QueryMediaMediarecommendations(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo as QueryMediaMediarecommendationspageInfo?),
         nodes: nodes == _undefined
             ? _instance.nodes
-            : (nodes as List<QueryMediaMediarecommendationsnodes?>?),
+            : (nodes as List<FragmentRecommendationNode?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
+  CopyWithQueryMediaMediarecommendationspageInfo<TRes> get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWithQueryMediaMediarecommendationspageInfo.stub(_then(_instance))
+        : CopyWithQueryMediaMediarecommendationspageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+
   TRes nodes(
-          Iterable<QueryMediaMediarecommendationsnodes?>? Function(
+          Iterable<FragmentRecommendationNode?>? Function(
                   Iterable<
-                      CopyWithQueryMediaMediarecommendationsnodes<
-                          QueryMediaMediarecommendationsnodes>?>?)
+                      CopyWithFragmentRecommendationNode<
+                          FragmentRecommendationNode>?>?)
               _fn) =>
       call(
           nodes: _fn(_instance.nodes?.map((e) => e == null
               ? null
-              : CopyWithQueryMediaMediarecommendationsnodes(
+              : CopyWithFragmentRecommendationNode(
                   e,
                   (i) => i,
                 )))?.toList());
@@ -8290,77 +8585,70 @@ class _CopyWithStubImplQueryMediaMediarecommendations<TRes>
   TRes _res;
 
   call({
-    List<QueryMediaMediarecommendationsnodes?>? nodes,
+    QueryMediaMediarecommendationspageInfo? pageInfo,
+    List<FragmentRecommendationNode?>? nodes,
     String? $__typename,
   }) =>
       _res;
+
+  CopyWithQueryMediaMediarecommendationspageInfo<TRes> get pageInfo =>
+      CopyWithQueryMediaMediarecommendationspageInfo.stub(_res);
 
   nodes(_fn) => _res;
 }
 
-class QueryMediaMediarecommendationsnodes {
-  QueryMediaMediarecommendationsnodes({
-    required this.id,
-    this.rating,
-    this.userRating,
-    this.mediaRecommendation,
-    this.user,
-    this.$__typename = 'Recommendation',
+class QueryMediaMediarecommendationspageInfo {
+  QueryMediaMediarecommendationspageInfo({
+    this.currentPage,
+    this.hasNextPage,
+    this.lastPage,
+    this.perPage,
+    this.total,
+    this.$__typename = 'PageInfo',
   });
 
-  factory QueryMediaMediarecommendationsnodes.fromJson(
+  factory QueryMediaMediarecommendationspageInfo.fromJson(
       Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$rating = json['rating'];
-    final l$userRating = json['userRating'];
-    final l$mediaRecommendation = json['mediaRecommendation'];
-    final l$user = json['user'];
+    final l$currentPage = json['currentPage'];
+    final l$hasNextPage = json['hasNextPage'];
+    final l$lastPage = json['lastPage'];
+    final l$perPage = json['perPage'];
+    final l$total = json['total'];
     final l$$__typename = json['__typename'];
-    return QueryMediaMediarecommendationsnodes(
-      id: (l$id as int),
-      rating: (l$rating as int?),
-      userRating: l$userRating == null
-          ? null
-          : fromJsonEnumRecommendationRating((l$userRating as String)),
-      mediaRecommendation: l$mediaRecommendation == null
-          ? null
-          : QueryMediaMediarecommendationsnodesmediaRecommendation.fromJson(
-              (l$mediaRecommendation as Map<String, dynamic>)),
-      user: l$user == null
-          ? null
-          : QueryMediaMediarecommendationsnodesuser.fromJson(
-              (l$user as Map<String, dynamic>)),
+    return QueryMediaMediarecommendationspageInfo(
+      currentPage: (l$currentPage as int?),
+      hasNextPage: (l$hasNextPage as bool?),
+      lastPage: (l$lastPage as int?),
+      perPage: (l$perPage as int?),
+      total: (l$total as int?),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final int id;
+  final int? currentPage;
 
-  final int? rating;
+  final bool? hasNextPage;
 
-  final EnumRecommendationRating? userRating;
+  final int? lastPage;
 
-  final QueryMediaMediarecommendationsnodesmediaRecommendation?
-      mediaRecommendation;
+  final int? perPage;
 
-  final QueryMediaMediarecommendationsnodesuser? user;
+  final int? total;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$rating = rating;
-    _resultData['rating'] = l$rating;
-    final l$userRating = userRating;
-    _resultData['userRating'] = l$userRating == null
-        ? null
-        : toJsonEnumRecommendationRating(l$userRating);
-    final l$mediaRecommendation = mediaRecommendation;
-    _resultData['mediaRecommendation'] = l$mediaRecommendation?.toJson();
-    final l$user = user;
-    _resultData['user'] = l$user?.toJson();
+    final l$currentPage = currentPage;
+    _resultData['currentPage'] = l$currentPage;
+    final l$hasNextPage = hasNextPage;
+    _resultData['hasNextPage'] = l$hasNextPage;
+    final l$lastPage = lastPage;
+    _resultData['lastPage'] = l$lastPage;
+    final l$perPage = perPage;
+    _resultData['perPage'] = l$perPage;
+    final l$total = total;
+    _resultData['total'] = l$total;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -8368,18 +8656,18 @@ class QueryMediaMediarecommendationsnodes {
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$rating = rating;
-    final l$userRating = userRating;
-    final l$mediaRecommendation = mediaRecommendation;
-    final l$user = user;
+    final l$currentPage = currentPage;
+    final l$hasNextPage = hasNextPage;
+    final l$lastPage = lastPage;
+    final l$perPage = perPage;
+    final l$total = total;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$id,
-      l$rating,
-      l$userRating,
-      l$mediaRecommendation,
-      l$user,
+      l$currentPage,
+      l$hasNextPage,
+      l$lastPage,
+      l$perPage,
+      l$total,
       l$$__typename,
     ]);
   }
@@ -8389,33 +8677,33 @@ class QueryMediaMediarecommendationsnodes {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! QueryMediaMediarecommendationsnodes ||
+    if (other is! QueryMediaMediarecommendationspageInfo ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
+    final l$currentPage = currentPage;
+    final lOther$currentPage = other.currentPage;
+    if (l$currentPage != lOther$currentPage) {
       return false;
     }
-    final l$rating = rating;
-    final lOther$rating = other.rating;
-    if (l$rating != lOther$rating) {
+    final l$hasNextPage = hasNextPage;
+    final lOther$hasNextPage = other.hasNextPage;
+    if (l$hasNextPage != lOther$hasNextPage) {
       return false;
     }
-    final l$userRating = userRating;
-    final lOther$userRating = other.userRating;
-    if (l$userRating != lOther$userRating) {
+    final l$lastPage = lastPage;
+    final lOther$lastPage = other.lastPage;
+    if (l$lastPage != lOther$lastPage) {
       return false;
     }
-    final l$mediaRecommendation = mediaRecommendation;
-    final lOther$mediaRecommendation = other.mediaRecommendation;
-    if (l$mediaRecommendation != lOther$mediaRecommendation) {
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (l$perPage != lOther$perPage) {
       return false;
     }
-    final l$user = user;
-    final lOther$user = other.user;
-    if (l$user != lOther$user) {
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -8427,394 +8715,85 @@ class QueryMediaMediarecommendationsnodes {
   }
 }
 
-extension UtilityExtensionQueryMediaMediarecommendationsnodes
-    on QueryMediaMediarecommendationsnodes {
-  CopyWithQueryMediaMediarecommendationsnodes<
-          QueryMediaMediarecommendationsnodes>
-      get copyWith => CopyWithQueryMediaMediarecommendationsnodes(
+extension UtilityExtensionQueryMediaMediarecommendationspageInfo
+    on QueryMediaMediarecommendationspageInfo {
+  CopyWithQueryMediaMediarecommendationspageInfo<
+          QueryMediaMediarecommendationspageInfo>
+      get copyWith => CopyWithQueryMediaMediarecommendationspageInfo(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWithQueryMediaMediarecommendationsnodes<TRes> {
-  factory CopyWithQueryMediaMediarecommendationsnodes(
-    QueryMediaMediarecommendationsnodes instance,
-    TRes Function(QueryMediaMediarecommendationsnodes) then,
-  ) = _CopyWithImplQueryMediaMediarecommendationsnodes;
+abstract class CopyWithQueryMediaMediarecommendationspageInfo<TRes> {
+  factory CopyWithQueryMediaMediarecommendationspageInfo(
+    QueryMediaMediarecommendationspageInfo instance,
+    TRes Function(QueryMediaMediarecommendationspageInfo) then,
+  ) = _CopyWithImplQueryMediaMediarecommendationspageInfo;
 
-  factory CopyWithQueryMediaMediarecommendationsnodes.stub(TRes res) =
-      _CopyWithStubImplQueryMediaMediarecommendationsnodes;
+  factory CopyWithQueryMediaMediarecommendationspageInfo.stub(TRes res) =
+      _CopyWithStubImplQueryMediaMediarecommendationspageInfo;
 
   TRes call({
-    int? id,
-    int? rating,
-    EnumRecommendationRating? userRating,
-    QueryMediaMediarecommendationsnodesmediaRecommendation? mediaRecommendation,
-    QueryMediaMediarecommendationsnodesuser? user,
+    int? currentPage,
+    bool? hasNextPage,
+    int? lastPage,
+    int? perPage,
+    int? total,
     String? $__typename,
   });
-  CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation<TRes>
-      get mediaRecommendation;
-  CopyWithQueryMediaMediarecommendationsnodesuser<TRes> get user;
 }
 
-class _CopyWithImplQueryMediaMediarecommendationsnodes<TRes>
-    implements CopyWithQueryMediaMediarecommendationsnodes<TRes> {
-  _CopyWithImplQueryMediaMediarecommendationsnodes(
+class _CopyWithImplQueryMediaMediarecommendationspageInfo<TRes>
+    implements CopyWithQueryMediaMediarecommendationspageInfo<TRes> {
+  _CopyWithImplQueryMediaMediarecommendationspageInfo(
     this._instance,
     this._then,
   );
 
-  final QueryMediaMediarecommendationsnodes _instance;
+  final QueryMediaMediarecommendationspageInfo _instance;
 
-  final TRes Function(QueryMediaMediarecommendationsnodes) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? rating = _undefined,
-    Object? userRating = _undefined,
-    Object? mediaRecommendation = _undefined,
-    Object? user = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryMediaMediarecommendationsnodes(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        rating: rating == _undefined ? _instance.rating : (rating as int?),
-        userRating: userRating == _undefined
-            ? _instance.userRating
-            : (userRating as EnumRecommendationRating?),
-        mediaRecommendation: mediaRecommendation == _undefined
-            ? _instance.mediaRecommendation
-            : (mediaRecommendation
-                as QueryMediaMediarecommendationsnodesmediaRecommendation?),
-        user: user == _undefined
-            ? _instance.user
-            : (user as QueryMediaMediarecommendationsnodesuser?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-
-  CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation<TRes>
-      get mediaRecommendation {
-    final local$mediaRecommendation = _instance.mediaRecommendation;
-    return local$mediaRecommendation == null
-        ? CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation.stub(
-            _then(_instance))
-        : CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation(
-            local$mediaRecommendation, (e) => call(mediaRecommendation: e));
-  }
-
-  CopyWithQueryMediaMediarecommendationsnodesuser<TRes> get user {
-    final local$user = _instance.user;
-    return local$user == null
-        ? CopyWithQueryMediaMediarecommendationsnodesuser.stub(_then(_instance))
-        : CopyWithQueryMediaMediarecommendationsnodesuser(
-            local$user, (e) => call(user: e));
-  }
-}
-
-class _CopyWithStubImplQueryMediaMediarecommendationsnodes<TRes>
-    implements CopyWithQueryMediaMediarecommendationsnodes<TRes> {
-  _CopyWithStubImplQueryMediaMediarecommendationsnodes(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    int? rating,
-    EnumRecommendationRating? userRating,
-    QueryMediaMediarecommendationsnodesmediaRecommendation? mediaRecommendation,
-    QueryMediaMediarecommendationsnodesuser? user,
-    String? $__typename,
-  }) =>
-      _res;
-
-  CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation<TRes>
-      get mediaRecommendation =>
-          CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation.stub(
-              _res);
-
-  CopyWithQueryMediaMediarecommendationsnodesuser<TRes> get user =>
-      CopyWithQueryMediaMediarecommendationsnodesuser.stub(_res);
-}
-
-class QueryMediaMediarecommendationsnodesmediaRecommendation {
-  QueryMediaMediarecommendationsnodesmediaRecommendation({
-    required this.id,
-    this.$__typename = 'Media',
-  });
-
-  factory QueryMediaMediarecommendationsnodesmediaRecommendation.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$$__typename = json['__typename'];
-    return QueryMediaMediarecommendationsnodesmediaRecommendation(
-      id: (l$id as int),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (other is! QueryMediaMediarecommendationsnodesmediaRecommendation ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryMediaMediarecommendationsnodesmediaRecommendation
-    on QueryMediaMediarecommendationsnodesmediaRecommendation {
-  CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation<
-          QueryMediaMediarecommendationsnodesmediaRecommendation>
-      get copyWith =>
-          CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation<
-    TRes> {
-  factory CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation(
-    QueryMediaMediarecommendationsnodesmediaRecommendation instance,
-    TRes Function(QueryMediaMediarecommendationsnodesmediaRecommendation) then,
-  ) = _CopyWithImplQueryMediaMediarecommendationsnodesmediaRecommendation;
-
-  factory CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation.stub(
-          TRes res) =
-      _CopyWithStubImplQueryMediaMediarecommendationsnodesmediaRecommendation;
-
-  TRes call({
-    int? id,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryMediaMediarecommendationsnodesmediaRecommendation<TRes>
-    implements
-        CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation<TRes> {
-  _CopyWithImplQueryMediaMediarecommendationsnodesmediaRecommendation(
-    this._instance,
-    this._then,
-  );
-
-  final QueryMediaMediarecommendationsnodesmediaRecommendation _instance;
-
-  final TRes Function(QueryMediaMediarecommendationsnodesmediaRecommendation)
-      _then;
+  final TRes Function(QueryMediaMediarecommendationspageInfo) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? id = _undefined,
+    Object? currentPage = _undefined,
+    Object? hasNextPage = _undefined,
+    Object? lastPage = _undefined,
+    Object? perPage = _undefined,
+    Object? total = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(QueryMediaMediarecommendationsnodesmediaRecommendation(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
+      _then(QueryMediaMediarecommendationspageInfo(
+        currentPage: currentPage == _undefined
+            ? _instance.currentPage
+            : (currentPage as int?),
+        hasNextPage: hasNextPage == _undefined
+            ? _instance.hasNextPage
+            : (hasNextPage as bool?),
+        lastPage:
+            lastPage == _undefined ? _instance.lastPage : (lastPage as int?),
+        perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
+        total: total == _undefined ? _instance.total : (total as int?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImplQueryMediaMediarecommendationsnodesmediaRecommendation<
-        TRes>
-    implements
-        CopyWithQueryMediaMediarecommendationsnodesmediaRecommendation<TRes> {
-  _CopyWithStubImplQueryMediaMediarecommendationsnodesmediaRecommendation(
-      this._res);
+class _CopyWithStubImplQueryMediaMediarecommendationspageInfo<TRes>
+    implements CopyWithQueryMediaMediarecommendationspageInfo<TRes> {
+  _CopyWithStubImplQueryMediaMediarecommendationspageInfo(this._res);
 
   TRes _res;
 
   call({
-    int? id,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class QueryMediaMediarecommendationsnodesuser {
-  QueryMediaMediarecommendationsnodesuser({
-    required this.id,
-    required this.name,
-    this.$__typename = 'User',
-  });
-
-  factory QueryMediaMediarecommendationsnodesuser.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$$__typename = json['__typename'];
-    return QueryMediaMediarecommendationsnodesuser(
-      id: (l$id as int),
-      name: (l$name as String),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (other is! QueryMediaMediarecommendationsnodesuser ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtensionQueryMediaMediarecommendationsnodesuser
-    on QueryMediaMediarecommendationsnodesuser {
-  CopyWithQueryMediaMediarecommendationsnodesuser<
-          QueryMediaMediarecommendationsnodesuser>
-      get copyWith => CopyWithQueryMediaMediarecommendationsnodesuser(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWithQueryMediaMediarecommendationsnodesuser<TRes> {
-  factory CopyWithQueryMediaMediarecommendationsnodesuser(
-    QueryMediaMediarecommendationsnodesuser instance,
-    TRes Function(QueryMediaMediarecommendationsnodesuser) then,
-  ) = _CopyWithImplQueryMediaMediarecommendationsnodesuser;
-
-  factory CopyWithQueryMediaMediarecommendationsnodesuser.stub(TRes res) =
-      _CopyWithStubImplQueryMediaMediarecommendationsnodesuser;
-
-  TRes call({
-    int? id,
-    String? name,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImplQueryMediaMediarecommendationsnodesuser<TRes>
-    implements CopyWithQueryMediaMediarecommendationsnodesuser<TRes> {
-  _CopyWithImplQueryMediaMediarecommendationsnodesuser(
-    this._instance,
-    this._then,
-  );
-
-  final QueryMediaMediarecommendationsnodesuser _instance;
-
-  final TRes Function(QueryMediaMediarecommendationsnodesuser) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(QueryMediaMediarecommendationsnodesuser(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImplQueryMediaMediarecommendationsnodesuser<TRes>
-    implements CopyWithQueryMediaMediarecommendationsnodesuser<TRes> {
-  _CopyWithStubImplQueryMediaMediarecommendationsnodesuser(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
+    int? currentPage,
+    bool? hasNextPage,
+    int? lastPage,
+    int? perPage,
+    int? total,
     String? $__typename,
   }) =>
       _res;
@@ -12107,6 +12086,1040 @@ class _CopyWithStubImplQueryPaginatedMediaPagemediacoverImage<TRes>
     String? large,
     String? medium,
     String? color,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class VariablesQueryMediaRecommendations {
+  factory VariablesQueryMediaRecommendations({
+    int? mediaId,
+    int? page,
+    int? perPage,
+  }) =>
+      VariablesQueryMediaRecommendations._({
+        if (mediaId != null) r'mediaId': mediaId,
+        if (page != null) r'page': page,
+        if (perPage != null) r'perPage': perPage,
+      });
+
+  VariablesQueryMediaRecommendations._(this._$data);
+
+  factory VariablesQueryMediaRecommendations.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('mediaId')) {
+      final l$mediaId = data['mediaId'];
+      result$data['mediaId'] = (l$mediaId as int?);
+    }
+    if (data.containsKey('page')) {
+      final l$page = data['page'];
+      result$data['page'] = (l$page as int?);
+    }
+    if (data.containsKey('perPage')) {
+      final l$perPage = data['perPage'];
+      result$data['perPage'] = (l$perPage as int?);
+    }
+    return VariablesQueryMediaRecommendations._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get mediaId => (_$data['mediaId'] as int?);
+
+  int? get page => (_$data['page'] as int?);
+
+  int? get perPage => (_$data['perPage'] as int?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('mediaId')) {
+      final l$mediaId = mediaId;
+      result$data['mediaId'] = l$mediaId;
+    }
+    if (_$data.containsKey('page')) {
+      final l$page = page;
+      result$data['page'] = l$page;
+    }
+    if (_$data.containsKey('perPage')) {
+      final l$perPage = perPage;
+      result$data['perPage'] = l$perPage;
+    }
+    return result$data;
+  }
+
+  CopyWithVariablesQueryMediaRecommendations<VariablesQueryMediaRecommendations>
+      get copyWith => CopyWithVariablesQueryMediaRecommendations(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! VariablesQueryMediaRecommendations ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$mediaId = mediaId;
+    final lOther$mediaId = other.mediaId;
+    if (_$data.containsKey('mediaId') != other._$data.containsKey('mediaId')) {
+      return false;
+    }
+    if (l$mediaId != lOther$mediaId) {
+      return false;
+    }
+    final l$page = page;
+    final lOther$page = other.page;
+    if (_$data.containsKey('page') != other._$data.containsKey('page')) {
+      return false;
+    }
+    if (l$page != lOther$page) {
+      return false;
+    }
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (_$data.containsKey('perPage') != other._$data.containsKey('perPage')) {
+      return false;
+    }
+    if (l$perPage != lOther$perPage) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$mediaId = mediaId;
+    final l$page = page;
+    final l$perPage = perPage;
+    return Object.hashAll([
+      _$data.containsKey('mediaId') ? l$mediaId : const {},
+      _$data.containsKey('page') ? l$page : const {},
+      _$data.containsKey('perPage') ? l$perPage : const {},
+    ]);
+  }
+}
+
+abstract class CopyWithVariablesQueryMediaRecommendations<TRes> {
+  factory CopyWithVariablesQueryMediaRecommendations(
+    VariablesQueryMediaRecommendations instance,
+    TRes Function(VariablesQueryMediaRecommendations) then,
+  ) = _CopyWithImplVariablesQueryMediaRecommendations;
+
+  factory CopyWithVariablesQueryMediaRecommendations.stub(TRes res) =
+      _CopyWithStubImplVariablesQueryMediaRecommendations;
+
+  TRes call({
+    int? mediaId,
+    int? page,
+    int? perPage,
+  });
+}
+
+class _CopyWithImplVariablesQueryMediaRecommendations<TRes>
+    implements CopyWithVariablesQueryMediaRecommendations<TRes> {
+  _CopyWithImplVariablesQueryMediaRecommendations(
+    this._instance,
+    this._then,
+  );
+
+  final VariablesQueryMediaRecommendations _instance;
+
+  final TRes Function(VariablesQueryMediaRecommendations) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? mediaId = _undefined,
+    Object? page = _undefined,
+    Object? perPage = _undefined,
+  }) =>
+      _then(VariablesQueryMediaRecommendations._({
+        ..._instance._$data,
+        if (mediaId != _undefined) 'mediaId': (mediaId as int?),
+        if (page != _undefined) 'page': (page as int?),
+        if (perPage != _undefined) 'perPage': (perPage as int?),
+      }));
+}
+
+class _CopyWithStubImplVariablesQueryMediaRecommendations<TRes>
+    implements CopyWithVariablesQueryMediaRecommendations<TRes> {
+  _CopyWithStubImplVariablesQueryMediaRecommendations(this._res);
+
+  TRes _res;
+
+  call({
+    int? mediaId,
+    int? page,
+    int? perPage,
+  }) =>
+      _res;
+}
+
+class QueryMediaRecommendations {
+  QueryMediaRecommendations({
+    this.Media,
+    this.$__typename = 'Query',
+  });
+
+  factory QueryMediaRecommendations.fromJson(Map<String, dynamic> json) {
+    final l$Media = json['Media'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaRecommendations(
+      Media: l$Media == null
+          ? null
+          : QueryMediaRecommendationsMedia.fromJson(
+              (l$Media as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final QueryMediaRecommendationsMedia? Media;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$Media = Media;
+    _resultData['Media'] = l$Media?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$Media = Media;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$Media,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaRecommendations ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$Media = Media;
+    final lOther$Media = other.Media;
+    if (l$Media != lOther$Media) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaRecommendations
+    on QueryMediaRecommendations {
+  CopyWithQueryMediaRecommendations<QueryMediaRecommendations> get copyWith =>
+      CopyWithQueryMediaRecommendations(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithQueryMediaRecommendations<TRes> {
+  factory CopyWithQueryMediaRecommendations(
+    QueryMediaRecommendations instance,
+    TRes Function(QueryMediaRecommendations) then,
+  ) = _CopyWithImplQueryMediaRecommendations;
+
+  factory CopyWithQueryMediaRecommendations.stub(TRes res) =
+      _CopyWithStubImplQueryMediaRecommendations;
+
+  TRes call({
+    QueryMediaRecommendationsMedia? Media,
+    String? $__typename,
+  });
+  CopyWithQueryMediaRecommendationsMedia<TRes> get Media;
+}
+
+class _CopyWithImplQueryMediaRecommendations<TRes>
+    implements CopyWithQueryMediaRecommendations<TRes> {
+  _CopyWithImplQueryMediaRecommendations(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaRecommendations _instance;
+
+  final TRes Function(QueryMediaRecommendations) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? Media = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaRecommendations(
+        Media: Media == _undefined
+            ? _instance.Media
+            : (Media as QueryMediaRecommendationsMedia?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryMediaRecommendationsMedia<TRes> get Media {
+    final local$Media = _instance.Media;
+    return local$Media == null
+        ? CopyWithQueryMediaRecommendationsMedia.stub(_then(_instance))
+        : CopyWithQueryMediaRecommendationsMedia(
+            local$Media, (e) => call(Media: e));
+  }
+}
+
+class _CopyWithStubImplQueryMediaRecommendations<TRes>
+    implements CopyWithQueryMediaRecommendations<TRes> {
+  _CopyWithStubImplQueryMediaRecommendations(this._res);
+
+  TRes _res;
+
+  call({
+    QueryMediaRecommendationsMedia? Media,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryMediaRecommendationsMedia<TRes> get Media =>
+      CopyWithQueryMediaRecommendationsMedia.stub(_res);
+}
+
+const documentNodeQueryMediaRecommendations = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'MediaRecommendations'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'mediaId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'perPage')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'Media'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'id'),
+            value: VariableNode(name: NameNode(value: 'mediaId')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'recommendations'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'page'),
+                value: VariableNode(name: NameNode(value: 'page')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'perPage'),
+                value: VariableNode(name: NameNode(value: 'perPage')),
+              ),
+              ArgumentNode(
+                name: NameNode(value: 'sort'),
+                value: EnumValueNode(name: NameNode(value: 'RATING_DESC')),
+              ),
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'currentPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'hasNextPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'lastPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'perPage'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'total'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'nodes'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FragmentSpreadNode(
+                    name: NameNode(value: 'RecommendationNode'),
+                    directives: [],
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionRecommendationNode,
+  fragmentDefinitionMediaMin,
+]);
+
+class QueryMediaRecommendationsMedia {
+  QueryMediaRecommendationsMedia({
+    this.recommendations,
+    this.$__typename = 'Media',
+  });
+
+  factory QueryMediaRecommendationsMedia.fromJson(Map<String, dynamic> json) {
+    final l$recommendations = json['recommendations'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaRecommendationsMedia(
+      recommendations: l$recommendations == null
+          ? null
+          : QueryMediaRecommendationsMediarecommendations.fromJson(
+              (l$recommendations as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final QueryMediaRecommendationsMediarecommendations? recommendations;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$recommendations = recommendations;
+    _resultData['recommendations'] = l$recommendations?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$recommendations = recommendations;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$recommendations,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaRecommendationsMedia ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$recommendations = recommendations;
+    final lOther$recommendations = other.recommendations;
+    if (l$recommendations != lOther$recommendations) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaRecommendationsMedia
+    on QueryMediaRecommendationsMedia {
+  CopyWithQueryMediaRecommendationsMedia<QueryMediaRecommendationsMedia>
+      get copyWith => CopyWithQueryMediaRecommendationsMedia(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaRecommendationsMedia<TRes> {
+  factory CopyWithQueryMediaRecommendationsMedia(
+    QueryMediaRecommendationsMedia instance,
+    TRes Function(QueryMediaRecommendationsMedia) then,
+  ) = _CopyWithImplQueryMediaRecommendationsMedia;
+
+  factory CopyWithQueryMediaRecommendationsMedia.stub(TRes res) =
+      _CopyWithStubImplQueryMediaRecommendationsMedia;
+
+  TRes call({
+    QueryMediaRecommendationsMediarecommendations? recommendations,
+    String? $__typename,
+  });
+  CopyWithQueryMediaRecommendationsMediarecommendations<TRes>
+      get recommendations;
+}
+
+class _CopyWithImplQueryMediaRecommendationsMedia<TRes>
+    implements CopyWithQueryMediaRecommendationsMedia<TRes> {
+  _CopyWithImplQueryMediaRecommendationsMedia(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaRecommendationsMedia _instance;
+
+  final TRes Function(QueryMediaRecommendationsMedia) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? recommendations = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaRecommendationsMedia(
+        recommendations: recommendations == _undefined
+            ? _instance.recommendations
+            : (recommendations
+                as QueryMediaRecommendationsMediarecommendations?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryMediaRecommendationsMediarecommendations<TRes>
+      get recommendations {
+    final local$recommendations = _instance.recommendations;
+    return local$recommendations == null
+        ? CopyWithQueryMediaRecommendationsMediarecommendations.stub(
+            _then(_instance))
+        : CopyWithQueryMediaRecommendationsMediarecommendations(
+            local$recommendations, (e) => call(recommendations: e));
+  }
+}
+
+class _CopyWithStubImplQueryMediaRecommendationsMedia<TRes>
+    implements CopyWithQueryMediaRecommendationsMedia<TRes> {
+  _CopyWithStubImplQueryMediaRecommendationsMedia(this._res);
+
+  TRes _res;
+
+  call({
+    QueryMediaRecommendationsMediarecommendations? recommendations,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryMediaRecommendationsMediarecommendations<TRes>
+      get recommendations =>
+          CopyWithQueryMediaRecommendationsMediarecommendations.stub(_res);
+}
+
+class QueryMediaRecommendationsMediarecommendations {
+  QueryMediaRecommendationsMediarecommendations({
+    this.pageInfo,
+    this.nodes,
+    this.$__typename = 'RecommendationConnection',
+  });
+
+  factory QueryMediaRecommendationsMediarecommendations.fromJson(
+      Map<String, dynamic> json) {
+    final l$pageInfo = json['pageInfo'];
+    final l$nodes = json['nodes'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaRecommendationsMediarecommendations(
+      pageInfo: l$pageInfo == null
+          ? null
+          : QueryMediaRecommendationsMediarecommendationspageInfo.fromJson(
+              (l$pageInfo as Map<String, dynamic>)),
+      nodes: (l$nodes as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : FragmentRecommendationNode.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final QueryMediaRecommendationsMediarecommendationspageInfo? pageInfo;
+
+  final List<FragmentRecommendationNode?>? nodes;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$pageInfo = pageInfo;
+    _resultData['pageInfo'] = l$pageInfo?.toJson();
+    final l$nodes = nodes;
+    _resultData['nodes'] = l$nodes?.map((e) => e?.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$pageInfo = pageInfo;
+    final l$nodes = nodes;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$pageInfo,
+      l$nodes == null ? null : Object.hashAll(l$nodes.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaRecommendationsMediarecommendations ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$pageInfo = pageInfo;
+    final lOther$pageInfo = other.pageInfo;
+    if (l$pageInfo != lOther$pageInfo) {
+      return false;
+    }
+    final l$nodes = nodes;
+    final lOther$nodes = other.nodes;
+    if (l$nodes != null && lOther$nodes != null) {
+      if (l$nodes.length != lOther$nodes.length) {
+        return false;
+      }
+      for (int i = 0; i < l$nodes.length; i++) {
+        final l$nodes$entry = l$nodes[i];
+        final lOther$nodes$entry = lOther$nodes[i];
+        if (l$nodes$entry != lOther$nodes$entry) {
+          return false;
+        }
+      }
+    } else if (l$nodes != lOther$nodes) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaRecommendationsMediarecommendations
+    on QueryMediaRecommendationsMediarecommendations {
+  CopyWithQueryMediaRecommendationsMediarecommendations<
+          QueryMediaRecommendationsMediarecommendations>
+      get copyWith => CopyWithQueryMediaRecommendationsMediarecommendations(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaRecommendationsMediarecommendations<TRes> {
+  factory CopyWithQueryMediaRecommendationsMediarecommendations(
+    QueryMediaRecommendationsMediarecommendations instance,
+    TRes Function(QueryMediaRecommendationsMediarecommendations) then,
+  ) = _CopyWithImplQueryMediaRecommendationsMediarecommendations;
+
+  factory CopyWithQueryMediaRecommendationsMediarecommendations.stub(TRes res) =
+      _CopyWithStubImplQueryMediaRecommendationsMediarecommendations;
+
+  TRes call({
+    QueryMediaRecommendationsMediarecommendationspageInfo? pageInfo,
+    List<FragmentRecommendationNode?>? nodes,
+    String? $__typename,
+  });
+  CopyWithQueryMediaRecommendationsMediarecommendationspageInfo<TRes>
+      get pageInfo;
+  TRes nodes(
+      Iterable<FragmentRecommendationNode?>? Function(
+              Iterable<
+                  CopyWithFragmentRecommendationNode<
+                      FragmentRecommendationNode>?>?)
+          _fn);
+}
+
+class _CopyWithImplQueryMediaRecommendationsMediarecommendations<TRes>
+    implements CopyWithQueryMediaRecommendationsMediarecommendations<TRes> {
+  _CopyWithImplQueryMediaRecommendationsMediarecommendations(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaRecommendationsMediarecommendations _instance;
+
+  final TRes Function(QueryMediaRecommendationsMediarecommendations) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? pageInfo = _undefined,
+    Object? nodes = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaRecommendationsMediarecommendations(
+        pageInfo: pageInfo == _undefined
+            ? _instance.pageInfo
+            : (pageInfo
+                as QueryMediaRecommendationsMediarecommendationspageInfo?),
+        nodes: nodes == _undefined
+            ? _instance.nodes
+            : (nodes as List<FragmentRecommendationNode?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryMediaRecommendationsMediarecommendationspageInfo<TRes>
+      get pageInfo {
+    final local$pageInfo = _instance.pageInfo;
+    return local$pageInfo == null
+        ? CopyWithQueryMediaRecommendationsMediarecommendationspageInfo.stub(
+            _then(_instance))
+        : CopyWithQueryMediaRecommendationsMediarecommendationspageInfo(
+            local$pageInfo, (e) => call(pageInfo: e));
+  }
+
+  TRes nodes(
+          Iterable<FragmentRecommendationNode?>? Function(
+                  Iterable<
+                      CopyWithFragmentRecommendationNode<
+                          FragmentRecommendationNode>?>?)
+              _fn) =>
+      call(
+          nodes: _fn(_instance.nodes?.map((e) => e == null
+              ? null
+              : CopyWithFragmentRecommendationNode(
+                  e,
+                  (i) => i,
+                )))?.toList());
+}
+
+class _CopyWithStubImplQueryMediaRecommendationsMediarecommendations<TRes>
+    implements CopyWithQueryMediaRecommendationsMediarecommendations<TRes> {
+  _CopyWithStubImplQueryMediaRecommendationsMediarecommendations(this._res);
+
+  TRes _res;
+
+  call({
+    QueryMediaRecommendationsMediarecommendationspageInfo? pageInfo,
+    List<FragmentRecommendationNode?>? nodes,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryMediaRecommendationsMediarecommendationspageInfo<TRes>
+      get pageInfo =>
+          CopyWithQueryMediaRecommendationsMediarecommendationspageInfo.stub(
+              _res);
+
+  nodes(_fn) => _res;
+}
+
+class QueryMediaRecommendationsMediarecommendationspageInfo {
+  QueryMediaRecommendationsMediarecommendationspageInfo({
+    this.currentPage,
+    this.hasNextPage,
+    this.lastPage,
+    this.perPage,
+    this.total,
+    this.$__typename = 'PageInfo',
+  });
+
+  factory QueryMediaRecommendationsMediarecommendationspageInfo.fromJson(
+      Map<String, dynamic> json) {
+    final l$currentPage = json['currentPage'];
+    final l$hasNextPage = json['hasNextPage'];
+    final l$lastPage = json['lastPage'];
+    final l$perPage = json['perPage'];
+    final l$total = json['total'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaRecommendationsMediarecommendationspageInfo(
+      currentPage: (l$currentPage as int?),
+      hasNextPage: (l$hasNextPage as bool?),
+      lastPage: (l$lastPage as int?),
+      perPage: (l$perPage as int?),
+      total: (l$total as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? currentPage;
+
+  final bool? hasNextPage;
+
+  final int? lastPage;
+
+  final int? perPage;
+
+  final int? total;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$currentPage = currentPage;
+    _resultData['currentPage'] = l$currentPage;
+    final l$hasNextPage = hasNextPage;
+    _resultData['hasNextPage'] = l$hasNextPage;
+    final l$lastPage = lastPage;
+    _resultData['lastPage'] = l$lastPage;
+    final l$perPage = perPage;
+    _resultData['perPage'] = l$perPage;
+    final l$total = total;
+    _resultData['total'] = l$total;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$currentPage = currentPage;
+    final l$hasNextPage = hasNextPage;
+    final l$lastPage = lastPage;
+    final l$perPage = perPage;
+    final l$total = total;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$currentPage,
+      l$hasNextPage,
+      l$lastPage,
+      l$perPage,
+      l$total,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaRecommendationsMediarecommendationspageInfo ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$currentPage = currentPage;
+    final lOther$currentPage = other.currentPage;
+    if (l$currentPage != lOther$currentPage) {
+      return false;
+    }
+    final l$hasNextPage = hasNextPage;
+    final lOther$hasNextPage = other.hasNextPage;
+    if (l$hasNextPage != lOther$hasNextPage) {
+      return false;
+    }
+    final l$lastPage = lastPage;
+    final lOther$lastPage = other.lastPage;
+    if (l$lastPage != lOther$lastPage) {
+      return false;
+    }
+    final l$perPage = perPage;
+    final lOther$perPage = other.perPage;
+    if (l$perPage != lOther$perPage) {
+      return false;
+    }
+    final l$total = total;
+    final lOther$total = other.total;
+    if (l$total != lOther$total) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaRecommendationsMediarecommendationspageInfo
+    on QueryMediaRecommendationsMediarecommendationspageInfo {
+  CopyWithQueryMediaRecommendationsMediarecommendationspageInfo<
+          QueryMediaRecommendationsMediarecommendationspageInfo>
+      get copyWith =>
+          CopyWithQueryMediaRecommendationsMediarecommendationspageInfo(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaRecommendationsMediarecommendationspageInfo<
+    TRes> {
+  factory CopyWithQueryMediaRecommendationsMediarecommendationspageInfo(
+    QueryMediaRecommendationsMediarecommendationspageInfo instance,
+    TRes Function(QueryMediaRecommendationsMediarecommendationspageInfo) then,
+  ) = _CopyWithImplQueryMediaRecommendationsMediarecommendationspageInfo;
+
+  factory CopyWithQueryMediaRecommendationsMediarecommendationspageInfo.stub(
+          TRes res) =
+      _CopyWithStubImplQueryMediaRecommendationsMediarecommendationspageInfo;
+
+  TRes call({
+    int? currentPage,
+    bool? hasNextPage,
+    int? lastPage,
+    int? perPage,
+    int? total,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryMediaRecommendationsMediarecommendationspageInfo<TRes>
+    implements
+        CopyWithQueryMediaRecommendationsMediarecommendationspageInfo<TRes> {
+  _CopyWithImplQueryMediaRecommendationsMediarecommendationspageInfo(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaRecommendationsMediarecommendationspageInfo _instance;
+
+  final TRes Function(QueryMediaRecommendationsMediarecommendationspageInfo)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? currentPage = _undefined,
+    Object? hasNextPage = _undefined,
+    Object? lastPage = _undefined,
+    Object? perPage = _undefined,
+    Object? total = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaRecommendationsMediarecommendationspageInfo(
+        currentPage: currentPage == _undefined
+            ? _instance.currentPage
+            : (currentPage as int?),
+        hasNextPage: hasNextPage == _undefined
+            ? _instance.hasNextPage
+            : (hasNextPage as bool?),
+        lastPage:
+            lastPage == _undefined ? _instance.lastPage : (lastPage as int?),
+        perPage: perPage == _undefined ? _instance.perPage : (perPage as int?),
+        total: total == _undefined ? _instance.total : (total as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryMediaRecommendationsMediarecommendationspageInfo<
+        TRes>
+    implements
+        CopyWithQueryMediaRecommendationsMediarecommendationspageInfo<TRes> {
+  _CopyWithStubImplQueryMediaRecommendationsMediarecommendationspageInfo(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? currentPage,
+    bool? hasNextPage,
+    int? lastPage,
+    int? perPage,
+    int? total,
     String? $__typename,
   }) =>
       _res;

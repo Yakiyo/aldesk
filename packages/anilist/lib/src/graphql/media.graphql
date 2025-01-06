@@ -1,3 +1,11 @@
+fragment RecommendationNode on Recommendation {
+  id
+  rating
+  mediaRecommendation {
+    ...MediaMin  
+  }
+}
+
 query MediaMin(
   $id: Int
   $type: MediaType
@@ -27,6 +35,7 @@ query Media(
   $search: String
   $characterPerPage: Int = 6
   $staffPerPage: Int = 9
+  $recommendationPerPage: Int = 5
 ) {
   Media(
     id: $id
@@ -128,7 +137,11 @@ query Media(
 
     # only get basic info from edge, for info in node, it can
     # be fetched using the id from node
-    characters(page: 1, sort: [ROLE, RELEVANCE, ID], perPage: $characterPerPage) {
+    characters(
+      page: 1
+      sort: [ROLE, RELEVANCE, ID]
+      perPage: $characterPerPage
+    ) {
       pageInfo {
         currentPage
         hasNextPage
@@ -153,7 +166,7 @@ query Media(
         ...StaffEdge
       }
     }
-    
+
     relations {
       edges {
         id
@@ -183,18 +196,16 @@ query Media(
       }
     }
 
-    recommendations(sort: ID_DESC) {
+    recommendations(sort: RATING_DESC, page: 1, perPage: $recommendationPerPage) {
+      pageInfo {
+        currentPage
+        hasNextPage
+        lastPage
+        perPage
+        total
+      }
       nodes {
-        id
-        rating
-        userRating
-        mediaRecommendation {
-          id
-        }
-        user {
-          id
-          name
-        }
+        ...RecommendationNode
       }
     }
     studios {
@@ -282,6 +293,23 @@ query PaginatedMedia(
       meanScore
       favourites
       genres
+    }
+  }
+}
+
+query MediaRecommendations($mediaId: Int, $page: Int, $perPage: Int) {
+  Media(id: $mediaId) {
+    recommendations(page: $page, perPage: $perPage, sort: RATING_DESC) {
+      pageInfo {
+        currentPage
+        hasNextPage
+        lastPage
+        perPage
+        total
+      }
+      nodes {
+        ...RecommendationNode
+      }
     }
   }
 }

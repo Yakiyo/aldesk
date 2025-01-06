@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'staff.dart';
+part of 'recommendations.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$mediaStaffHash() => r'ba8b7886904165b68c7347c7af109101338678b9';
+String _$mediaRecommendationHash() =>
+    r'43aac923978f6faa931c626afdad36fbc3027d7c';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,36 +30,37 @@ class _SystemHash {
   }
 }
 
-abstract class _$MediaStaff
-    extends BuildlessAutoDisposeAsyncNotifier<List<FragmentStaffEdge>> {
+abstract class _$MediaRecommendation extends BuildlessAutoDisposeAsyncNotifier<
+    List<FragmentRecommendationNode>> {
   late final int id;
 
-  FutureOr<List<FragmentStaffEdge>> build(
+  FutureOr<List<FragmentRecommendationNode>> build(
     int id,
   );
 }
 
-/// See also [MediaStaff].
-@ProviderFor(MediaStaff)
-const mediaStaffProvider = MediaStaffFamily();
+/// See also [MediaRecommendation].
+@ProviderFor(MediaRecommendation)
+const mediaRecommendationProvider = MediaRecommendationFamily();
 
-/// See also [MediaStaff].
-class MediaStaffFamily extends Family<AsyncValue<List<FragmentStaffEdge>>> {
-  /// See also [MediaStaff].
-  const MediaStaffFamily();
+/// See also [MediaRecommendation].
+class MediaRecommendationFamily
+    extends Family<AsyncValue<List<FragmentRecommendationNode>>> {
+  /// See also [MediaRecommendation].
+  const MediaRecommendationFamily();
 
-  /// See also [MediaStaff].
-  MediaStaffProvider call(
+  /// See also [MediaRecommendation].
+  MediaRecommendationProvider call(
     int id,
   ) {
-    return MediaStaffProvider(
+    return MediaRecommendationProvider(
       id,
     );
   }
 
   @override
-  MediaStaffProvider getProviderOverride(
-    covariant MediaStaffProvider provider,
+  MediaRecommendationProvider getProviderOverride(
+    covariant MediaRecommendationProvider provider,
   ) {
     return call(
       provider.id,
@@ -77,30 +79,30 @@ class MediaStaffFamily extends Family<AsyncValue<List<FragmentStaffEdge>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'mediaStaffProvider';
+  String? get name => r'mediaRecommendationProvider';
 }
 
-/// See also [MediaStaff].
-class MediaStaffProvider extends AutoDisposeAsyncNotifierProviderImpl<
-    MediaStaff, List<FragmentStaffEdge>> {
-  /// See also [MediaStaff].
-  MediaStaffProvider(
+/// See also [MediaRecommendation].
+class MediaRecommendationProvider extends AutoDisposeAsyncNotifierProviderImpl<
+    MediaRecommendation, List<FragmentRecommendationNode>> {
+  /// See also [MediaRecommendation].
+  MediaRecommendationProvider(
     int id,
   ) : this._internal(
-          () => MediaStaff()..id = id,
-          from: mediaStaffProvider,
-          name: r'mediaStaffProvider',
+          () => MediaRecommendation()..id = id,
+          from: mediaRecommendationProvider,
+          name: r'mediaRecommendationProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$mediaStaffHash,
-          dependencies: MediaStaffFamily._dependencies,
+                  : _$mediaRecommendationHash,
+          dependencies: MediaRecommendationFamily._dependencies,
           allTransitiveDependencies:
-              MediaStaffFamily._allTransitiveDependencies,
+              MediaRecommendationFamily._allTransitiveDependencies,
           id: id,
         );
 
-  MediaStaffProvider._internal(
+  MediaRecommendationProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -113,8 +115,8 @@ class MediaStaffProvider extends AutoDisposeAsyncNotifierProviderImpl<
   final int id;
 
   @override
-  FutureOr<List<FragmentStaffEdge>> runNotifierBuild(
-    covariant MediaStaff notifier,
+  FutureOr<List<FragmentRecommendationNode>> runNotifierBuild(
+    covariant MediaRecommendation notifier,
   ) {
     return notifier.build(
       id,
@@ -122,10 +124,10 @@ class MediaStaffProvider extends AutoDisposeAsyncNotifierProviderImpl<
   }
 
   @override
-  Override overrideWith(MediaStaff Function() create) {
+  Override overrideWith(MediaRecommendation Function() create) {
     return ProviderOverride(
       origin: this,
-      override: MediaStaffProvider._internal(
+      override: MediaRecommendationProvider._internal(
         () => create()..id = id,
         from: from,
         name: null,
@@ -138,14 +140,14 @@ class MediaStaffProvider extends AutoDisposeAsyncNotifierProviderImpl<
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<MediaStaff, List<FragmentStaffEdge>>
-      createElement() {
-    return _MediaStaffProviderElement(this);
+  AutoDisposeAsyncNotifierProviderElement<MediaRecommendation,
+      List<FragmentRecommendationNode>> createElement() {
+    return _MediaRecommendationProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is MediaStaffProvider && other.id == id;
+    return other is MediaRecommendationProvider && other.id == id;
   }
 
   @override
@@ -159,19 +161,19 @@ class MediaStaffProvider extends AutoDisposeAsyncNotifierProviderImpl<
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin MediaStaffRef
-    on AutoDisposeAsyncNotifierProviderRef<List<FragmentStaffEdge>> {
+mixin MediaRecommendationRef
+    on AutoDisposeAsyncNotifierProviderRef<List<FragmentRecommendationNode>> {
   /// The parameter `id` of this provider.
   int get id;
 }
 
-class _MediaStaffProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<MediaStaff,
-        List<FragmentStaffEdge>> with MediaStaffRef {
-  _MediaStaffProviderElement(super.provider);
+class _MediaRecommendationProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<MediaRecommendation,
+        List<FragmentRecommendationNode>> with MediaRecommendationRef {
+  _MediaRecommendationProviderElement(super.provider);
 
   @override
-  int get id => (origin as MediaStaffProvider).id;
+  int get id => (origin as MediaRecommendationProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
