@@ -34,6 +34,7 @@ class InfoList extends StatelessWidget {
         if (isAnime) _tile("Episodes", media.episodes?.toString() ?? "N/A"),
         if (!isAnime) _tile("Chapters", media.chapters?.toString() ?? "N/A"),
         if (isAnime) _tile("Duration", media.duration?.toString() ?? "N/A"),
+        if (!isAnime) _tile("Volumes", media.volumes?.toString() ?? "N/A"),
         _tile(
             "Start Date",
             _dateStr(media.startDate?.day, media.startDate?.month,
