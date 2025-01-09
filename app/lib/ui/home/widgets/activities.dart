@@ -1,4 +1,3 @@
-import 'package:aldesk/ui/home/data/activity.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../config/routing/routes.dart';
 import '../../../config/utils/utils.dart';
 import '../../core/widgets/async_widget.dart';
+import '../data/activity.dart';
 
 class Activities extends ConsumerWidget {
   const Activities({super.key});

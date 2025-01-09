@@ -1,7 +1,8 @@
-import 'package:aldesk/config/utils/utils.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../../config/utils/utils.dart';
 
 class ExternalSiteLinks extends StatelessWidget {
   final List<QueryMediaMediaexternalLinks> sites;

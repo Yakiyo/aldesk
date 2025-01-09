@@ -1,8 +1,8 @@
-import 'package:aldesk/config/routing/routes.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../config/routing/routes.dart';
 import '../../../config/utils/extensions.dart';
 
 class Relations extends StatefulWidget {

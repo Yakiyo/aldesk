@@ -1,8 +1,9 @@
 // utility to convert different notification type to a common type
 
-import 'package:aldesk/config/routing/routes.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
+
+import '../../../config/routing/routes.dart';
 
 /// Convert a notification to a common type
 NotificationUnion transformNotification(

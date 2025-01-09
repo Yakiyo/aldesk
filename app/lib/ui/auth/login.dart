@@ -1,13 +1,13 @@
-import 'package:aldesk/config/routing/routes.dart';
-import 'package:aldesk/ui/core/toast/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'data/token.dart';
+import '../../config/routing/routes.dart';
 import '../../config/utils/utils.dart';
+import '../core/toast/toast.dart';
+import 'data/token.dart';
 
 const _clientId = "20687";
 final Uri _url = Uri.parse(

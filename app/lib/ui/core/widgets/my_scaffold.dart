@@ -1,6 +1,6 @@
-import 'package:aldesk/ui/core/widgets/fab.dart';
 import 'package:flutter/material.dart';
 
+import 'fab.dart';
 import 'side_nav_bar.dart';
 
 class MyScaffold extends StatelessWidget {

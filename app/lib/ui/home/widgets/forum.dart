@@ -1,11 +1,11 @@
 import 'dart:math';
 
-import 'package:aldesk/config/routing/routes.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../config/routing/routes.dart';
 import '../../../config/utils/utils.dart';
 
 class ThreadsGridView extends StatelessWidget {

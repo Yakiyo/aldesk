@@ -1,9 +1,9 @@
-import 'package:aldesk/config/routing/routes.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../config/routing/routes.dart';
 import '../../../config/utils/utils.dart';
 import '../../core/toast/toast.dart';
 import '../../core/widgets/kaomoji.dart';

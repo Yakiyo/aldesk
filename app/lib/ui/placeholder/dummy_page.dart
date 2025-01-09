@@ -1,6 +1,7 @@
-import 'package:aldesk/ui/core/widgets/my_scaffold.dart';
-import 'package:aldesk/ui/core/widgets/kaomoji.dart';
 import 'package:flutter/material.dart';
+
+import '../core/widgets/kaomoji.dart';
+import '../core/widgets/my_scaffold.dart';
 
 class DummyPage extends StatelessWidget {
   const DummyPage({super.key});

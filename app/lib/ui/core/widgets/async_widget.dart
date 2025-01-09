@@ -1,10 +1,10 @@
-import 'package:aldesk/ui/core/toast/toast.dart';
 import 'package:async_builder/async_builder.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../config/utils/utils.dart';
+import '../toast/toast.dart';
 import 'kaomoji.dart';
 
 /// A widget that builds itself based on the latest snapshot of a future.

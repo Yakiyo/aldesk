@@ -1,5 +1,3 @@
-import 'package:aldesk/config/utils/utils.dart';
-import 'package:aldesk/ui/core/toast/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,6 +6,8 @@ import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../config/package/package.dart';
+import '../../../config/utils/utils.dart';
+import '../toast/toast.dart';
 
 class AboutDialogWidget extends ConsumerWidget {
   const AboutDialogWidget({super.key});

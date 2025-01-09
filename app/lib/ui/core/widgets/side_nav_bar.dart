@@ -1,10 +1,10 @@
-import 'package:aldesk/config/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
 
 import '../../../config/package/package.dart';
+import '../../../config/routing/routes.dart';
 import '../../../config/utils/utils.dart';
 import '../../notifications/data/provider.dart';
 import 'about.dart';
