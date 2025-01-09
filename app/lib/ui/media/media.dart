@@ -63,7 +63,7 @@ class MediaPageBody extends StatelessWidget {
           siteUrl: media.siteUrl,
           banner: media.bannerImage,
           coverImage: media.coverImage?.large,
-          title: media.title?.romaji,
+          title: media.title?.userPreferred,
           description: media.description),
       _headerText("Details"),
       Padding(
