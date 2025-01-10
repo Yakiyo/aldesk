@@ -26,6 +26,7 @@ class Token {
   final String token;
   late final DateTime exp;
   late final DateTime iat;
+
   /// effectively the user's id
   late final String sub;
 

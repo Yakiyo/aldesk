@@ -54,7 +54,8 @@ class MediaPageBody extends StatelessWidget {
   List<QueryMediaMediatags> get tags => media.tags?.filterNull() ?? [];
   List<QueryMediaMediarelationsedges> get relations =>
       media.relations?.edges?.filterNull() ?? [];
-  List<QueryMediaMediaexternalLinks> get _externalLinks => media.externalLinks?.filterNull() ?? [];
+  List<QueryMediaMediaexternalLinks> get _externalLinks =>
+      media.externalLinks?.filterNull() ?? [];
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +65,8 @@ class MediaPageBody extends StatelessWidget {
           banner: media.bannerImage,
           coverImage: media.coverImage?.large,
           title: media.title?.userPreferred,
-          description: media.description),
+          description: media.description,
+          mediaId: media.id),
       _headerText("Details"),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

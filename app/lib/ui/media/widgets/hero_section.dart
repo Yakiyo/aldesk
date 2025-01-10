@@ -4,11 +4,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../data/utils.dart';
+import 'form.dart';
 
 const _coverImageWidth = 215.0;
 
 /// Displays the page's banner image, cover image, title, and description section
 class HeroSection extends StatelessWidget {
+  final int mediaId;
   final String? banner;
   final String? coverImage;
   final String? title;
@@ -20,7 +22,8 @@ class HeroSection extends StatelessWidget {
       this.coverImage,
       this.title,
       this.description,
-      this.siteUrl});
+      this.siteUrl,
+      required this.mediaId});
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +83,12 @@ class HeroSection extends StatelessWidget {
                   else
                     const SizedBox(width: _coverImageWidth, height: 300),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => MediaListForm(mediaId: mediaId),
+                      );
+                    },
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                           vertical: 10, horizontal: 20),

@@ -51,7 +51,8 @@ String monthFromInt(int num) {
 }
 
 extension TagType on QueryMediaMediatags {
-  bool get isSpoiler => (isGeneralSpoiler ?? false) || (isMediaSpoiler ?? false);
+  bool get isSpoiler =>
+      (isGeneralSpoiler ?? false) || (isMediaSpoiler ?? false);
   bool get adult => (isAdult ?? false);
   bool get isRegular => !isSpoiler && !adult;
 }

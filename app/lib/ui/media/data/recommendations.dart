@@ -13,8 +13,8 @@ class MediaRecommendation extends _$MediaRecommendation {
   var _perPage = 5;
   @override
   FutureOr<List<FragmentRecommendationNode>> build(int id) async {
-    final res = await ref
-        .watch(mediaItemProvider(id).selectAsync((media) => media.recommendations));
+    final res = await ref.watch(
+        mediaItemProvider(id).selectAsync((media) => media.recommendations));
     if (res == null) {
       return [];
     }
@@ -26,7 +26,8 @@ class MediaRecommendation extends _$MediaRecommendation {
   void loadMore() async {
     if (!_hasNext) return;
     _page++;
-    final res = await mediaRecommendations(id: id, page: _page, perPage: _perPage);
+    final res =
+        await mediaRecommendations(id: id, page: _page, perPage: _perPage);
     _hasNext = res.pageInfo?.hasNextPage ?? false;
     final prevState = await future;
     state = AsyncData([...prevState, ...(res.nodes?.filterNull() ?? [])]);

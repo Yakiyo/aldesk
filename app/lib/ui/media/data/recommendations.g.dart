@@ -7,7 +7,7 @@ part of 'recommendations.dart';
 // **************************************************************************
 
 String _$mediaRecommendationHash() =>
-    r'43aac923978f6faa931c626afdad36fbc3027d7c';
+    r'3d3edc5fe5fe8998a44e629376edf251d930efcf';
 
 /// Copied from Dart SDK
 class _SystemHash {

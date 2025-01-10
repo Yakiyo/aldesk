@@ -21,7 +21,8 @@ class ExternalSiteLinks extends StatelessWidget {
               tooltip: site.type?.name.toLowerCase().capitalize(),
               color: site.color != null
                   ? WidgetStatePropertyAll(fromHex(site.color!))
-                  : WidgetStatePropertyAll(Theme.of(context).colorScheme.secondary),
+                  : WidgetStatePropertyAll(
+                      Theme.of(context).colorScheme.secondary),
               avatar: site.icon != null
                   ? ClipRRect(
                       borderRadius: BorderRadius.circular(5),
@@ -30,7 +31,8 @@ class ExternalSiteLinks extends StatelessWidget {
                   : null,
               label: Text(
                 "${site.site} ${site.language != null ? '(${site.language})' : ""}",
-                  style: TextStyle(color: site.color != null ? Colors.white : null),
+                style:
+                    TextStyle(color: site.color != null ? Colors.white : null),
               ),
               onPressed: () => launchUrl(Uri.parse(site.url!)),
             ),

@@ -51,10 +51,14 @@ class AsyncWidgetConsumer<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return value.when(
-        data: (data) => builder(context, data),
-        error: (error, stackTrace) => this.error(context, error, stackTrace),
-        loading: () => loading(context));
+    switch (value) {
+      case AsyncData(:final value):
+        return builder(context, value);
+      case AsyncError(:final error, :final stackTrace):
+        return this.error(context, error, stackTrace);
+      default:
+        return loading(context);
+    }
   }
 }
 
@@ -64,11 +68,12 @@ Widget _defaultLoading(BuildContext context) {
 
 Widget _defaultError(
     BuildContext context, Object error, StackTrace? stackTrace) {
-  displayError("Error when fetching data from API", message: error.toString());
   logger.e(
     "Error when fetching data from API",
     error: error,
     stackTrace: stackTrace,
   );
+  displayError("Error when fetching data from API",
+      message: error.toString(), context: context);
   return const Icon(Icons.error);
 }

@@ -74,6 +74,7 @@ GoRouter router(Ref ref) {
         GoRoute(
             path: Routes.staff, builder: (context, state) => const DummyPage()),
         GoRoute(
-            path: Routes.studio, builder: (context, state) => const DummyPage()),
+            path: Routes.studio,
+            builder: (context, state) => const DummyPage()),
       ]);
 }
