@@ -1,8 +1,12 @@
+import 'package:aldesk/ui/media/data/media_list.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../config/utils/utils.dart';
+import '../../core/toast/toast.dart';
 import '../data/utils.dart';
 import 'form.dart';
 
@@ -98,13 +102,7 @@ class HeroSection extends StatelessWidget {
                         color: Colors.blue,
                       ),
                       child: Center(
-                        child: Text(
-                          "Edit List Entry",
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium
-                              ?.copyWith(color: Colors.white),
-                        ),
+                        child: ListEntryEditorButton(mediaId: mediaId),
                       ),
                     ),
                   )
@@ -122,5 +120,39 @@ class HeroSection extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class ListEntryEditorButton extends ConsumerWidget {
+  final int mediaId;
+  const ListEntryEditorButton({super.key, required this.mediaId});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final status = ref.watch(mediaListStatusProvider(mediaId));
+    switch (status) {
+      case AsyncData(:final value):
+        return Row(
+          spacing: 10,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Icon(Icons.arrow_drop_down, color: Colors.white),
+            Text(value,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: Colors.white)),
+          ],
+        );
+      case AsyncError(:final error, :final stackTrace):
+        logger.e("Error when fetching list status",
+            error: error, stackTrace: stackTrace);
+        displayError("Error when fetching list status", context: context);
+        return const Icon(Icons.error, color: Colors.white);
+      default:
+        return const CircularProgressIndicator(
+            color: Colors.white, strokeWidth: 3);
+    }
   }
 }

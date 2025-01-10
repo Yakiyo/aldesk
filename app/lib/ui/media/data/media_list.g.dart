@@ -6,7 +6,7 @@ part of 'media_list.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$mediaListItemHash() => r'06b87f8c54f1e0f1be867f692a2f1084eae2370a';
+String _$mediaListStatusHash() => r'ac32a8c0cf6294553eed3b1ae5963b371f831f25';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,8 +29,138 @@ class _SystemHash {
   }
 }
 
+/// See also [mediaListStatus].
+@ProviderFor(mediaListStatus)
+const mediaListStatusProvider = MediaListStatusFamily();
+
+/// See also [mediaListStatus].
+class MediaListStatusFamily extends Family<AsyncValue<String>> {
+  /// See also [mediaListStatus].
+  const MediaListStatusFamily();
+
+  /// See also [mediaListStatus].
+  MediaListStatusProvider call(
+    int mediaId,
+  ) {
+    return MediaListStatusProvider(
+      mediaId,
+    );
+  }
+
+  @override
+  MediaListStatusProvider getProviderOverride(
+    covariant MediaListStatusProvider provider,
+  ) {
+    return call(
+      provider.mediaId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'mediaListStatusProvider';
+}
+
+/// See also [mediaListStatus].
+class MediaListStatusProvider extends AutoDisposeFutureProvider<String> {
+  /// See also [mediaListStatus].
+  MediaListStatusProvider(
+    int mediaId,
+  ) : this._internal(
+          (ref) => mediaListStatus(
+            ref as MediaListStatusRef,
+            mediaId,
+          ),
+          from: mediaListStatusProvider,
+          name: r'mediaListStatusProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$mediaListStatusHash,
+          dependencies: MediaListStatusFamily._dependencies,
+          allTransitiveDependencies:
+              MediaListStatusFamily._allTransitiveDependencies,
+          mediaId: mediaId,
+        );
+
+  MediaListStatusProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.mediaId,
+  }) : super.internal();
+
+  final int mediaId;
+
+  @override
+  Override overrideWith(
+    FutureOr<String> Function(MediaListStatusRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: MediaListStatusProvider._internal(
+        (ref) => create(ref as MediaListStatusRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        mediaId: mediaId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<String> createElement() {
+    return _MediaListStatusProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is MediaListStatusProvider && other.mediaId == mediaId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, mediaId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin MediaListStatusRef on AutoDisposeFutureProviderRef<String> {
+  /// The parameter `mediaId` of this provider.
+  int get mediaId;
+}
+
+class _MediaListStatusProviderElement
+    extends AutoDisposeFutureProviderElement<String> with MediaListStatusRef {
+  _MediaListStatusProviderElement(super.provider);
+
+  @override
+  int get mediaId => (origin as MediaListStatusProvider).mediaId;
+}
+
+String _$mediaListItemHash() => r'5e27ea30eac3b357bedb23b03897a2d470baffca';
+
 abstract class _$MediaListItem
-    extends BuildlessAsyncNotifier<FragmentMediaList?> {
+    extends BuildlessAutoDisposeAsyncNotifier<FragmentMediaList?> {
   late final int mediaId;
 
   FutureOr<FragmentMediaList?> build(
@@ -81,8 +211,8 @@ class MediaListItemFamily extends Family<AsyncValue<FragmentMediaList?>> {
 }
 
 /// See also [MediaListItem].
-class MediaListItemProvider
-    extends AsyncNotifierProviderImpl<MediaListItem, FragmentMediaList?> {
+class MediaListItemProvider extends AutoDisposeAsyncNotifierProviderImpl<
+    MediaListItem, FragmentMediaList?> {
   /// See also [MediaListItem].
   MediaListItemProvider(
     int mediaId,
@@ -138,7 +268,7 @@ class MediaListItemProvider
   }
 
   @override
-  AsyncNotifierProviderElement<MediaListItem, FragmentMediaList?>
+  AutoDisposeAsyncNotifierProviderElement<MediaListItem, FragmentMediaList?>
       createElement() {
     return _MediaListItemProviderElement(this);
   }
@@ -159,14 +289,15 @@ class MediaListItemProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin MediaListItemRef on AsyncNotifierProviderRef<FragmentMediaList?> {
+mixin MediaListItemRef
+    on AutoDisposeAsyncNotifierProviderRef<FragmentMediaList?> {
   /// The parameter `mediaId` of this provider.
   int get mediaId;
 }
 
 class _MediaListItemProviderElement
-    extends AsyncNotifierProviderElement<MediaListItem, FragmentMediaList?>
-    with MediaListItemRef {
+    extends AutoDisposeAsyncNotifierProviderElement<MediaListItem,
+        FragmentMediaList?> with MediaListItemRef {
   _MediaListItemProviderElement(super.provider);
 
   @override

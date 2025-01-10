@@ -1,28 +1,39 @@
-import 'package:aldesk/config/utils/extensions.dart';
-import 'package:aldesk/ui/auth/data/token.dart';
-import 'package:anilist/models.dart';
 import 'package:anilist/anilist.dart';
+import 'package:anilist/models.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../../../config/utils/extensions.dart';
+import '../../auth/data/token.dart';
 
 part 'media_list.g.dart';
 
-@Riverpod(keepAlive: true)
+@riverpod
 class MediaListItem extends _$MediaListItem {
   @override
   FutureOr<FragmentMediaList?> build(int mediaId) async {
-    ref.invalidateAfter(const Duration(minutes: 3));
     final userId =
         await ref.read(authUserProvider.selectAsync((user) => user.id));
     try {
       final entry = await mediaListEntry(mediaId: mediaId, userId: userId);
       return entry;
     } on ApiErrors catch (e) {
-      if (e.errors.any((element) => element.message.toLowerCase().contains("not found"))) {
+      if (e.errors.any(
+          (element) => element.message.toLowerCase().contains("not found"))) {
         return null;
       }
       rethrow;
     }
   }
+}
+
+@riverpod
+FutureOr<String> mediaListStatus(Ref ref, int mediaId) async {
+  final status = await ref.watch(
+      mediaListItemProvider(mediaId).selectAsync((entry) => entry?.status));
+  return status == null
+      ? "Add to list"
+      : status.name.toLowerCase().capitalize();
 }
 
 @riverpod
