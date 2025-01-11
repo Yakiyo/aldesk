@@ -42,6 +42,7 @@ class _MediaEntryState extends State<_MediaEntry> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      hoverColor: Colors.transparent,
       onTap: () {
         context.push(Routes.mediaWithId(widget.media.id));
       },
