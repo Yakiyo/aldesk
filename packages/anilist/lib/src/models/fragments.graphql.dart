@@ -842,6 +842,7 @@ class FragmentMediaList {
     this.startedAt,
     this.completedAt,
     this.priority,
+    this.customLists,
     this.updatedAt,
     this.createdAt,
     this.$__typename = 'MediaList',
@@ -862,6 +863,7 @@ class FragmentMediaList {
     final l$startedAt = json['startedAt'];
     final l$completedAt = json['completedAt'];
     final l$priority = json['priority'];
+    final l$customLists = json['customLists'];
     final l$updatedAt = json['updatedAt'];
     final l$createdAt = json['createdAt'];
     final l$$__typename = json['__typename'];
@@ -890,6 +892,7 @@ class FragmentMediaList {
           : FragmentMediaListcompletedAt.fromJson(
               (l$completedAt as Map<String, dynamic>)),
       priority: (l$priority as int?),
+      customLists: (l$customLists as Map<String, dynamic>?),
       updatedAt: (l$updatedAt as int?),
       createdAt: (l$createdAt as int?),
       $__typename: (l$$__typename as String),
@@ -923,6 +926,8 @@ class FragmentMediaList {
   final FragmentMediaListcompletedAt? completedAt;
 
   final int? priority;
+
+  final Map<String, dynamic>? customLists;
 
   final int? updatedAt;
 
@@ -961,6 +966,8 @@ class FragmentMediaList {
     _resultData['completedAt'] = l$completedAt?.toJson();
     final l$priority = priority;
     _resultData['priority'] = l$priority;
+    final l$customLists = customLists;
+    _resultData['customLists'] = l$customLists;
     final l$updatedAt = updatedAt;
     _resultData['updatedAt'] = l$updatedAt;
     final l$createdAt = createdAt;
@@ -986,6 +993,7 @@ class FragmentMediaList {
     final l$startedAt = startedAt;
     final l$completedAt = completedAt;
     final l$priority = priority;
+    final l$customLists = customLists;
     final l$updatedAt = updatedAt;
     final l$createdAt = createdAt;
     final l$$__typename = $__typename;
@@ -1004,6 +1012,7 @@ class FragmentMediaList {
       l$startedAt,
       l$completedAt,
       l$priority,
+      l$customLists,
       l$updatedAt,
       l$createdAt,
       l$$__typename,
@@ -1088,6 +1097,11 @@ class FragmentMediaList {
     if (l$priority != lOther$priority) {
       return false;
     }
+    final l$customLists = customLists;
+    final lOther$customLists = other.customLists;
+    if (l$customLists != lOther$customLists) {
+      return false;
+    }
     final l$updatedAt = updatedAt;
     final lOther$updatedAt = other.updatedAt;
     if (l$updatedAt != lOther$updatedAt) {
@@ -1139,6 +1153,7 @@ abstract class CopyWithFragmentMediaList<TRes> {
     FragmentMediaListstartedAt? startedAt,
     FragmentMediaListcompletedAt? completedAt,
     int? priority,
+    Map<String, dynamic>? customLists,
     int? updatedAt,
     int? createdAt,
     String? $__typename,
@@ -1176,6 +1191,7 @@ class _CopyWithImplFragmentMediaList<TRes>
     Object? startedAt = _undefined,
     Object? completedAt = _undefined,
     Object? priority = _undefined,
+    Object? customLists = _undefined,
     Object? updatedAt = _undefined,
     Object? createdAt = _undefined,
     Object? $__typename = _undefined,
@@ -1211,6 +1227,9 @@ class _CopyWithImplFragmentMediaList<TRes>
             : (completedAt as FragmentMediaListcompletedAt?),
         priority:
             priority == _undefined ? _instance.priority : (priority as int?),
+        customLists: customLists == _undefined
+            ? _instance.customLists
+            : (customLists as Map<String, dynamic>?),
         updatedAt:
             updatedAt == _undefined ? _instance.updatedAt : (updatedAt as int?),
         createdAt:
@@ -1265,6 +1284,7 @@ class _CopyWithStubImplFragmentMediaList<TRes>
     FragmentMediaListstartedAt? startedAt,
     FragmentMediaListcompletedAt? completedAt,
     int? priority,
+    Map<String, dynamic>? customLists,
     int? updatedAt,
     int? createdAt,
     String? $__typename,
@@ -1510,6 +1530,18 @@ const fragmentDefinitionMediaList = FragmentDefinitionNode(
       name: NameNode(value: 'priority'),
       alias: null,
       arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'customLists'),
+      alias: null,
+      arguments: [
+        ArgumentNode(
+          name: NameNode(value: 'asArray'),
+          value: BooleanValueNode(value: false),
+        )
+      ],
       directives: [],
       selectionSet: null,
     ),

@@ -7,3 +7,8 @@ targets:
         options:
           outputDirectory: ../models
           namingSeparator: ""
+          scalars:
+            Json:
+              type: Map<String, dynamic>
+            CountryCode:
+              type: String

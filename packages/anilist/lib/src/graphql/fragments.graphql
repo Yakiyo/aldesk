@@ -57,7 +57,7 @@ fragment MediaList on MediaList {
   }
   priority
   # this breaks codegen cz dart:convert makes it Map<String, dynamic> while codegen expects a String bcz its a Json
-  # customLists(asArray: false)
+  customLists(asArray: false)
   updatedAt
   createdAt
 }
