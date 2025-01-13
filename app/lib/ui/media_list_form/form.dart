@@ -6,12 +6,12 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
-import '../../../config/utils/extensions.dart';
-import '../../../config/utils/utils.dart';
-import '../../core/toast/toast.dart';
-import '../../core/widgets/async_widget.dart';
-import '../data/media.dart';
-import '../data/media_list.dart';
+import '../../config/utils/extensions.dart';
+import '../../config/utils/utils.dart';
+import '../core/toast/toast.dart';
+import '../core/widgets/async_widget.dart';
+import '../media/data/media.dart';
+import 'data/media_list.dart';
 
 class MediaListForm extends ConsumerWidget {
   final int mediaId;

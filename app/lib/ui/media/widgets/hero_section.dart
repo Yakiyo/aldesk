@@ -1,14 +1,14 @@
-import 'package:aldesk/ui/media/data/media_list.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../config/utils/utils.dart';
 import '../../core/toast/toast.dart';
+import '../../media_list_form/data/media_list.dart';
+import '../../media_list_form/form.dart';
 import '../data/utils.dart';
-import 'form.dart';
 
 const _coverImageWidth = 215.0;
 
