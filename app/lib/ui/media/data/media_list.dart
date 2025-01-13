@@ -10,8 +10,10 @@ part 'media_list.g.dart';
 
 @riverpod
 class MediaListItem extends _$MediaListItem {
+  late int _mediaId;
   @override
   FutureOr<FragmentMediaList?> build(int mediaId) async {
+    _mediaId = mediaId;
     final userId =
         await ref.read(authUserProvider.selectAsync((user) => user.id));
     try {
@@ -24,6 +26,28 @@ class MediaListItem extends _$MediaListItem {
       }
       rethrow;
     }
+  }
+
+  Future<void> updateData(MediaListFormData data) async {
+    final mediaList = await saveMediaListEntry(
+        mediaId: _mediaId,
+        private: data.private,
+        progress: data.progress,
+        progressVolumes: data.progressVolumes,
+        status: data.status,
+        score: data.score.toDouble(),
+        repeat: data.repeat,
+        notes: data.notes,
+        startedAt: InputFuzzyDateInput(
+            year: data.startedAt?.year,
+            month: data.startedAt?.month,
+            day: data.startedAt?.day),
+        completedAt: InputFuzzyDateInput(
+          year: data.completedAt?.year,
+          month: data.completedAt?.month,
+          day: data.completedAt?.day,
+        ));
+    state = AsyncData(mediaList);
   }
 }
 
@@ -47,7 +71,12 @@ class FormData extends _$FormData {
       return MediaListFormData.defaultValue();
     }
 
+    final lists =
+        entry.customLists?.map((key, value) => MapEntry(key, value as bool)) ??
+            {};
+
     return MediaListFormData(
+        customLists: lists,
         status: entry.status,
         score: entry.score?.toInt() ?? 0,
         progress: entry.progress ?? 0,
@@ -59,13 +88,14 @@ class FormData extends _$FormData {
             entry.startedAt?.day),
         completedAt: fromFuzzyDate(entry.completedAt?.year,
             entry.completedAt?.month, entry.completedAt?.day),
-        notes: entry.notes);
+        notes: entry.notes,
+        isFavourite: entry.media?.isFavourite ?? false);
   }
 
-  void updateData() {
-    // TODO: make api call here
-
-    ref.invalidate(mediaListItemProvider(_mediaId));
+  Future<void> updateData(MediaListFormData newData) {
+    return ref
+        .read(mediaListItemProvider(_mediaId).notifier)
+        .updateData(newData);
   }
 }
 
@@ -77,6 +107,7 @@ DateTime? fromFuzzyDate(int? year, int? month, int? day) {
 }
 
 class MediaListFormData {
+  final Map<String, bool> customLists;
   final EnumMediaListStatus? status;
   final int score;
   final int progress;
@@ -84,6 +115,7 @@ class MediaListFormData {
   final int repeat;
   final bool private;
   final bool hiddenFromStatusLists;
+  final bool isFavourite;
   final DateTime? startedAt;
   final DateTime? completedAt;
   final String? notes;
@@ -98,7 +130,9 @@ class MediaListFormData {
       required this.hiddenFromStatusLists,
       required this.startedAt,
       required this.completedAt,
-      required this.notes});
+      required this.notes,
+      required this.isFavourite,
+      this.customLists = const {}});
 
   MediaListFormData copyWith({
     EnumMediaListStatus? status,
@@ -111,6 +145,8 @@ class MediaListFormData {
     DateTime? startedAt,
     DateTime? completedAt,
     String? notes,
+    bool? isFavourite,
+    Map<String, bool>? customLists,
   }) {
     return MediaListFormData(
       status: status ?? this.status,
@@ -124,6 +160,8 @@ class MediaListFormData {
       startedAt: startedAt ?? this.startedAt,
       completedAt: completedAt ?? this.completedAt,
       notes: notes ?? this.notes,
+      isFavourite: isFavourite ?? this.isFavourite,
+      customLists: customLists ?? this.customLists,
     );
   }
 
@@ -139,6 +177,8 @@ class MediaListFormData {
       startedAt: DateTime.now(),
       completedAt: null,
       notes: null,
+      isFavourite: false,
+      customLists: {},
     );
   }
 }

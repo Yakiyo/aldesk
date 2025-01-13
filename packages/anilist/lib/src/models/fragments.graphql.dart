@@ -1335,6 +1335,13 @@ const fragmentDefinitionMediaList = FragmentDefinitionNode(
           directives: [],
         ),
         FieldNode(
+          name: NameNode(value: 'isFavourite'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
           name: NameNode(value: 'nextAiringEpisode'),
           alias: null,
           arguments: [],
@@ -1585,6 +1592,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     this.coverImage,
     this.bannerImage,
     this.$__typename = 'Media',
+    required this.isFavourite,
     this.nextAiringEpisode,
   });
 
@@ -1599,6 +1607,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     final l$coverImage = json['coverImage'];
     final l$bannerImage = json['bannerImage'];
     final l$$__typename = json['__typename'];
+    final l$isFavourite = json['isFavourite'];
     final l$nextAiringEpisode = json['nextAiringEpisode'];
     return FragmentMediaListmedia(
       id: (l$id as int),
@@ -1621,6 +1630,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
               (l$coverImage as Map<String, dynamic>)),
       bannerImage: (l$bannerImage as String?),
       $__typename: (l$$__typename as String),
+      isFavourite: (l$isFavourite as bool),
       nextAiringEpisode: l$nextAiringEpisode == null
           ? null
           : FragmentMediaListmedianextAiringEpisode.fromJson(
@@ -1648,6 +1658,8 @@ class FragmentMediaListmedia implements FragmentMediaMin {
 
   final String $__typename;
 
+  final bool isFavourite;
+
   final FragmentMediaListmedianextAiringEpisode? nextAiringEpisode;
 
   Map<String, dynamic> toJson() {
@@ -1674,6 +1686,8 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     _resultData['bannerImage'] = l$bannerImage;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
+    final l$isFavourite = isFavourite;
+    _resultData['isFavourite'] = l$isFavourite;
     final l$nextAiringEpisode = nextAiringEpisode;
     _resultData['nextAiringEpisode'] = l$nextAiringEpisode?.toJson();
     return _resultData;
@@ -1691,6 +1705,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     final l$coverImage = coverImage;
     final l$bannerImage = bannerImage;
     final l$$__typename = $__typename;
+    final l$isFavourite = isFavourite;
     final l$nextAiringEpisode = nextAiringEpisode;
     return Object.hashAll([
       l$id,
@@ -1703,6 +1718,7 @@ class FragmentMediaListmedia implements FragmentMediaMin {
       l$coverImage,
       l$bannerImage,
       l$$__typename,
+      l$isFavourite,
       l$nextAiringEpisode,
     ]);
   }
@@ -1765,6 +1781,11 @@ class FragmentMediaListmedia implements FragmentMediaMin {
     if (l$$__typename != lOther$$__typename) {
       return false;
     }
+    final l$isFavourite = isFavourite;
+    final lOther$isFavourite = other.isFavourite;
+    if (l$isFavourite != lOther$isFavourite) {
+      return false;
+    }
     final l$nextAiringEpisode = nextAiringEpisode;
     final lOther$nextAiringEpisode = other.nextAiringEpisode;
     if (l$nextAiringEpisode != lOther$nextAiringEpisode) {
@@ -1802,6 +1823,7 @@ abstract class CopyWithFragmentMediaListmedia<TRes> {
     FragmentMediaListmediacoverImage? coverImage,
     String? bannerImage,
     String? $__typename,
+    bool? isFavourite,
     FragmentMediaListmedianextAiringEpisode? nextAiringEpisode,
   });
   CopyWithFragmentMediaListmediatitle<TRes> get title;
@@ -1833,6 +1855,7 @@ class _CopyWithImplFragmentMediaListmedia<TRes>
     Object? coverImage = _undefined,
     Object? bannerImage = _undefined,
     Object? $__typename = _undefined,
+    Object? isFavourite = _undefined,
     Object? nextAiringEpisode = _undefined,
   }) =>
       _then(FragmentMediaListmedia(
@@ -1860,6 +1883,9 @@ class _CopyWithImplFragmentMediaListmedia<TRes>
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
+        isFavourite: isFavourite == _undefined || isFavourite == null
+            ? _instance.isFavourite
+            : (isFavourite as bool),
         nextAiringEpisode: nextAiringEpisode == _undefined
             ? _instance.nextAiringEpisode
             : (nextAiringEpisode as FragmentMediaListmedianextAiringEpisode?),
@@ -1907,6 +1933,7 @@ class _CopyWithStubImplFragmentMediaListmedia<TRes>
     FragmentMediaListmediacoverImage? coverImage,
     String? bannerImage,
     String? $__typename,
+    bool? isFavourite,
     FragmentMediaListmedianextAiringEpisode? nextAiringEpisode,
   }) =>
       _res;

@@ -29,6 +29,7 @@ fragment MediaList on MediaList {
   userId
   media {
     ...MediaMin
+    isFavourite
     nextAiringEpisode {
       id
       airingAt

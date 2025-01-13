@@ -1,6 +1,8 @@
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 
+import 'consts.dart';
+
 /// Get a single mediaList entry
 ///
 /// Either [entryId] must be provided or [mediaId] with one of [userId] or [username]
@@ -127,4 +129,47 @@ ReturnType<FragmentMediaList> incrementProgress(
       ).toJson());
 
   return MutationSaveMediaListEntry.fromJson(value).SaveMediaListEntry!;
+}
+
+/// Updates or creates a media list entry for authenticated user.
+///
+/// Either [id] or [mediaId] must be provided. For creating a new entry, use [mediaId],
+/// while for updating an existing entry, using either of them works.
+ReturnType<FragmentMediaList> saveMediaListEntry({
+  int? mediaListId,
+  int? progress,
+  int? mediaId,
+  EnumMediaListStatus? status,
+  double? score,
+  int? progressVolumes,
+  int? repeat,
+  bool? private,
+  String? notes,
+  InputFuzzyDateInput? startedAt,
+  InputFuzzyDateInput? completedAt,
+}) async {
+  if (!isAuthed()) throw AuthError();
+  if (mediaListId == null && mediaId == null) {
+    throw ArgumentError("Either mediaListId or mediaId must be provided",
+        "mediaListId, mediaId");
+  }
+  final variables = VariablesMutationSaveMediaListEntry(
+          mediaListId: mediaListId,
+          mediaId: mediaId,
+          progress: progress,
+          status: status,
+          score: score,
+          progressVolumes: progressVolumes,
+          repeat: repeat,
+          private: private,
+          notes: notes,
+          startedAt: startedAt,
+          completedAt: completedAt)
+      .toJson();
+
+  return request(
+          query: printNode(documentNodeMutationSaveMediaListEntry),
+          variables: variables)
+      .then((value) =>
+          MutationSaveMediaListEntry.fromJson(value).SaveMediaListEntry!);
 }

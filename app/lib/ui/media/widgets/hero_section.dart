@@ -132,19 +132,11 @@ class ListEntryEditorButton extends ConsumerWidget {
     final status = ref.watch(mediaListStatusProvider(mediaId));
     switch (status) {
       case AsyncData(:final value):
-        return Row(
-          spacing: 10,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Icon(Icons.arrow_drop_down, color: Colors.white),
-            Text(value,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(color: Colors.white)),
-          ],
-        );
+        return Text(value,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(color: Colors.white));
       case AsyncError(:final error, :final stackTrace):
         logger.e("Error when fetching list status",
             error: error, stackTrace: stackTrace);
