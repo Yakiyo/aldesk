@@ -157,7 +157,7 @@ class _MediaListStatusProviderElement
   int get mediaId => (origin as MediaListStatusProvider).mediaId;
 }
 
-String _$mediaListItemHash() => r'5e27ea30eac3b357bedb23b03897a2d470baffca';
+String _$mediaListItemHash() => r'670128a198565cf5a69dfeec53594820fb087aae';
 
 abstract class _$MediaListItem
     extends BuildlessAutoDisposeAsyncNotifier<FragmentMediaList?> {
@@ -304,7 +304,7 @@ class _MediaListItemProviderElement
   int get mediaId => (origin as MediaListItemProvider).mediaId;
 }
 
-String _$formDataHash() => r'c701e5cc571dd9cc676e2325b788a00b32868772';
+String _$formDataHash() => r'dc73c3ce01633360b8c4da304054d7189e267000';
 
 abstract class _$FormData
     extends BuildlessAutoDisposeAsyncNotifier<MediaListFormData> {

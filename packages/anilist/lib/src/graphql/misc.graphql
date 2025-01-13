@@ -17,3 +17,17 @@ query MdToHtml($markdown: String!) {
     html
   }
 }
+
+# Get all genres
+query GenreTags {
+  GenreCollection
+  MediaTagCollection {
+    id
+    name
+    description
+    category
+    isAdult
+    isGeneralSpoiler
+    isMediaSpoiler
+  }
+}

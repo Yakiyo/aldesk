@@ -7,6 +7,10 @@ abstract class Routes {
   static const settings = '/settings';
   static const libraryAnime = '/library/anime';
   static const libraryManga = '/library/manga';
+  static const animelist = '/animelist/:id';
+  static String animelistWithId(int id) => '/animelist/$id';
+  static const mangalist = '/mangalist/:id';
+  static String mangalistWithId(int id) => '/mangalist/$id';
   static const notifications = '/notifications';
   static const media = '/media/:id';
   static String mediaWithId(int id) => '/media/$id';

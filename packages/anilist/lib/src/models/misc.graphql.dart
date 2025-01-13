@@ -3675,3 +3675,531 @@ class _CopyWithStubImplQueryMdToHtmlMarkdown<TRes>
   }) =>
       _res;
 }
+
+class QueryGenreTags {
+  QueryGenreTags({
+    this.GenreCollection,
+    this.MediaTagCollection,
+    this.$__typename = 'Query',
+  });
+
+  factory QueryGenreTags.fromJson(Map<String, dynamic> json) {
+    final l$GenreCollection = json['GenreCollection'];
+    final l$MediaTagCollection = json['MediaTagCollection'];
+    final l$$__typename = json['__typename'];
+    return QueryGenreTags(
+      GenreCollection: (l$GenreCollection as List<dynamic>?)
+          ?.map((e) => (e as String?))
+          .toList(),
+      MediaTagCollection: (l$MediaTagCollection as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : QueryGenreTagsMediaTagCollection.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<String?>? GenreCollection;
+
+  final List<QueryGenreTagsMediaTagCollection?>? MediaTagCollection;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$GenreCollection = GenreCollection;
+    _resultData['GenreCollection'] = l$GenreCollection?.map((e) => e).toList();
+    final l$MediaTagCollection = MediaTagCollection;
+    _resultData['MediaTagCollection'] =
+        l$MediaTagCollection?.map((e) => e?.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$GenreCollection = GenreCollection;
+    final l$MediaTagCollection = MediaTagCollection;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$GenreCollection == null
+          ? null
+          : Object.hashAll(l$GenreCollection.map((v) => v)),
+      l$MediaTagCollection == null
+          ? null
+          : Object.hashAll(l$MediaTagCollection.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryGenreTags || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$GenreCollection = GenreCollection;
+    final lOther$GenreCollection = other.GenreCollection;
+    if (l$GenreCollection != null && lOther$GenreCollection != null) {
+      if (l$GenreCollection.length != lOther$GenreCollection.length) {
+        return false;
+      }
+      for (int i = 0; i < l$GenreCollection.length; i++) {
+        final l$GenreCollection$entry = l$GenreCollection[i];
+        final lOther$GenreCollection$entry = lOther$GenreCollection[i];
+        if (l$GenreCollection$entry != lOther$GenreCollection$entry) {
+          return false;
+        }
+      }
+    } else if (l$GenreCollection != lOther$GenreCollection) {
+      return false;
+    }
+    final l$MediaTagCollection = MediaTagCollection;
+    final lOther$MediaTagCollection = other.MediaTagCollection;
+    if (l$MediaTagCollection != null && lOther$MediaTagCollection != null) {
+      if (l$MediaTagCollection.length != lOther$MediaTagCollection.length) {
+        return false;
+      }
+      for (int i = 0; i < l$MediaTagCollection.length; i++) {
+        final l$MediaTagCollection$entry = l$MediaTagCollection[i];
+        final lOther$MediaTagCollection$entry = lOther$MediaTagCollection[i];
+        if (l$MediaTagCollection$entry != lOther$MediaTagCollection$entry) {
+          return false;
+        }
+      }
+    } else if (l$MediaTagCollection != lOther$MediaTagCollection) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryGenreTags on QueryGenreTags {
+  CopyWithQueryGenreTags<QueryGenreTags> get copyWith => CopyWithQueryGenreTags(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWithQueryGenreTags<TRes> {
+  factory CopyWithQueryGenreTags(
+    QueryGenreTags instance,
+    TRes Function(QueryGenreTags) then,
+  ) = _CopyWithImplQueryGenreTags;
+
+  factory CopyWithQueryGenreTags.stub(TRes res) =
+      _CopyWithStubImplQueryGenreTags;
+
+  TRes call({
+    List<String?>? GenreCollection,
+    List<QueryGenreTagsMediaTagCollection?>? MediaTagCollection,
+    String? $__typename,
+  });
+  TRes MediaTagCollection(
+      Iterable<QueryGenreTagsMediaTagCollection?>? Function(
+              Iterable<
+                  CopyWithQueryGenreTagsMediaTagCollection<
+                      QueryGenreTagsMediaTagCollection>?>?)
+          _fn);
+}
+
+class _CopyWithImplQueryGenreTags<TRes>
+    implements CopyWithQueryGenreTags<TRes> {
+  _CopyWithImplQueryGenreTags(
+    this._instance,
+    this._then,
+  );
+
+  final QueryGenreTags _instance;
+
+  final TRes Function(QueryGenreTags) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? GenreCollection = _undefined,
+    Object? MediaTagCollection = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryGenreTags(
+        GenreCollection: GenreCollection == _undefined
+            ? _instance.GenreCollection
+            : (GenreCollection as List<String?>?),
+        MediaTagCollection: MediaTagCollection == _undefined
+            ? _instance.MediaTagCollection
+            : (MediaTagCollection as List<QueryGenreTagsMediaTagCollection?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  TRes MediaTagCollection(
+          Iterable<QueryGenreTagsMediaTagCollection?>? Function(
+                  Iterable<
+                      CopyWithQueryGenreTagsMediaTagCollection<
+                          QueryGenreTagsMediaTagCollection>?>?)
+              _fn) =>
+      call(
+          MediaTagCollection:
+              _fn(_instance.MediaTagCollection?.map((e) => e == null
+                  ? null
+                  : CopyWithQueryGenreTagsMediaTagCollection(
+                      e,
+                      (i) => i,
+                    )))?.toList());
+}
+
+class _CopyWithStubImplQueryGenreTags<TRes>
+    implements CopyWithQueryGenreTags<TRes> {
+  _CopyWithStubImplQueryGenreTags(this._res);
+
+  TRes _res;
+
+  call({
+    List<String?>? GenreCollection,
+    List<QueryGenreTagsMediaTagCollection?>? MediaTagCollection,
+    String? $__typename,
+  }) =>
+      _res;
+
+  MediaTagCollection(_fn) => _res;
+}
+
+const documentNodeQueryGenreTags = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GenreTags'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'GenreCollection'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+      FieldNode(
+        name: NameNode(value: 'MediaTagCollection'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'name'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'description'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'category'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'isAdult'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'isGeneralSpoiler'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'isMediaSpoiler'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+
+class QueryGenreTagsMediaTagCollection {
+  QueryGenreTagsMediaTagCollection({
+    required this.id,
+    required this.name,
+    this.description,
+    this.category,
+    this.isAdult,
+    this.isGeneralSpoiler,
+    this.isMediaSpoiler,
+    this.$__typename = 'MediaTag',
+  });
+
+  factory QueryGenreTagsMediaTagCollection.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$description = json['description'];
+    final l$category = json['category'];
+    final l$isAdult = json['isAdult'];
+    final l$isGeneralSpoiler = json['isGeneralSpoiler'];
+    final l$isMediaSpoiler = json['isMediaSpoiler'];
+    final l$$__typename = json['__typename'];
+    return QueryGenreTagsMediaTagCollection(
+      id: (l$id as int),
+      name: (l$name as String),
+      description: (l$description as String?),
+      category: (l$category as String?),
+      isAdult: (l$isAdult as bool?),
+      isGeneralSpoiler: (l$isGeneralSpoiler as bool?),
+      isMediaSpoiler: (l$isMediaSpoiler as bool?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String? description;
+
+  final String? category;
+
+  final bool? isAdult;
+
+  final bool? isGeneralSpoiler;
+
+  final bool? isMediaSpoiler;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$description = description;
+    _resultData['description'] = l$description;
+    final l$category = category;
+    _resultData['category'] = l$category;
+    final l$isAdult = isAdult;
+    _resultData['isAdult'] = l$isAdult;
+    final l$isGeneralSpoiler = isGeneralSpoiler;
+    _resultData['isGeneralSpoiler'] = l$isGeneralSpoiler;
+    final l$isMediaSpoiler = isMediaSpoiler;
+    _resultData['isMediaSpoiler'] = l$isMediaSpoiler;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$description = description;
+    final l$category = category;
+    final l$isAdult = isAdult;
+    final l$isGeneralSpoiler = isGeneralSpoiler;
+    final l$isMediaSpoiler = isMediaSpoiler;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$description,
+      l$category,
+      l$isAdult,
+      l$isGeneralSpoiler,
+      l$isMediaSpoiler,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryGenreTagsMediaTagCollection ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$description = description;
+    final lOther$description = other.description;
+    if (l$description != lOther$description) {
+      return false;
+    }
+    final l$category = category;
+    final lOther$category = other.category;
+    if (l$category != lOther$category) {
+      return false;
+    }
+    final l$isAdult = isAdult;
+    final lOther$isAdult = other.isAdult;
+    if (l$isAdult != lOther$isAdult) {
+      return false;
+    }
+    final l$isGeneralSpoiler = isGeneralSpoiler;
+    final lOther$isGeneralSpoiler = other.isGeneralSpoiler;
+    if (l$isGeneralSpoiler != lOther$isGeneralSpoiler) {
+      return false;
+    }
+    final l$isMediaSpoiler = isMediaSpoiler;
+    final lOther$isMediaSpoiler = other.isMediaSpoiler;
+    if (l$isMediaSpoiler != lOther$isMediaSpoiler) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryGenreTagsMediaTagCollection
+    on QueryGenreTagsMediaTagCollection {
+  CopyWithQueryGenreTagsMediaTagCollection<QueryGenreTagsMediaTagCollection>
+      get copyWith => CopyWithQueryGenreTagsMediaTagCollection(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryGenreTagsMediaTagCollection<TRes> {
+  factory CopyWithQueryGenreTagsMediaTagCollection(
+    QueryGenreTagsMediaTagCollection instance,
+    TRes Function(QueryGenreTagsMediaTagCollection) then,
+  ) = _CopyWithImplQueryGenreTagsMediaTagCollection;
+
+  factory CopyWithQueryGenreTagsMediaTagCollection.stub(TRes res) =
+      _CopyWithStubImplQueryGenreTagsMediaTagCollection;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? description,
+    String? category,
+    bool? isAdult,
+    bool? isGeneralSpoiler,
+    bool? isMediaSpoiler,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryGenreTagsMediaTagCollection<TRes>
+    implements CopyWithQueryGenreTagsMediaTagCollection<TRes> {
+  _CopyWithImplQueryGenreTagsMediaTagCollection(
+    this._instance,
+    this._then,
+  );
+
+  final QueryGenreTagsMediaTagCollection _instance;
+
+  final TRes Function(QueryGenreTagsMediaTagCollection) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? description = _undefined,
+    Object? category = _undefined,
+    Object? isAdult = _undefined,
+    Object? isGeneralSpoiler = _undefined,
+    Object? isMediaSpoiler = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryGenreTagsMediaTagCollection(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        description: description == _undefined
+            ? _instance.description
+            : (description as String?),
+        category:
+            category == _undefined ? _instance.category : (category as String?),
+        isAdult: isAdult == _undefined ? _instance.isAdult : (isAdult as bool?),
+        isGeneralSpoiler: isGeneralSpoiler == _undefined
+            ? _instance.isGeneralSpoiler
+            : (isGeneralSpoiler as bool?),
+        isMediaSpoiler: isMediaSpoiler == _undefined
+            ? _instance.isMediaSpoiler
+            : (isMediaSpoiler as bool?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryGenreTagsMediaTagCollection<TRes>
+    implements CopyWithQueryGenreTagsMediaTagCollection<TRes> {
+  _CopyWithStubImplQueryGenreTagsMediaTagCollection(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? description,
+    String? category,
+    bool? isAdult,
+    bool? isGeneralSpoiler,
+    bool? isMediaSpoiler,
+    String? $__typename,
+  }) =>
+      _res;
+}
