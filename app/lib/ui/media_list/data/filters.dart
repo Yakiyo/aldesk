@@ -1,16 +1,13 @@
 import 'package:anilist/models.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'config.dart';
-
 part 'filters.g.dart';
 
 @riverpod
 class ListFilter extends _$ListFilter {
   @override
   ListFilterValues build() {
-    final sort = ref.watch(mediaListSortProvider);
-    return ListFilterValues(sort: sort);
+    return ListFilterValues();
   }
 
   void updateQuery(String? value) {
@@ -46,15 +43,12 @@ class ListFilterValues {
   /// only show media with this status
   final EnumMediaStatus? status;
 
-  final ListSort sort;
-
   ListFilterValues(
       {this.query,
       this.list,
       this.genres,
       this.format,
-      this.status,
-      required this.sort});
+      this.status});
 
   ListFilterValues copyWith({
     String? query,
@@ -62,7 +56,6 @@ class ListFilterValues {
     List<String>? genres,
     EnumMediaFormat? format,
     EnumMediaStatus? status,
-    ListSort? sort,
   }) {
     return ListFilterValues(
       query: query ?? this.query,
@@ -70,7 +63,6 @@ class ListFilterValues {
       genres: genres ?? this.genres,
       format: format ?? this.format,
       status: status ?? this.status,
-      sort: sort ?? this.sort,
     );
   }
 }
