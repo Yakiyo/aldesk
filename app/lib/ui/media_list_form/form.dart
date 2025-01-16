@@ -10,6 +10,7 @@ import '../../config/utils/extensions.dart';
 import '../../config/utils/utils.dart';
 import '../core/toast/toast.dart';
 import '../core/widgets/async_widget.dart';
+import '../core/widgets/form/number_field.dart';
 import '../media/data/media.dart';
 import 'data/media_list.dart';
 
@@ -163,28 +164,34 @@ class FormBody extends StatelessWidget {
                     .toList()),
           ),
         ),
-        SizedBox(
-          width: 220,
-          height: 100,
-          child: ListTile(
-            title: const Text("Score"),
-            subtitle: FormBuilderTextField(
-              initialValue: data.score.toString(),
-              name: 'score',
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  filled: true,
-                  hoverColor: Theme.of(context).colorScheme.surface,
-                  fillColor: Theme.of(context).colorScheme.surface),
-              valueTransformer: (value) => int.parse(value ?? '0'),
-              validator: FormBuilderValidators.compose([
-                FormBuilderValidators.numeric(errorText: "Must be an integer"),
-                FormBuilderValidators.between(0, 10,
-                    errorText: "Must be within 0 and 10"),
-              ]),
-            ),
-          ),
+        NumberTextField(
+          title: "Score",
+          name: 'score',
+          color: Theme.of(context).colorScheme.surface,
+          initialValue: data.score.toDouble(),
         ),
+        // SizedBox(
+        //   width: 220,
+        //   height: 100,
+        //   child: ListTile(
+        //     title: const Text("Score"),
+        //     subtitle: FormBuilderTextField(
+        //       initialValue: data.score.toString(),
+        //       name: 'score',
+        //       decoration: InputDecoration(
+        //           border: InputBorder.none,
+        //           filled: true,
+        //           hoverColor: Theme.of(context).colorScheme.surface,
+        //           fillColor: Theme.of(context).colorScheme.surface),
+        //       valueTransformer: (value) => int.parse(value ?? '0'),
+        //       validator: FormBuilderValidators.compose([
+        //         FormBuilderValidators.numeric(errorText: "Must be an integer"),
+        //         FormBuilderValidators.between(0, 10,
+        //             errorText: "Must be within 0 and 10"),
+        //       ]),
+        //     ),
+        //   ),
+        // ),
         SizedBox(
           width: 220,
           height: 100,
