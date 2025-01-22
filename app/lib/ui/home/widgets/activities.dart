@@ -45,6 +45,7 @@ class ListActivityTile extends ConsumerWidget {
 
   String? get _cover => activity.media?.coverImage?.large;
   String get _username => activity.user?.name ?? "<unknown>";
+  int get _userId => activity.user?.id ?? 0;
 
   String get _status => (activity.status ?? "").toLowerCase().capitalize();
   String get _progress =>
@@ -102,9 +103,15 @@ class ListActivityTile extends ConsumerWidget {
                   children: [
                     _tileDetailsBuilder(context),
                     if (_userAvatar != null)
-                      CircleAvatar(
-                        radius: 20,
-                        backgroundImage: NetworkImage(_userAvatar!),
+                      InkWell(
+                        hoverColor: Colors.transparent,
+                        onTap: () {
+                          context.push(Routes.userWithId(_userId));
+                        },
+                        child: CircleAvatar(
+                          radius: 20,
+                          backgroundImage: NetworkImage(_userAvatar!),
+                        ),
                       )
                   ],
                 ),
@@ -178,7 +185,9 @@ class ListActivityTile extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(_username, style: TextStyle(color: primary)),
+        InkWell(
+            onTap: () => context.push(Routes.userWithId(_userId)),
+            child: Text(_username, style: TextStyle(color: primary))),
         RichText(
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
