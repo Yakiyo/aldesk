@@ -16,7 +16,7 @@ typedef MediaListMedia
 FutureOr<QueryMediaListCollectionMediaListCollection> mediaList(
     Ref ref, int userId, EnumMediaType type) async {
   ref.invalidateAfter(const Duration(minutes: 5));
-  logger.d('Fetching ${type.name} list for user $userId');
+  logger.i('Fetching ${type.name} list for user $userId');
   final res = await mediaListCollection(mediaType: type, userId: userId);
   return res;
 }
@@ -34,7 +34,7 @@ FutureOr<List<MediaListCollection>> mediaListData(
     Ref ref, int userId, EnumMediaType type) async {
   final res = await ref.watch(mediaListProvider(userId, type)
       .selectAsync((value) => value.lists?.filterNull() ?? []));
-      
+
   var data = res.map((list) => MediaListCollection(
       name: list.name ?? "", entries: list.entries?.filterNull() ?? []));
 
