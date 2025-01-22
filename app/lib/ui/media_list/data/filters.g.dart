@@ -6,7 +6,7 @@ part of 'filters.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$listFilterHash() => r'fb38694782136d3c52d697378a2a34a0e239bd0f';
+String _$listFilterHash() => r'987c2ca88ee90e74f023d707267e50d959de4ee0';
 
 /// See also [ListFilter].
 @ProviderFor(ListFilter)

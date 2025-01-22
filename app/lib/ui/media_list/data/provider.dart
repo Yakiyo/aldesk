@@ -14,3 +14,9 @@ FutureOr<List<QueryMediaListCollectionMediaListCollectionlists>> mediaList(
   final res = await mediaListCollection(mediaType: type, userId: userId);
   return res.lists?.filterNull() ?? [];
 }
+
+@riverpod
+FutureOr<List<String>> listNames(Ref ref, int userId, EnumMediaType type) {
+  final lists = ref.watch(mediaListProvider(userId, type)).valueOrNull ?? [];
+  return lists.map((e) => e.name).toList().filterNull();
+}
