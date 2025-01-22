@@ -19,6 +19,7 @@ class FilterBar extends ConsumerStatefulWidget {
 
 class _FilterBarState extends ConsumerState<FilterBar> {
   final _formKey = GlobalKey<FormBuilderState>();
+  
   @override
   Widget build(BuildContext context) {
     final filters = ref.watch(listFilterProvider);
@@ -29,33 +30,40 @@ class _FilterBarState extends ConsumerState<FilterBar> {
         ref.watch(listNamesProvider(widget.userId, widget.type)).valueOrNull ??
             [];
 
-    return SingleChildScrollView(
-      child: SizedBox(
-        width: 200,
-        child: FormBuilder(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 12,
-            children: [
-              TextButton(onPressed: () {
-                ref.invalidate(mediaListProvider(widget.userId, widget.type));
-              }, child: const Text('Refresh List')),
-              // filter items by a search query
-              QueryField(filters: filters, filterNotifer: filterNotifer),
-              // only show a specific list or all
-              const Text('Lists'),
-              ListFilterButtons(filterNotifer: filterNotifer, lists: lists),
-              // sort items by a specific field
-              const Text('Filters'),
-              FormatField(type: widget.type),
-              // TODO: add genre filter support
-              StatusField(type: widget.type),
-              // sort list items
-              const Text('Sort'),
-              SortField(sortType: sortType, sortNotifier: sortNotifier),
-            ],
+    return ScrollConfiguration(
+      behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+      child: SingleChildScrollView(
+        child: SizedBox(
+          width: 200,
+          child: FormBuilder(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 12,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      ref.invalidate(
+                          mediaListProvider(widget.userId, widget.type));
+                    },
+                    child: const Text('Refresh List')),
+                // filter items by a search query
+                QueryField(filters: filters, filterNotifer: filterNotifer),
+                // only show a specific list or all
+                const Text('Lists'),
+                ListFilterButtons(filterNotifer: filterNotifer, lists: lists),
+                // sort list items
+                const Text('Sort'),
+                SortField(sortType: sortType, sortNotifier: sortNotifier),
+                // sort items by a specific field
+                const Text('Filters'),
+                FormatField(type: widget.type),
+                StatusField(type: widget.type),
+                const Text('Filter by Genre'),
+                const GenreField(),
+              ],
+            ),
           ),
         ),
       ),

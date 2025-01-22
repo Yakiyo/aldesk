@@ -1,7 +1,9 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../config/genre/genre.dart';
+import '../../core/widgets/kaomoji.dart';
 import '../data/filters.dart';
 
 class FormatField extends ConsumerStatefulWidget {
@@ -60,13 +62,12 @@ class _FormatFieldState extends ConsumerState<FormatField> {
           ),
       ],
       menuStyle: MenuStyle(
-        elevation: const WidgetStatePropertyAll(10),
-        backgroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.surface)
-      ),
+          elevation: const WidgetStatePropertyAll(10),
+          backgroundColor:
+              WidgetStatePropertyAll(Theme.of(context).colorScheme.surface)),
     );
   }
 }
-
 
 class StatusField extends ConsumerStatefulWidget {
   const StatusField({
@@ -124,10 +125,42 @@ class _StatusFieldState extends ConsumerState<StatusField> {
           ),
       ],
       menuStyle: MenuStyle(
-        elevation: const WidgetStatePropertyAll(10),
-        backgroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.surface)
-      ),
+          elevation: const WidgetStatePropertyAll(10),
+          backgroundColor:
+              WidgetStatePropertyAll(Theme.of(context).colorScheme.surface)),
     );
   }
 }
 
+class GenreField extends ConsumerWidget {
+  const GenreField({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final genres = ref.watch(genreProvider).valueOrNull;
+    if (genres == null) {
+      return const KaomojiLoader();
+    }
+    final selected =
+        ref.watch(listFilterProvider.select((value) => value.genres)) ?? [];
+    return Wrap(
+      spacing: 5,
+      runSpacing: 5,
+      children: [
+        for (final genre in genres)
+          FilterChip(
+              selected: selected.contains(genre),
+              label: Text(genre, style: Theme.of(context).textTheme.bodySmall),
+              onSelected: (value) {
+                final newGenres = selected.toList();
+                if (value) {
+                  newGenres.add(genre);
+                } else {
+                  newGenres.remove(genre);
+                }
+                ref.read(listFilterProvider.notifier).updateGenres(newGenres);
+              }),
+      ],
+    );
+  }
+}

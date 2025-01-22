@@ -87,8 +87,8 @@ class MediaListCollection {
   MediaListCollection filterByGenres(List<String>? genres) {
     if (genres == null || genres.isEmpty) return this;
     final entries = this.entries.where((entry) {
-      return entry.media?.genres?.any((genre) => genres.contains(genre)) ??
-          false;
+      final entryGenres = entry.media?.genres?.filterNull() ?? [];
+      return genres.every((genre) => entryGenres.contains(genre));
     });
     return MediaListCollection(name: name, entries: entries.toList());
   }

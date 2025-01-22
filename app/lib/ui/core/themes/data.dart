@@ -58,6 +58,24 @@ ThemeData darkTheme(Color primary) {
       backgroundColor: WidgetStatePropertyAll(primary),
       foregroundColor: const WidgetStatePropertyAll(Colors.white),
     )),
+    dropdownMenuTheme: const DropdownMenuThemeData(
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: secondary,
+        border: InputBorder.none,
+      ),
+      menuStyle: MenuStyle(
+          elevation: WidgetStatePropertyAll(10),
+          backgroundColor: WidgetStatePropertyAll(surface)),
+    ),
+    popupMenuTheme: const PopupMenuThemeData(
+      color: secondary,
+    ),
+    menuBarTheme: const MenuBarThemeData(
+      style: MenuStyle(
+        backgroundColor: WidgetStatePropertyAll(surface),
+      ),
+    ),
     brightness: Brightness.dark,
     colorScheme: ColorScheme.fromSeed(
         brightness: Brightness.dark,
