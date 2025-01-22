@@ -6,6 +6,8 @@ import 'package:aldesk/ui/core/widgets/async_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'list_title_section.dart';
+
 class MediaListView extends ConsumerWidget {
   final int userId;
   final EnumMediaType type;
@@ -18,9 +20,12 @@ class MediaListView extends ConsumerWidget {
       value: mediaList,
       builder: (context, value) {
         return ListView.builder(
-            itemCount: value.length,
+            itemCount: value.length + 1,
             itemBuilder: (context, index) {
-              final item = value[index];
+              if (index == 0) {
+                return ListTitleSection(userId: userId, type: type);
+              }
+              final item = value[index - 1];
               if (item.entries.isEmpty) return const SizedBox();
               return ListCollection(title: item.name, entries: item.entries);
             });

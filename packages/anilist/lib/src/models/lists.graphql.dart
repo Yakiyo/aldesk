@@ -610,6 +610,13 @@ const documentNodeQueryMediaListCollection = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
                 name: NameNode(value: '__typename'),
                 alias: null,
                 arguments: [],
@@ -942,20 +949,25 @@ class _CopyWithStubImplQueryMediaListCollectionMediaListCollection<TRes>
 class QueryMediaListCollectionMediaListCollectionuser {
   QueryMediaListCollectionMediaListCollectionuser({
     required this.id,
+    required this.name,
     this.$__typename = 'User',
   });
 
   factory QueryMediaListCollectionMediaListCollectionuser.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
+    final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return QueryMediaListCollectionMediaListCollectionuser(
       id: (l$id as int),
+      name: (l$name as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final int id;
+
+  final String name;
 
   final String $__typename;
 
@@ -963,6 +975,8 @@ class QueryMediaListCollectionMediaListCollectionuser {
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -971,9 +985,11 @@ class QueryMediaListCollectionMediaListCollectionuser {
   @override
   int get hashCode {
     final l$id = id;
+    final l$name = name;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
+      l$name,
       l$$__typename,
     ]);
   }
@@ -990,6 +1006,11 @@ class QueryMediaListCollectionMediaListCollectionuser {
     final l$id = id;
     final lOther$id = other.id;
     if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1023,6 +1044,7 @@ abstract class CopyWithQueryMediaListCollectionMediaListCollectionuser<TRes> {
 
   TRes call({
     int? id,
+    String? name,
     String? $__typename,
   });
 }
@@ -1042,10 +1064,14 @@ class _CopyWithImplQueryMediaListCollectionMediaListCollectionuser<TRes>
 
   TRes call({
     Object? id = _undefined,
+    Object? name = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(QueryMediaListCollectionMediaListCollectionuser(
         id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -1060,6 +1086,7 @@ class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionuser<TRes>
 
   call({
     int? id,
+    String? name,
     String? $__typename,
   }) =>
       _res;

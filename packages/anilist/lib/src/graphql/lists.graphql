@@ -24,6 +24,7 @@ query MediaListCollection(
     hasNextChunk
     user {
       id
+      name
     }
     lists {
       name

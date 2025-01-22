@@ -6,7 +6,7 @@ part of 'provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$mediaListHash() => r'1a4ba042dd272ab87c1b4a8eafd87cddc6595fe7';
+String _$mediaListHash() => r'4700772390eb3d190e3609d3774783bcfb1432ba';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -34,8 +34,8 @@ class _SystemHash {
 const mediaListProvider = MediaListFamily();
 
 /// See also [mediaList].
-class MediaListFamily extends Family<
-    AsyncValue<List<QueryMediaListCollectionMediaListCollectionlists>>> {
+class MediaListFamily
+    extends Family<AsyncValue<QueryMediaListCollectionMediaListCollection>> {
   /// See also [mediaList].
   const MediaListFamily();
 
@@ -76,8 +76,8 @@ class MediaListFamily extends Family<
 }
 
 /// See also [mediaList].
-class MediaListProvider extends FutureProvider<
-    List<QueryMediaListCollectionMediaListCollectionlists>> {
+class MediaListProvider
+    extends FutureProvider<QueryMediaListCollectionMediaListCollection> {
   /// See also [mediaList].
   MediaListProvider(
     int userId,
@@ -116,7 +116,7 @@ class MediaListProvider extends FutureProvider<
 
   @override
   Override overrideWith(
-    FutureOr<List<QueryMediaListCollectionMediaListCollectionlists>> Function(
+    FutureOr<QueryMediaListCollectionMediaListCollection> Function(
             MediaListRef provider)
         create,
   ) {
@@ -136,7 +136,7 @@ class MediaListProvider extends FutureProvider<
   }
 
   @override
-  FutureProviderElement<List<QueryMediaListCollectionMediaListCollectionlists>>
+  FutureProviderElement<QueryMediaListCollectionMediaListCollection>
       createElement() {
     return _MediaListProviderElement(this);
   }
@@ -160,8 +160,8 @@ class MediaListProvider extends FutureProvider<
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin MediaListRef on FutureProviderRef<
-    List<QueryMediaListCollectionMediaListCollectionlists>> {
+mixin MediaListRef
+    on FutureProviderRef<QueryMediaListCollectionMediaListCollection> {
   /// The parameter `userId` of this provider.
   int get userId;
 
@@ -169,8 +169,9 @@ mixin MediaListRef on FutureProviderRef<
   EnumMediaType get type;
 }
 
-class _MediaListProviderElement extends FutureProviderElement<
-    List<QueryMediaListCollectionMediaListCollectionlists>> with MediaListRef {
+class _MediaListProviderElement
+    extends FutureProviderElement<QueryMediaListCollectionMediaListCollection>
+    with MediaListRef {
   _MediaListProviderElement(super.provider);
 
   @override
@@ -179,7 +180,7 @@ class _MediaListProviderElement extends FutureProviderElement<
   EnumMediaType get type => (origin as MediaListProvider).type;
 }
 
-String _$listNamesHash() => r'b7f74ba74a93ff913a947b482d007ec5e6995f87';
+String _$listNamesHash() => r'7be2519aded071c748ac224a30209a715bb5393c';
 
 /// See also [listNames].
 @ProviderFor(listNames)
@@ -325,7 +326,7 @@ class _ListNamesProviderElement
   EnumMediaType get type => (origin as ListNamesProvider).type;
 }
 
-String _$mediaListDataHash() => r'8d7caefab02d40fb036318410585848d1bd5e913';
+String _$mediaListDataHash() => r'231c520a752d7bc02d30951f4995fda93f85e2a1';
 
 /// See also [mediaListData].
 @ProviderFor(mediaListData)

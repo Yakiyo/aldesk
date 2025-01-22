@@ -1,8 +1,9 @@
-import 'package:aldesk/ui/core/widgets/my_scaffold.dart';
-import 'package:aldesk/ui/media_list/widgets/filter_bar.dart';
-import 'package:aldesk/ui/media_list/widgets/media_list_view.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
+
+import '../core/widgets/my_scaffold.dart';
+import 'widgets/filter_bar.dart';
+import 'widgets/media_list_view.dart';
 
 class MediaListPage extends StatelessWidget {
   final int userId;

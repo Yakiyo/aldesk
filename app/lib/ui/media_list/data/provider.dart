@@ -3,7 +3,7 @@ import 'package:anilist/models.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../config/utils/extensions.dart';
+import '../../../config/utils/utils.dart';
 import 'filters.dart';
 import 'sort.dart';
 
@@ -13,35 +13,32 @@ typedef MediaListMedia
     = QueryMediaListCollectionMediaListCollectionlistsentries;
 
 @Riverpod(keepAlive: true)
-FutureOr<List<QueryMediaListCollectionMediaListCollectionlists>> mediaList(
+FutureOr<QueryMediaListCollectionMediaListCollection> mediaList(
     Ref ref, int userId, EnumMediaType type) async {
   ref.invalidateAfter(const Duration(minutes: 5));
+  logger.d('Fetching ${type.name} list for user $userId');
   final res = await mediaListCollection(mediaType: type, userId: userId);
-  return res.lists?.filterNull() ?? [];
+  return res;
 }
 
 @riverpod
-FutureOr<List<String>> listNames(Ref ref, int userId, EnumMediaType type) {
-  final lists = ref.watch(mediaListProvider(userId, type)).valueOrNull ?? [];
+FutureOr<List<String>> listNames(
+    Ref ref, int userId, EnumMediaType type) async {
+  final lists = await ref.watch(mediaListProvider(userId, type)
+      .selectAsync((value) => value.lists?.filterNull() ?? []));
   return lists.map((e) => e.name).toList().filterNull();
 }
 
 @riverpod
 FutureOr<List<MediaListCollection>> mediaListData(
     Ref ref, int userId, EnumMediaType type) async {
-  // List<MediaListCollection> data =
-  //     await ref.watch(mediaListProvider(userId, type).future).then((value) {
-  //   return value
-  //       .map((list) => MediaListCollection(
-  //           name: list.name ?? "", entries: list.entries?.filterNull() ?? []))
-  //       .toList();
-  // });
-  final res = ref.watch(mediaListProvider(userId, type)).valueOrNull ?? [];
+  final res = await ref.watch(mediaListProvider(userId, type)
+      .selectAsync((value) => value.lists?.filterNull() ?? []));
+      
   var data = res.map((list) => MediaListCollection(
       name: list.name ?? "", entries: list.entries?.filterNull() ?? []));
 
   final filters = ref.watch(listFilterProvider);
-  // ignore: unused_local_variable
   final sort = ref.watch(mediaListSortProvider);
   final query = filters.query;
   final list = filters.list;

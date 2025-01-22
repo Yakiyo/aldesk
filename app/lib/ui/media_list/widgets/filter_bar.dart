@@ -39,6 +39,9 @@ class _FilterBarState extends ConsumerState<FilterBar> {
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 12,
             children: [
+              TextButton(onPressed: () {
+                ref.invalidate(mediaListProvider(widget.userId, widget.type));
+              }, child: const Text('Refresh List')),
               // filter items by a search query
               QueryField(filters: filters, filterNotifer: filterNotifer),
               // only show a specific list or all
