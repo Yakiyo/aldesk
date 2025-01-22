@@ -19,7 +19,7 @@ part 'router.g.dart';
 GoRouter router(Ref ref) {
   final token = ref.watch(tokenProvider);
   final authed = token != null && token.isValid;
-  final authId = int.parse(token?.sub ?? "");
+  final authId = int.parse(token?.sub ?? "0");
   return GoRouter(
       initialLocation: authed ? Routes.home : Routes.login,
       routes: [
