@@ -111,7 +111,7 @@ class _StatusFieldState extends ConsumerState<StatusField> {
           ? InkWell(
               child: const Icon(Icons.clear),
               onTap: () {
-                ref.read(listFilterProvider.notifier).updateFormat(null);
+                ref.read(listFilterProvider.notifier).updateStatus(null);
                 _controller.clear();
               },
             )

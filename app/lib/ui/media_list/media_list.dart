@@ -27,7 +27,7 @@ class MediaListPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           FilterBar(userId: userId, type: type),
-          const Expanded(child: MediaListView()),
+          Expanded(child: MediaListView(userId: userId, type: type)),
         ],
       ),
     ));

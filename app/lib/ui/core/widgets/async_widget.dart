@@ -51,14 +51,12 @@ class AsyncWidgetConsumer<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    switch (value) {
-      case AsyncData(:final value):
-        return builder(context, value);
-      case AsyncError(:final error, :final stackTrace):
-        return this.error(context, error, stackTrace);
-      default:
-        return loading(context);
-    }
+    return value.maybeWhen(
+      error: (error, stackTrace) => this.error(context, error, stackTrace),
+      data: (data) => builder(context, data),
+      loading: () => loading(context),
+      orElse: () => loading(context),
+    );
   }
 }
 

@@ -29,7 +29,6 @@ enum ListSort {
   lastAdded,
   startDate,
   completedDate,
-  releaseDate,
 }
 
 String listSortStr(ListSort v) {
@@ -41,6 +40,5 @@ String listSortStr(ListSort v) {
     ListSort.lastAdded => 'Last Added',
     ListSort.startDate => 'Start Date',
     ListSort.completedDate => 'Completed Date',
-    ListSort.releaseDate => 'Release Date',
   };
 }

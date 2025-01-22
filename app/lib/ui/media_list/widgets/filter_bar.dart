@@ -47,6 +47,7 @@ class _FilterBarState extends ConsumerState<FilterBar> {
               // sort items by a specific field
               const Text('Filters'),
               FormatField(type: widget.type),
+              // TODO: add genre filter support
               StatusField(type: widget.type),
               // sort list items
               const Text('Sort'),

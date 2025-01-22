@@ -656,6 +656,28 @@ const documentNodeQueryMediaListCollection = DocumentNode(definitions: [
                     directives: [],
                   ),
                   FieldNode(
+                    name: NameNode(value: 'media'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'genres'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
+                  ),
+                  FieldNode(
                     name: NameNode(value: '__typename'),
                     alias: null,
                     arguments: [],
@@ -1068,7 +1090,8 @@ class QueryMediaListCollectionMediaListCollectionlists {
       entries: (l$entries as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : FragmentMediaList.fromJson((e as Map<String, dynamic>)))
+              : QueryMediaListCollectionMediaListCollectionlistsentries
+                  .fromJson((e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -1080,7 +1103,7 @@ class QueryMediaListCollectionMediaListCollectionlists {
 
   final EnumMediaListStatus? status;
 
-  final List<FragmentMediaList?>? entries;
+  final List<QueryMediaListCollectionMediaListCollectionlistsentries?>? entries;
 
   final String $__typename;
 
@@ -1189,12 +1212,14 @@ abstract class CopyWithQueryMediaListCollectionMediaListCollectionlists<TRes> {
     String? name,
     bool? isCustomList,
     EnumMediaListStatus? status,
-    List<FragmentMediaList?>? entries,
+    List<QueryMediaListCollectionMediaListCollectionlistsentries?>? entries,
     String? $__typename,
   });
   TRes entries(
-      Iterable<FragmentMediaList?>? Function(
-              Iterable<CopyWithFragmentMediaList<FragmentMediaList>?>?)
+      Iterable<QueryMediaListCollectionMediaListCollectionlistsentries?>? Function(
+              Iterable<
+                  CopyWithQueryMediaListCollectionMediaListCollectionlistsentries<
+                      QueryMediaListCollectionMediaListCollectionlistsentries>?>?)
           _fn);
 }
 
@@ -1228,20 +1253,23 @@ class _CopyWithImplQueryMediaListCollectionMediaListCollectionlists<TRes>
             : (status as EnumMediaListStatus?),
         entries: entries == _undefined
             ? _instance.entries
-            : (entries as List<FragmentMediaList?>?),
+            : (entries as List<
+                QueryMediaListCollectionMediaListCollectionlistsentries?>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
   TRes entries(
-          Iterable<FragmentMediaList?>? Function(
-                  Iterable<CopyWithFragmentMediaList<FragmentMediaList>?>?)
+          Iterable<QueryMediaListCollectionMediaListCollectionlistsentries?>? Function(
+                  Iterable<
+                      CopyWithQueryMediaListCollectionMediaListCollectionlistsentries<
+                          QueryMediaListCollectionMediaListCollectionlistsentries>?>?)
               _fn) =>
       call(
           entries: _fn(_instance.entries?.map((e) => e == null
               ? null
-              : CopyWithFragmentMediaList(
+              : CopyWithQueryMediaListCollectionMediaListCollectionlistsentries(
                   e,
                   (i) => i,
                 )))?.toList());
@@ -1257,12 +1285,1947 @@ class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlists<TRes>
     String? name,
     bool? isCustomList,
     EnumMediaListStatus? status,
-    List<FragmentMediaList?>? entries,
+    List<QueryMediaListCollectionMediaListCollectionlistsentries?>? entries,
     String? $__typename,
   }) =>
       _res;
 
   entries(_fn) => _res;
+}
+
+class QueryMediaListCollectionMediaListCollectionlistsentries
+    implements FragmentMediaList {
+  QueryMediaListCollectionMediaListCollectionlistsentries({
+    required this.id,
+    required this.userId,
+    this.media,
+    this.status,
+    this.progress,
+    this.progressVolumes,
+    this.score,
+    this.repeat,
+    this.private,
+    this.notes,
+    this.hiddenFromStatusLists,
+    this.startedAt,
+    this.completedAt,
+    this.priority,
+    this.customLists,
+    this.updatedAt,
+    this.createdAt,
+    this.$__typename = 'MediaList',
+  });
+
+  factory QueryMediaListCollectionMediaListCollectionlistsentries.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$userId = json['userId'];
+    final l$media = json['media'];
+    final l$status = json['status'];
+    final l$progress = json['progress'];
+    final l$progressVolumes = json['progressVolumes'];
+    final l$score = json['score'];
+    final l$repeat = json['repeat'];
+    final l$private = json['private'];
+    final l$notes = json['notes'];
+    final l$hiddenFromStatusLists = json['hiddenFromStatusLists'];
+    final l$startedAt = json['startedAt'];
+    final l$completedAt = json['completedAt'];
+    final l$priority = json['priority'];
+    final l$customLists = json['customLists'];
+    final l$updatedAt = json['updatedAt'];
+    final l$createdAt = json['createdAt'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaListCollectionMediaListCollectionlistsentries(
+      id: (l$id as int),
+      userId: (l$userId as int),
+      media: l$media == null
+          ? null
+          : QueryMediaListCollectionMediaListCollectionlistsentriesmedia
+              .fromJson((l$media as Map<String, dynamic>)),
+      status: l$status == null
+          ? null
+          : fromJsonEnumMediaListStatus((l$status as String)),
+      progress: (l$progress as int?),
+      progressVolumes: (l$progressVolumes as int?),
+      score: (l$score as num?)?.toDouble(),
+      repeat: (l$repeat as int?),
+      private: (l$private as bool?),
+      notes: (l$notes as String?),
+      hiddenFromStatusLists: (l$hiddenFromStatusLists as bool?),
+      startedAt: l$startedAt == null
+          ? null
+          : QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt
+              .fromJson((l$startedAt as Map<String, dynamic>)),
+      completedAt: l$completedAt == null
+          ? null
+          : QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt
+              .fromJson((l$completedAt as Map<String, dynamic>)),
+      priority: (l$priority as int?),
+      customLists: (l$customLists as Map<String, dynamic>?),
+      updatedAt: (l$updatedAt as int?),
+      createdAt: (l$createdAt as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final int userId;
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriesmedia? media;
+
+  final EnumMediaListStatus? status;
+
+  final int? progress;
+
+  final int? progressVolumes;
+
+  final double? score;
+
+  final int? repeat;
+
+  final bool? private;
+
+  final String? notes;
+
+  final bool? hiddenFromStatusLists;
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt?
+      startedAt;
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt?
+      completedAt;
+
+  final int? priority;
+
+  final Map<String, dynamic>? customLists;
+
+  final int? updatedAt;
+
+  final int? createdAt;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$userId = userId;
+    _resultData['userId'] = l$userId;
+    final l$media = media;
+    _resultData['media'] = l$media?.toJson();
+    final l$status = status;
+    _resultData['status'] =
+        l$status == null ? null : toJsonEnumMediaListStatus(l$status);
+    final l$progress = progress;
+    _resultData['progress'] = l$progress;
+    final l$progressVolumes = progressVolumes;
+    _resultData['progressVolumes'] = l$progressVolumes;
+    final l$score = score;
+    _resultData['score'] = l$score;
+    final l$repeat = repeat;
+    _resultData['repeat'] = l$repeat;
+    final l$private = private;
+    _resultData['private'] = l$private;
+    final l$notes = notes;
+    _resultData['notes'] = l$notes;
+    final l$hiddenFromStatusLists = hiddenFromStatusLists;
+    _resultData['hiddenFromStatusLists'] = l$hiddenFromStatusLists;
+    final l$startedAt = startedAt;
+    _resultData['startedAt'] = l$startedAt?.toJson();
+    final l$completedAt = completedAt;
+    _resultData['completedAt'] = l$completedAt?.toJson();
+    final l$priority = priority;
+    _resultData['priority'] = l$priority;
+    final l$customLists = customLists;
+    _resultData['customLists'] = l$customLists;
+    final l$updatedAt = updatedAt;
+    _resultData['updatedAt'] = l$updatedAt;
+    final l$createdAt = createdAt;
+    _resultData['createdAt'] = l$createdAt;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$userId = userId;
+    final l$media = media;
+    final l$status = status;
+    final l$progress = progress;
+    final l$progressVolumes = progressVolumes;
+    final l$score = score;
+    final l$repeat = repeat;
+    final l$private = private;
+    final l$notes = notes;
+    final l$hiddenFromStatusLists = hiddenFromStatusLists;
+    final l$startedAt = startedAt;
+    final l$completedAt = completedAt;
+    final l$priority = priority;
+    final l$customLists = customLists;
+    final l$updatedAt = updatedAt;
+    final l$createdAt = createdAt;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$userId,
+      l$media,
+      l$status,
+      l$progress,
+      l$progressVolumes,
+      l$score,
+      l$repeat,
+      l$private,
+      l$notes,
+      l$hiddenFromStatusLists,
+      l$startedAt,
+      l$completedAt,
+      l$priority,
+      l$customLists,
+      l$updatedAt,
+      l$createdAt,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! QueryMediaListCollectionMediaListCollectionlistsentries ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    final l$media = media;
+    final lOther$media = other.media;
+    if (l$media != lOther$media) {
+      return false;
+    }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$progress = progress;
+    final lOther$progress = other.progress;
+    if (l$progress != lOther$progress) {
+      return false;
+    }
+    final l$progressVolumes = progressVolumes;
+    final lOther$progressVolumes = other.progressVolumes;
+    if (l$progressVolumes != lOther$progressVolumes) {
+      return false;
+    }
+    final l$score = score;
+    final lOther$score = other.score;
+    if (l$score != lOther$score) {
+      return false;
+    }
+    final l$repeat = repeat;
+    final lOther$repeat = other.repeat;
+    if (l$repeat != lOther$repeat) {
+      return false;
+    }
+    final l$private = private;
+    final lOther$private = other.private;
+    if (l$private != lOther$private) {
+      return false;
+    }
+    final l$notes = notes;
+    final lOther$notes = other.notes;
+    if (l$notes != lOther$notes) {
+      return false;
+    }
+    final l$hiddenFromStatusLists = hiddenFromStatusLists;
+    final lOther$hiddenFromStatusLists = other.hiddenFromStatusLists;
+    if (l$hiddenFromStatusLists != lOther$hiddenFromStatusLists) {
+      return false;
+    }
+    final l$startedAt = startedAt;
+    final lOther$startedAt = other.startedAt;
+    if (l$startedAt != lOther$startedAt) {
+      return false;
+    }
+    final l$completedAt = completedAt;
+    final lOther$completedAt = other.completedAt;
+    if (l$completedAt != lOther$completedAt) {
+      return false;
+    }
+    final l$priority = priority;
+    final lOther$priority = other.priority;
+    if (l$priority != lOther$priority) {
+      return false;
+    }
+    final l$customLists = customLists;
+    final lOther$customLists = other.customLists;
+    if (l$customLists != lOther$customLists) {
+      return false;
+    }
+    final l$updatedAt = updatedAt;
+    final lOther$updatedAt = other.updatedAt;
+    if (l$updatedAt != lOther$updatedAt) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaListCollectionMediaListCollectionlistsentries
+    on QueryMediaListCollectionMediaListCollectionlistsentries {
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentries<
+          QueryMediaListCollectionMediaListCollectionlistsentries>
+      get copyWith =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentries(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaListCollectionMediaListCollectionlistsentries<
+    TRes> {
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentries(
+    QueryMediaListCollectionMediaListCollectionlistsentries instance,
+    TRes Function(QueryMediaListCollectionMediaListCollectionlistsentries) then,
+  ) = _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentries;
+
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentries.stub(
+          TRes res) =
+      _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentries;
+
+  TRes call({
+    int? id,
+    int? userId,
+    QueryMediaListCollectionMediaListCollectionlistsentriesmedia? media,
+    EnumMediaListStatus? status,
+    int? progress,
+    int? progressVolumes,
+    double? score,
+    int? repeat,
+    bool? private,
+    String? notes,
+    bool? hiddenFromStatusLists,
+    QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt? startedAt,
+    QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt?
+        completedAt,
+    int? priority,
+    Map<String, dynamic>? customLists,
+    int? updatedAt,
+    int? createdAt,
+    String? $__typename,
+  });
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia<TRes>
+      get media;
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt<TRes>
+      get startedAt;
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt<
+      TRes> get completedAt;
+}
+
+class _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentries<TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentries<TRes> {
+  _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentries(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaListCollectionMediaListCollectionlistsentries _instance;
+
+  final TRes Function(QueryMediaListCollectionMediaListCollectionlistsentries)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? userId = _undefined,
+    Object? media = _undefined,
+    Object? status = _undefined,
+    Object? progress = _undefined,
+    Object? progressVolumes = _undefined,
+    Object? score = _undefined,
+    Object? repeat = _undefined,
+    Object? private = _undefined,
+    Object? notes = _undefined,
+    Object? hiddenFromStatusLists = _undefined,
+    Object? startedAt = _undefined,
+    Object? completedAt = _undefined,
+    Object? priority = _undefined,
+    Object? customLists = _undefined,
+    Object? updatedAt = _undefined,
+    Object? createdAt = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaListCollectionMediaListCollectionlistsentries(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        userId: userId == _undefined || userId == null
+            ? _instance.userId
+            : (userId as int),
+        media: media == _undefined
+            ? _instance.media
+            : (media
+                as QueryMediaListCollectionMediaListCollectionlistsentriesmedia?),
+        status: status == _undefined
+            ? _instance.status
+            : (status as EnumMediaListStatus?),
+        progress:
+            progress == _undefined ? _instance.progress : (progress as int?),
+        progressVolumes: progressVolumes == _undefined
+            ? _instance.progressVolumes
+            : (progressVolumes as int?),
+        score: score == _undefined ? _instance.score : (score as double?),
+        repeat: repeat == _undefined ? _instance.repeat : (repeat as int?),
+        private: private == _undefined ? _instance.private : (private as bool?),
+        notes: notes == _undefined ? _instance.notes : (notes as String?),
+        hiddenFromStatusLists: hiddenFromStatusLists == _undefined
+            ? _instance.hiddenFromStatusLists
+            : (hiddenFromStatusLists as bool?),
+        startedAt: startedAt == _undefined
+            ? _instance.startedAt
+            : (startedAt
+                as QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt?),
+        completedAt: completedAt == _undefined
+            ? _instance.completedAt
+            : (completedAt
+                as QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt?),
+        priority:
+            priority == _undefined ? _instance.priority : (priority as int?),
+        customLists: customLists == _undefined
+            ? _instance.customLists
+            : (customLists as Map<String, dynamic>?),
+        updatedAt:
+            updatedAt == _undefined ? _instance.updatedAt : (updatedAt as int?),
+        createdAt:
+            createdAt == _undefined ? _instance.createdAt : (createdAt as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia<TRes>
+      get media {
+    final local$media = _instance.media;
+    return local$media == null
+        ? CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia
+            .stub(_then(_instance))
+        : CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia(
+            local$media, (e) => call(media: e));
+  }
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt<TRes>
+      get startedAt {
+    final local$startedAt = _instance.startedAt;
+    return local$startedAt == null
+        ? CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt
+            .stub(_then(_instance))
+        : CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt(
+            local$startedAt, (e) => call(startedAt: e));
+  }
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt<
+      TRes> get completedAt {
+    final local$completedAt = _instance.completedAt;
+    return local$completedAt == null
+        ? CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt
+            .stub(_then(_instance))
+        : CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt(
+            local$completedAt, (e) => call(completedAt: e));
+  }
+}
+
+class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentries<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentries<TRes> {
+  _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentries(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    int? userId,
+    QueryMediaListCollectionMediaListCollectionlistsentriesmedia? media,
+    EnumMediaListStatus? status,
+    int? progress,
+    int? progressVolumes,
+    double? score,
+    int? repeat,
+    bool? private,
+    String? notes,
+    bool? hiddenFromStatusLists,
+    QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt? startedAt,
+    QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt?
+        completedAt,
+    int? priority,
+    Map<String, dynamic>? customLists,
+    int? updatedAt,
+    int? createdAt,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia<TRes>
+      get media =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia
+              .stub(_res);
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt<TRes>
+      get startedAt =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt
+              .stub(_res);
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt<
+          TRes>
+      get completedAt =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt
+              .stub(_res);
+}
+
+class QueryMediaListCollectionMediaListCollectionlistsentriesmedia
+    implements FragmentMediaListmedia, FragmentMediaMin {
+  QueryMediaListCollectionMediaListCollectionlistsentriesmedia({
+    required this.id,
+    this.type,
+    this.format,
+    this.status,
+    this.episodes,
+    this.chapters,
+    this.title,
+    this.coverImage,
+    this.bannerImage,
+    this.$__typename = 'Media',
+    required this.isFavourite,
+    this.nextAiringEpisode,
+    this.genres,
+  });
+
+  factory QueryMediaListCollectionMediaListCollectionlistsentriesmedia.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$type = json['type'];
+    final l$format = json['format'];
+    final l$status = json['status'];
+    final l$episodes = json['episodes'];
+    final l$chapters = json['chapters'];
+    final l$title = json['title'];
+    final l$coverImage = json['coverImage'];
+    final l$bannerImage = json['bannerImage'];
+    final l$$__typename = json['__typename'];
+    final l$isFavourite = json['isFavourite'];
+    final l$nextAiringEpisode = json['nextAiringEpisode'];
+    final l$genres = json['genres'];
+    return QueryMediaListCollectionMediaListCollectionlistsentriesmedia(
+      id: (l$id as int),
+      type: l$type == null ? null : fromJsonEnumMediaType((l$type as String)),
+      format: l$format == null
+          ? null
+          : fromJsonEnumMediaFormat((l$format as String)),
+      status: l$status == null
+          ? null
+          : fromJsonEnumMediaStatus((l$status as String)),
+      episodes: (l$episodes as int?),
+      chapters: (l$chapters as int?),
+      title: l$title == null
+          ? null
+          : QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle
+              .fromJson((l$title as Map<String, dynamic>)),
+      coverImage: l$coverImage == null
+          ? null
+          : QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage
+              .fromJson((l$coverImage as Map<String, dynamic>)),
+      bannerImage: (l$bannerImage as String?),
+      $__typename: (l$$__typename as String),
+      isFavourite: (l$isFavourite as bool),
+      nextAiringEpisode: l$nextAiringEpisode == null
+          ? null
+          : QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode
+              .fromJson((l$nextAiringEpisode as Map<String, dynamic>)),
+      genres: (l$genres as List<dynamic>?)?.map((e) => (e as String?)).toList(),
+    );
+  }
+
+  final int id;
+
+  final EnumMediaType? type;
+
+  final EnumMediaFormat? format;
+
+  final EnumMediaStatus? status;
+
+  final int? episodes;
+
+  final int? chapters;
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle?
+      title;
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage?
+      coverImage;
+
+  final String? bannerImage;
+
+  final String $__typename;
+
+  final bool isFavourite;
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode?
+      nextAiringEpisode;
+
+  final List<String?>? genres;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$type = type;
+    _resultData['type'] = l$type == null ? null : toJsonEnumMediaType(l$type);
+    final l$format = format;
+    _resultData['format'] =
+        l$format == null ? null : toJsonEnumMediaFormat(l$format);
+    final l$status = status;
+    _resultData['status'] =
+        l$status == null ? null : toJsonEnumMediaStatus(l$status);
+    final l$episodes = episodes;
+    _resultData['episodes'] = l$episodes;
+    final l$chapters = chapters;
+    _resultData['chapters'] = l$chapters;
+    final l$title = title;
+    _resultData['title'] = l$title?.toJson();
+    final l$coverImage = coverImage;
+    _resultData['coverImage'] = l$coverImage?.toJson();
+    final l$bannerImage = bannerImage;
+    _resultData['bannerImage'] = l$bannerImage;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    final l$isFavourite = isFavourite;
+    _resultData['isFavourite'] = l$isFavourite;
+    final l$nextAiringEpisode = nextAiringEpisode;
+    _resultData['nextAiringEpisode'] = l$nextAiringEpisode?.toJson();
+    final l$genres = genres;
+    _resultData['genres'] = l$genres?.map((e) => e).toList();
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$type = type;
+    final l$format = format;
+    final l$status = status;
+    final l$episodes = episodes;
+    final l$chapters = chapters;
+    final l$title = title;
+    final l$coverImage = coverImage;
+    final l$bannerImage = bannerImage;
+    final l$$__typename = $__typename;
+    final l$isFavourite = isFavourite;
+    final l$nextAiringEpisode = nextAiringEpisode;
+    final l$genres = genres;
+    return Object.hashAll([
+      l$id,
+      l$type,
+      l$format,
+      l$status,
+      l$episodes,
+      l$chapters,
+      l$title,
+      l$coverImage,
+      l$bannerImage,
+      l$$__typename,
+      l$isFavourite,
+      l$nextAiringEpisode,
+      l$genres == null ? null : Object.hashAll(l$genres.map((v) => v)),
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other
+            is! QueryMediaListCollectionMediaListCollectionlistsentriesmedia ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$type = type;
+    final lOther$type = other.type;
+    if (l$type != lOther$type) {
+      return false;
+    }
+    final l$format = format;
+    final lOther$format = other.format;
+    if (l$format != lOther$format) {
+      return false;
+    }
+    final l$status = status;
+    final lOther$status = other.status;
+    if (l$status != lOther$status) {
+      return false;
+    }
+    final l$episodes = episodes;
+    final lOther$episodes = other.episodes;
+    if (l$episodes != lOther$episodes) {
+      return false;
+    }
+    final l$chapters = chapters;
+    final lOther$chapters = other.chapters;
+    if (l$chapters != lOther$chapters) {
+      return false;
+    }
+    final l$title = title;
+    final lOther$title = other.title;
+    if (l$title != lOther$title) {
+      return false;
+    }
+    final l$coverImage = coverImage;
+    final lOther$coverImage = other.coverImage;
+    if (l$coverImage != lOther$coverImage) {
+      return false;
+    }
+    final l$bannerImage = bannerImage;
+    final lOther$bannerImage = other.bannerImage;
+    if (l$bannerImage != lOther$bannerImage) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    final l$isFavourite = isFavourite;
+    final lOther$isFavourite = other.isFavourite;
+    if (l$isFavourite != lOther$isFavourite) {
+      return false;
+    }
+    final l$nextAiringEpisode = nextAiringEpisode;
+    final lOther$nextAiringEpisode = other.nextAiringEpisode;
+    if (l$nextAiringEpisode != lOther$nextAiringEpisode) {
+      return false;
+    }
+    final l$genres = genres;
+    final lOther$genres = other.genres;
+    if (l$genres != null && lOther$genres != null) {
+      if (l$genres.length != lOther$genres.length) {
+        return false;
+      }
+      for (int i = 0; i < l$genres.length; i++) {
+        final l$genres$entry = l$genres[i];
+        final lOther$genres$entry = lOther$genres[i];
+        if (l$genres$entry != lOther$genres$entry) {
+          return false;
+        }
+      }
+    } else if (l$genres != lOther$genres) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaListCollectionMediaListCollectionlistsentriesmedia
+    on QueryMediaListCollectionMediaListCollectionlistsentriesmedia {
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia<
+          QueryMediaListCollectionMediaListCollectionlistsentriesmedia>
+      get copyWith =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia<
+    TRes> {
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia(
+    QueryMediaListCollectionMediaListCollectionlistsentriesmedia instance,
+    TRes Function(QueryMediaListCollectionMediaListCollectionlistsentriesmedia)
+        then,
+  ) = _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmedia;
+
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia.stub(
+          TRes res) =
+      _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmedia;
+
+  TRes call({
+    int? id,
+    EnumMediaType? type,
+    EnumMediaFormat? format,
+    EnumMediaStatus? status,
+    int? episodes,
+    int? chapters,
+    QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle? title,
+    QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage?
+        coverImage,
+    String? bannerImage,
+    String? $__typename,
+    bool? isFavourite,
+    QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode?
+        nextAiringEpisode,
+    List<String?>? genres,
+  });
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle<
+      TRes> get title;
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage<
+      TRes> get coverImage;
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode<
+      TRes> get nextAiringEpisode;
+}
+
+class _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmedia<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia<
+            TRes> {
+  _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmedia(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriesmedia _instance;
+
+  final TRes Function(
+      QueryMediaListCollectionMediaListCollectionlistsentriesmedia) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? type = _undefined,
+    Object? format = _undefined,
+    Object? status = _undefined,
+    Object? episodes = _undefined,
+    Object? chapters = _undefined,
+    Object? title = _undefined,
+    Object? coverImage = _undefined,
+    Object? bannerImage = _undefined,
+    Object? $__typename = _undefined,
+    Object? isFavourite = _undefined,
+    Object? nextAiringEpisode = _undefined,
+    Object? genres = _undefined,
+  }) =>
+      _then(QueryMediaListCollectionMediaListCollectionlistsentriesmedia(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        type: type == _undefined ? _instance.type : (type as EnumMediaType?),
+        format: format == _undefined
+            ? _instance.format
+            : (format as EnumMediaFormat?),
+        status: status == _undefined
+            ? _instance.status
+            : (status as EnumMediaStatus?),
+        episodes:
+            episodes == _undefined ? _instance.episodes : (episodes as int?),
+        chapters:
+            chapters == _undefined ? _instance.chapters : (chapters as int?),
+        title: title == _undefined
+            ? _instance.title
+            : (title
+                as QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle?),
+        coverImage: coverImage == _undefined
+            ? _instance.coverImage
+            : (coverImage
+                as QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage?),
+        bannerImage: bannerImage == _undefined
+            ? _instance.bannerImage
+            : (bannerImage as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+        isFavourite: isFavourite == _undefined || isFavourite == null
+            ? _instance.isFavourite
+            : (isFavourite as bool),
+        nextAiringEpisode: nextAiringEpisode == _undefined
+            ? _instance.nextAiringEpisode
+            : (nextAiringEpisode
+                as QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode?),
+        genres: genres == _undefined
+            ? _instance.genres
+            : (genres as List<String?>?),
+      ));
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle<
+      TRes> get title {
+    final local$title = _instance.title;
+    return local$title == null
+        ? CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle
+            .stub(_then(_instance))
+        : CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle(
+            local$title, (e) => call(title: e));
+  }
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage<
+      TRes> get coverImage {
+    final local$coverImage = _instance.coverImage;
+    return local$coverImage == null
+        ? CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage
+            .stub(_then(_instance))
+        : CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage(
+            local$coverImage, (e) => call(coverImage: e));
+  }
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode<
+      TRes> get nextAiringEpisode {
+    final local$nextAiringEpisode = _instance.nextAiringEpisode;
+    return local$nextAiringEpisode == null
+        ? CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode
+            .stub(_then(_instance))
+        : CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode(
+            local$nextAiringEpisode, (e) => call(nextAiringEpisode: e));
+  }
+}
+
+class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmedia<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedia<
+            TRes> {
+  _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmedia(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    EnumMediaType? type,
+    EnumMediaFormat? format,
+    EnumMediaStatus? status,
+    int? episodes,
+    int? chapters,
+    QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle? title,
+    QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage?
+        coverImage,
+    String? bannerImage,
+    String? $__typename,
+    bool? isFavourite,
+    QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode?
+        nextAiringEpisode,
+    List<String?>? genres,
+  }) =>
+      _res;
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle<
+          TRes>
+      get title =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle
+              .stub(_res);
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage<
+          TRes>
+      get coverImage =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage
+              .stub(_res);
+
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode<
+          TRes>
+      get nextAiringEpisode =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode
+              .stub(_res);
+}
+
+class QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle
+    implements FragmentMediaListmediatitle, FragmentMediaMintitle {
+  QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle({
+    this.userPreferred,
+    this.romaji,
+    this.english,
+    this.native,
+    this.$__typename = 'MediaTitle',
+  });
+
+  factory QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle.fromJson(
+      Map<String, dynamic> json) {
+    final l$userPreferred = json['userPreferred'];
+    final l$romaji = json['romaji'];
+    final l$english = json['english'];
+    final l$native = json['native'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle(
+      userPreferred: (l$userPreferred as String?),
+      romaji: (l$romaji as String?),
+      english: (l$english as String?),
+      native: (l$native as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? userPreferred;
+
+  final String? romaji;
+
+  final String? english;
+
+  final String? native;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$userPreferred = userPreferred;
+    _resultData['userPreferred'] = l$userPreferred;
+    final l$romaji = romaji;
+    _resultData['romaji'] = l$romaji;
+    final l$english = english;
+    _resultData['english'] = l$english;
+    final l$native = native;
+    _resultData['native'] = l$native;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$userPreferred = userPreferred;
+    final l$romaji = romaji;
+    final l$english = english;
+    final l$native = native;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$userPreferred,
+      l$romaji,
+      l$english,
+      l$native,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other
+            is! QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$userPreferred = userPreferred;
+    final lOther$userPreferred = other.userPreferred;
+    if (l$userPreferred != lOther$userPreferred) {
+      return false;
+    }
+    final l$romaji = romaji;
+    final lOther$romaji = other.romaji;
+    if (l$romaji != lOther$romaji) {
+      return false;
+    }
+    final l$english = english;
+    final lOther$english = other.english;
+    if (l$english != lOther$english) {
+      return false;
+    }
+    final l$native = native;
+    final lOther$native = other.native;
+    if (l$native != lOther$native) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle
+    on QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle {
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle<
+          QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle>
+      get copyWith =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle<
+    TRes> {
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle(
+    QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle instance,
+    TRes Function(
+            QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle)
+        then,
+  ) = _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle;
+
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle.stub(
+          TRes res) =
+      _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle;
+
+  TRes call({
+    String? userPreferred,
+    String? romaji,
+    String? english,
+    String? native,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle<
+            TRes> {
+  _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle
+      _instance;
+
+  final TRes Function(
+      QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? userPreferred = _undefined,
+    Object? romaji = _undefined,
+    Object? english = _undefined,
+    Object? native = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaListCollectionMediaListCollectionlistsentriesmediatitle(
+        userPreferred: userPreferred == _undefined
+            ? _instance.userPreferred
+            : (userPreferred as String?),
+        romaji: romaji == _undefined ? _instance.romaji : (romaji as String?),
+        english:
+            english == _undefined ? _instance.english : (english as String?),
+        native: native == _undefined ? _instance.native : (native as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle<
+            TRes> {
+  _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmediatitle(
+      this._res);
+
+  TRes _res;
+
+  call({
+    String? userPreferred,
+    String? romaji,
+    String? english,
+    String? native,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage
+    implements FragmentMediaListmediacoverImage, FragmentMediaMincoverImage {
+  QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage({
+    this.extraLarge,
+    this.large,
+    this.medium,
+    this.color,
+    this.$__typename = 'MediaCoverImage',
+  });
+
+  factory QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage.fromJson(
+      Map<String, dynamic> json) {
+    final l$extraLarge = json['extraLarge'];
+    final l$large = json['large'];
+    final l$medium = json['medium'];
+    final l$color = json['color'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage(
+      extraLarge: (l$extraLarge as String?),
+      large: (l$large as String?),
+      medium: (l$medium as String?),
+      color: (l$color as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String? extraLarge;
+
+  final String? large;
+
+  final String? medium;
+
+  final String? color;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$extraLarge = extraLarge;
+    _resultData['extraLarge'] = l$extraLarge;
+    final l$large = large;
+    _resultData['large'] = l$large;
+    final l$medium = medium;
+    _resultData['medium'] = l$medium;
+    final l$color = color;
+    _resultData['color'] = l$color;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$extraLarge = extraLarge;
+    final l$large = large;
+    final l$medium = medium;
+    final l$color = color;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$extraLarge,
+      l$large,
+      l$medium,
+      l$color,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other
+            is! QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$extraLarge = extraLarge;
+    final lOther$extraLarge = other.extraLarge;
+    if (l$extraLarge != lOther$extraLarge) {
+      return false;
+    }
+    final l$large = large;
+    final lOther$large = other.large;
+    if (l$large != lOther$large) {
+      return false;
+    }
+    final l$medium = medium;
+    final lOther$medium = other.medium;
+    if (l$medium != lOther$medium) {
+      return false;
+    }
+    final l$color = color;
+    final lOther$color = other.color;
+    if (l$color != lOther$color) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage
+    on QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage {
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage<
+          QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage>
+      get copyWith =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage<
+    TRes> {
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage(
+    QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage
+        instance,
+    TRes Function(
+            QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage)
+        then,
+  ) = _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage;
+
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage.stub(
+          TRes res) =
+      _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage;
+
+  TRes call({
+    String? extraLarge,
+    String? large,
+    String? medium,
+    String? color,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage<
+            TRes> {
+  _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage
+      _instance;
+
+  final TRes Function(
+          QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? extraLarge = _undefined,
+    Object? large = _undefined,
+    Object? medium = _undefined,
+    Object? color = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          QueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage(
+        extraLarge: extraLarge == _undefined
+            ? _instance.extraLarge
+            : (extraLarge as String?),
+        large: large == _undefined ? _instance.large : (large as String?),
+        medium: medium == _undefined ? _instance.medium : (medium as String?),
+        color: color == _undefined ? _instance.color : (color as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage<
+            TRes> {
+  _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmediacoverImage(
+      this._res);
+
+  TRes _res;
+
+  call({
+    String? extraLarge,
+    String? large,
+    String? medium,
+    String? color,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode
+    implements FragmentMediaListmedianextAiringEpisode {
+  QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode({
+    required this.id,
+    required this.airingAt,
+    required this.timeUntilAiring,
+    required this.episode,
+    required this.mediaId,
+    this.$__typename = 'AiringSchedule',
+  });
+
+  factory QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$airingAt = json['airingAt'];
+    final l$timeUntilAiring = json['timeUntilAiring'];
+    final l$episode = json['episode'];
+    final l$mediaId = json['mediaId'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode(
+      id: (l$id as int),
+      airingAt: (l$airingAt as int),
+      timeUntilAiring: (l$timeUntilAiring as int),
+      episode: (l$episode as int),
+      mediaId: (l$mediaId as int),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final int airingAt;
+
+  final int timeUntilAiring;
+
+  final int episode;
+
+  final int mediaId;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$airingAt = airingAt;
+    _resultData['airingAt'] = l$airingAt;
+    final l$timeUntilAiring = timeUntilAiring;
+    _resultData['timeUntilAiring'] = l$timeUntilAiring;
+    final l$episode = episode;
+    _resultData['episode'] = l$episode;
+    final l$mediaId = mediaId;
+    _resultData['mediaId'] = l$mediaId;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$airingAt = airingAt;
+    final l$timeUntilAiring = timeUntilAiring;
+    final l$episode = episode;
+    final l$mediaId = mediaId;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$airingAt,
+      l$timeUntilAiring,
+      l$episode,
+      l$mediaId,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other
+            is! QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$airingAt = airingAt;
+    final lOther$airingAt = other.airingAt;
+    if (l$airingAt != lOther$airingAt) {
+      return false;
+    }
+    final l$timeUntilAiring = timeUntilAiring;
+    final lOther$timeUntilAiring = other.timeUntilAiring;
+    if (l$timeUntilAiring != lOther$timeUntilAiring) {
+      return false;
+    }
+    final l$episode = episode;
+    final lOther$episode = other.episode;
+    if (l$episode != lOther$episode) {
+      return false;
+    }
+    final l$mediaId = mediaId;
+    final lOther$mediaId = other.mediaId;
+    if (l$mediaId != lOther$mediaId) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode
+    on QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode {
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode<
+          QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode>
+      get copyWith =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode<
+    TRes> {
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode(
+    QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode
+        instance,
+    TRes Function(
+            QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode)
+        then,
+  ) = _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode;
+
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode.stub(
+          TRes res) =
+      _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode;
+
+  TRes call({
+    int? id,
+    int? airingAt,
+    int? timeUntilAiring,
+    int? episode,
+    int? mediaId,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode<
+            TRes> {
+  _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode
+      _instance;
+
+  final TRes Function(
+          QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? airingAt = _undefined,
+    Object? timeUntilAiring = _undefined,
+    Object? episode = _undefined,
+    Object? mediaId = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          QueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        airingAt: airingAt == _undefined || airingAt == null
+            ? _instance.airingAt
+            : (airingAt as int),
+        timeUntilAiring:
+            timeUntilAiring == _undefined || timeUntilAiring == null
+                ? _instance.timeUntilAiring
+                : (timeUntilAiring as int),
+        episode: episode == _undefined || episode == null
+            ? _instance.episode
+            : (episode as int),
+        mediaId: mediaId == _undefined || mediaId == null
+            ? _instance.mediaId
+            : (mediaId as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode<
+            TRes> {
+  _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesmedianextAiringEpisode(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    int? airingAt,
+    int? timeUntilAiring,
+    int? episode,
+    int? mediaId,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt
+    implements FragmentMediaListstartedAt {
+  QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt({
+    this.year,
+    this.month,
+    this.day,
+    this.$__typename = 'FuzzyDate',
+  });
+
+  factory QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt.fromJson(
+      Map<String, dynamic> json) {
+    final l$year = json['year'];
+    final l$month = json['month'];
+    final l$day = json['day'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt(
+      year: (l$year as int?),
+      month: (l$month as int?),
+      day: (l$day as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? year;
+
+  final int? month;
+
+  final int? day;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$year = year;
+    _resultData['year'] = l$year;
+    final l$month = month;
+    _resultData['month'] = l$month;
+    final l$day = day;
+    _resultData['day'] = l$day;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$year = year;
+    final l$month = month;
+    final l$day = day;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$year,
+      l$month,
+      l$day,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other
+            is! QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$year = year;
+    final lOther$year = other.year;
+    if (l$year != lOther$year) {
+      return false;
+    }
+    final l$month = month;
+    final lOther$month = other.month;
+    if (l$month != lOther$month) {
+      return false;
+    }
+    final l$day = day;
+    final lOther$day = other.day;
+    if (l$day != lOther$day) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt
+    on QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt {
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt<
+          QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt>
+      get copyWith =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt<
+    TRes> {
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt(
+    QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt instance,
+    TRes Function(
+            QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt)
+        then,
+  ) = _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt;
+
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt.stub(
+          TRes res) =
+      _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt;
+
+  TRes call({
+    int? year,
+    int? month,
+    int? day,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt<
+            TRes> {
+  _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt
+      _instance;
+
+  final TRes Function(
+      QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? year = _undefined,
+    Object? month = _undefined,
+    Object? day = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaListCollectionMediaListCollectionlistsentriesstartedAt(
+        year: year == _undefined ? _instance.year : (year as int?),
+        month: month == _undefined ? _instance.month : (month as int?),
+        day: day == _undefined ? _instance.day : (day as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt<
+            TRes> {
+  _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriesstartedAt(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? year,
+    int? month,
+    int? day,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt
+    implements FragmentMediaListcompletedAt {
+  QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt({
+    this.year,
+    this.month,
+    this.day,
+    this.$__typename = 'FuzzyDate',
+  });
+
+  factory QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt.fromJson(
+      Map<String, dynamic> json) {
+    final l$year = json['year'];
+    final l$month = json['month'];
+    final l$day = json['day'];
+    final l$$__typename = json['__typename'];
+    return QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt(
+      year: (l$year as int?),
+      month: (l$month as int?),
+      day: (l$day as int?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int? year;
+
+  final int? month;
+
+  final int? day;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$year = year;
+    _resultData['year'] = l$year;
+    final l$month = month;
+    _resultData['month'] = l$month;
+    final l$day = day;
+    _resultData['day'] = l$day;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$year = year;
+    final l$month = month;
+    final l$day = day;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$year,
+      l$month,
+      l$day,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other
+            is! QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$year = year;
+    final lOther$year = other.year;
+    if (l$year != lOther$year) {
+      return false;
+    }
+    final l$month = month;
+    final lOther$month = other.month;
+    if (l$month != lOther$month) {
+      return false;
+    }
+    final l$day = day;
+    final lOther$day = other.day;
+    if (l$day != lOther$day) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtensionQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt
+    on QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt {
+  CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt<
+          QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt>
+      get copyWith =>
+          CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt<
+    TRes> {
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt(
+    QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt instance,
+    TRes Function(
+            QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt)
+        then,
+  ) = _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt;
+
+  factory CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt.stub(
+          TRes res) =
+      _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt;
+
+  TRes call({
+    int? year,
+    int? month,
+    int? day,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt<
+            TRes> {
+  _CopyWithImplQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt(
+    this._instance,
+    this._then,
+  );
+
+  final QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt
+      _instance;
+
+  final TRes Function(
+      QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? year = _undefined,
+    Object? month = _undefined,
+    Object? day = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(QueryMediaListCollectionMediaListCollectionlistsentriescompletedAt(
+        year: year == _undefined ? _instance.year : (year as int?),
+        month: month == _undefined ? _instance.month : (month as int?),
+        day: day == _undefined ? _instance.day : (day as int?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt<
+        TRes>
+    implements
+        CopyWithQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt<
+            TRes> {
+  _CopyWithStubImplQueryMediaListCollectionMediaListCollectionlistsentriescompletedAt(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? year,
+    int? month,
+    int? day,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class VariablesQueryMediaList {

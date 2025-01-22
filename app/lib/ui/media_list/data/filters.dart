@@ -131,7 +131,7 @@ String mediaStatusStr(EnumMediaStatus status) {
 List<EnumMediaStatus> statusValues(EnumMediaType type) {
   if (type == EnumMediaType.MANGA) {
     return EnumMediaStatus.values
-        .where((e) => e != EnumMediaTrendSort.$unknown)
+        .where((e) => e != EnumMediaStatus.$unknown)
         .toList();
   }
   // animes do not have a hiatus status
