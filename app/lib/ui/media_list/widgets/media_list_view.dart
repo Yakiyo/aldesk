@@ -1,10 +1,10 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:aldesk/config/routing/routes.dart';
 import 'package:aldesk/ui/media_list/data/provider.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:aldesk/ui/core/widgets/async_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import 'list_title_section.dart';
 
@@ -89,7 +89,7 @@ class _MediaEntryCardState extends State<MediaEntryCard> {
     return InkWell(
       onHover: (value) => setState(() => _isHovering = value),
       hoverColor: Colors.transparent,
-      onTap: () => context.push(Routes.mediaWithId(entry.media!.id)),
+      onTap: () => context.to(Routes.mediaWithId(entry.media!.id)),
       child: Badge(
         alignment: Alignment.topLeft,
         smallSize: 12,

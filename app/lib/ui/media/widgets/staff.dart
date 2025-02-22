@@ -1,7 +1,7 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../config/routing/routes.dart';
 import '../../../config/utils/utils.dart';
@@ -65,7 +65,7 @@ class StaffTile extends StatelessWidget {
     return InkWell(
       onTap: () {
         assert(staff.node?.id != null);
-        context.push(Routes.staffWithId(staff.node!.id));
+        context.to(Routes.staffWithId(staff.node!.id));
       },
       child: Container(
         decoration: BoxDecoration(

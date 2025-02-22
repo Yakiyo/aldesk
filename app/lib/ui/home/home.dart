@@ -1,3 +1,4 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -91,7 +92,7 @@ class HomePage extends StatelessWidget {
                     ),
                     IconButton(
                       onPressed: () {
-                        context.push(Routes.forum);
+                        context.to(Routes.forum);
                       },
                       icon: const Icon(Icons.open_in_new),
                     ),
@@ -127,7 +128,7 @@ class HomePage extends StatelessWidget {
                     ),
                     IconButton(
                       onPressed: () {
-                        context.push(Routes.reviews);
+                        context.to(Routes.reviews);
                       },
                       icon: const Icon(Icons.open_in_new),
                     ),

@@ -1,8 +1,8 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../config/utils/utils.dart';
@@ -115,7 +115,7 @@ class _NotificationPageBodyState extends State<_NotificationPageBody> {
                 if (item.route.startsWith("http")) {
                   launchUrl(Uri.parse(item.route));
                 } else {
-                  context.push(item.route);
+                  context.to(item.route);
                 }
               },
               child: Container(

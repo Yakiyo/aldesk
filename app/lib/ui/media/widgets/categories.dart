@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../data/utils.dart';
 import '../../../config/routing/routes.dart';
@@ -27,7 +27,7 @@ class MediaGenres extends StatelessWidget {
                   Theme.of(context).colorScheme.secondary),
               label: Text(genre),
               onPressed: () {
-                context.push(Routes.search, extra: {"genre": genre});
+                context.to(Routes.search, extra: {"genre": genre});
               },
             ),
           )
@@ -85,7 +85,7 @@ class _MediaTagsState extends State<MediaTags> {
                     Theme.of(context).colorScheme.secondary),
                 label: Text(tag.name),
                 onPressed: () {
-                  context.push(Routes.search, extra: {"tag": tag.name});
+                  context.to(Routes.search, extra: {"tag": tag.name});
                 },
               ),
             ),

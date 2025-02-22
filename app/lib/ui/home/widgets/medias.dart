@@ -1,6 +1,6 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../config/routing/routes.dart';
 
@@ -44,7 +44,7 @@ class _MediaEntryState extends State<_MediaEntry> {
     return InkWell(
       hoverColor: Colors.transparent,
       onTap: () {
-        context.push(Routes.mediaWithId(widget.media.id));
+        context.to(Routes.mediaWithId(widget.media.id));
       },
       onHover: (value) => setState(() => _scaleEnd = value ? 1.1 : 1.0),
       child: TweenAnimationBuilder(
