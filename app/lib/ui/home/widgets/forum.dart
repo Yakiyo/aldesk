@@ -1,9 +1,9 @@
 import 'dart:math';
 
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../config/routing/routes.dart';
 import '../../../config/utils/utils.dart';
@@ -33,7 +33,7 @@ class ThreadTile extends StatelessWidget {
     return InkWell(
       hoverColor: Colors.transparent,
       onTap: () {
-        context.push(Routes.threadWithId(thread.id));
+        context.to(Routes.threadWithId(thread.id));
       },
       child: Card(
         color: Theme.of(context).colorScheme.secondary,

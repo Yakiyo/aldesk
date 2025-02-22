@@ -1,6 +1,6 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
 
 import '../../../config/package/package.dart';
@@ -25,21 +25,21 @@ class SideNavBar extends StatelessWidget {
             title: const Text('Home'),
             leading: const Icon(Icons.home_sharp),
             onTap: () {
-              context.push(Routes.home);
+              context.to(Routes.home);
             },
           ),
           ListTile(
             title: const Text('Browse'),
             leading: const Icon(Icons.search_outlined),
             onTap: () {
-              context.push(Routes.search);
+              context.to(Routes.search);
             },
           ),
           ListTile(
             title: const Text('Profile'),
             leading: const Icon(Icons.person),
             onTap: () {
-              context.push(Routes.profile);
+              context.to(Routes.profile);
             },
           ),
           ExpansionTile(
@@ -53,7 +53,7 @@ class SideNavBar extends StatelessWidget {
                 leading: const Icon(Icons.video_collection_outlined),
                 dense: true,
                 onTap: () {
-                  context.push(Routes.libraryAnime);
+                  context.to(Routes.libraryAnime);
                 },
               ),
               ListTile(
@@ -61,7 +61,7 @@ class SideNavBar extends StatelessWidget {
                 leading: const Icon(Icons.book_outlined),
                 dense: true,
                 onTap: () {
-                  context.push(Routes.libraryManga);
+                  context.to(Routes.libraryManga);
                 },
               ),
             ],
@@ -71,16 +71,15 @@ class SideNavBar extends StatelessWidget {
             title: const Text('Settings'),
             leading: const Icon(Icons.settings_outlined),
             onTap: () {
-              context.push(Routes.settings);
+              context.to(Routes.settings);
             },
           ),
-          if (context.canPop())
+          if (context.canGoBack())
             ListTile(
               title: const Text('Back'),
               leading: const Icon(Icons.arrow_back),
               onTap: () {
-                // safety net
-                if (context.canPop()) context.pop();
+                context.back();
               },
             ),
           const Expanded(
@@ -117,7 +116,7 @@ class _NotificationTile extends ConsumerWidget {
         child: const Icon(Icons.notifications_outlined),
       ),
       onTap: () {
-        context.push(Routes.notifications);
+        context.to(Routes.notifications);
       },
     );
   }

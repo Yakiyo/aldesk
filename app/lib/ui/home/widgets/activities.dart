@@ -1,8 +1,8 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../config/routing/routes.dart';
@@ -75,7 +75,7 @@ class ListActivityTile extends ConsumerWidget {
             if (_cover != null)
               InkWell(
                 onTap: () {
-                  context.push(Routes.mediaWithId(activity.media!.id));
+                  context.to(Routes.mediaWithId(activity.media!.id));
                 },
                 child: Image.network(
                   _cover!,
@@ -106,7 +106,7 @@ class ListActivityTile extends ConsumerWidget {
                       InkWell(
                         hoverColor: Colors.transparent,
                         onTap: () {
-                          context.push(Routes.userWithId(_userId));
+                          context.to(Routes.userWithId(_userId));
                         },
                         child: CircleAvatar(
                           radius: 20,
@@ -165,7 +165,7 @@ class ListActivityTile extends ConsumerWidget {
         IconButton(
             icon: const FaIcon(FontAwesomeIcons.solidComments, size: 14),
             onPressed: () {
-              context.push(Routes.activityWithId(activity.id));
+              context.to(Routes.activityWithId(activity.id));
             }),
         if (activity.likeCount > 0) Text("${activity.likeCount}"),
         IconButton(
@@ -186,7 +186,7 @@ class ListActivityTile extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         InkWell(
-            onTap: () => context.push(Routes.userWithId(_userId)),
+            onTap: () => context.to(Routes.userWithId(_userId)),
             child: Text(_username, style: TextStyle(color: primary))),
         RichText(
             maxLines: 3,

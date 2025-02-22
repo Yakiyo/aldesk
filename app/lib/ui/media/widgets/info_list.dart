@@ -1,7 +1,7 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:anilist/anilist.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../config/routing/routes.dart';
@@ -147,7 +147,7 @@ class InfoList extends StatelessWidget {
     for (final studio in _studios) {
       row.add(InkWell(
         onTap: () {
-          context.go(Routes.studioWithId(studio.$2));
+          context.to(Routes.studioWithId(studio.$2));
         },
         child: Text(studio.$1,
             style: TextStyle(

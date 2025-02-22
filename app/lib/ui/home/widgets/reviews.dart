@@ -1,6 +1,6 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../config/routing/routes.dart';
 
@@ -34,7 +34,7 @@ class ReviewEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.push(Routes.reviewsWithId(review.id));
+        context.to(Routes.reviewsWithId(review.id));
       },
       child: Card(
         clipBehavior: Clip.hardEdge,

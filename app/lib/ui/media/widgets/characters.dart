@@ -1,7 +1,7 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../config/routing/routes.dart';
 import '../../../config/utils/utils.dart';
@@ -95,7 +95,7 @@ class CharacterTile extends StatelessWidget {
             onTap: () {
               final id = character.node?.id;
               assert(id != null);
-              context.push(Routes.characterWithId(id!));
+              context.to(Routes.characterWithId(id!));
             },
             child: Row(
               spacing: 5,
@@ -122,7 +122,7 @@ class CharacterTile extends StatelessWidget {
               onTap: () {
                 final id = _va?.id;
                 assert(id != null);
-                context.push(Routes.staffWithId(id!));
+                context.to(Routes.staffWithId(id!));
               },
               child: Row(
                 spacing: 5,

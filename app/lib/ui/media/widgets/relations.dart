@@ -1,6 +1,6 @@
+import 'package:aldesk/config/routing/extension.dart';
 import 'package:anilist/models.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../config/routing/routes.dart';
 import '../../../config/utils/extensions.dart';
@@ -56,7 +56,7 @@ class RelationMediaTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       hoverColor: Colors.transparent,
-      onTap: () => context.push(Routes.mediaWithId(relation.node!.id)),
+      onTap: () => context.to(Routes.mediaWithId(relation.node!.id)),
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.secondary,
